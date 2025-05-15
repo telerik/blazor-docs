@@ -51,30 +51,23 @@ Here you can select the desired hosting model&mdash;[**WebApp**](slug:getting-st
 
 The available target framework options are updated upon selecting the hosting model.
 
-#### Section 5: Select Your License Type
-
-Select your license type - **Commercial** (**Paid**) or **Trial**.
-
-#### Section 6: Choose How to Distribute the Client Assets
+#### Section 5: Choose How to Distribute the Client Assets
 
 Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) or load them from the [Telerik CDN](slug:common-features-cdn).
 
-#### Section 7: Configure Localization
+#### Section 6: Configure Localization
 
 Choose whether to use [localization](slug:globalization-localization) in the project or not.
 
-#### Section 8: Select the Preferred Icon Type
-#### Section 8: Select the Preferred Icon Type
+#### Section 7: Select the Preferred Icon Type
 
 Decide if you want to switch to using [Font Icons](slug:common-features-icons) instead of the default SVG icons.
 
-#### Section 9: Select Target Framework
-#### Section 9: Select Target Framework
+#### Section 8: Select Target Framework
 
 The available .NET framework versions vary depending on the selected hosting model.
 
-#### Section 10: Select Theme
-#### Section 10: Select Theme
+#### Section 9: Select Theme
 
 Select your desired [theme](slug:themes-overview) for your project. Click **See All Swatches** to explore the available [theme color variations](slug:themes-overview#basics).
 
