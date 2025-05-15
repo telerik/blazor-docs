@@ -15,7 +15,7 @@ The Editor provides a built-in integration with the [AIPrompt component](slug:ai
 The integration with the AIPrompt component covers the following use cases:
 
 * Standalone prompting - The user can ask the AIPrompt without any context provided by the Editor. This could be useful for ideas generation, writing a whole piece of content (blog post), or just random questions.
-* Prompting with context - The user prompt will use additional context from the Editor (the UI allows user can decide whether to use the selected text if any or the whole content).
+* Prompting with context - The user prompt will use additional context from the Editor (the UI allows the user to decide whether to use the selected text, if any, or the whole content).
 * Command with context - The user can select a command that will be applied to the selected content (if any) or the whole content if no text is selected.
 
 ## Enabling the AIPrompt
