@@ -1,14 +1,14 @@
 ---
-title: AI Code Assistant
-page_title: Telerik Blazor AI Code Assistant
+title: AI Coding Assistant
+page_title: Telerik Blazor AI Coding Assistant
 description: 
-slug: common-features-ai-code-assistant
+slug: ai-tooling-ai-coding-assistant
 tags: telerik,blazor,ai
 published: True
-position: 60
+position: 20
 ---
 
-# Telerik Blazor AI Code Assistant
+# Telerik Blazor AI Coding Assistant
 
 Telerik UI for Blazor provides a [GitHub Copilot](https://github.com/features/copilot) extension. If you are using GitHub Copilot, the extension can generate code snippets that include Telerik UI for Blazor components and API.
 
@@ -57,4 +57,4 @@ To use the Telerik MCP server in Copilot Agent mode:
 ## See Also 
 
 * [GitHub Copilot Tutorials](https://github.com/features/copilot/tutorials).
-* [Integrate Telerik UI for Blazor with Microsoft.Extensions.AI](slug:common-features-microsoft-extensions-ai-integration)
+* [Telerik MCP Server](slug:ai-tooling-mcp-server)

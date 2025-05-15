@@ -589,6 +589,9 @@ meta:
   common-features:
     title: Common Features
     position: 15
+  ai:
+    title: AI Tooling
+    position: 14
   styling-and-themes:
     title: Styling and Themes
     position: 12

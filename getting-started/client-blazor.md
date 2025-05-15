@@ -113,7 +113,7 @@ If you prefer video instructions, you can also check the video tutorial below.
 
 ## Next Steps
 
-* Install the [Telerik GitHub Copilot extension for Blazor](slug:common-features-ai-code-assistant) to generate code snippets that include Telerik UI for Blazor components and API.
+* Use the [Telerik Blazor MCP server](slug:ai-tooling-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-tooling-ai-coding-assistant) to generate code snippets that include Telerik UI for Blazor components and API.
 
 ## See Also
 

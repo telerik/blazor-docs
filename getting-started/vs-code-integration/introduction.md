@@ -30,4 +30,4 @@ To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `C
 
 ## See Also
 
-* [Telerik GitHub Copilot extension for Blazor](slug:common-features-ai-code-assistant)
+* [Telerik GitHub Copilot extension for Blazor](slug:ai-tooling-ai-coding-assistant)
