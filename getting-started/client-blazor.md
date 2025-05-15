@@ -14,7 +14,7 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 > This article applies only to the **Blazor WebAssembly Standalone App** Visual Studio project template.
 >
-> If you prefer the **Blazor Web App** template for .NET 8 and newer versions, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
+> If you prefer the **Blazor Web App** template with WebAssembly render mode, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
