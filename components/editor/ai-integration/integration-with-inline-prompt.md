@@ -19,7 +19,7 @@ The Inline prompt will automatically appear and it will align its top left corne
 The integration with the Inline Prompt covers the following use cases:
 
 * Prompting with context - The user prompt will use the selected text in the Editor as additional context.
-* Command with context - The user will run a command that will be applied to selected content.
+* Command with context - The user will run a command that will be applied to the selected content.
 
 ## Enabling the Inline Prompt
 
