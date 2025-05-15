@@ -12,12 +12,9 @@ position: 10
 
 This article explains how to get the <a href = "https://www.telerik.com/blazor-ui" target="_blank">Telerik UI for Blazor components</a> in your Blazor WebAssembly app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
-> This article applies only to the following Visual Studio project templates:
+> This article applies only to the **Blazor WebAssembly Standalone App** Visual Studio project template.
 >
-> * **Blazor WebAssembly App**, which exists up to .NET 7.
-> * **Blazor WebAssembly Standalone App** for .NET 8 and newer versions.
->
-> If you prefer the **Blazor Web App** template for .NET 8 and newer versions, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
+> If you prefer the **Blazor Web App** template with WebAssembly render mode, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
@@ -92,7 +89,6 @@ Use a single `TelerikRootComponent` component as a top-level component in the Bl
 
 In the `~/Program.cs` file of the client web application, register the Telerik Blazor service.
 
-**.NET 6 and .NET 7**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-client)
     
 Now your project can use the Telerik UI for Blazor components.
