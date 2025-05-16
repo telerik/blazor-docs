@@ -2,7 +2,7 @@
 title: Copilot Extension
 page_title: Telerik Blazor GitHub Copilot Extension
 description: 
-slug: ai-coding-assistant
+slug: ai-copilot-extension
 tags: telerik,blazor,ai
 published: True
 position: 10

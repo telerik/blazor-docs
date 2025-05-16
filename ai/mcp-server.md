@@ -199,4 +199,4 @@ The Telerik Blazor MCP Server allows the following maximum number of requests, d
 
 ## See Also 
 
-* [Telerik Blazor extension for GitHub Copilot](slug:ai-coding-assistant)
+* [Telerik Blazor extension for GitHub Copilot](slug:ai-copilot-extension)
