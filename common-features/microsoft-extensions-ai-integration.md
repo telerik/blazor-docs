@@ -18,8 +18,6 @@ Other components will support similar integration in future versions of UI for B
 
 To integrate the **Microsoft.Extensions.AI** library with your AIPrompt component, register an [`IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient?view=net-9.0-pp) service and configure it according to the model you are using. The AIPrompt is designed to automatically use the registered `IChatClient`.
 
-> The Microsoft AI library is still in preview, so breaking changes may occur. Telerik UI for Blazor references `Microsoft.Extensions.AI.Abstractions` version `9.1.0-preview.1.25064.3`. Do not register a newer version of this package explicitly in your app, as this may cause integration issues or exceptions.
->
 > When using the Telerik AIPrompt component with the Microsoft AI library, do not subscribe to the `OnPromptRequest` event.
 
 **Microsoft.Extensions.AI** provides a simple integration with various models where the configuration slightly differs depending on the model. [Explore examples with different models in this sample application](https://github.com/telerik/blazor-ui/tree/master/common/microsoft-extensions-ai-integration/AIPromptIntegration).
