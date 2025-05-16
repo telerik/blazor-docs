@@ -5,7 +5,7 @@ description: How to integrate the UI for Blazor components with Microsoft.Extens
 slug: common-features-microsoft-extensions-ai-integration
 tags: telerik,blazor,aiprompt,ai,extensions,integration
 published: True
-position: 4
+position: 50
 ---
 
 # Integration with Microsoft.Extensions.AI

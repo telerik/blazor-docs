@@ -5,7 +5,7 @@ description: How to add prefix and suffix adornments in the input elements of th
 slug: common-features/input-adornments
 tags: telerik,blazor,input,adornments,prefix,suffix
 published: True
-position: 2
+position: 30
 ---
 
 # Input Adornments

@@ -5,7 +5,7 @@ description: Components that peform long running operations can show a loading i
 slug: common-features-loading-sign
 tags: telerik,blazor,loading,sign,busy,indicator,data
 published: True
-position: 5
+position: 70
 ---
 
 # Loading Sign
