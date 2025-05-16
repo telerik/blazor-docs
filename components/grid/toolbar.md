@@ -25,12 +25,12 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
 | Cancel | `GridToolBarCancelEditTool` | Cancels the changes for the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
 | CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
-| Delete || `GridToolBarDeleteTool` | Deletes the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
-| Edit || `GridToolBarEditTool` | Enters edit mode for the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
+| Delete | `GridToolBarDeleteTool` | Deletes the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
+| Edit | `GridToolBarEditTool` | Enters edit mode for the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
 | ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | Filter | `GridToolBarFilterTool` | A toggle button in the Grid’s toolbar that opens a filter interface. On desktop screens, it displays a popup with a filter menu; on mobile devices, it renders an `ActionSheet`. The filter component has two views: one for selecting the column to filter, and another for applying the filter to the selected column. The tool also exposes an `Icon` parameter that allows you to override the default icon.  |
 | Group | `GridToolBarGroupTool` | A toggle button in the Grid’s toolbar that opens a popup listing the groupable columns—click a column to group by it. On mobile devices, the popup is rendered as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
-| Save || `GridToolBarSaveEditTool` | Saves the changes for the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
+| Save | `GridToolBarSaveEditTool` | Saves the changes for the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
 | Sort | `GridToolBarSortTool` | A toggle button in the Grid’s toolbar that opens a popup listing the sortable columns—click a column to sort by it. On mobile devices, the popup is rendered as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
 | SearchBox | `GridToolBarSearchBoxTool` | A searchbox that filters multiple Grid columns simultaneously. |
 
