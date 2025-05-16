@@ -252,6 +252,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 ## Next Steps
 
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
+* [First Steps with Blazor Web App](slug:getting-started/web-app)
 * [First Steps with Blazor Hybrid](slug:getting-started/hybrid-blazor)
 * [Workflow Details for using the Telerik UI for Blazor components](slug:getting-started/what-you-need) (a concise version of the tutorials above)
 * Use guided wizards to generate new Telerik Projects in [Visual Studio](slug:getting-started-vs-integration-new-project) and [Visual Studio Code](slug:getting-started-vs-code-integration-overview).
