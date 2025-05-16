@@ -130,4 +130,5 @@ To fix this in the meantime, try the following process (you can try a new test b
 ## See Also
 
 * [What You Need to Use Telerik UI for Blazor](slug:getting-started/what-you-need)
-* [Get Started with Client-side Blazor](slug:getting-started/client-side)
+* [Getting Started with Client-side Blazor](slug:getting-started/client-side)
+* [Getting Started with Blazor Web App](slug:getting-started/web-app)

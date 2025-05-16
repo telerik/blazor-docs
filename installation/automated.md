@@ -76,4 +76,5 @@ There are several approaches you can try:
 ## See Also
 
 * [What You Need To Install](slug:getting-started/what-you-need)
-* [Get Started with Client-side Blazor](slug:getting-started/client-side)
+* [Getting Started with Client-side Blazor](slug:getting-started/client-side)
+* [Getting Started with Web Apps](slug:getting-started/web-app)
