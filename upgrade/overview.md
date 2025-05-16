@@ -18,7 +18,7 @@ The **latest** available version of UI for Blazor is **{{site.uiForBlazorLatestV
 
 >tip Before starting an upgrade of your project, you may find it useful to review the following information:
 >
-> * [Framework Versions Support](slug:framework-versions-support) - this will let you see what version of the .NET framework you need and which UI for Blazor versions work on it.
+> * [.NET Versions Support](slug:system-requirements#-net-versions-support) - this will let you see what version of the .NET framework you need and which UI for Blazor versions work on it.
 > * [UI for Blazor Release History](https://www.telerik.com/support/whats-new/blazor-ui/release-history) — reviewing the release notes for all releases you go through will let you see what has changed, what fixes, features and components have been implemented so you are better prepared to meet your project's challenges.
 > * Whether you are affected by a breaking change. The [List of Telerik UI for Blazor Versions with Breaking Changes](slug:versions-with-breaking-changes) article shows which releases of our component suite have breaking changes. Review the information for the releases you go through so you can evaluate whether you will be affected by anything.
 
@@ -85,5 +85,3 @@ If you have a commercial license, but you still see the trial watermark and bann
 
 * [What You Need to Use Telerik UI for Blazor](slug:getting-started/what-you-need)
 * [Get Started with Client-side Blazor](slug:getting-started/client-side)
-* [Get Started with Server-side Blazor](slug:getting-started/server-side)
-

@@ -126,5 +126,4 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 * [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)
 * [Using Blazor Sections inside Telerik Components](slug:common-kb-net8-sections)
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
-* [First Steps with Blazor Server](slug:getting-started/server-side)
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
