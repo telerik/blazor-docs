@@ -35,4 +35,4 @@ To access the Telerik Visual Studio extension, go to the **Extensions** > **Tele
 * [Creating New Projects with Visual Studio](slug:getting-started-vs-integration-new-project)
 * [Converting Existing Projects with Visual Studio](slug:getting-started-vs-integration-convert-project)
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
-* [Telerik GitHub Copilot extension for Blazor](slug:ai-tooling-ai-coding-assistant)
+* [Telerik GitHub Copilot extension for Blazor](slug:ai-coding-assistant)
