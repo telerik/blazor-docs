@@ -251,7 +251,6 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 ## Next Steps
 
-* [First Steps with Blazor Server](slug:getting-started/server-side)
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
 * [First Steps with Blazor Hybrid](slug:getting-started/hybrid-blazor)
 * [Workflow Details for using the Telerik UI for Blazor components](slug:getting-started/what-you-need) (a concise version of the tutorials above)
