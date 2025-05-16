@@ -1,7 +1,7 @@
 ---
 title: Copilot Extension
 page_title: Telerik Blazor GitHub Copilot Extension
-description: 
+description: Learn how to add and use the Telerik Blazor GitHub Copilot extension for better developer productivity. The Telerik Blazor GitHub Copilot extension provides proprietary context about Telerik UI for Blazor to AI-powered software.
 slug: ai-copilot-extension
 tags: telerik,blazor,ai
 published: True
@@ -24,7 +24,7 @@ To use the Telerik GitHub Copilot extension for Blazor, you need to have:
 
 To install the Telerik Blazor Copilot extension:
 
-1. Go the [TelerikBlazor GitHub App](https://github.com/apps/telerikblazor) page and click the **Install** button.
+1. Go to the [TelerikBlazor GitHub App](https://github.com/apps/telerikblazor) page and click the **Install** button.
 1. You will see a list that includes your GitHub account and all GitHub organizations that you are part of. Normally, select your GitHub account.
 1. Click the **Install &amp; Authorize** button. This will authorize the GitHub Copilot extension to integrate with your GitHub account.
 1. Enter your GitHub password.
@@ -38,7 +38,7 @@ To install the Telerik Blazor Copilot extension:
 To use the Telerik Blazor Copilot extension:
 
 1. Open the GitHub Copilot chat window in your [Copilot-enabled app](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions#supported-clients-and-ides) (for example, Visual Studio or VS Code).
-1. Make sure you are in **Ask** mode and not in **Edit** or **Agent** mode. The Edit and Agent mode do not use the Telerik Copilot extension. However, the Agent mode can use the [Telerik Blazor MCP server](slug:ai-mcp-server).
+1. Make sure you are in **Ask** mode and not in **Edit** or **Agent** mode. The Edit and Agent modes do not use the Telerik Copilot extension. However, the Agent mode can use the [Telerik Blazor MCP server](slug:ai-mcp-server).
 1. Start your prompt with `@telerikblazor` and type your request. Make sure that `@telerikblazor` is recognized and highlighted, otherwise the extension may not be installed.
 1. Verify that you see **TelerikBlazor working...** in the output.
 1. Grant permission to the Telerik Blazor extension to read your workspace files.
@@ -54,9 +54,9 @@ The following list describes how your prompts may look like:
 
 ## Number of Requests
 
-> The usage limits below will take place after after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
+> The usage limits below will take place after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
 
-The Telerik Blazor Copilot extension allows the following maximum number of requests, depending on your license type:
+The Telerik Blazor Copilot extension allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
 * Perpetual licenses: 50 requests per year
 * Subscription licenses: 300 requests per day

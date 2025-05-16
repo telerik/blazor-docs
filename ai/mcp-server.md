@@ -1,7 +1,7 @@
 ---
 title: MCP Server
 page_title: Telerik Blazor MCP Server
-description: 
+description: Learn how to add and use the Telerik Blazor MCP Server for better developer productivity. The Telerik Blazor MCP server provides proprietary context about Telerik UI for Blazor to AI-powered software.
 slug: ai-mcp-server
 tags: telerik,blazor,ai
 published: True
@@ -10,7 +10,7 @@ position: 20
 
 # Telerik Blazor MCP Server
 
-The Telerik Blazor [MCP Server](https://modelcontextprotocol.io/introduction) enables you achieve interation with AI and reach new levels of developer productivity. The MCP server provides proprietary context to AI-powered IDEs, apps and tools. You can use the Telerik Blazor MCP server to ask about Telerik UI for Blazor components, features, or general usage. You can successfully prompt more complex questions and tasks, and generate tailored code that includes Telerik UI for Blazor components and API.
+The Telerik Blazor [MCP Server](https://modelcontextprotocol.io/introduction) lets you interact with AI and reach new levels of developer productivity. The MCP server provides proprietary context to AI-powered IDEs, apps and tools. You can use the Telerik Blazor MCP server to ask about Telerik UI for Blazor components, features, or general usage. You can successfully prompt more complex questions and tasks, and generate tailored code that includes Telerik UI for Blazor components and API.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The generic settings of the Telerik Blazor MCP server are:
 
 ### Visual Studio
 
-Refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers).
+For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers).
 
 To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder.
 
@@ -65,7 +65,7 @@ To enable automatic global discovery of the Telerik MCP Server in Visual Studio,
 
 ### VS Code
 
-Refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+For detailed instructions, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
 To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.vscode` folder with an `mcp.json` file at the root of the workspace:
 
@@ -114,7 +114,7 @@ To [add the Telerik MCP Server globally for VS Code, edit the VS Code `settings.
 
 ### Cursor
 
-Refer to [Model Context Protocol](https://docs.cursor.com/context/model-context-protocol).
+For detailed instructions, refer to [Model Context Protocol](https://docs.cursor.com/context/model-context-protocol).
 
 To [enable the Telerik MCP Server in a specific workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace) or Blazor app, add a `.cursor` folder with an `mcp.json` file at the root of the workspace.
 
@@ -170,7 +170,7 @@ To use the Telerik MCP Server:
     * `Calling MCP tool telerik-blazor-assistant` (in Cursor)
 
     If the Telerik MCP server is not used even though it's installed and enabled, then try rephrasing your prompt and use another trigger syntax from the list in step 1.
-1. Grant the Telerik tool a permission to run for this session, workspace, or always.
+1. Grant the Telerik tool permission to run for this session, workspace, or always.
 1. If you want to prompt for information or code that are not related to your previous prompts, it is a good practice to start a new session in a new chat window, so that the context is not polluted by irrelevant old information.
 
 To increase the probability of the Telerik MVC Server being used, or to call it without the need to mention "telerik" explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
@@ -187,7 +187,7 @@ The following list describes how your prompts may look like:
 
 > The usage limits below will take place after after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
 
-The Telerik Blazor MCP Server allows the following maximum number of requests, depending on your license type:
+The Telerik Blazor MCP Server allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
 * Perpetual licenses: 50 requests per year
 * Subscription licenses: 300 requests per day
