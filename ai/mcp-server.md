@@ -41,7 +41,7 @@ For detailed instructions, refer to [Use MCP servers in Visual Studio](https://l
 
 To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder.
 
-> caption SOLUTIONDIR/.mcp.json
+> caption .mcp.json in the solution root folder
 
 ````JSON.skip-repl
 {
@@ -185,7 +185,7 @@ The following list describes how your prompts may look like:
 
 ## Number of Requests
 
-> The usage limits below will take place after after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
+> The usage limits below will take place after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
 
 The Telerik Blazor MCP Server allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
