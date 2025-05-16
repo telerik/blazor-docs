@@ -80,7 +80,7 @@ The Blazor Pager provides various parameters that allow you to configure the com
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | ----------- | ----------- | ----------- |
-|`Adaptive` | `bool` <br /> (`true`) | Defines whether pager elements should be changed based on the screen size. When enabled, the Pager will hide its `Pager Info` and `PageSize Dropdownlist` if they cannot fit in the available space. In the smallest resolution, the page buttons will be rendered as a select element. This parameter will be deprecated in the next major version in favor of the new `Responsive` parameter. |
+|`Adaptive` | `bool` <br /> (`true`) | Defines whether pager elements change based on the screen size. When enabled, the Pager will hide its `Pager Info` and `PageSize Dropdownlist` if they cannot fit in the available space. In the smallest resolution, the page buttons will be rendered as a select element. This parameter will be deprecated in the next major version in favor of the new `Responsive` parameter. |
 | `AdaptiveMode` | `AdaptiveMode` enum <br /> (`None`) | Defines the adaptive mode of the Pager. When set to `Auto`, and the window width is below `768px` or `RootComponentAdaptiveSettings.Medium`, components with popups will render them as an `ActionSheet`. In this case, the page sizes dropdown only. |
 | `ButtonCount` | `int` | The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`). |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-pager-wrap">` element. |
@@ -88,7 +88,7 @@ The Blazor Pager provides various parameters that allow you to configure the com
 | `PageSize` | `int` | The number of items to display on a page. Supports two-way binding. |
 | `PageSizes` | `List<int?>` | Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time. |
 | `InputType` | `PagerInputType` enum <br /> (`Buttons`) | Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests. |
-| `Responsive` | `bool` <br /> (`true`) | Defines whether pager elements should be changed based on the screen size. When enabled, the Pager will hide its `Pager Info` and `PageSize Dropdownlist` if they cannot fit in the available space. In the smallest resolution, the page buttons will be rendered as a select element. |
+| `Responsive` | `bool` <br /> (`true`) | Defines whether pager elements change based on the screen size. When enabled, the Pager will hide its `Pager Info` and `PageSize Dropdownlist` if they cannot fit in the available space. In the smallest resolution, the page buttons will be rendered as a select element. |
 | `ShowInfo` | `bool` <br /> (`true`) | Defines whether the information about the current page and the total number of records is present. |
 | `Total` | `int` | Represents the total count of items in the pager. |
 
