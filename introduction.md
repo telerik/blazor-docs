@@ -222,7 +222,7 @@ To use UI for Blazor commercially, you need to <a href="https://www.telerik.com/
 
 For questions and issues related to Telerik UI for Blazor, use any of the available support channels:
 
-* The [Telerik Blazor MCP server](slug:ai-tooling-mcp-server) and the [Telerik Blazor GitHub Copilot extension](slug:ai-tooling-ai-coding-assistant) can help you generate code snippets that include Telerik UI for Blazor components and API.
+* The [Telerik Blazor MCP server](slug:ai-mcp-server) and the [Telerik Blazor GitHub Copilot extension](slug:ai-coding-assistant) can help you generate code snippets that include Telerik UI for Blazor components and API.
 
 * License holders and active trialists can take advantage of our outstanding customer support. To submit a support ticket, use the dedicated [UI for Blazor support](https://www.telerik.com/account/support-tickets/) system.
 

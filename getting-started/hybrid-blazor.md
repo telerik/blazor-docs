@@ -127,7 +127,7 @@ Refer to the following articles for more information on each technology stack:
 ## Next Steps
 
 * [Explore the specifics of Telerik UI for Blazor in native MAUI](slug:hybrid-blazor-apps)
-* Use the [Telerik Blazor MCP server](slug:ai-tooling-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-tooling-ai-coding-assistant) to generate code snippets that include Telerik UI for Blazor components and API.
+* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-coding-assistant) to generate code snippets that include Telerik UI for Blazor components and API.
 
 ## See Also
 
