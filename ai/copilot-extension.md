@@ -40,7 +40,7 @@ To use the Telerik Blazor Copilot extension:
 1. Open the GitHub Copilot chat window in your [Copilot-enabled app](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions#supported-clients-and-ides) (for example, Visual Studio or VS Code).
 1. Make sure you are in **Ask** mode and not in **Edit** or **Agent** mode. The Edit and Agent modes do not use the Telerik Copilot extension. However, the Agent mode can use the [Telerik Blazor MCP server](slug:ai-mcp-server).
 1. Start your prompt with `@telerikblazor` and type your request. Make sure that `@telerikblazor` is recognized and highlighted, otherwise the extension may not be installed.
-1. Verify that you see **TelerikBlazor working...** in the output.
+1. Verify that you see a label similar to **TelerikBlazor working...** or **TelerikBlazor generating response...** in the output.
 1. Grant permission to the Telerik Blazor extension to read your workspace files.
 1. If you want to prompt for information or code that are not related to your previous prompts, it is a good practice to start a new session in a new chat window, so that the context is not polluted by irrelevant old information.
 
