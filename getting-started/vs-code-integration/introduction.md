@@ -20,8 +20,6 @@ The extension for Visual Studio Code provides the following advantages:
 
 * It allows you to [add the Telerik Components to an existing project](slug:getting-started-vs-code-integration-convert-project ) with a few clicks.
 
-
-
 ## Get the Extension
 
 @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
@@ -29,3 +27,7 @@ The extension for Visual Studio Code provides the following advantages:
 To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `Cmd`+`Shift`+`P` on Mac to open the VS Code extension launcher.
 
 ![launch Telerik Blazor VS Code extension](images/launch-extension.png)
+
+## See Also
+
+* [Telerik GitHub Copilot extension for Blazor](slug:ai-copilot-extension)

@@ -5,7 +5,7 @@ description: How to validate Blazor inputs.
 slug: common-features/input-validation
 tags: telerik,blazor,validation,data,annotation,form
 published: True
-position: 3
+position: 40
 ---
 # Input Validation
 

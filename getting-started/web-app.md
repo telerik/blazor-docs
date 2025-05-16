@@ -120,6 +120,10 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
+## Next Steps
+
+* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
+
 ## See Also
 
 * [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)

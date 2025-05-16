@@ -111,6 +111,10 @@ If you prefer video instructions, you can also check the video tutorial below.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fwR8Yxe7DPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Next Steps
+
+* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
+
 ## See Also
 
 * [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)
