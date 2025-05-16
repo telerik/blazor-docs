@@ -38,8 +38,8 @@ This knowledge base article addresses the following scenarios.
 To localize selected keys with custom strings:
 
 1. Create a project with Telerik UI for Blazor. For detailed instructions, see:
-    * [Getting Started with client-side Blazor](slug:getting-started/client-side)
-    * [Getting Started with server-side Blazor](slug:getting-started/server-side)
+    * [Getting Started with Blazor WebAssembly Standalone App](slug:getting-started/client-side)
+    * [Getting Started with Blazor Blazor Web App](slug:getting-started/web-app)
 2. Create a `Services` folder and implement the Telerik localization service with a list of all needed localization keys and their corresponding custom strings. The service also relies on a `~/Resources` folder with the necessary `.resx` files. You can find an up-to-date list of the used strings in the [Blazor API documentation](slug:Telerik.Blazor.Resources.Messages) and the [offline version](https://www.telerik.com/account/my-downloads) of the [Blazor Demo solution](https://demos.telerik.com/blazor-ui). Telerik updates the main `TelerikMessages.resx` file (in English) with each new release.
     >caption ResxLocalizer.cs
     

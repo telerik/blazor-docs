@@ -77,5 +77,3 @@ There are several approaches you can try:
 
 * [What You Need To Install](slug:getting-started/what-you-need)
 * [Get Started with Client-side Blazor](slug:getting-started/client-side)
-* [Get Started with Server-side Blazor](slug:getting-started/server-side)
-

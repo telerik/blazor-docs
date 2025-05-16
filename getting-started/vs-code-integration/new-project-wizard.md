@@ -47,7 +47,7 @@ Select the preferred UI for Blazor version. Make sure that your system has acces
 
 #### Section 4: Select Hosting Model
 
-Here you can select the desired hosting model&mdash;[**WebApp**](slug:getting-started/web-app), [**Client** (also: WebAssembly)](slug:getting-started/client-side), [**Server**](slug:getting-started/server-side), or [**Hybrid** (a hybrid Blazor MAUI)](slug:getting-started/hybrid-blazor).
+Here you can select the desired hosting model&mdash;[**WebApp**](slug:getting-started/web-app), [**Client** (also: WebAssembly)](slug:getting-started/client-side) or [**Hybrid** (a hybrid Blazor MAUI)](slug:getting-started/hybrid-blazor).
 
 The available target framework options are updated upon selecting the hosting model.
 
@@ -81,6 +81,5 @@ After configuring the preferred settings, click the **Create Project** button. T
 * [Telerik UI for Blazor Visual Studio Code Extensions Overview](slug:getting-started-vs-code-integration-overview)
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug:getting-started/client-side)
-* [Getting Started with Server-Side Apps](slug:getting-started/server-side)
 * [Getting Started with Web Apps](slug:getting-started/web-app)
 * [Workflow for Using the UI Components for Blazor](slug:getting-started/what-you-need)
