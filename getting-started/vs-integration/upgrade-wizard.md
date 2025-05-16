@@ -60,4 +60,5 @@ The **Finish** button will display a tooltip, indicating a page error when:
 * [Visual Studio Extensions Overview](slug:getting-started-vs-integration-overview)
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug:getting-started/client-side)
+* [Getting Started with Web Apps](slug:getting-started/web-app)
 * [Workflow for Using the UI Components for Blazor](slug:getting-started/what-you-need)

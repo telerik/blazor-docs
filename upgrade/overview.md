@@ -84,4 +84,5 @@ If you have a commercial license, but you still see the trial watermark and bann
 ## See Also
 
 * [What You Need to Use Telerik UI for Blazor](slug:getting-started/what-you-need)
-* [Get Started with Client-side Blazor](slug:getting-started/client-side)
+* [Getting Started with Client-side Blazor](slug:getting-started/client-side)
+* [Getting Started with Blazor Web App](slug:getting-started/web-app)
