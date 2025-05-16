@@ -42,5 +42,3 @@ Once the download completes, open the archive and extract the files to a locatio
 
 * [What You Need To Install](slug:getting-started/what-you-need)
 * [Get Started with Client-side Blazor](slug:getting-started/client-side)
-* [Get Started with Server-side Blazor](slug:getting-started/server-side)
-
