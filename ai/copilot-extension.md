@@ -49,8 +49,8 @@ To use the Telerik Blazor Copilot extension:
 The following list describes how your prompts may look like:
 
 * `@telerikblazor` Generate a Grid with sorting and paging enabled. Bind the Grid to a Person model and provide dummy data.
-* `@telerikblazor` What is DebounceDelay for the Telerik TextBox?
-* `@telerikblazor` Why am I getting a TelerikBlazor was undefined JavaScript error?
+* `@telerikblazor` Generate a Telerik ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.
+* `@telerikblazor` Show me sample code for a Telerik Blazor Grid with virtual scrolling for the rows and columns.
 
 ## Number of Requests
 
