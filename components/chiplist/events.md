@@ -32,10 +32,7 @@ The `SelectedItemsChanged` fires when the user selects a chip from the ChipList.
                  SelectionMode="@ChipListSelectionMode.Multiple"
                  SelectedItems="@ChipListSelectedItems"
                  SelectedItemsChanged="@( (IEnumerable<ChipModel> selectedItems) => OnChipListSelectedItemsChanged(selectedItems) )"
-                 OnRemove="@OnChipRemove"
-                 TextField="@nameof(ChipModel.ChipText)"
-                 IconField="@nameof(ChipModel.ChipIcon)"
-                 RemovableField="@nameof(ChipModel.isChipRemovable)">
+                 OnRemove="@OnChipRemove">
 </TelerikChipList>
 
 @code {
@@ -48,32 +45,34 @@ The `SelectedItemsChanged` fires when the user selects a chip from the ChipList.
 
     private void OnChipRemove(ChipListRemoveEventArgs args)
     {
-        ChipModel removedChip = args.Item as ChipModel;
+        ChipModel removedChip = (ChipModel)args.Item;
 
-        args.IsCancelled = false; //set this to true to cancel the removal of the chip
+        args.IsCancelled = false; // false by default. Set to true to cancel chip removal.
+
+        ChipListSource.Remove(removedChip);
     }
 
     private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
     {
         new ChipModel()
         {
-            ChipText = "Audio",
-            ChipIcon = SvgIcon.FileAudio,
-            isChipRemovable = true
+            Text = "Audio",
+            Icon = SvgIcon.FileAudio,
+            Removable = true
         },
         new ChipModel()
         {
-            ChipText = "Video",
-            ChipIcon = SvgIcon.FileVideo,
-            isChipRemovable = true
+            Text = "Video",
+            Icon = SvgIcon.FileVideo,
+            Removable = true
         }
     };
 
     public class ChipModel
     {
-        public string ChipText { get; set; }
-        public ISvgIcon ChipIcon { get; set; }
-        public bool isChipRemovable { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public ISvgIcon? Icon { get; set; }
+        public bool Removable { get; set; }
     }
 }
 ````
