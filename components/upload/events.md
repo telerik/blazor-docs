@@ -17,8 +17,10 @@ First, get familiar with the [**Event Arguments**](#event-arguments) section, as
 * [`OnCancel`](#oncancel)
 * [`OnClear`](#onclear)
 * [`OnError`](#onerror)
+* [`OnPause`](#onpause)
 * [`OnProgress`](#onprogress)
 * [`OnRemove`](#onremove)
+* [`OnResume`](#onresume)
 * [`OnSelect`](#onselect)
     * [Renaming uploaded files](#renaming-a-file)
 * [`OnSuccess`](#onsuccess)
@@ -179,6 +181,13 @@ public async Task<IActionResult> Save(IFormFile files)
 
 See the [full example](#example) below.
 
+## OnPause
+
+The `OnPause` event fires when the user clicks on the pause button during chunk upload. The `UploadPauseEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property can contain one or more files.
+
+If you cancel the event, the chunk upload will not be paused.
+
+See a full example in the [Chunk Upload article](slug:upload-chunk).
 
 ## OnProgress
 
@@ -274,6 +283,13 @@ public async Task<IActionResult> Remove([FromForm] string files)
 
 See the [full example](#example) below.
 
+## OnResume
+
+The `OnResume` event fires when the user clicks on the resume button during chunk upload. The `UploadResumeEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property can contain one or more files.
+
+If you cancel the event, the chunk upload will not be resumed.
+
+See a full example in the [Chunk Upload article](slug:upload-chunk).
 
 ## OnSelect
 
