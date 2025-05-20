@@ -14,7 +14,7 @@ The Editor provides AI integration to enhance the user productivity and streamli
 
 * **AIPrompt Component**: An [AIPrompt component](slug:aiprompt-overview) that is rendered next to the Editor.
 
-* **Inline Prompt**: A lightweight, on-the-fly AI prompt rendered in a popup that is shown once the user selects text in the Editor.
+* **Inline Prompt**: A lightweight AI prompt rendered in a popup that is shown once the user selects text in the Editor.
 
 ## AI Integration Capabilities
 
