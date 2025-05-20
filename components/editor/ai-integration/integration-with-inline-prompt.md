@@ -12,7 +12,7 @@ position: 3
 
 The Editor provides a built-in integration with an inline prompt component to help users add AI-driven suggestions and completions to their Editor.
 
-The inline prompt is displayed inside a Popup which appears when the user selects text in the Editor. Once enabled, each command prompt will work only with this selected context. The result appears in the card and can be replaced or appended directly inside the Editor, or discarded if the result is not good.
+The inline prompt displays inside a Popup which appears when the user selects text in the Editor. Once enabled, each command prompt will work only with this selected context. The result appears in the card and can be replaced or appended directly inside the Editor, or discarded if the result is not good.
 
 The Inline prompt will automatically appear and it will align its top left corner with the bottom left corner of the selection.
 
