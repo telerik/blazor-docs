@@ -177,6 +177,9 @@ Authentication and authorization depends on the application.
 
 [Cross-origin (CORS) requests](https://www.w3.org/TR/cors/) depend on the application and endpoint setup. The Upload [`WithCredentials` parameter](#upload-parameters) sets the corresponding [parameter of the XHR request](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). Cookies, headers and other parameters of the Blazor app and CORS endpoint should be implemented by the respective applications (for example, set the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). Read more in this [CORS Tutorial](https://www.html5rocks.com/en/tutorials/cors/). Also check [this forum thread](https://www.telerik.com/forums/upload-component-reports-'file-failed-to-upload'#-6QPJn3obkm3D1kR1ysukA), which shows one way to setup the CORS requests, headers and responses on the receiving server.
 
+## Chunk Upload
+
+The Upload component includes an option to upload files in chunks. [Read more about the Chunk Upload feature...](slug:upload-chunk)
 
 ## Validation
 
