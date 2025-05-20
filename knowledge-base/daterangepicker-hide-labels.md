@@ -31,7 +31,10 @@ To make sure you are only styling the desired instance of the DateRangePicker (a
 
 ````RAZOR
 <style>
-    .daterangepicker-no-labels .k-label {
+    /* version 5.1.1 and below */
+    .daterangepicker-no-labels .k-label,
+    /* version 6.0.0 and above */
+    .daterangepicker-no-labels .k-floating-label {
         display: none;
     }
 
