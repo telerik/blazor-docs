@@ -43,7 +43,8 @@ To enable the AIPrompt in the Editor:
 ````C# Program.cs
 // ...
 
-// This example uses Azure OpenAI but you must configure the service depending on the model you are using. Read more at https://www.telerik.com/blazor-ui/documentation/common-features/microsoft-extensions-ai-integration
+// This example uses Azure OpenAI but you must configure the service depending on the model you are using. Read more at
+// https://www.telerik.com/blazor-ui/documentation/common-features/microsoft-extensions-ai-integration
 services.AddSingleton(new AzureOpenAIClient(
     new Uri("YOUR_AZURE_OPENAI_ENDPOINT"),
     new AzureKeyCredential("YOUR_AZURE_OPENAI_CREDENTIAL")));
