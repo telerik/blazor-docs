@@ -67,6 +67,8 @@ To enable global automatic discovery of the Telerik MCP Server in Visual Studio,
 
 Once the Telerik MCP server is added, make sure that the `telerik_blazor_assistant` tool is [enabled (checked) in the Copilot Chart window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server).
 
+> Always double check the `telerik_blazor_assistant` is selected befor entering a message. You may see "🔧10/11" in the selected tools dropdown when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue for MCPs that is being investigated.
+
 ### VS Code
 
 For detailed instructions, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
