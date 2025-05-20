@@ -161,6 +161,7 @@ The following table lists Grid parameters, which are not discussed elsewhere in 
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
+| `AdaptiveMode` | `AdaptiveMode` enum <br /> (`None`) | Defines the adaptive mode of the Grid. When set to `Auto`, and the window width is below [`768px` or `RootComponentAdaptiveSettings.Medium`](slug:adaptive-rendering#rendering-specifics), the Grid will render ins inner popups (for example, FilterMenu, ContextMenu and more) as an `ActionSheet`. |
 | `Class` | `string` | Additional CSS class for the `<div class="k-grid">` element. Use it to apply custom styles or [override the theme](slug:themes-override). For example, [change the Grid font size](slug:grid-kb-change-font-size). |
 | `Height` | `string` | A height style in [any supported CSS unit](slug:common-features/dimensions). You can also [make the Grid height change automatically with the browser window](slug:grid-kb-adjust-height-with-browser). |
 | `Navigable` | `bool` | Enables [keyboard navigation](slug:accessibility-overview#keyboard-navigation). |
