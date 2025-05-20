@@ -121,9 +121,11 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
-## Next Steps
+## Step 7: Install Telerik AI Coding Assistants
 
-* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
+Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
+
+@[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 
 ## See Also
 

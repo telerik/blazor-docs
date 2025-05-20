@@ -114,6 +114,10 @@ namespace MyBlazorMauiAppName
 
 Add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui).
 
+### 8. Install Telerik AI Coding Assistants
+
+* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
+
 ## Running the Blazor Hybrid App
 
 You can now run the hybrid application in debug mode, but it's recommended to [be aware of possible caveats during deployment and prevent them upfront](slug:hybrid-blazor-apps#known-issues).
@@ -127,7 +131,6 @@ Refer to the following articles for more information on each technology stack:
 ## Next Steps
 
 * [Explore the specifics of Telerik UI for Blazor in native MAUI](slug:hybrid-blazor-apps)
-* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
 
 ## See Also
 
