@@ -67,7 +67,7 @@ The following properties enable you to customize each command:
             }
         },
         new AIPromptCommandDescriptor() { Id = "16", Title = "Simplify", Icon = SvgIcon.MinWidth, Prompt = "Simplify the following text" },
-        new AIPromptCommandDescriptor() { Id = "17", Title = "Expand", Icon = SvgIcon.MaxWidth, Prompt = "Expand the following text"},
+        new AIPromptCommandDescriptor() { Id = "17", Title = "Expand", Icon = SvgIcon.MaxWidth, Prompt = "Expand the following text" },
     };
 
     private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
