@@ -106,10 +106,6 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
             Group
         </GridToolBarGroupTool>
 
-        <GridToolBarAddTool>
-            Add
-        </GridToolBarAddTool>
-
         <GridToolBarEditTool>
             Edit
         </GridToolBarEditTool>
