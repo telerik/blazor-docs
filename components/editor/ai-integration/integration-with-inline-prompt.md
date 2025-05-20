@@ -58,13 +58,13 @@ services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient
 
 ## Customizing the Inline Prompt
 
-The Editor allows customizing some of the integrated Inline Prompt's settings. For that purpose, use the `<EditorInlinePromptSettings>` tag. It provides the following parameters that you can configure:
+The Editor allows customizing some of the integrated Inline Prompt's settings. For that purpose, use the `<EditorInlineAIPromptSettings>` tag. It provides the following parameters that you can configure:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
-| `SystemPrompt`  | `string` <br/> (See "Description" column) | The system prompt that will be passed to the integrated Inline Prompt. If not provided, the Inline Prompt will use its [default `SystemPrompt` value](slug:Inline Prompt-overview#Inline Prompt-parameters). |
+| `SystemPrompt`  | `string` | The system prompt that will be passed to the integrated Inline Prompt. If not provided, the Inline Prompt will use its [default `SystemPrompt` value](slug:Inline Prompt-overview#Inline Prompt-parameters). |
 | `Commands` | `List<Inline PromptCommandDescriptor>` | The commands displayed within the Commands view. If not set the Inline Prompt will use the [default predefined commands](slug:editor-ai-integration-overview#ai-integration-capabilities). |
 
 >caption Customizing the Inline Prompt in the Editor

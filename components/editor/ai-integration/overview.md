@@ -22,7 +22,7 @@ Both features are designed to improve the user experience by leveraging AI capab
 * Rewrite
 * Fix Mistakes
 * Tone (Neutral, Friendly, Casual, Formal)
-* Polish formatting
+* Polish Formatting
 * Adjust Length (Shorter, Longer)
 * Translate (English, Spanish, German)
 

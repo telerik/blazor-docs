@@ -61,7 +61,7 @@ The Editor allows customizing some of the integrated AIPrompt's settings. For th
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
-| `SystemPrompt`  | `string` <br/> (See "Description" column) | The system prompt that will be passed to the integrated AIPrompt. If not provided, the AIPrompt will use its [default `SystemPrompt` value](slug:aiprompt-overview#aiprompt-parameters). |
+| `SystemPrompt`  | `string` | The system prompt that will be passed to the integrated AIPrompt. If not provided, the AIPrompt will use its [default `SystemPrompt` value](slug:aiprompt-overview#aiprompt-parameters). |
 | `Commands` | `List<AIPromptCommandDescriptor>` | The commands displayed within the Commands view. If not set the AIPrompt will use the [default predefined commands](slug:editor-ai-integration-overview#ai-integration-capabilities). |
 
 >caption Customizing the AIPrompt in the Editor
@@ -112,4 +112,4 @@ services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient
 
 * [Live Demo: AI Integration](https://demos.telerik.com/blazor-ui/editor/ai-integration)
 * [AI Integration Overview](slug:editor-ai-integration-overview)
-* [Editor Integration with Inline Prompt](slug:editor-ai-integration-overview)
+* [Editor Integration with Inline Prompt](slug:editor-inline-prompt-integration)

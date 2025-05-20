@@ -25,7 +25,7 @@ The following properties enable you to customize each command:
 | `Id` | `string` | The `Id` of the command. |
 | `Title` | `string` | The title of the command. Rendered as text within the Command view. |
 | `Icon` | `object` | The [Telerik Font or SVG icon](slug:common-features-icons) rendered before the title within the Command view. |
-| `Prompt` | `string` |  The prompt of the command. It enables easily passing commands along with the prompts that should be executed inside the AIPrompt. |
+| `Prompt` | `string` |  The text to send as the prompt when this command is executed by the AIPrompt. |
 | `Children` | `List<AIPromptCommandDescriptor>` | The nested commands (if any) of the command. |
 
 >caption Using the `Commands` parameter to pass a collection of predefined commands to the AIPrompt for Blazor
