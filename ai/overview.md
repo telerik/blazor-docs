@@ -17,7 +17,10 @@ The Telerik AI Coding Assistant is integrated in:
 * The [Telerik Blazor GitHub Copilot Extension](slug:ai-copilot-extension)
 * The [Telerik Blazor MCP Server](slug:ai-mcp-server)
 
-The MCP server is more powerful and can handle more complex prompts that require several requests to the AI model. An MCP-enabled client like GitHub Copilot in **Agent** mode can make changes to your app and rebuild it to verify the AI suggestions.
+The major differences between these tools are:
+
+* The MCP server is more powerful and can handle more complex prompts that require several requests to the AI model. An MCP-enabled client like GitHub Copilot in **Agent** mode can make changes to your app and rebuild it to verify the AI suggestions.
+* The responses of the GitHub Copilot extension may contain shorter or partial code snippets and more explanations how to accomplish the task. When using the MCP server, the AI response is mostly code.
 
 ## Getting Started
 
