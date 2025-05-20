@@ -10,7 +10,7 @@ position: 3
 
 # Editor Integration with AIPrompt
 
-The Editor provides a built-in integration with the [AIPrompt component](slug:aiprompt-overview) to help users add AI-driven suggestions, completions, and assistance to their Editor.
+The Editor provides a built-in integration with the [AIPrompt component](slug:aiprompt-overview) to help users apply AI-driven suggestions and completions to their Editor.
 
 The integration with the AIPrompt component covers the following use cases:
 
