@@ -79,8 +79,6 @@ In this tutorial, you will use the [Telerik NuGet feed](slug:installation/nuget)
 
 Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app, showcasing the power of front-end development with Blazor.
 
-@[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
-
 #end
 
 #next-steps-after-getting-started
