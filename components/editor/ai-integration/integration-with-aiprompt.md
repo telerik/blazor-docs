@@ -78,7 +78,6 @@ The Editor allows customizing some of the integrated AIPrompt's settings. For th
 </TelerikEditor>
 
 @code {
-
     private string EditorValue { get; set; } = "Sample Editor content";
 
     private List<AIPromptCommandDescriptor> Commands { get; set; } = new List<AIPromptCommandDescriptor>
