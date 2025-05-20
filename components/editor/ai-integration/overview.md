@@ -12,7 +12,7 @@ position: 0
 
 The Editor provides AI integration to enhance the user productivity and streamline workflows. This integration is available in two ways:
 
-* **AIPrompt Component**: An [AIPrompt component](slug:aiprompt-overview) that is rendered in a separate pane on the left side of the Editor.
+* **AIPrompt Component**: An [AIPrompt component](slug:aiprompt-overview) that is rendered next to the Editor.
 
 * **Inline Prompt**: A lightweight, on-the-fly AI prompt rendered in a popup that is shown once the user selects text in the Editor.
 
