@@ -19,6 +19,7 @@ The Editor provides AI integration to enhance the user productivity and streamli
 ## AI Integration Capabilities
 
 Both features are designed to improve the user experience by leveraging AI capabilities directly within the Editor environment. The built-in AI integration allows the user to type their prompt and get a response based on the text in the Editor. The users can also use a set of built-in commands:
+
 * Rewrite
 * Fix Mistakes
 * Tone (Neutral, Friendly, Casual, Formal)
