@@ -39,7 +39,7 @@ To enable the Inline Prompt in the Editor:
 
 @code {
 
-    private string EditorValue { get; set; } = "Sample Editor content";
+    private string EditorValue { get; set; } = "<p>Sample Editor content</p>";
 
 }
 ````
