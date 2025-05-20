@@ -19,6 +19,7 @@ To use the Telerik GitHub Copilot extension for Blazor, you need to have:
 * An active [GitHub Copilot](https://github.com/features/copilot) subscription. You can enable or configure GitHub Copilot on the [Copilot Settings page in your GitHub account](https://github.com/settings/copilot).
 * A [Telerik user account](https://www.telerik.com/account/).
 * An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
+* A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 
 ## Installation
 
@@ -48,9 +49,9 @@ To use the Telerik Blazor Copilot extension:
 
 The following list describes how your prompts may look like:
 
-* `@telerikblazor` Generate a Grid with sorting and paging enabled. Bind the Grid to a Person model and provide dummy data.
-* `@telerikblazor` Generate a Telerik ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.
-* `@telerikblazor` Show me sample code for a Telerik Blazor Grid with virtual scrolling for the rows and columns.
+* &quot;`@telerikblazor` Generate a Grid with sorting and paging enabled. Bind the Grid to a Person model and provide dummy data.&quot;
+* &quot;`@telerikblazor` Generate a Telerik ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.&quot;
+* &quot;`@telerikblazor` Show me sample code for a Telerik Blazor Grid with virtual scrolling for the rows and columns.&quot;
 
 ## Number of Requests
 
@@ -59,7 +60,7 @@ The following list describes how your prompts may look like:
 The Telerik Blazor Copilot extension allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
 * Perpetual licenses: 50 requests per year
-* Subscription licenses: 300 requests per day
+* Subscription licenses: virtually unlimited number of requests with a fair use threshold of 300 requests per day
 * Trial licenses: 300 requests per trial per year. Activating the same trial for a new release does not grant additional 300 requests.
 
 > All Telerik AI tools share a single request limit for your Telerik account. For example, the Telerik Copilot extension and the Telerik MCP server both take up from the same usage quota.

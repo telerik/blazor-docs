@@ -19,6 +19,7 @@ To use the Telerik Blazor MCP server, you need:
 * A [compatible MCP client (IDE, code editor or app)](https://modelcontextprotocol.io/clients) that supports *MCP tools*.
 * A [Telerik user account](https://www.telerik.com/account/).
 * An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
+* A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 
 ## Installation
 
@@ -162,9 +163,9 @@ To increase the probability of the Telerik MVC Server being used, or to call it 
 
 The following list describes how your prompts may look like:
 
-* Telerik Generate a Blazor Grid with sorting and paging enabled. Bind the Grid to a Person model and provide dummy data.
-* Telerik Generate a ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.
-* Telerik Show me sample code for a Blazor Grid with virtual scrolling for the rows and columns.
+* &quot;Telerik Generate a Blazor Grid with sorting and paging enabled. Bind the Grid to a Person model and provide dummy data.&quot;
+* &quot;Telerik Generate a ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.&quot;
+* &quot;Telerik Show me sample code for a Blazor Grid with virtual scrolling for the rows and columns.&quot;
 
 
 ## Number of Requests
@@ -174,7 +175,7 @@ The following list describes how your prompts may look like:
 The Telerik Blazor MCP Server allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
 * Perpetual licenses: 50 requests per year
-* Subscription licenses: 300 requests per day
+* Subscription licenses: virtually unlimited number of requests with a fair use threshold of 300 requests per day
 * Trial licenses: 300 requests per trial per year. Activating the same trial for a new release does not grant additional 300 requests.
 
 > One prompt may trigger several requests to the MCP server, depending on the complexity.
