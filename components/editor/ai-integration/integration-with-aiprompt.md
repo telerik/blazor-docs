@@ -36,7 +36,7 @@ To enable the AIPrompt in the Editor:
 
 @code {
 
-    private string EditorValue { get; set; } = "Sample Editor content";
+    private string EditorValue { get; set; } = "<p>Sample Editor content</p>";
 
 }
 ````
