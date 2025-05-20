@@ -23,7 +23,7 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
 | Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
-| Cancel | `GridToolBarCancelEditTool` | Cancels the changes for the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
+| Cancel | `GridToolBarCancelEditTool` | Cancels the changes for the selected row. [Row selection](slug:grid-selection-row) and [`Inline`](slug:grid-editing-inline) or [`Popup`](slug:grid-editing-popup) editing mode are required. |
 | CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | Delete | `GridToolBarDeleteTool` | Deletes the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
 | Edit | `GridToolBarEditTool` | Enters edit mode for the selected row. Row selection and `Inline` or `Popup` editing mode are required. |
