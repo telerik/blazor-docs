@@ -22,6 +22,7 @@ A Telerik license key error may occur in the following scenarios:
 * The license key is outdated or does not include the product version that you are using.
 * Your subscription license or trial has expired.
 * You have different conflicting license keys in the same environment. For example, using one global license key and one in the app. Or, using a license key file together with an environment variable in CI/CD environment.
+* Telerik UI for Blazor is used in the **Client** project of a WebAssembly app that uses pre-rendering. In such cases, you can briefly see a yellow banner in the browser, which says "[We couldn't verify your license key for Telerik UI for Blazor. Please see the build log for details and resolution steps](#we-couldn-t-verify-your-license-key-for-telerik-ui-for-blazor-yellow-banner)".
 
 Refer to the specific error messages and tips below.
 
@@ -69,6 +70,12 @@ This error applies to subscription licenses. [Renew your subscription](https://w
 ### Your trial expired (TKL105)
 
 [Purchase a commercial license to continue using Telerik UI for Blazor](https://www.telerik.com/purchase/blazor-ui).
+
+### We couldn't verify your license key for Telerik UI for Blazor (yellow banner)
+
+This section assumes an existing valid license key, so that the problem is not any of the above.
+
+If you briefly see a yellow warning banner in the web browser that says "**We couldn't verify your license key**", then refer to [Using Telerik Packages in Referenced Projects](slug:installation-license-key#using-telerik-packages-in-referenced-projects).
 
 ## See Also
 

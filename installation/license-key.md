@@ -61,6 +61,28 @@ The new license key includes information about all previous purchases. This proc
 * If you used the [manual license key installation](#manual-installation), then repeat the same steps.
 * To [update your license key in CI/CD environments](slug:deployment-license-key), get your new license key and update the environment variable value.
 
+## Using Telerik Packages in Referenced Projects
+
+Telerik UI for Blazor may be used in a referenced project in a multi-project app. For example, in the **Client** project of a WebAssembly app that uses server-side pre-rendering. In such cases, you can briefly see a yellow banner in the browser, which says "We couldn't verify your license key for Telerik UI for Blazor. Please see the build log for details and resolution steps".
+
+There are two alternative ways to avoid the warning banner:
+
+* Set `PrivateAssets="none"` to the Telerik UI for Blazor NuGet package registration tag.
+  ````XML.skip-repl
+  <PackageReference Include="Telerik.UI.for.Blazor" Version="{{site.uiForBlazorLatestVersion}}" PrivateAssets="none" />
+  ````
+
+* Reference the `Telerik.Licensing` package explicitly in all projects that reference other projects with Telerik packages. You can use the same version that is referenced by the `Telerik.UI.for.Blazor` NuGet package, or a newer version.
+  ````XML.skip-repl
+  <ItemGroup>
+    <PackageReference Include="Telerik.Licensing" Version="*" />
+  </ItemGroup>
+  ````
+
+## Troubleshooting
+
+Refer to the [Troubleshooting License Key Errors](slug:troubleshooting-license-key-errors) page to find out what license key warnings you may see during application build and what they mean.
+
 ## Frequently Asked Questions
 
 ### Does the license key expire?
