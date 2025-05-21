@@ -28,6 +28,6 @@ To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `C
 
 ![launch Telerik Blazor VS Code extension](images/launch-extension.png)
 
-## See Also
+<!-- ## See Also
 
-* [Telerik GitHub Copilot extension for Blazor](slug:ai-copilot-extension)
+* [Telerik GitHub Copilot extension for Blazor](slug:ai-copilot-extension) -->

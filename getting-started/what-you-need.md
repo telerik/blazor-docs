@@ -261,9 +261,9 @@ The Blazor application is ready to use Telerik components.
 }
 ````
 
-## Install Telerik AI Coding Assistants
+<!-- ## Install Telerik AI Coding Assistants
 
-* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
+* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API. -->
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 
