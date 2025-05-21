@@ -34,7 +34,7 @@ Use the documentation of your AI-powered MCP client to add the Telerik MCP serve
 You also need to add your [Telerik licence key](slug:installation-license-key) as an `env` parameter in the `mcp.json` file. There are two options:
 
 * (recommended) Use a `TELERIK_LICENSE_PATH` argument and point to your Telerik license file location.
-* Use a `TELERIK_LICENSE_KEY` argument and paste your Telerik license key. Make sure to [update the license key](slug:installation-license-key#license-key-updates) when necessary.
+* Use a `TELERIK_LICENSE` argument and paste your Telerik license key. Make sure to [update the license key](slug:installation-license-key#license-key-updates) when necessary.
 
 ### Visual Studio
 
