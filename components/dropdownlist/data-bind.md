@@ -23,7 +23,6 @@ There are also some considerations you may find useful, such as showing the `Def
 
   * [Considerations](#considerations)
     * [Value Out of Range](#value-out-of-range)
-    * [Component Reference](#component-reference)
     * [Missing Value or Data](#missing-value-or-data)
 
 ## Strings or Value Types
@@ -93,7 +92,7 @@ To bind the DropDownList to a model:
 
 ## Considerations
 
-The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#component-reference) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
+The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](slug:common-features-data-binding-overview#component-type) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
 
 ### Value Out of Range
 
@@ -102,57 +101,6 @@ When the `Value` the application provides does not match any of the values prese
 If you have set the `DefaultText` and the `Value` matches the `default` value of the type (for example, `0` for an `int` or `null` for an `int?` or `string`), you will see the `DefaultText`. A `Value` that is non-`default` will not show the `DefaultText`.
 
 Handling such "unexpected" values is up to the application - for example, through defensive checks, or through form validation, or by first checking what is present in the data source before setting a new `Value`.
- 
-### Component Reference
-
-The DropDownList is a generic component and its type depends on the type of its `Data` and `Value`.
-
-<div class="skip-repl"></div>
-````RAZOR String
-<TelerikDropDownList @ref="@DropDownListRef"
-                     Data="@DropDownListData"
-                     @bind-Value="DropDownListValue" />
-
-@code {
-    private TelerikDropDownList<string, string>? DropDownListRef { get; set; }
-
-    private List<string> DropDownListData = new List<string>() { "first", "second", "third" };
-
-    private string DropDownListValue { get; set; } = string.Empty;
-
-    protected override void OnInitialized()
-    {
-        DropDownListValue = "second";
-    }
-}
-````
-````RAZOR Model
-<TelerikDropDownList @ref="@DropDownListRef"
-                     Data="@DropDownListData"
-                     @bind-Value="DropDownListValue"
-                     TextField="@nameof(DropDownListItem.Text)"
-                     ValueField="@nameof(DropDownListItem.Value)" />
-
-@code {
-    private TelerikDropDownList<DropDownListItem, int>? DropDownListRef { get; set; }
-
-    private int DropDownListValue { get; set; }
-
-    private IEnumerable<DropDownListItem> DropDownListData = Enumerable.Range(1, 20)
-        .Select(x => new DropDownListItem { Text = $"Item {x}", Value = x });
-
-    protected override void OnInitialized()
-    {
-        DropDownListValue = 3;
-    }
-
-    public class DropDownListItem
-    {
-        public int Value { get; set; }
-        public string Text { get; set; } = string.Empty;
-    }
-}
-````
 
 ### Missing Value or Data
 
