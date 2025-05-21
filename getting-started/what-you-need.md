@@ -37,7 +37,7 @@ The required milestones to obtain and use Telerik UI for Blazor are:
 1. Add the [CSS theme and JavaScript file](#css-theme-and-javascript-files).
 1. Add the [`<TelerikRootComponent>`](#telerikrootcomponent).
 1. [Add components to a view](#add-telerik-components-to-a-view).
-1. Install [Telerik Blazor AI coding assistants](#install-telerik-ai-coding-assistants).
+1. Install the [Telerik Blazor AI Coding Assistant](#install-the-telerik-ai-coding-assistant).
 
 
 ## NuGet Packages
@@ -261,9 +261,9 @@ The Blazor application is ready to use Telerik components.
 }
 ````
 
-## Install Telerik AI Coding Assistants
+## Install the Telerik AI Coding Assistant
 
-* Use the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension) to generate code snippets that include Telerik UI for Blazor components and API.
+@[template](/_contentTemplates/common/get-started.md#ai-coding-assistant-ad)
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 

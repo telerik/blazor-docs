@@ -209,3 +209,9 @@ This will make the license key available to all Telerik .NET apps that you devel
 The [Telerik License Key](slug:installation-license-key) article provides additional details on installing and updating your Telerik license key in different scenarios. [Automatic license key maintenance](slug:installation-license-key#automatic-installation) is more effective and recommended in the long run.
 
 #end
+
+#ai-coding-assistant-ad
+
+Use the [Telerik AI Coding Assistant](slug:ai-overview) through the [Telerik Blazor MCP server](slug:ai-mcp-server) or the [Telerik Blazor GitHub Copilot extension](slug:ai-copilot-extension). These tools help you receive tips and generate code snippets that include Telerik UI for Blazor components and API.
+
+#end
