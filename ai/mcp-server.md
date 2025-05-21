@@ -4,7 +4,7 @@ page_title: Telerik Blazor MCP Server
 description: Learn how to add and use the Telerik Blazor MCP Server as a Blazor AI coding assistant and code generator for better developer productivity. The Telerik Blazor MCP server provides proprietary context about Telerik UI for Blazor to AI-powered software.
 slug: ai-mcp-server
 tags: telerik,blazor,ai
-published: False
+published: True
 position: 20
 ---
 
