@@ -4,7 +4,7 @@ page_title: Telerik Blazor GitHub Copilot Extension
 description: Learn how to add and use the Telerik Blazor GitHub Copilot extension as a Blazor AI coding assistant and code generator for better developer productivity. The Telerik Blazor GitHub Copilot extension provides proprietary context about Telerik UI for Blazor to AI-powered software.
 slug: ai-copilot-extension
 tags: telerik,blazor,ai
-published: True
+published: False
 position: 10
 ---
 
