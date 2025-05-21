@@ -19,8 +19,8 @@ The Telerik AI Coding Assistant is integrated in:
 
 The major differences between these tools are:
 
-* The MCP server is more powerful and can handle more complex prompts that require several requests to the AI model. An MCP-enabled client like GitHub Copilot in **Agent** mode can make changes to your app and rebuild it to verify the AI suggestions.
-* The responses of the GitHub Copilot extension may contain shorter or partial code snippets and more explanations how to accomplish the task. When using the MCP server, the AI response is mostly code.
+* The MCP server is more powerful and can handle more complex prompts that require several requests to the AI model. An MCP-enabled client like Cursor or GitHub Copilot in **Agent** mode can directly suggest changes to your app and even rebuild it to verify the new AI generated code.
+* The responses of the GitHub Copilot extension may contain more explanations how to accomplish the task, and shorter or partial code snippets. When using the MCP server, the AI response is mostly code.
 
 ## Getting Started
 
