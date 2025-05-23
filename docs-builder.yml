@@ -88,12 +88,21 @@ demos:
       material-main:
           name: Main
           group: Material
-          colors: ['#ffffff', '#3f51b5', '#212121']
+          colors: ['#fefbff', '#65558f', '#1d1b20']
+      material-2:
+          name: Material 2
+          group: Material
+          colors: ['#ffffff', '#3f51b5', '#424242']
       material-main-dark:
           name: Main Dark
           tags: [dark]
           group: Material
-          colors: ['#121212', '#9fa8da', '#e0e0e0']
+          colors: ['#141218', '#d0bcff', '#e6e0e9']
+      material-2-dark:
+          name: Material 2 Dark
+          tags: [dark]
+          group: Material
+          colors: ['#303030', '#3f51b5', '#ffffff']
       material-arctic:
           name: Arctic
           group: Material
