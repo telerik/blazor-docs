@@ -23,7 +23,6 @@ There are also some considerations you may find useful, such as showing the `Pla
 
 * [Considerations](#considerations)
 	* [Value Out of Range](#value-out-of-range)
-	* [Component Reference](#component-reference)
 	* [Missing Value or Data](#missing-value-or-data)
 
 ## Strings and Value Types
@@ -105,7 +104,7 @@ To bind the ComboBox to a model:
 
 ## Considerations
 
-The ComboBox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#component-reference) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
+The ComboBox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](slug:common-features-data-binding-overview#component-type) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
 
 ### Value Out of Range
 
@@ -118,63 +117,6 @@ If you have set the `Placeholder` and the `Value` matches the `default` value of
 Handling such "unexpected" values is up to the application - for example, through defensive checks, or through form validation, or by first checking what is present in the data source before setting a new `Value`.
 
 When `AllowCustom="true"`, what the user types in the input will be set to the `Value` of the component regardless of the data source.
-
-### Component Reference
-
-The ComboBox is a generic component and its type depends on the type of its `Data` and `Value`.
-
-<div class="skip-repl"></div>
-````RAZOR String
-@*ComboBox reference when binding to a string collection*@
-
-<TelerikComboBox @ref="ComboBoxRef"
-                 Data="@ComboBoxData"
-                 Value="@ComboBoxValue">
-</TelerikComboBox>
-
-@code {
-    private TelerikComboBox<string, string>? ComboBoxRef { get; set; }
-
-    private List<string> ComboBoxData = new List<string>() { "first", "second", "third" };
-
-    private string ComboBoxValue { get; set; } = string.Empty;
-
-    protected override void OnInitialized()
-    {
-        ComboBoxValue = "third";
-    }
-}
-````
-````RAZOR Model
-@*ComboBox reference when binding to a model collection*@
-
-<TelerikComboBox @ref="@ComboBoxRef"
-                 Data="@ComboBoxData"
-                 @bind-Value="@ComboBoxValue"
-                 TextField="@nameof(ComboBoxItem.MyTextField)"
-                 ValueField="@nameof(ComboBoxItem.MyValueField)">
-</TelerikComboBox>
-
-@code {
-    private TelerikComboBox<ComboBoxItem, int>? ComboBoxRef { get; set; }
-
-    private IEnumerable<ComboBoxItem> ComboBoxData = Enumerable.Range(1, 20)
-        .Select(x => new ComboBoxItem { MyTextField = "Item " + x, MyValueField = x });
-
-    private int ComboBoxValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        ComboBoxValue = 3;
-    }
-
-    public class ComboBoxItem
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; } = string.Empty;
-    }
-}
-````
 
 ### Missing Value or Data
 

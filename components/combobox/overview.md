@@ -145,9 +145,8 @@ The ComboBox provides the following popup settings:
 
 ## ComboBox Reference and Methods
 
-The ComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Considerations](slug:components/combobox/databind#considerations) article.
+Add a reference to the component instance to use the [ComboBox's methods](slug:Telerik.Blazor.Components.TelerikComboBox-2). Note that the [ComboBox is a generic component](slug:common-features-data-binding-overview#component-type).
 
-Add a reference to the component instance to use the [ComboBox's methods](slug:Telerik.Blazor.Components.TelerikComboBox-2).
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 

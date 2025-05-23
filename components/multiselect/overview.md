@@ -165,9 +165,8 @@ The MultiSelect provides the following popup settings:
 
 ## MultiSelect Reference and Methods
 
-The MultiSelect is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations](slug:multiselect-databind#considerations) article.
+Add a reference to the component instance to use the [MultiSelect's methods](slug:Telerik.Blazor.Components.TelerikMultiSelect-2). Note that the [MultiSelect is a generic component](slug:common-features-data-binding-overview#component-type).
 
-Add a reference to the component instance to use the [MultiSelect's methods](slug:Telerik.Blazor.Components.TelerikMultiSelect-2).
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
