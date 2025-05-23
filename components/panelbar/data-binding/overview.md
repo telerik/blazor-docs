@@ -66,7 +66,7 @@ Each `PanelBarBinding` tag exposes the following properties that refer to item p
 
 * ItemsField => Items
 
-* Level - this is used for defining [different bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You should have one `TelerikPanelBarBinding` without a level.
+* Level - this is used for defining [custom field bindings](#custom-field-bindings) or [different bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You should have one `TelerikPanelBarBinding` without a level to set the default bindings.
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
 
@@ -181,6 +181,15 @@ The following **Example** shows how to define simple binding to match item field
 >caption The result from the snippet above
 
 ![Blazor PanelBar Data Binding](../images/panelbar-data-binding-basic-example.png)
+
+### Custom Field Bindings
+
+If you are using custom field names, you must ensure their binding for each level. Otherwise, the PanelBar will not render items where the field bindings are missing. 
+
+For that purpose, you must do either of the following:
+
+* Add one `TelerikPanelBarBinding` without a level to set the default bindings.
+* Add `TelerikPanelBarBinding` for each level where you explicitly set the field bindings to your custom fields.
 
 ### Multiple Level Bindings
 
