@@ -92,7 +92,7 @@ To bind the DropDownList to a model:
 
 ## Considerations
 
-The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](slug:common-features-data-binding-overview#component-type) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account be the app, because the component will not change it.
+The DropDownList component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](slug:common-features-data-binding-overview#component-type) and what happens [if you can't provide data or a value](#missing-value-or-data). Providing a [value that is not in the data source](#value-out-of-range) needs to be taken into account by the app, because the component will not change it.
 
 ### Value Out of Range
 
