@@ -40,9 +40,19 @@ To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` packag
 
 ### 3. Add the Telerik Client Assets
 
-To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets](slug:getting-started/what-you-need#css-theme-and-javascript-files). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
+To have the Telerik Blazor components look and behave as expected, you need the Telerik CSS and JavaScript assets.
 
-You can add the Telerik resources as [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files).
+1\. Add the [theme stylesheet as a static asset](slug:themes-overview#using-a-theme) in your `wwwroot/index.html` file.
+
+**HTML**
+
+@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
+
+2\. Add the `telerik-blazor.js` file to your `wwwroot/index.html` file.
+
+**HTML**
+
+@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
 ### 4. Include @using Statements 
 
