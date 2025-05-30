@@ -48,7 +48,7 @@ To have the Telerik Blazor components look and behave as expected, you need the 
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-2\. Add the `telerik-blazor.js` file to your `wwwroot/index.html` file.
+2. Add the `telerik-blazor.js` file to your `wwwroot/index.html` file.
 
 **HTML**
 
