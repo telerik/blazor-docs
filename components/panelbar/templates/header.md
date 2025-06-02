@@ -13,9 +13,9 @@ position: 5
 
 You can control and customize the rendering of the header items in the PanelBar by using the `HeaderTemplate`. It provides a `context` object that you can cast to the type that the PanelBar is bound to.
 
-The `HeaderTemplate` of a level is defined under the `PanelBarBinding` tag.
+The `HeaderTemplate` of a level is defined under the `PanelBarBinding` tag. Set the `Level` parameter of the `PanelBarBinding` to specify the level the `HeaderTemplate` must be applied to. 
 
-If no levels are defined the `HeaderTemplate` will apply to the entire data.
+If the `Level` parameter of the `PanelBarBinding` is not set, the `HeaderTemplate` will apply to the entire data.
 
 >caption Use HeaderTemplate to customize the rendering of the headers in the PanelBar
 
@@ -26,7 +26,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
     <TelerikPanelBar Data="@Items"
                      @bind-ExpandedItems="@ExpandedItems">
         <PanelBarBindings>
-            <PanelBarBinding>
+            <PanelBarBinding Level="0">
                 <HeaderTemplate>
                     @{
                         var item = context as PanelBarItem;
@@ -42,8 +42,9 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
 </div>
 
 @code {
-    public List<PanelBarItem> Items { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
+    private List<PanelBarItem> Items { get; set; }
+
+    private IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
     public class PanelBarItem
     {
@@ -60,50 +61,50 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
         List<PanelBarItem> items = new List<PanelBarItem>();
 
         items.Add(new PanelBarItem()
-        {
-            Id = 1,
-            Text = "Project",
-            ParentId = null,
-            HasChildren = false,
-            Icon = SvgIcon.Folder,
-            Url = "projectURL.url"
-        });
+            {
+                Id = 1,
+                Text = "Project",
+                ParentId = null,
+                HasChildren = false,
+                Icon = SvgIcon.Folder,
+                Url = "projectURL.url"
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 2,
-            Text = "Implementation",
-            ParentId = null,
-            HasChildren = true,
-            Icon = SvgIcon.Code
-        });
+            {
+                Id = 2,
+                Text = "Implementation",
+                ParentId = null,
+                HasChildren = true,
+                Icon = SvgIcon.Code
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 3,
-            Text = "C#",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = SvgIcon.Cs
-        });
+            {
+                Id = 3,
+                Text = "C#",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = SvgIcon.Cs
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 4,
-            Text = "HTML 5",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = SvgIcon.Html5
-        });
+            {
+                Id = 4,
+                Text = "HTML 5",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = SvgIcon.Html5
+            });
 
         items.Add(new PanelBarItem()
-        {
-            Id = 5,
-            Text = "CSS",
-            ParentId = 2,
-            HasChildren = false,
-            Icon = SvgIcon.Css
-        });
+            {
+                Id = 5,
+                Text = "CSS",
+                ParentId = 2,
+                HasChildren = false,
+                Icon = SvgIcon.Css
+            });
 
         return items;
     }
