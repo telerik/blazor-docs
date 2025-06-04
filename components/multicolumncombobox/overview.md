@@ -166,11 +166,7 @@ The MultiColumnComboBox provides the following popup settings:
 
 ## Component Reference and Methods
 
-To execute MultiColumnComboBox methods, obtain reference to the component instance via `@ref`.
-
-The MultiColumnComboBox is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug:common-features-data-binding-overview#component-type).
-
-The table below lists the MultiComboBox methods. Also consult the [MultiColumnComboBox API](slug:Telerik.Blazor.Components.TelerikMultiColumnComboBox-2).
+Add a reference to the component instance to use the [MultiColumnComboBox's methods](slug:Telerik.Blazor.Components.TelerikMultiColumnComboBox-2). Note that the [MultiColumnComboBox is a generic component](slug:common-features-data-binding-overview#component-type).
 
 | Method | Description |
 | --- | --- |

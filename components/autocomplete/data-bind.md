@@ -92,57 +92,7 @@ To bind the AutoComplete to a model:
 }
 ````
 
-## Considerations
-
-### Reference
-
-The AutoComplete is a generic component and its type depends on the type of its `Data` and `Value`.
-
-<div class="skip-repl"></div>
-````RAZOR String
-@*Reference when binding to a string collection*@
-
-<TelerikAutoComplete @ref="@AutoCompleteRef"
-                     Data="@Suggestions"
-                     @bind-Value="@AutoCompleteValue" />
-
-@code{
-    private TelerikAutoComplete<string> AutoCompleteRef { get; set; }
-
-    private string AutoCompleteValue { get; set; }
-
-    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
-}
-````
-````RAZOR Model
-@*Reference when binding to a model collection*@
-
-<TelerikAutoComplete @ref="@AutoCompleteRef"
-                     Data="@Suggestions" 
-                     @bind-Value="@AutoCompleteValue"
-                     ValueField="@( nameof(SuggestionsModel.Suggestion) )" />
-
-@code{
-    private TelerikAutoComplete<SuggestionsModel> AutoCompleteRef { get; set; }
-
-    private string AutoCompleteValue { get; set; }
-
-    private List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
-    {
-        new SuggestionsModel { Suggestion = "first", SomeOtherField = 1 },
-        new SuggestionsModel { Suggestion = "second", SomeOtherField = 2 },
-        new SuggestionsModel { Suggestion = "third", SomeOtherField = 3 }
-    };
-
-    public class SuggestionsModel
-    {
-        public string Suggestion { get; set; }//the auto complete needs only the string field
-        public int SomeOtherField { get; set; }
-    }
-}
-````
-
-### Missing Data
+## Missing Data
 
 The AutoComplete is, essentially, a textbox. This means that its `Value` is always a string and it is up to you to bind and/or use it. The `Data` parameter, however, is required for the functionality of the component, and it must never be `null`. If there are no suggestions that you wish to provide to the user, consider using a regular TextBox, or creating an empty collection.
 
