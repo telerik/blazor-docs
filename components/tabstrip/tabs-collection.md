@@ -27,7 +27,7 @@ To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
     @{
         foreach (var tab in Tabs)
         {
-            <TabStripTab @key="tab.Id" Title="@tab.Title" Visible="@tab.Visible" Disabled="@tab.Disabled">
+            <TabStripTab @key="tab.Id" Id="@tab.Id" Title="@tab.Title" Visible="@tab.Visible" Disabled="@tab.Disabled">
                 <HeaderTemplate>
                     <span>@tab.Title</span>
                 </HeaderTemplate>
@@ -54,11 +54,11 @@ To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
     private string ActiveTabId { get; set; }
 
     private List<Tab> Tabs { get; set; } = new List<Tab>
-{
-    new Tab { Id = "home", Title = "🏠 Home", Visible = true, Disabled = false },
-    new Tab { Id = "profile", Title = "👤 Profile", Visible = true, Disabled = false },
-    new Tab { Id = "settings", Title = "⚙️ Settings", Visible = true, Disabled = false }
-};
+    {
+        new Tab { Id = "home", Title = "🏠 Home", Visible = true, Disabled = false },
+        new Tab { Id = "profile", Title = "👤 Profile", Visible = true, Disabled = false },
+        new Tab { Id = "settings", Title = "⚙️ Settings", Visible = true, Disabled = false }
+    };
 
     public class Tab
     {
@@ -69,6 +69,11 @@ To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
     }
 }
 ````
+
+## Add and Remove Tabs
+
+If you are iterating through a collection to render the tabs and you need to allow the users to add and remove tabs, you may use the `ActiveTabId` parameter to set the active tab after adding and removing tabs. See details and example in this article: [Add and Remove Tabs](slug:tabstrip-kb-add-remove-tabs).
+
 
 ## See Also
 
