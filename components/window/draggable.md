@@ -12,7 +12,7 @@ position: 5
 
 You can move the Window for Blazor by dragging its titlebar with the mouse or with a touch and hold gesture, then dragging on a touch screen.
 
-**Moving** the Window is **enabled by default** and you can stop it by setting the `Draggable` parameter of the Window component to `false`.
+**Moving** the Window is **enabled by default** and you can stop it by setting the `Draggable` parameter of the Window component to `false`. You can also [restrict the Window dragging to a specific container](slug:components/window/position#containmentselector).
 
 >important If you set the `Left` and `Top` parameters, you must use two-way binding for them (or update their values in the corresponding [events](slug:window-events)), otherwise the old information in the view-model will reset the position of the window.
 
