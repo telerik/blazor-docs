@@ -17,19 +17,21 @@ This article explains the events available in the Telerik TabStrip for Blazor:
 
 ## ActiveTabIdChanged
 
-The `ActiveTabIdChanged` event fires when the user changes the active tab. The event handler receives the new tab ID of type `string` as an argument. This event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection).
+The `ActiveTabIdChanged` event fires when the user changes the active tab. The event handler receives the new tab ID of type `string` as an argument. If the `Id` parameter of the `TabStripTab` is not set, the component will generate one automatically.
+
+The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection).
 
 >caption Handle the tab ID selection changed event
 
 ````RAZOR
 <TelerikTabStrip ActiveTabIdChanged="@HandleTabIdChange">
-    <TabStripTab Title="First">
+    <TabStripTab Title="First" Id="tab1">
         First tab content. Click through the tabs.
     </TabStripTab>
-    <TabStripTab Title="Second">
+    <TabStripTab Title="Second" Id="tab2">
         Second tab content.
     </TabStripTab>
-    <TabStripTab Title="Third">
+    <TabStripTab Title="Third" Id="tab3">
         Third tab content.
     </TabStripTab>
 </TelerikTabStrip>
@@ -37,10 +39,11 @@ The `ActiveTabIdChanged` event fires when the user changes the active tab. The e
 @Result
 
 @code {
-    private string Result { get; set; }
+    private string Result { get; set; } = string.Empty;
+
     private void HandleTabIdChange(string tabId)
     {
-        Result = $"Current tab ID is {tabId}";
+        Result = $"The current tab ID is {tabId}";
     }
 }
 ````
