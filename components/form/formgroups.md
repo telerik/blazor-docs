@@ -25,7 +25,7 @@ The `FormGroup` tag exposes the following parameters:
 
 * `Columns` - `int` - defines the number of columns in the group.
 
-* `ColumnSpacing` - `string` - defines the space between the editors in the group. 
+* `ColumnSpacing` - `string` - defines the horizontal space between the editors in the group. 
 
 ## Example - Organize FormItems into Groups
 
@@ -51,7 +51,7 @@ You can organize some FormItems into logical groups. You can configure the label
             <FormItem LabelText="Age" Field="@nameof(Person.Age)" ColSpan="2"></FormItem>
             <FormItem LabelText="Email" Field="@nameof(Person.Email)" ColSpan="2"></FormItem>
         </FormGroup>
-        <FormGroup LabelText="Employee Information" ColumnSpacing="25px">
+        <FormGroup LabelText="Employee Information">
             <FormItem LabelText="Company Name" Field="@nameof(Person.CompanyName)"></FormItem>
             <FormItem LabelText="Position" Field="@nameof(Person.Position)"></FormItem>
         </FormGroup>
