@@ -128,57 +128,7 @@ To bind the MultiSelect to a model:
 
 ## Considerations
 
-The MultiSelect component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](#reference) and what happens [if you can't provide data or a value](#missing-value-or-data).
-
-### Reference
-
-The MultiSelect is a generic component and its type depends on the type of its `Data` and `Value`.
-
-<div class="skip-repl"></div>
-````RAZOR String
-@*Reference type when binding to a string collection*@
-
-<TelerikMultiSelect @ref="@MultiSelectRef"
-                    Data="@MultiSelectData"
-                    @bind-Value="@MultiSelectValue" />
-
-@code {
-    private TelerikMultiSelect<string, string>? MultiSelectRef { get; set; }
-
-    private List<string> MultiSelectValue { get; set; } = new();
-
-    private List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
-}
-````
-````RAZOR Model
-@*Reference when binding to a model collection*@
-
-<TelerikMultiSelect @ref="@MultiSelectRef"
-                    Data="@MultiSelectData"
-                    @bind-Value="@MultiSelectValue"
-                    TextField="@nameof(MultiSelectItem.Text)"
-                    ValueField="@nameof(MultiSelectItem.Value)" />
-
-@code {
-    private TelerikMultiSelect<MultiSelectItem, int>? MultiSelectRef { get; set; }
-
-    private List<int> MultiSelectValue { get; set; } = new();
-
-    private List<MultiSelectItem> MultiSelectData { get; set; } = new List<MultiSelectItem>()
-    {
-        new MultiSelectItem { Text = "first",  Value = 1 },
-        new MultiSelectItem { Text = "second", Value = 2 },
-        new MultiSelectItem { Text = "third",  Value = 3 }
-    };
-
-    public class MultiSelectItem
-    {
-        public string Text { get; set; } = string.Empty;
-    
-        public int Value { get; set; }
-    }
-}
-````
+The MultiSelect component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects the way its [reference is obtained](slug:common-features-data-binding-overview#component-type) and what happens [if you can't provide data or a value](#missing-value-or-data).
 
 ### Missing Value Or Data
 
