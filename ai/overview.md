@@ -54,6 +54,8 @@ The Telerik Blazor AI Coding Assistant operates under the following conditions:
 * The Assistant does not associate your prompts to your Telerik user account. Your prompts and generated context are anonymized and stored for statistical and troubleshooting purposes.
 * The Assistant stores metrics about how often and how much you use it in order to ensure compliance with the [allowed number of requests that correspond to your current license](#number-of-requests).
 
+Make sure to get familiar with the terms and privacy policy of your selected AI model and AI client.
+
 ## Next Steps
 
 * Install the [Telerik Blazor GitHub Copilot Extension](slug:ai-copilot-extension).
