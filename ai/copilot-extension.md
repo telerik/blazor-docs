@@ -55,15 +55,7 @@ The following list describes how your prompts may look like:
 
 ## Number of Requests
 
-> The usage limits below will take place after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
-
-The Telerik Blazor Copilot extension allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
-
-* Perpetual licenses: 50 requests per year
-* Subscription licenses: virtually unlimited number of requests with a fair use threshold of 300 requests per day
-* Trial licenses: 300 requests per trial per year. Activating the same trial for a new release does not grant additional 300 requests.
-
-> All Telerik AI tools share a single request limit for your Telerik account. For example, the Telerik Copilot extension and the Telerik MCP server both take up from the same usage quota.
+@[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
 ## See Also 
 
