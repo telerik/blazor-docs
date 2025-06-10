@@ -171,7 +171,7 @@ The following list describes how your prompts may look like:
 
 @[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
-## Connect with Local AI Model
+## Connect to Local AI Model
 
 You can use the Telerik Blazor MCP server with local large language models (LLM). For example, run your local model through [Ollama](https://ollama.com) and use a third-party package such as [MCP-LLM Bridge](https://github.com/patruff/ollama-mcp-bridge) to connect the model to the Telerik MCP server. This will allow you to use the Telerik AI Coding Assistant without a cloud-based AI model.
 
