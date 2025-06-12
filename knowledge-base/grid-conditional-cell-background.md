@@ -197,17 +197,17 @@ If you want to change the default row and alternating row backgrounds to match y
         background-color: red;
     }
 
-        .custom-row-colors .k-grid-table .k-table-row.k-master-row:hover {
-            background-color: pink;
-        }
+    .custom-row-colors .k-grid-table .k-table-row.k-master-row:hover {
+        background-color: pink;
+    }
 
-        .custom-row-colors .k-grid-table .k-master-row.k-alt {
-            background-color: green;
-        }
+    .custom-row-colors .k-grid-table .k-table-alt-row {
+        background-color: green;
+    }
 
-            .custom-row-colors .k-grid-table .k-master-row.k-alt:hover {
-                background-color: cyan;
-            }
+    .custom-row-colors .k-grid-table .k-table-row.k-table-alt-row:hover {
+            background-color: cyan;
+        }
 </style>
 
 <TelerikGrid Data="@MyData" Height="400px" Class="custom-row-colors"
