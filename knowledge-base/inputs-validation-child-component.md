@@ -5,7 +5,7 @@ type: how-to
 page_title: Validate a Telerik component as child component and apply invalid border
 slug: inputs-kb-validate-child-component
 position: 
-tags: 
+tags: telerik, blazor, form, validation
 ticketid: 1499665
 res_type: kb
 ---
@@ -33,155 +33,187 @@ res_type: kb
 
 ## Description
 
-I am wrapping a Telerik component inside a custom component for my application. When I try to validate it the red invalid border does not appear.
-
+I am wrapping a Telerik component inside a custom component in my Form. When I try to validate it the red invalid border does not appear.
 
 ## Solution
 
-Internally, the Telerik Blazor components use the cascading `EditContext` parameter that the `EditForm` provides to determine if validation passes or fails. If it fails, we add a class that shows a red border around the component. 
+Internally, the Telerik input components use the cascading `EditContext` parameter that the `EditForm` and `TelerikForm` provide. The `EditContext` API allow the components to determine if validation has passed or failed. If the validation fails, the components show a red border.
 
-When you abstract the component in a custom component you should specify the `ValueExpression` - this is the field that notifies the framework (`EditForm`) what value should pass certain criteria. It is generated automatically by the framework when using `@bind-Value` when directly in the edit form, but not when there is another component in the hierarchy.
+When you wrap an input component to another component you must define `ValueExpression` parameter in the custom component. This will allow the custom component to receive the correct expression from the parent component which holds the Form. The Blazor framework generates the expression automatically when using `@bind-Value`, but not when there is another component in the component hierarchy tree.
 
-The example below shows how to wrap a ComboBox (adding two-way data binding) in a different `.razor` file and get the invalid red border when the validation does not pass.
+The example below shows how to wrap a Telerik TextBox and DropDownList in different `.razor` files and get the invalid red border when the validation does not pass.
 
->caption Validate the ComboBox wrapped in a custom component
+>caption Validate a TextBox and a DropDownList in custom components with ValueExpression parameters
 
-<div class="skip-repl"></div>
-````RAZOR MyCustomComponent
-@* Validate the value for the combobox. In this example the invalid value is the CEO or no selection.
-This component is generic to showcase the concept, it does not have to be if you know the data type of the field or you do not itend to use it for several field types. It receives its Data from the parent to showcase this is possible too. We use a nullable integer and a string   in this example.
-*@
+````RAZOR Home.razor
+@using System.ComponentModel.DataAnnotations
 
-@typeparam T
-@typeparam TItem
+<TelerikForm Model="@CustomerToEdit"
+             OnValidSubmit="@OnFormValidSubmit"
+             Width="300px">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <TelerikValidationSummary />
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Customer.Id)" Enabled="false" LabelText="ID`" />
+        <FormItem Field="@nameof(Customer.Name)">
+            <Template>
+                <label for="customer-name" class="k-label k-form-label">Name</label>
+                <div class="k-form-field-wrap">
+                    <TextBox @bind-Value="@CustomerToEdit.Name"
+                             Id="customer-name" />
+                </div>
+            </Template>
+        </FormItem>
+        <FormItem Field="@nameof(Customer.CountryId)">
+            <Template>
+                <label for="customer-countryid" class="k-label k-form-label">Country</label>
+                <div class="k-form-field-wrap">
+                    <DropDownList Data="@Countries"
+                                  @bind-Value="@CustomerToEdit.CountryId"
+                                  TextField="@nameof(Country.Name)"
+                                  ValueField="@nameof(Country.Id)"
+                                  Id="customer-countryid" />
+                </div>
+            </Template>
+        </FormItem>
+    </FormItems>
+</TelerikForm>
 
+<p style="color:var(--kendo-color-success)"><strong>@FormSubmitResult</strong></p>
+
+@code {
+    private Customer CustomerToEdit { get; set; } = new();
+
+    private List<Country> Countries { get; set; } = new();
+
+    private string FormSubmitResult { get; set; } = string.Empty;
+
+    private void OnFormValidSubmit()
+    {
+        FormSubmitResult = $"Form Submit Success at {DateTime.Now.ToString("HH:mm:ss")}";
+    }
+
+    protected override void OnInitialized()
+    {
+        Countries = new()
+        {
+            new() { Id = 1, Name = "Australia" },
+            new() { Id = 2, Name = "Bulgaria" },
+            new() { Id = 3, Name = "Germany" },
+            new() { Id = 4, Name = "India" },
+            new() { Id = 5, Name = "UK" },
+            new() { Id = 6, Name = "USA" }
+        };
+    }
+}
+````
+````RAZOR TextBox.razor
 @using System.Linq.Expressions
 
-<TelerikComboBox Value="@CBValue" ValueChanged="@( async (T v) => await RaiseValueChanged(v) )" ValueExpression="@CustomValueExpression"
-                 Data="@MyData" TextField="@TextFieldCustom" ValueField="@ValueFieldCustom" Id="@MyId" AllowCustom="@AllowCustom">
-</TelerikComboBox>
+<TelerikTextBox Value="@Value"
+                ValueChanged="@ValueChanged"
+                ValueExpression="@ValueExpression"
+                Id="@Id" />
 
 @code {
     [Parameter]
-    public T CBValue { get; set; }
-    [Parameter]
-    public EventCallback<T> CBValueChanged { get; set; }
-    [Parameter]
-    public Expression<System.Func<T>> CustomValueExpression { get; set; }
-    [Parameter]
-    public IEnumerable<TItem> MyData { get; set; }
-    [Parameter]
-    public string TextFieldCustom { get; set; }
-    [Parameter]
-    public string ValueFieldCustom { get; set; }
-    [Parameter]
-    public string MyId { get; set; }
-    [Parameter]
-    public bool AllowCustom { get; set; }
+    public string Value { get; set; } = string.Empty;
 
-    async Task RaiseValueChanged(T v)
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public Expression<System.Func<string>>? ValueExpression { get; set; }
+
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+
+    private async Task TextBoxValueChanged(string newValue)
     {
-        // two-way binding for the current component, and raising an event that provides
-        // two-way binding for the parent component. We can't use @bind-Value here because
-        // we want to explicitly set the ValueExpression for the validation
-        CBValue = v;
-        if (CBValueChanged.HasDelegate)
+        Value = newValue;
+
+        if (ValueChanged.HasDelegate)
         {
-            await CBValueChanged.InvokeAsync(CBValue);
+            await ValueChanged.InvokeAsync(newValue);
         }
     }
 }
 ````
-````RAZOR MainComponent
-@* We declare the child component here. The EditContext is generated by the edit form and comes down as a cascading parameter. We provide the ValueExpression to the child component so validation can work there too. *@
+````RAZOR DropDownList.razor
+@using System.Linq.Expressions
 
-<EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <p class="team">
-        <label for="teamCombobox">Team:</label>
+@typeparam TItem
+@typeparam TValue
 
-        <MyCustomComponent @bind-CBValue="@person.Team"
-                           CustomValueExpression="@( () => person.Team )"
-                           MyData="@teams"
-                           MyId="teamCombobox"
-                           TextFieldCustom="MyTextField"
-                           ValueFieldCustom="MyValueField">
-        </MyCustomComponent>
-        <div>Current value: @person.Team</div>
-        <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
-    </p>
-    <p>
-        <label for="rolesCombobox">Team:</label>
-        <MyCustomComponent @bind-CBValue="@person.Role"
-                           CustomValueExpression="@( () => person.Role )"
-                           MyData="@roles"
-                           MyId="rolesCombobox"
-                           TextFieldCustom="Text"
-                           ValueFieldCustom="Value"
-                           AllowCustom="true">
-        </MyCustomComponent>
-
-        <ValidationMessage For="@(() => person.Role)"></ValidationMessage>
-        <div>Current value: @person.Role</div>
-    </p>
-
-    <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
-</EditForm>
+<TelerikDropDownList Data="@Data"
+                     Value="@Value"
+                     ValueChanged="@ValueChanged"
+                     ValueExpression="@ValueExpression"
+                     TextField="@TextField"
+                     ValueField="@ValueField"
+                     Id="@Id" />
 
 @code {
-    Person person = new Person();
+    [Parameter]
+    public List<TItem>? Data { get; set; }
 
-    IEnumerable<MyDdlModel> teams = new List<MyDdlModel>
-    {
-        new MyDdlModel {MyTextField = "Team 1", MyValueField = 1},
-        new MyDdlModel {MyTextField = "Team 2", MyValueField = 2},
-        new MyDdlModel {MyTextField = "Team 3", MyValueField = 3},
-        new MyDdlModel {MyTextField = "CEO", MyValueField = 4}
-    };
+    [Parameter]
+    public TValue? Value { get; set; }
 
-    IEnumerable<MyDdlModelString> roles = new List<MyDdlModelString>
-    {
-        new MyDdlModelString { Text = "Developer", Value = "Dev" },
-        new MyDdlModelString { Text = "QA", Value = "QA" },
-        new MyDdlModelString { Text = "Support", Value = "Support" }
-    };
+    [Parameter]
+    public EventCallback<TValue?> ValueChanged { get; set; }
 
-    void HandleValidSubmit()
+    [Parameter]
+    public Expression<System.Func<TValue?>>? ValueExpression { get; set; }
+
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+
+    [Parameter]
+    public string TextField { get; set; } = string.Empty;
+
+    [Parameter]
+    public string ValueField { get; set; } = string.Empty;
+
+    private async Task TextBoxValueChanged(TValue? newValue)
     {
-        Console.WriteLine("OnValidSubmit");
+        Value = newValue;
+
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(newValue);
+        }
     }
 }
 ````
-````C# Person
+````C# Customer.cs
 using System.ComponentModel.DataAnnotations;
 
-public class Person
+public class Customer
 {
-    [Required(ErrorMessage = "Team is mandatory.")]//the value field in the combobox model must be null for this to have effect
-    [Range(1, 3, ErrorMessage = "Please select an actual team.")] //limits the fourth option just to showcase this is honored
-    public int? Team { get; set; }
+    public int Id { get; set; }
 
     [Required]
-    [StringLength(10, ErrorMessage = "Enter less than 10 symbols")]
-    public string Role { get; set; }
+    public string Name { get; set; } = string.Empty;
+
+    [Required]
+    public int? CountryId { get; set; }
 }
+
 ````
-````C# MyDdlModel
-public class MyDdlModel
+````C# Country.cs
+public class Country
 {
-    public int? MyValueField { get; set; }
-    public string MyTextField { get; set; }
-}
-````
-````C# MyDdlModelString
-public class MyDdlModelString
-{
-    public string Value { get; set; }
-    public string Text { get; set; }
+    public int Id { get; set; }
+
+    public string Name { get; set; } = string.Empty;
 }
 ````
 
 ## See also
 
 * [Knowledge Base article: How to handle the ValueChanged event and use forms and validation. ](slug:value-changed-validation-model)
+* [Form Validation](slug:form-validation)
+* [FormItem Template](slug:form-formitems-template)

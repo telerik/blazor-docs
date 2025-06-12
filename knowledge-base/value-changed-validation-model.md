@@ -97,4 +97,4 @@ from model: @person.theTbValue
 
 ## See also
 
-* [Knowledge Base article: Validate a Telerik component as child control and apply invalid border ](slug:inputs-kb-validate-child-component)
+* [Validate a Telerik component as child control and apply invalid border ](slug:inputs-kb-validate-child-component)

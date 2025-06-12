@@ -133,7 +133,6 @@ You can use the built-in `DataAnnotationsValidator` that comes with the Blazor f
     </FormValidation>
 </TelerikForm>
 
-
 @code {
     public Person person { get; set; } = new Person();
 
@@ -158,8 +157,7 @@ You can use the <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fo
 
 When using a model with nested objects and fields, specify their `Field` settings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
-<div class="skip-repl"></div>
-````RAZOR
+````RAZOR.skip-repl
 @using System.Dynamic
 @using System.ComponentModel.DataAnnotations
 
@@ -228,50 +226,122 @@ When using a model with nested objects and fields, specify their `Field` setting
 
 ### Fluent Validation
 
-You can use third-party validation libraries that integrate with the standard `EditContext` such as <a href="https://fluentvalidation.net/" target="_blank">FluentValidation</a> together with the Telerik Form for Blazor.
+You can use third-party validation libraries that integrate with the standard `EditContext` such as [FluentValidation](https://fluentvalidation.net/) together with the Telerik Form for Blazor.
 
->note Such third party tools are not included with the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install the an appropriate package first. You can find some in <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">their official documentation</a>.
+The example below:
 
+* Requires the [`Blazored.FluentValidation` NuGet package](https://www.nuget.org/packages/Blazored.FluentValidation). Also refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/blazor.html).
+* Shows how to pass `ValueExpression` from the parent component to custom child components in a [Form item template](slug:form-formitems-template) or a [Grid editor template](slug:grid-templates-editor). If the `ValueExpression` is not passed correctly, the app will throw [exception similar to: `Cannot validate instances of type 'ComponentName'. This validator can only validate instances of type 'ModelClassName'`](slug:form-kb-fluent-validation-cannot-validate-instances-of-type).
 
 >caption Using FluentValidation
 
-<div class="skip-repl"></div>
-````RAZOR
-@using Microsoft.AspNetCore.Components.Forms
-@using FluentValidation
+````RAZOR Home.razor
 @using Blazored.FluentValidation
+@using FluentValidation
 
-<div class="mt-4" style="margin: 0 auto;">
-    <TelerikForm EditContext="@EditContext">
-        <FormValidation>
-            <FluentValidationValidator Validator="@Validator"></FluentValidationValidator>
-        </FormValidation>
-    </TelerikForm>
-</div>
+<TelerikForm Model="@PersonToEdit"
+             OnValidSubmit="@OnFormValidSubmit">
+    <FormValidation>
+        <FluentValidationValidator Validator="@PersonFluentValidator" />
+        <TelerikValidationSummary />
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Person.Id)" Enabled="false" LabelText="ID" />
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
+        <FormItem Field="@nameof(Person.MiddleName)">
+            <Template>
+                <label for="person-middlename" class="k-label k-form-label">Middle Name (two-way binding)</label>
+                <div class="k-form-field-wrap">
+                    <TextBox @bind-Value="@PersonToEdit.MiddleName"
+                             Id="person-middlename" />
+                    <TelerikValidationMessage For="@( () => PersonToEdit.MiddleName )" />
+                </div>
+            </Template>
+        </FormItem>
+        <FormItem Field="@nameof(Person.LastName)">
+            <Template>
+                <label for="person-lastname" class="k-label k-form-label">Last Name (one-way binding with explicit ValueExpression)</label>
+                <div class="k-form-field-wrap">
+                    <TextBox Value="@PersonToEdit.LastName"
+                             ValueChanged="@LastNameChanged"
+                             ValueExpression="@( () => PersonToEdit.LastName )"
+                             Id="person-lastname" />
+                    <TelerikValidationMessage For="@( () => PersonToEdit.LastName )" />
+                </div>
+            </Template>
+        </FormItem>
+    </FormItems>
+</TelerikForm>
+
+<p style="color:var(--kendo-color-success)"><strong>@FormSubmitResult</strong></p>
 
 @code {
-    public EditContext EditContext {get; set; }
-    public Customer MyModel { get; set; } = new Customer();
-    public CustomerValidator Validator { get; set; } = new CustomerValidator();
+    private Person PersonToEdit { get; set; } = new();
 
-    protected override void OnInitialized()
+    public PersonValidator PersonFluentValidator { get; set; } = new();
+
+    private string FormSubmitResult { get; set; } = string.Empty;
+
+    private void LastNameChanged(string newLastName)
     {
-        EditContext = new EditContext(MyModel);
-        base.OnInitialized();
+        PersonToEdit.LastName = newLastName;
     }
 
-    public class Customer
+    private void OnFormValidSubmit()
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        FormSubmitResult = $"Form Submit Success at {DateTime.Now.ToString("HH:mm:ss")}";
     }
 
-    public class CustomerValidator : AbstractValidator<Customer>
+    public class PersonValidator : AbstractValidator<Person>
     {
-        public CustomerValidator()
+        public PersonValidator()
         {
-            RuleFor(customer => customer.FirstName).NotEmpty().MaximumLength(50);
-            RuleFor(customer => customer.LastName).NotEmpty().MaximumLength(50);
+            RuleFor(customer => customer.FirstName).NotEmpty().MinimumLength(2).MaximumLength(60);
+            RuleFor(customer => customer.MiddleName).NotEmpty().MaximumLength(60);
+            RuleFor(customer => customer.LastName).NotEmpty().MinimumLength(2).MaximumLength(60);
+        }
+    }
+
+    public class Person
+    {
+        public int Id { get; set; }
+
+        public string FirstName { get; set; } = string.Empty;
+
+        public string MiddleName { get; set; } = string.Empty;
+
+        public string LastName { get; set; } = string.Empty;
+    }
+}
+````
+````RAZOR TextBox.razor
+@using System.Linq.Expressions
+
+<TelerikTextBox Value="@Value"
+                ValueChanged="@ValueChanged"
+                ValueExpression="@ValueExpression"
+                Id="@Id" />
+
+@code {
+    [Parameter]
+    public string Value { get; set; } = string.Empty;
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public Expression<System.Func<string>>? ValueExpression { get; set; }
+
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+
+    private async Task TextBoxValueChanged(string newValue)
+    {
+        Value = newValue;
+
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(newValue);
         }
     }
 }
