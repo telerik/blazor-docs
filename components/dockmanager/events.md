@@ -15,8 +15,8 @@ This article explains the events available in the Telerik DockManager for Blazor
 * [OnDock](#ondock)
 * [OnUndock](#ondock)
 * [VisibleChanged](#visiblechanged)
-* [UnpinnedSizeChanged](#unpinnedsizechanged)
 * [SizeChanged](#sizechanged)
+* [UnpinnedSizeChanged](#unpinnedsizechanged)
 * [OnPaneResize](#onpaneresize)
 * [State Events](#state-events)
 * [OnPin](#onpin)
@@ -50,17 +50,17 @@ The event handler receives as an argument an `DockManagerUndockEventArgs` object
 
 The `VisibleChanged` event is fired when the user tries to hide a given pane. You can effectively cancel the event by not propagating the new visibility state to the variable the `Visible` property is bound to. This is the way to cancel the event and keep the pane visible.
 
-## UnpinnedSizeChanged
-
-The `UnpinnedSizeChanged` event is triggered when the `UnpinnedSize` parameter of the corresponding pane is changed.
-
 ## SizeChanged
 
 The `SizeChanged` event is triggered when the `Size` parameter of the corresponding pane is changed.
 
+## UnpinnedSizeChanged
+
+The `UnpinnedSizeChanged` event is triggered when the `UnpinnedSize` parameter of the corresponding pane is changed.
+
 ## OnPaneResize
 
-The `OnPaneResize` event is fired when any pane is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:dockmanager-state) for your users.
+The `OnPaneResize` event is fired when a pane is resized, except unpinned panes. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:dockmanager-state) for your users.
 
 The event handler receives as an argument an `DockManagerPaneResizeEventArgs` object that contains:
 
@@ -259,6 +259,8 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
     private void Pane1UnpinnedSizeChanged(string newUnpinnedSize)
     {
         Pane1UnpinnedSize = newUnpinnedSize;
+
+        DockManagetEventLog.Insert(0, $"Pane <strong>Pane 1</strong> was resized to {newUnpinnedSize} while unpinned.");
     }
 
     private void OnPaneUnpin(DockManagerUnpinEventArgs args)
