@@ -15,6 +15,7 @@ This article explains the events available in the Telerik DockManager for Blazor
 * [OnDock](#ondock)
 * [OnUndock](#ondock)
 * [VisibleChanged](#visiblechanged)
+* [UnpinnedSizeChanged](#unpinnedsizechanged)
 * [SizeChanged](#sizechanged)
 * [OnPaneResize](#onpaneresize)
 * [State Events](#state-events)
@@ -48,6 +49,10 @@ The event handler receives as an argument an `DockManagerUndockEventArgs` object
 ## VisibleChanged
 
 The `VisibleChanged` event is fired when the user tries to hide a given pane. You can effectively cancel the event by not propagating the new visibility state to the variable the `Visible` property is bound to. This is the way to cancel the event and keep the pane visible.
+
+## UnpinnedSizeChanged
+
+The `UnpinnedSizeChanged` event is triggered when the `UnpinnedSize` parameter of the corresponding pane is changed.
 
 ## SizeChanged
 
@@ -119,9 +124,13 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
                 <DockManagerContentPane HeaderText="Pane 1"
                                         Id="Pane1"
                                         Size="50%"
+                                        UnpinnedSize="@Pane1UnpinnedSize"
+                                        UnpinnedSizeChanged="@Pane1UnpinnedSizeChanged"
                                         Closeable="false">
                     <Content>
                         Pane 1. Undocking is allowed. Docking over it is cancelled.
+                        <code>UnpinnedSizeChanged</code> is handled.
+                        Current <code>UnpinnedSize</code>: <strong>@Pane1UnpinnedSize</strong>
                     </Content>
                 </DockManagerContentPane>
 
@@ -195,8 +204,9 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
 </div>
 
 @code {
-    private TelerikDockManager DockManagerRef { get; set; }
+    private TelerikDockManager? DockManagerRef { get; set; }
 
+    private string Pane1UnpinnedSize { get; set; } = "360px";
     private bool Pane4Visible { get; set; } = true;
     private bool FloatingPaneVisible { get; set; } = true;
 
@@ -244,6 +254,11 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
     private void OnPaneResize(DockManagerPaneResizeEventArgs args)
     {
         DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was resized to {args.Size}.");
+    }
+
+    private void Pane1UnpinnedSizeChanged(string newUnpinnedSize)
+    {
+        Pane1UnpinnedSize = newUnpinnedSize;
     }
 
     private void OnPaneUnpin(DockManagerUnpinEventArgs args)
