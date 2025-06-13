@@ -44,7 +44,7 @@ The issue is not related to or caused by Telerik UI for Blazor. The same behavio
 
 ## Solution
 
-1. Define a public parameter of type `Expression<System.Func<T>>`, which receives the correct expression from the parent component. `T` is the value type, which the custom child component is editing. The parameter name must be consistent with the other two related parameter names that deal the two-way value binding:
+1. Define a public parameter of type `Expression<System.Func<T>>` in the child component. The purpose of this parameter is to receive the correct expression from the parent component. `T` is the value type, which the custom child component is editing. The parameter name must be consistent with the other two related parameter names that deal the two-way value binding:
     * `Foo`
     * `FooChanged`
     * `FooExpression`
