@@ -23,7 +23,7 @@ The `OnClick` event fires when the user clicks or taps the button, or presses `E
 
 The event handler receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs).
 
-The `OnClick` event fires before `SelectedChanged`.
+The `OnClick` event fires before `SelectedChanged`. Do not change the `Selected` parameter value in the `OnClick` event if the `OnClick` handler is asynchronous. Control the `Selected` parameter value in the [`SelectedChanged` event](#selectedchanged).
 
 >caption Handle the Toggle Button OnClick event
 
