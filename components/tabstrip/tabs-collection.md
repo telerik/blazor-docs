@@ -70,6 +70,11 @@ To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
 }
 ````
 
+## Add and Remove Tabs
+
+If you are iterating through a collection to render the tabs and you need to allow the users to add and remove tabs, you may use the `ActiveTabId` parameter to set the active tab after adding and removing tabs. See details and example in this article: [Add and Remove Tabs](slug:tabstrip-kb-add-remove-tabs).
+
+
 ## See Also
 
 * [TabStrip Events](slug:tabstrip-events)
