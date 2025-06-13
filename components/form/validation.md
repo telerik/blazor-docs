@@ -231,7 +231,7 @@ You can use third-party validation libraries that integrate with the standard `E
 The example below:
 
 * Requires the [`Blazored.FluentValidation` NuGet package](https://www.nuget.org/packages/Blazored.FluentValidation). Also refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/blazor.html).
-* Shows how to pass `ValueExpression` from the parent component to custom child components in a [Form item template](slug:form-formitems-template) or a [Grid editor template](slug:grid-templates-editor). If the `ValueExpression` is not passed correctly, the app will throw [exception similar to: `Cannot validate instances of type 'ComponentName'. This validator can only validate instances of type 'ModelClassName'`](slug:form-kb-fluent-validation-cannot-validate-instances-of-type).
+* Shows how to pass `ValueExpression` from a parent component to optional custom child components in a [Form item template](slug:form-formitems-template) or a [Grid editor template](slug:grid-templates-editor). If the `ValueExpression` is not passed correctly, the app will throw [exception similar to: `Cannot validate instances of type 'ComponentName'. This validator can only validate instances of type 'ModelClassName'`](slug:form-kb-fluent-validation-cannot-validate-instances-of-type).
 
 >caption Using FluentValidation
 
