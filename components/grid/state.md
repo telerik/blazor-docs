@@ -43,7 +43,7 @@ The Grid state is a generic [class `GridState<TItem>`](slug:Telerik.Blazor.Compo
 | `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)](slug:grid-selection-overview). |
 | `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling](slug:components/grid/virtual-scrolling). In other words, this is the number of rows above the currently visible ones. |
 | `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts](slug:components/grid/features/sorting). |
-| `TableWidth` | `string` | The sum of all visible column widths. This property changes together with `ColumnStates`. The `OnStateChanged` event does not fire separately for it. |
+| `TableWidth` | `string` | The sum of all visible column widths. The initial value is always `null` regardless of the column configuration. The `TableWidth` value changes during column resizing together with `ColumnStates` and the`OnStateChanged` event does not fire separately for it. When you resize a column programmatically, and all other columns already have widths, you must update the `TableWidth` too, otherwise the other columns will resize unexpectedly. |
 
 \* `TItem` is the Grid model type.
 
