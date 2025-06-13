@@ -43,7 +43,7 @@ Microsoft.JSInterop.JSException: An exception occurred executing JS interop: Des
 
 or
 
-```HTML.skip-repl
+```C#.skip-repl
 Microsoft.JSInterop.JSException: An exception occurred executing JS interop: The JSON value could not be converted to System.Boolean. Path: $ | LineNumber: 0 | BytePositionInLine: 4.. See InnerException for more details.
 
  ---> System.Text.Json.JsonException: The JSON value could not be converted to System.Boolean. Path: $ | LineNumber: 0 | BytePositionInLine: 4.
