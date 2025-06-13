@@ -716,14 +716,17 @@
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
              Pageable="true"
-             Reorderable="true">
+             Reorderable="true"
+             Resizable="true">
     <GridToolBarTemplate>
         <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
                        OnClick="@ReorderPriceAndQuantity">Reorder Price and Quantity</TelerikButton>
-        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
                        OnClick="@MakeIdColumnLast">Make Id Column Last</TelerikButton>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
+                       OnClick="@ResizeColumns">Resize Columns</TelerikButton>
         <span class="k-separator"></span>
-        <TelerikButton OnClick="@ResetColumnOrder">Reset Column Order</TelerikButton>
+        <TelerikButton OnClick="@ResetColumns">Reset Column Configuration</TelerikButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(Product.Id))" Width="80px" />
@@ -784,13 +787,32 @@
         }
     }
 
-    private async Task ResetColumnOrder()
+    private async Task ResizeColumns()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+            int newColumnWidth = 160;
+
+            foreach (GridColumnState columnState in gridState.ColumnStates)
+            {
+                columnState.Width = $"{newColumnWidth}px";
+            }
+
+            gridState.TableWidth = $"{newColumnWidth * gridState.ColumnStates.Count}px";
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    private async Task ResetColumns()
     {
         if (GridRef != null)
         {
             var gridState = GridRef.GetState();
 
             gridState.ColumnStates = new List<GridColumnState>();
+            gridState.TableWidth = null;
 
             await GridRef.SetStateAsync(gridState);
         }
