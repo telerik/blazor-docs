@@ -33,7 +33,7 @@ res_type: kb
 
 ## Description
 
-I am wrapping a Telerik component inside a custom component in my Form. When I try to validate it the red invalid border does not appear.
+I am wrapping a Telerik component inside a custom component in my Form. When I try to validate it, the red invalid border does not appear.
 
 ## Solution
 
