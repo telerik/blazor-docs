@@ -54,6 +54,8 @@ This section explains what happens when the component is already in add or edit 
 
 If the component is already in add or edit mode, and the user tries to perform another data operation, then editing aborts and the component fires `OnCancel`.
 
+Deleting items that are currently in edit mode [fires `OnDelete` with a cloned data item instance](slug:grid-editing-overview#delete-operations).
+
 ## Examples
 
 ### Basic
