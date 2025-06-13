@@ -72,6 +72,8 @@ This section explains what happens when the user tries to perform another data o
 * If the validation is satisfied, then editing completes and the component fires `OnUpdate`.
 * If the validation is not satisfied, then editing aborts and the component fires `OnCancel`.
 
+Deleting items that are currently in edit mode [fires `OnDelete` with a cloned data item instance](slug:grid-editing-overview#delete-operations).
+
 ### Selection
 
 To enable [row selection](slug:grid-selection-row) with in-cell edit mode, use a [checkbox column](slug:components/grid/columns/checkbox). More information on that can be read in the [Row Selection](slug:grid-selection-row#selection-and-editing-modes) article.

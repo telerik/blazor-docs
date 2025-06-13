@@ -35,6 +35,7 @@ The Grid CRUD operations rely on the following algorithm:
 Adding or editing rows in the Grid sets the following requirements on the Grid model:
 
 * The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instances). Optinally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
+* There must be a non-editable property that serves as a unique identifier.
 * All editable properties must be `public` and have setters. These properties must not be `readonly`.
 * All complex properties used in the Grid must be instantiated in the [Grid `OnModelInit` event](slug:grid-events#onmodelinit).
 * Self-referencing or inherited properties must not cause `StackOverflowException` or `AmbiguousMatchException` during [programmatic model instance creation](#item-instances).
@@ -79,6 +80,8 @@ Delete operations provide the same user experience in all Grid edit modes and re
 
 Delete operations can work even if the Grid `EditMode` parameter value is `None`.
 
+If the Grid contains Delete command buttons that display and operate in edit mode, these buttons will fire the [`OnDelete` event](#events) with a [cloned data item instance](#item-instances) in the [event argument](#gridcommandeventargs). To find the original data item in the Grid data source, use the item ID or [override the `Equals()` method of the Grid model class](slug://grid-kb-editing-in-hierarchy).
+
 >tip See the delete operations in action in the complete examples for Grid [inline](slug:grid-editing-inline#examples), [in-cell](slug:grid-editing-incell#examples), and [popup](slug:grid-editing-popup#examples) editing. Also check how to [customize the Delete Confirmation Dialog](slug:grid-kb-customize-delete-confirmation-dialog).
 
 ## Commands
@@ -97,7 +100,9 @@ Users execute commands in the following ways:
 * By clicking on editable cells in [in-cell edit mode](slug:grid-editing-incell) and then anywhere else on the page.
 * By using the [Grid keyboard navigation](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation).
 
-Command buttons can only reside in a [Grid Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). You can also [trigger add and edit operations programmatically](slug:grid-kb-add-edit-state) from anywhere on the web page through the [Grid State](slug:grid-state).
+Command buttons can only reside in a [Grid Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). Each command button in the command column is visible only in display mode or only in edit mode, depending on the button's `ShowInEdit` boolean parameter value.
+
+You can also [trigger add and edit operations programmatically](slug:grid-kb-add-edit-state) from anywhere on the web page through the [Grid State](slug:grid-state).
 
 ## Events
 
@@ -110,7 +115,7 @@ The following table describes the Grid events, which are related to adding, dele
 | `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters add mode. This event preceeds `OnCreate` or `OnCancel`. | [New](#item-instances) | Grid remains in read mode. |
 | `OnCancel` | No | Fires on `Cancel` command invocation. | [New or cloned](#item-instances) | Grid remains in add or edit mode. |
 | `OnCreate` | To add new items. | Fires on `Save` command invocation for new items. This event succeeds `OnAdd`. | [New](#item-instances) | Grid remains in add mode. |
-| `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | Original | Grid won't rebind. Deletion depends on the app itself. |
+| `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | [Original or cloned](#item-instances) | Grid won't rebind. Deletion depends on the app itself. |
 | `OnEdit` | No | Fires on `Edit` command invocation, before the Grid actually enters edit mode. This event preceeds `OnUpdate` or `OnCancel`. | Original | Grid remains in read mode. |
 | `OnModelInit` | [Depends on the Grid model type](slug:grid-events#onmodelinit) | Fires when the Grid requires a [new model instance](#item-instances), which is immediately before `OnAdd` or immediately after `OnEdit`. <br /> Use this event when the Grid model type is an [interface, abstract class, or has no parameterless constructor](slug:grid-events#onmodelinit). | No event arguments | Not cancellable |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command invocation for existing items. This event succeeds `OnEdit`. | [Cloned](#item-instances) | Grid remains in edit mode. |
