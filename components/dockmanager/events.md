@@ -16,6 +16,7 @@ This article explains the events available in the Telerik DockManager for Blazor
 * [OnUndock](#ondock)
 * [VisibleChanged](#visiblechanged)
 * [SizeChanged](#sizechanged)
+* [UnpinnedSizeChanged](#unpinnedsizechanged)
 * [OnPaneResize](#onpaneresize)
 * [State Events](#state-events)
 * [OnPin](#onpin)
@@ -53,9 +54,13 @@ The `VisibleChanged` event is fired when the user tries to hide a given pane. Yo
 
 The `SizeChanged` event is triggered when the `Size` parameter of the corresponding pane is changed.
 
+## UnpinnedSizeChanged
+
+The `UnpinnedSizeChanged` event is triggered when the `UnpinnedSize` parameter of the corresponding pane is changed.
+
 ## OnPaneResize
 
-The `OnPaneResize` event is fired when any pane is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:dockmanager-state) for your users.
+The `OnPaneResize` event is fired when a pane is resized, except unpinned panes. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:dockmanager-state) for your users.
 
 The event handler receives as an argument an `DockManagerPaneResizeEventArgs` object that contains:
 
@@ -119,9 +124,13 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
                 <DockManagerContentPane HeaderText="Pane 1"
                                         Id="Pane1"
                                         Size="50%"
+                                        UnpinnedSize="@Pane1UnpinnedSize"
+                                        UnpinnedSizeChanged="@Pane1UnpinnedSizeChanged"
                                         Closeable="false">
                     <Content>
                         Pane 1. Undocking is allowed. Docking over it is cancelled.
+                        <code>UnpinnedSizeChanged</code> is handled.
+                        Current <code>UnpinnedSize</code>: <strong>@Pane1UnpinnedSize</strong>
                     </Content>
                 </DockManagerContentPane>
 
@@ -195,8 +204,9 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
 </div>
 
 @code {
-    private TelerikDockManager DockManagerRef { get; set; }
+    private TelerikDockManager? DockManagerRef { get; set; }
 
+    private string Pane1UnpinnedSize { get; set; } = "360px";
     private bool Pane4Visible { get; set; } = true;
     private bool FloatingPaneVisible { get; set; } = true;
 
@@ -244,6 +254,13 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
     private void OnPaneResize(DockManagerPaneResizeEventArgs args)
     {
         DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was resized to {args.Size}.");
+    }
+
+    private void Pane1UnpinnedSizeChanged(string newUnpinnedSize)
+    {
+        Pane1UnpinnedSize = newUnpinnedSize;
+
+        DockManagetEventLog.Insert(0, $"Pane <strong>Pane 1</strong> was resized to {newUnpinnedSize} while unpinned.");
     }
 
     private void OnPaneUnpin(DockManagerUnpinEventArgs args)
