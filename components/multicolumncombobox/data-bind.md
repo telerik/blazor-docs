@@ -53,7 +53,7 @@ Missing selection is most common when:
 
 ## Missing Value or Data
 
-The MultiColumnCombobox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects its [object reference](slug:multicolumncombobox-overview#component-reference-and-methods).
+The MultiColumnCombobox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects its [object reference](slug:common-features-data-binding-overview#component-type).
 
 In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug:common-features-data-binding-overview#component-type).
 

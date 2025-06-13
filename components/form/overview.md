@@ -207,7 +207,7 @@ The [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) exposes mul
 |-----------|------------------------|-------------|
 | `ButtonsLayout` | `FormButtonsLayout` enum <br /> (`Start`) | Determines the position and width of all Form buttons. See [Form Buttons](slug:form-formitems-buttons). |
 | `Columns`  | `int` | Defines the number of columns in the Form. See the [Columns](slug:form-columns) article for more information |
-| `ColumnSpacing`  | `string` | Defines the amout of vertical space between the Columns. See the [Columns](slug:form-columns) article for more information. |
+| `ColumnSpacing`  | `string` | Defines the amout of horizontal space between the Columns. See the [Columns](slug:form-columns) article for more information. |
 | `Orientation`  | `FormOrientation` enum <br /> (`Vertical`) | Determines the position of each label with regard to its editor. See [Orientation](slug:form-orientation) for more information. |
 
 ### Styling and Appearance

@@ -27,6 +27,7 @@ Each Splitter pane is configured individually and offers the following parameter
 | `Max` | `string` | The maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further. |
 | `Min` | `string` |  The minimum size the pane can have in pixels or percentages. When it is reached, the user cannot reduce its size further. |
 | `Resizable` | `bool` <br /> (`true`) | Whether users can resize the pane with a resize handle (splitbar) or the keyboard. Pane resizing always affects two panes. To enable resizing for a specific pane, at least one adjacent pane must be resizable too. |
+| `Scrollable` | `bool` | Whether the browser automatically shows scrollbars in panes which do not fit their current content. |
 | `Size` | `string` | The pane `width` CSS style in [horizontal Splitters](slug:splitter-orientation), or the pane `height` in [vertical Splitters](slug:splitter-orientation). Supports two-way binding. The `Size` must be between the `Min` and `Max` values. See [Pane Size](#pane-size) below for more details on pane dimensions and behavior. |
 | `Visible` | `bool` | Defines if the pane element and splitbar render or not. When toggled at runtime, the pane's index remains unchanged, unlike when adding a pane with a conditional statement, which appends it at the end. Compare with the `Collapsed` parameter. |
 
@@ -46,7 +47,7 @@ Each Splitter pane is configured individually and offers the following parameter
             <div>Collapsible pane with initial size in percentage.</div>
         </SplitterPane>
 
-        <SplitterPane Collapsible="false" Class="k-scrollable">
+        <SplitterPane Collapsible="false" Scrollable="true">
             <h4>Right Pane</h4>
             <div style="height:150%">Non-collapsible and scrollable pane with no size. It will take up the remaining space in the component.</div>
         </SplitterPane>
@@ -65,10 +66,6 @@ Each Splitter pane is configured individually and offers the following parameter
     private string PaneSize2 { get; set; } = "20%";
 }
 ````
-
-## Pane Scrolling
-
-To make a Splitter pane scrollable without using additional HTML markup or custom CSS styles, set the pane `Class` parameter to `k-scrollable`. See the example above.
 
 ## Pane Dimensions
 

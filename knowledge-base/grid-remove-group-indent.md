@@ -48,7 +48,7 @@ To remove the group indent in the [Grid for Blazor](slug:grid-overview) and hide
 
 <style>
     .custom-grouping.k-grid .k-group-col {
-        width: 0;
+        width: 0.1px; /* Safari ignores a zero value */
     }
 
     .custom-grouping.k-grid .k-grouping-row .k-icon {

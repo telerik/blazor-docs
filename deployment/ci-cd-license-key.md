@@ -10,13 +10,15 @@ position: 7
 
 # Telerik License Key in CI/CD Environment
 
-This article describes how to set up and activate your [Telerik UI for Blazor license key](slug:installation-license-key) across a few popular cloud build CI/CD services. You can find guidance and examples on how to set environment variables for some of the most popular CI/CD platforms.
+This article describes how to set up and activate your [Telerik UI for Blazor license key](slug:installation-license-key) across a few popular cloud build and deployment services. You can find guidance and examples on how to set environment variables for some of the most popular CI/CD platforms.
 
 @[template](/_contentTemplates/common/get-started.md#license-key-version)
 
 ## Basics
 
-The Telerik license activation process in CI/CD environments involves the following steps:
+Provide a Telerik license key during the `build` and `publish` steps of the application deployment process. [A license key is not required on the web server that hosts the already deployed web application](slug:installation-license-key#where-do-i-need-to-install-a-license-key).
+
+The Telerik license activation process in CI/CD test, build, staging, and production environments involves the following steps:
 
 1. Go to the [License Keys page](https://www.telerik.com/account/your-licenses/license-keys) in your Telerik account and download your license key.
 1. Set an environment variable with either of the following names:
@@ -24,7 +26,7 @@ The Telerik license activation process in CI/CD environments involves the follow
     * `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
 1. (optional) [Fail the build and deployment](#abort-deployment-on-license-key-error) if there is an issue with the license key.
 
-In most cases, the recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environments is to use the `TELERIK_LICENSE` environment variable.
+In most cases, the recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environments is to use one of the available environment variables.
 
 Use `TELERIK_LICENSE_PATH` or [only a license file](slug:installation-license-key#manual-installation) on Windows and Windows Server machines, which are managed directly through the operating system's user interface. Do not use the `TELERIK_LICENSE` environment variable in this case, due to the large variable value length.
 
@@ -133,6 +135,16 @@ Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the artic
 ## Abort Deployment on License Key Error
 
 To avoid accidental [license watermarks and notifications on your live site](slug:installation-license-key#will-telerik-ui-for-blazor-work-with-an-expired-license-key), you can fail the application build and abort deployment when there is an issue with the license key. There are two alternative ways to list the [Telerik license warning codes](slug:troubleshooting-license-key-errors#error-messages) to be treated as errors:
+
+* Add а `<TelerikLicensingStrict>` tag to the `.csproj` project file. This approach requires Telerik UI for Blazor version `9.0.0` and above, or `Telerik.Licensing` version `1.6.5` and above.
+  ````XML.skip-repl
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TelerikLicensingStrict Condition="$(Configuration) == 'Release'">true</TelerikLicensingStrict>
+  </PropertyGroup>
+  ````
 
 * [Add a `<WarningsAsErrors>` tag](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings#warningsaserrors-and-warningsnotaserrors) to the `.csproj` project file:
     ````XML.skip-repl

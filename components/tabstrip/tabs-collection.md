@@ -27,7 +27,7 @@ To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
     @{
         foreach (var tab in Tabs)
         {
-            <TabStripTab @key="tab.Id" Id="@tab.Id" Title="@tab.Title" Visible="@tab.Visible" Disabled="@tab.Disabled">
+            <TabStripTab @key="@tab.Id" Id="@tab.Id" Title="@tab.Title" Visible="@tab.Visible" Disabled="@tab.Disabled">
                 <HeaderTemplate>
                     <span>@tab.Title</span>
                 </HeaderTemplate>

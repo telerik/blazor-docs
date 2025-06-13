@@ -167,20 +167,13 @@ The following list describes how your prompts may look like:
 * &quot;Telerik Generate a ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.&quot;
 * &quot;Telerik Show me sample code for a Blazor Grid with virtual scrolling for the rows and columns.&quot;
 
-
 ## Number of Requests
 
-> The usage limits below will take place after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
+@[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
-The Telerik Blazor MCP Server allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
+## Connect to Local AI Model
 
-* Perpetual licenses: 50 requests per year
-* Subscription licenses: virtually unlimited number of requests with a fair use threshold of 300 requests per day
-* Trial licenses: 300 requests per trial per year. Activating the same trial for a new release does not grant additional 300 requests.
-
-> One prompt may trigger several requests to the MCP server, depending on the complexity.
->
-> All Telerik AI tools share a single request limit for your Telerik account. For example, the Telerik MCP server and the Telerik Copilot extension both take up from the same usage quota.
+You can use the Telerik Blazor MCP server with local large language models (LLM). For example, run your local model through [Ollama](https://ollama.com) and use a third-party package such as [MCP-LLM Bridge](https://github.com/patruff/ollama-mcp-bridge) to connect the model to the Telerik MCP server. This will allow you to use the Telerik AI Coding Assistant without a cloud-based AI model.
 
 ## See Also 
 
