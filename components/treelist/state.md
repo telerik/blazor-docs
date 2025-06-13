@@ -42,7 +42,7 @@ The TreeList state is a generic [class `TreeListState<TItem>`](slug:Telerik.Blaz
 | `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)](slug:treelist-selection-overview). |
 | `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling](slug:treelist-virtual-scrolling). In other words, this is the number of rows above the currently visible ones. |
 | `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts](slug:treelist-sorting). |
-| `TableWidth` | `string` | The sum of all visible column widths. This property changes together with `ColumnStates`. The `OnStateChanged` event does not fire separately for it. |
+| `TableWidth` | `string` | The sum of all visible column widths. The initial value is always `null` regardless of the column configuration. The `TableWidth` value changes during column resizing together with `ColumnStates` and the`OnStateChanged` event does not fire separately for it. When you resize a column programmatically, and all other columns already have widths, you must update the `TableWidth` too, otherwise the other columns will resize unexpectedly. |
 
 \* `TItem` is the TreeList model type.
 
