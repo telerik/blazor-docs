@@ -39,7 +39,7 @@ I am wrapping a Telerik component inside a custom component in my Form. When I t
 
 Internally, the Telerik input components use the cascading `EditContext` parameter that the `EditForm` and `TelerikForm` provide. The `EditContext` API allow the components to determine if validation has passed or failed. If the validation fails, the components show a red border.
 
-When you wrap an input component to another component you must define `ValueExpression` parameter in the custom component. This will allow the custom component to receive the correct expression from the parent component which holds the Form. The Blazor framework generates the expression automatically when using `@bind-Value`, but not when there is another component in the component hierarchy tree.
+When you wrap an input component in another component, you must define a `ValueExpression` parameter in the custom component. This will allow the custom component to receive the correct expression from the parent component, which holds the Form. The Blazor framework generates the expression automatically when using `@bind-Value`, but not when there is another component in the component hierarchy tree.
 
 The example below shows how to wrap a Telerik TextBox and DropDownList in different `.razor` files and get the invalid red border when the validation does not pass.
 
