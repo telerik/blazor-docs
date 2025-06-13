@@ -69,7 +69,7 @@ The recommended approach is to modify the app configuration or third-party tooli
 
 ## Suggested Workaround
 
-In some cases it may be possible to avoid the JSON error by rendering all Razor components in the app with a delay in `OnAfterRenderAsync`:
+In some cases, it may be possible to avoid the JSON error by rendering all Razor components in the app with a delay in `OnAfterRenderAsync`:
 
 >caption MainLayout.razor
 
