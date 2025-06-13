@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Should create PR to production?
-        uses: peter-evans/find-comment@v1
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
         id: fc
         with:
           issue-number: ${{github.event.number}}
@@ -39,7 +39,7 @@ jobs:
           echo "##[set-output name=branch;]$(echo ${BRANCH_NAME})"
       - name: Failed cherry-pick
         if: ${{ failure() }}
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           issue-number: ${{github.event.number}}
           body: | 
@@ -47,18 +47,14 @@ jobs:
       - name: pull-request
         id: pr
         if: steps.fc.outputs.comment-id != ''
-        uses: repo-sync/pull-request@v2
+        uses: actions/checkout@v3
         with:
-          destination_branch: "production"
-          source_branch: ${{ steps.cp.outputs.branch }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_title: "Merge ${{ steps.cp.outputs.branch }} into production" 
-          pr_body: | 
-            *This is automatically generated PR*
-            PR from master branch: #${{github.event.number}}. Once the change is merged, upload the changes to LIVE.
+          token: '${{ secrets.GITHUB_TOKEN }}'
+        run: |
+          gh pr create --base production --head ${{ steps.cp.outputs.branch }} --title "Merge ${{ steps.cp.outputs.branch }} into production" --body "*Automatically generated PR from master branch: #${{github.event.number}}. Once the change is merged, upload the changes to LIVE."
       - name: Post PR link
         if: steps.pr.outputs.pr_url != ''
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           issue-number: ${{github.event.number}}
           body: | 
