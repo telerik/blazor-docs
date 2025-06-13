@@ -24,43 +24,24 @@ previous_url: /knowledge-base/tabstrip-dynamic-tabs
 
 ## Description
 
-I have a collection of items representing separate tabs. I am iterating through that collection to render a tab for each item as shown [here](slug:tabstrip-tabs-collection). I want to allow the user to add and remove tabs, how to achieve that?
+I have a collection of items representing separate tabs. I am iterating through that collection to render a tab for each item as shown in the [Tabs Collection article](slug:tabstrip-tabs-collection). I want to allow the user to add and remove tabs. How to achieve that?
 
-This KB article answers the following questions:
+This KB article also answers the following questions:
 
-* How to remove a tab with a "X" button in the tab header?
-* How to use a button to add tabs and position this button next to the last tab header (similar to the "+" button in the browser)?
+* How to implement add and remove tab functionality with the Telerik TabStrip component.
+* How to remove a tab using an "X" button in the tab header.
+* How to add a new tab with a "+" button, similar to browser tab controls.
+* How to position the add ("+") button next to the last tab header.
 
 ## Solution
 
-The example below shows how to:
-* Use a [`HeaderTemplate`](slug:tabstrip-header-template) for the tab to add a button that removes the tab.
-* Conditionally display the "X" button based on the tabs' count.
-* Declare a button for adding tabs.
+* Use a [`HeaderTemplate`](slug:tabstrip-header-template) for the tab to add an "X" button.
+* Display the "X" button only when there is more than one tab.
+* Declare a "+" button for adding tabs.
 * Use custom styling and JavaScript to position the "+" button next to the last tab header.
 
 ````RAZOR
 @inject IJSRuntime JS
-
-<style>
-    .dynamic-tabstrip-wrapper {
-        --add-tab-button-size: 32.8px;
-    }
-
-        .dynamic-tabstrip-wrapper .k-tabstrip-items {
-            max-width: calc(100% - var(--add-tab-button-size));
-        }
-
-        .dynamic-tabstrip-wrapper .add-tab-button {
-            width: var(--add-tab-button-size);
-            padding-block: 6px;
-            z-index: 10000;
-        }
-
-    .remove-tab-button {
-        padding: 0 !important;
-    }
-</style>
 
 <div class="dynamic-tabstrip-wrapper k-relative">
     <TelerikButton OnClick="@AddTab"
@@ -94,10 +75,52 @@ The example below shows how to:
     </TelerikTabStrip>
 </div>
 
-@code {
-    private string ActiveTabId { get; set; }
+<style>
+    .dynamic-tabstrip-wrapper {
+        --add-tab-button-size: 32.8px;
+    }
 
-    private List<Tab> Tabs = new List<Tab>()
+        .dynamic-tabstrip-wrapper .k-tabstrip-items {
+            max-width: calc(100% - var(--add-tab-button-size));
+        }
+
+        .dynamic-tabstrip-wrapper .add-tab-button {
+            width: var(--add-tab-button-size);
+            padding-block: 6px;
+            z-index: 10000;
+        }
+
+    .remove-tab-button {
+        padding: 0 !important;
+    }
+</style>
+
+<script suppress-error="BL9992">
+    window.positionAddTabButton = () => {
+    const tabStripItems = Array.from(document.querySelectorAll(".dynamic-tabstrip-wrapper .k-tabstrip-item"));
+    const tabStripWrapperWidth = document.querySelector(".dynamic-tabstrip-wrapper").scrollWidth;
+
+    let totalWidth = !tabStripItems ? 0 : tabStripItems.reduce(
+    (accumulator, currentItem) => accumulator + parseFloat(currentItem.getBoundingClientRect().width),
+    0,
+    );
+
+    const addTabButton = document.querySelector(".add-tab-button");
+    const addTabButtonWidth = addTabButton.getBoundingClientRect().width;
+
+    // Assure button is never positioned outside the boundaries of the wrapper
+    if (totalWidth + addTabButtonWidth > tabStripWrapperWidth) {
+    totalWidth = tabStripWrapperWidth - addTabButtonWidth;
+    }
+
+    addTabButton.style.left = `${totalWidth}px`;
+    };
+</script>
+
+@code {
+    private string ActiveTabId { get; set; } = string.Empty;
+
+    private List<Tab> Tabs = new List<Tab>
     {
         new Tab { Id = Guid.NewGuid().ToString(), Title = "Tab 1" },
         new Tab { Id = Guid.NewGuid().ToString(), Title = "Tab 2" },
@@ -106,11 +129,10 @@ The example below shows how to:
 
     private void AddTab()
     {
-        Tab tabToAdd = new Tab { Id = Guid.NewGuid().ToString(), Title = $"New Tab" };
-
+        var tabToAdd = new Tab { Id = Guid.NewGuid().ToString(), Title = "New Tab" };
         Tabs.Add(tabToAdd);
 
-        //In this example, we are always activating the newly added tab. Adjust the logic to activate a different tab if needed.
+        // Activate the newly added tab
         ActiveTabId = tabToAdd.Id;
     }
 
@@ -119,51 +141,26 @@ The example below shows how to:
         if (Tabs.Count <= 1)
         {
             return;
-        }             
-       
+        }
+
         Tabs.Remove(tab);
 
-        //In this example, we are always activating the first tab. Adjust the logic to determine which tab to activate after removal.
+        // Activate the first tab after removal
         ActiveTabId = Tabs[0].Id;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JS.InvokeVoidAsync("positionAddTabButton");
-
         await base.OnAfterRenderAsync(firstRender);
     }
 
     public class Tab
     {
-        public string Id { get; set; }
-
-        public string Title { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
     }
-
 }
-
-<script suppress-error="BL9992">
-    window.positionAddTabButton = () => {
-        const tabStripItems = Array.from(document.querySelectorAll(".dynamic-tabstrip-wrapper .k-tabstrip-item"));
-        const tabStripWrapperWidth = document.querySelector(".dynamic-tabstrip-wrapper").scrollWidth;
-
-        let totalWidth = !tabStripItems ? 0 : tabStripItems.reduce(
-            (accumulator, currentItem) => accumulator + parseFloat(currentItem.getBoundingClientRect().width),
-            0,
-        );
-
-        const addTabButton = document.querySelector(".add-tab-button");
-        const addTabButtonWidth = addTabButton.getBoundingClientRect().width;
-
-        // assure button is never positioned outside the boundaries of the wrapper
-        if (totalWidth + addTabButtonWidth > tabStripWrapperWidth) {
-            totalWidth = tabStripWrapperWidth - addTabButtonWidth;
-        }
-
-        addTabButton.style.left = `${totalWidth}px`;
-    };
-</script>
 ````
 
 ## See Also
