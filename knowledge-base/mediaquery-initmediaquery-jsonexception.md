@@ -26,7 +26,7 @@ res_type: kb
 
 A Blazor app may throw a runtime JSON serialization exception on startup that is similar to:
 
-```HTML.skip-repl
+```C#.skip-repl
 Microsoft.JSInterop.JSException: An exception occurred executing JS interop: DeserializeUnableToConvertValue, System.Boolean Path: $ | LineNumber: 0 | BytePositionInLine: 4.. See InnerException for more details.
 
  ---> System.Text.Json.JsonException: DeserializeUnableToConvertValue, System.Boolean Path: $ | LineNumber: 0 | BytePositionInLine: 4.
