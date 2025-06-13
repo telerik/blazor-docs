@@ -16,19 +16,16 @@ The generated image from the component is a machine-readable label that contains
 
 ## Creating Blazor QRCode
 
-1. Add the `TelerikQRCode` tag to add the component to your razor page.
+1. Use the `TelerikQRCode` tag to add the component to your razor page.
+1. Set the `Value` parameter, according to the [encoding recommendations](slug:qrcode-encoding).
+1. Set the `Size` parameter, depending on the expected scanning distance and the required data capacity.
+1. (optional) Define a [QRCode overlay type](slug:qrcode-qr-code-types)).
 
-1. Set the `Value` property.
-
-1. Set its `Size` property.
-
-1. Optionally, choose a `QRCode Type` (one of the [types we support](slug:qrcode-qr-code-types)).
-
->caption A basic configuration of the Telerik QRCode
+>caption Basic Telerik QRCode
 
 ````RAZOR
-<TelerikQRCode Size="200px"
-               Value="https://docs.telerik.com/blazor-ui/introduction">
+<TelerikQRCode Value="https://www.telerik.com/blazor-ui"
+               Size="200px">
 </TelerikQRCode>
 ````
 
@@ -58,7 +55,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 | `QRCodeEncoding` | `enum` | The encoding mode used to encode the value. |
 | `QRCodeErrorCorrection` | `enum` | The error correction level used to encode the value. |
 | `Value` | `string` | Defines the initial value of the QRCode. |
-| `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article](slug:common-features/dimensions). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. |
+| `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article](slug:common-features/dimensions). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. To set an optimal `Size`, consider the expected scanning distance and data capacity. |
 | `Width` | `string` | Sets the width of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Width` should be set to `Height`. |
 | `Height` | `string` | Sets the height of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Height` should be set to `Width`. |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the QRCode component. |
@@ -84,7 +81,7 @@ The nested `QRCodeBorder` tag exposes parameters that enable you to customize th
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Color` | `string` | The color of the border. Accepts a valid CSS color string, including HEX and RGB. |
-| `Width` | `double` | The width of the border in pixels. By default the border width is set to zero which means that the border will not be visible. |
+| `Width` | `double` | The width of the border in pixels. The default value is `0` and the border is not visible. The QR Code border is part of the component `Size`. Thus, a wider border may require a larger `Size`. |
 
 ## Next Steps
 
