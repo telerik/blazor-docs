@@ -199,3 +199,8 @@ public class ChartDataController : ControllerBase
 ## Notes
 
 The approach used internally by the Chart may change in the future. For example, at the time of writing, the new `System.Net.Http.Json` is not yet ready for use, but it may be used in the future. Thus, the approach described in this article may become unnecessary or wrong.
+
+## See Also
+
+* [DataSourceRequest Filters not Working When You Add Reporting or Newtonsoft.Json](slug:common-kb-newtonsoft-breaks-datasourcerequest-serialization)
+* [InitMediaQueryWidget Throws JsonException](slug:mediaquery-kb-initmediaquery-jsonexception)
