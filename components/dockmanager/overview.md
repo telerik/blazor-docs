@@ -130,6 +130,7 @@ The following table lists the Dock Manager parameters. Also check the [DockManag
 | `Size` | `string` | Determines the size of the splitter pane. |
 | `Unpinnable` | `bool` <br /> (`false`) | Determines whether the pane can be unpinned. |
 | `Unpinned` | `bool` <br /> (`true`) | Determines whether the pane is unpinned. |
+| `UnpinnedSize` | `string` | Determines the size of the splitter pane when it is unpinned. |
 | `Visible` | `bool` <br /> (`true`) | Determines whether the tab/pane is rendered. |
 
 ### DockManagerSplitPane Parameters
