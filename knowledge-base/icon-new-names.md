@@ -1005,3 +1005,4 @@ Here is a list of the renamed icons:
 ## See Also
 
 * [Breaking Changes in Telerik UI for Blazor 4.0](slug:changes-in-4-0-0)
+* [Built-in Telerik SVG and Font Icons](slug:common-features-icons)
