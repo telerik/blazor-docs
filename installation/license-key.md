@@ -63,7 +63,12 @@ The new license key includes information about all previous purchases. This proc
 
 ## Using Telerik Packages in Referenced Projects
 
-Telerik UI for Blazor may be used in a referenced project in a multi-project app. For example, in the **Client** project of a WebAssembly app that uses server-side pre-rendering. In such cases, you can briefly see a yellow banner in the browser, which says "We couldn't verify your license key for Telerik UI for Blazor. Please see the build log for details and resolution steps".
+Telerik UI for Blazor may be used in a referenced project in a multi-project app, for example:
+
+* In the **Client** project of a Blazor Web App with **WebAssembly** or **Auto** render mode.
+* In a Razor class library project, which is used by a main web project.
+
+In such cases, you may see a yellow banner in the browser, which says "We couldn't verify your license key for Telerik UI for Blazor. Please see the build log for details and resolution steps".
 
 There are two alternative ways to avoid the warning banner:
 
