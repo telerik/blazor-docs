@@ -49,18 +49,18 @@ jobs:
       - name: pull-request
         id: pr
         if: steps.fc.outputs.comment-id != ''
-        uses: actions/checkout@v3
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr create --base production --head ${{ steps.cp.outputs.branch }} --title "Merge ${{ steps.cp.outputs.branch }} into production" --body "Automatically generated PR from master branch: #${{github.event.number}}. Once the change is merged, upload the changes to LIVE."
+          GHPR_OUTPUT=$(gh pr create --base production --head ${{ steps.cp.outputs.branch }} --title "Merge ${{ steps.cp.outputs.branch }} into production" --body "Automatically generated PR from master branch: #${{github.event.number}}. Once the change is merged, upload the changes to LIVE.")
+          echo "##[set-output name=ghproutput;]$(echo $GHPR_OUTPUT)"
       - name: Post PR link
         if: steps.pr.outputs.pr_url != ''
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           issue-number: ${{github.event.number}}
           body: | 
-            Here you are the link to your PR to production: [${{steps.pr.outputs.pr_number}}](${{steps.pr.outputs.pr_url}})
+            Here you are the link to your PR to production: ${{ steps.pr.outputs.ghproutput }}
   
   delete_branch:
     needs: [cherry_pick]
