@@ -13,13 +13,10 @@ position: 15
 You can customize the appearance of the labels rendered on the [scale](slug:circular-gauge-scale) of the Circular Gauge by using the `<CircularGaugeScaleLabels>`, child tag of the `<CircularGaugeScale>`, and the parameters it exposes:
 
 * [Format](#format)
-
 * [Center Template](#center-template)
-
+* [Position](#position)
 * [Color](#color)
-
 * [Visible](#visible)
-
 * [Additional Customization](#additional-customization)
 
 ## Format
@@ -88,6 +85,42 @@ The center template allows you to take control of the rendering of the central s
         </CircularGaugeScale>
 
     </CircularGaugeScales>
+</TelerikCircularGauge>
+````
+
+## Position
+
+The `Position` parameter is of enum type `CircularGaugeScaleLabelsPosition` and determines whether the Gauge labels are on the inside (default) or outside of the Gauge graphic. Labels on the inside allow for a visually larger component on the same available space.
+
+>caption Setting Circular Gauge label position
+
+````RAZOR
+<TelerikCircularGauge>
+    <CircularGaugeScales>
+        <CircularGaugeScale>
+            <CircularGaugeScaleLabels Visible="true"
+                                      Position="@CircularGaugeScaleLabelsPosition.Inside" />
+        </CircularGaugeScale>
+    </CircularGaugeScales>
+
+    <CircularGaugePointers>
+        <CircularGaugePointer Value="66">
+        </CircularGaugePointer>
+    </CircularGaugePointers>
+</TelerikCircularGauge>
+
+<TelerikCircularGauge>
+    <CircularGaugeScales>
+        <CircularGaugeScale>
+            <CircularGaugeScaleLabels Visible="true"
+                                      Position="@CircularGaugeScaleLabelsPosition.Outside" />
+        </CircularGaugeScale>
+    </CircularGaugeScales>
+
+    <CircularGaugePointers>
+        <CircularGaugePointer Value="66">
+        </CircularGaugePointer>
+    </CircularGaugePointers>
 </TelerikCircularGauge>
 ````
 

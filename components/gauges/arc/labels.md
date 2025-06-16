@@ -13,13 +13,10 @@ position: 20
 You can customize the appearance of the labels rendered on the [scale](slug:arc-gauge-scale) of the Arc Gauge by using the `<ArcGaugeScaleLabels>`, child tag of the `<ArcGaugeScale>`, and the parameters it exposes:
 
 * [Format](#format)
-
 * [Center Template](#center-template)
-
+* [Position](#position)
 * [Color](#color)
-
 * [Visible](#visible)
-
 * [Additional Customization](#additional-customization)
 
 ## Format
@@ -83,6 +80,42 @@ The center template allows you to take control of the rendering of the central s
             
         </ArcGaugePointer>
 
+    </ArcGaugePointers>
+</TelerikArcGauge>
+````
+
+## Position
+
+The `Position` parameter is of enum type `ArcGaugeScaleLabelsPosition` and determines whether the Gauge labels are on the inside (default) or outside of the Gauge graphic. Labels on the inside allow for a visually larger component within the same available space.
+
+>caption Setting Arc Gauge label position
+
+````RAZOR
+<TelerikArcGauge>
+    <ArcGaugeScales>
+        <ArcGaugeScale>
+            <ArcGaugeScaleLabels Visible="true"
+                                 Position="@ArcGaugeScaleLabelsPosition.Inside" />
+        </ArcGaugeScale>
+    </ArcGaugeScales>
+
+    <ArcGaugePointers>
+        <ArcGaugePointer Value="66">
+        </ArcGaugePointer>
+    </ArcGaugePointers>
+</TelerikArcGauge>
+
+<TelerikArcGauge>
+    <ArcGaugeScales>
+        <ArcGaugeScale>
+            <ArcGaugeScaleLabels Visible="true"
+                                 Position="@ArcGaugeScaleLabelsPosition.Outside" />
+        </ArcGaugeScale>
+    </ArcGaugeScales>
+
+    <ArcGaugePointers>
+        <ArcGaugePointer Value="66">
+        </ArcGaugePointer>
     </ArcGaugePointers>
 </TelerikArcGauge>
 ````
