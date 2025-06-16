@@ -56,7 +56,7 @@ The Blazor HTML Editor has a `Value` parameter, similar to other input component
 
 An empty string is a valid initial Editor `Value`, but after the user interacts with the component, the minimal component `Value` is at least an empty element (usually `"<p></p>"`). Note that [the Editor and the browser treat empty paragraphs differently](slug:editor-kb-missing-br-tags-in-value).
 
-The Editor manages its content and `Value` depending on a [customizable schema](#prosemirror-schema-and-plugins), which defines the allowed HTML tags and attributes. The component strips all other tags and attributes for compliance and security reasons.
+The Editor manages its content and `Value` depending on a [customizable schema](#prosemirror-schema-and-plugins). The component strips all other tags and attributes for compliance and security reasons.
 
 
 ## Security
@@ -90,7 +90,7 @@ The Telerik UI for [Blazor Editor](https://www.telerik.com/blazor-ui/editor) use
 
 ## ProseMirror Schema and Plugins
 
-The Editor uses a built-in <a href="https://prosemirror.net/docs/guide/#schema" target="_blank">ProseMirror Schema</a> containing some of the most common HTML tags and a set of predefined <a href="https://prosemirror.net/docs/ref/#state.Plugin_System" target="_blank">ProseMirror Plugins</a> for its basic functionalities. You can customize the default ProseMirror [Schema](slug:editor-prosemirror-schema-overview) and [Plugins](slug:editor-prosemirror-plugins) to achieve the desired functionality in the Editor for Blazor. 
+The Editor uses a built-in [ProseMirror Schema](https://prosemirror.net/docs/guide/#schema) that includes most of the common HTML tags and a set of predefined [ProseMirror Plugins](https://prosemirror.net/docs/ref/#state.Plugin_System) for its basic functionalities. Find out how to customize the default ProseMirror [Schema](slug:editor-prosemirror-schema-overview) and [Plugins](slug:editor-prosemirror-plugins) to achieve the desired functionality in the Editor for Blazor.
 
 ## Editor Parameters
 
