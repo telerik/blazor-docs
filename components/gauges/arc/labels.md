@@ -86,7 +86,7 @@ The center template allows you to take control of the rendering of the central s
 
 ## Position
 
-The `Position` parameter is of enum type `ArcGaugeScaleLabelsPosition` and determines whether the Gauge labels are on the inside (default) or outside of the Gauge graphic. Labels on the inside allow for a visually larger component on the same available space.
+The `Position` parameter is of enum type `ArcGaugeScaleLabelsPosition` and determines whether the Gauge labels are on the inside (default) or outside of the Gauge graphic. Labels on the inside allow for a visually larger component within the same available space.
 
 >caption Setting Arc Gauge label position
 
