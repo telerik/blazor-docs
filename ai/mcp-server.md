@@ -29,7 +29,10 @@ Use the documentation of your AI-powered MCP client to add the Telerik MCP serve
 * Type: `stdio` (standard input/output transport)
 * Command: `npx`
 * Arguments: `-y`
-* Server name: `telerik_blazor_assistant` (depends on your preferences)
+* Server name: `telerikBlazorAssistant` (depends on your preferences)
+
+> * Do not use hyphens (`-`) or underscores (`_`) in the MCP server name in the MCP `.json` file, due to potential compatibility issues with some MCP clients such as Visual Studio or Windsurf.
+> * Some MCP clients expect the MCP servers to be listed under a `servers` JSON key, while others expect `mcpServers`.
 
 You also need to add your [Telerik licence key](slug:installation-license-key) as an `env` parameter in the `mcp.json` file. There are two options:
 
@@ -40,9 +43,7 @@ You also need to add your [Telerik licence key](slug:installation-license-key) a
 
 For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers).
 
-> Visual Studio 17.14 seems to impose the following requirements:
-> * Do not use hyphens (`-`) in the MCP server name in `.mcp.json`. For example, `"telerik_blazor_assistant"` and `"telerikblazorassistant"` work, but `"telerik-blazor-assistant"` does not.
-> * The Copilot Chat window must be open and active when you open a solution.
+> Visual Studio 17.14 seems to require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
 
 To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder.
 
@@ -51,7 +52,7 @@ To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` fil
 ````JSON.skip-repl
 {
   "servers": {
-    "telerik_blazor_assistant": {
+    "telerikBlazorAssistant": {
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@progress/telerik-blazor-mcp"],
@@ -78,7 +79,7 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
 ````JSON.skip-repl
 {
   "servers": {
-    "telerik_blazor_assistant": {
+    "telerikBlazorAssistant": {
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@progress/telerik-blazor-mcp"],
@@ -100,7 +101,7 @@ To [add the Telerik MCP Server globally for VS Code, edit the VS Code `settings.
     "chat.mcp.discovery.enabled": true,
     "mcp": {
         "servers": {
-            "telerik_blazor_assistant": {
+            "telerikBlazorAssistant": {
                 "type": "stdio",
                 "command": "npx",
                 "args": ["-y", "@progress/telerik-blazor-mcp"],
@@ -124,7 +125,7 @@ To [enable the Telerik MCP Server in a specific workspace](https://code.visualst
 ````JSON.skip-repl
 {
   "mcpServers": {
-    "telerik_blazor_assistant": {
+    "telerikBlazorAssistant": {
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@progress/telerik-blazor-mcp"],
