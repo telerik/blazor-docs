@@ -186,7 +186,7 @@ The firewall must allow some of the requests to be redirected from `nuget.teleri
 
 ## Obsolete Telerik NuGet URL
 
-The NuGet v2 server at `https://nuget.telerik.com/nuget` was sunset in November 2024 and is no longer available. The new v3 protocol offers faster package searches and restores, improved security, and more reliable infrastructure. To redirect your feed to the NuGet v3 protocol, all you have to do is to change your NuGet package source URL to `https://nuget.telerik.com/v3/index.json`.
+The NuGet v2 server at `https://nuget.telerik.com/nuget` was sunset in November 2024 and is no longer available. The v3 protocol offers faster package searches and restores, improved security, and more reliable infrastructure. To redirect your feed to the NuGet v3 protocol, all you have to do is to change your NuGet package source URL to `https://nuget.telerik.com/v3/index.json`.
 
 
 ## Troubleshooting
