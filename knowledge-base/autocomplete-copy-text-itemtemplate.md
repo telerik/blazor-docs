@@ -4,7 +4,7 @@ description: Learn how to allow users to copy text from the ItemTemplate in the 
 type: how-to
 page_title: How to Enable Text Copy in AutoComplete Dropdown Blazor
 slug: autocomplete-kb-copy-text-itemtemplate
-tags: autocomplete, blazor, itemtemplate, clipboard, text, copy, paste
+tags: blazor, autocomplete, itemtemplate, clipboard, copy, paste
 res_type: kb
 ticketid: 1689288
 ---
@@ -35,8 +35,11 @@ To enable text copying from the dropdown list in the AutoComplete, use the `Item
 @inject IJSRuntime JS
 
 <style>
-    .copy-button {
-        margin-left: 8px;
+    .autocomplete-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
     }
 </style>
 
@@ -45,9 +48,11 @@ To enable text copying from the dropdown list in the AutoComplete, use the `Item
         @{
             var text = context.ToString();
         }
-        <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div class="autocomplete-item">
             <strong>@text</strong>
-            <TelerikButton OnClick="@(() => CopyToClipboard(text))" Class="copy-button" Icon="@SvgIcon.Copy" FillMode="@ThemeConstants.Button.FillMode.Outline" />
+            <TelerikButton OnClick="@(() => CopyToClipboard(text))"
+                           Icon="@SvgIcon.Copy"
+                           FillMode="@ThemeConstants.Button.FillMode.Outline" />
         </div>
     </ItemTemplate>
 </TelerikAutoComplete>
@@ -55,7 +60,10 @@ To enable text copying from the dropdown list in the AutoComplete, use the `Item
 @code {
     private string Role { get; set; }
     private List<string> AutoCompleteData { get; set; }
-    private List<string> SourceData { get; set; } = new List<string> { "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer" };
+    private List<string> SourceData { get; set; } = new()
+    {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
 
     protected override void OnInitialized()
     {
@@ -69,7 +77,24 @@ To enable text copying from the dropdown list in the AutoComplete, use the `Item
 
     private async Task CopyToClipboard(string text)
     {
-        await JS.InvokeVoidAsync("navigator.clipboard.writeText", text);
+        try
+        {
+            var isSupported = await JS.InvokeAsync<bool>("eval", "!!(navigator.clipboard && navigator.clipboard.writeText)");
+            if (isSupported)
+            {
+                await JS.InvokeVoidAsync("navigator.clipboard.writeText", text);
+            }
+            else
+            {
+                Console.WriteLine("Clipboard API not supported in this browser.");
+                // Optionally show a notification to the user
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Clipboard copy failed: {ex.Message}");
+            // Optionally show a fallback UI message to the user
+        }
     }
 }
 ````
