@@ -4,7 +4,7 @@ description: Learn how to display a popup beside an icon embedded in a cell of t
 type: how-to
 page_title: How to Display Popup Next to Icon in Grid for Blazor
 slug: grid-kb-popup-in-cell
-tags: grid, blazor, popup, cell
+tags: blazor, grid, popup, template
 res_type: kb
 ticketid: 1689992, 1640846
 ---
@@ -22,15 +22,15 @@ ticketid: 1689992, 1640846
 
 ## Description
 
-I want to display a Popup beside an icon embedded within a cell in the [Grid for Blazor](slug:grid-overview). The Popup should appear when the icon is clicked.
+I want to display a popup beside an icon embedded within a cell in the [Grid for Blazor](slug:grid-overview). The popup should appear when the icon is clicked.
 
 ## Solution
 
-To display a Popup within a grid cell:
+To display a popup within a Grid cell:
 
-1. Define a dictionary to store references to all popups associated with the Grid items. This ensures that each Popup has a unique identifier tied to its corresponding item.
+1. Add a button that triggers the popup for each row by using a `GridCommandColumn` or a column [`Template`](slug:grid-templates-column).
 
-2. Use the `AnchorSelector` parameter of the `TelerikPopup` component to dynamically associate each popup with its corresponding icon. Set the `AnchorSelector` to the unique ID of the icon element.
+2. Anchor the [`Popover`](slug:popover-overview) to the button via `AnchorSelector`.
 
 Here is an example implementation:
 
@@ -41,45 +41,56 @@ Here is an example implementation:
              Sortable="true"
              FilterMode="GridFilterMode.FilterRow">
     <GridColumns>
-        <GridColumn Field="@nameof(SampleModel.Name)">
-            <Template>
-                @{
-                    var dataItem = (SampleModel)context;
-                    if (!PopupRefs.ContainsKey(dataItem.Id))
-                    {
-                        PopupRefs.Add(dataItem.Id, null);
-                    }
-                }
-                <TelerikButton Id="@( $"button{dataItem.Id}" )" Icon="@SvgIcon.DocumentManager"
-                               OnClick="@( () => PopupRefs[dataItem.Id]?.Show() )" />
-                <TelerikPopup @ref="@PopupRefs[dataItem.Id]"
-                              AnchorSelector="@( $"#button{dataItem.Id}" )"
-                              AnchorHorizontalAlign="@PopupAnchorHorizontalAlign.Right"
-                              AnchorVerticalAlign="@PopupAnchorVerticalAlign.Top"
-                              HorizontalAlign="@PopupHorizontalAlign.Left"
-                              VerticalAlign="@PopupVerticalAlign.Top"
-                              Width="240px"
-                              Height="140px">
-                    <div style="padding:2em;">
-                        Popup for item
-                        <TelerikButton OnClick="@( () => PopupRefs[dataItem.Id]?.Hide() )">Hide Popup for @dataItem.Name</TelerikButton>
-                    </div>
-                </TelerikPopup>
-            </Template>
-        </GridColumn>
+        <GridCommandColumn>
+            @{
+                var dataItem = (SampleModel)context;
+            }
+            <GridCommandButton Id="@( $"button{dataItem.Id}" )" Icon="@SvgIcon.DocumentManager"
+                               OnClick="@OnPopupShowButtonClick" />
+        </GridCommandColumn>
         <GridColumn Field="@nameof(SampleModel.Price)" />
         <GridColumn Field="@nameof(SampleModel.Quantity)" />
     </GridColumns>
 </TelerikGrid>
 
+<TelerikPopover @ref="@PopoverRef"
+                AnchorSelector="@PopoverAnchorSelector"
+                Position="@PopoverPosition.Right"
+                Offset="20"
+                Width="240px"
+                Height="140px">
+    <PopoverHeader>
+        Popover for @ModelInPopup?.Name
+    </PopoverHeader>
+    <PopoverContent>
+        <div style="padding:2em;">
+            <TelerikButton OnClick="@( () => PopoverRef?.Hide() )">Hide</TelerikButton>
+        </div>
+    </PopoverContent>
+</TelerikPopover>
+
 @code {
     private List<SampleModel> GridData { get; set; } = new();
-    private Dictionary<int, TelerikPopup?> PopupRefs { get; set; } = new();
+    private TelerikPopover? PopoverRef { get; set; }
+
+    private string PopoverAnchorSelector { get; set; } = "#button1";
+
+    private SampleModel? ModelInPopup { get; set; }
+
+    private async Task OnPopupShowButtonClick(GridCommandEventArgs args)
+    {
+        ModelInPopup = (SampleModel)args.Item;
+
+        PopoverRef?.Hide();
+        PopoverAnchorSelector = $"#button{ModelInPopup.Id}";
+        await Task.Delay(1);
+
+        PopoverRef?.Show();
+    }
 
     protected override void OnInitialized()
     {
         var rnd = new Random();
-
         for (int i = 1; i <= 7; i++)
         {
             GridData.Add(new SampleModel()
@@ -94,7 +105,6 @@ Here is an example implementation:
             });
         }
     }
-
     public class SampleModel
     {
         public int Id { get; set; }
@@ -114,4 +124,4 @@ Here is an example implementation:
 ## See Also
 
 * [Grid Overview Documentation](slug:grid-overview)
-* [Popup Overview Documentation](slug:popup-overview)
+* [Popover Overview Documentation](slug:popover-overview)
