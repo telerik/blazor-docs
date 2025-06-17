@@ -23,87 +23,163 @@ res_type: kb
 
 The article asnwers to the following question:
 
-* How can I configure the ComboBox to automatically select the first matching item when the input loses focus (e.g., when the user tabs away or clicks outside)?
-* How do I auto-select a ComboBox item based on user input when focus is lost?
+* How to configure the ComboBox to automatically select the first matching item when the input loses focus (e.g., when the user tabs away or clicks outside)?
+* How to auto-select a ComboBox item based on user input when focus is lost?
 * Can the ComboBox select a suggested item on blur without pressing Enter?
 * How to set the ComboBox value when the user leaves the input field?
 
 ## Solution
-To automatically select the first matching item in the ComboBox when the input loses focus (on blur), follow these steps:
+To automatically select the first matching item in the ComboBox when the input loses focus, use a combination of the ComboBox [`OnRead` event](slug:components/combobox/events#onread) and JavaScript interop. The provided example demonstrates how to:
 
-1. Handle the [`OnBlur` event](slug:components/combobox/events#onblur) of the ComboBox to detect when the input loses focus.
-2. Retrieve the currently highlighted or filtered item using a JavaScript helper function via `JS interop`.
-3. Check for a matching item in the ComboBox data based on the user's input.
-4. Set the matching item as the selected value programmatically.
+1. Use the `OnRead` event to filter data and store the first matching item.
+2. Attach a JavaScript event handler to detect when the user blurs the ComboBox input.
+3. Invoke a .NET method from JavaScript to set the ComboBox value to the first matching item when focus is lost.
+4. Update the ComboBox selection programmatically and refresh the UI.
 
 >caption Auto-select the first matching item on blur
 
 ````RAZOR
+@using Telerik.DataSource.Extensions
+
+@implements IDisposable
+
 @inject IJSRuntime js
 
+<p>ComboBoxFirstItem: @ComboBoxFirstItem?.Text</p>
+
 <p>Selected value: @ComboBoxValue</p>
-<p>First Filtered value: @FirstFilteredItem</p>
 
+<TelerikComboBox OnRead="@OnComboBoxRead"
+                 TItem="@ListItem"
+                 TValue="@int"
+                 Value="@ComboBoxValue"
+                 ValueChanged="@( (int newValue) => ComboBoxValueChanged(newValue) )"
+                 TextField="@nameof(ListItem.Text)"
+                 ValueField="@nameof(ListItem.Id)"
+                 Filterable="true"
+                 FilterOperator="@StringFilterOperator.Contains"
+                 Placeholder="Select an item..."
+                 ShowClearButton="true"
+                 Width="200px"
+                 Id="combo-1">
+    <ComboBoxSettings>
+        <ComboBoxPopupSettings Class="select-on-tab" />
+    </ComboBoxSettings>
+</TelerikComboBox>
+<br/>
+<br/>
+<TelerikTextBox Placeholder="Next form item" Width="200px"/>
 
-<span onkeyup="@GetFirstFilteredItem">
-    <TelerikComboBox Data="@ComboBoxData"
-                     @bind-Value="@ComboBoxValue"
-                     TextField="@nameof(ListItem.Text)"
-                     ValueField="@nameof(ListItem.Value)"
-                     Filterable="true"
-                     OnBlur="@SelectItemOnTab"
-                     OnOpen="@( () => IsComboBoxOpen = true )"
-                     OnClose="@( () => IsComboBoxOpen = false )"
-                     Width="200px">
-        <ComboBoxSettings>
-            <ComboBoxPopupSettings Class="select-on-tab" />
-        </ComboBoxSettings>
-    </TelerikComboBox>
-</span>
-<br />
-<br />
-<TelerikTextBox Width="200px" Placeholder="another element" />
-
+@* Move JavaScript to a separate JS file *@
 <script suppress-error="BL9992">
-    function getHighligtedComboItem() {
-    var focusedItem = document.querySelector(".select-on-tab .k-list-item.k-focus");
-        if (focusedItem) {
-            return focusedItem.innerText;
+        function attachComboKeyDown(selector) {
+            var comboInput = document.querySelector(selector);
+            if (comboInput) {
+                comboInput.addEventListener("keydown", onComboInputKeyDown);
+            }
         }
-    }
+
+        function detachComboKeyDown(selector) {
+            var comboInput = document.querySelector(selector);
+            if (comboInput) {
+                comboInput.removeEventListener("keydown", onComboInputKeyDown);
+            }
+        }
+
+        function onComboInputKeyDown(e) {
+            if (e.key == "Tab") {
+                dotNet.invokeMethodAsync("OnComboBoxTab", e.target.value);
+            }
+        }
+
+        var dotNet;
+
+        function saveDotNetRef(dotNetRef) {
+            dotNet = dotNetRef;
+        }
 </script>
 
 @code {
-    private IEnumerable<ListItem> ComboBoxData = Enumerable.Range(1, 123).Select(x => new ListItem { Text = "Item " + x, Value = x });
-    private int ComboBoxValue { get; set; }
-    private string FirstFilteredItem { get; set; } = string.Empty;
-    private bool IsComboBoxOpen { get; set; }
+    private DotNetObjectReference<__Main>? DotNetRef { get; set; }
 
-    private async Task GetFirstFilteredItem()
+    private List<ListItem> ComboBoxData { get; set; } = new();
+    private int ComboBoxValue { get; set; }
+    private ListItem? ComboBoxFirstItem { get; set; }
+
+    [JSInvokable("OnComboBoxTab")]
+    public void OnComboBoxTab(string newStringValue)
     {
-        FirstFilteredItem = await js.InvokeAsync<string>("getHighligtedComboItem");
+        if (ComboBoxFirstItem is not null && ComboBoxFirstItem.Text.Contains(newStringValue))
+        {
+            ComboBoxValue = ComboBoxFirstItem.Id;
+            ComboBoxFirstItem = default;
+
+            StateHasChanged();
+        }
     }
 
-    private void SelectItemOnTab()
+    private void ComboBoxValueChanged(int newValue)
     {
-        if (!string.IsNullOrEmpty(FirstFilteredItem))
+        ComboBoxValue = newValue;
+        ComboBoxFirstItem = default;
+    }
+
+    private async Task OnComboBoxRead(ReadEventArgs args)
+    {
+        var result = await ComboBoxData.ToDataSourceResultAsync(args.Request);
+
+        args.Data = result.Data;
+        args.Total = result.Total;
+
+        if (args.Request.Filters.Count > 0)
         {
-            var matchingItem = ComboBoxData.FirstOrDefault(x => x.Text.ToLowerInvariant().Contains(FirstFilteredItem.Trim().ToLowerInvariant()));
-            if (matchingItem != null)
-            {
-                ComboBoxValue = matchingItem.Value;
-                FirstFilteredItem = string.Empty;
-            }
+            ComboBoxFirstItem = args.Data.Cast<ListItem>().First();
         }
+        else
+        {
+            ComboBoxFirstItem = default;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(1); // ensure HTML is ready
+            await js.InvokeVoidAsync("saveDotNetRef", DotNetRef);
+            await js.InvokeVoidAsync("attachComboKeyDown", "#combo-1");
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    protected override void OnInitialized()
+    {
+        DotNetRef = DotNetObjectReference.Create(this);
+
+        for (int i = 1; i <= 24; i++)
+        {
+            ComboBoxData.Add(new ListItem()
+                {
+                    Id = i,
+                    Text = $"Item {i}"
+                });
+        }
+    }
+
+    public void Dispose()
+    {
+        DotNetRef?.Dispose();
+        _ = js.InvokeVoidAsync("detachComboKeyDown", "#combo-1");
     }
 
     public class ListItem
     {
-        public int Value { get; set; }
+        public int Id { get; set; }
         public string Text { get; set; } = string.Empty;
     }
 }
 ````
 ## See Also
 
-- [ComboBox Events in Telerik UI for Blazor](slug:components/combobox/events)
+- [ComboBox Events](slug:components/combobox/events)
