@@ -27,7 +27,7 @@ The `FileSelectFileInfo` type contains the following properties:
 Property | Type | Description
 ---------|----------|---------
 `Id` | `string` | The unique file identifier.
-`Name`|`string` | The **encoded** file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file can be renamed in the [`OnSelect`](#onselect) handler.
+`Name`|`string` | The encoded file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file can be renamed in the [`OnSelect` event handler](#onselect).
 `Size` |`long` | The file size in bytes.
 `Extension` |`string` | The file extension.
 `InvalidExtension` | `bool` | A Boolean flag that shows if the file type is invalid.
