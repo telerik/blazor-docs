@@ -61,7 +61,7 @@ The `UploadFileInfo` object has the following properties:
 | `InvalidExtension` | `bool` | Defines if the file violates the [`AllowedExtensions` value](slug:upload-overview#upload-parameters). |
 | `InvalidMaxFileSize` | `bool` | Defines if the file violates the [`MaxFileSize` value](slug:upload-overview#upload-parameters). |
 | `InvalidMinFileSize` | `bool` | Defines if the file violates the [`MinFileSize` value](slug:upload-overview#upload-parameters). |
-| `Name` | `string` | The **encoded** file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file name received by the controller (endpoint) is **not encoded**. The [file can be renamed](#renaming-a-file) in the [`OnSelect`](#onselect) and [`OnUpload`](#onupload) handlers. |
+| `Name` | `string` | The encoded file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file name received by the controller (endpoint) is not encoded. The [file can be renamed](#renaming-a-file) in the [`OnSelect`](#onselect) and [`OnUpload`](#onupload) event handlers. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
 | `Size` | `long` | The file size in bytes. |
 | `Status` | [`UploadFileStatus` enum](slug:Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component (`Selected`, `Uploading`, `Uploaded`, `Failed`). |
