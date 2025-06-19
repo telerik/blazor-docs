@@ -97,6 +97,18 @@ async Task OnValueChanged(int newValue) { }
 
 This guide is adapted from the full Progress documentation style guide for use with GitHub Copilot or similar tools. It focuses on actionable, concise rules to help write clear, consistent, and accessible product documentation.
 
+## Dcouemnting New Component Structure and Specifics
+
+Every component documentation is placed in a separate file, which is located in the `docs/components` folder. 
+This folder contains folders for each component, and each folder contains the documentation files for the component. Most common files are:
+
+- `overview.md`: A high-level overview of the component, its purpose, and usage.
+- `events.md`: A detailed description of the events that the component emits, including their parameters and usage.
+- `templates.md`: If the component has templates, this file provides information about the templates that can be used with the component, including examples and usage guidelines.
+- `appearance.md`: A file that describes the appearance of the component, including its styles, themes, and customization options.
+
+!!!IMPORTANT !!! Each component folder has an accessibility folder which contains the accessibility documentation for the component. This folder is automatically generated. With that in mind, do not create such folder when creating a new component documentation.
+
 ## Tone and Voice
 
 ### Basic Things to Avoid
@@ -493,6 +505,7 @@ To create an important note, use the `caution` prefix.
 * Minimize empty space in the screenshot.
 * Do not use screenshots wider than 1000 px.
 * For labels, use Arial, 16 pt.
+
 ## Captions for Figures, Tables, and Code Snippets
 
 * Introduce each table, figure, screenshot, code snippet, or demo example with a descriptive sentence or with a caption. For example, "The following table lists the configuration options of the TreeList." (descriptive sentence) or "**Available Configuration Options of the TreeList**" (caption).
@@ -536,6 +549,4 @@ The Knowledge Base articles include how-to and troubleshooting scenarios. Depend
 * Treat the heading that states the question as a sentence.
 * Use the appropriate punctuation as the heading is a sentence.
 * Try to stick to the established template.
-* [Learn More: Creating Frequently Asked Questions Articles]({% slug faq_articles %})
-
 ---
