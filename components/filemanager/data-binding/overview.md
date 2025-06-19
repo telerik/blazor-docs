@@ -8,26 +8,20 @@ published: True
 position: 0
 ---
 
-# FileManager Data Binding Basics
+# FileManager Data Binding Overview
 
-This article explains the different ways to provide data to a FileManager component and the properties related to data binding. Reviewing this article will explain the basics of how you can describe the hierarchy of items in your data source to the treeview component so they can render.
+This FileManager Data Binding section explains the different ways to provide data to a FileManager component and the properties related to data binding. This article describes what are the available (bindable) features of FileManager data items and how to map model properties to these features.
+
+There are two data binding modes that the FileManager supports:
+
+* [Flat data](slug:filemanager-data-binding-flat-data)&mdash;a collection of self-referencing items with parent-child relationships.
+* [Hierarchical data](slug:filemanager-data-binding-hierarchical-data)&mdash;each item holds its children in a nested property.
 
 @[template](/_contentTemplates/common/general-info.md#valuebind-vs-databind-link)
 
-First, review:
-
-* The available (bindable) [features of a FileManager items](#filemanager-item-features).
-* How to match fields in the model with the FileManager item [data bindings](#data-bindings).
-
-There are two modes of providing data to a FileManager, and they both use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
-
-* [Flat data](slug:filemanager-data-binding-flat-data) - a collection of self-referencing items with parent-child relationships See the `Id` and `ParentId` settings.
-
-* [Hierarchical data](slug:filemanager-data-binding-hierarchical-data) - each item holds its children in a nested property. See the `Directories` setting.
-
 ## FileManager Item Features
 
-The FileManager has features that map to properties in the model. The following model uses property names that will work automatically, with no additional FileManager configuration:
+The FileManager has features that map to properties in the model. The following flat data model uses property names that will work automatically, with no additional FileManager configuration:
 
 ````RAZOR
 @using System.IO
@@ -227,9 +221,9 @@ The FileManager has features that map to properties in the model. The following 
 
 The following section describe the meaning of the model properties for the FileManager.
 
-### Data Bindings
+## Data Bindings
 
-All [FileManager item features](#fileManager-item-features) map to model properties.  The properties of a FileManager item match directly to a field of the component model. You define that relationship by providing the property name from which the corresponding information is taken. To do this, use the following parameters of the main `TelerikFileManager` tag:
+All [FileManager item features](#fileManager-item-features) map to model properties. You define that relationship by providing the property name from which the corresponding information is taken. To do this, use the following parameters of the main `TelerikFileManager` tag:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -249,8 +243,8 @@ All [FileManager item features](#fileManager-item-features) map to model propert
 | `IdField `| `"Id" ` | any | The unique identifier of the file. Required for [binding to flat data](slug:filemanager-data-binding-flat-data). |
 | `ParentIdField`| `"ParentId"` | any | Identifies the item's parent. Required for [binding to flat data](slug:filemanager-data-binding-flat-data). Set to `null` for root items. Do not use `ParentId` with hierarchical data. |
 | `HasDirectoriesField`| `"HasDirectories"` | `bool` | Determines whether the item has child folders. Required for [binding to flat data](slug:filemanager-data-binding-flat-data) If `true`, the folder will show an expand arrow in the TreeView. With [hierarchical data](slug:filemanager-data-binding-hierarchical-data), the FileManager renders expand icons based on `Directories`, but `HasDirectories` takes precedence. |
-| `DirectoriesField`| `"Directories"` | `IEnumerable<TItem>` | The item's child folders. Required for [binding to hierarchical data](slug:filemanager-data-binding-hierarchical-data) |
-| `ItemsField`| `"Items"` | `IEnumerable<TItem>` | The folder's child files. Required for [binding to hierarchical data](slug:filemanager-data-binding-hierarchical-data). |
+| `DirectoriesField`| `"Directories"` | `IEnumerable<TItem>` | The item's child folders to display in the TreeView. Required for [binding to hierarchical data](slug:filemanager-data-binding-hierarchical-data) |
+| `ItemsField`| `"Items"` | `IEnumerable<TItem>` | The folder's child files and folders to display in the FileManager view. Required for [binding to hierarchical data](slug:filemanager-data-binding-hierarchical-data). |
 
 >important Do not use `ParentId` with hierarchical data. This will confuse the FileManager that it is bound to flat data and the component may not render any items. If the model must have a `ParentId` property, set `ParentIdField` to a non-existent property name.
 
