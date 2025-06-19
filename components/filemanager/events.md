@@ -12,20 +12,19 @@ position: 20
 
 This article explains the events available in the Telerik FileManager for Blazor. They are grouped logically.
 
-* [CUD Events](#cud-events) - events related to Creating, Updating and Deleting items.
+* [CRUD Events](#crud-events) - events related to Creating, Updating and Deleting items.
     * [OnCreate](#oncreate)
-    * [OnUpdate](#onupdate)
-    * [OnEdit](#onedit)
     * [OnDelete](#ondelete)
-* [Read Event](#read-event) - event related to obtaining data.
-* [Other Events](#other-events) - other events the grid provides.
-    * [OnModelInit](#onmodelinit)
-    * [OnDownload](#ondownload)
-    * [PathChanged](#pathchanged)
-    * [SelectedItemsChanged](#selecteditemschanged)
-    * [ViewChanged](#viewchanged)
+    * [OnEdit](#onedit)
+    * [OnUpdate](#onupdate)
+* [OnDownload](#ondownload)
+* [OnModelInit](#onmodelinit)
+* [OnRead Event](#onread) - event related to obtaining data.
+* [PathChanged](#pathchanged)
+* [SelectedItemsChanged](#selecteditemschanged)
+* [ViewChanged](#viewchanged)
 
-## CUD Events
+## CRUD Events
 
 The `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that the user changed so you can transfer the user action to the actual data source.
 
@@ -35,302 +34,27 @@ The `OnEdit` event let you respond to user actions - when they want to edit an i
 
 The `OnCreate` event fires when a new item is created (new folder). Its event handler receives the updated `FileManagerCreateEventArgs` as an argument.
 
-### OnUpdate
+### OnDelete
 
-The `OnUpdate` event fires when a file is updated (rename finishes). Its event handler receives the updated `FileManagerUpdateEventArgs` as an argument.
+The `OnDelete` event fires when a file is deleted. Its event handler receives the updated `FileManagerDeleteEventArgs` as an argument.
 
 ### OnEdit
 
 The `OnEdit` event fires when the user is about to enter edit mode for an existing item. Its event handler receives the updated `FileManagerEditEventArgs` as an argument.
 
-### OnDelete
+### OnUpdate
 
-The `OnDelete` event fires when a file is deleted. Its event handler receives the updated `FileManagerDeleteEventArgs` as an argument.
+The `OnUpdate` event fires when a file is updated (rename finishes). Its event handler receives the updated `FileManagerUpdateEventArgs` as an argument.
 
-## Read Event
-
-In the common case, all the data is provided to the filemanager's `Data` collection and the `FileManager` performs the operations on it for you. In some cases, you may want to do this programmatically (for example, to retrieve only a small number of items to improve the backend performance). Attach the `OnRead` event to perform all the data read operations programmatically in the `FileManager`.
-
-The `OnRead` event fires when the data source is read. Its event handler receives the updated `FileManagerReadEventArgs` as an argument.
-
->caption Handle OnRead.
-
-````RAZOR
-@using System.IO
-
-<TelerikFileManager @bind-Path="@DirectoryPath"
-                    Height="400px"
-                    IdField="MyModelId"
-                    NameField="Name"
-                    SizeField="Size"
-                    PathField="Path"
-                    ExtensionField="Extension"
-                    IsDirectoryField="IsDirectory"
-                    HasDirectoriesField="HasDirectories"
-                    ParentIdField="ParentId"
-                    DateCreatedField="DateCreated"
-                    DateCreatedUtcField="DateCreatedUtc"
-                    DateModifiedField="DateModified"
-                    DateModifiedUtcField="DateModifiedUtc"
-                    OnRead="@OnRead"
-                    OnUpdate="@OnUpdateHandler"
-                    OnModelInit="@OnModelInitHandler"
-                    OnDownload="@OnDownloadHandler"
-                    OnDelete="@OnDeleteHandler">
-</TelerikFileManager>
-
-@code {
-    private List<FlatFileEntry> SourceData = new List<FlatFileEntry>();
-
-    private string RootPath { get; set; } = "root-folder-path";
-    private string DirectoryPath { get; set; } = "root-folder-path";
-
-    private async Task OnRead(FileManagerReadEventArgs args)
-    {
-        await Task.Delay(500);
-
-        //here you can pass only the files for the current directory, so you don't load the whole data collection
-        args.Data = SourceData;
-        args.Total = SourceData.Count;
-    }
-
-    private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
-    {
-        var item = args.Item as FlatFileEntry;
-
-        if (item.IsDirectory)
-        {
-            // prevent renaming of directories. If you allow that, make sure
-            //to also update the Path of the children
-        }
-        else
-        {
-            // simulate update of the file name and path
-            var name = item.Name ?? string.Empty;
-            var extension = item.Extension ?? string.Empty;
-            var fullName = extension.Length > 0 && name.EndsWith(extension) ?
-                name : $"{name}{extension}";
-
-            var updatedItem = SourceData.FirstOrDefault(x => x.MyModelId == item.MyModelId);
-
-            updatedItem.Name = item.Name;
-            updatedItem.Path = Path.Combine(DirectoryPath, fullName);
-        }
-    }
-
-    private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
-    {
-        var selectedItem = args.Item as FlatFileEntry;
-
-        //the FileManager does not have the actual file.
-        //To download it, find the actual file in the datasource
-        //based on the selected file (args.Item) and
-        //assign the following data to the argument:
-
-        //args.Stream = the file stream of the actual selected file;
-        //args.MimeType = the mime type of the actual file, so it can be downloaded;
-        //args.FileName = allows overriding the name of the downloaded file;
-    }
-
-
-    private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
-    {
-        var currItem = args.Item as FlatFileEntry;
-
-        var itemToDelete = SourceData.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
-
-        //simulate item deletion
-        SourceData.Remove(itemToDelete);
-
-        RefreshData();
-    }
-
-    private FlatFileEntry OnModelInitHandler()
-    {
-        var item = new FlatFileEntry();
-        item.Name = $"New folder";
-        item.Size = 0;
-        item.Path = Path.Combine(DirectoryPath, item.Name);
-        item.IsDirectory = true;
-        item.HasDirectories = false;
-        item.DateCreated = DateTime.Now;
-        item.DateCreatedUtc = DateTime.Now;
-        item.DateModified = DateTime.Now;
-        item.DateModifiedUtc = DateTime.Now;
-
-        return item;
-    }
-
-    private void RefreshData()
-    {
-        SourceData = new List<FlatFileEntry>(SourceData);
-    }
-
-    // fetch the FileManager data
-    protected override async Task OnInitializedAsync()
-    {
-        SourceData = await GetFlatFileEntries();
-    }
-
-    // a model to bind the FileManager. Should usually be in its own separate location.
-    public class FlatFileEntry
-    {
-        public string MyModelId { get; set; }
-        public string ParentId { get; set; }
-        public string Name { get; set; }
-        public long Size { get; set; }
-        public string Path { get; set; }
-        public string Extension { get; set; }
-        public bool IsDirectory { get; set; }
-        public bool HasDirectories { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime DateCreatedUtc { get; set; }
-        public DateTime DateModified { get; set; }
-        public DateTime DateModifiedUtc { get; set; }
-    }
-
-    // the next lines are hardcoded data generation so you can explore the FileManager freely
-
-    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
-    {
-        var workFiles = new FlatFileEntry()
-        {
-            MyModelId = "1",
-            ParentId = null,
-            Name = "Work Files",
-            IsDirectory = true,
-            HasDirectories = true,
-            DateCreated = new DateTime(2022, 1, 2),
-            DateCreatedUtc = new DateTime(2022, 1, 2),
-            DateModified = new DateTime(2022, 2, 3),
-            DateModifiedUtc = new DateTime(2022, 2, 3),
-            Path = Path.Combine(RootPath, "Work Files"),
-            Size = 3 * 1024 * 1024
-        };
-
-        var Documents = new FlatFileEntry()
-        {
-            MyModelId = "2",
-            ParentId = workFiles.MyModelId,
-            Name = "Documents",
-            IsDirectory = true,
-            HasDirectories = false,
-            DateCreated = new DateTime(2022, 1, 2),
-            DateCreatedUtc = new DateTime(2022, 1, 2),
-            DateModified = new DateTime(2022, 2, 3),
-            DateModifiedUtc = new DateTime(2022, 2, 3),
-            Path = Path.Combine(workFiles.Path, "Documents"),
-            Size = 1024 * 1024
-        };
-
-        var Images = new FlatFileEntry()
-        {
-            MyModelId = "3",
-            ParentId = workFiles.MyModelId,
-            Name = "Images",
-            IsDirectory = true,
-            HasDirectories = false,
-            DateCreated = new DateTime(2022, 1, 2),
-            DateCreatedUtc = new DateTime(2022, 1, 2),
-            DateModified = new DateTime(2022, 2, 3),
-            DateModifiedUtc = new DateTime(2022, 2, 3),
-            Path = Path.Combine(workFiles.Path, "Images"),
-            Size = 2 * 1024 * 1024
-        };
-
-        var specification = new FlatFileEntry()
-        {
-            MyModelId = "4",
-            ParentId = Documents.MyModelId,
-            Name = "Specification",
-            IsDirectory = false,
-            HasDirectories = false,
-            Extension = ".docx",
-            DateCreated = new DateTime(2022, 1, 5),
-            DateCreatedUtc = new DateTime(2022, 1, 5),
-            DateModified = new DateTime(2022, 2, 3),
-            DateModifiedUtc = new DateTime(2022, 2, 3),
-            Path = Path.Combine(Documents.Path, "Specification.docx"),
-            Size = 462 * 1024
-        };
-
-        var report = new FlatFileEntry()
-        {
-            MyModelId = "5",
-            ParentId = Documents.MyModelId,
-            Name = "Monthly report",
-            IsDirectory = false,
-            HasDirectories = false,
-            Extension = ".xlsx",
-            DateCreated = new DateTime(2022, 1, 20),
-            DateCreatedUtc = new DateTime(2022, 1, 20),
-            DateModified = new DateTime(2022, 1, 25),
-            DateModifiedUtc = new DateTime(2022, 1, 25),
-            Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
-            Size = 538 * 1024
-        };
-
-        var dashboardDesign = new FlatFileEntry()
-        {
-            MyModelId = "6",
-            ParentId = Images.MyModelId,
-            Name = "Dashboard Design",
-            IsDirectory = false,
-            HasDirectories = false,
-            Extension = ".png",
-            DateCreated = new DateTime(2022, 1, 10),
-            DateCreatedUtc = new DateTime(2022, 1, 10),
-            DateModified = new DateTime(2022, 2, 13),
-            DateModifiedUtc = new DateTime(2022, 2, 13),
-            Path = Path.Combine(Images.Path, "Dashboard Design.png"),
-            Size = 1024
-        };
-
-        var gridDesign = new FlatFileEntry()
-        {
-            MyModelId = "7",
-            ParentId = Images.MyModelId,
-            Name = "Grid Design",
-            IsDirectory = false,
-            HasDirectories = false,
-            Extension = ".jpg",
-            DateCreated = new DateTime(2022, 1, 12),
-            DateCreatedUtc = new DateTime(2022, 1, 12),
-            DateModified = new DateTime(2022, 2, 13),
-            DateModifiedUtc = new DateTime(2022, 2, 13),
-            Path = Path.Combine(Images.Path, "Grid Design.jpg"),
-            Size = 1024
-        };
-
-        var files = new List<FlatFileEntry>()
-        {
-            workFiles,
-
-            Documents,
-            specification,
-            report,
-
-            Images,
-            dashboardDesign,
-            gridDesign
-        };
-
-        return await Task.FromResult(files);
-    }
-}
-````
-
-## Other Events
-
-### OnModelInit
-
-The `OnModelInit` event fires when a new instance of the model is about to be created. Handle this event to allow the creation of a new folder/file. Provide an instance of the model that the component is bound to and include the desired properties (name, path, date of creation and more). See the [example](#example).
-
-### OnDownload
+## OnDownload
 
 The `OnDownload` event fires before a file download starts. The event is cancellable. The event handler argument is an `FileManagerDownloadEventArgs` object. See the [example](#example).
 
-#### Downloading Large Files
+### MIME Type
+
+The `FileManagerDownloadEventArgs` event argument has a `MimeType` property, which is `null` when the `OnDownload` event fires. .NET does not provide a built-in MIME type tool, so the application must set the correct MIME type, depending on the file extension or content. Consider [`Microsoft.AspNetCore.StaticFiles`](https://github.com/dotnet/aspnetcore/blob/main/src/Middleware/StaticFiles/src/FileExtensionContentTypeProvider.cs) or a similar tool.
+
+### Downloading Large Files
 
 The files are downloaded with the help of a Base64 data URL, which is sent to the browser through `JSInterop`. JavaScript code generates an `<a>` tag with an [object URL](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static) on the web page and the tag is clicked programmatically, so that the browser shows its **Save File** dialog.
 
@@ -341,7 +65,7 @@ Large files (tens or hundreds of megabytes) may hit the browser's max data URL l
 
 >tip You can also vote for the [FileManager feature request to expose a Proxy Url](https://feedback.telerik.com/blazor/1633629) for serving files from the server to the browser.
 
-#### Downloading Server Files in WebAssembly Apps
+### Downloading Server Files in WebAssembly Apps
 
 A FileManager in a WebAssembly app usually displays files from a remote server. In such cases, use the following download approach:
 
@@ -349,15 +73,31 @@ A FileManager in a WebAssembly app usually displays files from a remote server. 
 1. The server returns the file content.
 1. The `OnDownload` handler puts the returned file content to a `MemoryStream` and assigns it to `args.Stream`.
 
-### PathChanged
+## OnModelInit
+
+The `OnModelInit` event fires when a new instance of the model is about to be created. Handle this event to allow the creation of a new folder/file. Provide an instance of the model that the component is bound to and include the desired properties (name, path, date of creation and more). See the [example](#example).
+
+## OnRead
+
+The `OnRead` event is an alternative way to provide the FileManager with data, instead of the `Data` parameter. The event fires when the FileManager is initialized. The event handler receives a `FileManagerReadEventArgs` object as an argument.
+
+Use the `OnRead` event if you want to load chunks of FileManager data on demand. The following API members are required:
+
+* `PathChanged` event
+* `Rebind()` method
+* `OnRead` event
+
+For more information, refer to [How to Load FileManager File Data on Demand](slug:filemanager-kb-load-file-data-on-demand).
+
+## PathChanged
 
 The `PathChanged` event fires when the user navigates to a different folder through the TreeView or by double-clicking a folder item in the [FileManager View](slug:filemanager-views). The event handler receives the new path as a `string` argument.
 
-### SelectedItemsChanged
+## SelectedItemsChanged
 
 The `SelectedItemChanged` event fires every time the user clicks on a new file/folder in the main pane of the FileManager. You can use it with one-way binding of the `SelectedItems` parameter to respond to user selection.
 
-### ViewChanged
+## ViewChanged
 
 The `ViewChanged` event fires when the user toggles between the [two FileManager views (`Grid` and `ListView`)](slug:filemanager-views). If you are using the event, make sure to update the value of the `View` parameter, otherwise the user action will have no effect.
 
@@ -477,24 +217,31 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
     private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
     {
-        var selectedItem = args.Item as FlatFileEntry;
+        var downloadedFile = (FlatFileEntry)args.Item;
 
         // The Filemanager does not have the actual file.
-        // Obtain the file contents, based on args.Item, and set the event arguments:
+        // Obtain the file contents, based on args.Item, and set the event arguments.
 
-        //args.Stream = the file stream of the actual selected file;
-        //args.MimeType = the MIME type of the actual file;
-        //args.FileName = the file name that the browser will receive (optional);
+        // Get the full file path
+        //string filePathWithoutStartSeparator = downloadedFile.Path.IndexOf(Path.DirectorySeparatorChar) == 0 ? downloadedFile.Path.Substring(1) : downloadedFile.Path;
+        //string fullFilePath = Path.Combine(BasePath, filePathWithoutStartSeparator);
 
-        FlatFileEntry actualFile = (FlatFileEntry)args.Item;
+        // Create a MemoryStream with the file contents
+        //byte[] fileBytes = await System.IO.File.ReadAllBytesAsync(fullFilePath);
+        //MemoryStream fileStream = new(fileBytes);
+
+        // Set the event arguments
+        //args.FileName = string.Concat(downloadedFile.Name, downloadedFile.Extension);
+        //args.MimeType = "application/octet-stream";
+        //args.Stream = fileStream;
 
         await Task.Delay(1); // simulate async operation
-        string dummyFileContent = $"This file is a dummy version of {actualFile.Name}. It was downloaded with the Telerik Blazor FileManager.";
+        string dummyFileContent = $"This file is a dummy version of {downloadedFile.Name}. It was downloaded with the Telerik Blazor FileManager.";
         byte[] dummyFileBuffer = System.Text.Encoding.UTF8.GetBytes(dummyFileContent);
 
         args.Stream = new MemoryStream(dummyFileBuffer);
         args.MimeType = "text/plain";
-        args.FileName = $"filemanager-{actualFile.Name}-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.txt";
+        args.FileName = $"filemanager-{downloadedFile.Name}-{DateTime.Now.ToString("HH-mm-ss")}.txt";
     }
 
     private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
