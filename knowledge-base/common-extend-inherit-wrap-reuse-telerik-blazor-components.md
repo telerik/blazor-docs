@@ -45,6 +45,8 @@ On the other hand, neither option allows changing the internal HTML rendering of
 
 > Using both options at the same time is not possible and will lead to runtime exceptions, because such a setup will nest a Telerik component in itself. The following JavaScript error will likely occur: `Cannot read properties of null (reading addEventListener)`.
 
+> The development tasks discussed in this article fall outside the Telerik support scope.
+
 ### Wrap Telerik Components
 
 This approach allows you to add additional markup or other components next to the Telerik component.
