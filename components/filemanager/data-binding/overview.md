@@ -21,7 +21,7 @@ There are two data binding modes that the FileManager supports:
 
 ## FileManager Item Features
 
-The FileManager has features that map to properties in the model. The following flat data model uses property names that will work automatically, with no additional FileManager configuration:
+The FileManager extracts information about the displayed files and folders from properties in the model. The following flat data model uses property names that will work automatically, with no additional FileManager configuration:
 
 ````RAZOR
 @using System.IO
