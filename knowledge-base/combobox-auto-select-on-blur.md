@@ -66,13 +66,13 @@ To automatically select the first matching item in the ComboBox when the input l
         <ComboBoxPopupSettings Class="select-on-tab" />
     </ComboBoxSettings>
 </TelerikComboBox>
-<br/>
-<br/>
-<TelerikTextBox Placeholder="Next form item" Width="200px"/>
+<br />
+<br />
+<TelerikTextBox Placeholder="Next form item" Width="200px" />
 
 @* Move JavaScript to a separate JS file *@
 <script suppress-error="BL9992">
-        function attachComboKeyDown(selector) {
+    function attachComboKeyDown(selector) {
             var comboInput = document.querySelector(selector);
             if (comboInput) {
                 comboInput.addEventListener("keydown", onComboInputKeyDown);
@@ -109,7 +109,7 @@ To automatically select the first matching item in the ComboBox when the input l
     [JSInvokable("OnComboBoxTab")]
     public void OnComboBoxTab(string newStringValue)
     {
-        if (ComboBoxFirstItem is not null && ComboBoxFirstItem.Text.Contains(newStringValue))
+        if (ComboBoxFirstItem is not null && ComboBoxFirstItem.Text.ToLowerInvariant().Contains(newStringValue.ToLowerInvariant()))
         {
             ComboBoxValue = ComboBoxFirstItem.Id;
             ComboBoxFirstItem = default;
@@ -131,7 +131,7 @@ To automatically select the first matching item in the ComboBox when the input l
         args.Data = result.Data;
         args.Total = result.Total;
 
-        if (args.Request.Filters.Count > 0)
+        if (args.Request.Filters.Count > 0 && result.Data.Cast<ListItem>().Count() > 0)
         {
             ComboBoxFirstItem = args.Data.Cast<ListItem>().First();
         }
@@ -160,10 +160,10 @@ To automatically select the first matching item in the ComboBox when the input l
         for (int i = 1; i <= 24; i++)
         {
             ComboBoxData.Add(new ListItem()
-                {
-                    Id = i,
-                    Text = $"Item {i}"
-                });
+            {
+                Id = i,
+                Text = $"Item {i}"
+            });
         }
     }
 
