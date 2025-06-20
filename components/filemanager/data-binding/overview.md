@@ -242,7 +242,7 @@ All [FileManager item features](#fileManager-item-features) map to model propert
 | **Item relations** | | | |
 | `IdField `| `"Id" ` | any | The unique identifier of the file. Required for [binding to flat data](slug:filemanager-data-binding-flat-data). |
 | `ParentIdField`| `"ParentId"` | any | Identifies the item's parent. Required for [binding to flat data](slug:filemanager-data-binding-flat-data). Set to `null` for root items. Do not use `ParentId` with hierarchical data. |
-| `HasDirectoriesField`| `"HasDirectories"` | `bool` | Determines whether the item has child folders. Required for [binding to flat data](slug:filemanager-data-binding-flat-data) If `true`, the folder will show an expand arrow in the TreeView. With [hierarchical data](slug:filemanager-data-binding-hierarchical-data), the FileManager renders expand icons based on `Directories`, but `HasDirectories` takes precedence. |
+| `HasDirectoriesField`| `"HasDirectories"` | `bool` | Determines whether the item has child folders. Required for [binding to flat data](slug:filemanager-data-binding-flat-data). If `true`, the folder will show an expand arrow in the TreeView. With [hierarchical data](slug:filemanager-data-binding-hierarchical-data), the FileManager renders expand icons based on `Directories`, but `HasDirectories` takes precedence. |
 | `DirectoriesField`| `"Directories"` | `IEnumerable<TItem>` | The item's child folders to display in the TreeView. Required for [binding to hierarchical data](slug:filemanager-data-binding-hierarchical-data) |
 | `ItemsField`| `"Items"` | `IEnumerable<TItem>` | The folder's child files and folders to display in the FileManager view. Required for [binding to hierarchical data](slug:filemanager-data-binding-hierarchical-data). |
 
