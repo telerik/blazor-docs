@@ -5,7 +5,7 @@ type: how-to
 page_title: How to Extend, Inherit, or Wrap Telerik Components for Blazor
 slug: common-kb-component-inheritance
 tags: telerik, blazor, inheritance
-ticketid: 1628856, 1615737, 1604776, 1607228, 1618168
+ticketid: 1628856, 1615737, 1604776, 1607228, 1618168, 1690926
 res_type: kb
 ---
 
@@ -47,7 +47,7 @@ On the other hand, neither option allows changing the internal HTML rendering of
 
 ### Wrap Telerik Components
 
-This approach allows you to add additional markup or another components next to the Telerik component.
+This approach allows you to add additional markup or other components next to the Telerik component.
 
 1. Add the Telerik component to a separate `.razor` file, for example, `MyReusableComponent.razor`.
 1. Implement the desired `MyReusableComponent` parameters and set the required parameters of the Telerik component.
