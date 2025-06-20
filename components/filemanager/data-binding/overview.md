@@ -234,7 +234,7 @@ All [FileManager item features](#fileManager-item-features) map to model propert
 | `SizeField`| `"Size"` | `long` | The size of the  file in bytes. |
 | `PathField`| `"Path"` | `string` | The path to the item, including the name and extension. |
 | `ExtensionField`| `"Extension"` | `string` | The item extension, starting with a dot `.` |
-| `IsDirectoryField`| `"IsDirectoryField"` | `bool` | Whether the item is a folder. If `false`, it's treated as a file. |
+| `IsDirectoryField`| `"IsDirectory"` | `bool` | Whether the item is a folder. If `false`, it's treated as a file. |
 | `DateCreatedField`| `"DateCreated"` | `DateTime` | The creation date of the file. |
 | `DateCreateUtcField`| `"DateCreateUtc"` | `DateTime` | The creation date of the file in UTC. Required. |
 | `DateModifiedField`| `"DateModified"` | `DateTime` | The modification date of the file. |
