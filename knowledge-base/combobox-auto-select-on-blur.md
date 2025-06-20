@@ -100,7 +100,7 @@ To automatically select the first matching item in the ComboBox when the input l
 </script>
 
 @code {
-    private DotNetObjectReference<Counter>? DotNetRef { get; set; }
+    private DotNetObjectReference<__Main>? DotNetRef { get; set; }
 
     private List<ListItem> ComboBoxData { get; set; } = new();
     private int ComboBoxValue { get; set; }
