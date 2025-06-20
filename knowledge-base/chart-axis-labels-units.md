@@ -30,7 +30,7 @@ I want to format and convert the Y-Axis labels to display either metric (mm) or 
 Use the [`Template` parameter of the `ChartYAxisLabels`](slug:components/chart/label-template-format) to apply custom formatting and conversion logic. Below is an example implementation:
 
 ````RAZOR
-<TelerikChart Height="550px" Width="100%">
+<TelerikChart Height="380px" Width="100%">
     <ChartTitle Text="Charge current vs. charge time" />
     <ChartTooltip Visible="true" Shared="true" />
     <ChartLegend Position="ChartLegendPosition.Bottom" />
