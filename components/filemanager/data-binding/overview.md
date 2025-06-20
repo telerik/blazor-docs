@@ -219,7 +219,7 @@ The FileManager has features that map to properties in the model. The following 
 }
 ````
 
-The following section describe the meaning of the model properties for the FileManager.
+The following section describes the meaning of the model properties for the FileManager.
 
 ## Data Bindings
 
