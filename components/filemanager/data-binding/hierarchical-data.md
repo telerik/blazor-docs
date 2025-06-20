@@ -14,7 +14,7 @@ This article explains how to bind the FileManager for Blazor to hierarchical dat
 
 Hierarchical data means that the collection of child items is provided in a field of its parent's model:
 
-* The `Items` field contains a collection of all children including sub-folders and files. They will be rendered in the [Preview Pane](slug:filemanager-preview-pane) when the parent folder is selected.
+* The `Items` field contains a collection of all children including sub-folders and files. They will be rendered in the [FileManager View](slug:filemanager-views) when the parent folder is selected.
 
 * The `Directories` field contains a collection of the subfolders of a directory. They will be rendered in the TreeView navigation pane. If there are `Directories` for a specific folder it will have an expand icon. The `HasDirectories` field can override this, however, but it is not required for hierarchical data binding.
 
