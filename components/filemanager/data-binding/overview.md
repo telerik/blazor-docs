@@ -236,7 +236,7 @@ All [FileManager item features](#fileManager-item-features) map to model propert
 | `ExtensionField`| `"Extension"` | `string` | The item extension, starting with a dot `.` |
 | `IsDirectoryField`| `"IsDirectory"` | `bool` | Whether the item is a folder. If `false`, it's treated as a file. |
 | `DateCreatedField`| `"DateCreated"` | `DateTime` | The creation date of the file. |
-| `DateCreateUtcField`| `"DateCreateUtc"` | `DateTime` | The creation date of the file in UTC. Required. |
+| `DateCreatedUtcField`| `"DateCreatedUtc"` | `DateTime` | The creation date of the file in UTC. Required. |
 | `DateModifiedField`| `"DateModified"` | `DateTime` | The modification date of the file. |
 | `DateModifiedUtcField`| `"DateModifiedUtc"` | `DateTime` | The modification date of the file in UTC. Required. |
 | **Item relations** | | | |
