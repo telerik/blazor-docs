@@ -66,7 +66,7 @@ To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` fil
 
 To enable global automatic discovery of the Telerik MCP Server in Visual Studio, add the above `.mcp.json` file to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
 
-> Once the Telerik MCP server is added, make sure that the `telerik_blazor_assistant` tool is [enabled (checked) in the Copilot Chart window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). The Telerik MCP server may get disabled and you may see "🔧10/11" in the selected tools dropdown when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue for MCPs that is being investigated.
+> Once the Telerik MCP server is added, make sure that the `telerikBlazorAssistant` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). The Telerik MCP server may get disabled and you may see "🔧10/11" in the selected tools dropdown when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue for MCPs that is being investigated.
 
 ### VS Code
 
@@ -151,8 +151,8 @@ To use the Telerik MCP Server:
     * `/telerikblazor`
     * `@telerikblazor`
 1. Confirm that the Telerik MCP server is used, because this doesn't happen deterministically. Look for a statement in the output, which is similar to:
-    * `Running telerik_blazor_assistant` (in VS Code)
-    * `Calling MCP tool telerik_blazor_assistant` (in Cursor)
+    * `Running telerikBlazorAssistant` (in VS Code)
+    * `Calling MCP tool telerikBlazorAssistant` (in Cursor)
 
     If the Telerik MCP server is not used even though it's installed and enabled, then try rephrasing your prompt and use another trigger syntax from the list in step 1.
 1. Grant the Telerik tool permission to run for this session, workspace, or always.
