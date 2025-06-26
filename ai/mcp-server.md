@@ -16,6 +16,7 @@ The Telerik Blazor [MCP Server](https://modelcontextprotocol.io/introduction) le
 
 To use the Telerik Blazor MCP server, you need:
 
+* [Node.js](https://nodejs.org/en) 18 or a newer version.
 * A [compatible MCP client (IDE, code editor or app)](https://modelcontextprotocol.io/clients) that supports *MCP tools*. Using the latest version of the MCP client is recommended.
 * A [Telerik user account](https://www.telerik.com/account/).
 * An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
