@@ -22,49 +22,30 @@ This article explains the events available in the Telerik TimePicker for Blazor:
 
 The `ValueChanged` event fires upon every change (for example, keystroke) in the input, and upon clicking the `Set` or `Now` buttons in the dropdown.
 
->caption Handle ValueChanged
+The event handler receives the new value as an argument and you must update the component `Value` programmatically for the user changes to take effect.
+
+>caption Handle the TimePicker ValueChanged event
 
 ````RAZOR
-@result
+@Result
+<br />
+TimePicker Value: @TimePickerValue
 <br />
 
-<TelerikTimePicker ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikTimePicker>
+<TelerikTimePicker Value="@TimePickerValue"
+                   ValueChanged="@( (DateTime d) => TimePickerValueChanged(d) )">
+</TelerikTimePicker>
 
 @code {
-    string result;
+    private string Result { get; set; } = string.Empty;
 
-    private void MyValueChangeHandler(DateTime theUserInput)
+    private DateTime TimePickerValue { get; set; } = DateTime.Now;
+
+    private void TimePickerValueChanged(DateTime newValue)
     {
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
+        Result = $"The user entered: {newValue}";
 
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
->caption Handle ValueChanged and provide initial value
-
-````RAZOR
-@result
-<br />
-model value: @thePickerValue
-<br />
-
-<TelerikTimePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikTimePicker>
-
-@code {
-    string result;
-
-    DateTime thePickerValue { get; set; } = DateTime.Now;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        result = $"The user entered: {theUserInput}";
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        thePickerValue = theUserInput;
+        TimePickerValue = newValue;
     }
 }
 ````
@@ -75,22 +56,27 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 The time picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
 
->caption Handle OnChange
+>caption Handle the TimePicker OnChange event
 
 ````RAZOR
-@result
+@Result
+<br />
+TimePicker Value: @TimePickerValue
 <br />
 
-<TelerikTimePicker T="DateTime" OnChange="@MyOnChangeHandler"></TelerikTimePicker>
+<TelerikTimePicker @bind-Value="@TimePickerValue"
+                   OnChange="OnTimePickerChange">
+</TelerikTimePicker>
 
 @code {
-    string result;
+    private string Result { get; set; } = string.Empty;
 
-    private void MyOnChangeHandler(object theUserInput)
+    private DateTime TimePickerValue { get; set; } = DateTime.Now;
+
+    private void OnTimePickerChange(object currentValue)
     {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:HH:mm:ss}", (DateTime)theUserInput);
+        // Cast the event argument to the actual value type
+        Result = $"The user entered: {(DateTime)currentValue}";
     }
 }
 ````
@@ -98,30 +84,6 @@ The time picker is a generic component, so you must provide either a `Value`, or
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
-
->caption Handle OnChange and use two-way binding
-
-````RAZOR
-@result
-<br />
-model value: @thePickerValue
-<br />
-
-<TelerikTimePicker @bind-Value="@thePickerValue" OnChange="@MyOnChangeHandler"></TelerikTimePicker>
-
-@code {
-    string result;
-
-    DateTime? thePickerValue { get; set; } = DateTime.Now;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0}", (theUserInput as DateTime?).Value);
-    }
-}
-````
 
 ## OnOpen
 
