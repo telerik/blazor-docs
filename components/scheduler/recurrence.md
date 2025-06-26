@@ -213,7 +213,6 @@ A single Scheduler data item defines one series of recurring appointments. Set t
 
         public Appointment()
         {
-            var rand = new Random();
             Id = Guid.NewGuid();
         }
     }
