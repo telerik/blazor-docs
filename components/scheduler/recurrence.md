@@ -30,7 +30,7 @@ You can also [define custom property names](slug:scheduler-appointments-databind
 * `RecurrenceExceptionsField`
 * `RecurrenceIdField`
 
-A single Scheduler data item defines one series of recurring appointments. Set the `RecurrenceRule` value, according to the [RFC5545 standard](https://tools.ietf.org/html/rfc5545#section-3.3.10). Then, if exceptions to the recurrence rule exist:
+A single Scheduler data item defines one series of recurring appointments. Set the `RecurrenceRule` value, according to the [RFC5545 standard](https://tools.ietf.org/html/rfc5545#section-3.3.10), except for a [known issue with extra hyphens in `UNTIL`](https://feedback.telerik.com/blazor/1529000-recurrencerule-does-not-support-the-rfc5545-date-format-like-20210722t000000). Then, if exceptions to the recurrence rule exist:
 
 * Each exception must be a separate data item.
 * The `RecurrenceId` property of each exception must be equal to `Id` value of the recurring appointment.
