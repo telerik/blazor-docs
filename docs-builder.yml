@@ -142,7 +142,7 @@ excluded-files: ["**/src-a11y/**/*"]
 liquid-output-delimiter-left: "{{"
 liquid-output-delimiter-right: "}}"
 liquid:
-  uiForBlazorLatestVersion: "9.0.0"
+  uiForBlazorLatestVersion: "9.1.0"
   themesVersion: "11.0.2"
 
 meta:
