@@ -17,7 +17,7 @@ The Telerik Blazor Diagram fires events that are related to different user actio
 
 ## OnConnectionClick
 
-The `OnConnectionClick` event fires when the user clicks on a connection, including the connection ends that rest on the shape boundaries. The event argument is of type [`DiagramConnectionClickEventArgs`](slug:Telerik.Blazor.Components.DiagramConnectionClickEventArgs) and it provides information about the linked shapes (if they exist) or about the coordinates of the connection ends (if set).
+The `OnConnectionClick` event fires when the user clicks on a connection, including the connection ends that rest on the shape boundaries. The event argument is of type [`DiagramConnectionClickEventArgs`](slug:Telerik.Blazor.Components.DiagramConnectionClickEventArgs) and it provides information about the linked shapes (if they exist) or about the connection coordinates (if set).
 
 See the [example](#example) below.
 
@@ -55,6 +55,10 @@ The following example demonstrates all Diagram events in action.
     <DiagramConnections>
         <DiagramConnection FromId="shape1" ToId="shape2" />
         <DiagramConnection FromId="shape1" ToId="shape3" />
+        <DiagramConnection>
+            <DiagramConnectionFrom X="300" Y="20" />
+            <DiagramConnectionTo X="400" Y="200" />
+        </DiagramConnection>
     </DiagramConnections>
 </TelerikDiagram>
 
@@ -65,7 +69,14 @@ The following example demonstrates all Diagram events in action.
 
     private void OnDiagramConnectionClick(DiagramConnectionClickEventArgs args)
     {
-        DiagramEventLog = $"Clicked on the connection between shapes \"{args.FromId}\" and \"{args.ToId}\".";
+        if (args.FromX != null)
+        {
+            DiagramEventLog = $"Clicked on the connection between coordinates {{{args.FromX}, {args.FromY}}} and {{{args.ToX}, {args.ToY}}}.";
+        }
+        else
+        {
+            DiagramEventLog = $"Clicked on the connection between shapes \"{args.FromId}\" and \"{args.ToId}\".";
+        }
     }
 
     private void OnDiagramShapeClick(DiagramShapeClickEventArgs args)
