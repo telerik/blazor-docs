@@ -37,7 +37,7 @@ Inline add, edit, and delete operations use the following [command buttons](slug
 
 In inline edit mode, the Grid commands execute row by row and the corresponding [Grid events](slug:grid-editing-overview#events) also fire row by row. This is similar to [popup editing](slug:grid-editing-popup) and unlike [in-cell editing](slug:grid-editing-incell), where commands and events relate to cells.
 
-When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons has no effect, but users can still navigate between all input components in the row to complete the editing.
+When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons have no effect, but users can still navigate between all input components in the row to complete the editing.
 
 ## Integration with Other Features
 
