@@ -1,8 +1,8 @@
 ---
-title: How to Automatically Select Preselected Item on Blur
-description: Learn how to configure the Telerik ComboBox for Blazor to automatically select the first matching item when the input loses focus.
+title: Select Focused Item on Tab
+description: Learn how to configure the Telerik ComboBox for Blazor to automatically select the first matching item when the user tabs and the component loses focus.
 type: how-to
-page_title: How to Automatically Select Preselected Item on Blur
+page_title: How to Automatically Select the Focused Dropdown Item on Tab
 slug: combobox-kb-autoselect-on-blur
 tags: telerik, blazor, combobox, blur, auto-select
 res_type: kb
@@ -29,6 +29,7 @@ The article asnwers to the following question:
 * How to set the ComboBox value when the user leaves the input field?
 
 ## Solution
+
 To automatically select the first matching item in the ComboBox when the input loses focus, use a combination of the ComboBox [`OnRead` event](slug:components/combobox/events#onread) and JavaScript interop. The provided example demonstrates how to:
 
 1. Use the `OnRead` event to filter data and store the first matching item.
@@ -182,4 +183,4 @@ To automatically select the first matching item in the ComboBox when the input l
 ````
 ## See Also
 
-- [ComboBox Events](slug:components/combobox/events)
+* [ComboBox Events](slug:components/combobox/events)
