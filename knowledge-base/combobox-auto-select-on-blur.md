@@ -1,5 +1,5 @@
 ---
-title: Select Focused Item on Tab
+title: Select Focused Dropdown Item on Tab
 description: Learn how to configure the Telerik ComboBox for Blazor to automatically select the first matching item when the user tabs and the component loses focus.
 type: how-to
 page_title: How to Automatically Select the Focused Dropdown Item on Tab
