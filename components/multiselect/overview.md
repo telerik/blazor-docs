@@ -14,47 +14,63 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 
 ## Creating MultiSelect
 
-1. Use the `TelerikMultiSelect` tag to add the component to your razor page.
+1. Add the `TelerikMultiSelect` tag to your razor page.
+1. [Bind the `Data` parameter to the collection of objects or strings](slug:multiselect-databind) that you want to appear in the dropdown.
+1. Set the `TextField` parameter to point to the object property that holds the user-readable value.
+1. Set the `ValueField` parameter to point to the object property that holds the data item value.
+1. [Bind the `Value` of the component](slug:get-started-value-vs-data-binding#value-binding) to a collection of the same type as the type defined by the `ValueField` parameter.
+1. (optional) Configure additional features like `AutoClose`, `Placeholder`, or `ShowClearButton`.
 
-1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
-
-1. [Bind the value of the component](slug:get-started-value-vs-data-binding#value-binding) to a collection of the same type as the type defined in the `ValueField` parameter.
-
-1. (Optional) Enable features like placeholder text, clear button, and AutoClose.
-
->caption MultiSelect two-way value binding, main features, and simple [data binding](slug:multiselect-databind)
+>caption Basic Blazor MultiSelect two-way value binding, main features, and simple [data binding](slug:multiselect-databind)
 
 ````RAZOR
-@* Main features and simple data binding for the suggestions and the Value *@
 <TelerikMultiSelect Data="@Countries"
-                    @bind-Value="@Values"
-                    Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" ShowClearButton="true" AutoClose="false">
+                    @bind-Value="@MultiSelectValues"
+                    TextField="@nameof(Country.Name)"
+                    ValueField="@nameof(Country.Id)"
+                    AutoClose="false"
+                    Placeholder="Select Balkan Countries"
+                    ShowClearButton="true">
 </TelerikMultiSelect>
-@if (Values.Count > 0)
+
+@if (MultiSelectValues.Count > 0)
 {
     <ul>
-        @foreach (var item in Values)
+        @foreach (int countryId in MultiSelectValues)
         {
-            <li>@item</li>
+            <li><code>Id</code> @countryId, <code>Name</code> @Countries.First(x => x.Id == countryId).Name</li>
         }
     </ul>
 }
 @code {
-    List<string> Countries { get; set; } = new List<string>();
-    List<string> Values { get; set; } = new List<string>();
+    private List<Country> Countries { get; set; } = new();
+    private List<int> MultiSelectValues { get; set; } = new();
+
     protected override void OnInitialized()
     {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-        base.OnInitialized();
+        Countries.Add(new(1, "Albania"));
+        Countries.Add(new(2, "Bosnia and Herzegovina"));
+        Countries.Add(new(3, "Bulgaria"));
+        Countries.Add(new(4, "Croatia"));
+        Countries.Add(new(5, "Greece"));
+        Countries.Add(new(6, "Kosovo"));
+        Countries.Add(new(7, "Montenegro"));
+        Countries.Add(new(8, "Romania"));
+        Countries.Add(new(9, "Serbia"));
+        Countries.Add(new(10, "Slovenia"));
+        Countries.Add(new(11, "Turkey"));
+    }
+
+    public class Country
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+
+        public Country(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }
 ````
