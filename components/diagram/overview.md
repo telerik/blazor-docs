@@ -10,20 +10,23 @@ position: 0
 
 # Blazor Diagram Overview
 
-The Diagram for Blazor.
-
+The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displays a hierarchy or relationships between objects or concepts. The Diagram provides a variety of built-in horizontal and vertical layouts. The component allows customizing the size, position, and geometric form of its elements.
 
 ## Diagram Elements
 
-* A Diagram item is called a *shape*.
-* The relationship (link) betweem two Diagram shapes is called a *connection*.
+The Diagram component UI consists of the following elements:
+
+* *Shapes* are the main Diagram nodes or building blocks. Shapes can display text and images.
+* *Connections* are the lines or visual links betweem Diagram shapes. Normally, a connection links two Diagram shapes, but a connection can also exist without related shapes.
+* *Connectors* are the 5 dots that appear on the Shape boundaries and center on hover. Users can grab a connector and drag it to another shape to create a new connection.
+* *Component* is a group of connected shapes that are not linked to another collection of connected shapes within the same Diagram.
 
 ## Creating Blazor Diagram
 
 There are two ways to define and display a Diagram:
 
 * Define the shapes and connections in the component declaration (easier and discussed in this section).
-* [Define the shapes and connections in a JSON that the Diagram loads at runtime](#create-diagram-from-json) (more flexible and discussed in the section below).
+* [Define the shapes and connections in a JSON](#create-diagram-from-json) (more flexible and discussed in the section below).
 
 To create the Telerik Diagram for Blazor declaratively:
 
@@ -44,28 +47,22 @@ To create the Telerik Diagram for Blazor declaratively:
 
     <DiagramShapes>
         <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1">
-            </DiagramShapeContent>
+            <DiagramShapeContent Text="Shape 1" />
         </DiagramShape>
         <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2">
-            </DiagramShapeContent>
+            <DiagramShapeContent Text="Shape 2" />
         </DiagramShape>
         <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3">
-            </DiagramShapeContent>
+            <DiagramShapeContent Text="Shape 3" />
         </DiagramShape>
         <DiagramShape Id="shape4">
-            <DiagramShapeContent Text="Shape 4">
-            </DiagramShapeContent>
+            <DiagramShapeContent Text="Shape 4" />
         </DiagramShape>
         <DiagramShape Id="shape5">
-            <DiagramShapeContent Text="Shape 5">
-            </DiagramShapeContent>
+            <DiagramShapeContent Text="Shape 5" />
         </DiagramShape>
         <DiagramShape Id="shape6">
-            <DiagramShapeContent Text="Shape 6">
-            </DiagramShapeContent>
+            <DiagramShapeContent Text="Shape 6" />
         </DiagramShape>
     </DiagramShapes>
 
@@ -207,6 +204,28 @@ Make more changes and restore with
 
 Get familiar with all Diagram parameters, methods, events, and nested tags in the [Diagram API Reference](slug:Telerik.Blazor.Components.TelerikDiagram).
 
+As a rule of thumb, the Diagram markup follows these naming conventions:
+
+* Tag names in plural wrap tag names in singular:
+    ````RAZOR.skip-repl
+    <DiagramShapes>
+      <DiagramShape />
+    </DiagramShapes>
+    ````
+* Tags are nested, so that child tag names use their parent tag name with an appended word:
+    ````RAZOR.skip-repl
+    <DiagramConnection>
+        <DiagramConnectionSelection>
+            <DiagramConnectionSelectionHandles>
+                <DiagramConnectionSelectionHandlesFill />
+            </DiagramConnectionSelectionHandles>
+        </DiagramConnectionSelection>
+    </DiagramConnection>
+    ````
+* The previous rule has two exceptions. The following tags are direct children of the root `<TelerikDiagram>` tag:
+    * `<DiagramConnectionDefaults>` (not a child of `<DiagramConnection>`)
+    * `<DiagramShapeDefaults>` (not a child of `<DiagramShape>`)
+
 ## Diagram Reference
 
 The [Blazor Diagram component exposes methods](slug:Telerik.Blazor.Components.TelerikDiagram#methods) for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute. Blazor populates component references in `OnAfterRenderAsync`, so they are not available earier.
@@ -225,8 +244,10 @@ See a full example in section [Create Diagram from JSON](#create-diagram-from-js
 
 ## Next Steps
 
+* [Define Diagram layouts](slug:diagram-layouts)
+* [Configure Diagram shapes](slug:diagram-shapes)
+* [Customize Diagram connections](slug:diagram-connections)
 * [Handle Diagram events](slug:diagram-events)
-
 
 ## See Also
 

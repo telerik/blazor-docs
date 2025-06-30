@@ -10,13 +10,99 @@ position: 10
 
 # Blazor Diagram Layouts
 
-The Telerik Blazor Diagram provides a few built-in layouts, so that you don't have to define the positions of all shapes and connections manually.
+The Telerik Blazor Diagram provides a few built-in layouts, so that you don't have to define the positions of all shapes and connections manually. The Diagram supports the most popular layout algorithms, including tree layout, force-directed layout and layered layout.
+
+## Tree Layout
+
+The Tree Diagram layout positions the shapes in a hierarchical way. A typical use case for this layout is to represent the teams or employess in an organization.
+
+>caption Setting the Tree Diagram Layout
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Tree" />
+</TelerikDiagram>
+````
+
+### Tree Layout Subtypes
+
+The Layered Diagram layout has the following sub types:
+
+* `Down`&mdash;the root shape is at the top and all descendants are arranged below it
+* `Left`&mdash;the root shape is on the right 
+* `MindMapHorizontal`&mdash;the root shape is at the center and all descendants are arranged to the left and right in a balanced way
+* `MindMapVertical`&mdash;the root shape is at the center and all descendants are arranged above and below it in a balanced way
+* `Radial`&mdash;the root shape is at the center and all descendants are arranged around it
+* `Right`&mdash;the root shape is on the left
+* `TipOver`&mdash;a variation of the `Down` sub type. The root shape is at the top. The direct children are arranged horizontally in a row, while the grand children are arranged verticallu on columns.
+* `Up`&mdash;the root shape is at the bottom
+
+>caption Setting a Tree Diagram Layout Subtype
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Tree"
+                   Subtype="@DiagramLayoutSubtype.Radial" />
+</TelerikDiagram>
+````
+
+## Layered Layout
+
+The [Layered Diagram layout](https://en.wikipedia.org/wiki/Layered_graph_drawing) positions shapes with an emphasis on the flow. The nodes (shapes) are positioned in horizontal or vertical layers (rows). The layered layout type minimizes the:
+
+* Distance between linked shapes
+* Connection lengths
+* Crossings between layers of shapes.
+
+The layered layout works best with:
+
+* One-direction flows that match the layout subtype
+* No [components (non-linked groups of shapes)](slug:diagram-overview#diagram-elements)
+* No cycles (connections flowing back upstream)
+
+When the graph is a tree, the layout reduces to a standard tree layout and thus can be considered as an extension to the classic tree layout.
+
+>caption Setting the Layered Diagram Layout
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Layered" />
+</TelerikDiagram>
+````
+
+### Layered Layout Subtypes
+
+The Layered Diagram layout has the following sub types. Each subtype name signifies the direction in which descendant nodes are positioned with regard to their ancestor.
+
+* `Down`
+* `Left`
+* `Right`
+* `Up`
+
+>caption Setting a Layered Diagram Layout Subtype
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Layered"
+                   Subtype="@DiagramLayoutSubtype.Right" />
+</TelerikDiagram>
+````
 
 ## Force Layout
 
-## Layered
+The [Force-directed Diagram layout](https://en.wikipedia.org/wiki/Force-directed_graph_drawing) (also known as the spring-embedder algorithm) is based on a physical simulation of forces acting on the Diagram nodes (shapes), whereby the links (connections) define whether two nodes act upon each other. Each link is like a spring embedded in the Diagram. The simulation attempts to find a minimum energy state, so that the springs are in their base state and do not pull or push any linked node.
 
-## Tree Layout
+> The force-directed Diagram layout is non-deterministic. Each layout pass is unique, unpredictable, and not reproducible.
+
+>caption Setting the Layered Diagram Layout
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Force" />
+</TelerikDiagram>
+````
+
+The force-directed layout type has no subtypes.
 
 ## Example
 
@@ -27,12 +113,14 @@ The following example demonstrates all Diagram layout types and sub types.
 ````RAZOR
 Layout Type:
 <TelerikButtonGroup>
-    <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutTypeChanged(newSelected, DiagramLayoutType.Force) )"
-                             Selected="@( DiagramLayoutType == DiagramLayoutType.Force)">Force</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutTypeChanged(newSelected, DiagramLayoutType.Layered) )"
-                             Selected="@( DiagramLayoutType == DiagramLayoutType.Layered)">Layered</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutTypeChanged(newSelected, DiagramLayoutType.Tree) )"
-                             Selected="@( DiagramLayoutType == DiagramLayoutType.Tree)">Tree</ButtonGroupToggleButton>
+    @foreach (DiagramLayoutType layoutType in AllDiagramLayoutTypes)
+    {
+        <ButtonGroupToggleButton SelectedChanged="@((bool selected) => DiagramLayoutTypeChanged(selected, layoutType))"
+                                 Selected="@(DiagramLayoutType == layoutType)"
+                                 @key="@layoutType">
+            @layoutType
+        </ButtonGroupToggleButton>
+    }
 </TelerikButtonGroup>
 
 @if (DiagramLayoutType != DiagramLayoutType.Force)
@@ -40,33 +128,22 @@ Layout Type:
     <br />
     <text>Sub Type:</text>
     <TelerikButtonGroup>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.Down) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.Down)">Down</ButtonGroupToggleButton>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.Left) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.Left)">Left</ButtonGroupToggleButton>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.MindMapHorizontal) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.MindMapHorizontal)"
-                                 Enabled="@( DiagramLayoutType == DiagramLayoutType.Tree )">Mind Map H</ButtonGroupToggleButton>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.MindMapVertical) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.MindMapVertical)"
-                                 Enabled="@( DiagramLayoutType == DiagramLayoutType.Tree )">Mind Map V</ButtonGroupToggleButton>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.Radial) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.Radial)"
-                                 Enabled="@( DiagramLayoutType == DiagramLayoutType.Tree )">Radial</ButtonGroupToggleButton>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.Right) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.Right)">Right</ButtonGroupToggleButton>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.TipOver) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.TipOver)"
-                                 Enabled="@( DiagramLayoutType == DiagramLayoutType.Tree )">Tip Over</ButtonGroupToggleButton>
-        <ButtonGroupToggleButton SelectedChanged="@( (bool newSelected) => DiagramLayoutSubtypeChanged(newSelected, DiagramLayoutSubtype.Up) )"
-                                 Selected="@( DiagramLayoutSubtype == DiagramLayoutSubtype.Up)">Up</ButtonGroupToggleButton>
+        @foreach (KeyValuePair<DiagramLayoutSubtype, bool> kvPair in AllDiagramLayoutSubtypes)
+        {
+            <ButtonGroupToggleButton SelectedChanged="@((bool selected) => DiagramLayoutSubtypeChanged(selected, kvPair.Key))"
+                                     Selected="@(DiagramLayoutSubtype == kvPair.Key)"
+                                     Enabled="@(!kvPair.Value || DiagramLayoutType == DiagramLayoutType.Tree)"
+                                     @key="@kvPair">
+                @kvPair.Key
+            </ButtonGroupToggleButton>
+        }
     </TelerikButtonGroup>
 }
 
 <TelerikDiagram Zoom="0.5">
-    <DiagramLayout Type="@DiagramLayoutType" Subtype="@DiagramLayoutSubtype"></DiagramLayout>
+    <DiagramLayout Type="@DiagramLayoutType" Subtype="@DiagramLayoutSubtype" />
 
-    <DiagramShapes>
+    <DiagramShapes> 
         <DiagramShape Id="shape1">
             <DiagramShapeContent Text="1" />
             <DiagramShapeFill Color="#000" />
@@ -142,7 +219,79 @@ Layout Type:
             DiagramLayoutSubtype = newDiagramLayoutSubtype;
         }
     }
+
+    private readonly List<DiagramLayoutType> AllDiagramLayoutTypes = new()
+    {
+        DiagramLayoutType.Force,
+        DiagramLayoutType.Layered,
+        DiagramLayoutType.Tree
+    };
+
+    private readonly Dictionary<DiagramLayoutSubtype, bool> AllDiagramLayoutSubtypes = new()
+    {
+        // DiagramLayoutSubtype subtype, bool Tree layout only
+        { DiagramLayoutSubtype.Down, false },
+        { DiagramLayoutSubtype.Left, false },
+        { DiagramLayoutSubtype.MindMapHorizontal, true },
+        { DiagramLayoutSubtype.MindMapVertical, true },
+        { DiagramLayoutSubtype.Radial, true },
+        { DiagramLayoutSubtype.Right, false },
+        { DiagramLayoutSubtype.TipOver, true },
+        { DiagramLayoutSubtype.Up, false }
+    };
 }
+````
+
+## Layout Grid Settings
+
+A single Diagram instance may display multiple groups of linked shapes that are not connected to one another. Such [separate groups of shapes are called components](slug:diagram-overview#diagram-elements).
+
+The `<DiagramLayoutGrid>` tag exposes settings that allow you to define:
+
+* The horizontal and vertical distance (spacing) between the components inside the Diagram.
+* The horizontal and vertical distance (offset) between the components and the Diagram boundaries.
+* The width of the layout grid. If the width is large enough, the Diagram displays multiple components (groups) in a single row. Otherwise the components fall one below another.
+
+>caption Using Diagram Layout Grid settings
+
+````RAZOR
+<TelerikDiagram Zoom="0.8">
+    <DiagramLayout Type="@DiagramLayoutType.Tree">
+        <DiagramLayoutGrid ComponentSpacingX="50"
+                           ComponentSpacingY="50"
+                           OffsetX="10"
+                           OffsetY="10"
+                           Width="300" />
+    </DiagramLayout>
+
+    <DiagramShapes>
+        <DiagramShape Id="shape1">
+            <DiagramShapeContent Text="Shape 1" />
+        </DiagramShape>
+        <DiagramShape Id="shape2">
+            <DiagramShapeContent Text="Shape 2" />
+        </DiagramShape>
+        <DiagramShape Id="shape3">
+            <DiagramShapeContent Text="Shape 3" />
+        </DiagramShape>
+        <DiagramShape Id="shape4">
+            <DiagramShapeContent Text="Shape 4" />
+        </DiagramShape>
+        <DiagramShape Id="shape5">
+            <DiagramShapeContent Text="Shape 5" />
+        </DiagramShape>
+        <DiagramShape Id="shape6">
+            <DiagramShapeContent Text="Shape 6" />
+        </DiagramShape>
+    </DiagramShapes>
+
+    <DiagramConnections>
+        <DiagramConnection FromId="shape1" ToId="shape2" />
+        <DiagramConnection FromId="shape1" ToId="shape3" />
+        <DiagramConnection FromId="shape4" ToId="shape5" />
+        <DiagramConnection FromId="shape4" ToId="shape6" />
+    </DiagramConnections>
+</TelerikDiagram>
 ````
 
 ## See Also

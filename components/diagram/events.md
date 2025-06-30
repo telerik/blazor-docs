@@ -71,17 +71,17 @@ The following example demonstrates all Diagram events in action.
     {
         if (args.FromX != null)
         {
-            DiagramEventLog = $"Clicked on the connection between coordinates {{{args.FromX}, {args.FromY}}} and {{{args.ToX}, {args.ToY}}}.";
+            DiagramEventLog = $"Clicked on the connection between coordinates ({args.FromX}, {args.FromY}) and ({args.ToX}, {args.ToY}).";
         }
         else
         {
-            DiagramEventLog = $"Clicked on the connection between shapes \"{args.FromId}\" and \"{args.ToId}\".";
+            DiagramEventLog = $"Clicked on the connection between shapes '{args.FromId}' and '{args.ToId}'.";
         }
     }
 
     private void OnDiagramShapeClick(DiagramShapeClickEventArgs args)
     {
-        DiagramEventLog = $"Clicked on shape \"{args.Id}\".";
+        DiagramEventLog = $"Clicked on shape '{args.Id}'.";
     }
 }
 ````
