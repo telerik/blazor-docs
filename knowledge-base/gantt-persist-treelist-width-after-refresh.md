@@ -4,7 +4,7 @@ description: How to persist the width of the Gantt's treelist after refreshing i
 type: how-to
 page_title: How to Display Model Fields in the Gantt Tooltip?
 slug: gantt-kb-persist-treelist-width-after-refresh
-tags: gantt, blazor, treelist, width, persist
+tags: gantt, blazor, treelist, width
 res_type: kb
 ticketid: 1690467
 ---
@@ -82,11 +82,10 @@ To persist the current TreeList width, follow the steps below:
 </script>
 
 @code {
-    private TelerikGantt<FlatModel> GanttRef;
+    private TelerikGantt<FlatModel>? GanttRef { get; set; }
     private string ListWidth { get; set; } = "390px";
-
+    private int LastId { get; set; } = 1;
     private List<FlatModel> GanttData { get; set; }
-
     private GanttView SelectedView { get; set; } = GanttView.Week;
 
     private async Task AddRootTask()
@@ -106,7 +105,7 @@ To persist the current TreeList width, follow the steps below:
         var currentListWidth = await JS.InvokeAsync<string>("getListSize");
         ListWidth = currentListWidth;
 
-        GanttRef.Rebind();
+        GanttRef?.Rebind();
     }
 
     private async Task RemoveTask()
@@ -118,60 +117,10 @@ To persist the current TreeList width, follow the steps below:
         var currentListWidth = await JS.InvokeAsync<string>("getListSize");
         ListWidth = currentListWidth;
 
-        GanttRef.Rebind();
+        GanttRef?.Rebind();
     }
 
-    class FlatModel
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    private int LastId { get; set; } = 1;
-
-    protected override void OnInitialized()
-    {
-        GanttData = new List<FlatModel>();
-        var random = new Random();
-
-        for (int i = 1; i < 6; i++)
-        {
-            var newItem = new FlatModel()
-            {
-                Id = LastId,
-                Title = "Task " + i.ToString(),
-                Start = new DateTime(2021, 7, 5 + i),
-                End = new DateTime(2021, 7, 11 + i),
-                PercentComplete = Math.Round(random.NextDouble(), 2)
-            };
-
-            GanttData.Add(newItem);
-            var parentId = LastId;
-            LastId++;
-
-            for (int j = 0; j < 5; j++)
-            {
-                GanttData.Add(new FlatModel()
-                {
-                    Id = LastId,
-                    ParentId = parentId,
-                    Title = "    Task " + i + " : " + j.ToString(),
-                    Start = new DateTime(2021, 7, 5 + j),
-                    End = new DateTime(2021, 7, 6 + i + j),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                });
-
-                LastId++;
-            }
-        }
-
-        base.OnInitialized();
-    }
-
+    
     private void UpdateItem(GanttUpdateEventArgs args)
     {
         var item = args.Item as FlatModel;
@@ -204,6 +153,54 @@ To persist the current TreeList width, follow the steps below:
         }
 
         GanttData.Remove(item);
+    }
+
+    protected override void OnInitialized()
+    {
+        GanttData = new List<FlatModel>();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new FlatModel()
+            {
+                Id = LastId,
+                Title = "Task " + i.ToString(),
+                Start = new DateTime(2021, 7, 5 + i),
+                End = new DateTime(2021, 7, 11 + i),
+                PercentComplete = Math.Round(Random.Shared.NextDouble(), 2)
+            };
+
+            GanttData.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                GanttData.Add(new FlatModel()
+                {
+                    Id = LastId,
+                    ParentId = parentId,
+                    Title = "    Task " + i + " : " + j.ToString(),
+                    Start = new DateTime(2021, 7, 5 + j),
+                    End = new DateTime(2021, 7, 6 + i + j),
+                    PercentComplete = Math.Round(Random.Shared.NextDouble(), 2)
+                });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+    class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 }
 ````
