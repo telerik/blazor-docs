@@ -16,17 +16,20 @@ The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displa
 
 The Diagram component UI consists of the following elements:
 
-* *Shapes* are the main Diagram nodes or building blocks. Shapes can display text and images.
-* *Connections* are the lines or visual links betweem Diagram shapes. Normally, a connection links two Diagram shapes, but a connection can also exist without related shapes.
+* *Shapes* are the Diagram nodes ([vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory))). Shapes can display text and images.
 * *Connectors* are the 5 dots that appear on the Shape boundaries and center on hover. Users can grab a connector and drag it to another shape to create a new connection.
-* *Component* is a group of connected shapes that are not linked to another collection of connected shapes within the same Diagram.
+* *Connections* are the links ([edges](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#edge)) betweem Diagram shapes. Normally, a connection links two Diagram shapes, but a connection can also exist without related shapes.
+* *Caps* are the connection ends. The connections are directional, so each connection has a start cap and end cap. Note that difference between caps and connectors. Although they can overlap visually, connectors belong to a shape, while caps belong to a connection.
+* [*Components*](https://en.wikipedia.org/wiki/Component_(graph_theory)) are groups (subgraphs) of connected shapes within the same Diagram that are not linked to each other.
 
 ## Creating Blazor Diagram
 
 There are two ways to define and display a Diagram:
 
-* Define the shapes and connections in the component declaration (easier and discussed in this section).
-* [Define the shapes and connections in a JSON](#create-diagram-from-json) (more flexible and discussed in the section below).
+* [Define the shapes and connections in the Diagram component declaration](#define-shapes-and-connections-declaratively).
+* [Define the shapes and connections in a JSON](#define-shapes-and-connections-in-json).
+
+### Define Shapes and Connections Declaratively
 
 To create the Telerik Diagram for Blazor declaratively:
 
@@ -41,9 +44,9 @@ To create the Telerik Diagram for Blazor declaratively:
 
 ````RAZOR
 <TelerikDiagram Height="420px" Zoom="0.8">
-    <DiagramConnectionDefaults Type="@DiagramConnectionType.Cascading"></DiagramConnectionDefaults>
-    <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
-    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle"></DiagramShapeDefaults>
+    <DiagramConnectionDefaults Type="@DiagramConnectionType.Cascading" />
+    <DiagramLayout Type="@DiagramLayoutType.Tree" />
+    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle" />
 
     <DiagramShapes>
         <DiagramShape Id="shape1">
@@ -76,7 +79,7 @@ To create the Telerik Diagram for Blazor declaratively:
 </TelerikDiagram>
 ````
 
-## Create Diagram from JSON
+### Define Shapes and Connections in JSON
 
 To load the shape and connection data from JSON:
 

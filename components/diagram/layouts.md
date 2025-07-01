@@ -229,7 +229,7 @@ Layout Type:
 
     private readonly Dictionary<DiagramLayoutSubtype, bool> AllDiagramLayoutSubtypes = new()
     {
-        // DiagramLayoutSubtype subtype, bool Tree layout only
+        // The boolean flags denote a Tree-specific layout subtype
         { DiagramLayoutSubtype.Down, false },
         { DiagramLayoutSubtype.Left, false },
         { DiagramLayoutSubtype.MindMapHorizontal, true },
@@ -244,7 +244,7 @@ Layout Type:
 
 ## Layout Grid Settings
 
-A single Diagram instance may display multiple groups of linked shapes that are not connected to one another. Such [separate groups of shapes are called components](slug:diagram-overview#diagram-elements).
+A single Diagram instance may display multiple subgraphs, which are disconnected groups of linked shapes. Such [separate subgraphs are called components](slug:diagram-overview#diagram-elements).
 
 The `<DiagramLayoutGrid>` tag exposes settings that allow you to define:
 

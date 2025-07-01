@@ -10,7 +10,107 @@ position: 20
 
 # Blazor Diagram Shapes
 
+The shape is the main building block of the Telerik Diagram for Blazor. It represents a single node in the graph. This article describes the shape customization options that the Diagram provides.
 
+## Basics
+
+The fundamental settings of the Telerik Diagram shapes include:
+
+* The [shape `Type`](#shape-types) determines the overall appearance and content.
+* The shape `Id` is required in order to define connections between related shapes.
+* `Text` defines the shape label. Use the child `<DiagramShapeContent>` tag to set it.
+* `Width` and `Height` determine the shape size in pixels. The default values are `100`.
+
+>caption Using basic Shape parameters
+
+````RAZOR.skip-repl
+<DiagramShape Id="shape1"
+              Type="@DiagramShapeType.Rectangle"
+              Width="200"
+              Height="50">
+    <DiagramShapeContent Text="Shape 1" />
+</DiagramShape>
+````
+
+In addition to the above, use the `X` and `Y` shape parameters to define the shape position coordinates. These parameters have effect only when a [predefined Diagram layout](slug:diagram-layouts) is not set.
+
+## Shape Types
+
+The available Diagram shape types include:
+
+* `Circle`&mdash;you can use different `Width` and `Height` values to define an ellipse.
+* `Image`&mdash;all shape types support text labels, but only the `Image` shape can display a graphic. Use the `<DiagramShape>` `Source` parameter to define the image URL or data URI.
+* `Rectangle` (default)
+* `Text`&mdash;unlike the other shape types, the `Text` shape has no borders and background.
+
+>caption Using Image shapes
+
+````RAZOR.skip-repl
+<DiagramShape Type="@DiagramShapeType.Image" Source="https://www.domain.com/image.gif" />
+
+<DiagramShape Type="@DiagramShapeType.Image" Source="data:image/svg;base64,....." />
+````
+
+## Styling
+
+The following shape styling options are available in child tags of `<DiagramShapeDefaults>` and `<DiagramShape>`:
+
+* Text color and font properties
+* Background color (fill) and opacity for the default and hover states
+* Rotation angle
+* Border (stroke) color, type, width, and opacity
+
+>caption Setting global and shape-specific color styles
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramShapeDefaults>
+        <DiagramShapeDefaultsContent Color="white" FontSize="16" />
+        <DiagramShapeDefaultsFill Color="purple" />
+        <DiagramShapeDefaultsHover>
+            <DiagramShapeDefaultsHoverFill Color="blue" />
+        </DiagramShapeDefaultsHover>
+    </DiagramShapeDefaults>
+
+    <DiagramShapes>
+        <DiagramShape>
+            <DiagramShapeContent Color="#3d3d3d" FontSize="24" />
+            <DiagramShapeFill Color="#e0e0e0" />
+            <DiagramShapeHover>
+                <DiagramShapeHoverFill Color="#d6d6d6" />
+            </DiagramShapeHover>
+        </DiagramShape>
+    </DiagramShapes>
+</TelerikDiagram>
+````
+
+## Editability
+
+By default, the Diagram allows users to:
+
+* Connect one shape to other shapes.
+* Drag a shape to new coordinates.
+* Remove the selected shape(s).
+
+To restrict these operations globally for all shapes, use the parameters of the `<DiagramShapeDefaultsEditable>` tag.
+
+To restrict or enable operations for a specific shape, use the parameters of the `<DiagramShapeEditable>` tag.
+
+>caption Setting global and shape-specific editing options
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramShapeDefaults>
+        <DiagramShapeDefaultsEditable Connect="true" Drag="false" Remove="false" />
+    </DiagramShapeDefaults>
+
+    <DiagramShapes>
+        <DiagramShape>
+            <DiagramShapeEditable Connect="false" />
+        </DiagramShape>
+    </DiagramShapes>
+</TelerikDiagram>
+````
 
 ## Example
 
@@ -20,72 +120,77 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
 
 ````RAZOR
 <TelerikDiagram Height="300px">
-    <DiagramShapeDefaults>
-        <DiagramShapeDefaultsContent Color="white" />
+    <DiagramShapeDefaults Selectable="true"
+                          Type="@DiagramShapeType.Rectangle">
+        <DiagramShapeDefaultsContent Color="white"
+                                     FontFamily="arial"
+                                     FontSize="16"
+                                     FontStyle="normal"
+                                     FontWeight="normal"
+                                     Text="Default Text" />
         <DiagramShapeDefaultsFill Color="purple" Opacity="0.8" />
         <DiagramShapeDefaultsHover>
             <DiagramShapeDefaultsHoverFill Color="blue" Opacity="1" />
         </DiagramShapeDefaultsHover>
-        <DiagramShapeDefaultsEditable Connect="true" Drag="true" Enabled="true" Remove="false" />
+        <DiagramShapeDefaultsEditable Connect="true" Drag="true" Remove="false" />
         <DiagramShapeDefaultsRotation Angle="0" />
         <DiagramShapeDefaultsStroke Color="black" DashType="@DashType.Dot" Width="2" />
     </DiagramShapeDefaults>
 
     <DiagramShapes>
-        <DiagramShape Height="100"
+        <DiagramShape Height="150"
                       Id="shape1"
-                      Path=""
                       Type="@DiagramShapeType.Circle"
                       Width="100"
-                      X="200"
+                      X="160"
                       Y="20">
-            <DiagramShapeContent Text="Circle">
-            </DiagramShapeContent>
-            <DiagramShapeEditable Enabled="false" Connect="false"></DiagramShapeEditable>
+            <DiagramShapeContent Text="Circle" />
+            <DiagramShapeEditable Enabled="false" Connect="false" />
         </DiagramShape>
-        <DiagramShape Height="160"
-                      Id="shape2"
-                      Path=""
-                      Source="https://demos.telerik.com/blazor-ui/images/home-page/contact-ninja.svg"
+        <DiagramShape Id="shape2"
+                      Source="@Base64SvgImage"
                       Type="@DiagramShapeType.Image"
-                      Width="140"
                       X="20"
                       Y="50">
-            <DiagramShapeContent Text="Image" Color="#225eff" FontWeight="bold">
-            </DiagramShapeContent>
+            <DiagramShapeContent Text="Image" Color="#000" FontSize="20" FontWeight="bold" />
         </DiagramShape>
         <DiagramShape Height="80"
                       Id="shape3"
-                      Path=""
                       Type="@DiagramShapeType.Rectangle"
                       Width="160"
-                      X="400"
+                      X="350"
                       Y="50">
-            <DiagramShapeContent Text="Rectangle" Color="#3d3d3d" />
-            <DiagramShapeFill Color="#f5f5f5" />
+            <DiagramShapeContent Text="Rectangle" Color="#3d3d3d" FontSize="18" FontWeight="bold" FontStyle="italic" />
+            <DiagramShapeFill Color="#e0e0e0" />
             <DiagramShapeHover>
-                <DiagramShapeHoverFill Color="#ebebeb"></DiagramShapeHoverFill>
+                <DiagramShapeHoverFill Color="#d6d6d6" />
             </DiagramShapeHover>
-            <DiagramShapeRotation Angle="20"></DiagramShapeRotation>
+            <DiagramShapeRotation Angle="20" />
             <DiagramShapeStroke DashType="@DashType.LongDash" Color="blue" Width="2" />
         </DiagramShape>
         <DiagramShape Height="100"
                       Id="shape4"
-                      Path=""
                       Type="@DiagramShapeType.Text"
                       Width="100"
-                      X="200"
+                      X="150"
                       Y="250">
-            <DiagramShapeContent Text="Text" Color="black" />
+            <DiagramShapeContent Text="Text Shape" Color="black" />
         </DiagramShape>
         <DiagramShape Height="75"
                       Id="shape5"
                       Path="M 2 13 A 1.42 1.42 0 0 1 6 13"
                       Width="150"
-                      X="300"
+                      X="250"
                       Y="150">
             <DiagramShapeContent Text="Custom Path" />
             <DiagramShapeStroke Color="transparent" DashType="@DashType.Solid" Width="0" />
+        </DiagramShape>
+        <DiagramShape Height="50"
+                      Id="shape6"
+                      Width="120"
+                      X="550"
+                      Y="100">
+            <DiagramShapeContent Color="#ccc" />
         </DiagramShape>
     </DiagramShapes>
 
@@ -94,30 +199,42 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
         <DiagramConnection FromId="shape1" ToId="shape3" />
         <DiagramConnection FromId="shape1" ToId="shape4" />
         <DiagramConnection FromId="shape3" ToId="shape5" />
+        <DiagramConnection FromId="shape3" ToId="shape6" />
     </DiagramConnections>
 
 </TelerikDiagram>
+
+@code {
+    private readonly string Base64SvgImage = "data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAMAAAAua3VzAAACylBMVEVMaXFc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBeULtoAAAA7XRSTlMAgAIEmOsx8uAhAQUG+vX0/AP7/jMdovfO5weHChPmt+/2LkdrrfkWC5/cYDZ5F8vuOA743v0QgXqTHKzjFMjNUG6h8909EejtIBoeiC/J0w+0XL1bPOHMQAySGyXPUvHwVbwmOt9thmwZJ0vl7Fpe0NHKq9mbhWYJMhhBIg10K9Wc5L+L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";
+}
 ````
 
-## Visuals
+## Visual Function
 
-https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group
+You can draw shapes by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended only if the desired result cannot be achieved in another way.
 
-https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual
+To use a visual function:
+
+1. Get familiar with the [related JavaScript API and available visual primitives](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual).
+1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group).
+1. Set the `Visual` parameter of `<DiagramShapeDefaults>` or `<DiagramShape>` tag to the JavaScript function name. The first approach affects all shapes, while the second one affects a specific shape.
+1. (optional) Retrieve information about the current shape from the the function argument. It is a JavaScript object that contains all shape settings.
+
+> This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
+
+>caption Using Diagram shape visual function
 
 ````RAZOR
 <TelerikDiagram>
     <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
 
-    <DiagramShapeDefaults>
-        <DiagramShapeDefaultsContent Template="templateFunction" />
-    </DiagramShapeDefaults>
+    <DiagramShapeDefaults Visual="shapeVisualFunction" />
 
     <DiagramShapes>
         <DiagramShape Id="shape1">
             <DiagramShapeContent Template="Shape 1" />
         </DiagramShape>
-        <DiagramShape Id="shape2" Visual="visualFunction">
+        <DiagramShape Id="shape2">
             <DiagramShapeContent Text="Shape 2" />
         </DiagramShape>
     </DiagramShapes>
@@ -129,16 +246,25 @@ https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/
 
 @* Move JavaScript code to an external JS file *@
 <script suppress-error="BL9992">
-    function visualFunction(data) {
+    function shapeVisualFunction(context) {
         let group = new TelerikBlazor.DiagramCommon.Group({
           autoSize: true
         });
-        let circle = new TelerikBlazor.DiagramCommon.Circle({
-          width : 100,
+
+        let circle1 = new TelerikBlazor.DiagramCommon.Circle({
+          width : 120,
           height: 60,
           fill: "orange"
         });
-        group.append(circle);
+        group.append(circle1);
+
+        let circle2 = new TelerikBlazor.DiagramCommon.Circle({
+          width : 100,
+          height: 40,
+          fill: "red",
+          center: { x: 24, y: 30 }
+        });
+        group.append(circle2);
 
         return group;
     }

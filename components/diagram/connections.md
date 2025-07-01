@@ -12,6 +12,8 @@ position: 30
 
 ## Example
 
+>caption Customize Diagram Connections
+
 ````RAZOR
 <TelerikDiagram Height="420px">
     <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline" Selectable="true">
@@ -78,12 +80,92 @@ position: 30
             <DiagramConnectionStroke Color="lightblue" Width="5" />
         </DiagramConnection>
         <DiagramConnection>
-            <DiagramConnectionContent Text="connection with no shapes" />
+            <DiagramConnectionContent Text="Connection with no shapes" />
             <DiagramConnectionFrom X="300" Y="100" />
             <DiagramConnectionTo X="400" Y="200" />
         </DiagramConnection>
     </DiagramConnections>
 </TelerikDiagram>
+````
+
+## Visual Function
+
+You can draw additional connection content by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended only if the desired result cannot be achieved in another way.
+
+To use a visual function:
+
+1. Get familiar with the [related JavaScript API and available visual primitives](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual).
+1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group).
+1. Set the `Visual` parameter of `<DiagramConnectionDefaultsContent>` or `<DiagramConnectionContent>` tag to the JavaScript function name. The first approach affects all connections, while the second one affects a specific connection.
+
+> This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
+
+>caption Using Diagram connection visual function
+
+````RAZOR
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
+
+    <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline">
+        <DiagramConnectionDefaultsContent Visual="" />
+    </DiagramConnectionDefaults>
+
+    <DiagramShapes>
+        <DiagramShape Id="shape1">
+            <DiagramShapeContent Template="Shape 1" />
+        </DiagramShape>
+        <DiagramShape Id="shape2">
+            <DiagramShapeContent Text="Shape 2" />
+        </DiagramShape>
+        <DiagramShape Id="shape3">
+            <DiagramShapeContent Text="Shape 3" />
+        </DiagramShape>
+    </DiagramShapes>
+
+    <DiagramConnections>
+        <DiagramConnection FromId="shape1" ToId="shape2">
+            <DiagramConnectionContent Visual="connectionVisualFunction12" />
+        </DiagramConnection>
+        <DiagramConnection FromId="shape1" ToId="shape3">
+            <DiagramConnectionContent Visual="connectionVisualFunction13" />
+        </DiagramConnection>
+    </DiagramConnections>
+</TelerikDiagram>
+
+@* Move JavaScript code to an external JS file *@
+<script suppress-error="BL9992">
+    function connectionVisualFunction12(context) {
+        return connectionVisualFunction(context, "1 to 2", "green");
+    }
+    function connectionVisualFunction13(context) {
+        return connectionVisualFunction(context, "1 to 3", "red");
+    }
+
+    function connectionVisualFunction(context, text, color) {
+        var g = new TelerikBlazor.DiagramCommon.Group({
+            autoSize: true
+        });
+
+        var circle = new TelerikBlazor.DiagramCommon.Circle({
+            width: 16,
+            height: 16,
+            fill: {
+                color: color
+            }
+        });
+
+        var text = new TelerikBlazor.DiagramCommon.TextBlock({
+            text: text,
+            fontSize: 16,
+            x: 20
+        });
+
+        g.append(circle);
+        g.append(text);
+
+        return g;
+    }
+</script>
 ````
 
 ## See Also
