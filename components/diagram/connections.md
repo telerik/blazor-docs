@@ -10,6 +10,47 @@ position: 30
 
 # Blazor Diagram Connections
 
+The connections in the Telerik Diagram for Blazor signify the relationship between two shapes (graph nodes). This article describes the connection customization options that the Diagram provides.
+
+## Basics
+
+The fundamental settings of the Telerik Diagram connections include:
+
+* The [connection `Type`](#connection-types) determines whether the .
+* Selectable
+* Cap Type
+
+## Connection Types
+
+## Editability
+
+By default, the Diagram allows users to:
+
+* Drag a connection by its start and end cap to link other shapes than the current ones.
+* Remove the selected connection(s).
+
+To restrict these operations globally for all connections, use the parameters of the `<DiagramConnectionDefaultsEditable>` tag.
+
+To restrict operations for a specific connection, use the parameters of the `<DiagramConnectionEditable>` tag.
+
+Connection dragging and removing requires the `Selectable` parameter of `<DiagramConnectionDefaults>` to be set to `true`, which is by default.
+
+>caption Setting global and connection-specific editing options
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramConnectionDefaults Selectable="true">
+        <DiagramConnectionDefaultsEditable Drag="true" Remove="true" />
+    </DiagramConnectionDefaults>
+
+    <DiagramConnections>
+        <DiagramConnection>
+            <DiagramConnectionEditable Enabled="false" />
+        </DiagramConnection>
+    </DiagramConnections>
+</TelerikDiagram>
+````
+
 ## Example
 
 >caption Customize Diagram Connections
@@ -56,7 +97,11 @@ position: 30
     </DiagramShapes>
 
     <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
+        <DiagramConnection FromId="shape1" ToId="shape2" FromConnector="@DiagramConnectionsFromConnector.Left">
+            <DiagramConnectionPoints>
+                <DiagramConnectionPoint X="100" Y="120" />
+            </DiagramConnectionPoints>
+        </DiagramConnection>
         <DiagramConnection FromId="shape1" ToId="shape3" Type="@DiagramConnectionType.Cascading">
             <DiagramConnectionContent Text="1 to 3" />
             <DiagramConnectionEditable Enabled="false" />
@@ -81,7 +126,7 @@ position: 30
         </DiagramConnection>
         <DiagramConnection>
             <DiagramConnectionContent Text="Connection with no shapes" />
-            <DiagramConnectionFrom X="300" Y="100" />
+            <DiagramConnectionFrom X="330" Y="100" />
             <DiagramConnectionTo X="400" Y="200" />
         </DiagramConnection>
     </DiagramConnections>
