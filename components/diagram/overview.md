@@ -38,7 +38,7 @@ To create the Telerik Diagram for Blazor declaratively:
 1. [Define the Diagram layout](slug:diagram-layouts) through the `Type` parameter of the child `<DiagramLayout>` tag.
 1. [Define shapes](slug:diagram-shapes) with `<DiagramShape>` tags inside `<DiagramShapes>`.
 1. [Define the connections](slug:diagram-connections) between the shapes with `<DiagramConnection>` tags inside `<DiagramConnections>`.
-1. (optional) Define the Diagram `Height`, `Width`, and initial `Zoom` for optimal display.
+1. (optional) Define the Diagram `Height`, `Width`, and [initial `Zoom`](#zoom) for optimal display. The default height is `"600px"`.
 1. (optional) Define the default type of all Diagram [shapes](slug:diagram-shapes#shape-types) and [connections](slug:diagram-connections#connection-types).
 
 >caption Basic Blazor Diagram
@@ -215,6 +215,19 @@ The shapes are the graph nodes and the main building blocks of the Diagram compo
 ## Connections
 
 Connections link shapes or points in the Diagram. Users can create, modify or remove connections at runtime. See the [Diagram connection features and settings](slug:diagram-connections).
+
+## Zoom
+
+The Diagram allows users to zoom the graph in and out for better perception. The following code snippet shows the relevant parameters together with their default values. The default `Zoom` value is is effectively `100%` and the maximum zoom is `200%`. A `Zoom` value below `0.5.` may not be readable, unless the shapes use a large font size or users zoom their browser.
+
+>caption Zoom-related Diagram parameters
+
+````RAZOR.skip-repl
+<TelerikDiagram Zoom="1"
+                ZoomRate="0.1"
+                MaxZoom="2"
+                MinZoom="0" />
+````
 
 ## Events
 
