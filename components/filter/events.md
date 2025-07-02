@@ -17,12 +17,14 @@ This article explains the available events for the Telerik Filter for Blazor:
 
 ## OnUpdate
 
-The `OnUpdate` event fires when the filter value changes. The component works directly with the bound `CompositeFilterDescriptor` value and automatically updates it when it is used with one-way binding.
+The `OnUpdate` event fires when the filter value changes. The component is designed for one-way binding and works directly with the reference of the bound `CompositeFilterDescriptor` value. Avoid using two-way binding, because the component updates the filter value internally. Use the `OnUpdate` event to handle any additional logic when the filter value is modified.
 
->caption Handle OnUpdate.
+>caption Handle OnUpdate
 
 ````RAZOR
 @using Telerik.DataSource
+
+<div class="info-note">Change any filter value to trigger the event and see the message update from the OnUpdate handler.</div>
 
 <TelerikFilter Value="@Value" OnUpdate="@OnFilterUpdate">
     <FilterFields>
@@ -32,21 +34,33 @@ The `OnUpdate` event fires when the filter value changes. The component works di
     </FilterFields>
 </TelerikFilter>
 <br />
-<strong>OnUpdate triggered count: </strong> @TriggeredOnUpdateCount
+<div>
+    <strong>@EventMessage</strong>
+</div>
+
+<style>
+    .info-note {
+        background: #e6f4ff;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        width: 400px;
+    }
+</style>
 
 @code {
     private CompositeFilterDescriptor Value { get; set; } = new CompositeFilterDescriptor();
-    private int TriggeredOnUpdateCount { get; set; }
+    private string EventMessage { get; set; } = string.Empty;
 
     private void OnFilterUpdate()
     {
-        TriggeredOnUpdateCount++;
+        EventMessage = $"Filter updated at {DateTime.Now:HH:mm:ss}";
     }
 
     public class Person
     {
         public int EmployeeId { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public int AgeInYears { get; set; }
     }
 }
@@ -58,7 +72,7 @@ The `ValueChanged` event fires when the value has changed. Its event handler rec
 
 > The `ValueChanged` event will be deprecated in future versions. Use the `OnUpdate` event instead.
 
->caption Handle ValueChanged.
+>caption Handle ValueChanged
 
 ````RAZOR
 @* This code snippet showcases an example of how to handle the ValueChanged event. *@
