@@ -14,9 +14,9 @@ The Telerik Blazor Diagram provides a few built-in layouts, so that you don't ha
 
 ## Tree Layout
 
-The Tree Diagram layout positions the shapes in a hierarchical way. A typical use case for this layout is to represent the teams or employess in an organization.
+The Tree Diagram layout positions the shapes in a hierarchical way. A typical use case for this layout is to display the teams or employess in an organization.
 
->caption Setting the Tree Diagram Layout
+>caption Using the Tree Diagram Layout
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
@@ -57,12 +57,12 @@ The [Layered Diagram layout](https://en.wikipedia.org/wiki/Layered_graph_drawing
 The layered layout works best with:
 
 * One-direction flows that match the layout subtype
-* No [components (non-linked groups of shapes)](slug:diagram-overview#diagram-elements)
+* No [components (subgraphs)](slug:diagram-overview#diagram-elements)
 * No cycles (connections flowing back upstream)
 
 When the graph is a tree, the layout reduces to a standard tree layout and thus can be considered as an extension to the classic tree layout.
 
->caption Setting the Layered Diagram Layout
+>caption Using the Layered Diagram Layout
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
@@ -90,11 +90,11 @@ The Layered Diagram layout has the following sub types. Each subtype name signif
 
 ## Force Layout
 
-The [Force-directed Diagram layout](https://en.wikipedia.org/wiki/Force-directed_graph_drawing) (also known as the spring-embedder algorithm) is based on a physical simulation of forces acting on the Diagram nodes (shapes), whereby the links (connections) define whether two nodes act upon each other. Each link is like a spring embedded in the Diagram. The simulation attempts to find a minimum energy state, so that the springs are in their base state and do not pull or push any linked node.
+The [Force-directed Diagram layout](https://en.wikipedia.org/wiki/Force-directed_graph_drawing) (also known as the spring-embedder algorithm) is based on a physical simulation of forces acting on the Diagram nodes (shapes), whereby the connections define whether two nodes act upon each other. Each link is like a spring embedded in the Diagram. The simulation attempts to find a minimum energy state, so that the springs are in their base state and do not pull or push any linked node.
 
 > The force-directed Diagram layout is non-deterministic. Each layout pass is unique, unpredictable, and not reproducible.
 
->caption Setting the Layered Diagram Layout
+>caption Using the Force Diagram Layout
 
 ````RAZOR.skip-repl
 <TelerikDiagram>

@@ -10,7 +10,7 @@ position: 20
 
 # Blazor Diagram Shapes
 
-The shape is the main building block of the Telerik Diagram for Blazor. It represents a single node in the graph. This article describes the shape customization options that the Diagram provides.
+The shape is the main building block of the Telerik Diagram for Blazor. It represents a single node in the graph. This article describes all Diagram shape customization options.
 
 ## Basics
 

@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Diagram Overview
 
-The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displays a hierarchy or relationships between objects or concepts. The Diagram provides a variety of built-in horizontal and vertical layouts. The component allows customizing the size, position, and geometric form of its elements.
+The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displays a hierarchy or relationships between objects or concepts. The Diagram provides a variety of built-in horizontal and vertical layouts. The connections between the graph nodes can be one-directional, bi-directional, or non-directional. The component allows customizing the size, position, and geometric form of its elements.
 
 ## Diagram Elements
 
@@ -20,7 +20,8 @@ The Diagram component UI consists of the following elements:
 * *Connectors* are the 5 dots that appear on the Shape boundaries and center on hover. Users can grab a connector and drag it to another shape to create a new connection.
 * *Connections* are the links ([edges](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#edge)) betweem Diagram shapes. Normally, a connection links two Diagram shapes, but a connection can also exist without related shapes.
 * *Caps* are the connection ends. The connections are directional, so each connection has a start cap and end cap. Note that difference between caps and connectors. Although they can overlap visually, connectors belong to a shape, while caps belong to a connection.
-* [*Components*](https://en.wikipedia.org/wiki/Component_(graph_theory)) are groups (subgraphs) of connected shapes within the same Diagram that are not linked to each other.
+* *Selection handles* are the additional visual elements that appear at both ends of a connection when it is selected. The handles appear on top of the caps and connectors.
+* [*Components*](https://en.wikipedia.org/wiki/Component_(graph_theory)) are groups (subgraphs) of connected shapes within the same Diagram that are not linked to each other. The Diagram provides [dedicated settings for such scenarios](slug:diagram-layouts#layout-grid-settings).
 
 ## Creating Blazor Diagram
 
@@ -34,11 +35,11 @@ There are two ways to define and display a Diagram:
 To create the Telerik Diagram for Blazor declaratively:
 
 1. Add the `TelerikDiagram` tag.
-1. Define the Diagram layout through the `Type` parameter of the child `<DiagramLayout>` tag.
-1. Define one or multiple shapes with `<DiagramShape>` tags inside `<DiagramShapes>`.
-1. Define the connections between the shapes with `<DiagramConnection>` tags inside `<DiagramConnections>`.
+1. [Define the Diagram layout](slug:diagram-layouts) through the `Type` parameter of the child `<DiagramLayout>` tag.
+1. [Define shapes](slug:diagram-shapes) with `<DiagramShape>` tags inside `<DiagramShapes>`.
+1. [Define the connections](slug:diagram-connections) between the shapes with `<DiagramConnection>` tags inside `<DiagramConnections>`.
 1. (optional) Define the Diagram `Height`, `Width`, and initial `Zoom` for optimal display.
-1. (optional) Define the default type of all Diagram shapes and connections.
+1. (optional) Define the default type of all Diagram [shapes](slug:diagram-shapes#shape-types) and [connections](slug:diagram-connections#connection-types).
 
 >caption Basic Blazor Diagram
 
