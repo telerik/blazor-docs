@@ -14,8 +14,11 @@ The connections in the Telerik Diagram for Blazor signify the relationship betwe
 
 ## Basics
 
-The fundamental settings of the Telerik Diagram connections include:
+A connection is a link that shows a relationship between two Diagram shapes. A connection can also span across points with specific coordinates, with no associated shapes.
 
+The fundamental settings of the Telerik Diagram connections (`<DiagramConnection>`) include:
+
+* The `FromId` and `ToId` parameters must match the associated [shape `Id`s](slug:diagram-shapes#basics). You can also define a connection that does not link shapes. In this case, use the `X` and `Y` parameters of the child tags `<DiagramConnectionFrom>` and `<DiagramConnectionTo>`.
 * The [connection `Type`](#connection-types) determines the connection route and route angles.
 * The connection [cap `Type`](#cap-types) determines whether the connections appear directed or undirected.
 * The `Selectable` parameter of `<DiagramConnectionDefaults>` sets if connections can be selected, which determines the ability to [drag or remove](#editability) them.
@@ -29,12 +32,21 @@ The fundamental settings of the Telerik Diagram connections include:
 </DiagramConnection>
 ````
 
+>caption Using Connections without Shapes
+
+````RAZOR.skip-repl
+<DiagramConnection>
+    <DiagramConnectionFrom X="50" Y="100" />
+    <DiagramConnectionTo X="150" Y="200" />
+</DiagramConnection>
+````
+
 ## Connection Types
 
 The available Diagram connection types include:
 
 * `Cascading` (default)&mdash;connections display as rectangular routes with one or more right angles. The cascading connection type is suitable for [tree Diagram layouts](slug:diagram-layouts#tree-layout), as the connections enhance the representation of a hierarchy.
-* `Polyline`&mdash;connections display as polylines that connect the related shapes and all intermediate points. If connection points are not defined, then the connection displays as a straight line.
+* `Polyline`&mdash;connections display as polylines that connect the related shapes and all intermediate points. If [connection points](#connection-points) are not defined, then the connection displays as a straight line.
 
 >caption Setting Connection Type Globally
 

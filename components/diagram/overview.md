@@ -10,16 +10,16 @@ position: 0
 
 # Blazor Diagram Overview
 
-The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displays a hierarchy or relationships between objects or concepts. The Diagram provides a variety of built-in horizontal and vertical layouts. The connections between the graph nodes can be one-directional, bi-directional, or non-directional. The component allows customizing the size, position, and geometric form of its elements.
+The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displays relationships between objects or concepts, for example, hierachy. The Diagram provides a variety of built-in shapes and horizontal and vertical layouts. The connections between the graph nodes can be one-directional, bi-directional, or non-directional. The component allows customizing the size, position, and geometric form of its elements.
 
 ## Diagram Elements
 
 The Diagram component UI consists of the following elements:
 
-* *Shapes* are the Diagram nodes ([vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory))). Shapes can display text and images.
+* *Shapes* are the Diagram nodes ([vertices](https://en.wikipedia.org/wiki/Vertex_(graph_theory))). Shapes can display [text and images](slug:diagram-shapes).
 * *Connectors* are the 5 dots that appear on the Shape boundaries and center on hover. Users can grab a connector and drag it to another shape to create a new connection.
-* *Connections* are the links ([edges](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#edge)) betweem Diagram shapes. Normally, a connection links two Diagram shapes, but a connection can also exist without related shapes.
-* *Caps* are the connection ends. The connections are directional, so each connection has a start cap and end cap. Note that difference between caps and connectors. Although they can overlap visually, connectors belong to a shape, while caps belong to a connection.
+* *Connections* are the links ([edges](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#edge)) betweem Diagram shapes. Normally, a [connection links two Diagram shapes, but a connection can also exist without related shapes](slug:diagram-connections).
+* *Caps* are the connection ends. The connections are directional, so each connection has a [start cap and end cap](slug:diagram-connections). Note that difference between caps and connectors. Although they can overlap visually, connectors belong to a shape, while caps belong to a connection.
 * *Selection handles* are the additional visual elements that appear at both ends of a connection when it is selected. The handles appear on top of the caps and connectors.
 * [*Components*](https://en.wikipedia.org/wiki/Component_(graph_theory)) are groups (subgraphs) of connected shapes within the same Diagram that are not linked to each other. The Diagram provides [dedicated settings for such scenarios](slug:diagram-layouts#layout-grid-settings).
 
@@ -203,6 +203,22 @@ Make more changes and restore with
     }";
 }
 ````
+
+## Layouts
+
+The [Diagram provides multiple built-in horizontal and vertical layouts](slug:diagram-layouts), which arrange all shapes and connections automatically, according to specific rules and priorities. Some of the layouts have variations called sub types.
+
+## Shapes
+
+The shapes are the graph nodes and the main building blocks of the Diagram component. Learn about the [shape types and available configuration options](slug:diagram-shapes).
+
+## Connections
+
+Connections link shapes or points in the Diagram. Users can create, modify or remove connections at runtime. See the [Diagram connection features and settings](slug:diagram-connections).
+
+## Events
+
+The Telerik Diagram fires events that enable the app to detect and react to user interactions with the component. Find out more about the [Diagram events and event arguments](slug:diagram-events).
 
 ## Diagram API
 
