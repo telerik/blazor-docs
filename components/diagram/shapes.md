@@ -114,7 +114,7 @@ To restrict or enable operations for a specific shape, use the parameters of the
 
 ## Example
 
-The following configuration is not using a prefefined [Diagram layout](slug:diagram-layouts). However, you can remove all Shape `X` and `Y` parameters and set a define a layout though the `<DiagramLayout>` tag.
+The following configuration is not using a prefefined [Diagram layout](slug:diagram-layouts). However, you can remove all Shape `X` and `Y` parameters and set a layout though the `<DiagramLayout>` tag.
 
 >caption Customize Diagram Shapes
 
