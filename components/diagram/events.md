@@ -19,11 +19,37 @@ The Telerik Blazor Diagram fires events that are related to different user actio
 
 The `OnConnectionClick` event fires when the user clicks on a connection, including the connection ends that rest on the shape boundaries. The event argument is of type [`DiagramConnectionClickEventArgs`](slug:Telerik.Blazor.Components.DiagramConnectionClickEventArgs) and it provides information about the linked shapes (if they exist) or about the connection coordinates (if set).
 
-See the [example](#example) below.
+>caption Using the Diagram OnConnectionClick event
+
+````RAZOR.skip-repl
+<TelerikDiagram OnConnectionClick="@OnDiagramConnectionClick" />
+
+@code {
+    private void OnDiagramConnectionClick(DiagramConnectionClickEventArgs args)
+    {
+
+    }
+}
+````
+
+Also see the [example](#example) below.
 
 ## OnShapeClick
 
 The `OnShapeClick` event fires when the user clicks on a shape. The event argument is of type [`DiagramShapeClickEventArgs`](slug:Telerik.Blazor.Components.DiagramShapeClickEventArgs) and provides the shape `Id`.
+
+>caption Using the Diagram OnShapeClick event
+
+````RAZOR.skip-repl
+<TelerikDiagram OnShapeClick="@OnDiagramShapeClick" />
+
+@code {
+    private void OnDiagramShapeClick(DiagramShapeClickEventArgs args)
+    {
+
+    }
+}
+````
 
 ## Example
 
