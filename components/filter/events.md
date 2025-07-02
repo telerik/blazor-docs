@@ -12,11 +12,51 @@ position: 11
 
 This article explains the available events for the Telerik Filter for Blazor:
 
+* [OnUpdate](#onupdate)
 * [ValueChanged](#valuechanged)
+
+## OnUpdate
+
+The `OnUpdate` event fires when the filter value changes. The component works directly with the bound `CompositeFilterDescriptor` value and automatically updates it when it is used with one-way binding.
+
+>caption Handle OnUpdate.
+
+````RAZOR
+@using Telerik.DataSource
+
+<TelerikFilter Value="@Value" OnUpdate="@OnFilterUpdate">
+    <FilterFields>
+        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
+        <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
+        <FilterField Name="@(nameof(Person.AgeInYears))" Type="@(typeof(int))" Label="Age"></FilterField>
+    </FilterFields>
+</TelerikFilter>
+<br />
+<strong>OnUpdate triggered count: </strong> @TriggeredOnUpdateCount
+
+@code {
+    private CompositeFilterDescriptor Value { get; set; } = new CompositeFilterDescriptor();
+    private int TriggeredOnUpdateCount { get; set; }
+
+    private void OnFilterUpdate()
+    {
+        TriggeredOnUpdateCount++;
+    }
+
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public int AgeInYears { get; set; }
+    }
+}
+````
 
 ## ValueChanged
 
 The `ValueChanged` event fires when the value has changed. Its event handler receives the updated `CompositeFilterDescriptor` as an argument.
+
+> The `ValueChanged` event will be deprecated in future versions. Use the `OnUpdate` event instead.
 
 >caption Handle ValueChanged.
 
