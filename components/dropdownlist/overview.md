@@ -12,6 +12,14 @@ position: 0
 
 The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data](slug:components/dropdownlist/databind), sizes, and various appearance options like class and [templates](slug:components/dropdownlist/templates).
 
+<style>
+    #markdown-body > div > .cta-panel-big-module--container--c08a9 {
+        display: none;
+    }
+</style>
+
+<span class="cta-panel-big-module--container--c08a9 d-print-none "><span class="row align-items-center justify-content-center cta-panel-big-module--row--9b71a"><span class="col-auto"><img class="cta-panel-big-module--icon--a648c" src="/static/c0a85b2af83a712b8eaabf444cbc70e8/avatar-ninja.svg" alt="ninja-icon"></span><span class="col-12 col-sm"><span class="cta-panel-big-module--message--40a0f">Tired of reading docs? With our new AI Coding Assistants, you can add, configure, and troubleshoot Telerik UI for Blazor components—right inside your favorite AI-powered IDE: Visual Studio, VS Code, Cursor, and more. Start building faster, smarter, and with contextual intelligence powered by our docs/APIs:</span></span><span class="col-12 col-lg-auto"><a class="cta-panel-big-module--btnTrial--38b3e" href="https://www.telerik.com/blazor-ui/documentation/ai/overview?utm_source=ai-assistants-docs" target="__blank">Try AI Assistants</a></span></span></span>
+
 ## Creating Blazor DropDownList
 
 1. Use the `TelerikDropDownList` tag to add the Blazor dropdown list to your razor page.
