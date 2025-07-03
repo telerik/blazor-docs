@@ -96,6 +96,8 @@ Use JavaScript to dynamically adjust the `z-index` of the predefined dialog. Thi
 ```
 
 ```razor
+@inject IJSRuntime js
+
 <TelerikDialog Visible="@Visible" VisibleChanged="OnDialogClosingAsync">
 </TelerikDialog>
 
