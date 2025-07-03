@@ -111,33 +111,36 @@ The following example demonstrates all Diagram layout types and sub types.
 >caption Using Diagram layouts
 
 ````RAZOR
-Layout Type:
-<TelerikButtonGroup>
-    @foreach (DiagramLayoutType layoutType in AllDiagramLayoutTypes)
-    {
-        <ButtonGroupToggleButton SelectedChanged="@((bool selected) => DiagramLayoutTypeChanged(selected, layoutType))"
-                                 Selected="@(DiagramLayoutType == layoutType)"
-                                 @key="@layoutType">
-            @layoutType
-        </ButtonGroupToggleButton>
-    }
-</TelerikButtonGroup>
-
-@if (DiagramLayoutType != DiagramLayoutType.Force)
-{
-    <br />
-    <text>Sub Type:</text>
+<div class="settings-row">
+    <span>Layout Type:</span>
     <TelerikButtonGroup>
-        @foreach (KeyValuePair<DiagramLayoutSubtype, bool> kvPair in AllDiagramLayoutSubtypes)
+        @foreach (DiagramLayoutType layoutType in AllDiagramLayoutTypes)
         {
-            <ButtonGroupToggleButton SelectedChanged="@((bool selected) => DiagramLayoutSubtypeChanged(selected, kvPair.Key))"
-                                     Selected="@(DiagramLayoutSubtype == kvPair.Key)"
-                                     Enabled="@(!kvPair.Value || DiagramLayoutType == DiagramLayoutType.Tree)"
-                                     @key="@kvPair">
-                @kvPair.Key
+            <ButtonGroupToggleButton SelectedChanged="@((bool selected) => DiagramLayoutTypeChanged(selected, layoutType))"
+                                     Selected="@(DiagramLayoutType == layoutType)"
+                                     @key="@layoutType">
+                @layoutType
             </ButtonGroupToggleButton>
         }
     </TelerikButtonGroup>
+</div>
+
+@if (DiagramLayoutType != DiagramLayoutType.Force)
+{
+    <div class="settings-row">
+        <span>Sub Type:</span>
+        <TelerikButtonGroup>
+            @foreach (KeyValuePair<DiagramLayoutSubtype, bool> kvPair in AllDiagramLayoutSubtypes)
+            {
+                <ButtonGroupToggleButton SelectedChanged="@((bool selected) => DiagramLayoutSubtypeChanged(selected, kvPair.Key))"
+                                         Selected="@(DiagramLayoutSubtype == kvPair.Key)"
+                                         Enabled="@(!kvPair.Value || DiagramLayoutType == DiagramLayoutType.Tree)"
+                                         @key="@kvPair">
+                    @kvPair.Key
+                </ButtonGroupToggleButton>
+            }
+        </TelerikButtonGroup>
+    </div>
 }
 
 <TelerikDiagram Zoom="0.5">
@@ -248,6 +251,18 @@ Layout Type:
         <DiagramConnection FromId="shape10" ToId="shape20" />
     </DiagramConnections>
 </TelerikDiagram>
+
+<style>
+    .settings-row {
+        padding: 0 1em 1em;
+        display: flex;
+        gap: 1em;
+    }
+
+    .settings-row > span:first-child {
+        flex: 0 0 6em;
+    }
+</style>
 
 @code {
     private DiagramLayoutType DiagramLayoutType { get; set; } = DiagramLayoutType.Tree;
