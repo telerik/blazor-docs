@@ -5,18 +5,13 @@ description: The Blazor DropDownList allows users to select an option from a lis
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True
+hideCta: True
 position: 0
 ---
 
 # Blazor DropDownList Overview
 
 The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data](slug:components/dropdownlist/databind), sizes, and various appearance options like class and [templates](slug:components/dropdownlist/templates).
-
-<style>
-    #markdown-body > div > .cta-panel-big-module--container--c08a9 {
-        display: none;
-    }
-</style>
 
 <span class="cta-panel-big-module--container--c08a9 d-print-none "><span class="row align-items-center justify-content-center cta-panel-big-module--row--9b71a"><span class="col-auto"><img class="cta-panel-big-module--icon--a648c" src="/images/avatar-ninja.svg" alt="ninja-icon"></span><span class="col-12 col-sm"><span class="cta-panel-big-module--message--40a0f">Tired of reading docs? With our new AI Coding Assistants, you can add, configure, and troubleshoot Telerik UI for Blazor components—right inside your favorite AI-powered IDE: Visual Studio, VS Code, Cursor, and more. Start building faster, smarter, and with contextual intelligence powered by our docs/APIs:</span></span><span class="col-12 col-lg-auto"><a class="cta-panel-big-module--btnTrial--38b3e" href="https://www.telerik.com/blazor-ui/documentation/ai/overview?utm_source=ai-assistants-docs" target="_blank">Try AI Assistants</a></span></span></span>
 
