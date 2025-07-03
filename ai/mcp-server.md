@@ -56,7 +56,7 @@ To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` fil
     "telerikBlazorAssistant": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@progress/telerik-blazor-mcp"],
+      "args": ["-y", "@progress/telerik-blazor-mcp@latest"],
       "env": {
         "TELERIK_LICENSE_PATH": "C:\\Users\\___\\AppData\\Roaming\\Telerik\\telerik-license.txt"
       }
@@ -83,7 +83,7 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
     "telerikBlazorAssistant": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@progress/telerik-blazor-mcp"],
+      "args": ["-y", "@progress/telerik-blazor-mcp@latest"],
       "env": {
         "TELERIK_LICENSE_PATH": "C:\\Users\\___\\AppData\\Roaming\\Telerik\\telerik-license.txt"
       }
@@ -105,7 +105,7 @@ To [add the Telerik MCP Server globally for VS Code, edit the VS Code `settings.
             "telerikBlazorAssistant": {
                 "type": "stdio",
                 "command": "npx",
-                "args": ["-y", "@progress/telerik-blazor-mcp"],
+                "args": ["-y", "@progress/telerik-blazor-mcp@latest"],
                 "env": {
                     "TELERIK_LICENSE_PATH": "C:\\Users\\___\\AppData\\Roaming\\Telerik\\telerik-license.txt"
                 }
@@ -129,7 +129,7 @@ To [enable the Telerik MCP Server in a specific workspace](https://code.visualst
     "telerikBlazorAssistant": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@progress/telerik-blazor-mcp"],
+      "args": ["-y", "@progress/telerik-blazor-mcp@latest"],
       "env": {
         "TELERIK_LICENSE_PATH": "C:\\Users\\___\\AppData\\Roaming\\Telerik\\telerik-license.txt"
       }
