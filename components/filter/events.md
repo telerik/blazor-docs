@@ -70,7 +70,7 @@ The `OnUpdate` event fires when the user changes the Filter `Value`. The compone
 
 The `ValueChanged` event fires when the value has changed. Its event handler receives the updated `CompositeFilterDescriptor` as an argument.
 
-> The `ValueChanged` event will be deprecated in future versions. Use the `OnUpdate` event instead.
+> The `ValueChanged` event is deprecated and will be removed in future versions. Use the `OnUpdate` event instead.
 
 >caption Handle ValueChanged
 
