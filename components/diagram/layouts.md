@@ -74,10 +74,10 @@ When the graph is a tree, the layout reduces to a standard tree layout and thus 
 
 The Layered Diagram layout has the following sub types. Each subtype name signifies the direction in which descendant nodes are positioned with regard to their ancestor.
 
-* `Down`
-* `Left`
-* `Right`
-* `Up`
+* `Down`&mdash;the root shape is at the top and all descendants are arranged below it
+* `Left`&mdash;the root shape is on the right
+* `Right`&mdash;the root shape is on the left
+* `Up`&mdash;the root shape is at the bottom
 
 >caption Setting a Layered Diagram Layout Subtype
 
