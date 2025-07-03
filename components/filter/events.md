@@ -17,7 +17,7 @@ This article explains the available events for the Telerik Filter for Blazor:
 
 ## OnUpdate
 
-The `OnUpdate` event fires when the filter value changes. The component is designed for one-way binding and works directly with the reference of the bound `CompositeFilterDescriptor` value. Avoid using two-way binding, because the component updates the filter value internally. Use the `OnUpdate` event to handle any additional logic when the filter value is modified.
+The `OnUpdate` event fires when the user changes the Filter `Value`. The component is designed for one-way binding and works directly with the object reference of the bound `CompositeFilterDescriptor`. The component updates the `Value` internally. Use the `OnUpdate` event to handle any additional logic when the Filter `Value` is modified.
 
 >caption Handle OnUpdate
 
