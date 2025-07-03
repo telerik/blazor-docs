@@ -232,7 +232,7 @@ To use a visual function:
 
     <DiagramShapes>
         <DiagramShape Id="shape1">
-            <DiagramShapeContent Template="Shape 1" />
+            <DiagramShapeContent Text="Shape 1" />
         </DiagramShape>
         <DiagramShape Id="shape2">
             <DiagramShapeContent Text="Shape 2" />
