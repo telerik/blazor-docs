@@ -16,23 +16,7 @@ The `SpeechToTextButton` component emits events that notify you about speech rec
 
 The `OnResult` event fires when the component recognizes speech and produces a result. Use this event to access the recognized phrases, alternatives, and confidence scores.
 
-**Event arguments**
-
-The following table lists the properties of the `SpeechToTextButtonResultEventArgs` class:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property         | Type                                         | Description                                 |
-|------------------|----------------------------------------------|---------------------------------------------|
-| `Alternatives`   | `IEnumerable<SpeechRecognitionAlternative>`  | The recognized alternatives.                |
-| `IsFinal`        | `bool`                                       | Indicates whether the speech recognition result is final (true) or interim (false).|
-
-Each `SpeechRecognitionAlternative` contains:
-
-| Property   | Type     | Description                  |
-|------------|----------|-----------------------------|
-| `Transcript` | `string` | The recognized text.      |
-| `Confidence` | `double` | The confidence score level of recognition engine. A floating point value (0.0-1.0). |
+To review all available properties of the event arguments for `OnResult`, see the [`SpeechToTextButtonResultEventArgs` API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.SpeechToTextButtonResultEventArgs.html).
 
 **Example: Displaying Recognized Alternatives and Confidence**
 

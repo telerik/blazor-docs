@@ -32,37 +32,11 @@ The `SpeechToTextButton` component emits several events that you can handle. For
 
 ## SpeechToTextButton Parameters
 
-Configure the `SpeechToTextButton` by setting its parameters:
+To review all available parameters for the `SpeechToTextButton` component, see the [SpeechToTextButton API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton#parameters).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+## SpeechToTextButton Reference and Methods
 
-| Parameter           | Type and Default&nbsp;Value                                 | Description                                                                                  |
-|---------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| `Id`                | `string`                                                    | Sets the `id` attribute of the button.                                                       |
-| `Icon`              | `object`                                                    | Specifies the icon rendered in the button.                                                   |
-| `Title`             | `string`                                                    | Sets the `title` attribute of the button.                                                    |
-| `Enabled`           | `bool`<br />(`true`)                                        | Specifies whether the button is enabled.                                                     |
-| `TabIndex`          | `int`<br />(`0`)                                            | Sets the `tabindex` attribute of the button.                                                 |
-| `Lang`              | `string`<br />(`browser or system language`)                | BCP 47 language tag (for example, `en-US`).                                                  |
-| `Continuous`        | `bool`<br />(`false`)                                       | Specify whether to return continuous results.                                                |
-| `InterimResults`    | `bool`<br />(`false`)                                       | Specify whether to return interim results.                                                   |
-| `MaxAlternatives`   | `int`<br />(`1`)                                            | The maximum number of recognition alternatives.                                              |
-| `IntegrationMode`   | `SpeechToTextButtonIntegrationMode`<br />(`WebSpeech`)      | Specify the speech recognition engine or integration mode.                                   |
-| `AriaLabel`         | `string`                                                    | Sets the `aria-label` attribute of the button.                                               |
-| `AriaLabelledBy`    | `string`                                                    | Sets the `aria-labelledby` attribute of the button.                                          |
-| `AriaDescribedBy`   | `string`                                                    | Sets the `aria-describedby` attribute of the button.                                         |
-| `AriaControls`      | `string`                                                    | Sets the `aria-controls` attribute of the button.                                            |
-
-## SpeechToTextButtton Reference and Methods
-
-The `SpeechToTextButton` component exposes several public methods that you can call from your code:
-
-| Method         | Description                                                                                   |
-|----------------|----------------------------------------------------------------------------------------------|
-| `StartAsync` | Start the speech-to-text recognition process.                                                |
-| `StopAsync`  | Stop the speech recognition process.                                                         |
-| `AbortAsync` | Abort the speech recognition process without returning a result.                             |
-| `Refresh`    | Force the component to re-render.                                                            |
+The `SpeechToTextButton` component exposes several public methods that you can call from your code. For a full list and details, see the [SpeechToTextButton API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton#methods).
 
 **Example of Calling a Method by Reference**
 

@@ -14,15 +14,9 @@ You can customize the appearance of the `SpeechToTextButton` component by using 
 
 ## Size
 
-You can increase or decrease the size of the button by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.Size` class:
+You can increase or decrease the size of the button by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.Size` class. 
 
-**Available values for the Size parameter**
-
-| Class member | Manual declaration |
-|--------------|-------------------|
-| Small        | `"sm"`            |
-| Medium (default) | `"md"`        |
-| Large        | `"lg"`            |
+To review all available values for the `Size` parameter, see the [Button Size API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.Size.html).
 
 **Example of Setting the Button Size**
 
@@ -30,17 +24,9 @@ You can increase or decrease the size of the button by setting the `Size` parame
 
 ## Fill Mode
 
-The `FillMode` toggles the background and border of the TelerikSpeechToTextButton. You can set the parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class:
+The `FillMode` toggles the background and border of the TelerikSpeechToTextButton. You can set the parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class.
 
-**Available values for the FillMode parameter**
-
-| Class member | Manual declaration |
-|--------------|-------------------|
-| Solid (default)   | `"solid"`     |
-| Outline           | `"outline"`   |
-| Flat              | `"flat"`      |
-| Link              | `"link"`      |
-| Clear             | `"clear"`     |
+To review all available values for the `FillMode` parameter, see the [Button FillMode API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.FillMode.html).
 
 **Example of Setting the Fill Mode**
 
@@ -48,23 +34,9 @@ The `FillMode` toggles the background and border of the TelerikSpeechToTextButto
 
 ## Theme Color
 
-The color of the button is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.ThemeColor` class:
+The color of the button is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.ThemeColor` class.
 
-**Available values for the ThemeColor parameter**
-
-| Class member | Manual declaration |
-|--------------|-------------------|
-| Base (default)     | `"base"`     |
-| Primary            | `"primary"`  |
-| Secondary          | `"secondary"`|
-| Tertiary           | `"tertiary"` |
-| Info               | `"info"`     |
-| Success            | `"success"`  |
-| Warning            | `"warning"`  |
-| Error              | `"error"`    |
-| Dark               | `"dark"`     |
-| Light              | `"light"`    |
-| Inverse            | `"inverse"`  |
+To review all available values for the `ThemeColor` parameter, see the [Button ThemeColor API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.ThemeColor.html).
 
 **Example of Setting the Theme Color**
 
@@ -72,16 +44,9 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 
 ## Rounded
 
-The `Rounded` parameter applies the border-radius CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class:
+The `Rounded` parameter applies the border-radius CSS rule to the button to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.Rounded` class.
 
-**Available values for the Rounded parameter**
-
-| Class member | Manual declaration |
-|--------------|-------------------|
-| Small        | `"sm"`            |
-| Medium (default) | `"md"`        |
-| Large        | `"lg"`            |
-| Full         | `"full"`          |
+To review all available values for the `Rounded` parameter, see the [Button Rounded API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.Rounded.html).
 
 **Example of Setting the Rounded Parameter**
 
