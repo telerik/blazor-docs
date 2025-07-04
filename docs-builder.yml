@@ -184,6 +184,8 @@ meta:
     title: Stepper
   "*stacklayout":
     title: Stack Layout
+  "*speechtotextbutton":
+    title: SpeechToTextButton
   "*splitter":
     title: Splitter
   "*splitbutton":
