@@ -10,7 +10,7 @@ position: 2
 
 # SpeechToTextButton Appearance
 
-You can customize the appearance of the `SpeechToTextButton` component by using its built-in parameters and CSS classes. The component supports the same appearance options as the standard Telerik Button.
+You can customize the appearance of the SpeechToTextButton component by using its built-in parameters and CSS classes. The component supports the same appearance options as the [Telerik UI for Blazor Button](slug:components/button/overview).
 
 ## Size
 
@@ -18,7 +18,7 @@ You can increase or decrease the size of the button by setting the `Size` parame
 
 To review all available values for the `Size` parameter, see the [Button Size API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.Size.html).
 
-**Example of Setting the Button Size**
+>caption Example of setting the Button Size
 
 <demo metaUrl="client/speechtotextbutton/size/" height="150"></demo>
 
@@ -28,7 +28,7 @@ The `FillMode` toggles the background and border of the TelerikSpeechToTextButto
 
 To review all available values for the `FillMode` parameter, see the [Button FillMode API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.FillMode.html).
 
-**Example of Setting the Fill Mode**
+>caption Example of setting the FillMode
 
 <demo metaUrl="client/speechtotextbutton/fillmode/" height="150"></demo>
 
@@ -38,7 +38,7 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 
 To review all available values for the `ThemeColor` parameter, see the [Button ThemeColor API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.ThemeColor.html).
 
-**Example of Setting the Theme Color**
+>caption Example of setting the ThemeColor
 
 <demo metaUrl="client/speechtotextbutton/themecolor/" height="150"></demo>
 
@@ -48,15 +48,15 @@ The `Rounded` parameter applies the border-radius CSS rule to the button to achi
 
 To review all available values for the `Rounded` parameter, see the [Button Rounded API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.ThemeConstants.Button.Rounded.html).
 
-**Example of Setting the Rounded Parameter**
+>caption Example of Setting the Rounded parameter
 
 <demo metaUrl="client/speechtotextbutton/rounded/" height="150"></demo>
 
 ## Icon
 
-Set the `Icon` parameter to display an icon. You can use a predefined Telerik icon or a custom one.
+Set the `Icon` parameter to display an icon. You can use a predefined [Telerik icon](slug:common-features-icons) or a custom one.
 
-**Example of Customizing the Icon**
+>caption Example of customizing the default icon
 
 <demo metaUrl="client/speechtotextbutton/icon/" height="150"></demo>
 
@@ -64,7 +64,7 @@ Set the `Icon` parameter to display an icon. You can use a predefined Telerik ic
 
 Use the `Class` parameter to apply custom CSS classes. You can further style the button by targeting these classes.
 
-**Example of Custom Styling**
+>caption Example of custom styling
 
 <demo metaUrl="client/speechtotextbutton/customstyle/" height="150"></demo>
 

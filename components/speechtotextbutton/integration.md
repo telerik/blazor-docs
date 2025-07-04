@@ -10,16 +10,15 @@ position: 4
 
 # SpeechToTextButton Integration
 
-Integrate the `SpeechToTextButton` component with forms, input fields, and other UI elements to provide voice input capabilities.
+Integrate the SpeechToTextButton component with forms, input fields, and other UI elements to provide voice input capabilities.
 
 ## Binding Recognized Text to an Input Field
 
-Use the `OnResult` event to update an input field with the recognized text.
+Use the `OnResult` event to update an input field with the recognized text. For example, you can enable users to fill out a feedback form by speaking instead of typing. When the user clicks the SpeechToTextButton, the component captures their speech. It then updates the value of a [TelerikTextArea](slug:textarea-overview) with the recognized text.
 
-**Example of Binding Recognized Text to an TelerikTextArea**
+>caption Example of binding the recognized text to an TelerikTextArea
 
 <demo metaUrl="client/speechtotextbutton/integration/" height="250"></demo>
-
 
 ## See Also
 

@@ -10,7 +10,7 @@ position: 3
 
 # SpeechToTextButton Events
 
-The `SpeechToTextButton` component emits events that notify you about speech recognition results, errors, and state changes. Use these events to update the UI, display messages, or process the recognized speech.
+The SpeechToTextButton component emits events that notify you about speech recognition results, errors, and state changes. Use these events to update the UI, display messages, or process the recognized speech.
 
 ## OnResult
 
@@ -18,7 +18,7 @@ The `OnResult` event fires when the component recognizes speech and produces a r
 
 To review all available properties of the event arguments for `OnResult`, see the [`SpeechToTextButtonResultEventArgs` API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.SpeechToTextButtonResultEventArgs.html).
 
-**Example: Displaying Recognized Alternatives and Confidence**
+>caption Example: Displaying recognized Alternatives and Confidence
 
 <demo metaUrl="client/speechtotextbutton/onresult/" height="300"></demo>
 
@@ -26,7 +26,7 @@ To review all available properties of the event arguments for `OnResult`, see th
 
 The `OnStart` event fires when speech recognition starts. The `OnEnd` event fires when speech recognition ends. Use these events to update the UI or track the recognition state.
 
-**Example: Indicating Listening State**
+>caption Example: Indicating listening state
 
 <demo metaUrl="client/speechtotextbutton/onstartend/" height="300"></demo>
 

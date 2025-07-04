@@ -10,35 +10,35 @@ position: 1
 
 # Blazor SpeechToTextButton Overview
 
-The `SpeechToTextButton` component enables speech recognition in Blazor applications. It provides a button that users can select to start and stop speech recognition. The component converts spoken words into text and emits events with the recognized results.
+The [Blazor SpeechToTextButton component](https://www.telerik.com/blazor-ui/speech-to-text-button) enables speech recognition in Blazor applications. It provides a button that users can select to start and stop speech recognition. The component converts spoken words into text and emits events with the recognized results.
 
-Use the `SpeechToTextButton` component to add voice input capabilities to forms, search bars, chat interfaces, and other scenarios that require speech-to-text functionality.
+Use the SpeechToTextButton component to add voice input capabilities to forms, search bars, chat interfaces, and other scenarios that require speech-to-text functionality.
 
 ## Basic Usage
 
-The following example demonstrates how to add the `SpeechToTextButton` to a Blazor page and handle the recognition result.
+The following example demonstrates how to add the SpeechToTextButton to a Blazor page and handle the recognition result.
 
-**Example of Using the SpeechToTextButton**
+>caption Example of using the SpeechToTextButton
 
 <demo metaUrl="client/speechtotextbutton/overview/" height="200"></demo>
 
 ## Appearance
 
-You can customize the appearance of the `SpeechToTextButton` by setting parameters such as `Icon`, and `Class`. For more details and examples, refer to [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance).
+You can customize the appearance of the SpeechToTextButton by setting parameters such as `Icon`, and `Class`. For more details and examples, refer to [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance).
 
 ## Events
 
-The `SpeechToTextButton` component emits several events that you can handle. For more details, refer to [SpeechToTextButton Events](slug:speechtotextbutton-events).
+The SpeechToTextButton component emits several events that you can handle. For more details, refer to [SpeechToTextButton Events](slug:speechtotextbutton-events).
 
 ## SpeechToTextButton Parameters
 
-To review all available parameters for the `SpeechToTextButton` component, see the [SpeechToTextButton API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton#parameters).
+To review all available parameters for the SpeechToTextButton component, see the [SpeechToTextButton API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton#parameters).
 
 ## SpeechToTextButton Reference and Methods
 
-The `SpeechToTextButton` component exposes several public methods that you can call from your code. For a full list and details, see the [SpeechToTextButton API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton#methods).
+The SpeechToTextButton component exposes several public methods that you can call from your code. For a full list and details, see the [SpeechToTextButton API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton#methods).
 
-**Example of Calling a Method by Reference**
+>caption Example of Calling a Method by Reference
 
 <div class="skip-repl"></div>
 ````RAZOR
@@ -54,7 +54,7 @@ The `SpeechToTextButton` component exposes several public methods that you can c
 
 ## Supported Browsers
 
-The `SpeechToTextButton` component relies on the Web Speech API. For a list of supported browsers, refer to the [Web Speech API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#browser_compatibility).
+The SpeechToTextButton component relies on the Web Speech API. For a list of supported browsers, refer to the [Web Speech API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#browser_compatibility).
 
 ## Next Steps
 
@@ -63,8 +63,8 @@ The `SpeechToTextButton` component relies on the Web Speech API. For a list of s
 
 ## See Also
 
-- [SpeechToTextButton Live Demo](https://demos.telerik.com/blazor-ui/speechtotextbutton/overview)
-- [SpeechToTextButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton)
-- [SpeechToTextButton Events](slug:speechtotextbutton-events)
-- [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance)
-- [SpeechToTextButton Integration](slug:speechtotextbutton-integration)
+* [SpeechToTextButton Live Demo](https://demos.telerik.com/blazor-ui/speechtotextbutton/overview)
+* [SpeechToTextButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSpeechToTextButton)
+* [SpeechToTextButton Events](slug:speechtotextbutton-events)
+* [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance)
+* [SpeechToTextButton Integration](slug:speechtotextbutton-integration)
