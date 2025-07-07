@@ -23,7 +23,7 @@ ticketid: 1691888
 
 ## Description
 
-You can display additional information for each chip in the [ChipList](slug:chiplist-overview) by showing a tooltip. This approach helps you keep the chip text concise while providing more details on hover.
+You can display additional information for each chip in the [ChipList](slug:chiplist-overview) by showing a Tooltip. This approach helps you keep the chip text concise while providing more details on hover.
 
 This article answers the following questions:
 - How do you show extra details for chips in a ChipList?
