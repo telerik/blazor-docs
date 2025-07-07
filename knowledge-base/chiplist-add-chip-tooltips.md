@@ -1,5 +1,5 @@
 ---
-title: Adding Tooltips for Chips in a ChipList
+title: Display Tooltip for Each Chip in a Telerik ChipList
 description: Learn how to display tooltips for chips in the Telerik Blazor ChipList component.
 type: how-to
 page_title: How to Display Tooltips for Chips in Telerik Blazor ChipList
@@ -28,7 +28,7 @@ You can display additional information for each chip in the [ChipList](slug:chip
 This article answers the following questions:
 - How do you show extra details for chips in a ChipList?
 - Can you display a TelerikTooltip for each chip in the ChipList?
-- How do you use `ItemTemplate` in Telerik Blazor ChipList?
+- How do you use [`ItemTemplate`](slug:chiplist-templates) in Telerik Blazor ChipList?
 
 ## Solution
 
