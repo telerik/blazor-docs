@@ -72,7 +72,7 @@ To add tooltips to chips in the ChipList, use the `ItemTemplate` to customize ch
     public class ChipModel
     {
         public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
+        public object? Icon { get; set; }
         public string Description { get; set; }
     }
 }
