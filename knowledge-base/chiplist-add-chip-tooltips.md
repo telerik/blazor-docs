@@ -4,7 +4,7 @@ description: Learn how to display tooltips for chips in the Telerik Blazor ChipL
 type: how-to
 page_title: How to Display Tooltips for Chips in Telerik Blazor ChipList
 meta_title: How to Display Tooltips for Chips in Telerik Blazor ChipList
-slug: add-tooltips-chips-chiplist
+slug: chiplist-kb-add-chip-tooltips
 tags: blazor, chiplist, tooltip, itemtemplate
 res_type: kb
 ticketid: 1691888
