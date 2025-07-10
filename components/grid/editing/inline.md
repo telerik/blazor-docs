@@ -39,6 +39,15 @@ In inline edit mode, the Grid commands execute row by row and the corresponding 
 
 When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons have no effect, but users can still navigate between all input components in the row to complete the editing.
 
+## New Row Position
+
+You can control whether a newly added item appears at the top or bottom of the Grid. Use the `NewRowPosition` parameter to specify the position.
+
+The `NewRowPosition` parameter accepts values from the `GridNewRowPosition` enum:
+
+- `Top` (default) — Inserts the new item at the top of the view.
+- `Bottom` — Inserts the new item at the bottom of the view.
+
 ## Integration with Other Features
 
 Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the [common information on this topic for all edit modes](slug:grid-editing-overview#integration-with-other-features).

@@ -192,6 +192,28 @@ When editing a row with child items, it will collapse unless you override the `E
 
 Learn more integration details for the [inline](slug:treelist-editing-inline#integration-with-other-features) and [in-cell](slug:treelist-editing-incell#integration-with-other-features) edit modes.
 
+## New Row Position
+
+You can control whether a newly added item appears at the top or bottom of the TreeList. Use the [`NewRowPosition`](https://www.telerik.com/blazor-ui/documentation/api/telerik.blazor.treelistnewrowposition) parameter to specify the position. This parameter does not affect Popup edit mode, which always displays a dialog for new items.
+
+This configuration is available in InCell and Inline edit modes. For more details, see the [InCell Editing](slug:treelist-editing-incell#new-row-position) and [Inline Editing](slug:treelist-editing-inline#new-row-position) articles.
+
+> When you set `NewRowPosition` to `Bottom`, add the new item at the end of your data collection in the `OnCreate` event handler. When set to `Top`, insert the new item at the beginning of the collection. This ensures the new row appears in the correct position in the view after successfully creating the new record.
+
+>caption Example of adding a new item based on the `NewRowPosition` value:
+
+<div class="skip-repl"></div>
+````C#
+if (NewRowPosition == TreeListNewRowPosition.Bottom)
+{
+    dataCollection.Add(newItem);
+}
+else // Top
+{
+    dataCollection.Insert(0, newItem);
+}
+````
+
 ## Examples
 
 See TreeList CRUD operations in action at:
