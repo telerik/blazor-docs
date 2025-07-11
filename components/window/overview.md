@@ -25,28 +25,7 @@ The Window component displays a popup with a title bar and shows custom content.
 
 >caption Basic Blazor Window
 
-````RAZOR
-<TelerikWindow @bind-Visible="@WindowIsVisible">
-    <WindowTitle>
-        Window Title
-    </WindowTitle>
-    <WindowContent>
-        Window Content ...
-    </WindowContent>
-    <WindowActions>
-        <WindowAction Name="Close" />
-    </WindowActions>
-    <WindowFooter>
-        Window Footer Content ...
-    </WindowFooter>
-</TelerikWindow>
-
-<TelerikButton OnClick="@( () => WindowIsVisible = !WindowIsVisible )">Toggle window</TelerikButton>
-
-@code {
-    bool WindowIsVisible { get; set; }
-}
-````
+<demo metaUrl="client/window/overview/" height="420"></demo>
 
 ## Size
 
