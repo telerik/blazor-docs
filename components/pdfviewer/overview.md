@@ -81,6 +81,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
+| `AnnotationMode` | `PdfViewerAnnotationMode` <br /> (`Disable`) | Specifies how the PDFViewer handles [form fields](slug:pdfviewer-form-filling) in the loaded document. |
 | `Class` | `string` | An additional CSS class for the `<div class="k-pdf-viewer">` element. Use it to [customize the component styles and override the theme](slug:themes-override). |
 | `Data` | `byte[]` | The source of the currently displayed PDF file. |
 | `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation during opening, downloading or zooming a PDF file. |
@@ -100,6 +101,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 | --- | --- |
 | `Print` | Prints the loaded PDF document as an alternative to the [built-in Print button in the PDF Viewer toolbar](slug:pdfviewer-toolbar#built-in-tools). |
 | `Rebind` | Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically](slug:common-features-data-binding-overview#refresh-data). |
+| `GetFileAsync` | Asynchronously retrieves the current PDF file data as a byte array, including any annotations or form filling changes. Returns a `Task<byte[]>`. Returns `null` if no document is loaded. |
 
 >caption PDF Viewer reference and method usage
 
