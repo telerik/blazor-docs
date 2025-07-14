@@ -154,6 +154,7 @@ The Grid supports custom content in various parts of the component such as data 
 * [Drag and drop rows](slug:grid-drag-drop-overview)—move rows in a Grid or between different Grids.
 * [Loading animation](slug:grid-loading)—show a loading animation to improve user experience during long data operations.
 * Scrolling—the Grid will show standard scrollbars automatically if the data does not fit the current component width and height.
+* [Highlighting](slug:grid-highlighting)—highlight rows or cells programmatically to draw attention to important data.
 
 
 ## Grid Parameters
