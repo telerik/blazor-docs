@@ -26,8 +26,8 @@ To control whether a newly added item appears at the top or bottom of the Gantt 
 
 The `NewRowPosition` parameter accepts values from the `GanttTreeListNewRowPosition` enum:
 
-- `Top` (default) — Inserts the new item at the top of the view.
-- `Bottom` — Inserts the new item at the bottom of the view.
+- `Top` (default)&mdash;Inserts the new item at the top of the view.
+- `Bottom`&mdash;Inserts the new item at the bottom of the view.
 
 >caption The Command buttons and the Gantt events let you handle data operations in Inline edit mode.
 

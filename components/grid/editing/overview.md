@@ -214,18 +214,21 @@ This configuration is available in InCell and Inline edit modes. For more detail
 
 > When you set `NewRowPosition` to `Bottom`, add the new item at the end of your data collection in the `OnCreate` event handler. When set to `Top`, insert the new item at the beginning of the collection. This ensures the new row appears in the correct position in the view after successfully creating the new record.
 
->caption Example of adding a new item based on the `NewRowPosition` value:
+>caption Example of adding a new item to the Grid based on the `NewRowPosition` value
 
 <div class="skip-repl"></div>
 ````C#
-if (NewRowPosition == GridNewRowPosition.Bottom)
+private void OnCreate(GridCommandEventArgs args)
 {
-    dataCollection.Add(newItem);
-}
-else // Top
-{
-    dataCollection.Insert(0, newItem);
-}
+    if (NewRowPosition == GridNewRowPosition.Bottom)
+    {
+        dataCollection.Add(newItem);
+    }
+    else // Top
+    {
+        dataCollection.Insert(0, newItem);
+    }
+}    
 ````
 
 ## Examples

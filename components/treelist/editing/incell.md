@@ -60,8 +60,8 @@ You can control whether a newly added item appears at the top or bottom of the T
 
 The `NewRowPosition` parameter accepts values from the `TreeListNewRowPosition` enum:
 
-- `Top` (default) — Inserts the new item at the top of the view.
-- `Bottom` — Inserts the new item at the bottom of the view.
+- `Top` (default)&mdash;Inserts the new item at the top of the view.
+- `Bottom`&mdash;Inserts the new item at the bottom of the view.
 
 ## Integration with Other Features
 
