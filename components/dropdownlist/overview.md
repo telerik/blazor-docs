@@ -270,5 +270,6 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 ## See Also
 
 * [Data Binding](slug:components/dropdownlist/databind)
+* [DropDownList API Reference](slug:telerik.blazor.components.telerikdropdownlist-2)
 * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/overview)
 * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
