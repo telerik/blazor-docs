@@ -75,7 +75,7 @@ This error applies to subscription licenses. [Renew your subscription](https://w
 
 This section assumes an existing valid license key, so that the problem is not any of the above.
 
-If you briefly see a yellow warning banner in the web browser that says "**We couldn't verify your license key**", then refer to [Using Telerik Packages in Referenced Projects](slug:installation-license-key#using-telerik-packages-in-referenced-projects).
+If you see a yellow warning banner in the web browser that says "**We couldn't verify your license key**", then refer to [Using Telerik Packages in Referenced Projects](slug:installation-license-key#using-telerik-packages-in-referenced-projects).
 
 ## See Also
 
