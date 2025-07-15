@@ -21,6 +21,8 @@ In this article:
 
 The `FormGroup` tag exposes the following parameters:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `LabelText` | `string` | The label for the entire group rendered as a `<legend>` element in a `<fieldset>`. |
