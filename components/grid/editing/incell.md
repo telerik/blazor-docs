@@ -54,6 +54,17 @@ In in-cell edit mode, the `OnAdd` and `OnCreate` events fire immediately one aft
 
 The above algorithm is different from [inline](slug:grid-editing-inline) and [popup](slug:grid-editing-popup) editing where new rows are only added to the data source after users populate them with valid values.
 
+## New Row Position
+
+You can control whether a newly added item appears at the top or bottom of the Grid. Use the `NewRowPosition` parameter to specify the position.
+
+The `NewRowPosition` parameter accepts values from the `GridNewRowPosition` enum:
+
+- `Top` (default)&mdash;Inserts the new item at the top of the view.
+- `Bottom`&mdash;Inserts the new item at the bottom of the view.
+
+For a complete example of how this feature works, see the following [example](slug:grid-editing-incell#basic).
+
 ## Integration with Other Features
 
 Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the [common information on this topic for all edit modes](slug:grid-editing-overview#integration-with-other-features).

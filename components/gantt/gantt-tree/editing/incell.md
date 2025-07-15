@@ -18,9 +18,17 @@ Command columns and non-editable columns are skipped while tabbing.
 
 The InCell edit mode provides a specific user experience and behaves differently than other edit modes. Please review the notes below to get a better understanding of these specifics.
 
+## New Row Position
+
+To control whether a newly added item appears at the top or bottom of the Gantt Tree, set the `NewRowPosition` parameter.
+
+The `NewRowPosition` parameter accepts values from the `GanttTreeListNewRowPosition` enum:
+
+- `Top` (default)&mdash;Inserts the new item at the top of the view.
+- `Bottom`&mdash;Inserts the new item at the bottom of the view.
+
 ### Note
 It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
-
 
 >caption InCell Editing Example.
 
@@ -68,20 +76,9 @@ It is up to the data access logic to save the data once it is changed in the dat
 </TelerikGantt>
 
 @code {
-    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
-
-    class FlatModel
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-    List<FlatModel> Data { get; set; }
+    private DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+    private int LastId { get; set; } = 1;
+    private List<FlatModel> Data { get; set; }
 
     protected override void OnInitialized()
     {
@@ -120,6 +117,16 @@ It is up to the data access logic to save the data once it is changed in the dat
         }
 
         base.OnInitialized();
+    }
+
+    public class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 
     private async Task CreateItem(GanttCreateEventArgs args)
@@ -251,4 +258,3 @@ It is up to the data access logic to save the data once it is changed in the dat
 ## See Also
 
   * [Live Demo: Gantt InCell Editing](https://demos.telerik.com/blazor-ui/gantt/editing-incell)
-   

@@ -39,6 +39,15 @@ In inline edit mode, the TreeList commands execute row by row and the correspond
 
 When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons has no effect, but users can still navigate between all input components in the row to complete the editing.
 
+## New Row Position
+
+You can control whether a newly added item appears at the top or bottom of the TreeList. Use the `NewRowPosition` parameter to specify the position. This parameter does not affect Popup edit mode, which always displays a dialog for new items.
+
+The `NewRowPosition` parameter accepts values from the `TreeListNewRowPosition` enum:
+
+- `Top` (default)&mdash;Inserts the new item at the top of the view.
+- `Bottom`&mdash;Inserts the new item at the bottom of the view.
+
 ## Integration with Other Features
 
 Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the [common information on this topic for all edit modes](slug:treelist-editing-overview#integration-with-other-features).
