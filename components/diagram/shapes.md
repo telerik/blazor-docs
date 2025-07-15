@@ -40,7 +40,7 @@ The available Diagram shape types include:
 
 * `Circle`&mdash;you can use different `Width` and `Height` values to define an ellipse.
 * `Image`&mdash;all shape types support text labels, but only the `Image` shape can display a graphic. Use the `<DiagramShape>` `Source` parameter to define the image URL or data URI.
-* `Rectangle` (default)
+* `Rectangle` (default).
 * `Text`&mdash;unlike the other shape types, the `Text` shape has no borders and background.
 
 >caption Using Image shapes
