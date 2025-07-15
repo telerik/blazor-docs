@@ -28,7 +28,7 @@ The Tree Diagram layout positions the shapes in a hierarchical way. A typical us
 
 The Layered Diagram layout has the following sub types:
 
-* `Down`&mdash;the root shape is at the top and all descendants are arranged below it
+* `Down`&mdash;the root shape is at the top and all descendants are arranged below it.
 * `Left`&mdash;the root shape is on the right 
 * `MindMapHorizontal`&mdash;the root shape is at the center and all descendants are arranged to the left and right in a balanced way
 * `MindMapVertical`&mdash;the root shape is at the center and all descendants are arranged above and below it in a balanced way
