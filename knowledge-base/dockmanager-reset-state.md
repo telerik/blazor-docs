@@ -11,23 +11,18 @@ ticketid: 1691957
 ---
 
 ## Environment
-
 <table>
-<tbody>
-<tr>
-<td>Product</td>
-<td>DockManager for Blazor</td>
-</tr>
-<tr>
-<td>Version</td>
-<td>Current</td>
-</tr>
-</tbody>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>DockManager for Blazor</td>
+		</tr>
+	</tbody>
 </table>
 
 ## Description
 
-I want to reset the state of the [DockManager](slug:dockmanager-overrview) in Blazor on a button click. The DockManager currently only resets by reloading the page. I need a solution to reset its state dynamically.
+I want to reset the state of the [DockManager](slug:dockmanager-overview) component on a button click. The DockManager currently only resets by reloading the page. I need a solution to reset its state dynamically.
 
 This knowledge base article also answers the following questions:
 - How to reset DockManager layout to its default state?
@@ -49,7 +44,7 @@ To reset the DockManager state dynamically on a button click:
 <br />
 <br />
 <TelerikButton OnClick="@ResetDockState" ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Reset Dock State</TelerikButton>
-<TelerikDockManager @ref="DockManager"
+<TelerikDockManager @ref="@DockManagerRef"
                     Height="600px">
     <DockManagerPanes>
         <DockManagerSplitPane>
@@ -118,19 +113,19 @@ To reset the DockManager state dynamically on a button click:
 </TelerikDockManager>
 
 @code {
-    private TelerikDockManager? DockManager { get; set; }
+    private TelerikDockManager? DockManagerRef { get; set; }
     private DockManagerState? DefaultState { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            DefaultState = DockManager?.GetState();
+            DefaultState = DockManagerRef?.GetState();
         }
     }
     private void ResetDockState()
     {
-        DockManager?.SetState(DefaultState);
+        DockManagerRef?.SetState(DefaultState);
     }
 }
 ````
