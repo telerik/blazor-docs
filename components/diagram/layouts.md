@@ -52,7 +52,7 @@ The [Layered Diagram layout](https://en.wikipedia.org/wiki/Layered_graph_drawing
 
 * Distance between linked shapes
 * Connection lengths
-* Crossings between layers of shapes.
+* Crossings between layers of shapes
 
 The layered layout works best with:
 
