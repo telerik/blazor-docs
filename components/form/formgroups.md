@@ -21,11 +21,12 @@ In this article:
 
 The `FormGroup` tag exposes the following parameters:
 
-* `LabelText` - `string` - defines a label for the entire group. 
-
-* `Columns` - `int` - defines the number of columns in the group.
-
-* `ColumnSpacing` - `string` - defines the horizontal space between the editors in the group. 
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `LabelText` | `string` | The label for the entire group rendered as a `<legend>` element in a `<fieldset>`. |
+| `Columns` | `int` | The number of columns in the group. |
+| `ColumnSpacing` | `string` | The horizontal space between the columns in the group. |
+| `RowSpacing` | `string` | The vertical space between the fields in the group. |
 
 ## Example - Organize FormItems into Groups
 
@@ -82,10 +83,8 @@ You can organize some FormItems into logical groups. You can configure the label
 
 ## See Also
 
-  * [Overview](slug:form-overview)
-  * [FormItems](slug:form-formitems)
-  * [Template](slug:form-formitems-template)
-  * [Orientation](slug:form-orientation)
-  * [Events](slug:form-events)
-   
-   
+* [Overview](slug:form-overview)
+* [FormItems](slug:form-formitems)
+* [Template](slug:form-formitems-template)
+* [Orientation](slug:form-orientation)
+* [Events](slug:form-events)

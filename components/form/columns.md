@@ -18,24 +18,24 @@ The Form component for Blazor allows you to add multiple columns by using the `C
 You can set the `Columns` parameter when the Form component automatically generates the editors. The form will spread the editors evenly across the columns. It will calculate it using this formula: `propertiesInModelCount / Columns`.
 
 ````RAZOR
-@* Add colums to the Form component *@
-
-<TelerikForm Model="@person"
-             Columns="2" ColumnSpacing="25px">
+<TelerikForm Model="@Employee"
+             Columns="2"
+             ColumnSpacing="25px"
+             RowSpacing="25px">
 </TelerikForm>
 
 @code {
-    public Person person = new Person();
+    private Person Employee { get; set; } = new();
 
     public class Person
     {
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-        public string CompanyName { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool IsOnVacation { get; set; } = true;
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-18);
+        public string CompanyName { get; set; } = string.Empty;
+        public DateTime HireDate { get; set; } = DateTime.Today;
+        public bool IsOnVacation { get; set; }
     }
 }
 ````
