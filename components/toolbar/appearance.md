@@ -84,4 +84,5 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 
 ## See Also
 
-  * [Live Demo: ToolBar Appearance](https://demos.telerik.com/blazor-ui/toolbar/appearance)
+* [Live Demo: ToolBar Appearance](https://demos.telerik.com/blazor-ui/toolbar/appearance)
+* [Vertical ToolBar](slug:toolbar-kb-vertical-orientation-display)
