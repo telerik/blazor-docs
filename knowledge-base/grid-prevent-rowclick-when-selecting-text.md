@@ -37,8 +37,6 @@ To achieve this, use JavaScript interop to detect text selection. Follow these s
 2. Inject the IJSRuntime service into your Blazor component to enable JavaScript interop.
 3. Call the JavaScript function within your `OnRowClick` event handler to bypass logic when text is selected conditionally.
 
-Example implementation:
-
 ````RAZOR
 @inject IJSRuntime JS
 
@@ -100,4 +98,4 @@ Example implementation:
 
 ## See Also
 
-* [Grid Events Documentation](slug:grid-events#onrowclick)
+* [Grid OnRowClick event](slug:grid-events#onrowclick)
