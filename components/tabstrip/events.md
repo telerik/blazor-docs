@@ -17,7 +17,7 @@ This article explains the events available in the Telerik TabStrip for Blazor:
 
 ## ActiveTabIdChanged
 
-The `ActiveTabIdChanged` event fires when the user changes the active tab. The event handler receives the new tab ID of type `string` as an argument. If the `Id` parameter of the `TabStripTab` is not set, the component will generate one automatically.
+The `ActiveTabIdChanged` event was added in [version 9.0.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/telerik-ui-for-blazor-9-0-0-(2025-q2)). It fires when the user changes the active tab. The event handler receives the new tab ID of type `string` as an argument. If the `Id` parameter of the `TabStripTab` is not set, the component will generate one automatically.
 
 The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection).
 
