@@ -30,28 +30,7 @@ You can increase or decrease the size of the CheckBox by setting the `Size` attr
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.CheckBox.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikCheckBox @bind-Value="@isSelected" Size="@size"></TelerikCheckBox>
-        </div>
-    }
-}
-
-@code{
-    private bool isSelected { get; set; }
-}
-````
+<demo metaUrl="client/checkbox/size/" height="420"></demo>
 
 ## Rounded
 
@@ -65,29 +44,6 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the checkbox to 
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.CheckBox.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikCheckBox @bind-Value="@isSelected" Rounded="@rounded"></TelerikCheckBox>
-        </div>
-    }
-}
-
-@code{
-    private bool isSelected { get; set; }
-}
-````
+<demo metaUrl="client/checkbox/rounded/" height="420"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
