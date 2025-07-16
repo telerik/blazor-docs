@@ -16,7 +16,7 @@ The Telerik Blazor Grid enables you to highlight rows and cells programmatically
 
 * Highlight entire rows by providing a list of data items.
 * Highlight individual cells by specifying the data item and column.
-* Combine row and cell highlighting as needed.
+* Combine row and cell highlighting.
 * Highlighting uses a visual style similar to selection, but does not affect selection state or user interaction.
 
 To see the Grid highlighting in action, check the below [example](#example).
@@ -25,14 +25,14 @@ To see the Grid highlighting in action, check the below [example](#example).
 
 The Grid highlighting feature exposes the following parameters:
 
-- `HighlightedItems` — Highlight entire rows by providing the data items to highlight. The list must contain references to items from the grid's data source, not new instances.
-- `HighlightedCells` — Highlight individual cells by specifying both the data item and the column field. Both values must match the Grid data and column definitions.
+- `HighlightedItems`—Highlight entire rows by providing the data items to highlight. The list must contain references to items from the grid's data source, not new instances.
+- `HighlightedCells`—Highlight individual cells by specifying both the data item and the column field. Both values must match the Grid data and column definitions.
 
 See [Grid Highlighting API Reference](slug:telerik.blazor.components.gridhighlighting) for details about these parameters and the `GridHighlightedCellDescriptor` type.
 
 ## Example
 
->caption Example of Highlighting Rows and Cells in the Blazor Grid
+>caption Example of highlighting rows and cells in the Blazor Grid
 
 ````RAZOR 
 <TelerikGrid Data="@GridData"
@@ -113,3 +113,4 @@ See [Grid Highlighting API Reference](slug:telerik.blazor.components.gridhighlig
 ## See Also
 
 * [Grid Selection](slug:grid-selection-overview)
+* [Highlighting API Reference](slug:telerik.blazor.components.gridhighlighting)
