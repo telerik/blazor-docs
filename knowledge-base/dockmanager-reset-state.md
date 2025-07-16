@@ -5,7 +5,7 @@ type: how-to
 page_title: How to Reset DockManager State Dynamically in Blazor
 meta_title: Reset DockManager State Dynamically in Blazor
 slug: dockmanager-kb-reset-state
-tags: dockmanager, blazor, state, reset
+tags: dockmanager, blazor, state
 res_type: kb
 ticketid: 1691957
 ---
@@ -22,7 +22,7 @@ ticketid: 1691957
 
 ## Description
 
-I want to reset the state of the [DockManager](slug:dockmanager-overview) component on a button click. The DockManager currently only resets by reloading the page. I need a solution to reset its state dynamically.
+I want to reset the [DockManager state](slug:dockmanager-state) on a button click. The DockManager currently only resets by reloading the page. I need a solution to reset its state dynamically.
 
 This knowledge base article also answers the following questions:
 - How to reset DockManager layout to its default state?
@@ -33,16 +33,14 @@ This knowledge base article also answers the following questions:
 
 To reset the DockManager state dynamically on a button click:
 
-1. Capture the Default State After Initial Render&mdash;Save the default state when the DockManager is first rendered using the [`OnAfterRenderAsync`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync?view=aspnetcore-9.0) lifecycle method
+1. Capture and save the default DockManager state in the [`OnAfterRenderAsync`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync?view=aspnetcore-9.0) lifecycle method.
 
-2. Reset the State on Button Click&mdash;Restore the previously saved state when the button is clicked.
+2. Restore the previously saved default state when the button is clicked.
 
 >caption Reset the DockManager layout to its default state
 
 ````RAZOR
-<strong>Change something in the DockManager (move, resize, or close panes), then click the button to restore the state</strong>
-<br />
-<br />
+Change something in the DockManager (move, resize, or close panes). Тhen click
 <TelerikButton OnClick="@ResetDockState" ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Reset Dock State</TelerikButton>
 <TelerikDockManager @ref="@DockManagerRef"
                     Height="600px">
@@ -133,4 +131,4 @@ To reset the DockManager state dynamically on a button click:
 ## See Also
 
 - [DockManager Overview](slug:dockmanager-overview)
-- [Saving and Restoring DockManager State](slug:dockmanager-state)
+- [DockManager State](slug:dockmanager-state)
