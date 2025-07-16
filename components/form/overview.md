@@ -204,7 +204,7 @@ You can customize the editors further through the [form items](slug:form-formite
 The [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) exposes multiple parameters that allow you to customize its layout. Besides the parameters below, the Form component also allows you to [define a completely custom layout with HTML markup and Razor components](slug:form-formitems-formitemstemplate).
 
 | Parameter | Type and Default&nbsp;value | Description |
-|-----------|------------------------|-------------|
+| --- | --- | --- |
 | `ButtonsLayout` | `FormButtonsLayout` enum <br /> (`Start`) | The position and width of all Form buttons. See [Form Buttons](slug:form-formitems-buttons). |
 | `Columns`  | `int` | The number of columns in the Form. See the [Columns](slug:form-columns) article for more information |
 | `ColumnSpacing`  | `string` (`"32px"`) | The amout of horizontal space between the columns. See the [Columns](slug:form-columns) article for more information. |
