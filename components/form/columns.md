@@ -15,13 +15,15 @@ The Form component for Blazor allows you to add multiple columns by using the `C
 
 >caption Add columns to a Form with Automatically generated fields
 
-You can set the `Columns` parameter when the Form component automatically generates the editors. The form will spread the editors evenly across the columns. It will calculate it using this formula: `propertiesInModelCount / Columns`.
+You can set the `Columns` parameter when [`<FormItemsTemplate>`](slug:form-formitems-formitemstemplate) is not used and the Form manages its layout. The Form will spread the editors evenly across the columns.
+
+When using `Columns`, you can also define arbitrary space between the rows with the `RowSpacing` parameter.
 
 ````RAZOR
 <TelerikForm Model="@Employee"
              Columns="2"
-             ColumnSpacing="25px"
-             RowSpacing="25px">
+             ColumnSpacing="24px"
+             RowSpacing="24px">
 </TelerikForm>
 
 @code {
