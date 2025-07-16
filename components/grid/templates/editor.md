@@ -20,19 +20,19 @@ If you need more complex logic inside the editor template, compared to simple da
 
 >tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](slug:grid-editing-incell#editor-template).
 
-When an input receives an `EditContext` (usually comes down as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` property, you have to pass the `ValueExpression` yourself. This is a lambda expression that tells the framework what field in the model to update. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression](slug://common-kb-requires-valueexpression) knowledge base article for more details.
+When an input receives an `EditContext` (usually as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` parameter, you have to pass the `ValueExpression` explicitly. This is a lambda expression that tells the framework what property of the model to use for validation. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression](slug:common-kb-requires-valueexpression) knowledge base article for more details.
 
 <div class="skip-repl"></div>
 ````RAZOR
 <EditorTemplate>
     <TelerikTextBox Value="@myModel.MyField"
+                    ValueChanged="@( (string newValue) => myModel.MyField = newValue )"
                     ValueExpression="@( () => myModel.MyField )">
     </TelerikTextBox>
 </EditorTemplate>
 
 @* Applies to the other input type components as well *@
 ````
-
 
 **In this article:**
 
@@ -46,39 +46,30 @@ When an input receives an `EditContext` (usually comes down as a cascading param
 
 * @[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
 
-* The Grid row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [**Notes** section of the Editing Overview](slug:grid-editing-overview#notes) article.
-
 * We recommend casting the Editor Template context to your model and storing it in a local or a dedicated global variable. Do not share a global variable within multiple templates, like column (cell) template and editor template. Variable sharing can lead to unexpected behavior.
 
-* Direct casting of the `context` can make the data binding not work properly.
+* Direct casting of the `context` can make two-way data binding not work properly.
 
+>caption Not recommended: direct casting with two-way parameter binding
 
->caption Not recommended: direct casting. Binding does not work properly.
-
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <EditorTemplate>
     <TelerikTextArea @bind-Value="@((Product)context).Description" />
 </EditorTemplate>
 ````
 
->caption Recommended: cast the context to your model type and store it in a variable. Binding works as expected.
+>caption Recommended: cast the context in advance
 
 <div class="skip-repl"></div>
 
 ````RAZOR
 <EditorTemplate>
     @{
-        EditedProduct = context as Product;
+        var editProduct = (Product)context;
 
-        <TelerikTextArea @bind-Value="@EditedProduct.Description" />
+        <TelerikTextArea @bind-Value="@editProduct.Description" />
     }
 </EditorTemplate>
-
-@code{
-    private Product EditedProduct { get; set; }
-}
 ````
 
 ## Examples
