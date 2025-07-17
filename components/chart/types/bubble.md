@@ -18,18 +18,17 @@ A Bubble chart is useful for visualizing different scientific relationships (e.g
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-#### To create a bubble chart:
+## Creating a Blazor Bubble Chart
 
-1. add a `ChartSeries` to the `ChartSeriesItems` collection
-2. set its `Type` property to `ChartSeriesType.Bubble`
-3. provide a data collection to its `Data` property, which contains numerical data for the X and Y axes, and for the bubble size
+To use a Chart component with Bubble series:
 
+1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
+2. Set its `Type` property to `ChartSeriesType.Bubble`.
+3. Provide a data collection to its `Data` property, which contains numerical data for the X and Y axes, and for the bubble size.
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
 
 ````RAZOR
-@* Bubble Series *@
-
 <TelerikChart>
 
     <ChartSeriesItems>
@@ -90,9 +89,22 @@ A Bubble chart is useful for visualizing different scientific relationships (e.g
         new ModelData() { LifeExpectancy = 74.3, FertilityRate = 1.85, PopulationChange = 3000000, Country = "Great Britain" }
     };
 }
-
 ````
 
+## Bubble Sizing
+
+The Chart component determines the physical size of each bubble automatically:
+
+* The maximum bubble size is 20% of the smaller Chart dimension (width or height). This ensures that the largest bubbles do not occupy too much space.
+* The minimum bubble size is 2% of the smaller Chart dimension, but not less than `10px`. This ensures that even the smallest bubbles are perceivable and accessible. The smallest bubble size also depends on the largest `Size` value in the Chart series.
+* All bubble sizes are set proportionately, as long as they comply with the preceding rules.
+
+As a result of the above algorithms:
+
+* Bubble sizing may not be linear if the ratio between the smallest and largest `Size` values is too big. For example, a 10-fold bubble size difference is achievable with a large-enough Chart, but a 100-fold size difference is not supported.
+* The Bubble Chart helps users compare bubble sizes in the same Chart instance, rather than between different instances. To compare bubbles from multiple series, define these series in the same Chart instance.
+
+If you need to [improve the bubble size comparability across several Charts](slug:chart-kb-bubble-size), then use a dummy data item with a `Size` value that matches the maximum `Size` value in all Chart instances.
 
 ## Bubble Chart Specific Appearance Settings
 
@@ -102,9 +114,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 The `ColorField` can change the color of individual items. To use it, pass a valid CSS color to the corresponding field in the model and the chart will use its values instead of the `Color` parameter.
 
-
 @[template](/_contentTemplates/chart/link-to-basics.md#opacity-area-bubble)
-
 
 ### Negative Values
 
@@ -149,12 +159,11 @@ The size field should, generally, have positive values as it correlates to the p
 }
 ````
 
-
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-numerical)
 
-
 ## See Also
 
-  * [Live Demo: Bubble Chart](https://demos.telerik.com/blazor-ui/chart/bubble-chart)
+* [Live Demo: Bubble Chart](https://demos.telerik.com/blazor-ui/chart/bubble-chart)
+* [Configure Relative Bubble Sizes in Multiple Charts](slug:chart-kb-bubble-size)
