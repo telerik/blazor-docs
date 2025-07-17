@@ -25,31 +25,7 @@ The Blazor DropDownList component allows the user to choose an option from a pre
 
 >caption DropDownList [data binding](slug:components/dropdownlist/databind), two-way value binding, and main features
 
-````RAZOR
-Selected value: @selectedValue
-<br />
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
-</TelerikDropDownList>
-
-@code {
-    //in a real case, the model is usually in a separate file
-    //the model type and value field type must be provided to the dropdpownlist
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    int selectedValue { get; set; } = 3;
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-}
-````
-
->caption The rendered DropDownList component from the code snippet above:
-
-![Blazor DropDown List component](images/dropdownlist-basic-screenshot.jpg)
+<demo metaUrl="client/dropdownlist/overview/" height="380"></demo>
 
 ## Data Binding
 
