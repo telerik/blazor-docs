@@ -28,36 +28,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 >caption Basic configuration of the Drawer.
 
-````RAZOR
-@* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
-
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon="@SvgIcon.Menu">
-    Toggle drawer
-</TelerikButton>
-
-<TelerikDrawer Data="@Data" Mode="@DrawerMode.Push"
-               @ref="@DrawerRef">
-    <DrawerContent>lorem ipsum</DrawerContent>
-</TelerikDrawer>
-
-@code {
-    Telerik.Blazor.Components.TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-
-    IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
-            };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/overview/" height="420"></demo>
 
 ## Data Binding
 

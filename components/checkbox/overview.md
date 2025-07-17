@@ -22,16 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor 
 
 >caption Basic setup of the Telerik CheckBox using two-way data binding.
 
-````RAZOR
-@*Basic setup of the Telerik CheckBox Component*@
-
-<TelerikCheckBox Id="myCheckBox" @bind-Value="@isSelected" />
-<label for="myCheckBox">@( isSelected ? "Selected" : "Not selected" )</label>
-
-@code {
-    private bool isSelected { get; set; }
-}
-````
+<demo metaUrl="client/checkbox/overview/" height="420"></demo>
 
 ## Indeterminate State
 

@@ -42,17 +42,7 @@ The following example shows how to use the `All` toolset.
 
 >caption Use all built-in Editor tools
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-
-<TelerikEditor @bind-Value="@EditorValue"
-               Tools="@EditorToolSets.All">
-</TelerikEditor>
-
-@code {
-    private string EditorValue { get; set; } = string.Empty;
-}
-````
+<demo metaUrl="client/editor/builtintools/" height="420"></demo>
 
 ### Predefined Toolset Configurations
 
@@ -124,54 +114,7 @@ This example shows how to start from the existing `Default` toolbar collection o
 
 >caption Modify the Default toolset
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-@* Avoid ambiguous reference with SVG icons *@
-@using EditorNS = Telerik.Blazor.Components.Editor;
-
-<TelerikEditor Tools="@customTools" @bind-Value="@TheEditorValue"></TelerikEditor>
-
-@code {
-    string TheEditorValue { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
-    public List<IEditorTool> customTools { get; set; }
-
-    protected override void OnInitialized()
-    {
-        // start with the default set of tools as base
-        // alternatively, you can create a new list and populate it from scratch
-        customTools = new List<IEditorTool>(EditorToolSets.Default);
-
-        // create a tool group
-        var UndoRedoGroup = new EditorButtonGroup(
-                new EditorNS.Undo(), // add individual tools to the group
-                new EditorNS.Redo()
-            );
-
-
-        // add the toolgroup to the beginning of the toolbar definition
-        customTools.Insert(0, UndoRedoGroup);
-
-
-        // add to an existing toolgroup
-        EditorButtonGroup targetGroup = customTools[1] as EditorButtonGroup;
-        if (targetGroup != null) // make sure it's a group and not an individual button
-        {
-            targetGroup.Tools.Add(new SuperScript());
-        }
-
-
-        // remove an existing tool
-        customTools.RemoveAt(2);
-
-
-        // add an individual tool that will form its own tool group at the end of the toolbar
-        customTools.Add(new ViewHtml());
-
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/editor/modifytools/" height="400"></demo>
 
 
 ### Create a Toolbar From Scratch
@@ -180,41 +123,7 @@ This example shows how you can keep adding tools to the toolbar to get the desir
 
 >caption Create your own toolbar
 
-````RAZOR.skip-repl
-@using Telerik.Blazor.Components.Editor
-@* Avoid ambiguous reference with SVG icons *@
-@using EditorNS = Telerik.Blazor.Components.Editor;
-
-<TelerikEditor Tools="@MyTools" @bind-Value="@TheEditorValue"></TelerikEditor>
-
-@code {
-    string TheEditorValue { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
-    public List<IEditorTool> MyTools { get; set; }
-
-    protected override void OnInitialized()
-    {
-        // initialize the toolbar collection
-        MyTools = new List<IEditorTool>();
-
-        // add a button group
-        EditorButtonGroup firstGroup = new EditorButtonGroup(
-            new EditorNS.Bold(),
-            new EditorNS.Italic(),
-            new EditorNS.Underline()
-        );
-        MyTools.Add(firstGroup);
-
-        // add a dropdown
-        MyTools.Add(new Format());
-
-        // add a standalone tool
-        MyTools.Add(new ViewHtml());
-
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/editor/createtoolbar/" height="400"></demo>
 
 
 ### Customize Built-in Tools
@@ -223,71 +132,7 @@ When adding a built-in tool to the collection, you can set various parameters to
 
 >caption Customize the default values of the built-in tools - tooltips, available items, class and appearance
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-@* Avoid ambiguous reference with SVG icons *@
-@using EditorNS = Telerik.Blazor.Components.Editor;
-
-<TelerikEditor Tools="@MyTools" @bind-Value="@TheEditorValue"></TelerikEditor>
-
-@code {
-    string TheEditorValue { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
-    public List<IEditorTool> MyTools { get; set; }
-
-    protected override void OnInitialized()
-    {
-        // initialize the toolbar collection
-        MyTools = new List<IEditorTool>();
-        // add a button group
-        EditorButtonGroup firstGroup = new EditorButtonGroup(
-            new EditorNS.Bold(),
-            new EditorNS.Italic(),
-            // this is how to customize settings for a button. Intellisense will show you all the options
-            // you should avoid customizing things like OnClick event handlers and CommandName
-            new EditorNS.Underline()
-                {
-                    Title = "My Custom Underline Title",
-                    Class = "special-underine",
-                    Icon = SvgIcon.Gear,
-                }
-        );
-        MyTools.Add(firstGroup);
-
-        // this is how to customize settings for a dropdown. Intellisense will show you all the options
-        // you should avoid customizing things like event handlers, and CommandName
-        MyTools.Add(new Format()
-        {
-            DefaultText = "Choose Style",
-            Width = "200px",
-            Data = new List<EditorDropDownListItem>
-        {
-            new EditorDropDownListItem { Text = "heading", Value = "h1" },
-            new EditorDropDownListItem { Text = "separated block", Value = "blockquote" },
-        }
-        });
-
-        // this is how you can get the default data sources - in this example, the font size
-        // the EditorDropDownListToolItems static class holds the appropriate default collections
-        List<EditorDropDownListItem> fontSizeChoices = EditorDropDownListToolItems.FontSizeItems.Skip(4).Take(3).ToList();
-        MyTools.Add(new EditorNS.FontSize() { Data = fontSizeChoices });
-
-
-
-        // add the View Html so we can easily inspect the results
-        MyTools.Add(new ViewHtml());
-
-
-        base.OnInitialized();
-    }
-}
-
-<style>
-    .special-underine.k-button {
-        background: green;
-        background-image: none;
-    }
-</style>
-````
+<demo metaUrl="client/editor/customizetools/" height="400"></demo>
 
 
 ## See Also

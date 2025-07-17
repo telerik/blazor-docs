@@ -32,46 +32,7 @@ The drawer's height is dynamic based on the height of the content (you can chang
 
 ![drawer push mode example](images/drawer-modes-push-example.gif)
 
-````RAZOR
-@* This example shows how the drawer behaves in Push mode. It uses item selection to toggle the content for brevity. *@
-
-<div>
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@("menu")">Toggle drawer</TelerikButton>
-    <TelerikDrawer @bind-Expanded="@Expanded"
-                   Data="@Data"
-                   MiniMode="true"
-                   Mode="@DrawerMode.Push"
-                   @bind-SelectedItem="@selectedItem"
-                   @ref="@DrawerRef">
-        <DrawerContent>
-            <div class="m-5">
-                Select an item. The drawer is expaned: @Expanded
-                <div class="text-info">
-                    Content for the @selectedItem?.Text
-                </div>
-            </div>
-        </DrawerContent>
-    </TelerikDrawer>
-</div>
-
-@code {
-    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    public DrawerItem selectedItem { get; set; }
-    public bool Expanded { get; set; } = true;
-    public IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus},
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout},
-        };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/pushmode/" height="420"></demo>
 
 ## Overlay Mode
 
@@ -83,46 +44,7 @@ ComboBoxes, DropDownLists, DateTimePickers and similar popup-based components ar
 
 ![drawer overlay mode example](images/drawer-modes-overlay-example.gif)
 
-````RAZOR
-@* This example shows how the drawer behaves in Overlay mode. It uses item selection to toggle the content for brevity.
-You may want to add padding to the left of the content so that it is not overlapped by the Drawer in its MiniMode. *@
-
-<div class="pl-4">
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
-</div>
-<TelerikDrawer @bind-Expanded="@Expanded"
-               Data="@Data"
-               MiniMode="true"
-               Mode="@DrawerMode.Overlay"
-               @bind-SelectedItem="@selectedItem"
-               @ref="@DrawerRef">
-    <DrawerContent>
-        <div class="text-info pl-4">
-            The drawer is expanded: @Expanded
-            <br />
-            Content for the @selectedItem?.Text
-        </div>
-    </DrawerContent>
-</TelerikDrawer>
-
-@code {
-    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    public DrawerItem selectedItem { get; set; }
-    public bool Expanded { get; set; } = true;
-    public IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
-            };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/overlaymode/" height="420"></demo>
 
 ## See Also
 
