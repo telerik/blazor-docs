@@ -63,6 +63,10 @@ The [PdfViewer toolbar can render built-in and custom tools](slug:pdfviewer-tool
 
 The PdfViewer provides a built-in option for creating and editing annotations. Explore the [available annotation types and how to work with them](slug:pdfviewer-annotations).
 
+## Form Filling
+
+The PdfViewer supports interactive form filling in PDF documents. You can display and edit form fields such as text boxes, checkboxes, radio buttons, and dropdowns. For more details and examples, see the [Form Filling documentation](slug:pdfviewer-form-filling).
+
 ## Large File Support
 
 In Blazor **Server** apps, the PDF Viewer uses the **SignalR WebSocket** to:
