@@ -44,7 +44,7 @@ You also need to add your [Telerik licence key](slug:installation-license-key) a
 
 For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers).
 
-> Visual Studio 17.14 seems to require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
+> Older Visual Studio versions seem to require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
 
 To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder.
 
@@ -117,9 +117,9 @@ To [add the Telerik MCP Server globally for VS Code, edit the VS Code `settings.
 
 ### Cursor
 
-For detailed instructions, refer to [Model Context Protocol](https://docs.cursor.com/context/model-context-protocol).
+For detailed instructions, refer to [Model Context Protocol](https://docs.cursor.com/context/mcp).
 
-To [enable the Telerik MCP Server in a specific workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace) or Blazor app, add a `.cursor` folder with an `mcp.json` file at the root of the workspace.
+To [enable the Telerik MCP Server in a specific workspace, Blazor app, or globally](https://docs.cursor.com/context/mcp#using-mcp-json), add a `.cursor` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
 
 >caption .cursor/mcp.json
 
@@ -137,8 +137,6 @@ To [enable the Telerik MCP Server in a specific workspace](https://code.visualst
   }
 }
 ````
-
-To [add the Telerik MCP Server globally for Cursor](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-settings), add a `.cursor` folder with the above `mcp.json` file in your user folder.
 
 ## Usage
 
