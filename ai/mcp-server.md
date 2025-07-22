@@ -44,7 +44,7 @@ You also need to add your [Telerik licence key](slug:installation-license-key) a
 
 For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers).
 
-> Older Visual Studio versions seem to require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
+> Early Visual Studio `17.14....` versions require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
 
 To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder.
 
