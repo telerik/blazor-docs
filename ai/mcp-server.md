@@ -17,7 +17,7 @@ The Telerik Blazor [MCP Server](https://modelcontextprotocol.io/introduction) le
 To use the Telerik Blazor MCP server, you need:
 
 * [Node.js](https://nodejs.org/en) 18 or a newer version.
-* A [compatible MCP client (IDE, code editor or app)](https://modelcontextprotocol.io/clients) that supports *MCP tools*. Using the latest version of the MCP client is recommended.
+* A [compatible MCP client (IDE, code editor or app)](https://modelcontextprotocol.io/clients) that supports *MCP tools*. Using the latest version of the MCP client is highly recommended.
 * A [Telerik user account](https://www.telerik.com/account/).
 * An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
@@ -72,6 +72,10 @@ To enable global automatic discovery of the Telerik MCP Server in Visual Studio,
 ### VS Code
 
 For detailed instructions, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+
+> This section applies to VS Code 1.102.1 and newer versions.
+
+Make sure that [`chat.mcp.enabled`](vscode://settings/chat.mcp.enabled) is enabled in the VS Code settings.
 
 To enable the Telerik MCP Server in a specific [workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace), Blazor app, or [globally](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-configuration), add a `.vscode` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
 
