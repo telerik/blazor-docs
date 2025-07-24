@@ -22,19 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Bla
 
 >caption TabStrip with specified tab position and a disabled tab
 
-````RAZOR
-<TelerikTabStrip>
-	<TabStripTab Title="First">
-		First tab content.
-	</TabStripTab>
-	<TabStripTab Title="Second" Disabled="true">
-		Second tab content. This tab is disabled and you cannot select it.
-	</TabStripTab>
-	<TabStripTab Title="Third">
-		Third tab content.
-	</TabStripTab>
-</TelerikTabStrip>
-````
+<demo metaUrl="client/tabstrip/overview/" height="420"></demo>
 
 ## Active Tab Index
 

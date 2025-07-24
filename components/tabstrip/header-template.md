@@ -25,36 +25,7 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 
 >caption The following example showcases the use of a `<HeaderTemplate>`, including `TelerikIcons`
 
-````RAZOR
-@*A couple of tabs with defferent header configuration.*@
-
-<TelerikTabStrip>
-    <TabStripTab>
-        <HeaderTemplate>            
-            <TelerikSvgIcon Icon="@SvgIcon.Envelope" />
-            <strong>Icon and text</strong>
-        </HeaderTemplate>
-        <Content>            
-            This is a tab with a header template including an icon and text.
-        </Content>
-    </TabStripTab>
-    <TabStripTab Title="History">        
-        <HeaderTemplate>
-            <TelerikSvgIcon Icon="@SvgIcon.Clock" />
-            <strong>Icon and text 2</strong>
-        </HeaderTemplate>
-        <Content>
-            This is a tab that has a header template and as well as Title parameter.
-            <br />
-            Title parameter will not be displayed. Only the Header template will be displayed.
-        </Content>
-    </TabStripTab>
-    <TabStripTab Title="Text only">
-        This is a tab with Title parameter. If you want to use only text in the header, 
-        set the Title parameter only and you can omit the Content tag.
-    </TabStripTab>
-</TelerikTabStrip>
-````
+<demo metaUrl="client/tabstrip/headertemplate/" height="420"></demo>
 
 >tip If you only need to add some styling to the TabStripTab header, you can use the `Class` parameter of the `TabStripTab` to define your custom CSS class instead of the Header template.
 

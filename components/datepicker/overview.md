@@ -21,24 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazo
 
 >caption Basic Date Picker with custom format, min and max
 
-````RAZOR
-<p> The DatePicker Value is: @DatePickerValue.ToShortDateString() </p>
-
-<TelerikDatePicker @bind-Value="DatePickerValue"
-                   Format="dd MMMM yyyy"
-                   Min="@MinDate"
-                   Max="@MaxDate"
-                   Width="200px">
-</TelerikDatePicker>
-
-@code {
-    private DateTime DatePickerValue { get; set; } = DateTime.Today;
-
-    private DateTime MinDate = DateTime.Today.AddMonths(-1);
-
-    private DateTime MaxDate = DateTime.Today.AddMonths(1);
-}
-````
+<demo metaUrl="client/datepicker/overview/" height="420"></demo>
 
 ## Date Input Typing Settings
 

@@ -26,50 +26,7 @@ The <a href="https://www.telerik.com/blazor-ui/listview" target="_blank">Blazor 
 
 >caption ListView in read mode with paging enabled.
 
-````RAZOR
-@* Styles would usually go to to the site stylesheet, and you can read more details about
-the rest of the features the component provides further in this article *@
-
-<TelerikListView Data="@ListViewData" Width="700px" Pageable="true">
-    <HeaderTemplate>
-        <h2>Employee List</h2>
-    </HeaderTemplate>
-    <Template>
-        <div class="listview-item">
-            <h4>@context.Name</h4>
-            <h5>@context.Team</h5>
-        </div>
-    </Template>
-</TelerikListView>
-
-@code{
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 25).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}",
-        Team = $"Team {x % 3}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-    }
-}
-
-<style>
-    .listview-item {
-        height: 150px;
-        width: 150px;
-        display: inline-block;
-        margin: 10px;
-        border: 1px solid black;
-        border-radius: 10px;
-        padding: 10px;
-    }
-</style>
-````
+<demo metaUrl="client/listview/overview/" height="420"></demo>
 
 ## Templates
 
