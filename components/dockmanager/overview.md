@@ -120,7 +120,6 @@ The following table lists the Dock Manager parameters. Also check the [DockManag
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AllowFloat` | `bool` <br /> (`false`) | Determines whether the pane can be dragged from the dock manager layout to create a new floating pane. |
-| `AllowInnerDock` | `bool` <br /> (`true`) | Restricts from performing inner docking within the specified pane. Inner docking is an operation that allows dropping one pane over another, creating a TabGroupPane (TabStrip). |
 | `Class` | `string` | The custom CSS class of the `<div class="k-pane-scrollable">` element. Use it to [override theme styles](slug:themes-override). |
 | `Closeable` | `bool` <br /> (`false`) | Determines whether the pane can be closed. |
 | `Dockable` | `bool` <br /> (`false`) | Specifies whether the pane allows other panes to be docked to or over it. This determines if the end user can drop other panes over it or next to it, creating a DockManagerSplitPane (Splitter) or a DockManagerTabGroupPane (TabStrip). |
