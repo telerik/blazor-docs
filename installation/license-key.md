@@ -77,7 +77,7 @@ There are two alternative ways to avoid the warning banner:
   <PackageReference Include="Telerik.UI.for.Blazor" Version="{{site.uiForBlazorLatestVersion}}" PrivateAssets="none" />
   ````
 
-* Reference the `Telerik.Licensing` NuGet package explicitly in the main (startup) app project. This approach is required if your are using Telerik UI for Blazor in a project hierarchy with more than two levels. For example, Telerik UI for Blazor is used in Razor Class Library (RCL) project C, which is referenced by RCL project B, which is referenced by the main (startup) app project A. You can use the same `Telerik.Licensing` version that is referenced by `Telerik.UI.for.Blazor`, or a newer version.
+* Reference the `Telerik.Licensing` NuGet package explicitly in the main (startup) app project. This approach is required if you are using Telerik UI for Blazor in a project hierarchy with more than two levels. For example, the main (startup) app project A references a Razor Class Library (RCL) project B, which references RCL project C that includes Telerik UI for Blazor. You can use the same `Telerik.Licensing` version that is referenced by `Telerik.UI.for.Blazor`, or a newer version.
   ````XML.skip-repl
   <ItemGroup>
     <PackageReference Include="Telerik.Licensing" Version="*" />
