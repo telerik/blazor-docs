@@ -91,7 +91,8 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="TreeView" href="slug:treeview-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Wizard" href="slug:wizard-overview"></IntroTableAnchor>
     </IntroTableSection>
-    <IntroTableSection title="Maps">
+    <IntroTableSection title="Diagrams and Maps">
+      <IntroTableAnchor title="Diagram" href="slug:diagram-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Map" href="slug:components/map/overview"></IntroTableAnchor>
     </IntroTableSection>
   </IntroTableColumn>
