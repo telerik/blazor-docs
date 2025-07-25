@@ -17,7 +17,7 @@ The Telerik Blazor [MCP Server](https://modelcontextprotocol.io/introduction) le
 To use the Telerik Blazor MCP server, you need:
 
 * [Node.js](https://nodejs.org/en) 18 or a newer version.
-* A [compatible MCP client (IDE, code editor or app)](https://modelcontextprotocol.io/clients) that supports *MCP tools*. Using the latest version of the MCP client is recommended.
+* A [compatible MCP client (IDE, code editor or app)](https://modelcontextprotocol.io/clients) that supports *MCP tools*. Using the latest version of the MCP client is highly recommended.
 * A [Telerik user account](https://www.telerik.com/account/).
 * An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
@@ -34,6 +34,7 @@ Use the documentation of your AI-powered MCP client to add the Telerik MCP serve
 
 > * Do not use hyphens (`-`) or underscores (`_`) in the MCP server name in the MCP `.json` file, due to potential compatibility issues with some MCP clients such as Visual Studio or Windsurf.
 > * Some MCP clients expect the MCP servers to be listed under a `servers` JSON key, while others expect `mcpServers`.
+> * Some MCP clients expect an `mcp.json` file, while others like Visual Studio 2022 expect an `.mcp.json` file.
 
 You also need to add your [Telerik licence key](slug:installation-license-key) as an `env` parameter in the `mcp.json` file. There are two options:
 
@@ -44,11 +45,11 @@ You also need to add your [Telerik licence key](slug:installation-license-key) a
 
 For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers).
 
-> Early Visual Studio `17.14....` versions require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
+> Early Visual Studio 17.14 versions require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
 
 To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder.
 
-> caption .mcp.json
+>caption .mcp.json
 
 ````JSON.skip-repl
 {
@@ -73,9 +74,13 @@ To enable global automatic discovery of the Telerik MCP Server in Visual Studio,
 
 For detailed instructions, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
-To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.vscode` folder with an `mcp.json` file at the root of the workspace:
+> This section applies to VS Code 1.102.1 and newer versions.
 
->caption .vscode/mcp.json at the workspace root
+Make sure that [`chat.mcp.enabled`](vscode://settings/chat.mcp.enabled) is enabled in the VS Code settings.
+
+To enable the Telerik MCP Server in a specific [workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace), Blazor app, or [globally](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-configuration), add a `.vscode` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
+
+>caption .vscode/mcp.json
 
 ````JSON.skip-repl
 {
@@ -92,26 +97,14 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
 }
 ````
 
-To [add the Telerik MCP Server globally for VS Code, edit the VS Code `settings.json` file](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-settings):
+To use the Telerik MCP server in all workspaces and apps, make sure that [`chat.mcp.discovery.enabled`](vscode://settings/chat.mcp.discovery.enabled) is enabled in [`settings.json`](https://code.visualstudio.com/docs/configure/settings#_settings-json-file).
 
 >caption VS Code settings.json
 
 ````JSON.skip-repl
 {
-    // ...
-    "chat.mcp.discovery.enabled": true,
-    "mcp": {
-        "servers": {
-            "telerikBlazorAssistant": {
-                "type": "stdio",
-                "command": "npx",
-                "args": ["-y", "@progress/telerik-blazor-mcp@latest"],
-                "env": {
-                    "TELERIK_LICENSE_PATH": "C:\\Users\\___\\AppData\\Roaming\\Telerik\\telerik-license.txt"
-                }
-            }
-        }
-    }
+  // ...
+  "chat.mcp.discovery.enabled": true,
 }
 ````
 
