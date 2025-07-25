@@ -34,6 +34,7 @@ Use the documentation of your AI-powered MCP client to add the Telerik MCP serve
 
 > * Do not use hyphens (`-`) or underscores (`_`) in the MCP server name in the MCP `.json` file, due to potential compatibility issues with some MCP clients such as Visual Studio or Windsurf.
 > * Some MCP clients expect the MCP servers to be listed under a `servers` JSON key, while others expect `mcpServers`.
+> * Some MCP clients expect an `mcp.json` file, while others like Visual Studio 2022 expect an `.mcp.json` file.
 
 You also need to add your [Telerik licence key](slug:installation-license-key) as an `env` parameter in the `mcp.json` file. There are two options:
 
