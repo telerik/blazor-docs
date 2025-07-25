@@ -19,15 +19,15 @@ This article contains the following examples:
 * [Checkbox integration in Dialog](#checkbox-in-a-dialog)
 * [Filter integration in Dialog](#filter-in-a-dialog)
 
-## Checkbox in a Dialog
+## CheckBox in a Dialog
 
-To use a Checkbox component in the Dialog:
+To use a CheckBox component in the Dialog:
 
-1. Include the [Telerik Checkbox](slug:checkbox-overview) as `DialogContent`.
+1. Include the [Telerik CheckBox](slug:checkbox-overview) as `DialogContent`.
 1. Set the [`Value` parameter](slug:checkbox-overview#checkbox-parameters) of the CheckBox with two-way binding.
 1. Invoke the [Dialog `Refresh` method](slug:dialog-overview#dialog-reference-and-methods) in the [CheckBox `OnChange` event](slug:checkbox-events#onchange).
 
->caption Using Checkbox in Dialog
+>caption Using CheckBox in Dialog
 
 ````RAZOR
 @using Telerik.DataSource
