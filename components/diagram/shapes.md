@@ -10,16 +10,16 @@ position: 20
 
 # Blazor Diagram Shapes
 
-The shape is the main building block of the Telerik Diagram for Blazor. It represents a single node in the graph. This article describes all Diagram shape customization options.
+The Shape is the main building block of the Telerik Diagram for Blazor. It represents a single node in the graph. This article describes all Diagram Shape types and customization options.
 
 ## Basics
 
-The fundamental settings of the Telerik Diagram shapes include:
+The fundamental settings of the Telerik Diagram Shapes include:
 
-* The [shape `Type`](#shape-types) determines the overall appearance and content.
-* The shape `Id` is required in order to define connections between related shapes.
-* `Text` defines the shape label. Use the child `<DiagramShapeContent>` tag to set it.
-* `Width` and `Height` determine the shape size in pixels. The default values are `100`.
+* The [Shape `Type`](#shape-types) determines the overall Shape appearance.
+* The Shape `Id` is required to define connections between related Shapes.
+* `Text` defines the Shape label and `TextWrap` defines the label wrapping behavior. Set these parameters to the child `<DiagramShapeContent>` tag.
+* `Width` and `Height` determine the Shape size in pixels. The default values are `100`.
 
 >caption Using basic Shape parameters
 
@@ -32,35 +32,116 @@ The fundamental settings of the Telerik Diagram shapes include:
 </DiagramShape>
 ````
 
-In addition to the above, use the `X` and `Y` shape parameters to define the shape position coordinates. These parameters have effect only when a [predefined Diagram layout](slug:diagram-layouts) is not set.
+In addition to the above, use the `X` and `Y` Shape parameters to define the exact Shape position coordinates. These parameters have effect only when a [predefined Diagram layout](slug:diagram-layouts) is not set.
 
 ## Shape Types
 
-The available Diagram shape types include:
+The available Diagram Shape types are the members of the [`DiagramShapeType` enum](slug:Telerik.Blazor.DiagramShapeType). The default Shape type is `Rectangle`.
 
-* `Circle`&mdash;you can use different `Width` and `Height` values to define an ellipse.
-* `Image`&mdash;all shape types support text labels, but only the `Image` shape can display a graphic. Use the `<DiagramShape>` `Source` parameter to define the image URL or data URI.
-* `Rectangle` (default).
-* `Text`&mdash;unlike the other shape types, the `Text` shape has no borders and background.
+Some Shape types are designed for [flowcharts, also known as workflow or process diagrams](https://en.wikipedia.org/wiki/Flowchart). However, all Shape types can be used in any scenario.
 
->caption Using Image shapes
+The Shape `Path` parameter allows you to manually [define a custom Shape form](#example) with [multiple straight or curved lines](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) that doesn't match any of the predefined Shape types.
 
-````RAZOR.skip-repl
-<DiagramShape Type="@DiagramShapeType.Image" Source="https://www.domain.com/image.gif" />
+Some Shape type specifics include:
 
-<DiagramShape Type="@DiagramShapeType.Image" Source="data:image/svg;base64,....." />
+* The `Circle` Shape can look like an ellipse if you set different `Width` and `Height` values. Generally, all Shapes adjust their form and proportions, based on the set dimensions.
+* All Shape types support text labels, but only the `Image` Shape can display a graphic. Use the `<DiagramShape>` `Source` parameter to set an image URL or a data URI.
+    ````RAZOR.skip-repl
+    <DiagramShape Type="@DiagramShapeType.Image" Source="https://www.domain.com/image.gif" />
+
+    <DiagramShape Type="@DiagramShapeType.Image" Source="data:image/...;base64,....." />
+    ````
+* The `Terminator` Shape normally requires a `Width` that is larger than the `Height`.
+* The `Text` Shape has no borders and background. It occupies the minimum required amount of space to enclose the label. You can use the `MinWidth` and `MinHeight` parameters to expand a text label.
+
+>caption All Diagram Shapes except Image and Text
+
+````RAZOR
+<TelerikDiagram Height="440px" Zoom="0.5">
+    <DiagramShapeDefaults Width="150" Height="150">
+    </DiagramShapeDefaults>
+    <DiagramShapes>
+        @foreach (DiagramShapeType shapeType in AllDiagramShapeTypes)
+        {
+            <DiagramShape Type="@shapeType"
+                          Id="@( $"id-{shapeType}" )"
+                          X="@GetShapeX(shapeType)"
+                          Y="@GetShapeY(shapeType)"
+                          Width="@GetShapeWidth(shapeType)">
+                <DiagramShapeContent Text="@shapeType.ToString()"
+                                     Color="@GetShapeContentColor(shapeType)" />
+            </DiagramShape>
+        }
+    </DiagramShapes>
+</TelerikDiagram>
+
+@code {
+    private readonly List<DiagramShapeType> AllDiagramShapeTypes = new() {
+        DiagramShapeType.Circle,
+        DiagramShapeType.Collate,
+        DiagramShapeType.Database,
+        DiagramShapeType.DataInputOutput,
+        DiagramShapeType.DataStorage,
+        DiagramShapeType.Decision,
+        DiagramShapeType.Delay,
+        DiagramShapeType.DirectAccessStorage,
+        DiagramShapeType.Display,
+        DiagramShapeType.Document,
+        DiagramShapeType.Extract,
+        //DiagramShapeType.Image,
+        DiagramShapeType.InternalStorage,
+        DiagramShapeType.LogicalOr,
+        DiagramShapeType.ManualInputOutput,
+        DiagramShapeType.ManualOperation,
+        DiagramShapeType.Merge,
+        DiagramShapeType.MultipleDocuments,
+        DiagramShapeType.OffPageConnector,
+        DiagramShapeType.OnPageConnector,
+        DiagramShapeType.PredefinedProcess,
+        DiagramShapeType.Preparation,
+        DiagramShapeType.Process,
+        DiagramShapeType.Rectangle,
+        DiagramShapeType.Sort,
+        DiagramShapeType.SummingJunction,
+        //DiagramShapeType.Text,
+        DiagramShapeType.Terminator
+    };
+
+    private double GetShapeX(DiagramShapeType shapeType)
+    {
+        return AllDiagramShapeTypes.IndexOf(shapeType) % 7 * 200;
+    }
+
+    private double GetShapeY(DiagramShapeType shapeType)
+    {
+        return AllDiagramShapeTypes.IndexOf(shapeType) / 7 * 200;
+    }
+
+    public string GetShapeContentColor(DiagramShapeType shapeType)
+    {
+        List<DiagramShapeType> shapesWithBlackColor = new() {
+            DiagramShapeType.Collate, DiagramShapeType.Sort, DiagramShapeType.Text
+        };
+        return shapesWithBlackColor.Contains(shapeType) ? "#000" : string.Empty;
+    }
+
+    public int GetShapeWidth(DiagramShapeType shapeType)
+    {
+        return shapeType == DiagramShapeType.Terminator ? 300 : 150;
+    }
+}
 ````
 
 ## Styling
 
-The following shape styling options are available in child tags of `<DiagramShapeDefaults>` and `<DiagramShape>`:
+The following Shape styling options are available in child tags of `<DiagramShapeDefaults>` and `<DiagramShape>`:
 
 * Text color and font properties
 * Background color (fill) and opacity for the default and hover states
 * Rotation angle
 * Border (stroke) color, type, width, and opacity
 
->caption Setting global and shape-specific color styles
+>caption Setting global and Shape-specific color styles
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
@@ -88,15 +169,15 @@ The following shape styling options are available in child tags of `<DiagramShap
 
 By default, the Diagram allows users to:
 
-* Connect one shape to other shapes.
-* Drag a shape to new coordinates.
-* Remove the selected shape(s).
+* Connect one Shape to other Shapes.
+* Drag a Shape to new coordinates.
+* Remove the selected Shape(s).
 
-To restrict these operations globally for all shapes, use the parameters of the `<DiagramShapeDefaultsEditable>` tag.
+To restrict these operations globally for all Shapes, use the parameters of the `<DiagramShapeDefaultsEditable>` tag.
 
-To restrict or enable operations for a specific shape, use the parameters of the `<DiagramShapeEditable>` tag.
+To restrict or enable operations for a specific Shape, use the parameters of the `<DiagramShapeEditable>` tag.
 
->caption Setting global and shape-specific editing options
+>caption Setting global and Shape-specific editing options
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
@@ -127,7 +208,8 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
                                      FontSize="16"
                                      FontStyle="normal"
                                      FontWeight="normal"
-                                     Text="Default Text" />
+                                     Text="Default Text"
+                                     TextWrap="@DiagramShapesContentTextWrap.Wrap" />
         <DiagramShapeDefaultsFill Color="purple" Opacity="0.8" />
         <DiagramShapeDefaultsHover>
             <DiagramShapeDefaultsHoverFill Color="blue" Opacity="1" />
@@ -168,10 +250,10 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
             <DiagramShapeRotation Angle="20" />
             <DiagramShapeStroke DashType="@DashType.LongDash" Color="blue" Width="2" />
         </DiagramShape>
-        <DiagramShape Height="100"
-                      Id="shape4"
+        <DiagramShape Id="shape4"
                       Type="@DiagramShapeType.Text"
-                      Width="100"
+                      MinHeight="40"
+                      MinWidth="100"
                       X="150"
                       Y="250">
             <DiagramShapeContent Text="Text Shape" Color="black" />
@@ -211,18 +293,18 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
 
 ## Visual Function
 
-You can draw shapes by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended only if the desired result cannot be achieved in another way.
+You can draw Shapes by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended only if the desired result cannot be achieved in another way.
 
 To use a visual function:
 
 1. Get familiar with the [related JavaScript API and available visual primitives](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual).
 1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group).
-1. Set the `Visual` parameter of `<DiagramShapeDefaults>` or `<DiagramShape>` tag to the JavaScript function name. The first approach affects all shapes, while the second one affects a specific shape.
-1. (optional) Retrieve information about the current shape from the the function argument. It is a JavaScript object that contains all shape settings.
+1. Set the `Visual` parameter of `<DiagramShapeDefaults>` or `<DiagramShape>` tag to the JavaScript function name. The first approach affects all Shapes, while the second one affects a specific Shape.
+1. (optional) Retrieve information about the current Shape from the the function argument. It is a JavaScript object that contains all Shape settings.
 
 > This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
 
->caption Using Diagram shape visual function
+>caption Using Diagram Shape visual function
 
 ````RAZOR
 <TelerikDiagram>
