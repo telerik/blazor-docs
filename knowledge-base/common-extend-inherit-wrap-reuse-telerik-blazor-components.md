@@ -266,6 +266,15 @@ namespace YourAppName.BaseComponents
 }
 ````
 
+If `ReusableComboBox.razor` has a separate `razor.cs` file, the partial class must be defined as generic:
+
+````C#.skip-repl
+public partial class ReusableComboBox<TItem, TValue> : ComponentBase
+{
+
+}
+````
+
 ## See Also
 
 * [Using Base Classes with Razor Components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-9.0#specify-a-base-class)
