@@ -5,7 +5,7 @@ type: how-to
 page_title: How to Extend, Inherit, or Wrap Telerik Components for Blazor
 slug: common-kb-component-inheritance
 tags: telerik, blazor, inheritance
-ticketid: 1628856, 1615737, 1604776, 1607228, 1618168, 1690926
+ticketid: 1628856, 1615737, 1604776, 1607228, 1618168, 1690926, 1694691
 res_type: kb
 ---
 
@@ -263,6 +263,17 @@ namespace YourAppName.BaseComponents
 
         // Optional method overrides...
     }
+}
+````
+
+## Notes
+
+If `ReusableComboBox.razor` has a separate `.razor.cs` file, then the [partial class must be defined as generic](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/generic-type-support):
+
+````C#.skip-repl
+public partial class ReusableComboBox<TItem, TValue> : ComponentBase
+{
+
 }
 ````
 
