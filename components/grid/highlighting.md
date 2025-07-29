@@ -28,7 +28,7 @@ The Grid highlighting feature exposes the following parameters:
 - `HighlightedItems`—Highlight entire rows by providing the data items to highlight. The list must contain references to items from the grid's data source, not new instances.
 - `HighlightedCells`—Highlight individual cells by specifying both the data item and the column field. Both values must match the Grid data and column definitions.
 
-See [Grid Highlighting API Reference](slug:telerik.blazor.components.gridhighlighting) for details about these parameters and the `GridHighlightedCellDescriptor` type.
+See [Grid Highlighting API Reference](slug:telerik.blazor.components.HighlightedCellDescriptor) for details about these parameters and the `GridHighlightedCellDescriptor` type.
 
 ## Example
 
@@ -113,4 +113,4 @@ See [Grid Highlighting API Reference](slug:telerik.blazor.components.gridhighlig
 ## See Also
 
 * [Grid Selection](slug:grid-selection-overview)
-* [Highlighting API Reference](slug:telerik.blazor.components.gridhighlighting)
+* [Highlighting API Reference](slug:telerik.blazor.components.HighlightedCellDescriptor)
