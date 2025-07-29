@@ -33,8 +33,6 @@ To use the Telerik Blazor AI Coding Assistant, you need:
 
 ## Number of Requests
 
-> The usage limits below will take place after June 28, 2025. Until then, each customer with an active commercial or trial license can make up to 300 daily requests.
-
 The Telerik Blazor AI Conding Assistant allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
 * Perpetual licenses: 50 requests per year
