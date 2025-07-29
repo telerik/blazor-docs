@@ -28,26 +28,7 @@ The Dialog component and its [predefined options](slug:dialog-predefined) aim to
 
 >caption A basic configuration of the Telerik Dialog.
 
-````RAZOR
-@* An example of the Dialog basic implementation. *@
-
-<TelerikDialog @bind-Visible="@Visible"
-               Title="@Title">
-    <DialogContent>
-        A new version of <strong>Telerik UI for Blazor</strong> is available. Would you like to download and install it now?
-    </DialogContent>
-    <DialogButtons>
-        <TelerikButton OnClick="@(() => { Visible = false; })">Skip this version</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })">Remind me later</TelerikButton>
-        <TelerikButton OnClick="@(() => { Visible = false; })" ThemeColor="primary">Install update</TelerikButton>
-    </DialogButtons>
-</TelerikDialog>
-
-@code {
-    private bool Visible { get; set; } = true;
-    private string Title { get; set; } = "Software Update";
-}
-````
+<demo metaUrl="client/dialog/overview/" height="400"></demo>
 
 ## Predefined Dialogs
 
