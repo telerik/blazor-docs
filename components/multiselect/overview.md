@@ -23,57 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 
 >caption Basic Blazor MultiSelect two-way value binding, main features, and simple [data binding](slug:multiselect-databind)
 
-````RAZOR
-<TelerikMultiSelect Data="@Countries"
-                    @bind-Value="@MultiSelectValues"
-                    TextField="@nameof(Country.Name)"
-                    ValueField="@nameof(Country.Id)"
-                    AutoClose="false"
-                    Placeholder="Select Balkan Countries"
-                    ShowClearButton="true">
-</TelerikMultiSelect>
-
-@if (MultiSelectValues.Count > 0)
-{
-    <ul>
-        @foreach (int countryId in MultiSelectValues)
-        {
-            <li><code>Id</code> @countryId, <code>Name</code> @Countries.First(x => x.Id == countryId).Name</li>
-        }
-    </ul>
-}
-@code {
-    private List<Country> Countries { get; set; } = new();
-    private List<int> MultiSelectValues { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        Countries.Add(new(1, "Albania"));
-        Countries.Add(new(2, "Bosnia and Herzegovina"));
-        Countries.Add(new(3, "Bulgaria"));
-        Countries.Add(new(4, "Croatia"));
-        Countries.Add(new(5, "Greece"));
-        Countries.Add(new(6, "Kosovo"));
-        Countries.Add(new(7, "Montenegro"));
-        Countries.Add(new(8, "Romania"));
-        Countries.Add(new(9, "Serbia"));
-        Countries.Add(new(10, "Slovenia"));
-        Countries.Add(new(11, "Turkey"));
-    }
-
-    public class Country
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-
-        public Country(int id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-    }
-}
-````
+<demo metaUrl="client/multiselect/overview/" height="300"></demo>
 
 ## Data Binding
 
@@ -152,25 +102,13 @@ The following parameters enable you to customize the [appearance](slug:multisele
 
 The MultiSelect exposes settings for its dropdown (popup). To configure the options, declare a  `<MultiSelectPopupSettings>` tag inside a `<MultiSelectSettings>` tag:
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikMultiSelect Data="@MultiSelectData"
-                    @bind-Value="@SelectedItems"
-                    Filterable="true"
-                    FilterOperator="@StringFilterOperator.Contains"
-                    Placeholder="Filter by digit or letter"
-                    AutoClose="false"
-                    Width="240px">
+                    @bind-Value="@SelectedItems">
     <MultiSelectSettings>
         <MultiSelectPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
     </MultiSelectSettings>
 </TelerikMultiSelect>
-@code {
-    private List<string> MultiSelectData { get; set; } = Enumerable.Range(1, 50)
-        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
-        .ToList();
-
-    private List<string> SelectedItems { get; set; } = new List<string>();
-}
 ````
 
 The MultiSelect provides the following popup settings:
@@ -186,26 +124,15 @@ Add a reference to the component instance to use the [MultiSelect's methods](slu
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````RAZOR
-<TelerikMultiSelect @ref="@MultiSelectRef"
-                    Data="@MultiSelectData"
-                    @bind-Value="@MultiSelectValue"
-                    Width="300px" />
+````RAZOR.skip-repl
+<TelerikMultiSelect @ref="@MultiSelectRef" .../>
 
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
 @code {
-    private TelerikMultiSelect<string, string> MultiSelectRef { get; set; }
-
-    private List<string> MultiSelectValue { get; set; }
-
-    private List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
-
     private void OpenPopup()
     {
         MultiSelectRef.Open();
-        
-        MultiSelectValue = new List<string>() { MultiSelectData.First() };
 
         MultiSelectRef.Refresh();
     }
