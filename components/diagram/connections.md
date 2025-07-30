@@ -10,19 +10,19 @@ position: 30
 
 # Blazor Diagram Connections
 
-The connections in the Telerik Diagram for Blazor signify the relationship between two shapes (graph nodes). This article describes all Diagram connection customization options.
+The Connections in the Telerik Diagram for Blazor signify the relationship between two Shapes (graph nodes). This article describes all Diagram Connection customization options.
 
 ## Basics
 
-A connection is a link that shows a relationship between two Diagram shapes. A connection can also span across points with specific coordinates, with no associated shapes.
+A Connection is a link that shows a relationship between two Diagram Shapes. A Connection can also span across points with specific coordinates, with no associated Shapes.
 
-The fundamental settings of the Telerik Diagram connections (`<DiagramConnection>`) include:
+The fundamental settings of the Telerik Diagram Connections (`<DiagramConnection>`) include:
 
-* The `FromId` and `ToId` parameters must match the associated [shape `Id`s](slug:diagram-shapes#basics). You can also define a connection that does not link shapes. In this case, use the `X` and `Y` parameters of the child tags `<DiagramConnectionFrom>` and `<DiagramConnectionTo>`.
-* The [connection `Type`](#connection-types) determines the connection route and route angles.
-* The connection [cap `Type`](#cap-types) determines whether the connections appear directed or undirected.
-* The `Selectable` parameter of `<DiagramConnectionDefaults>` sets if connections can be selected, which determines the ability to [drag or remove](#editability) them.
-* `Text` defines the connection label. Use the child `<DiagramConnectionContent>` tag to set it.
+* The `FromId` and `ToId` parameters must match the associated [Shape `Id`s](slug:diagram-shapes#basics). You can also define a Connection that does not link Shapes. In this case, use the `X` and `Y` parameters of the child tags `<DiagramConnectionFrom>` and `<DiagramConnectionTo>`.
+* The [Connection `Type`](#connection-types) determines the Connection route and route angles.
+* The Connection [cap `Type`](#cap-types) determines whether the Connections appear directed or undirected.
+* The `Selectable` parameter of `<DiagramConnectionDefaults>` sets if Connections can be selected, which determines the ability to [drag or remove](#editability) them.
+* `Text` defines the Connection label. Use the child `<DiagramConnectionContent>` tag to set it.
 
 >caption Using Basic Connection Parameters
 
@@ -43,10 +43,10 @@ The fundamental settings of the Telerik Diagram connections (`<DiagramConnection
 
 ## Connection Types
 
-The available Diagram connection types include:
+The available Diagram Connection types include:
 
-* `Cascading` (default)&mdash;connections display as rectangular routes with one or more right angles. The cascading connection type is suitable for [tree Diagram layouts](slug:diagram-layouts#tree-layout), as the connections enhance the representation of a hierarchy.
-* `Polyline`&mdash;connections display as polylines that connect the related shapes and all intermediate points. If [connection points](#connection-points) are not defined, then the connection displays as a straight line.
+* `Cascading` (default)&mdash;Connections display as rectangular routes with one or more right angles. The cascading Connection type is suitable for [tree Diagram layouts](slug:diagram-layouts#tree-layout), as the Connections enhance the representation of a hierarchy.
+* `Polyline`&mdash;Connections display as polylines that connect the related Shapes and all intermediate points. If [Connection points](#connection-points) are not defined, then the Connection displays as a straight line.
 
 >caption Setting Connection Type Globally
 
@@ -68,7 +68,7 @@ The available Diagram connection types include:
 
 ### Connection Points
 
-[`Polyline` connections](#connection-types) can pass through multiple points at specific coordinates, no matter if the connections link shapes or not.
+[`Polyline` Connections](#connection-types) can pass through multiple points at specific coordinates, no matter if the Connections link Shapes or not.
 
 >caption Using Connection Points
 
@@ -91,22 +91,22 @@ The available Diagram connection types include:
 
 ## Cap Types
 
-The link between two Diagram shapes is always defined through the `FromId` and `ToId` parameters of the `<DiagramConnection>` tag. From this point of view, a Diagram connection is always directed. However, you can configure the connections to appear bi-directional or non-directional.
+The link between two Diagram Shapes is always defined through the `FromId` and `ToId` parameters of the `<DiagramConnection>` tag. From this point of view, a Diagram Connection is always directed. However, you can configure the Connections to appear bi-directional or non-directional.
 
 The available cap types are the members of the `DiagramConnectionsStartCapType` and `DiagramConnectionsEndCapType` enums:
 
-* `ArrowEnd`&mdash;the cap arrow points away from the connection, towards the shape
+* `ArrowEnd`&mdash;the cap arrow points away from the Connection, towards the Shape
 * `FilledCircle` (default)
 * `None`
 
-The configure cap types globally for all connections, use the `Type` parameter of `<DiagramConnectionDefaultsStartCap>` and `<DiagramConnectionDefaultsEndCap>`. To configure the cap types of a specific connection, use the `Type` parameter of `<DiagramConnectionStartCap>` and `<DiagramConnectionEndCap>`.
+The configure cap types globally for all Connections, use the `Type` parameter of `<DiagramConnectionDefaultsStartCap>` and `<DiagramConnectionDefaultsEndCap>`. To configure the cap types of a specific Connection, use the `Type` parameter of `<DiagramConnectionStartCap>` and `<DiagramConnectionEndCap>`.
 
 Note the difference between caps and selection handles:
 
-* The caps are visible when a connection is not selected.
-* The selection handles are visible when a connection is selected (clicked).
+* The caps are visible when a Connection is not selected.
+* The selection handles are visible when a Connection is selected (clicked).
 
->caption Setting global and connection-specific cap types
+>caption Setting global and Connection-specific cap types
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
@@ -124,20 +124,50 @@ Note the difference between caps and selection handles:
 </TelerikDiagram>
 ````
 
+## Selection Handles
+
+Selection handles are the additional visual elements that appear at both ends of a Connection when it is selected (clicked). The handles appear on top of the [caps and connectors](slug:diagram-overview#diagram-elements).
+
+>caption Configure selection handles globally and per Connection
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramConnectionDefaults>
+        <DiagramConnectionDefaultsSelection>
+            <DiagramConnectionDefaultsSelectionHandles Height="10" Width="10">
+                <DiagramConnectionDefaultsSelectionHandlesFill Color="purple" />
+                <DiagramConnectionDefaultsSelectionHandlesStroke Color="black" />
+            </DiagramConnectionDefaultsSelectionHandles>
+        </DiagramConnectionDefaultsSelection>
+    </DiagramConnectionDefaults>
+
+    <DiagramConnections>
+        <DiagramConnection>
+            <DiagramConnectionSelection>
+                <DiagramConnectionSelectionHandles Height="16" Width="16">
+                    <DiagramConnectionSelectionHandlesFill Color="lime" />
+                    <DiagramConnectionSelectionHandlesStroke Color="green" />
+                </DiagramConnectionSelectionHandles>
+            </DiagramConnectionSelection>
+        </DiagramConnection>
+    </DiagramConnections>
+</TelerikDiagram>
+````
+
 ## Editability
 
 By default, the Diagram allows users to:
 
-* Drag a connection by its start and end cap to link other shapes than the current ones.
-* Remove the selected connection(s).
+* Drag a Connection by its start and end cap to link other Shapes than the current ones.
+* Remove the selected Connection(s).
 
-To restrict these operations globally for all connections, use the parameters of the `<DiagramConnectionDefaultsEditable>` tag.
+To restrict these operations globally for all Connections, use the parameters of the `<DiagramConnectionDefaultsEditable>` tag.
 
-To restrict operations for a specific connection, use the parameters of the `<DiagramConnectionEditable>` tag.
+To restrict operations for a specific Connection, use the parameters of the `<DiagramConnectionEditable>` tag.
 
 Connection dragging and removing requires the `Selectable` parameter of `<DiagramConnectionDefaults>` to be set to `true`, which is by default.
 
->caption Setting global and connection-specific editing options
+>caption Setting global and Connection-specific editing options
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
@@ -155,14 +185,14 @@ Connection dragging and removing requires the `Selectable` parameter of `<Diagra
 
 ## Styling
 
-The following connection styling options are available in child tags of `<DiagramConnectionDefaults>` and `<DiagramConnection>`:
+The following Connection styling options are available in child tags of `<DiagramConnectionDefaults>` and `<DiagramConnection>`:
 
-* Text color and font properties, when using connection content
-* Background color (fill) for the connection caps
+* Text color and font properties, when using Connection content
+* Background color (fill) for the Connection caps
 * Background color (fill) for the default and hover states of the selection handles
 * Border (stroke) color, type, and width for the caps and selection handles
 
->caption Setting global and connection-specific color styles
+>caption Setting global and Connection-specific color styles
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
@@ -281,24 +311,28 @@ The following connection styling options are available in child tags of `<Diagra
 
 ## Visual Function
 
-You can draw additional connection content by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended only if the desired result cannot be achieved in another way.
+You can draw additional Connection content by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended if the desired result cannot be achieved in another way.
 
 To use a visual function:
 
 1. Get familiar with the [related JavaScript API and available visual primitives](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual).
-1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group).
-1. Set the `Visual` parameter of `<DiagramConnectionDefaultsContent>` or `<DiagramConnectionContent>` tag to the JavaScript function name. The first approach affects all connections, while the second one affects a specific connection.
+1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group). The `Group` can contain any number of other primitives like `Circle`, `Image`, `Line`, `Rectangle`, `TextBlock`, and others.
+1. Set the `Visual` parameter of `<DiagramConnectionDefaultsContent>` or `<DiagramConnectionContent>` tag to the JavaScript function name. The first approach affects all Connections, while the second one affects a specific Connection.
+1. Position each primitive with the `x` and `y` properties of its JavaScript object. Otherwise the primitive renders at the top-left corner of the `Group`.
+1. Each new primitive element displays on top of the previous ones.
+1. (optional) Retrieve information about the current Connection from the the function argument. It is a JavaScript object.
+1. (optional) Set the Connection `DataItem` parameter to a JSON-serializable object. Retrieve the object properties from the `dataItem` property of the function argument.
 
 > This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
 
->caption Using Diagram connection visual function
+>caption Using Diagram Connection visual function
 
 ````RAZOR
 <TelerikDiagram>
     <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
 
     <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline">
-        <DiagramConnectionDefaultsContent Visual="" />
+        <DiagramConnectionDefaultsContent Visual="connectionVisualFunction" />
     </DiagramConnectionDefaults>
 
     <DiagramShapes>
@@ -314,25 +348,15 @@ To use a visual function:
     </DiagramShapes>
 
     <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2">
-            <DiagramConnectionContent Visual="connectionVisualFunction12" />
-        </DiagramConnection>
-        <DiagramConnection FromId="shape1" ToId="shape3">
-            <DiagramConnectionContent Visual="connectionVisualFunction13" />
-        </DiagramConnection>
+        <DiagramConnection FromId="shape1" ToId="shape2" DataItem="@ConnectionDataItem1" />
+        <DiagramConnection FromId="shape1" ToId="shape3" DataItem="@ConnectionDataItem2" />
     </DiagramConnections>
 </TelerikDiagram>
 
 @* Move JavaScript code to an external JS file *@
 <script suppress-error="BL9992">
-    function connectionVisualFunction12(context) {
-        return connectionVisualFunction(context, "1 to 2", "green");
-    }
-    function connectionVisualFunction13(context) {
-        return connectionVisualFunction(context, "1 to 3", "red");
-    }
-
-    function connectionVisualFunction(context, text, color) {
+    function connectionVisualFunction(context) {
+        console.log(context);
         var g = new TelerikBlazor.DiagramCommon.Group({
             autoSize: true
         });
@@ -341,22 +365,35 @@ To use a visual function:
             width: 16,
             height: 16,
             fill: {
-                color: color
+                color: context.dataItem.Color ?? "transparent"
+            },
+            stroke: {
+                color: context.dataItem.Color ? context.color : "transparent"
             }
         });
+        g.append(circle);
 
         var text = new TelerikBlazor.DiagramCommon.TextBlock({
-            text: text,
+            text: context.dataItem.Title,
             fontSize: 16,
             x: 20
         });
-
-        g.append(circle);
         g.append(text);
 
         return g;
     }
 </script>
+
+@code {
+    private readonly ConnectionModel ConnectionDataItem1 = new() { Title = "1 to 2", Color = "green" };
+    private readonly ConnectionModel ConnectionDataItem2 = new() { Title = "1 to 3", Color = "red" };
+
+    public class ConnectionModel
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Color { get; set; } = "black";
+    }
+}
 ````
 
 ## See Also

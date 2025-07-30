@@ -361,5 +361,5 @@ The `<DiagramLayoutGrid>` tag exposes settings that allow you to define:
 
 ## See Also
 
-* [Live Demos: Diagram](https://demos.telerik.com/blazor-ui/diagram/overview)
+* [Live Demo: Diagram Layout and Shape Types](https://demos.telerik.com/blazor-ui/diagram/configuration)
 * [Diagram API Reference](slug:Telerik.Blazor.Components.TelerikDiagram)

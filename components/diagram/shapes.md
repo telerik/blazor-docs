@@ -42,19 +42,7 @@ Some Shape types are designed for [flowcharts, also known as workflow or process
 
 The Shape `Path` parameter allows you to manually [define a custom Shape form](#example) with [multiple straight or curved lines](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) that doesn't match any of the predefined Shape types.
 
-Some Shape type specifics include:
-
-* The `Circle` Shape can look like an ellipse if you set different `Width` and `Height` values. Generally, all Shapes adjust their form and proportions, based on the set dimensions.
-* All Shape types support text labels, but only the `Image` Shape can display a graphic. Use the `<DiagramShape>` `Source` parameter to set an image URL or a data URI.
-    ````RAZOR.skip-repl
-    <DiagramShape Type="@DiagramShapeType.Image" Source="https://www.domain.com/image.gif" />
-
-    <DiagramShape Type="@DiagramShapeType.Image" Source="data:image/...;base64,....." />
-    ````
-* The `Terminator` Shape normally requires a `Width` that is larger than the `Height`.
-* The `Text` Shape has no borders and background. It occupies the minimum required amount of space to enclose the label. You can use the `MinWidth` and `MinHeight` parameters to expand a text label.
-
->caption All Diagram Shapes except Image and Text
+>caption All Diagram Shape types except Image and Text
 
 ````RAZOR
 <TelerikDiagram Height="440px" Zoom="0.5">
@@ -132,6 +120,88 @@ Some Shape type specifics include:
 }
 ````
 
+### Type-Specific Shape Features
+
+Some Shape types provide unique behavior or settings:
+
+* The `Circle` Shape can look like an ellipse if you set different `Width` and `Height` values. Generally, all Shapes adjust their form and proportions, based on the set dimensions.
+* All Shape types support text labels, but only the `Image` Shape can display a graphic. Use the `<DiagramShape>` `Source` parameter to set an image URL or a data URI.
+    ````RAZOR.skip-repl
+    <DiagramShape Type="@DiagramShapeType.Image" Source="https://www.domain.com/image.gif" />
+
+    <DiagramShape Type="@DiagramShapeType.Image" Source="data:image/...;base64,....." />
+    ````
+* The `Terminator` Shape normally requires a `Width` that is larger than the `Height`.
+* The `Text` Shape has no borders and background. It occupies the minimum required amount of space to enclose the text content. To display text Shapes with some empty space around the content, use transparent Shapes of another type.
+
+>caption Using transparent Rectangle shapes instead of Text shapes
+
+````RAZOR
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Tree" />
+    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle"
+                          Height="50">
+        <DiagramShapeDefaultsContent Color="#000" />
+        <DiagramShapeDefaultsFill Color="transparent" />
+        <DiagramShapeDefaultsStroke Width="0" />
+    </DiagramShapeDefaults>
+
+    <DiagramShapes>
+        <DiagramShape Id="shape1">
+            <DiagramShapeContent Text="Shape 1" />
+        </DiagramShape>
+        <DiagramShape Id="shape2">
+            <DiagramShapeContent Text="Shape 2" />
+        </DiagramShape>
+        <DiagramShape Id="shape3">
+            <DiagramShapeContent Text="Shape 3" />
+        </DiagramShape>
+    </DiagramShapes>
+
+    <DiagramConnections>
+        <DiagramConnection FromId="shape1" ToId="shape2" />
+        <DiagramConnection FromId="shape1" ToId="shape3" />
+    </DiagramConnections>
+</TelerikDiagram>
+````
+
+## Connectors
+
+Connectors are the 5 dots that appear on the Shape boundaries and center on hover. Users can grab a connector and drag it to another shape to create a new connection. If the user grabs the center connector, the Diagram can create a connection from any side of the Shape. If the user grabs a connector on the Shape's boundary, the Diagram will create a connection from that specific side of the Shape.
+
+You can customize connectors globally or per shape. Connectors settings are part of the shape settings. As a result:
+
+* `<DiagramShapeDefaultsConnectorDefaults>` must be a child of `<DiagramShapeDefaults>`.
+* `<DiagramShapeConnectorDefaults>` must be a child of `<DiagramShape>`.
+
+>caption Configure connectors globally and per Shape
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramShapeDefaults>
+        <DiagramShapeDefaultsConnectorDefaults Width="20" Height="20">
+            <DiagramShapeDefaultsConnectorDefaultsFill Color="yellow" Opacity="0.8" />
+            <DiagramShapeDefaultsConnectorDefaultsStroke Color="blue" Width="3" DashType="@DashType.Dash" />
+            <DiagramShapeDefaultsConnectorDefaultsHover>
+                <DiagramShapeDefaultsConnectorDefaultsHoverFill Color="orange" Opacity="1" />
+            </DiagramShapeDefaultsConnectorDefaultsHover>
+        </DiagramShapeDefaultsConnectorDefaults>
+    </DiagramShapeDefaults>
+
+    <DiagramShapes>
+        <DiagramShape>
+            <DiagramShapeConnectorDefaults Width="15" Height="15">
+                <DiagramShapeConnectorDefaultsFill Color="lime" Opacity="0.6" />
+                <DiagramShapeConnectorDefaultsStroke Color="green" Width="3" DashType="@DashType.Dot" />
+                <DiagramShapeConnectorDefaultsHover>
+                    <DiagramShapeConnectorDefaultsHoverFill Color="blue" Opacity="0.9" />
+                </DiagramShapeConnectorDefaultsHover>
+            </DiagramShapeConnectorDefaults>
+        </DiagramShape>
+    </DiagramShapes>
+</TelerikDiagram>
+````
+
 ## Styling
 
 The following Shape styling options are available in child tags of `<DiagramShapeDefaults>` and `<DiagramShape>`:
@@ -203,6 +273,13 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
 <TelerikDiagram Height="300px">
     <DiagramShapeDefaults Selectable="true"
                           Type="@DiagramShapeType.Rectangle">
+        <DiagramShapeDefaultsConnectorDefaults Width="10" Height="10">
+            <DiagramShapeDefaultsConnectorDefaultsFill Color="lime" Opacity="0.8" />
+            <DiagramShapeDefaultsConnectorDefaultsStroke Color="green" Width="3" DashType="@DashType.Solid" />
+            <DiagramShapeDefaultsConnectorDefaultsHover>
+                <DiagramShapeDefaultsConnectorDefaultsHoverFill Color="orange" Opacity="1" />
+            </DiagramShapeDefaultsConnectorDefaultsHover>
+        </DiagramShapeDefaultsConnectorDefaults>
         <DiagramShapeDefaultsContent Color="white"
                                      FontFamily="arial"
                                      FontSize="16"
@@ -234,6 +311,13 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
                       Type="@DiagramShapeType.Image"
                       X="20"
                       Y="50">
+            <DiagramShapeConnectorDefaults Width="15" Height="15">
+                <DiagramShapeConnectorDefaultsFill Color="orange" />
+                <DiagramShapeConnectorDefaultsStroke Color="blue" />
+                <DiagramShapeConnectorDefaultsHover>
+                    <DiagramShapeConnectorDefaultsHoverFill Color="purple" />
+                </DiagramShapeConnectorDefaultsHover>
+            </DiagramShapeConnectorDefaults>
             <DiagramShapeContent Text="Image" Color="#000" FontSize="20" FontWeight="bold" />
         </DiagramShape>
         <DiagramShape Height="80"
@@ -293,14 +377,17 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
 
 ## Visual Function
 
-You can draw Shapes by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended only if the desired result cannot be achieved in another way.
+You can draw Shapes and render their content by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended if the desired result cannot be achieved in another way.
 
 To use a visual function:
 
 1. Get familiar with the [related JavaScript API and available visual primitives](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual).
-1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group).
+1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group). The `Group` can contain any number of other primitives like `Circle`, `Image`, `Line`, `Rectangle`, `TextBlock`, and others.
 1. Set the `Visual` parameter of `<DiagramShapeDefaults>` or `<DiagramShape>` tag to the JavaScript function name. The first approach affects all Shapes, while the second one affects a specific Shape.
+1. Position each primitive with the `x` and `y` properties of its JavaScript object. Otherwise the primitive renders at the top-left corner of the `Group`.
+1. Each new primitive element displays on top of the previous ones.
 1. (optional) Retrieve information about the current Shape from the the function argument. It is a JavaScript object that contains all Shape settings.
+1. (optional) Set the Shape `DataItem` parameter to a JSON-serializable object. Retrieve the object properties from the `dataItem` property of the function argument.
 
 > This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
 
@@ -310,14 +397,16 @@ To use a visual function:
 <TelerikDiagram>
     <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
 
-    <DiagramShapeDefaults Visual="shapeVisualFunction" />
+    <DiagramShapeDefaults Visual="shapeVisualFunction">
+        <DiagramShapeDefaultsStroke Width="3" />
+    </DiagramShapeDefaults>
 
     <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
+        <DiagramShape Id="shape1" DataItem="@ShapeDataItem1">
+            <DiagramShapeStroke Color="brown" />
         </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
+        <DiagramShape Id="shape2" DataItem="@ShapeDataItem2">
+            <DiagramShapeStroke Color="purple" />
         </DiagramShape>
     </DiagramShapes>
 
@@ -328,32 +417,68 @@ To use a visual function:
 
 @* Move JavaScript code to an external JS file *@
 <script suppress-error="BL9992">
-    function shapeVisualFunction(context) {
-        let group = new TelerikBlazor.DiagramCommon.Group({
-          autoSize: true
-        });
+function shapeVisualFunction(context) {
+    let group = new TelerikBlazor.DiagramCommon.Group({
+        autoSize: true
+    });
 
-        let circle1 = new TelerikBlazor.DiagramCommon.Circle({
-          width : 120,
-          height: 60,
-          fill: "orange"
-        });
-        group.append(circle1);
+    let circle1 = new TelerikBlazor.DiagramCommon.Circle({
+        width: 240,
+        height: 120,
+        fill: "orange",
+        stroke: {
+            color: context.stroke.color,
+            width: context.stroke.width
+        }
+    });
+    group.append(circle1);
 
-        let circle2 = new TelerikBlazor.DiagramCommon.Circle({
-          width : 100,
-          height: 40,
-          fill: "red",
-          center: { x: 24, y: 30 }
-        });
-        group.append(circle2);
+    let circle2 = new TelerikBlazor.DiagramCommon.Circle({
+        width: 200,
+        height: 80,
+        fill: "red",
+        x: 20,
+        y: 20
+    });
+    group.append(circle2);
 
-        return group;
-    }
+    let text1 = new TelerikBlazor.DiagramCommon.TextBlock({
+        text: context.dataItem.Title,
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "white",
+        x: 55,
+        y: 38
+    });
+    group.append(text1);
+
+    let text2 = new TelerikBlazor.DiagramCommon.TextBlock({
+        text: context.dataItem.SubTitle,
+        fontSize: 14,
+        color: "yellow",
+        x: 55,
+        y: 65
+    });
+    group.append(text2);
+
+    return group;
+}
 </script>
+
+@code {
+    private readonly ShapeModel ShapeDataItem1 = new() { Title = "First Shape", SubTitle = "New Line and Styles" };
+    private readonly ShapeModel ShapeDataItem2 = new() { Title = "Second Shape", SubTitle = "Additional Text" };
+
+    public class ShapeModel
+    {
+        public string Title { get; set; } = string.Empty;
+        public string SubTitle { get; set; } = string.Empty;
+    }
+}
 ````
 
 ## See Also
 
-* [Live Demos: Diagram](https://demos.telerik.com/blazor-ui/diagram/overview)
+* [Live Demo: Diagram Layout and Shape Types](https://demos.telerik.com/blazor-ui/diagram/configuration)
+* [Live Demo: Using Diagram Visuals](https://demos.telerik.com/blazor-ui/diagram/overview)
 * [Diagram API Reference](slug:Telerik.Blazor.Components.TelerikDiagram)
