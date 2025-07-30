@@ -20,6 +20,8 @@ The extension for Visual Studio Code provides the following advantages:
 
 * It allows you to [add the Telerik Components to an existing project](slug:getting-started-vs-code-integration-convert-project ) with a few clicks.
 
+* It provides [automated AI configuration](slug:getting-started-vs-code-integration-ai-configuration) for MCP servers and GitHub Copilot to enhance your development experience with Telerik UI for Blazor.
+
 ## Get the Extension
 
 @[template](/_contentTemplates/common/general-info.md#vs-code-x-download)
@@ -30,4 +32,5 @@ To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `C
 
 ## See Also
 
+* [AI Configuration in VS Code](slug:getting-started-vs-code-integration-ai-configuration)
 * [Telerik GitHub Copilot extension for Blazor](slug:ai-copilot-extension)
