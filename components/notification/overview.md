@@ -14,6 +14,8 @@ This article provides information about the <a href = "https://www.telerik.com/b
 
 The Notification component renders a brief message to the user which holds information regarding the status of a process in the application. Using its settings you can customize its position, animation options and rendering. 
 
+<demo metaUrl="client/notification/overview/" height="420"></demo>
+
 ## Creating Blazor Notification
 
 1. Add the `<TelerikNotification>` tag to your razor page.

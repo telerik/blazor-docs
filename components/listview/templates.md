@@ -23,32 +23,7 @@ This is the main building block of the listview component. You define the layout
 
 >caption Item template in the ListView
 
-````RAZOR
-<TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
-    <Template>
-        @{
-            SampleData currItem = context as SampleData;
-            <div class="listview-item">
-                <strong>@currItem.Name</strong> has ID: <strong>@currItem.Id</strong>
-            </div>
-        }
-    </Template>
-</TelerikListView>
-
-@code{
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 250).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/template/" height="420"></demo>
 
 >caption The result from the snippet above
 
@@ -63,42 +38,7 @@ This is the template that an item in edit or insert mode renders, instead of its
 
 >caption Declaring an edit template in the ListView. Note: The CUD operations are not implemented in this example.
 
-````RAZOR
-@* This example showcases a minimal edit template declaration. For more details on
-the available commands and the event handlers you need to implement, see the following article:
-https://docs.telerik.com/blazor-ui/components/listview/editing
-*@
-
-<TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
-    <EditTemplate>
-        <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" />
-        <ListViewCommandButton Command="Save">Save</ListViewCommandButton>
-    </EditTemplate>
-    <Template>
-        <div>
-            item @context.Id
-            <ListViewCommandButton Command="Edit">Edit</ListViewCommandButton>
-        </div>
-    </Template>
-    <HeaderTemplate>
-        <ListViewCommandButton Command="Add">Add</ListViewCommandButton>
-    </HeaderTemplate>
-</TelerikListView>
-
-@code{
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 250).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/edittemplate/" height="420"></demo>
 
 ## Header Template
 
@@ -106,32 +46,7 @@ This piece of code renders just above the items, but within the main listview wr
 
 >caption Header Template in the ListView
 
-````RAZOR
-@* The item template is mandatory. You can also add other components in the header template. *@
-
-<TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
-    <HeaderTemplate>
-        <h1>Employees</h1>
-    </HeaderTemplate>
-    <Template>
-        <div>item @context.Id</div>
-    </Template>
-</TelerikListView>
-
-@code{
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 250).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/headertemplate/" height="420"></demo>
 
 >caption The result from the code snippet above
 
@@ -144,39 +59,11 @@ This piece of code renders just below the items, but within the main listview wr
 
 >caption Footer Template in the ListView
 
-````RAZOR
-@* As with the other templates, layout and nice visual distinctions are up to the application *@
-
-<TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
-    <FooterTemplate>
-        A total of <strong>@ListViewData.Count</strong> items.
-    </FooterTemplate>
-    <Template>
-        <div>item @context.Id</div>
-    </Template>
-</TelerikListView>
-
-@code{
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 250).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/foottemplate/" height="420"></demo>
 
 >caption The result from the code snippet above
 
 ![listview footer template](images/listview-footer-template.png)
-
-
-
 
 ## See Also
 

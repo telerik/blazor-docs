@@ -17,38 +17,7 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 1. Use the `TelerikEditor` tag to add the component to your razor page.
 1. Bind its `Value` to the `string` field you want to get the HTML content in.
 
-````RAZOR
-@* This sample simulates loading some content from a data source and lets the Editor alter it in the view-model *@
-
-<TelerikEditor @bind-Value="@TheEditorValue" Width="650px" Height="400px"></TelerikEditor>
-
-@code{
-    string TheEditorValue { get; set; }
-
-    protected override Task OnInitializedAsync()
-    {
-        TheEditorValue = @"
-            <p>
-                The Blazor Editor allows your users to edit HTML in a familiar, user-friendly way. Your users do not have to understand HTML in order to create it.
-            </p>
-            <p>
-                The widget <strong>outputs identical HTML</strong> across all major browsers, follows
-                accessibility standards, and provides API for content manipulation.
-            </p>
-            <p>Features include:</p>
-            <ul>
-                <li>Text formatting</li>
-                <li>Bulleted and numbered lists</li>
-                <li>Hyperlinks</li>
-                <li>Cross-browser support</li>
-                <li>Identical HTML output across browsers</li>
-                <li>Ability to create custom tools, dropdowns, dialogs</li>
-            </ul>
-        ";
-        return base.OnInitializedAsync();
-    }
-}
-````
+<demo metaUrl="client/editor/overview/" height="450"></demo>
 
 ## Get/Set Content
 
