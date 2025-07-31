@@ -32,7 +32,11 @@ The fundamental settings of the Telerik Diagram Shapes include:
 </DiagramShape>
 ````
 
-In addition to the above, use the `X` and `Y` Shape parameters to define the exact Shape position coordinates. These parameters have effect only when a [predefined Diagram layout](slug:diagram-layouts) is not set.
+In addition to the above, you can use the following Shape parameters:
+
+* `X` and `Y` to define the exact Shape position coordinates. These parameters have effect only when a [predefined Diagram layout](slug:diagram-layouts) is not set.
+* `DataItem` to provide an object with additional values to be used in a [visual function](#visual-function).
+* `Path` to define a [custom Shape form](#shape-types).
 
 ## Shape Types
 
@@ -377,27 +381,37 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
 
 ## Visual Function
 
-You can draw Shapes and render their content by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended if the desired result cannot be achieved in another way.
+You can draw Shapes and display their content by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended if the desired result cannot be achieved in another way.
+
+The visual function allows a single Shape to render:
+
+* Multiple pieces of data with different styles and positions. Without a visual function, each Shape can display one image and one text label.
+* Multiple ovals, polygons, and lines. Without a visual function, each Shape can have a predefined form, or [display a custom form through the `Path` parameter](#example).
 
 To use a visual function:
 
 1. Get familiar with the [related JavaScript API and available visual primitives](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual).
 1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group). The `Group` can contain any number of other primitives like `Circle`, `Image`, `Line`, `Rectangle`, `TextBlock`, and others.
-1. Set the `Visual` parameter of `<DiagramShapeDefaults>` or `<DiagramShape>` tag to the JavaScript function name. The first approach affects all Shapes, while the second one affects a specific Shape.
+1. Set the `Visual` parameter of `<DiagramShapeDefaults>` or `<DiagramShape>` to the JavaScript function name. This will either affect all Shapes or a specific Shape.
 1. Position each primitive with the `x` and `y` properties of its JavaScript object. Otherwise the primitive renders at the top-left corner of the `Group`.
 1. Each new primitive element displays on top of the previous ones.
-1. (optional) Retrieve information about the current Shape from the the function argument. It is a JavaScript object that contains all Shape settings.
-1. (optional) Set the Shape `DataItem` parameter to a JSON-serializable object. Retrieve the object properties from the `dataItem` property of the function argument.
+1. (optional) Retrieve the Shape parameter values from the the function argument. It is a JavaScript object that contains all Shape settings, including the global ones in `<DiagramShapeDefaults>`.
+1. (optional) Set the Shape `DataItem` parameter to a JSON-serializable object. Retrieve the object property values from the `dataItem` property of the function argument.
+
+When using a visual function, the Diagram ignores all Shape parameters in the Razor markup, but you can still consume these settings from the visual function argument. The only exception is the `Text` parameter of `<DiagramShapeContent />` and `<DiagramShapeDefaultsContent />`, which is always rendered if set.
 
 > This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
+
+In addition to the following example, also check this [Blazor Diagram demo](https://demos.telerik.com/blazor-ui/diagram/overview), which uses a visual function.
 
 >caption Using Diagram Shape visual function
 
 ````RAZOR
 <TelerikDiagram>
-    <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
+    <DiagramLayout Type="@DiagramLayoutType.Tree" />
 
     <DiagramShapeDefaults Visual="shapeVisualFunction">
+        <DiagramShapeDefaultsContent Color="white" FontSize="20" FontWeight="bold" />
         <DiagramShapeDefaultsStroke Width="3" />
     </DiagramShapeDefaults>
 
@@ -417,57 +431,65 @@ To use a visual function:
 
 @* Move JavaScript code to an external JS file *@
 <script suppress-error="BL9992">
-function shapeVisualFunction(context) {
-    let group = new TelerikBlazor.DiagramCommon.Group({
-        autoSize: true
-    });
+    function shapeVisualFunction(context) {
+        let group = new TelerikBlazor.DiagramCommon.Group({
+            autoSize: true
+        });
 
-    let circle1 = new TelerikBlazor.DiagramCommon.Circle({
-        width: 240,
-        height: 120,
-        fill: "orange",
-        stroke: {
-            color: context.stroke.color,
-            width: context.stroke.width
-        }
-    });
-    group.append(circle1);
+        let outerCircle = new TelerikBlazor.DiagramCommon.Circle({
+            width: 240,
+            height: 120,
+            fill: "orange",
+            stroke: {
+                color: context.stroke.color,
+                width: context.stroke.width
+            }
+        });
+        group.append(outerCircle);
 
-    let circle2 = new TelerikBlazor.DiagramCommon.Circle({
-        width: 200,
-        height: 80,
-        fill: "red",
-        x: 20,
-        y: 20
-    });
-    group.append(circle2);
+        let innerCirle = new TelerikBlazor.DiagramCommon.Circle({
+            width: 200,
+            height: 80,
+            fill: "red",
+            x: 20,
+            y: 20
+        });
+        group.append(innerCirle);
 
-    let text1 = new TelerikBlazor.DiagramCommon.TextBlock({
-        text: context.dataItem.Title,
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "white",
-        x: 55,
-        y: 38
-    });
-    group.append(text1);
+        let title = new TelerikBlazor.DiagramCommon.TextBlock({
+            text: context.dataItem.Title,
+            fontSize: context.content.fontSize,
+            fontWeight: context.content.fontWeight,
+            color: context.content.color,
+            x: 55,
+            y: 38
+        });
+        group.append(title);
 
-    let text2 = new TelerikBlazor.DiagramCommon.TextBlock({
-        text: context.dataItem.SubTitle,
-        fontSize: 14,
-        color: "yellow",
-        x: 55,
-        y: 65
-    });
-    group.append(text2);
+        let subTitle = new TelerikBlazor.DiagramCommon.TextBlock({
+            text: context.dataItem.SubTitle,
+            fontSize: 14,
+            color: "yellow",
+            x: 55,
+            y: 65
+        });
+        group.append(subTitle);
 
-    return group;
-}
+        return group;
+    }
 </script>
 
 @code {
-    private readonly ShapeModel ShapeDataItem1 = new() { Title = "First Shape", SubTitle = "New Line and Styles" };
-    private readonly ShapeModel ShapeDataItem2 = new() { Title = "Second Shape", SubTitle = "Additional Text" };
+    private ShapeModel ShapeDataItem1 { get; set; } = new()
+    {
+        Title = "First Shape",
+        SubTitle = "New Line and Styles"
+    };
+    private ShapeModel ShapeDataItem2 { get; set; } = new()
+    {
+        Title = "Second Shape",
+        SubTitle = "Additional Text"
+    };
 
     public class ShapeModel
     {

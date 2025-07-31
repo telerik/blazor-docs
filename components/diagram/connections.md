@@ -41,6 +41,8 @@ The fundamental settings of the Telerik Diagram Connections (`<DiagramConnection
 </DiagramConnection>
 ````
 
+In addition to the above, you can use the `DataItem` Connection parameter to provide an object with additional values to be used in a [visual function](#visual-function).
+
 ## Connection Types
 
 The available Diagram Connection types include:
@@ -313,15 +315,20 @@ The following Connection styling options are available in child tags of `<Diagra
 
 You can draw additional Connection content by using the API of the Diagram's JavaScript rendering engine. This is an advanced scenario that is recommended if the desired result cannot be achieved in another way.
 
+The visual function allows a Connection to render:
+
+* Multiple pieces of data with different styles and positions. Without a visual function, each Connection can display one text label.
+* Multiple ovals, polygons, and lines. Without a visual function, each Connection is one straight line or a polyline.
+
 To use a visual function:
 
 1. Get familiar with the [related JavaScript API and available visual primitives](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/ui/diagram/configuration/shapedefaults.visual).
 1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group). The `Group` can contain any number of other primitives like `Circle`, `Image`, `Line`, `Rectangle`, `TextBlock`, and others.
-1. Set the `Visual` parameter of `<DiagramConnectionDefaultsContent>` or `<DiagramConnectionContent>` tag to the JavaScript function name. The first approach affects all Connections, while the second one affects a specific Connection.
+1. Set the `Visual` parameter of `<DiagramConnectionDefaultsContent>` or `<DiagramConnectionContent>` tag to the JavaScript function name. This will affect either all Connections or a specific Connection.
 1. Position each primitive with the `x` and `y` properties of its JavaScript object. Otherwise the primitive renders at the top-left corner of the `Group`.
 1. Each new primitive element displays on top of the previous ones.
-1. (optional) Retrieve information about the current Connection from the the function argument. It is a JavaScript object.
-1. (optional) Set the Connection `DataItem` parameter to a JSON-serializable object. Retrieve the object properties from the `dataItem` property of the function argument.
+1. (optional) Retrieve Connection parameter values from the the function argument. It is a JavaScript object.
+1. (optional) Set the Connection `DataItem` parameter to a JSON-serializable object. Retrieve the object property values from the `dataItem` property of the function argument.
 
 > This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
 

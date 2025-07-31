@@ -214,7 +214,7 @@ Connections link shapes or points in the Diagram. Users can create, modify or re
 
 ## Zoom
 
-The Diagram allows users to zoom the graph in and out for better perception. The following code snippet shows the relevant parameters together with their default values. The default `Zoom` value is is effectively `100%` and the maximum zoom is `200%`. A `Zoom` value below `0.5.` may not be readable, unless the shapes use a large font size or users zoom their browser.
+The Diagram allows users to zoom the graph in and out for better perception. The following code snippet shows the relevant parameters together with their default values. The default `Zoom` value is effectively `100%` and the default maximum zoom is `200%`. A `Zoom` value below `0.5` may not be readable, unless the shapes use a large font size or users zoom their browser.
 
 >caption Zoom-related Diagram parameters
 
@@ -251,9 +251,11 @@ As a rule of thumb, the Diagram markup follows these naming conventions:
         </DiagramConnectionSelection>
     </DiagramConnection>
     ````
-* The previous rule has two exceptions. The following tags are direct children of the root `<TelerikDiagram>` tag:
-    * `<DiagramConnectionDefaults>` (not a child of `<DiagramConnection>`)
-    * `<DiagramShapeDefaults>` (not a child of `<DiagramShape>`)
+* The previous rule has the following exceptions:
+    * `<DiagramConnectionDefaults>` is a child of `<TelerikDiagram>`.
+    * `<DiagramShapeDefaults>` is a child of `<TelerikDiagram>`.
+    * `<DiagramShapeDefaultsConnectorDefaults>` is a child of `<DiagramShapeDefaults>`.
+    * `<DiagramShapeConnectorDefaults>` is a child of `<DiagramShape>`.
 
 ## Diagram Reference
 
