@@ -203,12 +203,13 @@ You can customize the editors further through the [form items](slug:form-formite
 
 The [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) exposes multiple parameters that allow you to customize its layout. Besides the parameters below, the Form component also allows you to [define a completely custom layout with HTML markup and Razor components](slug:form-formitems-formitemstemplate).
 
-| Parameter | Type and Default value | Description |
-|-----------|------------------------|-------------|
-| `ButtonsLayout` | `FormButtonsLayout` enum <br /> (`Start`) | Determines the position and width of all Form buttons. See [Form Buttons](slug:form-formitems-buttons). |
-| `Columns`  | `int` | Defines the number of columns in the Form. See the [Columns](slug:form-columns) article for more information |
-| `ColumnSpacing`  | `string` | Defines the amout of horizontal space between the Columns. See the [Columns](slug:form-columns) article for more information. |
-| `Orientation`  | `FormOrientation` enum <br /> (`Vertical`) | Determines the position of each label with regard to its editor. See [Orientation](slug:form-orientation) for more information. |
+| Parameter | Type and Default&nbsp;value | Description |
+| --- | --- | --- |
+| `ButtonsLayout` | `FormButtonsLayout` enum <br /> (`Start`) | The position and width of all Form buttons. See [Form Buttons](slug:form-formitems-buttons). |
+| `Columns`  | `int` | The number of columns in the Form. See the [Columns](slug:form-columns) article for more information |
+| `ColumnSpacing`  | `string` (`"32px"`) | The amout of horizontal space between the columns. See the [Columns](slug:form-columns) article for more information. |
+| `Orientation`  | `FormOrientation` enum <br /> (`Vertical`) | The position of each label with regard to its editor. See [Orientation](slug:form-orientation) for more information. |
+| `RowSpacing`  | `string` | The amout of vertical space between the rows. The default value is zero, but there is a default top margin for Form items. This parameter has effect only when `Columns` is set. |
 
 ### Styling and Appearance
 
