@@ -394,6 +394,7 @@ To use a visual function:
 1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group). The `Group` can contain any number of other primitives like `Circle`, `Image`, `Line`, `Rectangle`, `TextBlock`, and others.
 1. Set the `Visual` parameter of `<DiagramShapeDefaults>` or `<DiagramShape>` to the JavaScript function name. This will either affect all Shapes or a specific Shape.
 1. Position each primitive with the `x` and `y` properties of its JavaScript object. Otherwise the primitive renders at the top-left corner of the `Group`.
+1. To align or center primitives automatically, use a [`Layout` primitive](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/layout) as a parent container. Make sure to `reflow()` the `Layout` object after adding children.
 1. Each new primitive element displays on top of the previous ones.
 1. (optional) Retrieve the Shape parameter values from the the function argument. It is a JavaScript object that contains all Shape settings, including the global ones in `<DiagramShapeDefaults>`.
 1. (optional) Set the Shape `DataItem` parameter to a JSON-serializable object. Retrieve the object property values from the `dataItem` property of the function argument.
@@ -410,7 +411,7 @@ In addition to the following example, also check this [Blazor Diagram demo](http
 <TelerikDiagram>
     <DiagramLayout Type="@DiagramLayoutType.Tree" />
 
-    <DiagramShapeDefaults Visual="shapeVisualFunction">
+    <DiagramShapeDefaults Width="240" Height="120" Visual="shapeVisualFunction">
         <DiagramShapeDefaultsContent Color="white" FontSize="20" FontWeight="bold" />
         <DiagramShapeDefaultsStroke Width="3" />
     </DiagramShapeDefaults>
@@ -432,50 +433,61 @@ In addition to the following example, also check this [Blazor Diagram demo](http
 @* Move JavaScript code to an external JS file *@
 <script suppress-error="BL9992">
     function shapeVisualFunction(context) {
-        let group = new TelerikBlazor.DiagramCommon.Group({
+        let diagramNS = TelerikBlazor.DiagramCommon;
+
+        let shapeGroup = new diagramNS.Group({
             autoSize: true
         });
 
-        let outerCircle = new TelerikBlazor.DiagramCommon.Circle({
-            width: 240,
-            height: 120,
+        let outerCircle = new diagramNS.Circle({
+            width: context.width,
+            height: context.height,
             fill: "orange",
             stroke: {
                 color: context.stroke.color,
                 width: context.stroke.width
             }
         });
-        group.append(outerCircle);
+        shapeGroup.append(outerCircle);
 
-        let innerCirle = new TelerikBlazor.DiagramCommon.Circle({
-            width: 200,
-            height: 80,
+        let innerCirleSpacing = 20;
+        let innerCirle = new diagramNS.Circle({
+            width: context.width - innerCirleSpacing * 2,
+            height: context.height - innerCirleSpacing * 2,
             fill: "red",
-            x: 20,
-            y: 20
+            x: innerCirleSpacing,
+            y: innerCirleSpacing
         });
-        group.append(innerCirle);
+        shapeGroup.append(innerCirle);
 
-        let title = new TelerikBlazor.DiagramCommon.TextBlock({
+        let textRect = new diagramNS.Rect(0, 0, context.width, context.height);
+        let textLayout = new diagramNS.Layout(textRect, {
+            alignContent: "center",
+            alignItems: "center",
+            justifyContent: "center",
+            orientation: "vertical",
+            spacing: 4
+        });
+        shapeGroup.append(textLayout);
+
+        let title = new diagramNS.TextBlock({
             text: context.dataItem.Title,
             fontSize: context.content.fontSize,
             fontWeight: context.content.fontWeight,
-            color: context.content.color,
-            x: 55,
-            y: 38
+            color: context.content.color
         });
-        group.append(title);
 
-        let subTitle = new TelerikBlazor.DiagramCommon.TextBlock({
+        let subTitle = new diagramNS.TextBlock({
             text: context.dataItem.SubTitle,
             fontSize: 14,
-            color: "yellow",
-            x: 55,
-            y: 65
+            color: "yellow"
         });
-        group.append(subTitle);
 
-        return group;
+        textLayout.append(title);
+        textLayout.append(subTitle);
+        textLayout.reflow();
+
+        return shapeGroup;
     }
 </script>
 
@@ -488,7 +500,7 @@ In addition to the following example, also check this [Blazor Diagram demo](http
     private ShapeModel ShapeDataItem2 { get; set; } = new()
     {
         Title = "Second Shape",
-        SubTitle = "Additional Text"
+        SubTitle = "Centered Text"
     };
 
     public class ShapeModel

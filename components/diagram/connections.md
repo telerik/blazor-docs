@@ -326,6 +326,7 @@ To use a visual function:
 1. Implement a JavaScript function that returns a [`TelerikBlazor.DiagramCommon.Group` JavaScript object](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/group). The `Group` can contain any number of other primitives like `Circle`, `Image`, `Line`, `Rectangle`, `TextBlock`, and others.
 1. Set the `Visual` parameter of `<DiagramConnectionDefaultsContent>` or `<DiagramConnectionContent>` tag to the JavaScript function name. This will affect either all Connections or a specific Connection.
 1. Position each primitive with the `x` and `y` properties of its JavaScript object. Otherwise the primitive renders at the top-left corner of the `Group`.
+1. To align or center primitives automatically, use a [`Layout` primitive](https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/dataviz/diagram/layout) as a parent container. Make sure to `reflow()` the `Layout` object after adding children.
 1. Each new primitive element displays on top of the previous ones.
 1. (optional) Retrieve Connection parameter values from the the function argument. It is a JavaScript object.
 1. (optional) Set the Connection `DataItem` parameter to a JSON-serializable object. Retrieve the object property values from the `dataItem` property of the function argument.
@@ -363,12 +364,13 @@ To use a visual function:
 @* Move JavaScript code to an external JS file *@
 <script suppress-error="BL9992">
     function connectionVisualFunction(context) {
-        console.log(context);
-        var g = new TelerikBlazor.DiagramCommon.Group({
+        let diagramNS = TelerikBlazor.DiagramCommon;
+
+        let connectionGroup = new diagramNS.Group({
             autoSize: true
         });
 
-        var circle = new TelerikBlazor.DiagramCommon.Circle({
+        let circle = new diagramNS.Circle({
             width: 16,
             height: 16,
             fill: {
@@ -378,16 +380,16 @@ To use a visual function:
                 color: context.dataItem.Color ? context.color : "transparent"
             }
         });
-        g.append(circle);
+        connectionGroup.append(circle);
 
-        var text = new TelerikBlazor.DiagramCommon.TextBlock({
+        let text = new diagramNS.TextBlock({
             text: context.dataItem.Title,
             fontSize: 16,
             x: 20
         });
-        g.append(text);
+        connectionGroup.append(text);
 
-        return g;
+        return connectionGroup;
     }
 </script>
 
