@@ -24,20 +24,7 @@ The Blazor Button provides a variety of styling options through the [built-in th
 
 >caption Basic Blazor Button with `OnClick` event handler
 
-````RAZOR
-@result
-<br />
-<TelerikButton OnClick="@OnClickHandler">Hello!</TelerikButton>
-
-@code {
-    private string result;
-
-    private async Task OnClickHandler()
-    {
-        result = DateTime.Now.ToString();
-    }
-}
-````
+<demo metaUrl="client/button/overview/" height="200"></demo>
 
 ## Icons
 
@@ -86,12 +73,10 @@ Add a reference to the component instance to use the [Button methods](slug:Teler
 | --- | --- |
 | `FocusAsync` | Focuses the Blazor Button component. Always call with `await`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikButton @ref="ButtonRef">Hello!</TelerikButton>
 
 @code {
-    private Telerik.Blazor.Components.TelerikButton ButtonRef { get; set; }
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await ButtonRef.FocusAsync();
@@ -104,7 +89,6 @@ Add a reference to the component instance to use the [Button methods](slug:Teler
 ## Next Steps
 
 * [Styling the Blazor Button](slug:button-styling)
-
 * [Using Button Icons](slug:button-icons)
 
 

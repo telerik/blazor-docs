@@ -22,28 +22,9 @@ It receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/d
 
 >caption Handle the button click
 
-````RAZOR
-@result
-<br />
-@moreInfo
-
-<br />
-<TelerikButton OnClick="@OnClickHandler">Click me!</TelerikButton>
-
-@code {
-    string result;
-    string moreInfo;
-
-    async Task OnClickHandler(MouseEventArgs args)
-    {
-        result = "Button was clicked at: " + DateTime.Now.ToString();
-        moreInfo = "Ctrl was pressed when clicked: " + args.CtrlKey;
-    }
-}
-````
+<demo metaUrl="client/button/events/" height="200"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
 
 ## See Also
 
