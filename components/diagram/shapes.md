@@ -137,6 +137,7 @@ Some Shape types provide unique behavior or settings:
     ````
 * The `Terminator` Shape normally requires a `Width` that is larger than the `Height`.
 * The `Text` Shape has no borders and background. It occupies the minimum required amount of space to enclose the text content. To display text Shapes with some empty space around the content, use transparent Shapes of another type.
+* All shapes, except `Circle`, `Image`, `Rectangle`, and `Text` can display with rounded corners. See [`CornerRadius` in the Styling section](#styling).
 
 >caption Using transparent Rectangle shapes instead of Text shapes
 
@@ -215,12 +216,17 @@ The following Shape styling options are available in child tags of `<DiagramShap
 * Rotation angle
 * Border (stroke) color, type, width, and opacity
 
+In addition to the above:
+
+* `<DiagramShapeDefaults>` and `<DiagramShape>` have a `CornerRadius` parameter that rounds both the border and the background at the Shape corners. If you need a rectangle shape with rounded corners, then use the [`Process` Shape type](#shape-types) instead of `Rectangle`.
+* `<DiagramShapeDefaultsContent>` and `<DiagramShapeContent>` have a `RelativePadding` parameter that adds padding as a ratio of the Shape width. For example, `RelativePadding="0.1"` applies a 10% padding. In some cases, you can increase the padding to force the Shape text to wrap.
+
 >caption Setting global and Shape-specific color styles
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
-    <DiagramShapeDefaults>
-        <DiagramShapeDefaultsContent Color="white" FontSize="16" />
+    <DiagramShapeDefaults CornerRadius="4">
+        <DiagramShapeDefaultsContent Color="white" FontSize="16" RelativePadding="0.1" />
         <DiagramShapeDefaultsFill Color="purple" />
         <DiagramShapeDefaultsHover>
             <DiagramShapeDefaultsHoverFill Color="blue" />
@@ -228,8 +234,8 @@ The following Shape styling options are available in child tags of `<DiagramShap
     </DiagramShapeDefaults>
 
     <DiagramShapes>
-        <DiagramShape>
-            <DiagramShapeContent Color="#3d3d3d" FontSize="24" />
+        <DiagramShape CornerRadius="6">
+            <DiagramShapeContent Color="#3d3d3d" FontSize="24" RelativePadding="0.2" />
             <DiagramShapeFill Color="#e0e0e0" />
             <DiagramShapeHover>
                 <DiagramShapeHoverFill Color="#d6d6d6" />
@@ -324,13 +330,19 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
             </DiagramShapeConnectorDefaults>
             <DiagramShapeContent Text="Image" Color="#000" FontSize="20" FontWeight="bold" />
         </DiagramShape>
-        <DiagramShape Height="80"
+        <DiagramShape CornerRadius="6"
+                      Height="80"
                       Id="shape3"
-                      Type="@DiagramShapeType.Rectangle"
+                      Type="@DiagramShapeType.Process"
                       Width="160"
                       X="350"
                       Y="50">
-            <DiagramShapeContent Text="Rectangle" Color="#3d3d3d" FontSize="18" FontWeight="bold" FontStyle="italic" />
+            <DiagramShapeContent Color="#3d3d3d"
+                                 FontSize="18"
+                                 FontStyle="italic"
+                                 FontWeight="bold"
+                                 RelativePadding="0.1"
+                                 Text="Rounded Process" />
             <DiagramShapeFill Color="#e0e0e0" />
             <DiagramShapeHover>
                 <DiagramShapeHoverFill Color="#d6d6d6" />
