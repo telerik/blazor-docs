@@ -35,6 +35,8 @@ To install the Telerik Blazor Copilot extension:
 1. Restart your [Copilot-enabled apps](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions#supported-clients-and-ides) (for example, Visual Studio and VS Code).
 1. Start a new chat session in Copilot.
 
+> You can also use the automated installation commands provided by the Telerik extensions for [Visual Studio](slug:getting-started-vs-integration-ai-configuration) and [VS Code](slug:getting-started-vs-code-integration-ai-configuration) to quickly open the installation page.
+
 ## Usage
 
 To use the Telerik Blazor Copilot extension:

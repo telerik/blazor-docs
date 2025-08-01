@@ -24,7 +24,18 @@ To use the Telerik Blazor MCP server, you need:
 
 ## Installation
 
-Use the documentation of your AI-powered MCP client to add the Telerik MCP server to a specific workspace or globally. The sections below provide installation tips and examples for some popular MCP clients like [Visual Studio](#visual-studio), [VS Code](#vs-code), and [Cursor](#cursor). The generic settings of the Telerik Blazor MCP server are:
+You can install the Telerik Blazor MCP server manually or use automated configuration commands provided by the Telerik extensions for [Visual Studio](slug:getting-started-vs-integration-ai-configuration) and [VS Code](slug:getting-started-vs-code-integration-ai-configuration).
+
+### Automated Installation
+
+The easiest way to configure the Telerik Blazor MCP server is through the automated commands in the Telerik extensions:
+
+* **Visual Studio**: Use the "Configure MCP Server for Solution" or "Configure MCP Server Globally" commands. For details, see [AI Configuration in Visual Studio](slug:getting-started-vs-integration-ai-configuration).
+* **VS Code**: Use the "Telerik UI for Blazor: Configure MCP Server" command. For details, see [AI Configuration in VS Code](slug:getting-started-vs-code-integration-ai-configuration).
+
+### Manual Installation
+
+For manual installation or when using other MCP clients, use the documentation of your AI-powered MCP client to add the Telerik MCP server to a specific workspace or globally. The sections below provide installation tips and examples for some popular MCP clients like [Visual Studio](#visual-studio), [VS Code](#vs-code), and [Cursor](#cursor). The generic settings of the Telerik Blazor MCP server are:
 
 * npm package name: `@progress/telerik-blazor-mcp`
 * Type: `stdio` (standard input/output transport)
