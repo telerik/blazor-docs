@@ -3,132 +3,134 @@ title: Events
 page_title: TileLayout - Events
 description: Events of the TileLayout for Blazor.
 slug: tilelayout-events
-tags: telerik,blazor,tile,layout,dashboard,events
+tags: telerik, blazor, tilelayout, events
 published: True
 position: 30
 ---
 
 # TileLayout Events
 
-This article explains the events available in the Telerik TileLayout for Blazor:
+This article explains the available events in the Telerik TileLayout for Blazor:
 
 * [OnResize](#onresize)
 * [OnReorder](#onreorder)
 
 ## OnResize
 
-The `OnResize` event is fired when any tile is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:tilelayout-state) for your users.
+The TileLayout `OnResize` event fires when the user changes the dimensions of a tile. You can use the event to update the saved [TileLayout state](slug:tilelayout-state), or repaint a child component that needs it, such as the Telerik Chart.
 
-The `OnResize` event provides an argument of type `TileLayoutResizeEventArgs`. It exposes two properties:
+The `OnResize` event provides an argument of type `TileLayoutResizeEventArgs`. It exposes an `Id` `string` property that holds the ID of the resized tile item.
 
-* `Id` (`string`) of the resized item
-
->caption Respond to the Resize event and adjust components in the tile
+>caption Handle the TileLayout OnResize event
 
 ````RAZOR
-@* Respond to a tile resizing to resize its contents, if needed *@
-
 <TelerikTileLayout Columns="4"
                    Resizable="true"
-                   OnResize="@OnResizeHandler">
+                   OnResize="@OnTileLayoutResize">
     <TileLayoutItems>
-        <TileLayoutItem HeaderText="Resize me" RowSpan="2" ColSpan="2" Id="chart-tile">
+        <TileLayoutItem HeaderText="Resize Me" Id="chart-tile" RowSpan="2" ColSpan="2">
             <Content>
-                <TelerikChart @ref="@ChartRef" Width="100%" Height="100%">
+                <TelerikChart @ref="@ChartRef" Height="100%">
                     <ChartSeriesItems>
-                        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 1" Data="@chartData">
-                        </ChartSeries>
+                        <ChartSeries Type="@ChartSeriesType.Line" Data="@ChartData" />
                     </ChartSeriesItems>
 
                     <ChartCategoryAxes>
-                        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+                        <ChartCategoryAxis Categories="@ChartCategories"></ChartCategoryAxis>
                     </ChartCategoryAxes>
 
-                    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-                    <ChartLegend Position="@ChartLegendPosition.Right">
-                    </ChartLegend>
+                    <ChartTitle Text="Quarterly Revenue"></ChartTitle>
                 </TelerikChart>
             </Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Resize me too" RowSpan="2" Id="text-tile">
+        <TileLayoutItem HeaderText="Resize Me Too" Id="text-tile" RowSpan="2">
             <Content>
-                <div style="width: 100%; height: 100%; background: yellow; overflow: auto;">
-                    Elements whose dimensions are set as percentage of their parent
-                    and can resize based on that may not require explicit code to handle
-                    resizing of the tile layout.
+                <div style="width: 100%; height: 100%; background: #fed; overflow: auto;">
+                    Tile children with percentage heights may not require
+                    explicit code to handle TileLayout resizing.
                 </div>
             </Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 3" ColSpan="2" Id="tile3">
-            <Content>Panel 3.</Content>
+        <TileLayoutItem HeaderText="Panel 3" Id="tile3" ColSpan="2">
+            <Content>Tile 3.</Content>
         </TileLayoutItem>
         <TileLayoutItem HeaderText="Panel 4" Id="tile4">
-            <Content>Panel 4.</Content>
+            <Content>Tile 4.</Content>
         </TileLayoutItem>
     </TileLayoutItems>
 </TelerikTileLayout>
 
+@if (!string.IsNullOrEmpty(LastResizedTileId))
+{
+    <p>Last resized tile: <code>@LastResizedTileId</code> at <strong>@DateTime.Now.ToLongTimeString()</strong></p>
+}
+
 @code {
-    TelerikChart ChartRef { get; set; }
-    void OnResizeHandler(TileLayoutResizeEventArgs args)
+    private TelerikChart? ChartRef { get; set; }
+    private List<object> ChartData = new List<object>() { 10, 2, 5, 6 };
+    private string[] ChartCategories = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    private string LastResizedTileId { get; set; } = string.Empty;
+
+    private void OnTileLayoutResize(TileLayoutResizeEventArgs args)
     {
-        Console.WriteLine($"tile {args.Id} resized");
+        LastResizedTileId = args.Id;
+
         if (args.Id == "chart-tile")
         {
-            ChartRef.Refresh();
+            ChartRef?.Refresh();
         }
     }
-
-    public List<object> chartData = new List<object>() { 10, 2, 5, 6 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 }
 ````
 
 
 ## OnReorder
 
-The `OnReorder` event fires when tiles have been reordered. You can use it to, for example, update the saved [state](slug:tilelayout-state) for your users.
+The TileLayout `OnReorder` event fires when the user drags a tile to another position, so that the tile order changes. You can use the event to update the saved [TileLayout state](slug:tilelayout-state).
 
-The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`. It exposes two properties:
+The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`. It exposes an `Id` `string` property that holds the ID of the reordered tile item.
 
-* `Id` (`string`) of the reordered item
-
->caption Respond to the OnReorder event
+>caption Handle the TileLayout OnReorder event
 
 ````RAZOR
-@* Handle the OnResized event *@
-
 <TelerikTileLayout Columns="3"
                    Reorderable="true"
-                   OnReorder="@OnReorderHandler">
+                   OnReorder="@OnTileLayoutReorder">
     <TileLayoutItems>
-        <TileLayoutItem HeaderText="Panel 1">
-            <Content>Regular sized first panel.</Content>
+        <TileLayoutItem HeaderText="Tile 1" Id="tile1">
+            <Content>Tile 1 content.</Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 2">
-            <Content>You can put components in the tiles too.</Content>
+        <TileLayoutItem HeaderText="Tile 2" Id="tile2">
+            <Content>Tile 2 content.</Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 3" RowSpan="3">
+        <TileLayoutItem HeaderText="Tile 3" Id="tile3" RowSpan="3">
             <Content>This tile is three rows tall.</Content>
         </TileLayoutItem>
-        <TileLayoutItem HeaderText="Panel 4" RowSpan="2" ColSpan="2">
-            <Content>This tile is two rows tall and two columns wide</Content>
+        <TileLayoutItem HeaderText="Tile 4" Id="tile4" RowSpan="2" ColSpan="2">
+            <Content>This tile is two rows tall and two columns wide.</Content>
         </TileLayoutItem>
     </TileLayoutItems>
 </TelerikTileLayout>
 
+@if (!string.IsNullOrEmpty(LastReorderedTileId))
+{
+    <p>Last reordered tile: <code>@LastReorderedTileId</code> at <strong>@DateTime.Now.ToLongTimeString()</strong></p>
+}
+
 @code{
-    async Task OnReorderHandler(TileLayoutReorderEventArgs args)
+    private string LastReorderedTileId { get; set; } = string.Empty;
+
+    private void OnTileLayoutReorder(TileLayoutReorderEventArgs args)
     {
-        Console.WriteLine($"tile {args.Id} reordered, might be a good time to save the state.");
+        LastReorderedTileId = args.Id;
     }
 }
 ````
 
 ## Next Steps
 
-* [Manage the Tile Layout state](slug:tilelayout-state).
+* [Manage the TileLayout State](slug:tilelayout-state).
 
 
 ## See Also
