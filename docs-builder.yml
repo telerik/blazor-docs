@@ -336,6 +336,8 @@ meta:
     title: Card
   "*calendar":
     title: Calendar
+  "*diagram":
+    title: Diagram
   tag-helpers/scheduling/multiviewcalendar:
     title: MultiViewCalendar
   html-helpers/scheduling/multiviewcalendar:
