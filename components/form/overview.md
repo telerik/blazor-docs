@@ -21,84 +21,9 @@ The <a href = "https://demos.telerik.com/blazor-ui/form/overview" target="_blank
     * Set the `EditContext` parameter to an [`EditContext` instance](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext). The object instance from which the `EditContext` is created is important, especially when using [FormItem templates](slug:form-formitems-template) and [validation messages](slug:form-validation).
 1. (optional) To enable [form validation](slug:form-validation), add the `<FormValidation>` tag. Define a validator component inside, for example the [`DataAnnotationsValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) that is part of .NET Core.
 
-<div class="skip-repl"></div>
-````RAZOR Model
-@* Provide a model to the Telerik Form *@
+>caption Basic Blazor Form
 
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@PersonModel">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-</TelerikForm>
-
-@code {
-    private Person PersonModel { get; set; } = new Person();
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-
-        [Required]
-        [Display(Name = "Date of Birth")]
-        public DateTime? DOB { get; set; }
-    }
-}
-````
-````RAZOR EditContext
-@* Provide an EditContext to the TelerikForm *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm EditContext="@PersonEditContext">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-</TelerikForm>
-
-@code {
-    private EditContext PersonEditContext { get; set; }
-
-    private Person PersonModel = new Person();
-
-    protected override void OnInitialized()
-    {
-        PersonEditContext = new EditContext(PersonModel);
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(20, ErrorMessage = "The first name should be maximum 20 characters long")]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-
-        [Required]
-        [Display(Name = "Date of Birth")]
-        public DateTime? DOB { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/overview/" height="450"></demo>
 
 ## Form Items
 
