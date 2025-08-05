@@ -26,7 +26,9 @@ res_type: kb
 
 ## Description
 
-This KB also answers the following questions:
+This KB article shows how to use disabled non-selectable items in the Telerik ComboBox, DropDownList, and MultiSelect components for Blazor.
+
+The page also answers the following questions:
 
 * How to disable certain items in the ComboBox dropdown (popup)?
 * How to denote if a DropDownList or MultiSelect item is selectable or disabled?
@@ -76,15 +78,15 @@ Reset the ComboBox value to default and then [`Rebind()`](slug:common-features-d
     {
         var newProduct = Products.FirstOrDefault(x => x.Id == newValue);
 
-        // Select only enabled items or null
+        // Select only enabled items or null.
         if (newProduct?.Enabled == true || !newValue.HasValue)
         {
             ComboBoxValue = newValue;
         }
         else
         {
-            // Skip disabled items during keyboard navigation
-            // For simplicity, this logic does not handle adjacent disabled items
+            // Skip disabled items during keyboard navigation.
+            // For simplicity, this logic does not handle adjacent disabled items.
             int oldProductIndex = Products.FindIndex(x => x.Id == ComboBoxValue);
             int newProductIndex = Products.FindIndex(x => x.Id == newValue);
 
@@ -158,7 +160,7 @@ Unlike the ComboBox, the DropDownList does not need value resetting and `Rebind(
 
     private void OnDropDownListItemRender(DropDownListItemRenderEventArgs<Product> args)
     {
-        // args.Item is null for the DefaultText item
+        // args.Item is null for the DefaultText item.
         if (args.Item != null && !args.Item.Enabled)
         {
             args.Class = "k-disabled";
@@ -169,15 +171,15 @@ Unlike the ComboBox, the DropDownList does not need value resetting and `Rebind(
     {
         var newProduct = Products.FirstOrDefault(x => x.Id == newValue);
 
-        // Select only enabled items or DefaultText
+        // Select only enabled items or DefaultText.
         if (newProduct?.Enabled == true || !newValue.HasValue)
         {
             DropDownListValue = newValue;
         }
         else
         {
-            // Skip disabled items during keyboard navigation
-            // For simplicity, this logic does not handle adjacent disabled items
+            // Skip disabled items during keyboard navigation.
+            // For simplicity, this logic does not handle adjacent disabled items.
             int oldProductIndex = Products.FindIndex(x => x.Id == DropDownListValue);
             int newProductIndex = Products.FindIndex(x => x.Id == newValue);
 
