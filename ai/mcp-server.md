@@ -24,26 +24,34 @@ To use the Telerik Blazor MCP server, you need:
 
 ## Installation
 
-Use the documentation of your AI-powered MCP client to add the Telerik MCP server to a specific workspace or globally. The sections below provide installation tips and examples for some popular MCP clients like [Visual Studio](#visual-studio), [VS Code](#vs-code), and [Cursor](#cursor). The generic settings of the Telerik Blazor MCP server are:
+There are two ways to install the Telerik Blazor MCP server:
+
+* Use a manual approach, which is described below.
+* Use an automated process provided by the Telerik extensions for [Visual Studio](slug:getting-started-vs-integration-ai-configuration) and [VS Code](slug:getting-started-vs-code-integration-ai-configuration).
+
+To install the Telerik MCP server manually, use the documentation of your AI-powered MCP client. You can enable the MCP server for specific workspaces or globally. The sections below provide installation tips and examples for some popular MCP clients like [Visual Studio](#visual-studio), [VS Code](#vs-code), and [Cursor](#cursor). The generic settings of the Telerik Blazor MCP server are:
 
 * npm package name: `@progress/telerik-blazor-mcp`
 * Type: `stdio` (standard input/output transport)
 * Command: `npx`
 * Arguments: `-y`
 * Server name: `telerikBlazorAssistant` (depends on your preferences)
+* Your [Telerik license key](#license-key) as an `env` parameter
 
 > * Do not use hyphens (`-`) or underscores (`_`) in the MCP server name in the MCP `.json` file, due to potential compatibility issues with some MCP clients such as Visual Studio or Windsurf.
 > * Some MCP clients expect the MCP servers to be listed under a `servers` JSON key, while others expect `mcpServers`.
 > * Some MCP clients expect an `mcp.json` file, while others like Visual Studio 2022 expect an `.mcp.json` file.
 
-You also need to add your [Telerik licence key](slug:installation-license-key) as an `env` parameter in the `mcp.json` file. There are two options:
+### License Key
+
+To use the Telerik MCP Server, your configuration must provide your [Telerik licence key](slug:installation-license-key) as an `env` parameter in the MCP `.json` file. There are two options:
 
 * Use a `TELERIK_LICENSE_PATH` argument and point to your Telerik license file location. This approach is recommended, unless you are sharing your VS Code settings across different computers with different operating systems or user names.
 * Use a `TELERIK_LICENSE` argument and paste your Telerik license key. Make sure to [update the license key](slug:installation-license-key#license-key-updates) when necessary.
 
 ### Visual Studio
 
-For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers).
+For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers). You can also install the Telerik Blazor MCP server through the [Telerik UI for Blazor Visual Studio extension](slug:getting-started-vs-integration-ai-configuration).
 
 > Early Visual Studio 17.14 versions require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
 
@@ -72,7 +80,7 @@ To enable global automatic discovery of the Telerik MCP Server in Visual Studio,
 
 ### VS Code
 
-For detailed instructions, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+For detailed instructions, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). You can also install the Telerik Blazor MCP server through the [Telerik UI for Blazor VS Code extension](slug:getting-started-vs-code-integration-ai-configuration).
 
 > This section applies to VS Code 1.102.1 and newer versions.
 
