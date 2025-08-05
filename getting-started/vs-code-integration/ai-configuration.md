@@ -31,7 +31,7 @@ To access the automated commands:
 The **Telerik UI for Blazor: Configure MCP Server** command provides two configuration scopes to set up the [Telerik Blazor MCP Server](slug:ai-mcp-server#vs-code):
 
 * **Workspace**&mdash;Creates an `mcp.json` file in a `.vscode` folder in your current workspace. This configuration applies only to the current workspace.
-* **Global**&mdash;Creates an `mcp.json` file in your operating system user folder (for example, `C:\Users\_____\AppData\Roaming\Code\User\.mcp.json` on Windows or `/Users/_____/Library/Application Support/Code/User/mcp.json` on macOS). This configuration applies to all VS Code workspaces.
+* **Global**&mdash;Creates an `mcp.json` file in your operating system user folder (for example, `C:\Users\___\AppData\Roaming\Code\User\.mcp.json` on Windows or `/Users/___/Library/Application Support/Code/User/mcp.json` on macOS). This configuration applies to all VS Code workspaces.
 
 > Make sure to open the generated `mcp.json` @[template](/_contentTemplates/common/ai-coding-assistant.md#verify-license-key)
 
