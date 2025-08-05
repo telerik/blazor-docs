@@ -24,50 +24,8 @@ The <a href="https://demos.telerik.com/blazor-ui/chart/overview" target="_blank"
 
 >caption Basic chart
 
-````RAZOR
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-			<ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
 
-	<ChartValueAxes>
-		<ChartValueAxis Color="red"></ChartValueAxis>
-	</ChartValueAxes>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-
-	<ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public class MyDataModel
-	{
-		public int SecondSeriesValue { get; set; }
-		public string ExtraData { get; set; }
-	}
-
-	public List<MyDataModel> modelData = new List<MyDataModel>()
-	{
-		new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-		new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-		new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-		new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-	};
-
-	public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
-
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/overview/" height="500"></demo>
 
 ## Chart Elements
 
@@ -252,16 +210,10 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 | `Refresh` | Use the method to programmatically re-render the Chart.  |
 | `ResetDrilldownLevel` | Use the method to programmatically reset the drilldown level of the Chart. For more information refer to the [DrillDown article](slug:chart-drilldown#reset-drilldown-level). |
 
-<div class="skip-repl"></div>
-
-````RAZOR
-<TelerikButton OnClick="@RefreshChart">Refresh Chart</TelerikButton>
-
-<TelerikChart @ref="ChartRef" />
+````RAZOR.skip-repl
+<TelerikChart @ref="@ChartRef" />
 
 @code {
-	public TelerikChart ChartRef;
-
 	private void RefreshChart()
 	{
 		ChartRef.Refresh();
