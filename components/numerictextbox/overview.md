@@ -18,17 +18,9 @@ The <a href="https://www.telerik.com/blazor-ui/numeric-textbox" target="_blank">
 1. Bind a numeric data type to the component
 1. Optionally, set custom `Format`, `Min`, `Max` and `Step` values
 
->caption Basic numeric text box with its key features
+>caption Basic NumericTextBox with its key features
 
-````RAZOR
-The new value is: @theValue
-
-<TelerikNumericTextBox Format="C" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@theValue"></TelerikNumericTextBox>
-
-@code {
-     private decimal theValue { get; set; } = 1.234m;
-}
-````
+<demo metaUrl="client/numerictextbox/overview/" height="250"></demo>
 
 The Numeric TextBox component is generic, meaning that it takes the type of its value parameter as an argument. It can take `int`, `long`, `float`, `double` and `decimal` values. Therefore, the values for the `Min`, `Max` and `Step` properties must be of the same type as the `Value`, and the `ValueChanged` handler must also accommodate the corresponding value type.
 
@@ -48,33 +40,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 
 >caption Using custom format strings with the Blazor Numeric TextBox
 
-````RAZOR
-@Weight
-<br />
-<TelerikNumericTextBox Format="#.00 kg" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@Weight"></TelerikNumericTextBox>
-<br />
-@code{
-    decimal Weight { get; set; } = 3.456789m;
-}
-
-@Rent
-<br />
-<TelerikNumericTextBox Decimals="2" Format="@RentFormat" @bind-Value="@Rent"></TelerikNumericTextBox>
-<br />
-@code{
-    decimal Rent { get; set; } = 4567.89m;
-    string RentFormat { get; set; } = System.Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol + "#.00 a year";
-}
-
-@Units
-<br />
-<TelerikNumericTextBox Decimals="0" Format="@UnitsFormat" @bind-Value="@Units"></TelerikNumericTextBox>
-
-@code{
-    int Units { get; set; } = 12;
-    string UnitsFormat { get; set; } = "# unit(s)";
-}
-````
+<demo metaUrl="client/numerictextbox/format-string/" height="400"></demo>
 
 ## Numeric TextBox Parameters
 
@@ -117,20 +83,12 @@ The following parameters enable you to customize the [appearance](slug:numericte
 
 The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance through `@ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
-````RAZOR
+````RAZOR.skip-repl
+<TelerikNumericTextBox @ref="@NumericTextBoxRef" .../>
+
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
 
-<TelerikNumericTextBox @ref="@NumericTextBoxRef"
-                       @bind-Value="DecimalValue"
-                       Width="200px" />
-
 @code {
-    //determines the type of the component
-    private decimal DecimalValue { get; set; }
-
-    //the Value type determines the type of the reference
-    private TelerikNumericTextBox<decimal> NumericTextBoxRef { get; set; }
-
     async Task FocusTextBox()
     {
         await NumericTextBoxRef.FocusAsync();
