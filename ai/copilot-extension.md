@@ -26,7 +26,7 @@ To use the Telerik GitHub Copilot extension for Blazor, you need to have:
 
 To install the Telerik Blazor Copilot extension:
 
-1. Go to the [TelerikBlazor GitHub App](https://github.com/apps/telerikblazor) page and click the **Install** button. If you have already installed the extension, you will see a **Configure** button instead.
+1. Go to the [TelerikBlazor GitHub App](https://github.com/apps/telerikblazor) page and click the **Install** button. If you have already installed the GitHub App, you will see a **Configure** button instead.
 1. You will see a list that includes your GitHub account and all GitHub organizations that you are part of. Normally, select your GitHub account.
 1. Click the **Install &amp; Authorize** button. This will authorize the GitHub Copilot extension to integrate with your GitHub account.
 1. Enter your GitHub password.
