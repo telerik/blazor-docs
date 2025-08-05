@@ -59,9 +59,7 @@ If you want to make changes to the current DockManager state:
 
 > Do not use `GetState()` in the [`OnStateInit`](#onstateinit) or [`OnStateChanged`](#onstatechanged) events. Do not use `SetState()` in `OnStateInit`. Instead, get or set the `DockManagerState` property of the event argument.
 
->tip To reset the DockManager state to its initial markup configuration, call `SetState(null)`.
->
-> To reset the DockManager state to a completely new configuration, create a `new DockManagerState()` and apply the settings there. Then pass the state object to `SetState()`.
+>tip To reset the DockManager state to its initial markup configuration, use the `GetState()` and `SetState()` methods. An example of such approach can be seen in the following KB article: [Reset DockManager State on Button Click in Blazor](slug:dockmanager-kb-reset-state)
 
 ## Example
 
@@ -220,3 +218,4 @@ The example below shows how to restore the previous state of the DockManager on 
 * [Live Demo: DockManager](https://demos.telerik.com/blazor-ui/dockmanager/overview)
 * [DockManagerState API reference](slug:Telerik.Blazor.Components.TelerikDockManager)
 * [Blazor DockManager](slug:dockmanager-overview)
+* [Reset DockManager State on Button Click](slug:dockmanager-kb-reset-state)
