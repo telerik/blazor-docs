@@ -41,7 +41,7 @@ The following algorithm applies to the Telerik Blazor ComboBox, DropDownList, an
 
 ### ComboBox
 
-Reset the ComboBox value to default and then `Rebind()` the component after overriding the user selection.
+Reset the ComboBox value to default and then [`Rebind()`](slug:common-features-data-binding-overview#refresh-data) the component after overriding the user selection.
 
 >caption Use disabled unselectable items in a ComboBox
 
@@ -136,6 +136,8 @@ Reset the ComboBox value to default and then `Rebind()` the component after over
 
 ### DropDownList
 
+Unlike the ComboBox, the DropDownList does not need value resetting and `Rebind()` when overriding the user selection.
+
 >caption Use disabled unselectable items in a DropDownList
 
 ````RAZOR
@@ -221,6 +223,10 @@ Reset the ComboBox value to default and then `Rebind()` the component after over
 ````
 
 ### MultiSelect
+
+The MultiSelect implementation is simpler, because there is no need to deliberately skip items during keyboard navigation with the arrow keys.
+
+>caption Use disabled unselectable items in a MultiSelect
 
 ````RAZOR
 <TelerikMultiSelect Data="@Products"
