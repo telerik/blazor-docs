@@ -4,7 +4,7 @@ description: Learn how to use disabled items in a ComboBox or DropDownList that 
 type: how-to
 page_title: How to Disable ComboBox or DropDownList Item for Selection
 slug: dropdown-kb-disabled-items
-tags: telerik, blazor, combobox, dropdownlist, multiselect
+tags: telerik, blazor, combobox, dropdownlist, multiselect, selection
 ticketid: 1474264, 1593235, 1683944, 1695111
 res_type: kb
 ---
