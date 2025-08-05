@@ -293,5 +293,4 @@ The MultiSelect implementation is simpler, because there is no need to deliberat
 
 * [ComboBox Events](slug:components/combobox/events)
 * [DropDownList Events](slug:components/dropdownlist/events)
-* [MultiColumnComboBox Events](slug:multicolumncombobox-events)
 * [MultiSelect Events](slug:multiselect-events)
