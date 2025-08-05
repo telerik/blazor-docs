@@ -24,7 +24,7 @@ The Telerik UI for Blazor extension for Visual Studio provides the following adv
 
 * It enables you to easily install or update your [Telerik license key](slug:installation-license-key).
 
-* It provides [automated AI configuration](slug:getting-started-vs-integration-ai-configuration) for MCP servers and GitHub Copilot to enhance your development experience with Telerik UI for Blazor.
+* It provides [automated AI tools configuration](slug:getting-started-vs-integration-ai-configuration) for the Telerik MCP server and Telerik extension for GitHub Copilot to enhance your development experience with Telerik UI for Blazor.
 
 The Telerik UI for Blazor VS extension supports Visual Studio 2022 and 2019. @[template](/_contentTemplates/common/general-info.md#vsx-download)
 
