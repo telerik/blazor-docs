@@ -59,7 +59,7 @@ If you want to make changes to the current DockManager state:
 
 > Do not use `GetState()` in the [`OnStateInit`](#onstateinit) or [`OnStateChanged`](#onstatechanged) events. Do not use `SetState()` in `OnStateInit`. Instead, get or set the `DockManagerState` property of the event argument.
 
->tip To reset the DockManager state to its initial markup configuration, use the `GetState()` and `SetState()` methods. An example of such approach can be seen in the following KB article: [Reset DockManager State on Button Click in Blazor](slug:dockmanager-kb-reset-state)
+>tip To reset the DockManager state to its initial markup configuration, use the `GetState()` and `SetState()` methods. The [Reset DockManager State on Button Click in Blazor](slug:dockmanager-kb-reset-state) KB article demonstrates this approach.
 
 ## Example
 
