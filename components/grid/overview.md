@@ -29,56 +29,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 
 >caption Get started with the Blazor Grid
 
-````RAZOR
-@* Telerik Blazor Grid with some common features *@
-
-<TelerikGrid Data="@GridData"
-             Pageable="true"
-             Sortable="true"
-             FilterMode="@GridFilterMode.FilterRow">
-    <GridColumns>
-        <GridColumn Field="Name" Title="Product Name" />
-        <GridColumn Field="Price" DisplayFormat="{0:C2}" />
-        <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:D}" />
-        <GridColumn Field="@nameof(Product.Discontinued)" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Product> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Product>();
-
-        var rnd = new Random();
-
-        for (int i = 1; i <= 30; i++)
-        {
-            GridData.Add(new Product
-            {
-                Id = i,
-                Name = "Product name " + i,
-                Price = (decimal)(rnd.Next(1, 50) * 3.14),
-                Released = DateTime.Now.AddDays(-rnd.Next(1, 365)).AddYears(-rnd.Next(1, 10)).Date,
-                Discontinued = i % 5 == 0
-            });
-
-        }
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public DateTime Released { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/overview/" height="555"></demo>
 
 ## Blazor Grid Video Tutorial
 
@@ -186,41 +137,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 >caption How to obtain a Grid reference and call methods
 
-````RAZOR
-<TelerikButton OnClick="@AutoFit">Autofit All Columns</TelerikButton>
-
-<TelerikGrid @ref="TheGrid"
-             Data="@GridData"
-             Width="600px">
-    <GridColumns>
-        <GridColumn Field="@(nameof(GridModel.Id))" />
-        <GridColumn Field="@(nameof(GridModel.Text))" Width="300px" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private TelerikGrid<GridModel> TheGrid { get; set; }
-
-    private async Task AutoFit()
-    {
-        await TheGrid.AutoFitAllColumnsAsync();
-    }
-
-    private IEnumerable<GridModel> GridData = Enumerable.Range(1, 5)
-        .Select(x => new GridModel
-            {
-                Id = x,
-                Text = "some longer text here that will not fit on a single line and we would like to expand it " + x
-            });
-
-    public class GridModel
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-    }
-}
-````
-
+<demo metaUrl="client/grid/overview-ref/" height="450"></demo>
 
 ## Next Steps
 
