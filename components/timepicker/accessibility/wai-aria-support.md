@@ -52,6 +52,13 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | `.k-item` | `role=option` | The available options in the listbox must be marked as such. |
 |  | `aria-selected=true/false` | Selected option must have its `aria-selected` attribute set to `true`. |
 
+### Adaptive Mode
+
+
+When the component is in adaptive mode, the popup element follows the specifications of the ActionSheet component.
+
+[ActionSheet accessibility specification]({{actionsheet_a11y_link}})
+
 ## Resources
 
 [WAI-ARIA specification for combobox](https://www.w3.org/TR/wai-aria-1.2/#combobox)
