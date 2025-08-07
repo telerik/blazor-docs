@@ -40,7 +40,10 @@ The error means that the license key is missing or not set up correctly. For exa
 
 ### Corrupted Telerik and Kendo UI License Key content (TKL003)
 
-The license key is detected, but its value is invalid and cannot be decrypted. For example, if you have set a `TELERIK_LICENSE` environment variable through the Windows operating system's UI, then it may be truncated. In such cases, remove the environment variable and use a license key file instead.
+The license key is detected, but its value is invalid and cannot be decrypted. For example:
+
+* The `TELERIK_LICENSE` environment variable has the license file location as its value. In such cases, set the license key itself as the variable value. Alternatively, remove `TELERIK_LICENSE` and use the `TELERIK_LICENSE_PATH` environment variable instead.
+* The `TELERIK_LICENSE` environment variable was set through the Windows operating system's UI and the license key was truncated due to Windows limitations. In such cases, remove the environment variable and use a license key file instead.
 
 Follow the [automatic](slug:installation-license-key#automatic-installation) or [manual](slug:installation-license-key#manual-installation) installation steps from scratch. Also check how to [set up a license key in CI/CD environments](slug:deployment-license-key).
 
