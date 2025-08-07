@@ -10,7 +10,7 @@ position: 37
 
 # Stacked Columns
 
-Stacked columns is an adaptive Grid feature that allows the 
+Stacked columns is an adaptive Grid feature that allows the component to display data item values vertically in one or more cards, instead of horizontally in classic table cells. This facilitates browsing the Grid data on narrow screens like mobile phones in portrait orientation.
 
 The Grid stacked columns functionality depends on three configuraton settings:
 
