@@ -125,23 +125,29 @@ To use component methods, define a reference to the AIPrompt instance with the `
 
 ## SpeechToTextButton Integration
 
-To integrate a built-in SpeechToTextButton in the AIPrompt component, use the `<AIPromptSettings>` tag as a child of `<TelerikAIPrompt>`. Inside `<AIPromptSettings>`, define the `<AIPromptSpeechToTextButtonSettings>` tag to configure the appearance and behavior of the speech-to-text button. This approach is available when `EnableSpeechToText="true"` is set on the AIPrompt. For a complete list of available parameters, refer to the [AIPromptSpeechToTextButtonSettings API Reference](slug:Telerik.Blazor.Components.AIPrompt.AIPromptSpeechToTextButtonSettings).
+To integrate a built-in SpeechToTextButton in the AIPrompt component set `EnableSpeechToText="true"`. Optionally you can use the `<AIPromptSettings>` tag as a child of `<TelerikAIPrompt>`. Inside `<AIPromptSettings>`, you can define the `<AIPromptSpeechToTextButtonSettings>` tag to configure the appearance and behavior of the built-in SpeechToTextButton. For a complete list of available parameters, refer to the [AIPromptSpeechToTextButtonSettings API Reference](slug:Telerik.Blazor.Components.AIPromptSpeechToTextButtonSettings).
 
 For advanced configuration options and more details about the SpeechToTextButton component, see the [SpeechToTextButton documentation](slug:speechtotextbutton-overview).
 
 >caption Example of integrating the SpeechToTextButton in the AIPrompt component
 
 ````RAZOR.skip-repl
-<TelerikAIPrompt EnableSpeechToText="true">
+<TelerikAIPrompt EnableSpeechToText="true" Prompt="@Prompt" PromptChanged="@OnPromptChanged">
     <AIPromptSettings>
         <AIPromptSpeechToTextButtonSettings FillMode="@ThemeConstants.Button.FillMode.Outline"
                                             Size="@ThemeConstants.Button.Size.Large"
                                             Rounded="@ThemeConstants.Button.Rounded.Full"
                                             ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                                            Lang="bg-BG"
                                             MaxAlternatives="3" />
     </AIPromptSettings>
 </TelerikAIPrompt>
+
+@code {
+    private void OnPromptChanged(string prompt)
+    {
+        Prompt = prompt;
+    }
+}
 ````
 
 ## Next Steps

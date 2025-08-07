@@ -88,9 +88,9 @@ The event handler receives an argument of type [`AIPromptCommandExecuteEventArgs
 | `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
 | `OutputItem` | `AIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItemDescriptor`](slug:Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
 
-## PromptTextChanged
+## PromptChanged
 
-The `PromptTextChanged` event fires when the user changes the prompt text. Use the event to update the AIPrompt's prompt when the `PromptText` parameter is set with one-way binding, otherwise, the user action will be ignored.
+The `PromptChanged` event fires when the user changes the prompt text. Use the event to update the AIPrompt's prompt when the `Prompt` parameter is set with one-way binding, otherwise, the user action will be ignored.
 
 ## Example
 
