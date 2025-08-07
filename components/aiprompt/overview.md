@@ -84,39 +84,13 @@ The AIPrompt component provides templates that enable developers to customize th
 
 The various AIPrompt events allow you to implement custom functionality and handle user interactions with the component's ToolBar. [Read more about the AIPrompt events...](slug:aiprompt-events) 
 
+## Parameters and API
 
-## AIPrompt Parameters
+The AIPrompt component provides a wide range of parameters and methods that let you customize its appearance, behavior, and integration with your application. You can configure built-in and custom views, toolbar items, commands, prompt suggestions, and more. The component also exposes methods for programmatic control, such as refreshing the UI or adding output items dynamically.
 
-The table below lists the AIPrompt parameters. For a full list of the AIPrompt API members (parameters, methods, and events), check the [AIPrompt API Reference](slug:Telerik.Blazor.Components.TelerikAIPrompt).
+For a complete list of available parameters and methods, refer to the [AIPrompt API Reference](slug:Telerik.Blazor.Components.TelerikAIPrompt).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default&nbsp;Value | Description |
-| --- | --- | --- |
-| `AIPromptViews` | `RenderFragment` | Allows control over the views of the content. Use it to set the visibility of a predefined view or to create custom views. If a render fragment is not provided, the AIPrompt will display its default views. |
-| `AIPromptToolBar` | `RenderFragment` | Any additional buttons that will be rendered within the ToolBar. This parameter will append the new items, rather than override buttons related to existing views. |
-| `Class` | `string` | The `class` attribute of the `<div class="k-prompt">` element. Use it to apply custom styles or [override the theme](slug:themes-override). |
-| `Commands` | `List<AIPromptCommandDescriptor>` | The predefined commands displayed within the Commands view. |
-| `Height` | `string` | The `height` style of the component in any [supported CSS unit](slug:common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
-| `PromptContext` | `string` | This text is appended to the prompt when sending the request. This is required in order to allow the component to work with external context, which is not visible in the prompt box.
-| `PromptText` | `string` | The value of the text within the prompt view. Use it when you need to add some form of transformation to the prompt. The parameter supports two-way binding. |
-| `PromptTextChanged` | `EventCallback<string>` | The handler called whenever the `PromptText` changes. |
-| `PromptSuggestions` | `List<string>` | The prompt suggestions displayed within the Prompt view. |
-| `PromptSuggestionItemTemplate` | `RenderFragment<string>` | The Prompt Suggestion Item template of the AIPrompt. |
-| `ShowOutputRating` | `bool` <br /> (`false`) | Controls the visibility of the rating buttons within the output card. |
-| `SystemPrompt` | `string` <br /> (See "Description" column) | Defines the system prompt that is passed to the [Microsoft `ChatMessage`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.chatmessage) object constructor. <br /><br /> The default `SystemPrompt` value is: `"You are a helpful assistant designed to assist users. Your goal is to provide helpful, accurate, and contextually appropriate information in a clear and concise manner. Avoid discussing harmful, illegal, or inappropriate topics."`.
-| `Width` | `string` | The `width` style of the component in any [supported CSS unit](slug:common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
-
-## AIPrompt Reference and Methods
-
-The AIPrompt exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
-
-| Method | Description |
-| --- | --- |
-| `Refresh` | Re-renders the component. |
-| `AddOutput` | Insert a new output item to the AIPrompt. |
-
->caption AIPrompt reference and method usage
+To use component methods, define a reference to the AIPrompt instance with the `@ref` directive. For example:
 
 ````RAZOR
 <TelerikAIPrompt @ref="@AIPromptRef" OnPromptRequest="@HandlePromptRequest"></TelerikAIPrompt>
@@ -149,6 +123,26 @@ The AIPrompt exposes methods for programmatic operation. To use them, define a r
 }
 ````
 
+## SpeechToTextButton Integration
+
+To integrate a built-in SpeechToTextButton in the AIPrompt component, use the `<AIPromptSettings>` tag as a child of `<TelerikAIPrompt>`. Inside `<AIPromptSettings>`, define the `<AIPromptSpeechToTextButtonSettings>` tag to configure the appearance and behavior of the speech-to-text button. This approach is available when `EnableSpeechToText="true"` is set on the AIPrompt. For a complete list of available parameters, refer to the [AIPromptSpeechToTextButtonSettings API Reference](slug:Telerik.Blazor.Components.AIPrompt.AIPromptSpeechToTextButtonSettings).
+
+For advanced configuration options and more details about the SpeechToTextButton component, see the [SpeechToTextButton documentation](slug:speechtotextbutton-overview).
+
+>caption Example of integrating the SpeechToTextButton in the AIPrompt component
+
+````RAZOR.skip-repl
+<TelerikAIPrompt EnableSpeechToText="true">
+    <AIPromptSettings>
+        <AIPromptSpeechToTextButtonSettings FillMode="@ThemeConstants.Button.FillMode.Outline"
+                                            Size="@ThemeConstants.Button.Size.Large"
+                                            Rounded="@ThemeConstants.Button.Rounded.Full"
+                                            ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                                            Lang="bg-BG"
+                                            MaxAlternatives="3" />
+    </AIPromptSettings>
+</TelerikAIPrompt>
+````
 
 ## Next Steps
 
