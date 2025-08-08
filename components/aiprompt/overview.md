@@ -125,7 +125,7 @@ To use component methods, define a reference to the AIPrompt instance with the `
 
 ## SpeechToTextButton Integration
 
-To integrate a built-in SpeechToTextButton in the AIPrompt component set `EnableSpeechToText="true"`. Optionally you can use the `<AIPromptSettings>` tag as a child of `<TelerikAIPrompt>`. Inside `<AIPromptSettings>`, you can define the `<AIPromptSpeechToTextButtonSettings>` tag to configure the appearance and behavior of the built-in SpeechToTextButton. For a complete list of available parameters, refer to the [AIPromptSpeechToTextButtonSettings API Reference](slug:Telerik.Blazor.Components.AIPromptSpeechToTextButtonSettings).
+To integrate a built-in SpeechToTextButton in the AIPrompt component, set `EnableSpeechToText="true"`. Optionally, you can use the `<AIPromptSettings>` tag as a child of `<TelerikAIPrompt>`. Inside `<AIPromptSettings>`, you can define the `<AIPromptSpeechToTextButtonSettings>` tag to configure the appearance and behavior of the built-in SpeechToTextButton. For a complete list of available parameters, refer to the [AIPromptSpeechToTextButtonSettings API Reference](slug:Telerik.Blazor.Components.AIPromptSpeechToTextButtonSettings).
 
 For advanced configuration options and more details about the SpeechToTextButton component, see the [SpeechToTextButton documentation](slug:speechtotextbutton-overview).
 

@@ -14,6 +14,7 @@ This article explains the events available in the Telerik AIPrompt for Blazor:
 
 * [`OnOutputActionClick`](#onoutputactionclick)
 * [`OnPromptRequest`](#onpromptrequest)
+* [`OnPromptRequestStop`](#onpromptrequeststo)
 * [`OnCommandExecute`](#oncommandexecute)
 * [`PromptTextChanged`](#prompttextchanged)
 
@@ -72,6 +73,12 @@ The event handler receives an argument of type [`AIPromptPromptRequestEventArgs`
 | `OutputItem` | `AIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItemDescriptor`](slug:Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
 
 > Do not use the `OnPromptRequest` event when [integrating the AIPrompt component with `Microsoft.Extensions.AI`](slug:common-features-microsoft-extensions-ai-integration). The `OnPromptRequest` event disables such integration.
+
+## OnPromptRequestStop
+
+The `OnPromptRequestStop` event fires when the user stops a prompt request by clicking the stop floating action button in the output view. This event allows you to handle the cancellation of an ongoing prompt request.
+
+The event handler receives an `EventCallback` with no arguments.
 
 ## OnCommandExecute
 
