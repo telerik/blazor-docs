@@ -5,7 +5,7 @@ description: How to add virtual columns to a scrollable Grid.
 slug: grid-columns-virtual
 tags: telerik,blazor,grid,column,virtual,scrolling
 published: true
-position: 5
+position: 45
 ---
 
 # Virtualized Columns

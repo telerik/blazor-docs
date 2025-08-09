@@ -5,7 +5,7 @@ description: Use C# Format string to display values in the Grid for Blazor.
 slug: grid-columns-displayformat
 tags: telerik,blazor,grid,column,display,format
 published: True
-position: 2
+position: 15
 ---
 
 # Column Display Format
