@@ -12,10 +12,50 @@ position: 40
 
 This article explains the events available in the Telerik AIPrompt for Blazor:
 
+* [`OnOutputActionClick`](#onoutputactionclick)
 * [`OnPromptRequest`](#onpromptrequest)
+* [`OnPromptRequestStop`](#onpromptrequeststo)
 * [`OnCommandExecute`](#oncommandexecute)
-* [`OnOutputRate`](#onoutputrate)
 * [`PromptTextChanged`](#prompttextchanged)
+
+## OnOutputActionClick
+
+The `OnOutputActionClick` event fires when the user clicks an output action button in the output view of the AIPrompt component. Use this event to handle custom actions such as copying, retrying, or providing feedback on the generated output.
+
+To define the available output actions, set the `OutputActions` parameter to a list of [`AIPromptOutputActionDescriptor`](slug:Telerik.Blazor.Components.AIPromptOutputActionDescriptor) objects. Each action descriptor configures the appearance and behavior of an action button.
+
+The event handler receives an argument of type `AIPromptOutputActionClickEventArgs`, which provides details about the clicked action, the prompt, the output, and the related command (if any). For a full list of available properties, refer to the [`AIPromptOutputActionClickEventArgs` API reference](slug:Telerik.Blazor.Components.AIPromptOutputActionClickEventArgs).
+
+>caption Handle output action clicks in the AIPrompt
+
+````RAZOR
+<TelerikAIPrompt OutputActions="@OutputActions"
+                 OnOutputActionClick="@OnOutputActionClick"
+                 OnPromptRequest="@HandlePromptRequest">
+</TelerikAIPrompt>
+
+@code {
+    private void OnOutputActionClick(AIPromptOutputActionClickEventArgs args)
+    {
+        // Handle the output action click event
+        Console.WriteLine($"Action clicked: {args.Action.Name}");
+    }
+
+    private List<AIPromptOutputActionDescriptor> OutputActions { get; set; } = new List<AIPromptOutputActionDescriptor>()
+    {
+        new AIPromptOutputActionDescriptor() { Name = "Copy", Icon = nameof(SvgIcon.Copy) },
+        new AIPromptOutputActionDescriptor() { Name = "Retry", Icon = nameof(SvgIcon.Share) },
+        new AIPromptOutputActionDescriptor() { Icon = SvgIcon.ThumbUp, Name = "Thumbs Up" },
+        new AIPromptOutputActionDescriptor() { Icon = SvgIcon.ThumbDown, Name = "Thumbs Down" }
+    };
+
+    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
+    {
+        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
+        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    }
+}
+````
 
 ## OnPromptRequest
 
@@ -34,6 +74,12 @@ The event handler receives an argument of type [`AIPromptPromptRequestEventArgs`
 
 > Do not use the `OnPromptRequest` event when [integrating the AIPrompt component with `Microsoft.Extensions.AI`](slug:common-features-microsoft-extensions-ai-integration). The `OnPromptRequest` event disables such integration.
 
+## OnPromptRequestStop
+
+The `OnPromptRequestStop` event fires when the user stops a prompt request by clicking the stop floating action button in the output view. This event allows you to handle the cancellation of an ongoing prompt request.
+
+The event handler receives an `EventCallback` with no arguments.
+
 ## OnCommandExecute
 
 The `OnCommandExecute` event fires when the user clicks on a command within the Commands view.
@@ -49,24 +95,9 @@ The event handler receives an argument of type [`AIPromptCommandExecuteEventArgs
 | `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
 | `OutputItem` | `AIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItemDescriptor`](slug:Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
 
+## PromptChanged
 
-## OnOutputRate
-
-The `OnOutputRate` event fires when the user rates an output.
-
-The event handler receives an argument of type [`AIPromptOutputRateEventArgs`](slug:Telerik.Blazor.Components.AIPromptOutputRateEventArgs). See the [example below](#example).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `OutputItem` | `AIPromptOutputItemDescriptor` | Specifies the output item that is being rated. See [`AIPromptOutputItemDescriptor`](slug:Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
-
-## PromptTextChanged
-
-The `PromptTextChanged` event fires when the user changes the prompt text. Use the event to update the AIPrompt's prompt when the `PromptText` parameter is set with one-way binding, otherwise, the user action will be ignored.
-
-## See Also
+The `PromptChanged` event fires when the user changes the prompt text. Use the event to update the AIPrompt's prompt when the `Prompt` parameter is set with one-way binding, otherwise, the user action will be ignored.
 
 ## Example
 
