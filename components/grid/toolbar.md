@@ -22,15 +22,15 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| Add | `GridToolBarAddTool` | An Add common button that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
-| Cancel | `GridToolBarCancelEditTool` | A Cancel command button that applies to the row in edit mode and fires [`OnCancel`](slug:grid-editing-overview#events). [`Inline`](slug:grid-editing-inline) or [`Popup`](slug:grid-editing-popup) editing mode is required. |
-| CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
-| Delete | `GridToolBarDeleteTool` | A Delete command for the selected row that fires [`OnDelete`](slug:grid-editing-overview#events). Row selection and editing are required. |
-| Edit | `GridToolBarEditTool` | An Edit command button for the selected row that fires [`OnEdit`](slug:grid-editing-overview#events). Row selection and `Inline` or `Popup` editing mode are required. |
-| ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
+| Add | `GridToolBarAddTool` | An `Add` command button that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
+| Cancel | `GridToolBarCancelEditTool` | A `Cancel` command button that applies to the row in edit mode and fires [`OnCancel`](slug:grid-editing-overview#events). [`Inline`](slug:grid-editing-inline) or [`Popup`](slug:grid-editing-popup) editing mode is required. |
+| CsvExport | `GridToolBarCsvExportTool` | A `CsvExport` command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
+| Delete | `GridToolBarDeleteTool` | A `Delete` command for the selected row that fires [`OnDelete`](slug:grid-editing-overview#events). Row selection and editing are required. |
+| Edit | `GridToolBarEditTool` | An `Edit` command button for the selected row that fires [`OnEdit`](slug:grid-editing-overview#events). Row selection and `Inline` or `Popup` editing mode are required. |
+| ExcelExport | `GridToolBarExcelExportTool` | An `ExcelExport` command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | Filter | `GridToolBarFilterTool` | A toggle button that opens UI for filtering. On desktop screens, it displays a popup with a filter menu; on mobile devices, it renders an `ActionSheet`. The filter component has two views: one for selecting the column to filter, and another for applying the filter to the selected column. The tool also exposes an `Icon` parameter that allows you to override the default icon.  |
 | Group | `GridToolBarGroupTool` | A toggle button that opens a list of the groupable columns. Click a column to group by it. On mobile devices, the popup renders as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
-| Save | `GridToolBarSaveEditTool` | A Save command button for the row in edit mode that fires [`OnUpdate` or `OnCreate`](slug:grid-editing-overview#events). [`Inline`](slug:grid-editing-inline) or [`Popup`](slug:grid-editing-popup) editing mode is required. |
+| Save | `GridToolBarSaveEditTool` | A `Save` command button for the row in edit mode that fires [`OnUpdate` or `OnCreate`](slug:grid-editing-overview#events). [`Inline`](slug:grid-editing-inline) or [`Popup`](slug:grid-editing-popup) editing mode is required. |
 | Select All | `GridToolBarSelectAllTool` | A checkbox that selects all rows, according to the [Grid Checkbox column](slug:components/grid/columns/checkbox) configuration. |
 | Sort | `GridToolBarSortTool` | A toggle button that opens a list of the sortable columns. Click a column to sort by it. On mobile devices, the popup renders as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
 | SearchBox | `GridToolBarSearchBoxTool` | A [searchbox that filters multiple string columns](slug:grid-searchbox) simultaneously. |
