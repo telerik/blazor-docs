@@ -529,6 +529,9 @@ meta:
   "*components/grid/columns":
     title: Columns
     position: 5
+  "*components/grid/smart-ai-features":
+    title: Smart AI Features
+    position: 8
   "*components/gantt/timeline/templates":
     title: Templates
     position: 15
