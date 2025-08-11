@@ -5,7 +5,7 @@ description: How to freeze grid columns so they are always visible in a scrollab
 slug: grid-columns-frozen
 tags: telerik,blazor,grid,column,freeze,frozen
 published: true
-position: 5
+position: 40
 ---
 
 # Frozen Columns

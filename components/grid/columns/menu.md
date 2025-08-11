@@ -5,7 +5,7 @@ description: Use the Column Menu for the Grid
 slug: grid-column-menu
 tags: telerik,blazor,grid,column,columns,menu
 published: True
-position: 20
+position: 55
 ---
 
 # Column Menu

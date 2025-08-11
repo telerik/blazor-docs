@@ -5,7 +5,7 @@ description: Stack multiple columns under a single header in the data grid for B
 slug: grid-columns-multiple-column-headers
 tags: telerik,blazor,grid,column,multi,multiple,headers
 published: True
-position: 25
+position: 60
 ---
 
 # Multi-Column Headers
