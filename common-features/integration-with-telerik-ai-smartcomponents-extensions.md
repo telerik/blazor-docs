@@ -302,8 +302,8 @@ For integration testing with your specific data model, create test cases that ve
 
 ### Common Issues
 
-* Invalid URI Format: Ensure your Azure OpenAI endpoint is correctly formatted in configuration
-* API Key Issues: Verify your API key has proper permissions and is not expired
-* Model Availability: Ensure the specified model ID is deployed in your Azure OpenAI resource
-* Token Limits: Be mindful of token limits when processing large datasets
+* Invalid URI Format: Ensure your Azure OpenAI endpoint is correctly formatted in configuration.
+* API Key Issues: Verify your API key has proper permissions and is not expired.
+* Model Availability: Ensure the specified model ID is deployed in your Azure OpenAI resource.
+* Token Limits: Be mindful of token limits when processing large datasets.
 
