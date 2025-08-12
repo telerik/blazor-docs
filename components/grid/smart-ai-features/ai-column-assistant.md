@@ -129,10 +129,11 @@ private async Task OnAIResponseActionClick(InlineAIPromptOutputActionClickEventA
 
 ## Example
 
-See the [Grid AI Column Assistant live demo](https://demos.telerik.com/blazor-ui/grid/ai-data-operations) for a complete runnable example. The demos uses a Telerik-hosted AI service for demonstration purposes only. You need to implement your own AI service that understands your specific data and business requirements.
+See the [Grid AI Column Assistant live demo](https://demos.telerik.com/blazor-ui/grid/ai-data-operations) for a complete runnable example. The demo uses a Telerik-hosted AI service for demonstration purposes only. See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration) for more information on how you can implement your own server-side AI service to be compatible with the Telerik Grid.
 
 ## See Also
 
 * [InlineAIPrompt Overview](slug:inlineaiprompt-overview)
 * [Grid Live Demo](https://demos.telerik.com/blazor-ui/grid/ai-data-operations)
 * [Grid API](slug:Telerik.Blazor.Components.TelerikGrid-1)
+* [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration)

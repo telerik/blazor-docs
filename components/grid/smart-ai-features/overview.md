@@ -16,6 +16,8 @@ This article describes the built-in AI-enabled features of the Telerik Grid for 
 
 The following types and Grid methods are relevant to scenarios when you want to integrate AI functionality with the Telerik Grid.
 
+See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration) for more information on how you can implement your server-side AI service to be compatible with the Telerik Grid.
+
 ### Types
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
@@ -42,7 +44,7 @@ Use the following steps to implement a scenario with built-in Grid AI integratio
 
 ### Install NuGet Package
 
-Install the `Telerik.AI.SmartComponents.Extensions` NuGet package in your Blazor app.
+Add the `Telerik.AI.SmartComponents.Extensions` NuGet package to your Blazor app. The package is hosted on `nuget.org`.
 
 Then, import the `Telerik.AI.SmartComponents.Extensions` namespace in your `.razor` file or globally in `_Imports.razor`.
 
@@ -106,7 +108,7 @@ private async Task OnAIPromptRequest(AIPromptPromptRequestEventArgs args)
 
 ## Examples
 
-See full examples of the Grid AI smart functionality in the following online demos:
+The following online demos show complete implementations of the Grid AI smart functionality. These examples use a Telerik-hosted AI service for demonstration purposes only. See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration) for more information on how you can implement your own server-side AI service to be compatible with the Telerik Grid.
 
 * [Grid AI Data Operations](https://demos.telerik.com/blazor-ui/grid/ai-data-operations)
 * [Grid AI Data Highlight](https://demos.telerik.com/blazor-ui/grid/ai-highlight)
@@ -121,3 +123,4 @@ See full examples of the Grid AI smart functionality in the following online dem
 * [Live Demo: Grid AI Data Operations](https://demos.telerik.com/blazor-ui/grid/ai-data-operations)
 * [Live Demo: Grid AI Data Highlight](https://demos.telerik.com/blazor-ui/grid/ai-highlight)
 * [Grid API](slug:Telerik.Blazor.Components.TelerikGrid-1)
+* [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration)
