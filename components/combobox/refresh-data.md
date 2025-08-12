@@ -24,58 +24,24 @@ In this article:
 To refresh the ComboBox data when using [`OnRead`](slug:components/combobox/events#onread), call the `Rebind` method of the TelerikComboBox reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
 ````RAZOR
-@* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
-
 @using Telerik.DataSource.Extensions
 
-<TelerikButton OnClick="@RebindComboBox">Rebind</TelerikButton>
+<TelerikButton OnClick="@RebindComboBox">Remove First Data Item and Rebind</TelerikButton>
+
 <TelerikComboBox @ref="@ComboBoxRef"
-                 TItem="Product" TValue="int"
-                 OnRead="@ReadItems"
-                 ValueField="@nameof(Product.ProductId)"
-                 TextField="@nameof(Product.ProductName)"
-                 Filterable="true"
-                 Placeholder="Find what you seek by typing"
-                 @bind-Value="@SelectedValue">
+                 @bind-Value="@ComboBoxValue"
+                 OnRead="@OnComboBoxRead"
+                 TItem="ListItem"
+                 TValue="int"
+                 ValueField="@nameof(ListItem.Id)"
+                 TextField="@nameof(ListItem.Text)"
+                 Width="200px">
 </TelerikComboBox>
 
 @code{
-    public int SelectedValue { get; set; }
-    List<Product> AllData { get; set; } = new List<Product>();
-    public TelerikComboBox<Product, int> ComboBoxRef { get; set; }
-
-    async Task ReadItems(ComboBoxReadEventArgs args)
-    {
-        await Task.Delay(1000);
-        args.Data = AllData.ToDataSourceResult(args.Request).Data;
-    }
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 200; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = "Product" + i.ToString(),
-                SupplierId = i,
-                UnitPrice = (decimal)(i * 3.14),
-                UnitsInStock = (short)(i * 1),
-            });
-        }
-
-        AllData = products;
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int SupplierId { get; set; }
-        public decimal UnitPrice { get; set; }
-        public short UnitsInStock { get; set; }
-    }
+    public TelerikComboBox<ListItem, int>? ComboBoxRef { get; set; }
+    private List<ListItem> AllData { get; set; } = new();
+    private int ComboBoxValue { get; set; }
 
     private void RebindComboBox()
     {
@@ -84,7 +50,36 @@ To refresh the ComboBox data when using [`OnRead`](slug:components/combobox/even
             AllData.RemoveAt(0);
         }
 
-        ComboBoxRef.Rebind();
+        ComboBoxValue = AllData.FirstOrDefault()?.Id ?? default;
+
+        ComboBoxRef?.Rebind();
+    }
+
+    private async Task OnComboBoxRead(ComboBoxReadEventArgs args)
+    {
+        var result = await AllData.ToDataSourceResultAsync(args.Request);
+        args.Data = result.Data;
+        args.Total = result.Total;
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i < 5; i++)
+        {
+            AllData.Add(new ListItem()
+            {
+                Id = i,
+                Text = $"ListItem {i}"
+            });
+        }
+
+        ComboBoxValue = AllData.First().Id;
+    }
+
+    public class ListItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
