@@ -58,7 +58,7 @@ The following example demonstrates this option in action.
 ````RAZOR
 <TelerikTabStrip Scrollable="true"
                  ScrollButtonsVisibility="@TabStripScrollButtonsVisibility.Auto"
-                 Width="100%">
+                 Width="30vw">
     <TabStripTab Title="First">
         First tab content.
     </TabStripTab>
@@ -67,6 +67,12 @@ The following example demonstrates this option in action.
     </TabStripTab>
     <TabStripTab Title="Third">
         Third tab content.
+    </TabStripTab>
+    <TabStripTab Title="Fourth">
+        Fourth tab content.
+    </TabStripTab>
+    <TabStripTab Title="Fifth">
+        Fifth tab content.
     </TabStripTab>
 </TelerikTabStrip>
 ````
@@ -83,7 +89,8 @@ The following example demonstrates this option in action.
 
 ````RAZOR
 <TelerikTabStrip Scrollable="true"
-                 ScrollButtonsVisibility="@TabStripScrollButtonsPosition.Start">
+                 ScrollButtonsPosition="@TabStripScrollButtonsPosition.Start"
+                 Width="280px">
     <TabStripTab Title="First">
         First tab content.
     </TabStripTab>
@@ -92,6 +99,12 @@ The following example demonstrates this option in action.
     </TabStripTab>
     <TabStripTab Title="Third">
         Third tab content.
+    </TabStripTab>
+    <TabStripTab Title="Fourth">
+        Fourth tab content.
+    </TabStripTab>
+    <TabStripTab Title="Fifth">
+        Fifth tab content.
     </TabStripTab>
 </TelerikTabStrip>
 ````
