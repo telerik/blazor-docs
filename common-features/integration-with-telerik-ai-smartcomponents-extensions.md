@@ -10,8 +10,6 @@ position: 45
 
 # Getting Started with Telerik.AI.SmartComponents.Extensions
 
-## Overview
-
 The `Telerik.AI.SmartComponents.Extensions` library provides AI-powered functionality for Grid operations, enabling natural language processing for filtering, sorting, grouping, and highlighting data. This library integrates seamlessly with Microsoft.Extensions.AI and Azure OpenAI to provide intelligent Grid interactions.
 
 ## Prerequisites
