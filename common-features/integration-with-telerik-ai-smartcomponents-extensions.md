@@ -23,12 +23,10 @@ The `Telerik.AI.SmartComponents.Extensions` library provides AI-powered function
 
 ## Installation
 
-Add the `Telerik.AI.SmartComponents.Extensions` NuGet package to your Blazor app. The package is hosted on `nuget.org`.
-
-Add the required dependency packages:
-
-* `Microsoft.Extensions.AI`
-* `Azure.AI.OpenAI`
+1. Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your project.
+1. Add the required dependency packages:
+    * `Microsoft.Extensions.AI`
+    * `Azure.AI.OpenAI`
 
 ## Configuration
 
