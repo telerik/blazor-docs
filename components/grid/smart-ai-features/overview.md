@@ -44,7 +44,7 @@ Use the following steps to implement a scenario with built-in Grid AI integratio
 
 ### Install NuGet Package
 
-1. Add the `Telerik.AI.SmartComponents.Extensions` NuGet package to your Blazor app. The package is hosted on `nuget.org`.
+1. Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your Blazor app.
 1. Import the `Telerik.AI.SmartComponents.Extensions` namespace in your `.razor` file or globally in `_Imports.razor`.
 
 ````RAZOR.skip-repl
