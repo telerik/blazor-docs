@@ -24,7 +24,7 @@ Streaming is particularly useful when:
 To enable streaming in the InlineAIPrompt component, follow these steps:
 
 1. Handle the [`OnPromptRequest`](slug:inlineaiprompt-events#onpromptrequest) event to start streaming output. When the user sends a prompt, the `OnPromptRequest` event is triggered. In the event handler, set up your AI model streaming logic and call the `AppendOutput` method on the TelerikInlineAIPrompt reference to update the output as new data arrives.
-2. Handle the [`OnPromptRequestStop`](slug:slug:inlineaiprompt-events#onpromptrequeststop) event to stop streaming.
+2. Handle the [`OnPromptRequestStop`](slug:inlineaiprompt-events#onpromptrequeststop) event to stop streaming.
 This event is fired when the user clicks the Stop Generation button. You can use it to cancel the AI request.
 
 When implementing real AI model streaming logic:
