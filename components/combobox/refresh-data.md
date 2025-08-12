@@ -64,7 +64,7 @@ To refresh the ComboBox data when using [`OnRead`](slug:components/combobox/even
 
     protected override void OnInitialized()
     {
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i <= 5; i++)
         {
             AllData.Add(new ListItem()
             {
