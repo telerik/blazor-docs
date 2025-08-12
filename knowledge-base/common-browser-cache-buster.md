@@ -31,11 +31,27 @@ This KB article answers the following questions:
 
 ## Solution
 
-To avoid browser caching issues when upgrading the Telerik UI for Blazor version, use the so-called cache busting. Add the components' version number to the Telerik client asset URLs as a query string. In this way, the browser will always load the correct version of the CSS stylesheet and the JSInterop file. Browsers will still use cached Telerik client assets as long as the components version stays the same.
+To avoid browser caching issues when upgrading the Telerik UI for Blazor version, consider one of the following options:
+
+* Serve the Telerik CSS and JS files through the so-called [Map Static Assets routing endpoint conventions](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/map-static-files) which requires:
+    * .NET 9 or later
+    * `app.MapStaticAssets();` in `Program.cs`
+    * [`@Assets["..."]` in `App.razor`](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files?view=aspnetcore-9.0#deliver-assets-with-map-static-assets-routing-endpoint-conventions)
+* Use the so-called [cache busting](#cache-busting). Add the components' version number to the Telerik client asset URLs as a query string. In this way, the browser will always load the correct version of the CSS stylesheet and the JSInterop file. Browsers will still use cached Telerik client assets as long as the components version stays the same.
 
 Using the correct client assets [avoids Telerik-related JavaScript errors](slug:troubleshooting-js-errors).
 
-The required approach varies, depending on the Blazor application:
+>caption Map Static Telerik Assets in .NET 9 or later
+
+````RAZOR.skip-repl
+<link href="@Assets["_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css"]" rel="stylesheet" />
+
+<script src="@Assets["_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"]"></script>
+````
+
+## Cache Busting
+
+Cache busting varies depending on the Blazor application:
 
 * [Blazor Web Apps and legacy Blazor Server apps](#blazor-web-apps-and-legacy-blazor-server-apps)
 * [Standalone Blazor WebAssembly apps and Hybrid apps](#standalone-blazor-webassembly-apps-and-hybrid-apps)
@@ -80,7 +96,7 @@ If the Telerik CSS theme and JavaScript file reside in the `index.html` file, yo
 
 ## Notes
 
-In addition to cache busting, you can [use a `defer` attribute to load the `telerik-blazor.js` file asynchronously](slug:getting-started/what-you-need#javascript-file) and improve the client-side app performance.
+You can also [use a `defer` attribute to load the `telerik-blazor.js` file asynchronously](slug:getting-started/what-you-need#javascript-file) and improve the client-side app performance.
 
 ## See Also
 
