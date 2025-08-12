@@ -5,7 +5,7 @@ description: How to automatically generate Grid columns out of a model.
 slug: grid-columns-automatically-generated
 tags: telerik,blazor,grid,column,automatic,automatically,generated,columns
 published: true
-position: 5
+position: 35
 ---
 
 # Automatically Generated Columns

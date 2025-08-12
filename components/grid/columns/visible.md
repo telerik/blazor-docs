@@ -5,7 +5,7 @@ description: Hide Grid columns.
 slug: grid-columns-visible
 tags: telerik,blazor,grid,column,visible
 published: True
-position: 15
+position: 50
 ---
 
 # Visible Columns

@@ -5,7 +5,7 @@ description: Configuration options for the Telerik Blazor Grid Checkbox Column
 slug: components/grid/columns/checkbox
 tags: telerik,blazor,grid,column,selection
 published: True
-position: 2
+position: 10
 ---
 
 # Grid Checkbox Column
