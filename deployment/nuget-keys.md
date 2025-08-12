@@ -87,13 +87,13 @@ You can use the .NET CLI `add source` or `update source` commands to set the cre
 * To set the credentials in Azure DevOps:
 
     ````SH.skip-repl
-    dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '$(TELERIK_NUGET_KEY)' --configfile './NuGet.Config' --store-password-in-clear-text
+    dotnet nuget add source 'https://nuget.telerik.com/v3/index.json' --name 'TelerikOnlineFeed' --username 'api-key' --password '$(TELERIK_NUGET_KEY)' --configfile './NuGet.Config' --store-password-in-clear-text
     ````
 
 * To set the credentials in GitHub Actions:
 
     ````SH.skip-repl
-    dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '${{ "{{secrets.TELERIK_NUGET_KEY}}" }}' --configfile './NuGet.Config' --store-password-in-clear-text
+    dotnet nuget add source 'https://nuget.telerik.com/v3/index.json' --name 'TelerikOnlineFeed' --username 'api-key' --password '${{ "{{secrets.TELERIK_NUGET_KEY}}" }}' --configfile './NuGet.Config' --store-password-in-clear-text
     ````
 
 > When restoring NuGet packages through the CLI, [use `dotnet restore` rather than `nuget restore` to avoid compatibility errors](slug:common-kb-package-telerik-pivot-not-compatible-with-netframework).
