@@ -10,11 +10,11 @@ position: 5
 
 # Streaming AI Responses with InlineAIPrompt
 
-The UI for Blazor InlineAIPrompt component supports streaming responses, allowing users to see AI-generated content as it is being produced. This feature improves the user experience by providing immediate feedback and a more interactive interface.
+The Blazor InlineAIPrompt component supports streaming responses, allowing users to see AI-generated content as it is being produced. This feature improves the user experience by providing immediate feedback and a more interactive interface.
 
 Streaming is particularly useful when:
 
-* Working with long-form AI responses that take several seconds to generate.
+* Working with long-form AI responses that take more time to generate.
 * Creating inline editing interfaces where users expect real-time feedback.
 * Integrating with AI services that support chunked responses.
 * Enhancing user engagement in contextual AI assistance scenarios.
@@ -30,7 +30,7 @@ This event is fired when the user clicks the Stop Generation button. You can use
 When implementing real AI model streaming logic:
 
 * Replace the sample `OutputChunks` loop with your actual AI model streaming code.
-* Each time a new piece of text arrives from the AI model, call `AppendOutput` to update the InlineAIPrompt output area.
+* Each time a new piece of response arrives from the AI model, call `AppendOutput` to update the InlineAIPrompt output area.
 * If the user clicks the Stop Generation button, cancel the AI request in `OnPromptRequestStop`.
 
 ## Example
@@ -43,11 +43,10 @@ When implementing real AI model streaming logic:
 <div class="destinations-container">
     @foreach (var destination in TravelDestinations)
     {
-        <div class="destination-card"
-             @onclick="@((MouseEventArgs e) => OnDestinationContextMenuAsync(e, destination))"
-             @onclick:preventDefault="true">
+        <TelerikButton Class="destination-card"
+                       OnClick="@((MouseEventArgs e) => OnDestinationContextMenuAsync(e, destination))">
             @destination
-        </div>
+        </TelerikButton>
     }
 </div>
 
@@ -56,17 +55,20 @@ When implementing real AI model streaming logic:
                        OnPromptRequest="@OnPromptRequestAsync"
                        OnPromptRequestStop="@OnPromptRequestStopAsync"
                        PromptContext="@PromptContext">
+    <InlineAIPromptSettings>
+        <InlineAIPromptPopupSettings Width="400px" />
+    </InlineAIPromptSettings>
 </TelerikInlineAIPrompt>
 
 @code {
-    private string UserPrompt { get; set; }
-    private string PromptContext { get; set; }
-    private TelerikInlineAIPrompt InlinePromptRef { get; set; }
-    private CancellationTokenSource CancellationTokenSource { get; set; }
+    private string UserPrompt { get; set; } = string.Empty;
+    private string PromptContext { get; set; } = string.Empty;
+    private TelerikInlineAIPrompt? InlinePromptRef { get; set; }
+    private CancellationTokenSource? CancellationTokenSource { get; set; }
 
     private async Task OnPromptRequestStopAsync()
     {
-        await CancellationTokenSource.CancelAsync();
+        await CancellationTokenSource!.CancelAsync();
     }
 
     private List<string> TravelDestinations { get; set; } = new()
@@ -86,7 +88,7 @@ When implementing real AI model streaming logic:
     private async Task OnDestinationContextMenuAsync(MouseEventArgs e, string destination)
     {
         PromptContext = destination;
-        await InlinePromptRef.ShowAsync(e.ClientX, e.ClientY);
+        await InlinePromptRef!.ShowAsync(e.ClientX, e.ClientY);
     }
 
     private async Task OnPromptRequestAsync(InlineAIPromptPromptRequestEventArgs args)
@@ -94,7 +96,7 @@ When implementing real AI model streaming logic:
         CancellationTokenSource = new CancellationTokenSource();
         foreach (var chunk in OutputChunks)
         {
-            InlinePromptRef.AppendOutput(chunk);
+            InlinePromptRef!.AppendOutput(chunk);
             await Task.Delay(1000, CancellationTokenSource.Token);
         }
     }

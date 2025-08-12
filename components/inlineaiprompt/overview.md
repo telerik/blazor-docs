@@ -10,16 +10,15 @@ position: 0
 
 # Blazor InlineAIPrompt Overview
 
-The UI for Blazor InlineAIPrompt is a popup-based component that lets you interact with AI language models right inside your content.
+The Telerik InlineAIPrompt for Blazor is a popup-based component that lets you interact with AI language models right inside your content.
 
-It provides a simple and focused way to send prompts and get responses from AI without interrupting the user’s flow. The InlineAIPrompt is great for adding contextual AI help exactly where users need it.
+The InlineAIPrompt provides a simple and focused way to send prompts and get responses from AI without interrupting the user’s flow. The InlineAIPrompt is great for adding contextual AI help exactly where users need it.
 
 ## Creating Blazor InlineAIPrompt
 
 1. Add the `<TelerikInlineAIPrompt>` tag.
 2. Subscribe to the `OnPromptRequest` event that will fire whenever the user sends a prompt request. The handler expects an argument of type `InlineAIPromptPromptRequestEventArgs`.
 3. Set the `Prompt` parameter
-4. (optional) Set the `PromptContext` parameter
 
 >caption Telerik Blazor InlineAIPrompt
 
@@ -27,11 +26,10 @@ It provides a simple and focused way to send prompts and get responses from AI w
 <div class="products-container">
     @foreach (var product in Products)
     {
-        <div class="product-card"
-             @onclick="@((MouseEventArgs e) => ShowPromptAsync(e, product))"
-             @onclick:preventDefault="true">
+        <TelerikButton Class="product-card"
+                       OnClick="@((MouseEventArgs e) => ShowPromptAsync(e, product))">
             @product
-        </div>
+        </TelerikButton>
     }
 </div>
 
@@ -42,9 +40,9 @@ It provides a simple and focused way to send prompts and get responses from AI w
 </TelerikInlineAIPrompt>
 
 @code {
-    private string UserPrompt { get; set; }
-    private string PromptContext { get; set; }
-    private TelerikInlineAIPrompt InlinePromptRef { get; set; }
+    private string UserPrompt { get; set; } = string.Empty;
+    private string PromptContext { get; set; } = string.Empty;
+    private TelerikInlineAIPrompt? InlinePromptRef { get; set; }
 
     private List<string> Products { get; set; } = new()
     {
@@ -56,12 +54,12 @@ It provides a simple and focused way to send prompts and get responses from AI w
     private async Task ShowPromptAsync(MouseEventArgs e, string product)
     {
         PromptContext = product;
-        await InlinePromptRef.ShowAsync(e.ClientX, e.ClientY);
+        await InlinePromptRef!.ShowAsync(e.ClientX, e.ClientY);
     }
 
     private void OnPromptRequest(InlineAIPromptPromptRequestEventArgs args)
     {
-        args.Output = $"AI assistance for: {PromptContext}";
+        args.Output = $"AI response for: {PromptContext}";
     }
 }
 
@@ -87,44 +85,30 @@ It provides a simple and focused way to send prompts and get responses from AI w
 
 ## Streaming
 
-The InlineAIPrompt component supports streaming responses, letting users view AI-generated content in real time as it’s created. [Read more about the Blazor InlineAIPrompt streaming...](slug:inlineaiprompt-streaming)
+The InlineAIPrompt component supports streaming responses, which lets users view AI-generated content in real time as it’s created. [Read more about the Blazor InlineAIPrompt streaming...](slug:inlineaiprompt-streaming)
 
 ## Events
 
-The InlineAIPrompt component offers several events that allow developers to handle user interactions and processes effectively. [Read more about the Blazor InlineAIPrompt events...](slug:inlineaiprompt-events)
+The InlineAIPrompt component offers several events that allow developers to handle user interactions effectively. [Read more about the Blazor InlineAIPrompt events...](slug:inlineaiprompt-events)
 
-## InlineAIPrompt Parameters
+## InlineAIPrompt API
 
-The following table lists the InlineAIPrompt parameters. Also check the [InlineAIPrompt API Reference](slug:Telerik.Blazor.Components.TelerikInlineAIPrompt) for a full list of all properties, methods and events.
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default&nbsp;Value | Description |
-| --- | --- | --- |
-| `Class` | `string` | `The class that is rendered on the .k-prompt element.` |
-| `Commands` | `List<AIPromptCommandDescriptor>` | `Configures predefined commands for the component.` |
-| `EnableSpeechToText` | `bool` | `Specifies whether to enable speech to text functionality.` |
-| `OutputActions` | `List<AIPromptOutputActionDescriptor>` | `Defines the output actions.` |
-| `Placeholder` | `string` | `Placeholder text for the input field.` |
-| `Prompt` | `string` | `The value of the text field and the prompt that is sent to the AI service.` |
-| `PromptContext` | `string` | `Defines the additional context that is passed with the input/command prompt and system prompt.` |
-| `SystemPrompt` | `string` | `Defines the system prompt that is used when the component is integrated with MEAI.` |
+Get familiar with all InlineAIPrompt parameters, methods, events, and nested tags in the [InlineAIPrompt API Reference](slug:Telerik.Blazor.Components.TelerikInlineAIPrompt).
 
 ### Settings and Commands
 
-The InlineAIPrompt exposes settings for itself and its speech to text button. To configure the options, declare a  `<InlineAIPromptPopupSettings>` or `InlineAIPromptSpeechToTextButtonSettings` tag inside a `<InlineAIPromptSettings>` tag.
+The InlineAIPrompt exposes settings for its popup and its embedded [Speech to Text Button](slug:speechtotextbutton-overview). To configure the options, declare a `<InlineAIPromptPopupSettings>` or `<InlineAIPromptSpeechToTextButtonSettings>` tag inside `<InlineAIPromptSettings>`.
 
-The InlineAIPrompt component also exposes an option to set predefined commands. To configure the actions, use the `Commands` parameter and subscribe to the `OnCommandExecute` event that will fire whenever the user executes a command. The handler expects an argument of type `InlineAIPromptCommandExecuteEventArgs`.
+The InlineAIPrompt component also exposes an option to set predefined commands, which is a predefined prompt that is processed immediately. To configure the actions, use the `Commands` parameter and subscribe to the `OnCommandExecute` event that will fire whenever the user executes a command. The handler expects an argument of type `InlineAIPromptCommandExecuteEventArgs`.
 
 ````Razor
 <div class="destinations-container">
     @foreach (var destination in TravelDestinations)
     {
-        <div class="destination-card"
-             @onclick="@((MouseEventArgs e) => ShowPromptAsync(e, destination))"
-             @onclick:preventDefault="true">
+        <TelerikButton Class="destination-card"
+             OnClick="@((MouseEventArgs e) => ShowPromptAsync(e, destination))">
             @destination
-        </div>
+        </TelerikButton>
     }
 </div>
 
@@ -153,9 +137,9 @@ The InlineAIPrompt component also exposes an option to set predefined commands. 
 </TelerikInlineAIPrompt>
 
 @code {
-    private string UserPrompt { get; set; }
-    private string PromptContext { get; set; }
-    private TelerikInlineAIPrompt InlinePromptRef { get; set; }
+    private string UserPrompt { get; set; } = string.Empty;
+    private string PromptContext { get; set; } = string.Empty;
+    private TelerikInlineAIPrompt? InlinePromptRef { get; set; }
 
     private List<InlineAIPromptCommandDescriptor> Commands { get; set; } = new()
     {
@@ -207,7 +191,7 @@ The InlineAIPrompt component also exposes an option to set predefined commands. 
     private async Task ShowPromptAsync(MouseEventArgs e, string destination)
     {
         PromptContext = destination;
-        await InlinePromptRef.ShowAsync(e.ClientX, e.ClientY);
+        await InlinePromptRef!.ShowAsync(e.ClientX, e.ClientY);
     }
 
     private void OnPromptRequest(InlineAIPromptPromptRequestEventArgs args)
@@ -239,10 +223,10 @@ The InlineAIPrompt component also exposes an option to set predefined commands. 
         cursor: pointer;
     }
 
-    .destination-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+        .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 </style>
 ````
 
@@ -254,7 +238,7 @@ Use the component reference to execute the following methods.
 |-------------|-------------|
 | `Refresh`   | Re-renders the component. |
 | `ShowAsync` | Shows the inline prompt at defined coordinates. Accepts two parameters: X and Y coordinates to position the popup. |
-| `HideAsync` | Hides the inline prompt. |
+| `HideAsync` | Hides the Inline AI Prompt. |
 
 ## See Also
 

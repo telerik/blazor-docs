@@ -10,7 +10,7 @@ position: 10
 
 # InlineAIPrompt Events
 
-This article explains the events available in the Telerik InlineAIPrompt for Blazor:
+This article describes the events of the Telerik InlineAIPrompt for Blazor:
 
 * [`OnOutputActionClick`](#onoutputactionclick)
 * [`OnPromptRequest`](#onpromptrequest)
@@ -20,26 +20,17 @@ This article explains the events available in the Telerik InlineAIPrompt for Bla
 
 ## OnOutputActionClick
 
-The `OnOutputActionClick` event fires when the user clicks an output action button in the output view of the AIPrompt component. Use this event to handle custom actions such as copying, retrying, or providing feedback on the generated output.
+The `OnOutputActionClick` event fires when the user clicks an output action button in the output view of the InlineAIPrompt component. Use this event to handle custom actions such as copying, retrying, or providing feedback on the generated output.
 
 To define the available output actions, set the `OutputActions` parameter to a list of [`InlineAIPromptOutputActionDescriptor`](slug:Telerik.Blazor.Components.InlineAIPromptOutputActionDescriptor) objects. Each action descriptor configures the appearance and behavior of an action button.
 
-The event handler receives an argument of type `InlineAIPromptOutputActionClickEventArgs`, which provides details about the clicked action, the prompt, the output, and the related command (if any). For a full list of available properties, refer to the [`InlineAIPromptOutputActionClickEventArgs` API reference](slug:Telerik.Blazor.Components.InlineAIPromptOutputActionClickEventArgs).
+The event handler receives an argument of type [`InlineAIPromptOutputActionClickEventArgs` API reference](slug:Telerik.Blazor.Components.InlineAIPromptOutputActionClickEventArgs), which provides details about the clicked action, the prompt, the output, and the related command (if any).
 
 ## OnPromptRequest
 
 The `OnPromptRequest` event fires when the user clicks on the **Generate** button within the Prompt view or retries a prompt from the Output view.
 
-The event handler receives an argument of type [`InlineAIPromptPromptRequestEventArgs`](slug:Telerik.Blazor.Components.InlineAIPromptPromptRequestEventArgs). See the [example below](#example).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `Prompt` | `string` | The prompt text of the request. |
-| `Output` | `string` | The output of the request. The output is based on the prompt text. |
-| `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
-| `OutputItem` | `InlineAIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`InlineAIPromptOutputItemDescriptor`](slug:Telerik.Blazor.Components.InlineAIPromptOutputItemDescriptor). |
+The event handler receives an argument of type [`InlineAIPromptPromptRequestEventArgs` API reference](slug:Telerik.Blazor.Components.InlineAIPromptPromptRequestEventArgs). See the [example below](#example).
 
 > Do not use the `OnPromptRequest` event when [integrating the InlineAIPrompt component with `Microsoft.Extensions.AI`](slug:common-features-microsoft-extensions-ai-integration). The `OnPromptRequest` event disables such integration.
 
@@ -47,22 +38,13 @@ The event handler receives an argument of type [`InlineAIPromptPromptRequestEven
 
 The `OnPromptRequestStop` event fires when the user stops a prompt request by clicking the stop floating action button in the output view. This event allows you to handle the cancellation of an ongoing prompt request.
 
-The event handler receives an `EventCallback` with no arguments.
+The event handler receives no arguments.
 
 ## OnCommandExecute
 
 The `OnCommandExecute` event fires when the user clicks on a command within the Commands view.
 
-The event handler receives an argument of type [`InlineAIPromptCommandExecuteEventArgs`](slug:Telerik.Blazor.Components.InlineAIPromptCommandExecuteEventArgs). See the [example below](#example).
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `Command` | `AIPromptCommandDescriptor` | The executed command. |
-| `Output` | `string` | The output based on the executed command. |
-| `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
-| `OutputItem` | `InlineAIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`InlineAIPromptOutputItemDescriptor`](slug:Telerik.Blazor.Components.InlineAIPromptOutputItemDescriptor). |
+The event handler receives an argument of type [`InlineAIPromptCommandExecuteEventArgs` API reference](slug:Telerik.Blazor.Components.InlineAIPromptCommandExecuteEventArgs). See the [example below](#example).
 
 ## PromptChanged
 
@@ -76,11 +58,10 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
 <div class="genres-container">
     @foreach (var genre in MovieGenres)
     {
-        <div class="genre-card"
-             @onclick="@((MouseEventArgs e) => OnGenreContextMenuAsync(e, genre))"
-             @onclick:preventDefault="true">
+        <TelerikButton Class="genre-card"
+                       OnClick="@((MouseEventArgs e) => OnGenreContextMenuAsync(e, genre))">
             @genre
-        </div>
+        </TelerikButton>
     }
 </div>
 
@@ -103,9 +84,9 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
 @code {
     private int PromptRequestsCount { get; set; } = 0;
     private string EventsLog { get; set; } = string.Empty;
-    private string UserPrompt { get; set; }
-    private string PromptContext { get; set; }
-    private TelerikInlineAIPrompt InlinePromptRef { get; set; }
+    private string UserPrompt { get; set; } = string.Empty;
+    private string PromptContext { get; set; } = string.Empty;
+    private TelerikInlineAIPrompt? InlinePromptRef { get; set; }
 
     private List<InlineAIPromptCommandDescriptor> Commands { get; set; } = new()
     {
@@ -176,19 +157,19 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
     private async Task OnGenreContextMenuAsync(MouseEventArgs e, string genre)
     {
         PromptContext = genre;
-        await InlinePromptRef.ShowAsync(e.ClientX, e.ClientY);
+        await InlinePromptRef!.ShowAsync(e.ClientX, e.ClientY);
     }
 
     private async Task OnPromptRequest(InlineAIPromptPromptRequestEventArgs args)
     {
-        await Task.Delay(1000);
+        await Task.Delay(200);
         args.Output = $"AI suggestion for prompt #{PromptRequestsCount++} in {PromptContext}";
         EventsLog += $"OnPromptRequest fired <br />";
     }
 
     private async Task OnCommandExecute(InlineAIPromptCommandExecuteEventArgs args)
     {
-        await Task.Delay(1000);
+        await Task.Delay(200);
         args.Output = $"AI executed: {args.Command.Title} for {PromptContext}";
         EventsLog += $"OnCommandExecute fired <br />";
     }
