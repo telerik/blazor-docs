@@ -10,7 +10,7 @@ position: 30
 
 # Grid AI Column Assistant
 
-This article shows how to integrate the Grid with the Inline AI Prompt component in order to allow users to use AI with regard to a specific Grid data item. Depending on the business requirements, the AI model can analyze the Grid data item and suggest additions or modifications.
+This article shows how to integrate the Grid with the Inline AI Prompt component to allow users to use AI for a specific Grid data item. Depending on the business requirements, the AI model can analyze the Grid data item and suggest additions or modifications.
 
 The suggested algorithm for implementation is the following:
 
