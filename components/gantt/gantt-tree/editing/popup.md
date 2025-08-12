@@ -425,7 +425,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
 
 The Gantt exposes options to customize the edit popup and its form. You can define your desired configuration in the `GanttPopupEditSettings` and `GanttPopupEditFormSettings` tags under the `GanttSettings` tag.
 
-### Popup Customization
+### Popup Settings
 
 The `GanttPopupEditSettings` nested tag exposes the following parameters to allow popup customization:
 

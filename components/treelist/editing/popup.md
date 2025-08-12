@@ -46,7 +46,7 @@ The TreeList exposes options to customize the edit popup and its form. Define th
 
 Starting with version 7.0, the TreeList allows users to edit [hidden columns](slug:treelist-columns-visible) by default. To disable editing of a hidden column, set `Editable="false"` to the respective `<TreeListColumn>` tag.
 
-### Popup Dimensions and Styles
+### Popup Settings
 
 The `TreeListPopupEditSettings` nested tag exposes the following parameters to allow popup customization:
 
