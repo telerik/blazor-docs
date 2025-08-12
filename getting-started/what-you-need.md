@@ -95,9 +95,7 @@ There are a few other optional namespaces that may be needed often. You can impo
 
 >caption _Imports.razor
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 @* required *@
 @using Telerik.Blazor // set component parameters
 @using Telerik.Blazor.Components // recognize components tags
@@ -113,9 +111,7 @@ To avoid the need to register Telerik namespaces in `.cs` files, use [`global us
 
 >caption Program.cs or MauiProgram.cs
 
-<div class="skip-repl"></div>
-
-````CS
+````C#.skip-repl
 // required
 global using Telerik.Blazor; // use component parameter values
 global using Telerik.Blazor.Components; // use component types and instances
@@ -138,9 +134,7 @@ Register the Telerik service in all projects that use Telerik Blazor components.
 
 >caption Program.cs or MauiProgram.cs
 
-<div class="skip-repl"></div>
-
-````CS
+````C#.skip-repl
 builder.Services.AddTelerikBlazor();
 ````
 
@@ -151,9 +145,10 @@ builder.Services.AddTelerikBlazor();
 
 The Telerik UI for Blazor components require a [theme stylesheet](#css-theme) and a [JSInterop file](#javascript-file).
 
-To use static CSS and JS assets from the NuGet package in a project, make sure that the project has [`app.UseStaticFiles();` in its `Program.cs`](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-8.0&tabs=visual-studio#consume-content-from-a-referenced-rcl) file. This is true by default.
+To use static CSS and JS assets from the NuGet package in a project, make sure that the [project allows it](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files), which is true by default. To [prevent browser caching of the Telerik static NuGet assets during version upgrades](slug:common-kb-browser-cache-buster):
 
-You can also [add the Telerik UI for Blazor version number to the CSS and JavaScript file URLs to prevent browser caching during version upgrades](slug:common-kb-browser-cache-buster).
+* In .NET 9 and later versions, you can use `MapStaticAssets()` in `Program.cs` and `@Assets["..."]` in `App.razor`.
+* Add the Telerik UI for Blazor version number to the CSS and JavaScript file URLs.
 
 ### CSS Theme
 
@@ -163,9 +158,7 @@ Register the [Telerik font icon stylesheet](slug:common-features-icons#font-icon
 
 >caption Adding the Telerik Blazor CSS files
 
-<div class="skip-repl"></div>
-
-````HTML
+````HTML.skip-repl
 <head>
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
 
@@ -191,9 +184,7 @@ The recommended way to register the Telerik Blazor JS file for better loading pe
 
 >caption Adding the Telerik Blazor JavaScript file
 
-<div class="skip-repl"></div>
-
-````HTML
+````HTML.skip-repl
 <!DOCTYPE html>
 <html>
 <head>
