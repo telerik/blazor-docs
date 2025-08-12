@@ -107,7 +107,7 @@ You can save the AI response in a separate model property in the Grid data. To d
 
 ## Update Grid Data
 
-Update the Grid data in the `OnOutputActionClick` event of the InlineAIPrompt. Theoretically, you can also update the Grid data in the `OnPromptRequest` event of the InlineAIPrompt. However, this approach skips the user review and approval, which is normaly not recommended.
+Update the Grid data in the `OnOutputActionClick` event of the InlineAIPrompt. Theoretically, you can also update the Grid data in the `OnPromptRequest` event of the InlineAIPrompt. However, this approach skips the user review and approval, which is normally not recommended.
 
 ````C#.skip-repl
 // DataItemForAI is populated in the OnClick handler of the Button (OnAIButtonClick method)
