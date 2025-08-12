@@ -366,8 +366,10 @@ meta:
     title: Popup
   "*appbar":
     title: AppBar
-  "*aiprompt":
+  "*/aiprompt":
     title: AIPrompt
+  "*inlineaiprompt":
+    title: InlineAIPrompt
   "*gauges/arc":
     title: Arc
   "*spreadsheet":
