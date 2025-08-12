@@ -116,7 +116,7 @@ private GridModel? DataItemForAI { get; set; }
 // This is the OnOutputActionClick event handler of the InlineAIPrompt
 private async Task OnAIResponseActionClick(InlineAIPromptOutputActionClickEventArgs args)
 {
-    // Is the user approves the AI response, update the Grid data
+    // If the user approves the AI response, update the Grid data.
     // args.Action is a member of the ActionsOverAIResponse collection.
     if (args.Action.Name == "Insert")
     {
