@@ -45,7 +45,7 @@ To refresh the ComboBox data when using [`OnRead`](slug:components/combobox/even
 
     private void RebindComboBox()
     {
-        if (AllData.Count > 0)
+        if (AllData.Count > 1)
         {
             AllData.RemoveAt(0);
         }
