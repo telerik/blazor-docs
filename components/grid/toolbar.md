@@ -23,6 +23,7 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
 | Add | `GridToolBarAddTool` | An `Add` command button that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
+| AI Assistant | `GridToolBarAIAssistantTool` | A tool that shows an [AI Prompt component](slug:aiprompt-overview) for AI-enabled data operations on the Grid data. See [Grid AI Features](slug:grid-ai-overview) for details and examples. |
 | Cancel | `GridToolBarCancelEditTool` | A `Cancel` command button that applies to the row in edit mode and fires [`OnCancel`](slug:grid-editing-overview#events). [`Inline`](slug:grid-editing-inline) or [`Popup`](slug:grid-editing-popup) editing mode is required. |
 | CsvExport | `GridToolBarCsvExportTool` | A `CsvExport` command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | Delete | `GridToolBarDeleteTool` | A `Delete` command for the selected row that fires [`OnDelete`](slug:grid-editing-overview#events). Row selection and editing are required. |
