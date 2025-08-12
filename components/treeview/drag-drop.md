@@ -42,6 +42,8 @@ The `OnDragStart` event fires when the user starts dragging a node. It provides 
 
 The `OnDragStart` event handler receives as an argument an object of type `TreeViewDragStartEventArgs` that contains:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `Item` | `object` | Represents the dragged row. You can cast this object to your model class. |
