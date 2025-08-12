@@ -51,7 +51,7 @@ Using the correct client assets [avoids Telerik-related JavaScript errors](slug:
 
 ## Cache Busting
 
-Cache bustin varies, depending on the Blazor application:
+Cache busting varies depending on the Blazor application:
 
 * [Blazor Web Apps and legacy Blazor Server apps](#blazor-web-apps-and-legacy-blazor-server-apps)
 * [Standalone Blazor WebAssembly apps and Hybrid apps](#standalone-blazor-webassembly-apps-and-hybrid-apps)
