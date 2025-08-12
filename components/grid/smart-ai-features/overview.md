@@ -25,7 +25,7 @@ See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-feature
 | Class Name | Description |
 | --- | --- |
 | `GridAIRequestDescriptor` | Contains information about the Grid column `Field`s and the user's prompt. |
-| `GridAIResponse` | Contains information about the data operations that the Grid must perform. Supported operations iclude filtering, grouping, highlighting, and sorting. The object also has a `Messages` property that contains the AI string responses. `GridAIResponse` is the type that your AI service must return. |
+| `GridAIResponse` | Contains information about the data operations that the Grid must perform. Supported operations include filtering, grouping, highlighting, and sorting. The object also has a `Messages` property that contains the AI string responses. `GridAIResponse` is the type that your AI service must return. |
 | `GridAIResult` | Contains converted objects that are compatible with the [Grid State properties](slug:grid-state#information-in-the-grid-state). Use this type if you want to [modify the Grid state](slug:grid-state#methods) in a more granular fashion, rather then apply all changes suggested by AI at once. |
 
 ### Grid Methods
