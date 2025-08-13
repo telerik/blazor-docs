@@ -218,7 +218,7 @@ The following Shape styling options are available in child tags of `<DiagramShap
 
 In addition to the above:
 
-* `<DiagramShapeDefaults>` and `<DiagramShape>` have a `CornerRadius` parameter that rounds both the border and the background at the Shape corners. If you need a rectangle shape with rounded corners, then use the [`Process` Shape type](#shape-types) instead of `Rectangle`.
+* `<DiagramShapeDefaults>` and `<DiagramShape>` have a `CornerRadius` parameter that rounds both the border and the background at the Shape corners.
 * `<DiagramShapeDefaultsContent>` and `<DiagramShapeContent>` have a `RelativePadding` parameter that adds padding as a ratio of the Shape width. For example, `RelativePadding="0.1"` applies a 10% padding. In some cases, you can increase the padding to force the Shape text to wrap.
 
 >caption Setting global and Shape-specific color styles
@@ -333,7 +333,6 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
         <DiagramShape CornerRadius="6"
                       Height="80"
                       Id="shape3"
-                      Type="@DiagramShapeType.Process"
                       Width="160"
                       X="350"
                       Y="50">
@@ -342,7 +341,7 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
                                  FontStyle="italic"
                                  FontWeight="bold"
                                  RelativePadding="0.1"
-                                 Text="Rounded Process" />
+                                 Text="Rounded Rectangle" />
             <DiagramShapeFill Color="#e0e0e0" />
             <DiagramShapeHover>
                 <DiagramShapeHoverFill Color="#d6d6d6" />
