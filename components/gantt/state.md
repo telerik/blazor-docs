@@ -102,19 +102,12 @@ The following information is present in the Gantt state:
 
 You can find the following examples in this section:
 
-- [Gantt State](#gantt-state)
-  - [Basics](#basics)
-    - [Events](#events)
-    - [Methods](#methods)
-  - [Information in the Gantt State](#information-in-the-gantt-state)
-  - [Examples](#examples)
-    - [Set Default (Initial) State](#set-default-initial-state)
-    - [Save and Load Gantt State from Browser LocalStorage](#save-and-load-gantt-state-from-browser-localstorage)
-    - [Set Gantt Options Through State](#set-gantt-options-through-state)
-    - [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-gantt)
-    - [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
-    - [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
-  - [See Also](#see-also)
+- [Set Default (Initial) State](#set-default-initial-state)
+- [Save and Load Gantt State from Browser LocalStorage](#save-and-load-gantt-state-from-browser-localstorage)
+- [Set Gantt Options Through State](#set-gantt-options-through-state)
+- [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-gantt)
+- [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
+- [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
 ### Set Default (Initial) State
 

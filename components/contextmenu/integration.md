@@ -265,7 +265,7 @@ In this example, the context menu is used to select/deselect items, put an item 
             // such as put a row in edit mode or select it
             switch (item.CommandName)
             {
-                case "BeginEdit": // read more at https://docs.telerik.com/blazor-ui/components/grid/state#initiate-editing-or-inserting-of-an-item
+                case "BeginEdit": // read more at https://www.telerik.com/blazor-ui/documentation/knowledge-base/grid-add-edit-state
                     var currState = GridRef.GetState();
                     currState.InsertedItem = null;
                     SampleData itemToEdit = SampleData.GetClonedInstance(GridData.Where(itm => itm.ID == SelectedPerson.ID).FirstOrDefault());

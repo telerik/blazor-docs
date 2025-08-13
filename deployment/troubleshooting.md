@@ -22,7 +22,7 @@ At the time of writing, sometimes the following issues have been reported that p
 
 * `Unable to find package Telerik.UI.for.Blazor` is a common pitfall in build environments. See the [NuGet Troubleshooting](slug:troubleshooting-nuget#unable-to-find-package) article, which also provides other NuGet-related tips.
 * [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazor-js)
-* [Trial Message](#trial-message)
+* [License banners or watermarks](#your-deployed-application-shows-a-banner-or-a-watermark)
 * [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-system-text-json)
 * [Blazor Server app is slow or breaks in the cloud](#blazor-server-slow-or-breaks-up-in-the-cloud)
 * [The remote certificate is invalid because of errors in the certificate chain](#invalid-certificate)
@@ -76,11 +76,9 @@ namespace MyBlazorAppName
 
 * We have had reports that indicate missing project references do not copy the static assets. For example, in an ASP.NET Core hosted WebAssembly project the server project usually has a project reference to the Blazor project. If that reference is missing, the static assets might not be present in the output.
 
-
 ### Your Deployed Application Shows a Banner or a Watermark
 
 Ensure that you have set up an environment variable by following the steps from the [Use License Keys in CI/CD](slug:installation-license-key) article.
-
 
 `Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message](slug:upgrade-tutorial#i-still-see-the-trial-watermark-and-banner) article.
 

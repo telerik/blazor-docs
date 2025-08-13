@@ -178,7 +178,7 @@ This KB article answers the following questions:
 
 ## Notes
 
-The [built-in Grid editing](slug:grid-editing-overview) feature creates a [copy of the original data item](slug:grid-editing-overview#notes) while a row is in edit mode. As a result, CheckBox value changes in the non-templated column above are applied to the template columns *after* the `OnUpdate` handler executes.
+The [built-in Grid editing](slug:grid-editing-overview) creates a [copy of the original data item](slug:grid-editing-overview#item-instances) while a row is in edit mode. As a result, CheckBox value changes in the non-templated column above are applied to the template columns *after* the `OnUpdate` handler executes.
 
 ## See Also
 

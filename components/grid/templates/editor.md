@@ -14,11 +14,9 @@ The column's `EditorTemplate` defines the inline template or component that will
 
 You can data bind components in the editor template to the current `context`. This is the data item instance, which is bound to the currently edited Grid row. Cast `context` to the data item type and store it in a global or local variable. Then, use this variable for one-way or two-way binding in the `EditorTemplate`.
 
-The template receives a copy of the original data item. This allows users to cancel their edits and restore the original property value. The [CRUD Events section](slug:grid-editing-overview#events) provides more information about this programmatic item creation.
+The template receives a [copy of the original data item](slug:grid-editing-overview#item-instances). This allows users to cancel their edits and restore the original property value. The [CRUD Events section](slug:grid-editing-overview#events) provides more information about this programmatic item creation.
 
 If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form](slug:grid-kb-custom-edit-form).
-
->tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](slug:grid-editing-incell#editor-template).
 
 When an input receives an `EditContext` (usually as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` parameter, you have to pass the `ValueExpression` explicitly. This is a lambda expression that tells the framework what property of the model to use for validation. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression](slug:common-kb-requires-valueexpression) knowledge base article for more details.
 
