@@ -36,14 +36,14 @@ The way multiple axes are declared depends on the [chart series type](slug:compo
 
 ### Categorical Charts
 
-1. Define the extra axis in the corresponding `ChartCategoryAxes` and/or `ChartValueAxes` tags.
+1. Define the extra axis in the corresponding `ChartCategoryAxes` or `ChartValueAxes` tags.
 2. Set its `Name` property as desired. By default, a series uses the first axis.
 3. Provide the `Name` value to the series you want to use it through its `Axis` and `CategoryAxis` for the `Y` and `X` axis respectively.
 
 
 ### Numerical Charts
 
-1. Define the extra axis in the corresponding `ChartXAxes` and/or `ChartYAxes` tags.
+1. Define the extra axis in the corresponding `ChartXAxes` or `ChartYAxes` tags.
 2. Set its `Name` property as desired. By default, a series uses the first axis.
 3. Provide the `Name` value to the series you want to use it through its `yAxis` and `xAxis` properties.
 

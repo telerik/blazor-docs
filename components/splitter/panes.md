@@ -21,7 +21,7 @@ Each Splitter pane is configured individually and offers the following parameter
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | The custom CSS class that renders on the pane element (`<div class="k-pane">`). Use it to [apply custom styling](slug:themes-override) or [enable scrolling](#pane-scrolling). |
+| `Class` | `string` | The custom CSS class that renders on the pane element (`<div class="k-pane">`). Use it to [apply custom styling](slug:themes-override). |
 | `Collapsed` | `bool` | Defines if the pane content renders or not. Supports two-way binding. Collapsed panes still show their splitbar and available actions, for example, expand icon or resize handle. Compare with the `Visible` parameter. |
 | `Collapsible` | `bool` | Whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane. |
 | `Max` | `string` | The maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further. |
@@ -39,7 +39,7 @@ Each Splitter pane is configured individually and offers the following parameter
 
         <SplitterPane Collapsible="true" @bind-Size="@PaneSize1" Min="100px" Max="300px">
             <h4>Left Pane</h4>
-            <div>Collapsible and scrollable pane with initial size in px. It can be resized between 100px and 300px.</div>
+            <div>Collapsible pane with initial size in px. It can be resized between 100px and 300px.</div>
         </SplitterPane>
 
         <SplitterPane Collapsible="true" @bind-Size="@PaneSize2">
@@ -138,7 +138,7 @@ Splitter Orientation:
                       Resizable="@FirstPaneResizable"
                       Size="@FirstPaneSize"
                       SizeChanged="@FirstPaneSizeChanged"
-                      Class="k-scrollable">
+                      Scrollable="true">
             <h2>First pane</h2>
             <ul style="list-style-type: disc;">
                 <li>
@@ -173,7 +173,7 @@ Splitter Orientation:
                       Resizable="@LastPaneResizable"
                       Size="@LastPaneSize"
                       SizeChanged="@LastPaneSizeChanged"
-                      Class="k-scrollable">
+                      Scrollable="true">
             <h3>Last pane</h3>
             <ul style="list-style-type: disc;">
                 <li>

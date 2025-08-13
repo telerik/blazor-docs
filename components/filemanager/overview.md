@@ -336,7 +336,7 @@ The following list of resources provides details and examples for data binding a
 
 * Using hierarchical data source with item collections nested in each item - [Bind FileManager to Hierarchical Data](slug:filemanager-data-binding-hierarchical-data).
 
-* Handling the `OnRead` event to provide only the current folder data - [FileManager `OnRead`](slug:filemanager-events#read-event).
+* Handling the `OnRead` event to provide only the current folder data - [FileManager `OnRead`](slug:filemanager-events#onread).
 
 ## Views
 

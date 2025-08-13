@@ -26,7 +26,7 @@ In this article:
 
 To enable load-on-demand for the groups, set `LoadGroupsOnDemand="true"` for the Grid. In this mode, the Grid behaves as usual when there is no grouping, and you can use this together with [Virtual Scrolling for the rows](slug:components/grid/virtual-scrolling).
 
-Once grouping is applied (either manually by the user, or through the Grid [state](slug:grid-state#setstateasync-examples)), the groups will now show up collapsed by default. When the user expands a group, all its rows will be requested from the data source. If you provide all the `Data` to the Grid, the component will perform the operations for you. For details about server operations, see below.
+Once grouping is applied (either manually by the user, or [through the Grid state](slug:grid-state#setstateasync-examples)), the groups will now show up collapsed by default. When the user expands a group, all its rows will be requested from the data source. If you provide all the `Data` to the Grid, the component will perform the operations for you. For details about server operations, see below.
 
 Each group header, each group footer and the Grid footer will count as rows for the purposes of paging. Until you expand a group, its child items are not counted and shown in the `Total` count for the purposes of paging.
 

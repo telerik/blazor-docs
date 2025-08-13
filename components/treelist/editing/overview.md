@@ -149,7 +149,7 @@ All events in the [Events table](#events), except `OnModelInit`, provide a [`Tre
 | Property&nbsp;Name | Type | Description |
 | --- | --- | --- |
 | `Field` | `string` | The [column `Field` name](slug:treelist-columns-bound#data-binding). Applicable only for [in-cell edit mode](slug:treelist-editing-incell). |
-| `IsCancelled` | `bool` | Defines if the user action should be prevented. See the [Comparison table](#comparison) below for details. |
+| `IsCancelled` | `bool` | Defines if the user action should be prevented. See the [Events table](#events) for details. |
 | `IsNew` | `bool` | Defines if `Item` is a newly added row or an existing row. |
 | `Item` | `object` | The data item, which the user is adding, deleting, or editing. Cast it to the TreeList model type. |
 | `ParentItem` | `object?` | The parent of the data item, which the user is adding. Available only in the `OnCreate` event. Cast the object to the TreeList model type. |
