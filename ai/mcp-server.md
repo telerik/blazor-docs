@@ -76,7 +76,7 @@ To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` fil
 
 To enable global automatic discovery of the Telerik MCP Server in Visual Studio, add the above `.mcp.json` file to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
 
-> Once the Telerik MCP server is added, make sure that the `telerikBlazorAssistant` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). The Telerik MCP server may get disabled and you may see "🔧10/11" in the selected tools dropdown when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue for MCPs that is being investigated.
+> Once the Telerik MCP server is added, make sure that the `telerikBlazorAssistant` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking on a wrench icon 🔧 at the bottom of the Copilot Window. The Telerik MCP server may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
 
 ### VS Code
 
