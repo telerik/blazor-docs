@@ -61,7 +61,7 @@ The `UnpinnedChanged` event fireswhen the `Unpinned` parameter of the correspond
 
 ## UnpinnedSizeChanged
 
-The `UnpinnedSizeChanged` event fireswhen the `UnpinnedSize` parameter of the corresponding pane changes.
+The `UnpinnedSizeChanged` event fires when the `UnpinnedSize` parameter of the corresponding pane changes.
 
 ## OnPaneResize
 
