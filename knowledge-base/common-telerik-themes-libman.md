@@ -29,7 +29,7 @@ This KB article answers the following questions:
 * How to use LibMan to add [Telerik Blazor themes](slug:themes-overview) to your Blazor app.
 * How to update local themes in `wwwroot` automatically when a new version is available.
 
-[LibMan](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/) is a client-side dependency manager, which is included in ASP.NET Core. You can use it to automatically download a Telerik theme to the `wwwroot` folder of your app, instead of using [static NuGet assets](slug:themes-overview#loading-themes-from-the-nuget-package) or [Telerik CDN](slug:common-features-cdn).
+[LibMan](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/) is a client-side dependency manager, which is included in ASP.NET Core. You can use it to automatically download a Telerik theme to the `wwwroot` folder of your app, instead of using [static NuGet assets](slug:themes-overview#loading-themes-in-blazor-from-the-nuget-package) or [Telerik CDN](slug:common-features-cdn).
 
 The benefits of Libman are:
 

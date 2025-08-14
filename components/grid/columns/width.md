@@ -54,7 +54,7 @@ The Grid column width settings can vary and result in the following behaviors:
     </tr>
 </table>
 
-To allow the users to adjust or auto-fit the column widths to the content, enable [Grid column resizing](slug:components/grid/columns/resize). You can also [resize columns through the Grid state](slug:grid-state#setstateasync) or [auto-fit columns programmatically](slug:components/grid/columns/resize#autofit-columns).
+To allow the users to adjust or auto-fit the column widths to the content, enable [Grid column resizing](slug:components/grid/columns/resize). You can also [resize columns through the Grid state](slug:grid-state#methods) or [auto-fit columns programmatically](slug:components/grid/columns/resize#autofit-columns).
 
 > Single table rendering and automatic table layout are not supported.
 

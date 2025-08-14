@@ -261,7 +261,7 @@ As a rule of thumb, the Diagram markup follows these naming conventions:
 
 The [Blazor Diagram component exposes methods](slug:Telerik.Blazor.Components.TelerikDiagram#methods) for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute. Blazor populates component references in `OnAfterRenderAsync`, so they are not available earier.
 
-See a full example in section [Create Diagram from JSON](#create-diagram-from-json) above.
+See a full example in section [Create Diagram from JSON](#define-shapes-and-connections-in-json) above.
 
 >caption Using the Diagram reference
 

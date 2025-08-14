@@ -181,7 +181,7 @@ The items in `SelectedItems` are compared against the items in the TreeList data
 
 * The `SelectedItems` are obtained from a different data source than the all TreeList items, for example, from a separate service.
 
-In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the TreeList model class](slug:treelist-state#basics) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
+In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the TreeList model class](slug:treelist-state#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
 
 ## Row Selection and Other TreeList Features
 

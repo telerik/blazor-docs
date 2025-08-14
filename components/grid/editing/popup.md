@@ -60,7 +60,7 @@ The `GridPopupEditFormSettings` nested tag exposes the following parameters to a
 
 @[template](/_contentTemplates/common/popup-edit-customization.md#edit-form-settings)
 
->important These settings are not applicable if you are using a `<FormTemplate>` with a custom Form component. See more details in [Form Template - Specifics](slug:grid-templates-popup-form#specifics).
+>important These settings are not applicable if you are using a [`<FormTemplate>` with a standalone Form component](slug:grid-templates-popup-form).
 
 ### Form Template
 

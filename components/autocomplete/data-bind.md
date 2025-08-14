@@ -19,8 +19,6 @@ There are two key ways to bind data:
 * [Strings and Value Types](#strings-and-value-types)
 * [Model](#bind-to-a-model)
 
-There are also some [considerations](#considerations) to keep in mind.
-
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 ## Strings and Value Types
