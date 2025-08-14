@@ -119,49 +119,49 @@ The following table lists the Dock Manager parameters. Also check the [DockManag
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `AllowFloat` | `bool` <br /> (`false`) | Determines whether the pane can be dragged from the dock manager layout to create a new floating pane. |
+| `AllowFloat` | `bool` | Determines whether the pane can be dragged from the dock manager layout to create a new floating pane. |
 | `Class` | `string` | The custom CSS class of the `<div class="k-pane-scrollable">` element. Use it to [override theme styles](slug:themes-override). |
-| `Closeable` | `bool` <br /> (`false`) | Determines whether the pane can be closed. |
-| `Dockable` | `bool` <br /> (`false`) | Specifies whether the pane allows other panes to be docked to or over it. This determines if the end user can drop other panes over it or next to it, creating a DockManagerSplitPane (Splitter) or a DockManagerTabGroupPane (TabStrip). |
+| `Closeable` | `bool` | Determines whether the pane can be closed. |
+| `Dockable` | `bool` | Specifies whether the pane allows other panes to be docked to or over it. This determines if the end user can drop other panes over it or next to it, creating a DockManagerSplitPane (Splitter) or a DockManagerTabGroupPane (TabStrip). |
 | `HeaderText` | `string` | The pane title, displayed in the pane header and as the button text in the DockManager toolbar when the pane is unpinned. |
 | `Id` | `string` <br /> (`Guid`) | The id of the pane. |
-| `Maximizable` | `bool` <br /> (`false`) | Determines whether the pane can be maximized. |
-| `Size` | `string` | Determines the size of the splitter pane. |
-| `Unpinnable` | `bool` <br /> (`false`) | Determines whether the pane can be unpinned. |
-| `Unpinned` | `bool` <br /> (`true`) | Determines whether the pane is unpinned. |
-| `UnpinnedSize` | `string` | Determines the size of the splitter pane when it is unpinned. |
-| `Visible` | `bool` <br /> (`true`) | Determines whether the tab/pane is rendered. |
+| `Maximizable` | `bool` | Determines whether the pane can be maximized. |
+| `Size` | `string` | Determines the size of the splitter pane. Supports two-way binding. |
+| `Unpinnable` | `bool` | Determines whether the pane can be unpinned. |
+| `Unpinned` | `bool` | Determines whether the pane is unpinned. Supports two-way binding. |
+| `UnpinnedSize` | `string` | Determines the size of the splitter pane when it is unpinned. Supports two-way binding. |
+| `Visible` | `bool` <br /> (`true`) | Determines whether the tab/pane is rendered. Supports two-way binding. |
 
 ### DockManagerSplitPane Parameters
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `AllowEmpty` | `bool` <br /> (`false`) | Determines whether a splitter pane is shown as empty when a child pane is removed (dragged out, closed, etc.). If set to false, the splitter is re-rendered without the removed child pane. |
+| `AllowEmpty` | `bool` | Determines whether a splitter pane is shown as empty when a child pane is removed (dragged out, closed, etc.). If set to false, the splitter is re-rendered without the removed child pane. |
 | `Class` | `string` | The custom CSS class of the `<div class="k-dock-manager-splitter">` element. Use it to [override theme styles](slug:themes-override). |
 | `Id` | `string` <br /> (`Guid`) | The id of the pane. |
 | `Orientation`  | `DockManagerPaneOrientation` enum <br /> (`Vertical`) | Determines the orientation of the rendered splitter. |
-| `Size` | `string` | Determines the size of the splitter pane. |
-| `Visible` | `bool` <br /> (`true`) | Determines whether the tab/pane is rendered. |
+| `Size` | `string` | Determines the size of the splitter pane. Supports two-way binding. |
+| `Visible` | `bool` <br /> (`true`) | Determines whether the tab/pane is rendered. Supports two-way binding. |
 
 #### DockManagerSplitPane Parameters (only when defined as a floating pane)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `FloatingHeight` | `string` | The height of the rendered window. |
-| `FloatingLeft` | `string` | The CSS `left` value of the rendered window, relative to the dock manager element (`k-dockmanager`) |
+| `FloatingHeight` | `string` | The height of the rendered window. Supports two-way binding. |
+| `FloatingLeft` | `string` | The CSS `left` value of the rendered window, relative to the dock manager element (`k-dockmanager`). Supports two-way binding. |
 | `FloatingResizable` | `bool` <br /> (`true`) | Determines whether the rendered window is resizable. |
-| `FloatingTop` | `string` | The CSS `top` value of the rendered window, relative to the dock manager element (`k-dockmanager`) |
-| `FloatingWidth`  | `string` | The width of the rendered window. |
+| `FloatingTop` | `string` | The CSS `top` value of the rendered window, relative to the dock manager element (`k-dockmanager`). Supports two-way binding. |
+| `FloatingWidth`  | `string` | The width of the rendered window. Supports two-way binding. |
 
 ### DockManagerTabGroupPane Parameters
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `AllowEmpty` | `bool` <br /> (`false`) | Determines whether an empty space is left when all tabs are removed (unpinned, closed, etc.), allowing you to drop content panes and create a new tab. |
+| `AllowEmpty` | `bool` | Determines whether an empty space is left when all tabs are removed (unpinned, closed, etc.), allowing you to drop content panes and create a new tab. |
 | `Id` | `string` <br /> (`Guid`) | The id of the pane. |
 | `SelectedPaneId` | `int` | The `id` of the initially selected tab pane. |
-| `Size` | `string` | Determines the size of the splitter pane. |
-| `Visible` | `bool` <br /> (`true`) | Determines whether the tab/pane is rendered. |
+| `Size` | `string` | Determines the size of the splitter pane. Supports two-way binding. |
+| `Visible` | `bool` <br /> (`true`) | Determines whether the tab/pane is rendered. Supports two-way binding. |
 
 ## DockManager Reference
 
