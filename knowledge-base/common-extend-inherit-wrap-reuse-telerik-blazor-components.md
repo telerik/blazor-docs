@@ -49,7 +49,7 @@ On the other hand, neither option allows changing the internal HTML rendering of
 
 ### Wrap Telerik Components
 
-This approach allows you to add additional markup or other components next to the Telerik component.
+This approach allows you to add additional markup or other components next to the Telerik component. You can also define custom events for the component, which wraps the Telerik component.
 
 1. Add the Telerik component to a separate `.razor` file, for example, `MyReusableComponent.razor`.
 1. Implement the desired `MyReusableComponent` parameters and set the required parameters of the Telerik component.
@@ -89,9 +89,18 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
                  Class="my-combobox"
                  Filterable="true"
                  FilterOperator="@StringFilterOperator.Contains"
-                 Width="200px" />
+                 Width="240px">
+    <ComboBoxPrefixTemplate>
+        <TelerikSvgIcon Icon="@SvgIcon.Sparkles" />
+    </ComboBoxPrefixTemplate>
+    <ComboBoxSuffixTemplate>
+        <TelerikButton Icon="@SvgIcon.QuestionCircle"
+                       Title="Click Me"
+                       OnClick="@OnComboBoxSuffixClick" />
+    </ComboBoxSuffixTemplate>
+</TelerikComboBox>
 
-<p style="margin-top:2em"><strong>Inherited ComboBox</strong> with additional API and default property values</p>
+<p style="margin-top:2em"><strong>Inherited ComboBox</strong> with additional parameters and default property values</p>
 
 <InheritedComboBox @ref="@InheritedComboBoxRef"
                    Data="@ListItems"
@@ -99,18 +108,34 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
                    GroupField="@nameof(ListItem.Category)"
                    TextField="@nameof(ListItem.Text)"
                    ValueField="@nameof(ListItem.Id)"
-                   CustomParameter="foo" />
+                   CustomParameter="inherited foo">
+    <ComboBoxPrefixTemplate>
+        <TelerikSvgIcon Icon="@SvgIcon.Sparkles" />
+    </ComboBoxPrefixTemplate>
+    <ComboBoxSuffixTemplate>
+        <TelerikButton Icon="@SvgIcon.QuestionCircle"
+                       Title="Click Me"
+                       OnClick="@OnComboBoxSuffixClick" />
+    </ComboBoxSuffixTemplate>
+</InheritedComboBox>
 
 <TelerikButton OnClick="@OnInheritedButtonClick">@InheritedComboBoxCustomProperty</TelerikButton>
 
-<p style="margin-top:2em"><strong>Reusable ComboBox</strong> with additional rendering, API and default parameter values</p>
+<p style="margin-top:2em"><strong>Reusable ComboBox</strong> with additional rendering and parameters, custom event, and default parameter values</p>
 
 <ReusableComboBox @ref="@ReusableComboBoxRef"
                   Data="@ListItems"
                   @bind-Value="@SelectedValue"
                   GroupField="@nameof(ListItem.Category)"
                   TextField="@nameof(ListItem.Text)"
-                  ValueField="@nameof(ListItem.Id)" />
+                  ValueField="@nameof(ListItem.Id)"
+                  OnSuffixTemplateClick="@OnComboBoxSuffixClick"
+                  Label="Select Item"
+                  CustomParameter="reusable foo">
+    <PrefixTemplate>
+        <TelerikSvgIcon Icon="@SvgIcon.Sparkles" />
+    </PrefixTemplate>
+</ReusableComboBox>
 
 <TelerikButton OnClick="@OnReusableButtonClick">@ReusableComboBoxCustomProperty</TelerikButton>
 
@@ -131,6 +156,9 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
     private string InheritedComboBoxCustomProperty { get; set; } = "Get Custom ComboBox Property";
     private string ReusableComboBoxCustomProperty { get; set; } = "Get Custom ComboBox Property";
 
+    [CascadingParameter]
+    public DialogFactory? TelerikDialogs { get; set; }
+
     private void OnInheritedButtonClick()
     {
         InheritedComboBoxCustomProperty = InheritedComboBoxRef?.CustomProperty ?? "Error";
@@ -139,6 +167,11 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
     private void OnReusableButtonClick()
     {
         ReusableComboBoxCustomProperty = ReusableComboBoxRef?.CustomProperty ?? "Error";
+    }
+
+    private async Task OnComboBoxSuffixClick()
+    {
+        await TelerikDialogs!.AlertAsync("SuffixTemplate Button Click fired");
     }
 
     protected override void OnInitialized()
@@ -172,7 +205,7 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
 @typeparam TItem
 @typeparam TValue
 
-<span style="display: flex; gap: 1em; align-items: center;">
+<span style="display: inline-flex; gap: 1em; align-items: center;">
     <label for="@Id" style="font-size: var(--kendo-font-size)">@Label</label>
     <TelerikComboBox Data="@Data"
                      Value="@Value"
@@ -185,7 +218,14 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
                      FilterOperator="@StringFilterOperator.Contains"
                      Class="my-combobox"
                      Id="@Id"
-                     Width="200px" />
+                     Width="240px"
+                     ComboBoxPrefixTemplate="@PrefixTemplate">
+        <ComboBoxSuffixTemplate>
+            <TelerikButton Icon="@SvgIcon.QuestionCircle"
+                           Title="Click Me"
+                           OnClick="@OnSuffixButtonClick" />
+        </ComboBoxSuffixTemplate>
+    </TelerikComboBox>
 </span>
 
 @code {
@@ -213,13 +253,22 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
     [Parameter]
     public string Label { get; set; } = "Select Value";
 
+    [Parameter]
+    public string CustomParameter { get; set; } = string.Empty;
+
+    [Parameter]
+    public RenderFragment? PrefixTemplate { get; set; }
+
+    [Parameter]
+    public EventCallback OnSuffixTemplateClick { get; set; }
+
     private readonly string Id = $"id-{Guid.NewGuid()}";
 
     public string CustomProperty
     {
         get
         {
-            return $"Custom Reusable Property {DateTime.Now.Millisecond}";
+            return $"{CustomParameter} {DateTime.Now.Millisecond}";
         }
     }
 
@@ -230,6 +279,14 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
         if (ValueChanged.HasDelegate)
         {
             await ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    private async Task OnSuffixButtonClick()
+    {
+        if (OnSuffixTemplateClick.HasDelegate)
+        {
+            await OnSuffixTemplateClick.InvokeAsync();
         }
     }
 }
@@ -257,7 +314,7 @@ namespace YourAppName.BaseComponents
         {
             get
             {
-                return $"Custom Inherited Property {DateTime.Now.Millisecond}";
+                return $"{CustomParameter} {DateTime.Now.Millisecond}";
             }
         }
 
