@@ -140,6 +140,11 @@ You can use the following properties on bound columns:
 * `ShowColumnMenu` - (defaults to `true`) - if set to `false`, disables the [column menu](slug:treelist-column-menu) for that particular column.
 * `VisibleInColumnChooser` - (defaults to `true`) - if set to `false`, removes the column from the Column chooser of the [column menu](slug:treelist-column-menu).
 
+### Identification
+
+* `Id` - a unique identifier of the TreeList Column. Use to associate the column to the respective item in the column chooser when the columns are organized in [sections](slug:treelist-column-menu#column-sections).  
+* `ref` - the standard Blazor reference name.
+
 ### Data Operations
 
 * `Editable` - (defaults to `true`) - you can set this property to `true` or `false` to allow or prevent [editing](slug:treelist-overview#editing) of this field. Defaults to `true`. To edit data, you also need a [CommandColumn](slug:treelist-columns-command).
