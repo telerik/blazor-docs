@@ -16,6 +16,7 @@ This article explains the events available in the Telerik DockManager for Blazor
 * [OnUndock](#ondock)
 * [VisibleChanged](#visiblechanged)
 * [SizeChanged](#sizechanged)
+* [UnpinnedChanged](#unpinnedchanged)
 * [UnpinnedSizeChanged](#unpinnedsizechanged)
 * [OnPaneResize](#onpaneresize)
 * [State Events](#state-events)
@@ -24,7 +25,7 @@ This article explains the events available in the Telerik DockManager for Blazor
 
 ## OnDock
 
-The `OnDock` event is fired when any pane is docked.
+The `OnDock` event fires when any pane is docked.
 
 The event handler receives as an argument an `DockManagerDockEventArgs` object that contains:
 
@@ -37,7 +38,7 @@ The event handler receives as an argument an `DockManagerDockEventArgs` object t
 
 ## OnUndock
 
-The `OnUndock` event is fired when any pane is undocked.
+The `OnUndock` event fires when any pane is undocked.
 
 The event handler receives as an argument an `DockManagerUndockEventArgs` object that contains:
 
@@ -48,19 +49,23 @@ The event handler receives as an argument an `DockManagerUndockEventArgs` object
 
 ## VisibleChanged
 
-The `VisibleChanged` event is fired when the user tries to hide a given pane. You can effectively cancel the event by not propagating the new visibility state to the variable the `Visible` property is bound to. This is the way to cancel the event and keep the pane visible.
+The `VisibleChanged` event fires when the user tries to hide a given pane. You can effectively cancel the event by not propagating the new visibility state to the variable the `Visible` property is bound to. This is the way to cancel the event and keep the pane visible.
 
 ## SizeChanged
 
-The `SizeChanged` event is triggered when the `Size` parameter of the corresponding pane is changed.
+The `SizeChanged` event fireswhen the `Size` parameter of the corresponding pane changes.
+
+## UnpinnedChanged
+
+The `UnpinnedChanged` event fireswhen the `Unpinned` parameter of the corresponding pane changes.
 
 ## UnpinnedSizeChanged
 
-The `UnpinnedSizeChanged` event is triggered when the `UnpinnedSize` parameter of the corresponding pane is changed.
+The `UnpinnedSizeChanged` event fires when the `UnpinnedSize` parameter of the corresponding pane changes.
 
 ## OnPaneResize
 
-The `OnPaneResize` event is fired when a pane is resized, except unpinned panes. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:dockmanager-state) for your users.
+The `OnPaneResize` event fires when a pane is resized, except unpinned panes. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:dockmanager-state) for your users.
 
 The event handler receives as an argument an `DockManagerPaneResizeEventArgs` object that contains:
 
@@ -81,7 +86,7 @@ Review the [DockManager state](slug:dockmanager-state) article for more details 
 
 ## OnPin
 
-The `OnPin` event is fired when any pane is pinned.
+The `OnPin` event fires when any pane is pinned.
 
 The event handler receives as an argument an `DockManagerPinEventArgs` object that contains:
 
@@ -92,7 +97,7 @@ The event handler receives as an argument an `DockManagerPinEventArgs` object th
 
 ## OnUnpin
 
-The `OnUnpin` event is fired when any pane is unpinned.
+The `OnUnpin` event fires when any pane is unpinned.
 
 The event handler receives as an argument an `DockManagerUnpinEventArgs` object that contains:
 
@@ -124,13 +129,17 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
                 <DockManagerContentPane HeaderText="Pane 1"
                                         Id="Pane1"
                                         Size="50%"
+                                        Unpinned="@Pane1Unpinned"
+                                        UnpinnedChanged="@Pane1UnpinnedChanged"
                                         UnpinnedSize="@Pane1UnpinnedSize"
                                         UnpinnedSizeChanged="@Pane1UnpinnedSizeChanged"
                                         Closeable="false">
                     <Content>
                         Pane 1. Undocking is allowed. Docking over it is cancelled.
-                        <code>UnpinnedSizeChanged</code> is handled.
-                        Current <code>UnpinnedSize</code>: <strong>@Pane1UnpinnedSize</strong>
+                        <code>UnpinnedChanged</code> and <code>UnpinnedSizeChanged</code> are handled.
+                        Current
+                        <code>UnpinnedSize</code>:
+                        <strong>@Pane1UnpinnedSize</strong>
                     </Content>
                 </DockManagerContentPane>
 
@@ -206,6 +215,7 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
 @code {
     private TelerikDockManager? DockManagerRef { get; set; }
 
+    private bool Pane1Unpinned { get; set; }
     private string Pane1UnpinnedSize { get; set; } = "360px";
     private bool Pane4Visible { get; set; } = true;
     private bool FloatingPaneVisible { get; set; } = true;
@@ -247,13 +257,20 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
         }
         else
         {
-            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was pinned.");
+            DockManagetEventLog.Insert(0, $"[DockManager OnPanePin] Pane <strong>{args.PaneId}</strong> was pinned.");
         }
     }
 
     private void OnPaneResize(DockManagerPaneResizeEventArgs args)
     {
         DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was resized to {args.Size}.");
+    }
+
+    private void Pane1UnpinnedChanged(bool newUnpinned)
+    {
+        Pane1Unpinned = newUnpinned;
+
+        DockManagetEventLog.Insert(0, $"[Pane UnpinnedChanged] Pane <strong>Pane 1</strong> was {(newUnpinned ? "unpinned" : "pinned")}.");
     }
 
     private void Pane1UnpinnedSizeChanged(string newUnpinnedSize)
@@ -272,7 +289,7 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
         }
         else
         {
-            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was unpinned.");
+            DockManagetEventLog.Insert(0, $"[DockManager OnUnpin] Pane <strong>{args.PaneId}</strong> was unpinned.");
         }
     }
 
