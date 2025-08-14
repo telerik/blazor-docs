@@ -28,7 +28,7 @@ How do I select data across different pages without losing the current selection
 
 ## Solution
 
-If your users don't use the `Ctrl` and/or `Shift` buttons to extend the selection, you may want to implement some logic that amends the current selection. This also extends to the Select All checkbox in the header.
+If your users don't use the `Ctrl` or `Shift` buttons to extend the selection, you may want to implement some logic that amends the current selection. This also extends to the Select All checkbox in the header.
 
 An example is available in the following project: [https://github.com/telerik/blazor-ui/tree/master/grid/persist-selection](https://github.com/telerik/blazor-ui/tree/master/grid/persist-selection)
 

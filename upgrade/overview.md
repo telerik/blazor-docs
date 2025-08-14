@@ -62,7 +62,7 @@ If you have just purchased a license and you need to migrate from the trial pack
 
 1. [Update your Telerik license key](slug:installation-license-key#license-key-updates) after you purchase or renew a license.
 
-1. To upgrade to the latest product version, follow the steps for [updating the Telerik UI for ASP.NET MVC version](#upgrading-to-new-versions).
+1. To upgrade to the latest product version, follow the steps for [updating the Telerik UI for Blazor version](#upgrade-process).
 
 ## Troubleshooting
 

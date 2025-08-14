@@ -17,7 +17,7 @@ The `TelerikRootComponent` is a special component in Telerik UI for Blazor. Its 
 
 The `TelerikRootComponent` is responsible for the following tasks:
 
-* It provides settings to all its child Telerik components, for example, for the [icon type](slug:common-features-icons#set-global-icon-type) or [right-to-left (RTL) support](slug:rtl-support).
+* It provides settings to all its child Telerik components, for example, for the [icon type](slug:common-features-icons#set-global-blazor-icon-type) or [right-to-left (RTL) support](slug:rtl-support).
 * It renders all Telerik popups, which has the following benefits:
     * It's more reliable that the popups will display on top of the other page content.
     * There is no risk for the popups to be trapped by scrollable containers, or clipped by containers with an `overflow:hidden` style.
