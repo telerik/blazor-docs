@@ -35,7 +35,7 @@ Here a few notes on the resizing behavior:
 
 When column resizing is enabled, a double click on the resize handle between two header cells automatically adjusts the column width to the content of the header, data and footers. Autofitting also removes text wrapping in the column cells.
 
-Similar to regular [column resizing](#resize-by-dragging), autofitting specific columns preserves the current widths of all the other columns. Column autofitting can trigger a horizontal Grid scrollbar, or leave empty space after the last column.
+Similar to regular [column resizing](#resize-by-dragging), autofitting specific columns preserves the current widths of all the other columns. Column autofitting can trigger a horizontal Grid scrollbar or leave empty space after the last column.
 
 The Grid takes into account the `MinResizableWidth` and `MaxResizableWidth` for each auto-fitted column.
 
