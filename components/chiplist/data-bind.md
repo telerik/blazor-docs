@@ -30,30 +30,34 @@ The ChipList has features that map to properties in the component model class. T
             Text = "Audio",
             Icon = SvgIcon.FileAudio,
             Disabled = false,
-            Removable = true
+            Removable = true,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Base
         },
         new ChipModel()
         {
             Text = "Video",
             Icon = SvgIcon.FileVideo,
             Disabled = false,
-            Removable = false
+            Removable = false,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Warning
         },
         new ChipModel()
         {
             Text = "Image",
             Icon = SvgIcon.FileImage,
             Disabled = true,
-            Removable = false
+            Removable = false,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Info
         }
     };
 
     public class ChipModel
     {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public ISvgIcon? Icon { get; set; }
         public bool Disabled { get; set; }
         public bool Removable { get; set; }
+        public string ThemeColor { get; set; } = string.Empty;
     }
 }
 ````
@@ -68,6 +72,7 @@ The table below lists the available data binding parameters for the Blazor ChipL
 | `IconField` | `"Icon"` | The icon that renders in the chip. |
 | `TextField` | `"Text"` | The text that renders in the chip. |
 | `RemovableField`| `"Removable"` | Defines if the users can remove the chip. |
+| `ThemeColorField`| `"ThemeColor"` | Defines the [`ThemeColor` of each chip](slug:chip-appearance#themecolor). |
 
 #### Icons
 
