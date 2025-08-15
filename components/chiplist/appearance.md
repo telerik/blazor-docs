@@ -10,13 +10,15 @@ position: 35
 
 # ChipList Appearance Settings
 
-You can control the appearance of the chips in the ChipList by setting the following attributes:
+You can control the appearance of the chips in the ChipList by setting the following parameters:
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
 * [Size](#size)
 
 You can use all of them together to achieve the desired appearance. This article will explain their effect one by one.
+
+Also see how to [set `ThemeColor`](slug:chip-appearance#themecolor) for each [chip in the ChipList](slug:chiplist-bound).
 
 ## FillMode
 
@@ -191,3 +193,7 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
 ````
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
+## See Also
+
+* [Set ThemeColor for each chip in the ChipList](slug:chiplist-bound)
