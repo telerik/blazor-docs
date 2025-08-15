@@ -33,17 +33,31 @@ Here a few notes on the resizing behavior:
 
 ## Autofit Columns
 
-When column resizing is enabled, a double click on the resize handle between the header cells will automatically fit the column width to the content of the header, data and footers. This will remove text wrapping in the component.
+When column resizing is enabled, a double click on the resize handle between two header cells automatically adjusts the column width to the content of the header, data and footers. Autofitting also removes text wrapping in the column cells.
 
-The TreeList also exposes methods to programmatically resize columns to fit their contents:
+Similar to regular [column resizing](#resize-by-dragging), autofitting specific columns preserves the current widths of all the other columns. Column autofitting can trigger a horizontal TreeList scrollbar, or leave empty space after the last column.
 
-* `AutoFitColumn(string id)` - autofits the column with the specified `Id` attribute;
-* `AutoFitColumns(IEnumerable<string> ids)` - autofits multiple columns at once;
-* `AutoFitAllColumns()` - autofits all applicable columns (for example, this method does not affect the hierarchy expand/collapse column);
+The TreeList takes into account the `MinResizableWidth` and `MaxResizableWidth` of each auto-fitted column.
 
-Autofitting specific columns preserves the current widths of all the other columns. Similar to [column resizing](#resize-by-dragging), column autofitting can trigger a horizontal Grid scrollbar, or leave empty space after the last column.
+The component also exposes methods to programmatically resize columns to fit their contents:
+
+* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute](slug:components/grid/columns/bound#identification).
+* `AutoFitColumnsAsync(IEnumerable<string> ids)`—Autofits multiple columns at once.
+* `AutoFitAllColumnsAsync()`—Autofits all applicable columns. For example, this method does not affect the hierarchy expand/collapse columns.
 
 Programmatic autofitting works even if column resizing is disabled.
+
+> Autofitting a large number of columns with a large `PageSize` can be a resource-intensive operation. For better client-side performance, set fixed optimal widths to all columns with predictable content like numbers and dates, and only autofit the others.
+
+### Limitations
+
+The known limitations of the Autofit Columns feature include:
+
+* Autofitting the columns is not supported with [Virtual Columns](slug:treelist-columns-virtual).
+
+* Autofitting the columns on initial load of the TreeList is not supported.
+
+>important Trying to autofit the columns on initial load will throw a `NullReferenceException`. Check the [AutoFit all Grid columns on initial load knowledge-base article](slug:grid-autofit-columns-on-initial-load) to see a possible solution to achieve this behavior. 
 
 ## Example
 
@@ -51,19 +65,15 @@ Programmatic autofitting works even if column resizing is disabled.
 
 ![Blazor TreeList Column Resize Preview](images/column-resize-preview.gif)
 
-
 >caption TreeList Column Resizing and Autofitting
 
 ````RAZOR
-@* TreeList column resizing and autofitting *@
-@* Drag the border between column headers to change the column width. You cannot resize the ID column itself. *@
-
 <TelerikButton OnClick="@AutoFitSingleColumn">AutoFit Name Column</TelerikButton>
 <TelerikButton OnClick="@AutoFitMultipleColumns">AutoFit Id and ParentId Columns</TelerikButton>
 <TelerikButton OnClick="@AutoFitAllColumns">AutoFit All Columns</TelerikButton>
 
-<TelerikTreeList @ref="@TreeList" Data="@Data" Resizable="true"
-                 Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px" Height="400px">
+<TelerikTreeList @ref="@TreeList" Data="@TreeListData" Resizable="true"
+                 Pageable="true" IdField="Id" ParentIdField="ParentId" Height="400px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" Id="NameColumn" />
         <TreeListColumn Field="Id" Resizable="false" Id="IdColumn" />
@@ -73,47 +83,30 @@ Programmatic autofitting works even if column resizing is disabled.
 </TelerikTreeList>
 
 @code {
-    public TelerikTreeList<Employee> TreeList { get; set; }
-    public List<Employee> Data { get; set; }
+    private TelerikTreeList<Employee>? TreeList { get; set; }
+    private List<Employee> TreeListData { get; set; } = new();
 
-    private void AutoFitSingleColumn()
+    private async Task AutoFitSingleColumn()
     {
-        TreeList.AutoFitColumn("NameColumn");
+        await TreeList!.AutoFitColumnAsync("NameColumn");
     }
 
-    private void AutoFitMultipleColumns()
+    private async Task AutoFitMultipleColumns()
     {
         var columns = new List<string>() { "IdColumn", "ParentIdColumn" };
-        TreeList.AutoFitColumns(columns);
+        await TreeList!.AutoFitColumnsAsync(columns);
     }
 
-    private void AutoFitAllColumns()
+    private async Task AutoFitAllColumns()
     {
-        TreeList.AutoFitAllColumns();
+        await TreeList!.AutoFitAllColumnsAsync();
     }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        Data = await GetTreeListData();
-    }
-
-    // sample models and data generation
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-
-    async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
         for (int i = 1; i < 15; i++)
         {
-            data.Add(new Employee
+            TreeListData.Add(new Employee
             {
                 Id = i,
                 ParentId = null,
@@ -124,7 +117,7 @@ Programmatic autofitting works even if column resizing is disabled.
             for (int j = 1; j < 4; j++)
             {
                 int currId = i * 100 + j;
-                data.Add(new Employee
+                TreeListData.Add(new Employee
                 {
                     Id = currId,
                     ParentId = i,
@@ -135,7 +128,7 @@ Programmatic autofitting works even if column resizing is disabled.
                 for (int k = 1; k < 3; k++)
                 {
                     int nestedId = currId * 1000 + k;
-                    data.Add(new Employee
+                    TreeListData.Add(new Employee
                     {
                         Id = nestedId,
                         ParentId = currId,
@@ -145,12 +138,18 @@ Programmatic autofitting works even if column resizing is disabled.
                 }
             }
         }
+    }
 
-        return await Task.FromResult(data);
+    public class Employee
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public DateTime HireDate { get; set; }
     }
 }
 ````
 
 ## See Also
 
-  * [Live Demo: Column Resizing](https://demos.telerik.com/blazor-ui/treelist/column-resizing)
+* [Live Demo: Column Resizing](https://demos.telerik.com/blazor-ui/treelist/column-resizing)

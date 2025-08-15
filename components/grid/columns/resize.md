@@ -33,18 +33,21 @@ Here a few notes on the resizing behavior:
 
 ## Autofit Columns
 
-When column resizing is enabled, a double click on the resize handle between the header cells will automatically fit the column width to the content of the header, data and footers. This will remove text wrapping in the component.
+When column resizing is enabled, a double click on the resize handle between two header cells automatically adjusts the column width to the content of the header, data and footers. Autofitting also removes text wrapping in the column cells.
 
-The Grid also exposes methods to programmatically resize columns to fit their contents:
+Similar to regular [column resizing](#resize-by-dragging), autofitting specific columns preserves the current widths of all the other columns. Column autofitting can trigger a horizontal Grid scrollbar or leave empty space after the last column.
 
-* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute](slug:components/grid/columns/bound#identification).
+The Grid takes into account the `MinResizableWidth` and `MaxResizableWidth` for each auto-fitted column.
+
+The component also exposes methods to programmatically resize columns to fit their contents:
+
+* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute](slug:components/treelist/columns/bound#identification).
 * `AutoFitColumnsAsync(IEnumerable<string> ids)`—Autofits multiple columns at once.
 * `AutoFitAllColumnsAsync()`—Autofits all applicable columns. For example, this method does not affect the hierarchy expand/collapse columns.
 
-Autofitting specific columns preserves the current widths of all the other columns. Similar to [column resizing](#resize-by-dragging), column autofitting can trigger a horizontal Grid scrollbar, or leave empty space after the last column.
-
 Programmatic autofitting works even if column resizing is disabled.
 
+> Autofitting a large number of columns with a large `PageSize` can be a resource-intensive operation. For better client-side performance, set fixed optimal widths to all columns with predictable content like numbers and dates, and only autofit the others.
 
 ### Limitations
 
@@ -55,7 +58,6 @@ The known limitations of the Autofit Columns feature include:
 * Autofitting the columns on initial load of the Grid is not supported.
 
 >important Trying to autofit the columns on initial load will throw a `NullReferenceException`. Check the [AutoFit all Grid columns on initial load knowledge-based article](slug:grid-autofit-columns-on-initial-load) to see a possible solution to achieve this behavior. 
-
 
 ## Example
 
