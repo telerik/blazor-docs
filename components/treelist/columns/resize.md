@@ -57,7 +57,7 @@ The known limitations of the Autofit Columns feature include:
 
 * Autofitting the columns on initial load of the TreeList is not supported.
 
->important Trying to autofit the columns on initial load will throw a `NullReferenceException`. Check the [AutoFit all Grid columns on initial load knowledge-based article](slug:grid-autofit-columns-on-initial-load) to see a possible solution to achieve this behavior. 
+>important Trying to autofit the columns on initial load will throw a `NullReferenceException`. Check the [AutoFit all Grid columns on initial load knowledge-base article](slug:grid-autofit-columns-on-initial-load) to see a possible solution to achieve this behavior. 
 
 ## Example
 
