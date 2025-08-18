@@ -63,38 +63,45 @@ You can customize the Splitter orientation through the its `Orientation` paramet
 
 ## Nested Splitters With Different Orientation
 
-Sometimes you need to create a more complex layout that includes both horizontal and vertical panes. To do that, you can nest Telerik Splitter components inside the panes of other splitters. When you do that, set the `Class` parameter of the nested splitter to `k-pane-flex`.
+You can create more complex layouts that include both horizontal and vertical Splitters. To do that, add a Telerik Splitter as a child of another Splitter's pane. Usually, the nested Splitter should be 100% high.
 
->caption Nested splitters that create a complex layout with both horizontal and vertical panes
+>caption Layout with nested Splitters
 
 ````RAZOR
-<div style="width: 500px; height: 300px; border: 2px solid red;">
+<TelerikSplitter Orientation="@SplitterOrientation.Horizontal"
+                 Height="100vh"
+                 Width="100vw">
+    <SplitterPanes>
+        <SplitterPane Size="120px">
+            <div>Spltter 1 (horizontal), Left Pane</div>
+        </SplitterPane>
+        <SplitterPane>
 
-    <TelerikSplitter Width="100%" Height="100%">
-        <SplitterPanes>
-            <SplitterPane Size="100px">
-                <div>left sidebar</div>
-            </SplitterPane>
-            <SplitterPane>
+            <TelerikSplitter Height="100%"
+                             Orientation="@SplitterOrientation.Vertical">
+                <SplitterPanes>
+                    <SplitterPane Size="20%">
+                        <div>Splitter 2 (vertical), Top Pane</div>
+                    </SplitterPane>
+                    <SplitterPane>
+                        <TelerikSplitter Height="100%"
+                                         Orientation="@SplitterOrientation.Horizontal">
+                            <SplitterPanes>
+                                <SplitterPane>
+                                    <div>Splitter 3 (horizontal), Left Pane</div>
+                                </SplitterPane>
+                                <SplitterPane>
+                                    <div>Splitter 3 (horizontal), Right Pane</div>
+                                </SplitterPane>
+                            </SplitterPanes>
+                        </TelerikSplitter>
+                    </SplitterPane>
+                </SplitterPanes>
+            </TelerikSplitter>
 
-                <TelerikSplitter Class="k-pane-flex"
-                                 Width="100%" Height="100%"
-                                 Orientation="@SplitterOrientation.Vertical">
-                    <SplitterPanes>
-                        <SplitterPane Size="20%">
-                            <div>TOP content</div>
-                        </SplitterPane>
-                        <SplitterPane>
-                            <div>Bottom content</div>
-                        </SplitterPane>
-                    </SplitterPanes>
-                </TelerikSplitter>
-
-            </SplitterPane>
-        </SplitterPanes>
-    </TelerikSplitter>
-
-</div>
+        </SplitterPane>
+    </SplitterPanes>
+</TelerikSplitter>
 ````
 
 ## Next Steps
