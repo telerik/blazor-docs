@@ -12,10 +12,10 @@ position: 10
 
 You can control the appearance of the Chip by using the following parameters:
 
-* [FillMode](#fillmode)
-* [Rounded](#rounded)
-* [Size](#size)
-* [ThemeColor](#themecolor)
+* [`FillMode`](#fillmode)
+* [`Rounded`](#rounded)
+* [`Size`](#size)
+* [`ThemeColor`](#themecolor)
 
 ## FillMode
 

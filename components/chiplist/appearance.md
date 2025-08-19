@@ -12,9 +12,9 @@ position: 35
 
 You can control the appearance of the chips in the ChipList by setting the following parameters:
 
-* [FillMode](#fillmode)
-* [Rounded](#rounded)
-* [Size](#size)
+* [`FillMode`](#fillmode)
+* [`Rounded`](#rounded)
+* [`Size`](#size)
 
 You can use all of them together to achieve the desired appearance. This article will explain their effect one by one.
 
