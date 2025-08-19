@@ -41,7 +41,7 @@ The Grid takes into account the `MinResizableWidth` and `MaxResizableWidth` for 
 
 The component also exposes methods to programmatically resize columns to fit their contents:
 
-* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute](slug:components/treelist/columns/bound#identification).
+* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute](slug:components/grid/columns/bound#identification).
 * `AutoFitColumnsAsync(IEnumerable<string> ids)`—Autofits multiple columns at once.
 * `AutoFitAllColumnsAsync()`—Autofits all applicable columns. For example, this method does not affect the hierarchy expand/collapse columns.
 
