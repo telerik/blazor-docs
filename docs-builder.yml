@@ -320,6 +320,17 @@ meta:
     title: ColorPalette
   "*colorgradient":
     title: ColorGradient
+  "*chat":
+    title: Chat
+  "*components/chat/customization":
+    title: Customization
+    position: 3
+  "*components/chat/integrations":
+    title: Integrations
+    position: 5
+  "*components/chat/messages":
+    title: Integrations
+    position: 6
   "*chunkprogressbar":
     title: ChunkProgressBar
   "*chiplist":
