@@ -21,7 +21,7 @@ The Diagram component UI consists of the following elements:
 * [*Connections*](slug:diagram-connections) are the links ([edges](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#edge)) between Diagram shapes. Normally, a connection links two Diagram shapes, but a connection can also exist without related shapes.
 * [*Caps*](slug:diagram-connections#cap-types) are the connection ends. The connections are directional, so each connection has a start cap and end cap.
 * [*Selection handles*](slug:diagram-connections#selection-handles) are the additional visual elements that appear at both ends of a connection when it is selected. The handles appear on top of the caps and connectors.
-* [*Components*](slug:diagram-layouts#layout-grid-settings) are groups ([subgraphs]((https://en.wikipedia.org/wiki/Component_(graph_theory)))) of connected shapes within the same Diagram that are not linked to each other. The Diagram provides [dedicated settings for such scenarios].
+* [*Components*](slug:diagram-layouts#layout-grid-settings) are groups ([subgraphs](https://en.wikipedia.org/wiki/Component_(graph_theory))) of connected shapes within the same Diagram that are not linked to each other. The Diagram provides [dedicated settings for such scenarios].
 
 Note that difference between caps, connectors, and selection handles. Although they can overlap visually, connectors belong to a shape, while caps and selection handles belong to a connection.
 
