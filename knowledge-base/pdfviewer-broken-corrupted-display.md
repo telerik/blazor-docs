@@ -52,4 +52,4 @@ Unfortunately, the PDF Viewer cannot detect, report or fix this visualization pr
 ## See Also
 
 * [Character display issue in PDF documents on Chrome and Edge](https://pdfjs.community/t/character-display-issue-on-chrome-edge-but-not-firefox/1753/9)
-* [PDF rendering issues in Google Chrome](https://support.papersapp.com/support/solutions/articles/30000046026-pdf-rendering-issues-in-google-chrome-on-windows-10)
+* [PDF rendering issues in Google Chrome](https://web.archive.org/web/20250513040055/https://support.papersapp.com/support/solutions/articles/30000046026-pdf-rendering-issues-in-google-chrome-on-windows-10)
