@@ -18,33 +18,54 @@ The `OnSendMessage` event fires when a user sends a new message. Use this event 
 
 >caption Handle the OnSendMessage event
 
-````razor
+````Razor
 <TelerikChat Data="@Messages"
-             AuthorId="@CurrentUserId"
              OnSendMessage="@HandleSendMessage">
 </TelerikChat>
 
 @code {
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
-    {
-        // Validate message
-        if (string.IsNullOrWhiteSpace(args.Message))
-            return;
+    private List<ChatMessage> Messages { get; set; } = new List<ChatMessage>();
 
+    private string CurrentUserId { get; set;  } = "user1";
+
+    private void HandleSendMessage(ChatSendMessageEventArgs args)
+    {
         var newMessage = new ChatMessage
         {
             Id = Guid.NewGuid().ToString(),
-            Text = args.Message,
+            Content = args.Message,
             AuthorId = CurrentUserId,
-            Timestamp = DateTime.Now,
-            Files = args.Files?.ToList() ?? new List<FileSelectFileInfo>()
+            Timestamp = DateTime.Now
         };
 
-        // Add to collection
         Messages.Add(newMessage);
+    }
 
-        // Optionally save to database
-        await SaveMessageAsync(newMessage);
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+
+        public string AuthorId { get; set; }
+
+        public string AuthorName { get; set; }
+
+        public string AuthorImageUrl { get; set; }
+
+        public string Content { get; set; }
+
+        public string MessageToReplyId { get; set; }
+
+        public string Status { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public bool IsPinned { get; set; }
+
+        public DateTime Timestamp { get; set; }
+
+        public List<string> SuggestedActions { get; set; }
+
+        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }
 ````
@@ -55,26 +76,41 @@ The `OnSuggestionClick` event fires when a user clicks on a quick reply suggesti
 
 >caption Handle suggestion clicks
 
-````razor
+````Razor
 <TelerikChat Data="@Messages"
+             @ref="@Chat1"
              Suggestions="@QuickReplies"
              OnSuggestionClick="@HandleSuggestionClick">
 </TelerikChat>
 
 @code {
-    private List<string> QuickReplies = new List<string> { "Hello", "How are you?", "Thank you" };
+    private TelerikChat<ChatMessage> Chat1;
 
-    private async Task HandleSuggestionClick(ChatSuggestionClickEventArgs args)
+    private List<string> QuickReplies = new List<string>
     {
-        // You can modify the suggestion before it's used
-        args.IsCancelled = false; // Allow the suggestion to be used
-        
-        // Or handle it completely custom
-        if (args.Suggestion == "Thank you")
+        "Request project status update"
+    };
+
+    private void HandleSuggestionClick(ChatSuggestionClickEventArgs args)
+    {
+        string responseMessage = string.Empty;
+
+        if (args.Suggestion == "Request project status update")
         {
-            args.IsCancelled = true; // Prevent default behavior
-            await HandleCustomThankYouAction();
+            responseMessage = "Could you please provide the current status of all ongoing projects?";
         }
+
+        Messages.Add(new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            AuthorId = "user2",
+            AuthorName = "Jane Doe",
+            Content = responseMessage,
+            Status = "Sent",
+            Timestamp = DateTime.Now
+        });
+
+        Chat1?.Refresh();
     }
 }
 ````
@@ -85,7 +121,7 @@ The `OnDownload` event fires when a user downloads files from a message. Use thi
 
 >caption Handle file downloads
 
-````razor
+````RAZOR.skip-repl
 <TelerikChat Data="@Messages"
              OnDownload="@HandleDownload">
 </TelerikChat>
@@ -111,19 +147,18 @@ The `OnMessageUnpin` event fires when a user unpins a message. Handle this event
 
 >caption Handle message unpinning
 
-````razor
+````RAZOR.skip-repl
 <TelerikChat Data="@Messages"
              OnMessageUnpin="@HandleMessageUnpin">
 </TelerikChat>
 
 @code {
-    private async Task HandleMessageUnpin(ChatMessageUnpinEventArgs args)
+    private void HandleMessageUnpin(ChatMessageUnpinEventArgs args)
     {
         var message = Messages.FirstOrDefault(m => m.Id == args.MessageId);
         if (message != null)
         {
             message.IsPinned = false;
-            await UpdateMessageInDatabase(message);
         }
     }
 }
@@ -135,7 +170,7 @@ The `OnInputValueChanged` event fires when the input value changes. Use this for
 
 >caption Handle input value changes
 
-````razor
+````RAZOR.skip-repl
 <TelerikChat Data="@Messages"
              InputValue="@InputValue"
              OnInputValueChanged="@HandleInputChange">
@@ -144,22 +179,9 @@ The `OnInputValueChanged` event fires when the input value changes. Use this for
 @code {
     private string InputValue { get; set; } = string.Empty;
 
-    private async Task HandleInputChange(string newValue)
+    private void HandleInputChange(string value)
     {
-        InputValue = newValue;
-        
-        // Show typing indicator
-        if (!string.IsNullOrEmpty(newValue))
-        {
-            await ShowTypingIndicator();
-        }
-        else
-        {
-            await HideTypingIndicator();
-        }
-        
-        // Auto-save draft
-        await SaveDraft(newValue);
+        InputValue = value;
     }
 }
 ````
@@ -176,73 +198,7 @@ The Chat events provide specific argument types with relevant data:
 | `OnMessageUnpin` | `ChatMessageUnpinEventArgs` | `MessageId` |
 | `OnInputValueChanged` | `string` | The current input value |
 
-## Common Event Patterns
-
-### AI Integration
-
-Use `OnSendMessage` to send user messages to AI services:
-
-````razor
-private async Task HandleSendMessage(ChatSendMessageEventArgs args)
-{
-    // Add user message
-    Messages.Add(new ChatMessage 
-    { 
-        Text = args.Message, 
-        AuthorId = CurrentUserId,
-        Timestamp = DateTime.Now
-    });
-
-    // Get AI response
-    var aiResponse = await GetAIResponse(args.Message);
-    
-    // Add AI message
-    Messages.Add(new ChatMessage 
-    { 
-        Text = aiResponse, 
-        AuthorId = "ai",
-        Timestamp = DateTime.Now
-    });
-}
-````
-
-### File Upload Processing
-
-Handle file uploads with validation and processing:
-
-````razor
-private async Task HandleSendMessage(ChatSendMessageEventArgs args)
-{
-    if (args.Files?.Any() == true)
-    {
-        // Process uploaded files
-        foreach (var file in args.Files)
-        {
-            if (await ValidateFile(file))
-            {
-                await ProcessUploadedFile(file);
-            }
-        }
-    }
-    
-    // Handle the message as usual
-    Messages.Add(new ChatMessage 
-    { 
-        Text = args.Message,
-        Files = args.Files?.ToList(),
-        AuthorId = CurrentUserId,
-        Timestamp = DateTime.Now
-    });
-}
-````
-
-## Next Steps
-
-* [Configure Chat messages and tools](slug:chat-messages-overview)
-* [Set up AI integrations](slug:chat-integrations-overview)
-* [Handle file uploads](slug:chat-file-uploads-and-media)
-
 ## See Also
 
 * [Chat Overview](slug:chat-overview)
-* [Chat API Reference](slug:Telerik.Blazor.Components.TelerikChat-1)
+* [Chat File Uploads and Media](slug:chat-file-uploads-and-media)

@@ -10,7 +10,12 @@ published: True
 
 # WAI-ARIA Support in Telerik UI for Blazor Chat
 
-The Chat component implements WAI-ARIA roles and attributes to ensure accessibility for users with assistive technologies.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+Out of the box, the Telerik UI for Blazor Chat provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
+
+
+The Chat is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## ARIA Roles
 - `role="log"` for the message list
@@ -22,15 +27,31 @@ The Chat component implements WAI-ARIA roles and attributes to ensure accessibil
 - `aria-label` and `aria-labelledby` for descriptive labeling
 - `aria-disabled` for disabled actions
 
-## Screen Reader Support
-- All messages, actions, and input areas are announced
-- Status indicators and quick actions are accessible
+## Section 508
+
+The Chat is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
+
+## Testing
+
+The Chat has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
+
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
+
+### Screen Readers
+
+The Chat has been tested with the following screen readers and browsers combinations:
+
+| Environment | Tool |
+| ----------- | ---- |
+| Firefox | NVDA |
+| Chrome | JAWS |
+| Microsoft Edge | JAWS |
 
 ## Keyboard Navigation
-- Tab, arrow keys, and shortcuts are supported for navigation and actions
 
-## Compliance
-- Designed to meet WCAG 2.1 AA requirements
-- Tested with NVDA and JAWS
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview](slug:accessibility-overview#keyboard-navigation) article.
 
-Refer to the [Accessibility Overview](./overview.md) for more details.
+## See Also
+
+* [Blazor Chat Demos](https://demos.telerik.com/blazor-ui/chat/overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

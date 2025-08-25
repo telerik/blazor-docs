@@ -19,102 +19,112 @@ Message suggestions provide users with quick reply options that appear below the
 >caption Basic message suggestions
 
 ````razor
-<TelerikChat Data="@Messages"
+<TelerikChat Data="@ChatConversation"
+             @ref="@Chat1"
+             Width="600px"
+             Height="700px"
+             TextField="Content"
              Suggestions="@QuickReplies"
+             ReplyТоIdField="ReplyToMessageId"
+             InputValue="@ChatInputValue"
+             AuthorId="@(2.ToString())"
              OnSuggestionClick="@HandleSuggestionClick">
 </TelerikChat>
 
 @code {
-    private List<string> QuickReplies = new List<string> 
-    { 
-        "Hello", 
-        "How are you?", 
-        "Thank you", 
-        "Yes", 
-        "No", 
-        "Maybe later" 
+    private string ChatInputValue { get; set; }
+    private TelerikChat<ChatMessage> Chat1;
+
+    private List<string> QuickReplies = new List<string>
+    {
+        "Request project status update",
+        "Schedule a follow-up meeting"
     };
 
-    private async Task HandleSuggestionClick(ChatSuggestionClickEventArgs args)
+    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
     {
-        // The suggestion will be automatically placed in the input
-        // You can modify this behavior by setting args.IsCancelled = true
-        
-        if (args.Suggestion == "Thank you")
+       new ChatMessage()
+       {
+           Id="first",
+           AuthorId="1",
+           AuthorName="John Smith",
+           Content="Hello, I wanted to confirm the details of the project update.",
+           Status="Seen",
+           Timestamp=new System.DateTime(2023, 10, 1, 12, 0, 0)
+       },
+       new ChatMessage()
+       {
+           Id="second",
+           AuthorId="2",
+           AuthorName="Jane Doe",
+           Content="Hi John, the project update has been finalized and shared with the team.",
+           Status="Seen",
+           Timestamp=new System.DateTime(2023, 10, 1, 12, 5, 0)
+       }
+    };
+
+    private void HandleSuggestionClick(ChatSuggestionClickEventArgs args)
+    {
+        string responseMessage = string.Empty;
+
+        if (args.Suggestion == "Request project status update")
         {
-            // Custom handling for specific suggestions
-            await HandleThankYouAction();
+            responseMessage = "Could you please provide the current status of all ongoing projects?";
         }
-    }
-}
-````
+        else if (args.Suggestion == "Schedule a follow-up meeting")
+        {
+            responseMessage = "Let's schedule a follow-up meeting to discuss the next steps.";
+        }
 
-## Dynamic Suggestions
-
-Update suggestions based on conversation context or user actions:
-
-````razor
-<TelerikChat Data="@Messages"
-             Suggestions="@CurrentSuggestions"
-             OnSuggestionClick="@HandleSuggestionClick"
-             OnSendMessage="@HandleSendMessage">
-</TelerikChat>
-
-@code {
-    private List<string> CurrentSuggestions = new List<string> { "Hi there!", "Good morning" };
-    
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
-    {
-        // Add the message
-        Messages.Add(new ChatMessage 
-        { 
-            Text = args.Message, 
-            AuthorId = CurrentUserId,
+        ChatConversation.Add(new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            AuthorId = "2",
+            AuthorName = "Jane Doe",
+            Content = responseMessage,
+            Status = "Sent",
             Timestamp = DateTime.Now
         });
-        
-        // Update suggestions based on message content
-        await UpdateSuggestionsForContext(args.Message);
+
+        Chat1?.Refresh();
     }
-    
-    private async Task UpdateSuggestionsForContext(string lastMessage)
+
+    public class ChatMessage
     {
-        if (lastMessage.Contains("help"))
-        {
-            CurrentSuggestions = new List<string> 
-            { 
-                "I need technical support",
-                "I have a billing question", 
-                "I want to report a bug" 
-            };
-        }
-        else if (lastMessage.Contains("thank"))
-        {
-            CurrentSuggestions = new List<string> 
-            { 
-                "You're welcome!", 
-                "Happy to help", 
-                "Anything else?" 
-            };
-        }
-        
-        StateHasChanged();
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorImageUrl { get; set; }
+        public string Content { get; set; }
+        public string ReplyToMessageId { get; set; }
+        public string Status { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsPinned { get; set; }
+        public DateTime Timestamp { get; set; }
+        public List<string> SuggestedActions { get; set; }
+        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }
 ````
 
 ## Custom Suggestion Templates
 
-Customize the appearance of suggestions using the `SuggestionTemplate`:
+Customize the appearance of suggestions using the Chat's `SuggestionTemplate`.
 
 ````razor
-<TelerikChat Data="@Messages"
-             Suggestions="@ActionSuggestions"
+<TelerikChat Data="@ChatConversation"
+             @ref="@Chat1"
+             Width="600px"
+             Height="700px"
+             TextField="Content"
+             Suggestions="@CurrentSuggestions"
+             InputValue="@ChatInputValue"
+             AuthorId="@(2.ToString())"
              OnSuggestionClick="@HandleSuggestionClick">
-    <SuggestionTemplate Context="context">
-        <div class="custom-suggestion">
-            <TelerikSvgIcon Icon="@GetSuggestionIcon(context.Suggestion)" />
-            <span>@context.Suggestion</span>
+    <SuggestionTemplate Context="suggestionContext">
+        <div class="custom-suggestion" data-suggestion="@suggestionContext.Suggestion">
+            <span class="suggestion-icon">💬</span>
+            <span class="suggestion-text">@suggestionContext.Suggestion</span>
         </div>
     </SuggestionTemplate>
 </TelerikChat>
@@ -123,208 +133,142 @@ Customize the appearance of suggestions using the `SuggestionTemplate`:
     .custom-suggestion {
         display: flex;
         align-items: center;
-        gap: 8px;
         padding: 8px 12px;
-        border: 1px solid #ddd;
-        border-radius: 16px;
-        background: linear-gradient(135deg, #f5f5f5, #ffffff);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 20px;
+        margin: 2px;
         cursor: pointer;
         transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    
+
     .custom-suggestion:hover {
-        background: linear-gradient(135deg, #e8e8e8, #f5f5f5);
         transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+
+    .suggestion-icon {
+        margin-right: 6px;
+        font-size: 14px;
+    }
+
+    .suggestion-text {
+        font-size: 13px;
+        font-weight: 500;
+        white-space: nowrap;
     }
 </style>
 
 @code {
-    private List<string> ActionSuggestions = new List<string> 
-    { 
-        "Schedule Meeting", 
-        "Send Document", 
-        "Call Now",
-        "Set Reminder"
+    private string ChatInputValue { get; set; }
+    private TelerikChat<ChatMessage> Chat1;
+    private List<string> CurrentSuggestions = new List<string> { "Yes, I need help with my order", "No, I was just checking in" };
+
+    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
+    {
+       new ChatMessage()
+       {
+           Id="first",
+           AuthorId="1",
+           AuthorName="Customer Support",
+           Content="Welcome to TelerikStore! I'm here to help you today.",
+           Status="Seen",
+           Timestamp=new System.DateTime(2023, 10, 1, 14, 30, 0)
+       },
+       new ChatMessage()
+       {
+           Id="second",
+           AuthorId="1",
+           AuthorName="Customer Support",
+           Content="I see you've been browsing our UI components. Is there anything specific you need assistance with?",
+           Status="Seen",
+           Timestamp=new System.DateTime(2023, 10, 1, 14, 31, 0)
+       }
     };
-    
-    private SvgIcon GetSuggestionIcon(string suggestion)
+
+    private void HandleSuggestionClick(ChatSuggestionClickEventArgs args)
     {
-        return suggestion switch
+        string responseMessage = string.Empty;
+
+        // Initial responses
+        if (args.Suggestion == "Yes, I need help with my order")
         {
-            "Schedule Meeting" => SvgIcon.Calendar,
-            "Send Document" => SvgIcon.FileAdd,
-            "Call Now" => SvgIcon.Phone,
-            "Set Reminder" => SvgIcon.Clock,
-            _ => SvgIcon.CommentPositive
-        };
-    }
-}
-````
+            responseMessage = "I'd be happy to help you with your order! Can you please provide your order number or the email address you used for the purchase?";
+        }
+        else if (args.Suggestion == "No, I was just checking in")
+        {
+            responseMessage = "That's great! Feel free to browse around. If you have any questions about our Blazor components or need a demo, just let me know!";
+        }
+        // Handle order suggestions if needed
+        else
+        {
+            responseMessage = "Thank you for that information. How else can I assist you today?";
+        }
 
-## Contextual Suggestions
-
-Provide context-aware suggestions based on message content or user behavior:
-
-````razor
-@code {
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
-    {
-        // Add user message
-        Messages.Add(new ChatMessage 
-        { 
-            Text = args.Message, 
-            AuthorId = CurrentUserId,
+        // Add the support agent's response
+        ChatConversation.Add(new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            AuthorId = "1",
+            AuthorName = "Customer Support",
+            Content = responseMessage,
+            Status = "Sent",
             Timestamp = DateTime.Now
         });
-        
-        // Generate AI or rule-based response
-        var response = await GenerateResponse(args.Message);
-        Messages.Add(new ChatMessage 
-        { 
-            Text = response.Text, 
-            AuthorId = "bot",
-            Timestamp = DateTime.Now
-        });
-        
-        // Update suggestions based on response
-        CurrentSuggestions = response.Suggestions;
-        StateHasChanged();
-    }
-    
-    private async Task<BotResponse> GenerateResponse(string userMessage)
-    {
-        var response = new BotResponse();
-        
-        if (userMessage.ToLower().Contains("appointment"))
-        {
-            response.Text = "I can help you schedule an appointment. What works best for you?";
-            response.Suggestions = new List<string> 
-            { 
-                "Tomorrow morning", 
-                "This afternoon", 
-                "Next week",
-                "Show available times"
-            };
-        }
-        else if (userMessage.ToLower().Contains("order"))
-        {
-            response.Text = "Let me help you with your order. What would you like to do?";
-            response.Suggestions = new List<string> 
-            { 
-                "Track my order", 
-                "Cancel order", 
-                "Modify order",
-                "Return item"
-            };
-        }
-        
-        return response;
-    }
-    
-    public class BotResponse
-    {
-        public string Text { get; set; }
-        public List<string> Suggestions { get; set; } = new List<string>();
-    }
-}
-````
 
-## Suggestion Categories
-
-Organize suggestions into categories for complex scenarios:
-
-````razor
-<TelerikChat Data="@Messages"
-             Suggestions="@GetCurrentCategorySuggestions()"
-             OnSuggestionClick="@HandleCategorizedSuggestion">
-</TelerikChat>
-
-<div class="suggestion-categories">
-    @foreach (var category in SuggestionCategories.Keys)
-    {
-        <TelerikButton OnClick="@(() => SetActiveCategory(category))"
-                       Class="@(ActiveCategory == category ? "active" : "")">
-            @category
-        </TelerikButton>
+        Chat1?.Refresh();
     }
-</div>
 
-@code {
-    private string ActiveCategory = "General";
-    
-    private Dictionary<string, List<string>> SuggestionCategories = new Dictionary<string, List<string>>
+    public class ChatMessage
     {
-        ["General"] = new List<string> { "Hello", "Thank you", "Goodbye" },
-        ["Support"] = new List<string> { "I need help", "Technical issue", "Billing question" },
-        ["Sales"] = new List<string> { "Product info", "Get quote", "Schedule demo" },
-        ["Account"] = new List<string> { "Update profile", "Change password", "View history" }
-    };
-    
-    private List<string> GetCurrentCategorySuggestions()
-    {
-        return SuggestionCategories.ContainsKey(ActiveCategory) 
-            ? SuggestionCategories[ActiveCategory] 
-            : new List<string>();
-    }
-    
-    private void SetActiveCategory(string category)
-    {
-        ActiveCategory = category;
-        StateHasChanged();
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorImageUrl { get; set; }
+        public string Content { get; set; }
+        public string ReplyToMessageId { get; set; }
+        public string Status { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsPinned { get; set; }
+        public DateTime Timestamp { get; set; }
+        public List<string> SuggestedActions { get; set; }
+        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }
 ````
 
 ## Integration with AI Services
 
-Use suggestions to guide AI conversations:
+Use suggestions to guide AI conversations. With the help of the Chat's `OnSuggestionClick` event, you can access the clicked suggestion and you can pass it to the AI service for processing. 
 
-````razor
-@code {
-    private async Task HandleSuggestionClick(ChatSuggestionClickEventArgs args)
+````RAZOR.skip-repl
+private async Task OnSuggestionClick(ChatSuggestionClickEventArgs args)
+{
+    var userMessage = new ChatMessage()
     {
-        // Send suggestion to AI service with context
-        var aiResponse = await GetAIResponse(args.Suggestion, GetConversationContext());
-        
-        // Add AI response
-        Messages.Add(new ChatMessage 
-        { 
-            Text = aiResponse.Text, 
-            AuthorId = "ai",
-            Timestamp = DateTime.Now
-        });
-        
-        // Update suggestions based on AI response
-        CurrentSuggestions = aiResponse.SuggestedFollowUps;
-        StateHasChanged();
-    }
+        Id = Guid.NewGuid().ToString(),
+        AuthorId = "user",
+        AuthorName = "John Doe",
+        Content = args.Suggestion,
+        Timestamp = DateTime.Now,
+        Status = ""
+    };
+
+    AIChatConversation.Add(userMessage);
+
+    //pass the clicked suggestion to the AI service as a message
+    await AskAI(new ChatSendMessageEventArgs()
+    {
+        Message = args.Suggestion
+    });
     
-    private string GetConversationContext()
-    {
-        return string.Join("\n", Messages.TakeLast(5).Select(m => $"{m.AuthorId}: {m.Text}"));
-    }
+    return; 
 }
 ````
 
-## Best Practices
-
-When implementing quick actions and suggestions:
-
-1. **Keep suggestions relevant** to the current conversation context
-2. **Limit the number** of suggestions (3-6 is optimal)
-3. **Update suggestions dynamically** based on user interactions
-4. **Use clear, concise text** for suggestion labels
-5. **Provide visual feedback** when suggestions are selected
-6. **Test with real users** to ensure suggestions are helpful
-
-## Next Steps
-
-* [Handle Chat events](slug:chat-events)
-* [Set up AI integrations](slug:chat-integrations-overview)
-* [Customize suggestion templates](slug:chat-customisation-suggestion-template)
-
 ## See Also
 
-* [Chat Overview](slug:chat-overview)
 * [Chat Events](slug:chat-events)
-* [Live Demo: Chat](https://demos.telerik.com/blazor-ui/chat/overview)
+* [Chat Templates](slug:chat-templates)

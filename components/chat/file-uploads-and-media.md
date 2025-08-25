@@ -16,34 +16,9 @@ The Telerik UI for Blazor Chat component supports file uploads, media sharing, a
 
 Enable file uploads by setting the `EnableFileUpload` parameter to `true`:
 
-````razor
-<TelerikChat Data="@Messages"
-             EnableFileUpload="true"
-             OnSendMessage="@HandleSendMessage">
-    <ChatSettings>
-        <ChatFileSelectSettings AllowedExtensions="@allowedExtensions"
-                                MaxFileSize="10485760"
-                                Multiple="true" />
-    </ChatSettings>
+````RAZOR.skip-repl
+<TelerikChat EnableFileUpload="true">
 </TelerikChat>
-
-@code {
-    private List<string> allowedExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".pdf", ".docx" };
-
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
-    {
-        var newMessage = new ChatMessage
-        {
-            Id = Guid.NewGuid().ToString(),
-            Text = args.Message,
-            AuthorId = CurrentUserId,
-            Timestamp = DateTime.Now,
-            Files = args.Files?.ToList() ?? new List<FileSelectFileInfo>()
-        };
-        
-        Messages.Add(newMessage);
-    }
-}
 ````
 
 ## File Upload Settings
@@ -57,49 +32,282 @@ Configure file upload behavior using the `ChatFileSelectSettings` component:
 | `Multiple` | `bool` | `true` | Allow multiple file selection |
 | `OnSelect` | `EventCallback` | - | Event fired when files are selected |
 
->caption Advanced file upload configuration
+>caption An exemplary Chat file upload configuration is shown below
 
 ````razor
-<TelerikChat Data="@Messages"
+<TelerikChat Data="@ChatConversation"
+             @ref="@Chat1"
+             Width="600px"
+             Height="700px"
+             TextField="Content"
+             FilesField="Attachments"
              EnableFileUpload="true"
+             AuthorId="user"
              OnSendMessage="@HandleSendMessage">
     <ChatSettings>
-        <ChatFileSelectSettings AllowedExtensions="@allowedExtensions"
-                                MaxFileSize="5242880"
-                                Multiple="true"
-                                OnSelect="@OnFileSelect" />
+        <ChatFileSelectSettings AllowedExtensions="@AllowedExtensions"
+                                MaxFileSize="10485760"
+                                Multiple="true" />
     </ChatSettings>
+    <ChatFileActions>
+        <ChatFileAction Icon="@SvgIcon.Download" Text="Download" />
+        <ChatFileAction Icon="@SvgIcon.Share" Text="Share" />
+    </ChatFileActions>
 </TelerikChat>
 
 @code {
-    private List<string> allowedExtensions = new List<string> { ".jpg", ".png", ".pdf", ".docx", ".txt" };
+    private TelerikChat<ChatMessage> Chat1;
+    private List<string> AllowedExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".pdf", ".docx", ".txt" };
 
-    private async Task OnFileSelect(FileSelectEventArgs args)
+    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
     {
-        // Validate files before upload
-        foreach (var file in args.Files)
+        new ChatMessage()
         {
-            if (file.Size > 5242880) // 5MB limit
+            Id = "1",
+            AuthorId = "support",
+            AuthorName = "File Support",
+            Content = "Welcome! You can upload files by clicking the attachment button or dragging files into the input area.",
+            Timestamp = DateTime.Now.AddMinutes(-5)
+        },
+        new ChatMessage()
+        {
+            Id = "2",
+            AuthorId = "support",
+            AuthorName = "File Support", 
+            Content = "Here's an example message with an attachment:",
+            Timestamp = DateTime.Now.AddMinutes(-3),
+            Attachments = new List<FileSelectFileInfo>
             {
-                args.IsCancelled = true;
-                await ShowError($"File {file.Name} exceeds size limit");
-                return;
+                new FileSelectFileInfo
+                {
+                    Id = "sample-doc",
+                    Name = "sample-document.pdf",
+                    Size = 245760, 
+                    Extension = ".pdf"
+                }
             }
         }
+    };
+
+    private void HandleSendMessage(ChatSendMessageEventArgs args)
+    {
+        var newMessage = new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            Content = args.Message,
+            AuthorId = "user",
+            AuthorName = "You",
+            Timestamp = DateTime.Now,
+            Attachments = args.Files?.ToList() ?? new List<FileSelectFileInfo>()
+        };
+
+        ChatConversation.Add(newMessage);
+
+        if (args.Files?.Any() == true)
+        {
+            var fileNames = string.Join(", ", args.Files.Select(f => f.Name));
+            var responseMessage = new ChatMessage
+            {
+                Id = Guid.NewGuid().ToString(),
+                Content = $"Thank you! I received {args.Files.Count()} file(s): {fileNames}",
+                AuthorId = "support",
+                AuthorName = "File Support",
+                Timestamp = DateTime.Now.AddSeconds(1)
+            };
+            
+            ChatConversation.Add(responseMessage);
+        }
+
+        Chat1?.Refresh();
+    }
+
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public string AuthorImageUrl { get; set; }
+        public string Content { get; set; }
+        public string ReplyToMessageId { get; set; }
+        public string Status { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsPinned { get; set; }
+        public DateTime Timestamp { get; set; }
+        public List<string> SuggestedActions { get; set; }
+        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }
 ````
 
-## Speech-to-Text Configuration
+## Attachments
+
+Configure how file attachments are displayed and handled in chat messages using the `FilesField` parameter. This parameter specifies which property of your message model contains the file attachment information.
+
+The `FilesField` parameter binds to a collection of `FileSelectFileInfo` objects that represent the uploaded files. Each attachment includes metadata such as file name, size, extension, and unique identifier.
+
+````RAZOR.skip-repl
+<TelerikChat Data="@ChatConversation"
+             TextField="Content"
+             FilesField="Attachments"
+             EnableFileUpload="true">
+</TelerikChat>
+
+@code {
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public string Content { get; set; }
+        public DateTime Timestamp { get; set; }
+        
+        // This property is bound to FilesField="Attachments"
+        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
+    }
+}
+````
+
+When messages contain attachments, they are automatically displayed with file icons, names, and sizes. Users can interact with attachments through the configured file actions.
+
+## File Actions and Downloads
+
+Configure file actions and handle downloads using JavaScript interop and custom event handlers.
+
+1. Add JavaScript Interop
+
+   Add this JavaScript function to enable file downloads:
+
+   ````html
+   @inject IJSRuntime JS
+
+   <script>
+       window.downloadFileFromBytes = (base64Data, filename, mimeType) => {
+           try {
+               const byteCharacters = atob(base64Data);
+               const byteNumbers = new Array(byteCharacters.length);
+               for (let i = 0; i < byteCharacters.length; i++) {
+                   byteNumbers[i] = byteCharacters.charCodeAt(i);
+               }
+               const byteArray = new Uint8Array(byteNumbers);
+               const blob = new Blob([byteArray], { type: mimeType });
+               const objectUrl = URL.createObjectURL(blob);
+               const a = document.createElement('a');
+
+               a.href = objectUrl;
+               a.download = filename;
+               a.style.display = 'none';
+               document.body.appendChild(a);
+               a.click();
+               document.body.removeChild(a);
+               
+               URL.revokeObjectURL(objectUrl);
+           } catch (error) {
+               console.error('Error downloading file:', error);
+           }
+       };
+   </script>
+   ````
+
+2. Configure File Actions
+
+   Configure the `Download` file action:
+
+   ````RAZOR.skip-repl
+   <TelerikChat>
+       <ChatFileActions>
+           <ChatFileAction Icon="@SvgIcon.Download" Text="Download" OnClick="@OnDirectFileDownload" />
+           <ChatFileAction Icon="@SvgIcon.Share" Text="Share" />
+           <ChatFileAction Icon="@SvgIcon.Pin" Text="Pin" />
+       </ChatFileActions>
+   </TelerikChat>
+   ````
+
+3. Implement a click handler for the `Download` file action.
+
+   The click handler calls the js `downloadFileFromBytes` function. 
+
+   ````csharp
+   private async Task OnDirectFileDownload(ChatFileActionClickEventArgs args)
+   {
+       try
+       {
+           var filePath = Path.Combine(Environment.WebRootPath, "chat-files", args.File.Name);
+
+           if (System.IO.File.Exists(filePath))
+           {
+               var fileBytes = await System.IO.File.ReadAllBytesAsync(filePath);
+
+               var base64String = Convert.ToBase64String(fileBytes);
+
+               var mimeType = GetMimeType(args.File.Extension);
+
+               await JS.InvokeVoidAsync("downloadFileFromBytes", base64String, args.File.Name, mimeType);
+           }
+           else
+           {
+               Console.WriteLine($"File not found: {filePath}");
+           }
+       }
+       catch (Exception ex)
+       {
+           Console.WriteLine($"Error downloading file {args.File.Name}: {ex.Message}");
+       }
+   }
+   ````
+
+
+## File Validation
+
+The Chat component provides built-in file validation through the `ChatFileSelectSettings` configuration. You can control which files users can upload and set size restrictions to ensure appropriate content and prevent system overload.
+
+### AllowedExtensions
+
+Use the `AllowedExtensions` parameter to restrict file uploads to specific file types. This helps ensure users only upload supported formats and prevents potential security issues.
+
+````RAZOR.skip-repl
+<TelerikChat>
+    <ChatFileSelectSettings AllowedExtensions="@AllowedExtensions" />
+</TelerikChat>
+
+@code {
+    private List<string> AllowedExtensions = new List<string> 
+    { 
+        ".jpg", ".jpeg", ".png", ".gif",  // Images
+        ".pdf", ".doc", ".docx",          // Documents
+        ".txt", ".csv",                   // Text files
+        ".zip", ".rar"                    // Archives
+    };
+}
+````
+
+When a user attempts to upload a file with an extension not in the allowed list, the Chat component will automatically prevent the upload.
+
+### MaxFileSize
+
+Set the `MaxFileSize` parameter to limit the size of uploaded files in bytes. This prevents users from uploading files that are too large for your system to handle efficiently.
+
+````RAZOR.skip-repl
+<TelerikChat>
+    <ChatFileSelectSettings MaxFileSize="10485760" />
+<TelerikChat>
+````
+
+Files exceeding the specified size limit will be rejected.
+
+## Speech-to-Text
+
+The Chat component includes built-in speech-to-text functionality that allows users to input messages using voice commands. This feature leverages the browser's Web Speech API to convert spoken words into text, providing an accessible and convenient way to interact with the chat interface.
+
+Speech-to-text is particularly useful for mobile users, accessibility scenarios, or when typing is inconvenient. The component provides customizable settings to control language recognition, result accuracy, and interim feedback.
+
+### Configuration
 
 Enable speech-to-text functionality by setting `EnableSpeechToText` to `true`:
 
-````razor
-<TelerikChat Data="@Messages"
-             EnableSpeechToText="true"
-             OnSendMessage="@HandleSendMessage">
+````RAZOR.skip-repl
+<TelerikChat EnableSpeechToText="true">
     <ChatSettings>
-        <ChatSpeechToTextButtonSettings Language="en-US"
+        <ChatSpeechToTextButtonSettings Lang="en-US"
                                         MaxAlternatives="3"
                                         InterimResults="true"
                                         OnResult="@OnSpeechResult" />
@@ -119,154 +327,16 @@ Enable speech-to-text functionality by setting `EnableSpeechToText` to `true`:
 }
 ````
 
-## Speech-to-Text Settings
+### Settings
 
 Configure speech recognition behavior using `ChatSpeechToTextButtonSettings`:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `Language` | `string` | `"en-US"` | Recognition language code |
+| `Lang` | `string` | `"en-US"` | Recognition language code |
 | `MaxAlternatives` | `int` | `1` | Maximum number of recognition alternatives |
 | `InterimResults` | `bool` | `false` | Return interim recognition results |
 | `OnResult` | `EventCallback` | - | Event fired when speech is recognized |
-
-## File Actions and Downloads
-
-Configure file actions and handle downloads:
-
-````razor
-<TelerikChat Data="@Messages"
-             OnDownload="@HandleDownload">
-    <ChatFileActions>
-        <ChatFileAction Name="Download" Icon="@SvgIcon.Download" />
-        <ChatFileAction Name="Share" Icon="@SvgIcon.Share" OnClick="@HandleShareFile" />
-        <ChatFileAction Name="Preview" Icon="@SvgIcon.Preview" OnClick="@HandlePreviewFile" />
-    </ChatFileActions>
-</TelerikChat>
-
-@code {
-    private async Task HandleDownload(ChatDownloadEventArgs args)
-    {
-        foreach (var file in args.Files)
-        {
-            await DownloadFile(file);
-        }
-    }
-
-    private async Task HandleShareFile(ChatFileActionClickEventArgs args)
-    {
-        await ShareFile(args.File);
-    }
-
-    private async Task HandlePreviewFile(ChatFileActionClickEventArgs args)
-    {
-        await PreviewFile(args.File);
-    }
-}
-````
-
-## Media Display in Messages
-
-Display uploaded files and media within messages using templates:
-
-````razor
-<TelerikChat Data="@Messages">
-    <MessageTemplate Context="context">
-        <div>
-            @if (!string.IsNullOrEmpty(context.Message.Text))
-            {
-                <div class="message-text">@context.Message.Text</div>
-            }
-            
-            @if (context.Message.Files?.Any() == true)
-            {
-                <div class="message-attachments">
-                    @foreach (var file in context.Message.Files)
-                    {
-                        <div class="attachment-item">
-                            @if (IsImageFile(file.Extension))
-                            {
-                                <img src="@GetFileUrl(file)" alt="@file.Name" class="attachment-image" />
-                            }
-                            else
-                            {
-                                <div class="attachment-file">
-                                    <TelerikSvgIcon Icon="@GetFileIcon(file.Extension)" />
-                                    <span>@file.Name</span>
-                                </div>
-                            }
-                        </div>
-                    }
-                </div>
-            }
-        </div>
-    </MessageTemplate>
-</TelerikChat>
-````
-
-## File Validation
-
-Implement client-side file validation:
-
-````razor
-@code {
-    private async Task OnFileSelect(FileSelectEventArgs args)
-    {
-        var validFiles = new List<FileSelectFileInfo>();
-        
-        foreach (var file in args.Files)
-        {
-            // Size validation
-            if (file.Size > MaxFileSize)
-            {
-                await ShowValidationError($"File '{file.Name}' exceeds maximum size of {MaxFileSize / (1024 * 1024)}MB");
-                continue;
-            }
-            
-            // Extension validation
-            if (!allowedExtensions.Contains(file.Extension.ToLowerInvariant()))
-            {
-                await ShowValidationError($"File type '{file.Extension}' is not allowed");
-                continue;
-            }
-            
-            // Content validation (optional)
-            if (!await ValidateFileContent(file))
-            {
-                await ShowValidationError($"File '{file.Name}' contains invalid content");
-                continue;
-            }
-            
-            validFiles.Add(file);
-        }
-        
-        // Update the file selection with only valid files
-        args.Files = validFiles;
-        
-        if (!validFiles.Any())
-        {
-            args.IsCancelled = true;
-        }
-    }
-}
-````
-
-## Security Considerations
-
-When implementing file uploads:
-
-1. **Validate file types** on both client and server
-2. **Scan files** for malware before processing
-3. **Limit file sizes** to prevent abuse
-4. **Store files** in secure locations
-5. **Implement access controls** for file downloads
-6. **Use virus scanning** services for uploaded content
-
-## Next Steps
-
-* [Handle Chat events](slug:chat-events)
-* [Configure message templates](slug:chat-customisation-overview)
-* [Set up file actions](slug:chat-messages-tools)
 
 ## See Also
 

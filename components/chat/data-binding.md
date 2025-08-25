@@ -18,7 +18,7 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
 
 >caption Basic data binding
 
-````razor
+````Razor
 <TelerikChat Data="@Messages"
              AuthorId="@CurrentUserId"
              OnSendMessage="@HandleSendMessage">
@@ -31,9 +31,9 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
         new ChatMessage { Id = "2", Text = "Hi there!", AuthorId = "user2", Timestamp = DateTime.Now.AddMinutes(-3) }
     };
     
-    private string CurrentUserId = "user1";
+    private string CurrentUserId { get; set;  } = "user1";
 
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
+    private void HandleSendMessage(ChatSendMessageEventArgs args)
     {
         var newMessage = new ChatMessage
         {
@@ -49,13 +49,28 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
     public class ChatMessage
     {
         public string Id { get; set; }
-        public string Text { get; set; }
+
         public string AuthorId { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<FileSelectFileInfo> Files { get; set; } = new List<FileSelectFileInfo>();
-        public string Status { get; set; } = "Sent";
+
+        public string AuthorName { get; set; }
+
+        public string AuthorImageUrl { get; set; }
+
+        public string Text { get; set; }
+
+        public string MessageToReplyId { get; set; }
+
+        public string Status { get; set; }
+
         public bool IsDeleted { get; set; }
+
         public bool IsPinned { get; set; }
+
+        public DateTime Timestamp { get; set; }
+
+        public List<string> SuggestedActions { get; set; }
+
+        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }
 ````
@@ -78,56 +93,12 @@ The Chat component provides field mapping parameters to work with different data
 | `ReplyТоIdField` | Field containing the ID of replied message | `"ReplyТоId"` |
 | `SuggestedActionsField` | Field containing suggested actions | `"SuggestedActions"` |
 
->caption Custom field mapping
-
-````razor
-<TelerikChat Data="@Messages"
-             TextField="Content"
-             AuthorIdField="UserId"
-             AuthorNameField="UserName"
-             TimestampField="CreatedAt"
-             FilesField="Attachments"
-             AuthorId="@CurrentUserId"
-             OnSendMessage="@HandleSendMessage">
-</TelerikChat>
-
-@code {
-    private List<CustomMessage> Messages { get; set; } = new List<CustomMessage>();
-    private string CurrentUserId = "user1";
-
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
-    {
-        var newMessage = new CustomMessage
-        {
-            Id = Guid.NewGuid().ToString(),
-            Content = args.Message,
-            UserId = CurrentUserId,
-            UserName = "Current User",
-            CreatedAt = DateTime.Now,
-            Attachments = args.Files?.ToList() ?? new List<FileSelectFileInfo>()
-        };
-        
-        Messages.Add(newMessage);
-    }
-
-    public class CustomMessage
-    {
-        public string Id { get; set; }
-        public string Content { get; set; }
-        public string UserId { get; set; }
-        public string UserName { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public List<FileSelectFileInfo> Attachments { get; set; }
-    }
-}
-````
-
 ## Dynamic Updates
 
 The Chat component automatically reflects changes to the bound data collection. You can add, modify, or remove messages programmatically:
 
 ````razor
-<TelerikChat @ref="@ChatRef"
+<TelerikChat @ref="@Chat1"
              Data="@Messages"
              AuthorId="@CurrentUserId"
              OnSendMessage="@HandleSendMessage">
@@ -139,22 +110,23 @@ The Chat component automatically reflects changes to the bound data collection. 
 </div>
 
 @code {
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private TelerikChat<ChatMessage> Chat1 { get; set; }
     private List<ChatMessage> Messages { get; set; } = new List<ChatMessage>();
     private string CurrentUserId = "user1";
 
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
+    private void HandleSendMessage(ChatSendMessageEventArgs args)
     {
         var newMessage = new ChatMessage
         {
             Id = Guid.NewGuid().ToString(),
-            Text = args.Message,
+            Content = args.Message,
             AuthorId = CurrentUserId,
             Timestamp = DateTime.Now
         };
-        
+
         Messages.Add(newMessage);
-        ChatRef?.Refresh();
+
+        Chat1?.Refresh();
     }
 
     private void AddSystemMessage()
@@ -162,11 +134,11 @@ The Chat component automatically reflects changes to the bound data collection. 
         Messages.Add(new ChatMessage
         {
             Id = Guid.NewGuid().ToString(),
-            Text = "System notification: New user joined the chat",
+            Content = "System notification: New user joined the chat",
             AuthorId = "system",
             Timestamp = DateTime.Now
         });
-        
+
         ChatRef?.Refresh();
     }
 
@@ -175,25 +147,24 @@ The Chat component automatically reflects changes to the bound data collection. 
         Messages.Clear();
         ChatRef?.Refresh();
     }
+
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+
+        public string AuthorId { get; set; }
+
+        public string AuthorName { get; set; }
+
+        public string Content { get; set; }
+
+        public DateTime Timestamp { get; set; }
+    }
 }
+
 ````
-
-## Performance Considerations
-
-For optimal performance with large datasets:
-
-* Use observable collections like `ObservableCollection<T>` for automatic UI updates
-* Consider implementing virtual scrolling for very large message histories
-* Use efficient data structures for message lookup operations
-* Implement paging or lazy loading for historical messages
-
-## Next Steps
-
-* [Learn about Chat events](slug:chat-events)
-* [Configure message templates](slug:chat-customisation-overview)
-* [Set up AI integrations](slug:chat-integrations-overview)
 
 ## See Also
 
 * [Chat Overview](slug:chat-overview)
-* [Live Demo: Chat Data Binding](https://demos.telerik.com/blazor-ui/chat/overview)
+* [Chat Integrations](slug:chat-integrations)
