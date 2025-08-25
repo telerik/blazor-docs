@@ -59,7 +59,7 @@ The following list describes how your prompts may look like:
 * &quot;`@telerikblazor` Generate a Telerik ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.&quot;
 * &quot;`@telerikblazor` Show me sample code for a Telerik Blazor Grid with virtual scrolling for the rows and columns.&quot;
 
-## Number of Requests
+## Usage Limits
 
 @[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 

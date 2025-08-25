@@ -57,7 +57,7 @@ Consider the following recommendations when working with the Telerik AI Coding A
 
 You can also use the AI Coding Assistant for [Telerik Document Processing](https://www.telerik.com/document-processing-libraries) to generate high-quality code samples and speed up your development. Read the full guide in the dedicated [DPL AI Coding Assistant](https://docs.telerik.com/devtools/document-processing/ai-coding-assistant/overview) article.
 
-## Number of Requests
+## Usage Limits
 
 The Telerik Blazor AI Conding Assistant allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
@@ -76,7 +76,7 @@ The Telerik Blazor AI Coding Assistant operates under the following conditions:
 * The Assistant does not use your prompts to train Telerik AI models.
 * The Assistant does not generate the actual responses and has no access to these responses. The Assistant only provides a better context that helps your selected model (for example, GPT, Gemini, Claude) provide better responses.
 * The Assistant does not associate your prompts to your Telerik user account. Your prompts and generated context are anonymized and stored for statistical and troubleshooting purposes.
-* The Assistant stores metrics about how often and how much you use it in order to ensure compliance with the [allowed number of requests that correspond to your current license](#number-of-requests).
+* The Assistant stores metrics about how often and how much you use it in order to ensure compliance with the [allowed number of requests that correspond to your current license](#usage-limits).
 
 Make sure to also get familiar with the terms and privacy policy of your selected AI model and AI client.
 
