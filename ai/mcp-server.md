@@ -143,9 +143,11 @@ To [enable the Telerik MCP Server in a specific workspace, Blazor app, or global
 
 ## Usage
 
-By default, MCP clients do not call MCP tools in a deterministic way, unless you explicitly reference the MCP tool in your prompt. To use the Telerik MCP Server:
+By default, MCP clients do not call MCP tools in a deterministic way. Some MCP clients like [VS Code](#vs-code) allow you to explicitly reference the desired MCP tool in your prompt.
 
-1. Start your prompt with one of the following:
+To use the Telerik MCP Server:
+
+1. Start your prompt with `Telerik` to make it more likely for the Telerik MCP server to get called. If you are using VS Code, then start your prompt with:
     * `#` and the MCP server name that you used in `mcp.json` (for example, `#telerikBlazorAssistant`)
     * `#` and the name of the Telerik Blazor MCP tool (`#telerik_blazor_assistant`)
 1. Confirm that the Telerik MCP server is used. Look for a statement in the output, which is similar to:
@@ -155,7 +157,7 @@ By default, MCP clients do not call MCP tools in a deterministic way, unless you
 
 Also check the general [AI Coding Assistant Recommendations](slug:ai-overview#recommendations) for more usage tips.
 
-To call the Telerik MCP server without the need to type `#telerikBlazorAssistant` explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
+To call the Telerik MCP server without the need to type `Telerik` or `#telerikBlazorAssistant` explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
 
 ### Sample Prompts
 
