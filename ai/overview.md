@@ -31,11 +31,37 @@ To use the Telerik Blazor AI Coding Assistant, you need:
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 * @[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
+## Intended Use
+
+You can use the Telerik AI Coding Assistant for:
+
+* Initial code generation: Quickly add components to your app to speed up the initial development.
+* Component configuration: Enable or disable specific component features, or fine tune the configuration through prompting. More complex configurations are possible but may require additional manual work to be production-ready.
+* Dummy data generation and data binding: Quickly add data to your app for testing and prototyping purposes. Avoid exposing or providing access to your proprietary or production data to AI-enabled tools.
+* Step-by-step explanations: Understand the solutions provided by the AI Coding Assistant through the detailed explanations (depends on the tool, mode, and model). To further develop your knowledge, check the respective documentation.
+* Preliminary troubleshooting: Resolve obvious and easy-to-solve issues affecting your code. For more complex issues, search the product documentation or look for assistance from the community.
+
+>warning Always double-check the suggested code and solutions of any AI-powered tool before applying them to your app.
+
+> The Telerik AI Coding Assistant is not intended for styling and theme customization. If you are looking for AI-powered styling and theming, check out [Telerik ThemeBuilder](https://www.telerik.com/themebuilder).
+
+## Recommendations
+
+Consider the following recommendations when working with the Telerik AI Coding Assistant:
+
+* When switching between tasks and files, start a new session in a new chat window to avoid polluting the context with irrelevant or outdated information.
+* At the time of publishing, Claude Sonnet 4 and GPT-5 produce better results.
+* Sometimes, the AI Coding Assistant might generate custom styles. To avoid any custom styling, include a similar statement in your prompts: `Don't add custom CSS styles`.
+
+## Telerik Document Processing AI Coding Assistant
+
+You can also use the AI Coding Assistant for [Telerik Document Processing](https://www.telerik.com/document-processing-libraries) to generate high-quality code samples and speed up your development. Read the full guide in the dedicated [DPL AI Coding Assistant](https://docs.telerik.com/devtools/document-processing/ai-coding-assistant/overview) article.
+
 ## Number of Requests
 
 The Telerik Blazor AI Conding Assistant allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
-* Perpetual licenses: 50 requests per year
+* Perpetual licenses: include 50 requests per year to let you explore and try out the AI Coding Assistant. If you'd like ongoing, higher-volume access, switch to a Subscription license.
 * Subscription licenses: virtually unlimited number of requests with a fair use threshold of 300 requests per day
 * Trial licenses: 300 requests per trial per year. Activating the same trial for a new release does not grant additional 300 requests.
 

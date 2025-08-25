@@ -22,6 +22,8 @@ To use the Telerik GitHub Copilot extension for Blazor, you need to have:
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 * Using the latest version of your [Copilot-enabled app](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions#supported-clients-and-ides) is recommended (for example, Visual Studio or VS Code).
 
+Check [AI Coding Assistant Overview](slug:ai-overview) for more recommendations and usage information.
+
 ## Installation
 
 To install the Telerik Blazor Copilot extension:
@@ -46,7 +48,8 @@ To use the Telerik Blazor Copilot extension:
 1. Start your prompt with `@telerikblazor` and type your request. Make sure that `@telerikblazor` is recognized and highlighted, otherwise the extension may not be installed.
 1. Verify that you see a label similar to **TelerikBlazor working...** or **TelerikBlazor generating response...** in the output.
 1. Grant permission to the Telerik Blazor extension to read your workspace files.
-1. If you want to prompt for information or code that are not related to your previous prompts, it is a good practice to start a new session in a new chat window, so that the context is not polluted by irrelevant old information.
+
+Also check the general [AI Coding Assistant Recommendations](slug:ai-overview#recommendations) for more usage tips.
 
 ### Sample Prompts
 

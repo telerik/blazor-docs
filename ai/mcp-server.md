@@ -22,6 +22,8 @@ To use the Telerik Blazor MCP server, you need:
 * An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 
+Check [AI Coding Assistant Overview](slug:ai-overview) for more recommendations and usage information.
+
 ## Installation
 
 There are two ways to install the Telerik Blazor MCP server:
@@ -141,24 +143,19 @@ To [enable the Telerik MCP Server in a specific workspace, Blazor app, or global
 
 ## Usage
 
-To use the Telerik MCP Server:
+By default, MCP clients do not call MCP tools in a deterministic way, unless you explicitly reference the MCP tool in your prompt. To use the Telerik MCP Server:
 
 1. Start your prompt with one of the following:
-    * `telerik`
-    * `/telerik`
-    * `@telerik`
-    * `telerikblazor`
-    * `/telerikblazor`
-    * `@telerikblazor`
-1. Confirm that the Telerik MCP server is used, because this doesn't happen deterministically. Look for a statement in the output, which is similar to:
-    * `Running telerikBlazorAssistant` (in VS Code)
-    * `Calling MCP tool telerikBlazorAssistant` (in Cursor)
+    * `#` and the MCP server name that you used in `mcp.json` (for example, `#telerikBlazorAssistant`)
+    * `#` and the name of the Telerik Blazor MCP tool (`#telerik_blazor_assistant`)
+1. Confirm that the Telerik MCP server is used. Look for a statement in the output, which is similar to:
+    * `Running telerik_blazor_assistant` (in VS Code)
+    * `Calling MCP tool telerik_blazor_assistant` (in Cursor)
+1. Grant the Telerik tool permission to run for the current session, workspace, or always.
 
-    If the Telerik MCP server is not used even though it's installed and enabled, then try rephrasing your prompt and use another trigger syntax from the list in step 1.
-1. Grant the Telerik tool permission to run for this session, workspace, or always.
-1. If you want to prompt for information or code that are not related to your previous prompts, it is a good practice to start a new session in a new chat window, so that the context is not polluted by irrelevant old information.
+Also check the general [AI Coding Assistant Recommendations](slug:ai-overview#recommendations) for more usage tips.
 
-To increase the probability of the Telerik MCP Server being used, or to call it without the need to mention "telerik" explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
+To call the Telerik MCP server without the need to type `#telerikBlazorAssistant` explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
 
 ### Sample Prompts
 
