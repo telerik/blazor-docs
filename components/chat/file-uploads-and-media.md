@@ -177,7 +177,7 @@ Configure file actions and handle downloads using JavaScript interop and custom 
 
    Add this JavaScript function to enable file downloads:
 
-   ````html
+   ````html.skip-repl
    @inject IJSRuntime JS
 
    <script>
@@ -226,7 +226,7 @@ Configure file actions and handle downloads using JavaScript interop and custom 
 
    The click handler calls the js `downloadFileFromBytes` function. 
 
-   ````csharp
+   ````csharp.skip-repl
    private async Task OnDirectFileDownload(ChatFileActionClickEventArgs args)
    {
        try

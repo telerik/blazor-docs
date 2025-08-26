@@ -111,7 +111,7 @@ Message suggestions provide users with quick reply options that appear below the
 
 Customize the appearance of suggestions using the Chat's `SuggestionTemplate`.
 
-````razor
+````razor.skip-repl
 <TelerikChat Data="@ChatConversation"
              @ref="@Chat1"
              Width="600px"

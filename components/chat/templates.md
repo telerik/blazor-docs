@@ -102,7 +102,7 @@ This allows you to define context menu actions that can be performed on Chat mes
 
 >caption A complete example that integrates all templates into a Chat component
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikChat Data="@ChatConversation"
             @ref="@Chat1"
             Width="600px"
