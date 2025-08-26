@@ -97,9 +97,10 @@ The Chat component provides field mapping parameters to work with different data
 
 The Chat component automatically reflects changes to the bound data collection. You can add, modify, or remove messages programmatically:
 
-````razor
+````Razor
 <TelerikChat @ref="@Chat1"
              Data="@Messages"
+             TextField="Content"
              AuthorId="@CurrentUserId"
              OnSendMessage="@HandleSendMessage">
 </TelerikChat>
@@ -121,6 +122,7 @@ The Chat component automatically reflects changes to the bound data collection. 
             Id = Guid.NewGuid().ToString(),
             Content = args.Message,
             AuthorId = CurrentUserId,
+            AuthorName = "User",
             Timestamp = DateTime.Now
         };
 
@@ -136,32 +138,30 @@ The Chat component automatically reflects changes to the bound data collection. 
             Id = Guid.NewGuid().ToString(),
             Content = "System notification: New user joined the chat",
             AuthorId = "system",
+            AuthorName = "System",
             Timestamp = DateTime.Now
         });
 
-        ChatRef?.Refresh();
+        Chat1?.Refresh();
     }
 
     private void ClearMessages()
     {
         Messages.Clear();
-        ChatRef?.Refresh();
+        Chat1?.Refresh();
     }
 
     public class ChatMessage
     {
         public string Id { get; set; }
-
         public string AuthorId { get; set; }
-
         public string AuthorName { get; set; }
-
         public string Content { get; set; }
-
         public DateTime Timestamp { get; set; }
+        public string Status { get; set; }
+        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }
-
 ````
 
 ## See Also
