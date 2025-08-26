@@ -320,6 +320,8 @@ meta:
     title: ColorPalette
   "*colorgradient":
     title: ColorGradient
+  "*chat":
+    title: Chat
   "*chunkprogressbar":
     title: ChunkProgressBar
   "*chiplist":
