@@ -47,6 +47,7 @@ Also check the [notes below the table](#accessibility-compliance-notes).
 | Card | AA | N/A | [Documentation](slug:card-wai-aria-support) |
 | Carousel | AA | [Enhanced](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation) | [Documentation](slug:carousel-wai-aria-support) |
 | Chart | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation) | [Documentation](slug:chart-wai-aria-support ) |
+| Chat | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chat/overview) | [Documentation](slug:chat-wai-aria-support ) |
 | CheckBox | AA | [Standard](https://demos.telerik.com/blazor-ui/checkbox/overview) | [Documentation](slug:checkbox-wai-aria-support) |
 | Chip | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chip/keyboard-navigation) | [Documentation](slug:chip-wai-aria-support) |
 | ChipList | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chiplist/keyboard-navigation) | [Documentation](slug:chiplist-wai-aria-support) |

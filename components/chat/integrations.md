@@ -5,7 +5,7 @@ description: Learn how to integrate the Telerik UI for Blazor Chat component wit
 slug: chat-integrations
 tags: telerik,blazor,chat,integrations,ai,llm,chatbot
 published: True
-position: 20
+position: 7
 ---
 
 # Chat Integrations
@@ -128,12 +128,6 @@ The Chat component supports suggested actions through the `SuggestedActions` par
  />
 
 ````
-
-## Next Steps
-
-* [Data Binding]({%slug chat-data-binding%}) - Learn about binding the Chat to data
-* [Events]({%slug chat-events%}) - Handle Chat component events
-* [Templates]({%slug chat-templates%}) - Customize the Chat appearance
 
 ## See Also
 

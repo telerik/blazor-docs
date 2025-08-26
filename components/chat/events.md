@@ -5,7 +5,7 @@ description: Learn about the events exposed by the Telerik UI for Blazor Chat co
 slug: chat-events
 tags: telerik,blazor,chat,events
 published: True
-position: 5
+position: 9
 ---
 
 # Chat Events

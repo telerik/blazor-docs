@@ -5,7 +5,7 @@ description: A comprehensive guide to the customizable templates available in th
 slug: chat-templates
 keywords: blazor, telerik, chat, templates, customization
 published: True
-position: 7
+position: 8
 ---
 
 # Chat Templates
