@@ -78,7 +78,7 @@ The TabStrip provides the following features to allow further customization of i
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter        | Type  | Description                              |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `ActiveTabIndex` | `int` | The index of the currently shown tab. Supports two-way binding. This parameter is marked as obsolete and will be deprecated in future versions. Do not use togother with `ActiveTabId`. |
 | `ActiveTabId` | `int` | The index of the currently active tab. If it is not set, the first tab will be active. Do not use it together with `ActiveTabIndex`.|
