@@ -12,10 +12,10 @@ position: 10
 
 You can control the appearance of the Chip by using the following parameters:
 
-* [FillMode](#fillmode)
-* [Rounded](#rounded)
-* [Size](#size)
-* [ThemeColor](#themecolor)
+* [`FillMode`](#fillmode)
+* [`Rounded`](#rounded)
+* [`Size`](#size)
+* [`ThemeColor`](#themecolor)
 
 ## FillMode
 
@@ -144,7 +144,6 @@ The `ThemeColor` parameter applies a predefined text color and background color.
 |`Success`|`success`|
 |`Warning`|`warning`|
 |`Error`|`error`|
-|`None`|`none`|
 
 >caption The built-in ThemeColors
 
@@ -162,7 +161,7 @@ The `ThemeColor` parameter applies a predefined text color and background color.
         <div style="float:left; margin: 20px;">
             <TelerikChip @bind-Selected="@IsChipSelected"
                  ThemeColor="@themeColor"
-                 Text="Audio">
+                 Text="@themeColor">
             </TelerikChip>
         </div>
     }

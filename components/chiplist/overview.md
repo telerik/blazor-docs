@@ -52,7 +52,7 @@ The <a href="https://www.telerik.com/blazor-ui/chiplist" target="_blank">Blazor 
 
 ## Data Binding
 
-The Blazor ChipList requires a data source so that it can display items to the user. To provide a data source, use the `Data` property. [Read more about the Blazor ChipList data binding](slug:chiplist-bound).
+The Blazor ChipList requires a data source so that it can display items to the user. To provide a data source, use the `Data` property. Some properties of the ChipList model can enhance the behavior and appearance of each chip. [Read more about the Blazor ChipList data binding](slug:chiplist-bound).
 
 ## Selection
 
@@ -68,7 +68,7 @@ You can use the built-in events of the Blazor ChipList to react to chip selectio
 
 ## Appearance
 
-You can customize the appearance of the Blazor ChipList via a variety of built-in customization options. [Read more about the ChipList appearance settings...](slug:chiplist-appearance)
+You can customize the [appearance of the Blazor ChipList](slug:chiplist-appearance) via a variety of built-in customization options. Also see how to [set `ThemeColor`](slug:chip-appearance#themecolor) for each [chip in the ChipList](slug:chiplist-bound).
 
 ## ChipList Parameters
 
@@ -82,7 +82,7 @@ The table below lists the ChipList parameters. Also check the [ChipList API Refe
 | `AriaLabelledBy` | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
 | `Class` | `string` | An additional CSS class for the `<div class="k-chip-list">` element. Use it to [customize the component styles and override the theme](slug:themes-override). |
 | `Data` | `IEnumerable<TItem>` | The collection of the items that will be rendered as chips. |
-| `Removable` | `bool` | Specifies if the chip can be removed by the user. If set to `true` a remove icon will be rendered on each available chip. |
+| `Removable` | `bool` | Specifies if the chips can be removed by the user. If set to `true` a remove icon will be rendered on each available chip. |
 | `RemoveIcon` | `object` | Defines the icon that will be rendered if the `Removable` parameter is set to `true`. |
 
 ## Next Steps
