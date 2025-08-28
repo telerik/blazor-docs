@@ -90,7 +90,7 @@ The Chat component provides field mapping parameters to work with different data
 | `StatusField` | Field containing message status | `"Status"` |
 | `IsDeletedField` | Field indicating if message is deleted | `"IsDeleted"` |
 | `IsPinnedField` | Field indicating if message is pinned | `"IsPinned"` |
-| `ReplyТоIdField` | Field containing the ID of replied message | `"ReplyТоId"` |
+| `ReplyToIdField` | Field containing the ID of replied message | `"ReplyToId"` |
 | `SuggestedActionsField` | Field containing suggested actions | `"SuggestedActions"` |
 
 ## Dynamic Updates

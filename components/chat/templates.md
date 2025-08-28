@@ -109,7 +109,7 @@ This allows you to define context menu actions that can be performed on Chat mes
             Height="700px"
             TextField="Content"
             Suggestions="@(new List<string>() { "Suggestion 1", "Suggestion 2" })"
-            ReplyТоIdField="ReplyToMessageId"
+            ReplyToIdField="ReplyToMessageId"
             InputValue="@FirstChatInputValue"
             EnableSpeechToText="true"
             AuthorId="@(1.ToString())">

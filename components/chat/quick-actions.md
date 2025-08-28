@@ -25,7 +25,7 @@ Message suggestions provide users with quick reply options that appear below the
              Height="700px"
              TextField="Content"
              Suggestions="@QuickReplies"
-             ReplyТоIdField="ReplyToMessageId"
+             ReplyToIdField="ReplyToMessageId"
              InputValue="@ChatInputValue"
              AuthorId="@(2.ToString())"
              OnSuggestionClick="@HandleSuggestionClick">
