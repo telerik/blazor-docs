@@ -16,62 +16,19 @@ This article explains how to provide data to a ChipList component, and the prope
 
 ## Data Binding Features
 
-The ChipList has features that map to properties in the component model class. The following example uses property names that will work automatically, with no additional ChipList configuration.
+The ChipList has features that map to properties in the component model class.
 
->caption Using default property names in the ChipList model class
-
-````RAZOR
-<TelerikChipList Data="@ChipListData"></TelerikChipList>
-
-@code {
-    private List<ChipModel> ChipListData { get; set; } = new List<ChipModel>() {
-        new ChipModel()
-        {
-            Text = "Audio",
-            Icon = SvgIcon.FileAudio,
-            Disabled = false,
-            Removable = true,
-            ThemeColor = ThemeConstants.Chip.ThemeColor.Base
-        },
-        new ChipModel()
-        {
-            Text = "Video",
-            Icon = SvgIcon.FileVideo,
-            Disabled = false,
-            Removable = false,
-            ThemeColor = ThemeConstants.Chip.ThemeColor.Warning
-        },
-        new ChipModel()
-        {
-            Text = "Image",
-            Icon = SvgIcon.FileImage,
-            Disabled = true,
-            Removable = false,
-            ThemeColor = ThemeConstants.Chip.ThemeColor.Info
-        }
-    };
-
-    public class ChipModel
-    {
-        public string Text { get; set; } = string.Empty;
-        public ISvgIcon? Icon { get; set; }
-        public bool Disabled { get; set; }
-        public bool Removable { get; set; }
-        public string ThemeColor { get; set; } = string.Empty;
-    }
-}
-````
-
-### Data Binding Schema
+### Schema
 
 The table below lists the available data binding parameters for the Blazor ChipList component. Use them when your model property names are different from the default values.
 
 | ChipList Parameter | Default Value | Description |
 |----------|----------|----------|
 | `DisabledField`| `"Disabled"` | Defines if the chip is disabled (non-clickable). |
-| `IconField` | `"Icon"` | The icon that renders in the chip. |
-| `TextField` | `"Text"` | The text that renders in the chip. |
+| `FillModeField`| `"FillMode"` | Defines the [`FillMode` of each chip](slug:chip-appearance#fillmode). |
+| `IconField` | `"Icon"` | The icon that renders in the chip. See [Icons](#icons) below. |
 | `RemovableField`| `"Removable"` | Defines if the users can remove the chip. |
+| `TextField` | `"Text"` | The text that renders in the chip. |
 | `ThemeColorField`| `"ThemeColor"` | Defines the [`ThemeColor` of each chip](slug:chip-appearance#themecolor). |
 
 #### Icons
@@ -84,49 +41,128 @@ The `IconField` model property can hold:
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
->caption ChipList with custom model property names
+## Examples
+
+### Default Property Names
+
+The following example uses property names that work automatically with no additional ChipList configuration.
+
+>caption Using default property names in the ChipList model class
 
 ````RAZOR
-<TelerikChipList Data="@ChipListData"
-                 TextField="@nameof(ChipModel.ChipText)"
-                 IconField="@nameof(ChipModel.ChipIcon)"
-                 DisabledField="@nameof(ChipModel.ChipDisabled)"
-                 RemovableField="@nameof(ChipModel.ChipRemovable)">
-</TelerikChipList>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+<TelerikChipList Data="@ChipListData" />
 
 @code {
-    private List<ChipModel> ChipListData { get; set; } = new List<ChipModel>() {
+    private List<ChipModel> ChipListData { get; set; } = new()
+    {
         new ChipModel()
         {
-            ChipText = "Audio (SVG icon)",
-            ChipIcon = SvgIcon.FileAudio,
-            ChipDisabled = false,
-            ChipRemovable = true
+            Text = "Solid Base",
+            Icon = SvgIcon.Sparkles
         },
         new ChipModel()
         {
-            ChipText = "Video (Font icon)",
-            ChipIcon = FontIcon.FileVideo,
-            ChipDisabled = false,
-            ChipRemovable = false
+            Text = "Outline Info",
+            Icon = SvgIcon.QuestionCircle,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Info,
+            FillMode = ThemeConstants.Chip.FillMode.Outline
         },
         new ChipModel()
         {
-            ChipText = "Image (disabled)",
-            ChipIcon = SvgIcon.FileImage,
-            ChipDisabled = true,
-            ChipRemovable = false
+            Text = "Solid Success",
+            Icon = SvgIcon.Star,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Success
+        },
+        new ChipModel()
+        {
+            Text = "Outline Warning Removable",
+            Icon = SvgIcon.ExclamationCircle,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Warning,
+            FillMode = ThemeConstants.Chip.FillMode.Outline,
+            Removable = true
+        },
+        new ChipModel()
+        {
+            Text = "Solid Error Disabled",
+            Icon = SvgIcon.XOutline,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Error,
+            Disabled = true
         }
     };
 
     public class ChipModel
     {
-        public string ChipText { get; set; }
-        public object ChipIcon { get; set; }
+        public bool Disabled { get; set; }
+        public string FillMode { get; set; } = string.Empty;
+        public object? Icon { get; set; }
+        public bool Removable { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string ThemeColor { get; set; } = string.Empty;
+    }
+}
+````
+
+### Custom Property Names
+
+The following example uses custom property names that need explicit ChipList configuration.
+
+>caption ChipList with custom model property names
+
+````RAZOR
+<TelerikChipList Data="@ChipListData"
+                 DisabledField="@nameof(ChipModel.ChipDisabled)"
+                 FillModeField="@nameof(ChipModel.ChipFillMode)"
+                 IconField="@nameof(ChipModel.ChipIcon)"
+                 RemovableField="@nameof(ChipModel.ChipRemovable)"
+                 TextField="@nameof(ChipModel.ChipText)"
+                 ThemeColorField="@nameof(ChipModel.ChipThemeColor)" />
+
+@code {
+    private List<ChipModel> ChipListData { get; set; } = new()
+    {
+        new ChipModel()
+        {
+            ChipText = "Solid Base",
+            ChipIcon = SvgIcon.Sparkles
+        },
+        new ChipModel()
+        {
+            ChipText = "Outline Info",
+            ChipIcon = SvgIcon.QuestionCircle,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Info,
+            ChipFillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            ChipText = "Solid Success",
+            ChipIcon = SvgIcon.Star,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Success
+        },
+        new ChipModel()
+        {
+            ChipText = "Outline Warning Removable",
+            ChipIcon = SvgIcon.ExclamationCircle,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Warning,
+            ChipFillMode = ThemeConstants.Chip.FillMode.Outline,
+            ChipRemovable = true
+        },
+        new ChipModel()
+        {
+            ChipText = "Solid Error Disabled",
+            ChipIcon = SvgIcon.XOutline,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Error,
+            ChipDisabled = true
+        }
+    };
+
+    public class ChipModel
+    {
         public bool ChipDisabled { get; set; }
+        public string ChipFillMode { get; set; } = string.Empty;
+        public object? ChipIcon { get; set; }
         public bool ChipRemovable { get; set; }
+        public string ChipText { get; set; } = string.Empty;
+        public string ChipThemeColor { get; set; } = string.Empty;
     }
 }
 ````
