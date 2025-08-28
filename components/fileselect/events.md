@@ -41,7 +41,7 @@ Property | Type | Description
 
 The `OnSelect` fires when one or more files have been selected. The selection of files is achieved either through the **Select Files** button or by dropping the files anywhere in the component.
 
-The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo), which contains a list of `FileInfo` objects that allow the processing of the files.
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). The FileSelectEventArgs event argument contains the properties `Files` (a collection of `FileSelectFileInfo` members) and `IsCancelled`. When `IsCancelled` is set to `true`, it cancels the event and the respective user action.
 
 See the [example below](#example).
 
@@ -49,7 +49,7 @@ See the [example below](#example).
 
 The `OnRemove` fires when a file has been removed from the list of selected files either by clicking the **x** icon or by pressing the `Del` key.
 
-The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). As the FileSelect component allows deleting one item at a time, the collection contains only one `FileSelectFileInfo` object (the deleted one).
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo) that has the `Files` and `IsCancelled` properties. Unlike the `OnSelect` event, in which the `Files` collection may contain multiple `FileSelectFileInfo` objects, in the `OnRemove` event, it contains only one `FileSelectFileInfo` object (the deleted one).
 
 ## Example
 
