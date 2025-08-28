@@ -68,7 +68,7 @@ You can use the built-in events of the Blazor ChipList to react to chip selectio
 
 ## Appearance
 
-You can customize the [appearance of the Blazor ChipList](slug:chiplist-appearance) via a variety of built-in customization options. Also see how to [set `ThemeColor`](slug:chip-appearance#themecolor) for each [chip in the ChipList](slug:chiplist-bound).
+You can customize the [appearance of the Blazor ChipList](slug:chiplist-appearance) via a variety of built-in customization options. Also see how to set [`ThemeColor`](slug:chip-appearance#themecolor) and [`FillMode`](slug:chip-appearance#fillmode) separately for each [chip in the ChipList](slug:chiplist-bound).
 
 ## ChipList Parameters
 
