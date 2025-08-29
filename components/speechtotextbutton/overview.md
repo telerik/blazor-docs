@@ -40,8 +40,8 @@ The SpeechToTextButton component exposes several public methods that you can cal
 
 >caption Example of Calling a Method by Reference
 
-<div class="skip-repl"></div>
-````RAZOR
+
+````RAZOR.skip-repl
 <TelerikSpeechToTextButton @ref="speechToTextButtonRef" />
 
 @code {
@@ -50,6 +50,14 @@ The SpeechToTextButton component exposes several public methods that you can cal
         await speechToTextButtonRef.StartAsync();
     }
 }
+````
+
+## Limitations
+
+When you use the SpeechToTextButton component in the Edge browser or in a Blazor MAUI Hybrid APP WebView, the language for speech recognition is not detected automatically. To ensure correct behavior, it is required to set the `Lang` parameter explicitly. This is required because these environments do not follow the automatic language resolution described in the [MDN Web Speech API documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/lang).
+
+````RAZOR.skip-repl
+<TelerikSpeechToTextButton Lang="en-US" />
 ````
 
 ## Supported Browsers
