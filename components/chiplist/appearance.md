@@ -10,24 +10,28 @@ position: 35
 
 # ChipList Appearance Settings
 
-You can control the appearance of the chips in the ChipList by setting the following attributes:
+You can control the appearance of the chips in the ChipList by setting the following parameters:
 
-* [FillMode](#fillmode)
-* [Rounded](#rounded)
-* [Size](#size)
+* [`FillMode`](#fillmode)
+* [`Rounded`](#rounded)
+* [`Size`](#size)
 
 You can use all of them together to achieve the desired appearance. This article will explain their effect one by one.
 
+Also see how to set [`ThemeColor`](slug:chip-appearance#themecolor) and [`FillMode`](slug:chip-appearance#fillmode) separately for each [chip in the ChipList](slug:chiplist-bound).
+
 ## FillMode
 
-The `FillMode` controls how the individual chip is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.FillMode` class:
+The `FillMode` controls how all the chips are filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.FillMode` class:
 
 | Class members | Manual declarations |
 |------------|--------|
 |`Solid` <br /> default value|`solid`|
 |`Outline`|`outline`|
 
->caption The built-in Fill modes
+You can also set `FillMode` separately for each chip in the ChipList through a [property of the data item](slug:chiplist-bound).
+
+>caption Using ChipList FillMode
 
 ````RAZOR
 @* These are all built-in fill modes *@
@@ -86,7 +90,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the chip to achi
 |`Large`|`lg`|
 |`Full`|`full`|
 
->caption The built-in values of the Rounded attribute
+>caption Using ChipList Rounded
 
 ````RAZOR
 @* The built-in rounded edges of the chip.  *@
@@ -144,7 +148,7 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
 | `Medium` <br /> default value  |`md`|
 | `Large`   |`lg`|
 
->caption The built-in chip sizes
+>caption Using ChipList Size
 
 ````RAZOR
 @{
@@ -191,3 +195,7 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
 ````
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
+## See Also
+
+* [Set ThemeColor for each chip in the ChipList](slug:chiplist-bound)
