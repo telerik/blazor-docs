@@ -93,18 +93,85 @@ To use a Chart component with Bubble series:
 
 ## Bubble Sizing
 
-The Chart component determines the physical size of each bubble automatically:
+By default, the Chart determines the physical size of each bubble automatically:
 
-* The maximum bubble size is 20% of the smaller Chart dimension (width or height). This ensures that the largest bubbles do not occupy too much space.
-* The minimum bubble size is 2% of the smaller Chart dimension, but not less than `10px`. This ensures that even the smallest bubbles are perceivable and accessible. The smallest bubble size also depends on the largest `Size` value in the Chart series.
+* The maximum bubble diameter is 20% of the smaller Chart dimension (width or height). This ensures that the largest bubbles do not occupy too much space.
+* The minimum bubble diameter is 2% of the smaller Chart dimension, but not less than `10px`. This ensures that even the smallest bubbles are perceivable and accessible. The smallest bubble size also depends on the largest `Size` value in the Chart series.
 * All bubble sizes are set proportionately, as long as they comply with the preceding rules.
+
+To change the minimum and maximum bubble diameter, use the `MinSize` and `MinSize` parameters of `<ChartSeries>`. In this case, the Chart component sets the diameter of the rendered bubbles based on:
+
+* The absolute values of `MinSize` and `MaxSize`, which represent pixels.
+* The ratio between `MinSize` and `MaxSize`.
+* The ratio between the smallest and largest `Size` values in the series.
 
 As a result of the above algorithms:
 
-* Bubble sizing may not be linear if the ratio between the smallest and largest `Size` values is too big. For example, a 10-fold bubble size difference is achievable with a large-enough Chart, but a 100-fold size difference is not supported.
+* Bubble sizing may not look proportionate if the ratio between the smallest and largest `Size` value in the series is not consistent with the ratio between the current minimum and maximum allowed bubble size.
 * The Bubble Chart helps users compare bubble sizes in the same Chart instance, rather than between different instances. To compare bubbles from multiple series, define these series in the same Chart instance.
 
 If you need to [improve the bubble size comparability across several Charts](slug:chart-kb-bubble-size), then use a dummy data item with a `Size` value that matches the maximum `Size` value in all Chart instances.
+
+>caption Using default and custom Chart bubble sizes
+
+````RAZOR
+<TelerikChart Width="1000px" Height="420px">
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bubble"
+                     Data="@BubbleData"
+                     Name="Custom Sizes"
+                     XField="@nameof(BubbleModel.XValue)"
+                     YField="@nameof(BubbleModel.YValue1)"
+                     SizeField="@nameof(BubbleModel.SizeValue)"
+                     CategoryField="@nameof(BubbleModel.SizeValue)"
+                     MinSize="1"
+                     MaxSize="200">
+            <ChartSeriesLabels Visible="true">
+                <ChartSeriesLabelsMargin Top="20" />
+            </ChartSeriesLabels>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bubble"
+                     Data="@BubbleData"
+                     Name="Default Sizes"
+                     XField="@nameof(BubbleModel.XValue)"
+                     YField="@nameof(BubbleModel.YValue2)"
+                     SizeField="@nameof(BubbleModel.SizeValue)"
+                     CategoryField="@nameof(BubbleModel.SizeValue)">
+            <ChartSeriesLabels Visible="true">
+                <ChartSeriesLabelsMargin Bottom="30" />
+            </ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+</TelerikChart>
+
+@code {
+    private List<BubbleModel> BubbleData { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        for (int i = 0; i <= 12; i++)
+        {
+            BubbleData.Add(new()
+            {
+                XValue = i + 1,
+                YValue1 = i + 1,
+                YValue2 = (i + 1) * 2,
+                SizeValue = (int)Math.Pow(2, i)
+            });
+        }
+    }
+
+    public class BubbleModel
+    {
+        public double XValue { get; set; }
+        public double YValue1 { get; set; }
+        public double YValue2 { get; set; }
+        public int SizeValue { get; set; }
+    }
+}
+````
 
 ## Bubble Chart Specific Appearance Settings
 
