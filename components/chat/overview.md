@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Chat Component Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chat" target="_blank">Telerik UI for Blazor Chat component</a> enables developers to build modern conversational interfaces in Blazor applications. It supports rich messaging, AI integrations, custom templates, file uploads, and accessibility features. The component is designed for extensibility, allowing integration with chatbots, LLMs, and custom business logic.
+The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target="_blank">Telerik UI for Blazor Chat component</a> enables developers to build modern conversational interfaces in Blazor applications. It supports rich messaging, AI integrations, custom templates, file uploads, and accessibility features. The component is designed for extensibility, allowing integration with chatbots, LLMs, and custom business logic.
 
 ## Creating Blazor Chat
 
