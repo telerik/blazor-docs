@@ -112,24 +112,21 @@ The DatePicker is a generic component, so you must either provide a `Value`, or 
 >caption Handle OnChange and use two-way binding
 
 ````RAZOR
-@result
-<br />
-model value: @DatePickerValue
-<br />
-
 <TelerikDatePicker @bind-Value="@DatePickerValue"
-                   OnChange="@MyOnChangeHandler">
+                   OnChange="@DatePickerValueChanged"
+                   Width="150px">
 </TelerikDatePicker>
 
+<span><code>OnChange</code> fired at <strong>@LastOnChange?.ToString("HH:mm:ss.fff")</strong></span>
+
 @code {
-    private string result = string.Empty;
+    private DateTime? DatePickerValue { get; set; }
+    private DateTime? LastOnChange { get; set; }
 
-    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
-
-    private void MyOnChangeHandler(object userInput)
+    private void DatePickerValueChanged(object currentValue)
     {
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (DateTime)userInput);
+        LastOnChange = DateTime.Now;
+        Console.WriteLine($"The current Value is {(DateTime?)currentValue}");
     }
 }
 ````
