@@ -128,7 +128,7 @@ If you need to [improve the bubble size comparability across several Charts](slu
                      MinSize="1"
                      MaxSize="200">
             <ChartSeriesLabels Visible="true">
-                <ChartSeriesLabelsMargin Top="20" />
+                <ChartSeriesLabelsMargin Top="24" />
             </ChartSeriesLabels>
         </ChartSeries>
         <ChartSeries Type="ChartSeriesType.Bubble"
@@ -144,6 +144,8 @@ If you need to [improve the bubble size comparability across several Charts](slu
         </ChartSeries>
     </ChartSeriesItems>
 
+    <ChartLegend Position="@ChartLegendPosition.Top" />
+
 </TelerikChart>
 
 @code {
@@ -155,9 +157,9 @@ If you need to [improve the bubble size comparability across several Charts](slu
         {
             BubbleData.Add(new()
             {
-                XValue = i + 1,
-                YValue1 = i + 1,
-                YValue2 = (i + 1) * 2,
+                XValue = 3 + (int)Math.Pow(i, 2),
+                YValue1 = i + 2,
+                YValue2 = (i + 3) * 2,
                 SizeValue = (int)Math.Pow(2, i)
             });
         }
