@@ -52,31 +52,34 @@ TimePicker Value: @TimePickerValue
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
+The `OnChange` event represents a user action that confirms the current value. It fires when the user:
 
-The time picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
+* Presses `Enter` while the textbox is focused.
+* Clicks **Set** in the time selection popup.
+* Blurs the component.
 
->caption Handle the TimePicker OnChange event
+The event handler receives an `object` argument that you need to cast to the actual `Value` type. The argument can hold a value or be `null`, depending on the user input and the `Value` type.
+
+The TimePicker is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
+
+>caption Handle DateTimePicker OnChange and use two-way Value binding
 
 ````RAZOR
-@Result
-<br />
-TimePicker Value: @TimePickerValue
-<br />
-
 <TelerikTimePicker @bind-Value="@TimePickerValue"
-                   OnChange="OnTimePickerChange">
+                   OnChange="@TimePickerValueChanged"
+                   Width="150px">
 </TelerikTimePicker>
 
+<span><code>OnChange</code> fired at <strong>@LastOnChange?.ToString("HH:mm:ss.fff")</strong></span>
+
 @code {
-    private string Result { get; set; } = string.Empty;
+    private DateTime? TimePickerValue { get; set; }
+    private DateTime? LastOnChange { get; set; }
 
-    private DateTime TimePickerValue { get; set; } = DateTime.Now;
-
-    private void OnTimePickerChange(object currentValue)
+    private void TimePickerValueChanged(object currentValue)
     {
-        // Cast the event argument to the actual value type
-        Result = $"The user entered: {(DateTime)currentValue}";
+        LastOnChange = DateTime.Now;
+        Console.WriteLine($"The current Value is {(DateTime?)currentValue}");
     }
 }
 ````
