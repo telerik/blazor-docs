@@ -31,7 +31,10 @@ This KB answers the following questions:
 
 ## Solution
 
-The [Bubble Chart sets the minimum and maximum bubble sizes automatically](slug:components/chart/types/bubble#bubble-sizing), depending on the Chart dimensions, and the smallest and largest `Size` values in all series in the Chart instance.
+The [Bubble Chart supports two algorithms to set the minimum and maximum bubble sizes](slug:components/chart/types/bubble#bubble-sizing):
+
+* Automatically, depending on the Chart dimensions, and the smallest and largest `Size` values in all series in the Chart instance.
+* Based on the `<ChartSeries>` `MinSize` and `MaxSize` parameters.
 
 To display comparable bubble sizes in multiple Charts:
 
