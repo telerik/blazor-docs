@@ -123,7 +123,7 @@ The following example uses property names that work automatically with no additi
         },
         new ChipModel()
         {
-            Text = "Solid Error",
+            Text = "Outline Error",
             Icon = SvgIcon.XOutline,
             ThemeColor = ThemeConstants.Chip.ThemeColor.Error,
             FillMode = ThemeConstants.Chip.FillMode.Outline
