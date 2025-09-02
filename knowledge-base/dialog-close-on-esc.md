@@ -62,7 +62,7 @@ To ensure the Dialog closes on `ESC` even after focusing the content, wrap the D
 </style>
 
 @code {
-    private bool DialogVisible { get; set; }
+    private bool DialogVisible { get; set; } = true;
     private string SampleText { get; set; } = string.Empty;
 
     private void OpenDialog()
