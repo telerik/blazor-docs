@@ -56,7 +56,7 @@ To ensure the Dialog closes on `ESC` even after focusing the content, wrap the D
     }
 
         /* Visual indication when the wrapper is focused */
-        .focusable-content .dialog-content-wrapper:focus {
+        .focusable-content .dialog-content-wrapper:focus-within {
             background-color: rgba(0, 123, 255, 0.05);
         }
 </style>
