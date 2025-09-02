@@ -38,7 +38,7 @@ The required approach depends on the [Editor `EditMode`](slug:editor-edit-modes-
 ### `Div` EditMode
 
 1. Learn how to [call JavaScript code from C# code](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet).
-1. Wrap the Editor in a container with an `@onfocusin` event handler.
+1. Wrap the Editor in a container with an `@onfocusin` event.
 1. Use JavaScript to check if the Editor content `<div class="k-content ProseMirror">` is focused.
 
 >caption Detect Editor focus when using Div EditMode
