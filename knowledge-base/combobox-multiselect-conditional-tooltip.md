@@ -4,7 +4,6 @@ description: Learn how to conditionally display tooltips for TelerikComboBox and
 type: how-to
 page_title: Implementing Dynamic Tooltips for ComboBox and MultiSelect in Blazor
 slug: combobox-multiselect-kb-conditional-tooltips
-position:
 tags: blazor, combobox, multiselect, tooltip
 ticketid: 1693287
 res_type: kb
