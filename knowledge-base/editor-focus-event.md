@@ -48,8 +48,8 @@ The required approach depends on the [Editor `EditMode`](slug:editor-edit-modes-
 
 @inject IJSRuntime js
 
-<div @onfocusin="@OnEditorFocus1">
-    <TelerikEditor @bind-Value="@EditorValue1"
+<div @onfocusin="@OnDivEditorFocus">
+    <TelerikEditor @bind-Value="@EditorValue"
                    Tools="@EditorToolSets.All"
                    EditMode="@EditorEditMode.Div"
                    Height="300px">
@@ -69,15 +69,15 @@ The required approach depends on the [Editor `EditMode`](slug:editor-edit-modes-
 @code {
     #nullable enable
 
-    private string EditorValue1 { get; set; } = @"<p>foo 1</p><p>bar 1</p>";
+    private string EditorValue { get; set; } = @"<p>foo 1</p><p>bar 1</p>";
 
-    private async Task OnEditorFocus1()
+    private async Task OnDivEditorFocus()
     {
         bool isEditorContentFocused = await js.InvokeAsync<bool>("isEditorDivFocused");
 
         if (isEditorContentFocused)
         {
-            EditorValue1 = $"<p>Editor content DIV was focused at {DateTime.Now.ToLongTimeString()}.</p>";
+            EditorValue = $"<p>Editor content DIV was focused at {DateTime.Now.ToLongTimeString()}.</p>";
         }
     }
 }
@@ -100,9 +100,9 @@ The required approach depends on the [Editor `EditMode`](slug:editor-edit-modes-
 
 @inject IJSRuntime js
 
-<TelerikEditor @bind-Value="@EditorValue2"
+<TelerikEditor @bind-Value="@EditorValue"
                Tools="@EditorToolSets.All"
-               Id="editor2"
+               Id="@EditorId"
                Height="300px">
 </TelerikEditor>
 
@@ -133,15 +133,17 @@ The required approach depends on the [Editor `EditMode`](slug:editor-edit-modes-
 @code {
     #nullable enable
 
-    private string EditorValue2 { get; set; } = @"<p>foo 2</p><p>bar 2</p>";
+    private string EditorValue { get; set; } = @"<p>foo 2</p><p>bar 2</p>";
+
+    private const string EditorId = "iframe-editor";
 
     // Replace __Main with your Razor component type
-    private DotNetObjectReference<__Main>? DotNetRef { get; set; }
+    private DotNetObjectReference<Home>? DotNetRef { get; set; }
 
     [JSInvokable("OnEditorFocus2")]
     public void OnEditorFocus2()
     {
-        EditorValue2 = $"<p>Editor content IFRAME was focused at {DateTime.Now.ToLongTimeString()}.</p>";
+        EditorValue = $"<p>Editor content IFRAME was focused at {DateTime.Now.ToLongTimeString()}.</p>";
         StateHasChanged();
     }
 
@@ -156,7 +158,7 @@ The required approach depends on the [Editor `EditMode`](slug:editor-edit-modes-
         {
             await Task.Delay(1); // wait for HTML to render
 
-            await js.InvokeVoidAsync("attachIframeFocusHandler", "editor2", DotNetRef);
+            await js.InvokeVoidAsync("attachIframeFocusHandler", EditorId, DotNetRef);
         }
 
         await base.OnAfterRenderAsync(firstRender);
