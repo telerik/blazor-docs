@@ -46,57 +46,46 @@ To ensure tooltips are displayed only when text is ellipsed, use JavaScript to c
 ```razor
 @inject IJSRuntime JS
 
+@if (SelectedHobbyId != 0)
+{
+    <TelerikTooltip TargetSelector="#products-multiselect[title]" />
+}
+
+@{
+    <span id="@(IsCurrentOverflowing ? "products-multiselect" : "products-multiselect-none")"
+          @onmouseenter="OnMouseEnter"
+          title="@CurrentHobbyName">
+        <TelerikComboBox @bind-Value="@SelectedHobbyId"
+                         Data="@Hobbies"
+                         Placeholder="Select your favourite sport..."
+                         TextField="@nameof(HobbiesDto.HobbyName)"
+                         ValueField="@nameof(HobbiesDto.HobbyId)"
+                         Filterable="true"
+                         Width="20%"
+                         Class="example-cb">
+        </TelerikComboBox>
+    </span>
+}
+
+@* suppress-error allows script tags inside Razor components.
+   Move the script to an external file in production apps. *@
 <script suppress-error="BL9992">
     window.isTextOverflowing = () => {
         const el = document.querySelector('.example-cb .k-input-inner');
         if (!el) {
             return;
         }
-        
+
         return el.scrollWidth > el.clientWidth;
     };
 </script>
 
-@if (SelectedHobbyId != 0)
-{
-    <TelerikTooltip TargetSelector="#products-multiselect[title]"/>
-}
-
-@{
-    <span
-    id="@(IsCurrentOverflowing ? "products-multiselect" : "products-multiselect-none")"
-    @onmouseenter="OnMouseEnter"
-    title="@CurrentHobbyName">
-        <TelerikComboBox @bind-Value="@SelectedHobbyId"
-                    Data="@Hobbies"
-                    Placeholder="Select your favourite sport..."
-                    TextField="@nameof(HobbiesDto.HobbyName)"
-                    ValueField="@nameof(HobbiesDto.HobbyId)"
-                    Filterable="true"
-                    Width="20%"
-                    Class="example-cb">
-        </TelerikComboBox>
-    </span>
-}
-
 @code {
-    public int SelectedHobbyId { get; set; }
-
+    private int SelectedHobbyId { get; set; }
     private bool IsCurrentOverflowing { get; set; } = false;
     private string CurrentHobbyName => FindCurrentHobby()?.HobbyName;
 
-    private async Task OnMouseEnter() {
-        @if (SelectedHobbyId != 0) {
-            IsCurrentOverflowing = await JS.InvokeAsync<bool>("isTextOverflowing");
-        }
-    }
-
-    public HobbiesDto? FindCurrentHobby() 
-    {
-        return Hobbies.FirstOrDefault(x => x.HobbyId == SelectedHobbyId);
-    }
-
-    public IEnumerable<HobbiesDto> Hobbies { get; set; } = new List<HobbiesDto>()
+    private IEnumerable<HobbiesDto> Hobbies { get; set; } = new List<HobbiesDto>()
     {
         new HobbiesDto(1, "This is a test for a very very very very long sentance."),
         new HobbiesDto(2, "This is some long test sentance."),
@@ -105,6 +94,19 @@ To ensure tooltips are displayed only when text is ellipsed, use JavaScript to c
         new HobbiesDto(5, "Volleyball"),
         new HobbiesDto(6, "Football"),
     };
+
+    private async Task OnMouseEnter()
+    {
+        @if (SelectedHobbyId != 0)
+        {
+            IsCurrentOverflowing = await JS.InvokeAsync<bool>("isTextOverflowing");
+        }
+    }
+
+    private HobbiesDto? FindCurrentHobby()
+    {
+        return Hobbies.FirstOrDefault(x => x.HobbyId == SelectedHobbyId);
+    }
 
     public class HobbiesDto
     {
@@ -122,24 +124,13 @@ To ensure tooltips are displayed only when text is ellipsed, use JavaScript to c
 
 ### MultiSelect Implementation
 
-1. Use the `TagTemplate` to customize the display of tags in the MultiSelect.
+1. Use the [`TagTemplate`](slug:multiselect-templates#tag-template) to customize the display of tags in the MultiSelect.
 2. Use JavaScript to determine overflow and set the tooltip.
 
 >caption Display a Tooltip for Overflowing MultiSelect Items
 
 ```razor
 @inject IJSRuntime JS
-
-<script suppress-error="BL9992">
-    window.isTextOverflowing = (id) => {
-        const el = document.getElementById(id);
-        if (!el) {
-            return false;
-        }
-        
-        return el.scrollWidth > el.clientWidth;
-    };
-</script>
 
 <TelerikTooltip TargetSelector=".example-ms .k-chip-label[title]">
     <Template>
@@ -169,21 +160,30 @@ To ensure tooltips are displayed only when text is ellipsed, use JavaScript to c
             class="k-chip-label"
             @onmouseenter="() => OnHoverHandler(context.HobbyId)"
             id="item @context.HobbyId"
-            title="@title">
+            title="@itemTitle">
                 @context.HobbyName
             </span>
         </span>
     </TagTemplate>
 </TelerikMultiSelect>
 
-@code {
-    private async Task OnHoverHandler(int id)
-    {
-        IsItemOverflowing = await JS.InvokeAsync<bool>("isTextOverflowing", $"item {id}");
-    }
+@* suppress-error allows script tags inside Razor components.
+   Move the script to an external file in production apps. *@
+<script suppress-error="BL9992">
+    window.isTextOverflowing = (id) => {
+        const el = document.getElementById(id);
+        if (!el) {
+            return false;
+        }
+        
+        return el.scrollWidth > el.clientWidth;
+    };
+</script>
 
+@code {
     private bool IsItemOverflowing { get; set; }
     private List<int> SelectedHobbyIds { get; set; }
+
     private IEnumerable<HobbiesDto> Hobbies { get; set; } = new List<HobbiesDto>()
     {
         new HobbiesDto(1, "This is a test for a very very very very long sentance."),
@@ -193,6 +193,11 @@ To ensure tooltips are displayed only when text is ellipsed, use JavaScript to c
         new HobbiesDto(5, "Volleyball"),
         new HobbiesDto(6, "Football"),
     };
+
+    private async Task OnHoverHandler(int id)
+    {
+        IsItemOverflowing = await JS.InvokeAsync<bool>("isTextOverflowing", $"item {id}");
+    }
 
     public class HobbiesDto
     {
@@ -217,6 +222,6 @@ To ensure tooltips are displayed only when text is ellipsed, use JavaScript to c
 
 - [ComboBox Overview](slug:components/combobox/overview)
 - [MultiSelect Overview](slug:multiselect-overview)
-- [Tooltip Configuration](slug:tooltip-overview)
+- [Tooltip Overview](slug:tooltip-overview)
 - [JavaScript scrollWidth Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth)
 - [JavaScript clientWidth Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)
