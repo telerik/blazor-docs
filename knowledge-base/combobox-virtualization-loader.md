@@ -41,7 +41,7 @@ Modify the visibility of old items using CSS rules and conditionally toggle thei
 
 <p>@SelectedValue</p>
 
-@if (IsLoading == true) {
+@if (IsLoading) {
     <style>
         .example-cb .k-list-item {
             visibility: hidden;
@@ -74,10 +74,12 @@ Modify the visibility of old items using CSS rules and conditionally toggle thei
 </TelerikComboBox>
 
 @code{
-    bool IsLoading {get;set;} = false;
-    int SelectedValue { get; set; } = 1234; // pre-select an item to showcase the value mapper
     private TelerikComboBox<Person, int>? ComboBoxRef { get; set; }
+    private int SelectedValue { get; set; } = 1234; // pre-select an item to showcase the value mapper
     private List<Person> AllData { get; set; }
+
+    private bool IsLoading { get; set; }
+
     private async Task GetRemoteData(ComboBoxReadEventArgs args)
     {
         IsLoading = true;
