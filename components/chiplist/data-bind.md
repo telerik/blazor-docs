@@ -62,10 +62,19 @@ The following example uses property names that work automatically with no additi
         },
         new ChipModel()
         {
-            Text = "Outline Info",
+            Text = "Removable",
+            Removable = true
+        },
+        new ChipModel()
+        {
+            Text = "Disabled",
+            Disabled = true
+        },
+        new ChipModel()
+        {
+            Text = "Solid Info",
             Icon = SvgIcon.QuestionCircle,
-            ThemeColor = ThemeConstants.Chip.ThemeColor.Info,
-            FillMode = ThemeConstants.Chip.FillMode.Outline
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Info
         },
         new ChipModel()
         {
@@ -75,18 +84,49 @@ The following example uses property names that work automatically with no additi
         },
         new ChipModel()
         {
-            Text = "Outline Warning Removable",
+            Text = "Solid Warning",
             Icon = SvgIcon.ExclamationCircle,
-            ThemeColor = ThemeConstants.Chip.ThemeColor.Warning,
-            FillMode = ThemeConstants.Chip.FillMode.Outline,
-            Removable = true
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Warning
         },
         new ChipModel()
         {
-            Text = "Solid Error Disabled",
+            Text = "Solid Error",
+            Icon = SvgIcon.XOutline,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Error
+        },
+        new ChipModel()
+        {
+            Text = "Outline Base",
+            Icon = SvgIcon.Sparkles,
+            FillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            Text = "Outline Info",
+            Icon = SvgIcon.QuestionCircle,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Info,
+            FillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            Text = "Outline Success",
+            Icon = SvgIcon.Star,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Success,
+            FillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            Text = "Outline Warning",
+            Icon = SvgIcon.ExclamationCircle,
+            ThemeColor = ThemeConstants.Chip.ThemeColor.Warning,
+            FillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            Text = "Outline Error",
             Icon = SvgIcon.XOutline,
             ThemeColor = ThemeConstants.Chip.ThemeColor.Error,
-            Disabled = true
+            FillMode = ThemeConstants.Chip.FillMode.Outline
         }
     };
 
@@ -127,10 +167,19 @@ The following example uses custom property names that need explicit ChipList con
         },
         new ChipModel()
         {
-            ChipText = "Outline Info",
+            ChipText = "Removable",
+            ChipRemovable = true
+        },
+        new ChipModel()
+        {
+            ChipText = "Disabled",
+            ChipDisabled = true
+        },
+        new ChipModel()
+        {
+            ChipText = "Solid Info",
             ChipIcon = SvgIcon.QuestionCircle,
-            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Info,
-            ChipFillMode = ThemeConstants.Chip.FillMode.Outline
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Info
         },
         new ChipModel()
         {
@@ -140,18 +189,49 @@ The following example uses custom property names that need explicit ChipList con
         },
         new ChipModel()
         {
-            ChipText = "Outline Warning Removable",
+            ChipText = "Solid Warning",
             ChipIcon = SvgIcon.ExclamationCircle,
-            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Warning,
-            ChipFillMode = ThemeConstants.Chip.FillMode.Outline,
-            ChipRemovable = true
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Warning
         },
         new ChipModel()
         {
-            ChipText = "Solid Error Disabled",
+            ChipText = "Solid Error",
+            ChipIcon = SvgIcon.XOutline,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Error
+        },
+        new ChipModel()
+        {
+            ChipText = "Outline Base",
+            ChipIcon = SvgIcon.Sparkles,
+            ChipFillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            ChipText = "Outline Info",
+            ChipIcon = SvgIcon.QuestionCircle,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Info,
+            ChipFillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            ChipText = "Outline Success",
+            ChipIcon = SvgIcon.Star,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Success,
+            ChipFillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            ChipText = "Outline Warning",
+            ChipIcon = SvgIcon.ExclamationCircle,
+            ChipThemeColor = ThemeConstants.Chip.ThemeColor.Warning,
+            ChipFillMode = ThemeConstants.Chip.FillMode.Outline
+        },
+        new ChipModel()
+        {
+            ChipText = "Outline Error",
             ChipIcon = SvgIcon.XOutline,
             ChipThemeColor = ThemeConstants.Chip.ThemeColor.Error,
-            ChipDisabled = true
+            ChipFillMode = ThemeConstants.Chip.FillMode.Outline
         }
     };
 
