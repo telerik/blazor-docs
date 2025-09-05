@@ -311,7 +311,7 @@ The required approach with a Telerik Blazor Diagram is the same as described abo
 }
 
 @* Move JavaScript code to a separate JS file *@
-<script suppress-error="BL9992">//
+<script suppress-error="BL9992">
     function getDiagramFromSvg(selector, diagramWidth, diagramHeight) {
         const dpr = window.devicePixelRatio;
 
