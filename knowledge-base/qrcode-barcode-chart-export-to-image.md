@@ -364,7 +364,7 @@ The required approach with a Telerik Blazor Diagram is the same as described abo
             img.src = blobUrl;
         });
     }
-//</script>
+</script>
 
 @code {
     private string DiagramImageDataUrl { get; set; } = string.Empty;
