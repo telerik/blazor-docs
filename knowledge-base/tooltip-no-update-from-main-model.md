@@ -60,39 +60,90 @@ This means that its content is no longer a sibling or child of the current compo
 
 ## Solution
 
-The solution is to encapsulate the desired content in its own component so that its own logic and view-model updates itself and its own rendering, and changes from the parent component also fire up its `OnParametersSet` method so it can also re-render as needed.
+Encapsulate the desired Tooltip content in a separate child component that has its own logic and component life cycle. This will help with the rendering updates. You can expose the necessary parameters and events, so that there are no API changes in the view-model of the main component
 
-You can expose the necessary parameters and events from it so that there are no API changes in the view-model of the main component
+Note that the child component will call its `OnParametersSet` method only on Tooltip display. If you need `OnParametersSet` to execute on each parameter change from the parent component, then use two nested components inside the Tooltip template.
 
 <div class="skip-repl"></div>
-````RAZOR MainComponent
-@* The API is the same, the contents are in their own component, see the adjacent tab *@
 
-<TelerikButton Class="search-tooltip" ThemeColor="primary">Click for tooltip</TelerikButton>
+````RAZOR Home.razor
+<TelerikButton Class="search-tooltip-target" ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Click to Show Tooltip</TelerikButton>
 
-<TelerikTooltip TargetSelector=".search-tooltip" Position="TooltipPosition.Bottom" ShowOn="TooltipShowEvent.Click">
+@SearchClickLog
+
+<TelerikTooltip TargetSelector=".search-tooltip-target"
+                Position="TooltipPosition.Bottom"
+                ShowOn="TooltipShowEvent.Click">
     <Template>
-        <SearchTooltipContent @bind-SearchText="@SearchText" OnSearch="@Search" />
+        @* The Update AnotherParameter button will not work
+			unless the whole Tooltip Template content is in a child component. *@
+        <TelerikButton OnClick="@UpdateAnotherParameter"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Error">
+            Update AnotherParameter
+        </TelerikButton>
+        <TelerikButton OnClick="@UpdateAnotherValue"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Success">
+            Update AnotherValue
+        </TelerikButton>
+        <br />
+        <br />
+        <SearchTooltipContent @ref="@CounterRef"
+                              @bind-SearchText="@SearchText"
+                              AnotherParameter="@AnotherValue"
+                              OnSearch="@Search" />
     </Template>
 </TelerikTooltip>
 
 @code{
-    string SearchText { get; set; }
-    void Search()
+    private string SearchText { get; set; } = string.Empty;
+
+    private string SearchClickLog { get; set; } = string.Empty;
+
+    private int AnotherValue { get; set; }
+
+    private Counter? CounterRef { get; set; }
+
+    private void Search()
     {
-        Console.WriteLine("Search Click");
+        SearchClickLog = $"Search Button clicked at {DateTime.Now.ToString("HH:mm:ss.fff")} for {SearchText}.";
+    }
+
+    private void UpdateAnotherParameter()
+    {
+        // Will not work inside a Tooltip,
+		// unless this method is insde a child component of the Tooltip Template
+  		// and AnotherValue is consumed by a grand child.
+	    // Use the next method as an alternative.
+        AnotherValue = DateTime.Now.Millisecond;
+    }
+
+    private void UpdateAnotherValue()
+    {
+        AnotherValue = DateTime.Now.Millisecond;
+        CounterRef?.GetValuesFromParent(AnotherValue);
     }
 }
 ````
 ````RAZOR SearchTooltipContent
-@* Sample content for the tooltip that fires up the necessary events and can update as necessary *@
+<TelerikTextBox Value="@SearchText"
+                ValueChanged="@TextBoxValueChanged"
+                ShowClearButton="true"
+                Width="160px" />
 
-<TelerikTextBox Value="@SearchText" ValueChanged="@( (string v) => ValueChangedHandler(v) )"></TelerikTextBox>
-<TelerikButton OnClick="@Search" Enabled="@(!string.IsNullOrEmpty(SearchText))">Search</TelerikButton>
+<TelerikButton OnClick="@OnSearchButtonClick"
+               ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+               Enabled="@(!string.IsNullOrEmpty(SearchText))">
+    Search
+</TelerikButton>
+
+<p>
+    Another Parameter: @AnotherParameter,
+    Another Value: @AnotherValue
+</p>
 
 @code {
     [Parameter]
-    public string SearchText { get; set; }
+    public string SearchText { get; set; } = string.Empty;
 
     [Parameter]
     public EventCallback<string> SearchTextChanged { get; set; }
@@ -100,22 +151,44 @@ You can expose the necessary parameters and events from it so that there are no 
     [Parameter]
     public EventCallback OnSearch { get; set; }
 
-    void ValueChangedHandler(string v)
+    [Parameter]
+    public int AnotherParameter { get; set; }
+
+    private int AnotherValue { get; set; }
+
+    private async Task TextBoxValueChanged(string newValue)
     {
-        SearchText = v;
+        SearchText = newValue;
+
         if (SearchTextChanged.HasDelegate)
         {
-            SearchTextChanged.InvokeAsync(SearchText);
+            await SearchTextChanged.InvokeAsync(SearchText);
         }
     }
 
-    async Task Search()
+    private async Task OnSearchButtonClick()
     {
         if (OnSearch.HasDelegate)
         {
             await OnSearch.InvokeAsync(null);
         }
     }
+
+    public void GetValuesFromParent(int anotherParameterValue)
+    {
+        AnotherValue = anotherParameterValue;
+        StateHasChanged();
+    }
+
+    protected override void OnParametersSet()
+    {
+        // This method will not be called, except:
+        // - On each new Tooltip display
+        // - If this component is outside a Tooltip
+        // - If this component is a grand child of a Tooltip Template
+        // Call component instance methods as a workaround. See GetValuesFromParent()
+
+        base.OnParametersSet();
+    }
 }
 ````
-
