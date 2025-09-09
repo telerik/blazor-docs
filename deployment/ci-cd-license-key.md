@@ -16,7 +16,13 @@ This article describes how to set up and activate your [Telerik UI for Blazor li
 
 ## Basics
 
-Provide a Telerik license key during the `build` and `publish` steps of the application deployment process. [A license key is not required on the web server that hosts the already deployed web application](slug:installation-license-key#where-do-i-need-to-install-a-license-key).
+A Telerik license key is required during application build. During application deployment, this includes all steps that:
+
+* Build the app with `dotnet build`
+* Run unit tests, unless the `dotnet test` command uses the `--no-build` option
+* Publish the app, unless the `dotnet publish` command uses the `--no-build` option
+
+>tip [A license key is not required on the web server that hosts the already deployed web application](slug:installation-license-key#where-do-i-need-to-install-a-license-key).
 
 The Telerik license activation process in CI/CD test, build, staging, and production environments involves the following steps:
 
