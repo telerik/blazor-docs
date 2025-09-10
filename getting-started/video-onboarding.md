@@ -11,7 +11,7 @@ position: 30
 
 # Video Onboarding
 
-All users with an active trial or commercial license have access to a [Telerik UI for Blazor getting started video course](https://www.youtube.com/playlist?list=PLvmaC-XMqeBYOAIwNousFCG2rib4fcdvz).
+All users have access to a [Telerik UI for Blazor getting started video course](https://www.youtube.com/playlist?list=PLvmaC-XMqeBYOAIwNousFCG2rib4fcdvz).
 The training course is developed to help you get started with the Telerik UI for Blazor components and features. It aims to put you in the shoes of an engineer who adds new features to an existing application.
 
 {% if site.has_cta_panels == true %}
