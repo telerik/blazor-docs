@@ -21,11 +21,40 @@
 
 #end
 
+#generate-nuget-api-key
+
+As the Telerik NuGet server requires authentication, the first step is to obtain an API key that you will use instead of a password. Using an API key instead of a password is a more secure approach, especially when working with [.NET CLI](#use-the-net-cli) or the [`NuGet.Config` file](#edit-the-nugetconfig-file).
+
+1. Go to the [NuGet Keys](https://www.telerik.com/account/downloads/nuget-keys) page in your Telerik account.
+1. Click **Generate New Key +**.
+1. In the **Key Note** field, add a note that describes the API key.
+1. Click **Generate Key**.
+1. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **NuGet Keys** page displays only a portion of the key.
+1. Store the generated NuGet API key as you will need it in the next steps.
+
+Whenever you need to authenticate your system with the Telerik NuGet server, use `api-key` as the username and your generated API key as the password.
+#end
 
 #add-nuget-feed
 ## Step 3: Add the Telerik NuGet Feed to Visual Studio
 
-In this tutorial, you will use the [Telerik NuGet feed](slug:installation/nuget) to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with your Telerik user name and password:
+In this tutorial, you will use the [Telerik NuGet feed](slug:installation/nuget) to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with a NuGet API key.
+
+To generate your NuGet API key:
+
+1. Go to the [NuGet Keys](https://www.telerik.com/account/downloads/nuget-keys) page in your Telerik account.
+
+1. Click **Generate New Key +**.
+
+1. In the **Key Note** field, add a note that describes the API key.
+
+1. Click **Generate Key**.
+
+1. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **NuGet Keys** page displays only a portion of the key.
+
+1. Store the generated NuGet API key as you will need it in the next steps.
+
+Next, add the Telerik NuGet feed to Visual Studio:
 
 1. In Visual Studio and go to **Tools** > **NuGet Package Manager** > **Package Manager Settings**.
 
@@ -37,9 +66,9 @@ In this tutorial, you will use the [Telerik NuGet feed](slug:installation/nuget)
 
 ![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
 
-1. Whenever Visual Studio displays a dialog to enter credentials for `nuget.telerik.com`, use your Telerik account email and password.
+1. Whenever Visual Studio displays a dialog to enter credentials for `nuget.telerik.com`, use `api-key` as the username and your NuGet API key as the password.
 
->tip For alternative NuGet package download options, check the [Workflow article](slug:getting-started/what-you-need). You can also [authenticate with `nuget.telerik.com` with an API key](slug:installation/nuget#use-nuget-api-key).
+>tip For alternative NuGet package download options, check the [Workflow article](slug:getting-started/what-you-need).
 
 #end
 
