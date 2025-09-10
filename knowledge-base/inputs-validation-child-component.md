@@ -6,7 +6,7 @@ page_title: Validate a Telerik component as child component and apply invalid bo
 slug: inputs-kb-validate-child-component
 position: 
 tags: telerik, blazor, form, validation
-ticketid: 1499665
+ticketid: 1499665, 1697034
 res_type: kb
 ---
 
@@ -39,9 +39,9 @@ I am wrapping a Telerik component inside a custom component in my Form. When I t
 
 Internally, the Telerik input components use the cascading `EditContext` parameter that the `EditForm` and `TelerikForm` provide. The `EditContext` API allow the components to determine if validation has passed or failed. If the validation fails, the components show a red border.
 
-When you wrap an input component in another component, you must define a `ValueExpression` parameter in the custom component. This will allow the custom component to receive the correct expression from the parent component, which holds the Form. The Blazor framework generates the expression automatically when using `@bind-Value`, but not when there is another component in the component hierarchy tree.
+When you wrap an input component in a custom child component, you must define a `ValueExpression` parameter for the child component. This allows the child component to receive the correct expression from the parent component, which holds the Form. The Blazor framework generates the expression automatically when using `@bind-Value`, but not when there is another component in the component hierarchy tree.
 
-The example below shows how to wrap a Telerik TextBox and DropDownList in different `.razor` files and get the invalid red border when the validation does not pass.
+The example below shows how to wrap a Telerik TextBox and DropDownList in different `.razor` files and get the invalid red border when the validation does not pass. Note the different `For` parameter syntax in the two `<TelerikValidationMessage />` instances in `Home.razor` and `DropDownList.razor`. The `For` syntax depends on whether the `TelerikValidationMessage` component is in the same component as the Form, or in a child component, which consumes a `ValueExpression` parameter.
 
 >caption Validate a TextBox and a DropDownList in custom components with ValueExpression parameters
 
@@ -63,6 +63,7 @@ The example below shows how to wrap a Telerik TextBox and DropDownList in differ
                 <div class="k-form-field-wrap">
                     <TextBox @bind-Value="@CustomerToEdit.Name"
                              Id="customer-name" />
+                    <TelerikValidationMessage For="@(() => CustomerToEdit.Name)" />
                 </div>
             </Template>
         </FormItem>
@@ -75,6 +76,7 @@ The example below shows how to wrap a Telerik TextBox and DropDownList in differ
                                   TextField="@nameof(Country.Name)"
                                   ValueField="@nameof(Country.Id)"
                                   Id="customer-countryid" />
+                    @* TelerikValidationMessage is in DropDownList.razor *@
                 </div>
             </Template>
         </FormItem>
@@ -154,6 +156,7 @@ The example below shows how to wrap a Telerik TextBox and DropDownList in differ
                      TextField="@TextField"
                      ValueField="@ValueField"
                      Id="@Id" />
+<TelerikValidationMessage For="@ValueExpression" />
 
 @code {
     [Parameter]
