@@ -276,3 +276,4 @@ Use the `Class` parameter of the Validation Tooltip to add a custom CSS class to
 * [TelerikValidationSummary](slug:validation-tools-summary)
 * [TelerikValidationTooltip](slug:validation-tools-message)
 * [Form Component](slug:form-overview)
+* [Validate Inputs in Child Components](slug:inputs-kb-validate-child-component)
