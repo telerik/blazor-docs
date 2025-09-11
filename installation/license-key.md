@@ -10,7 +10,7 @@ position: 1
 
 # Telerik License Key
 
-Telerik UI for Blazor requires activation through a license key during application build and publish. A license key is required for both trial and commercial licenses. This article describes how to download your personal license key and use it to activate the Telerik Blazor components.
+Telerik UI for Blazor requires activation through a license key during application build, test and publish. A license key is required for both trial and commercial licenses. This article describes how to download your personal license key and use it to activate the Telerik Blazor components.
 
 @[template](/_contentTemplates/common/get-started.md#license-key-version)
 
@@ -23,7 +23,7 @@ To install a license key, you must have a commercial or trial license for:
 
 If you are new to Telerik UI for Blazor, [sign up for a free trial](https://www.telerik.com/blazor-ui).
 
-The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:getting-started/what-you-need#nuget-packages). During project build and publish, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
+The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:getting-started/what-you-need#nuget-packages). During project build, test and publish, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
 
 Follow the steps below for [automatic](#automatic-installation) or [manual](#manual-installation) license key installation in your local development environment. Then, find out [how to use a Telerik license key during application deployment](slug:deployment-license-key).
 
@@ -92,7 +92,7 @@ Refer to the [Troubleshooting License Key Errors](slug:troubleshooting-license-k
 
 ### Where do I need to install a license key?
 
-A Telerik license key is required on all environments that build or publish Telerik Blazor apps. This includes:
+A Telerik license key is required on all environments that build, test or publish Telerik Blazor apps. This includes:
 
 * Local development environments. See [Automatic Installation](#automatic-installation) and [Manual Installation](#manual-installation) above.
 * Environments that perform [deployment, continuous integration or continuous delivery](slug:deployment-license-key) (CI/CD) to run your apps on a test, staging or production environment. Such environments include Azure Pipelines, GitHub Actions, GitLab, Docker, Jenkins, and others.
