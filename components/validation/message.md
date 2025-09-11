@@ -10,7 +10,7 @@ position: 15
 
 # Telerik Validation Message for Blazor
 
-The <a href = "https://www.telerik.com/blazor-ui/validation-message" target="_blank">Telerik Validation Message for Blazor</a> adds built-in styling and customization options on top of the standard [.NET ValidationMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationmessage-1), such as [`Template`](#template) and [`Class`](#class) parameters.
+The [Telerik Validation Message for Blazor](https://www.telerik.com/blazor-ui/validation-message) adds built-in styling and customization options on top of the standard [.NET ValidationMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationmessage-1), such as [`Template`](#template) and [`Class`](#class) parameters.
 
 ## Basics
 
@@ -49,7 +49,7 @@ The Telerik Form [displays inline validation messages by default if validation i
 
 * Use [form item templates](slug:form-formitems-template). In this case, [add the validation message in the form item template](slug:form-formitems-template#example).
 * Customize the validation messages, for example, change their rendering with a [validation message template](#template). In this case, add the validation message inside a [Form item template](slug:form-formitems-template#example).
-* Customize the placement of the validation messages in the Form, so that they are outside the Form item containers. In this case, consider a [`<FormItemsTemplate>`](slug:form-formitems-formitemstemplate) that gives you full control over the Form rendering between the form items. Alternatively, consider a [`<TelerikValidationSummary />`](slug:validation-tools-summary).
+* Customize the placement of the validation messages in the Form, so that they are outside the Form item containers. In this case, consider a [`<FormItemsTemplate>`](slug:form-formitems-formitemstemplate) that gives you full control over the Form rendering between the form items. Alternatively, consider a [Telerik ValidationSummary](slug:validation-tools-summary).
 
 >caption Use Telerik ValidationMessage in a TelerikForm
 
@@ -59,7 +59,7 @@ The Telerik Form [displays inline validation messages by default if validation i
 <TelerikForm Model="@Employee"
              Width="300px">
     <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <DataAnnotationsValidator />
     </FormValidation>
     <FormItems>
         <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name">
@@ -135,7 +135,9 @@ In an existing Blazor `EditForm`, replace the `<ValidationMessage>` tags with `<
 
 ## Template
 
-The `TelerikValidationMessage` allows you to control its rendering via a nested `<Template>` tag. The `context` represents an `IEnumerable<string>` collection of all messages for this model property.
+The Telerik ValidationMessage allows you to customize its rendering with a nested `<Template>` tag. The template `context` is an `IEnumerable<string>` collection of all messages for the validated model property.
+
+>caption Using ValidationMessage Template
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
@@ -143,7 +145,7 @@ The `TelerikValidationMessage` allows you to control its rendering via a nested 
 <TelerikForm Model="@Employee"
              Width="300px">
     <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <DataAnnotationsValidator />
     </FormValidation>
     <FormItems>
         <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name">
@@ -213,7 +215,6 @@ Use the `Class` parameter of the Validation Message to add a custom CSS class to
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [TelerikValidationSummary](slug:validation-tools-summary)
-* [TelerikValidationTooltip](slug:validation-tools-tooltip)
-* [Form Component](slug:form-overview)
 * [Validate Inputs in Child Components](slug:inputs-kb-validate-child-component)
+* [Telerik ValidationSummary](slug:validation-tools-summary)
+* [Telerik ValidationTooltip](slug:validation-tools-tooltip)

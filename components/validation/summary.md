@@ -10,177 +10,206 @@ position: 5
 
 # Telerik Validation Summary for Blazor
 
-The <a href = "https://www.telerik.com/blazor-ui/validationsummary" target="_blank">Telerik Validation Summary for Blazor</a> adds customization options on top of the standard <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationsummary" target="_blank">.NET ValidationSummary</a>, such as [`Template`](#template) and [`Class`](#class) parameters.
+The [Telerik Validation Summary for Blazor](https://www.telerik.com/blazor-ui/validationsummary) adds built-in styling and customization options on top of the standard [.NET ValidationSummary](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationsummary), such as [`Template`](#template) and [`Class`](#class) parameters.
 
-## Using Validation Summary with TelerikForm
+The Telerik ValidationSummary component must be placed inside a Form. Refer to the following sections for additional information and examples with the [Telerik Form](#using-with-telerikform) and standard [Blazor `<EditForm>`](#using-with-editform).
 
-1. Add the `<TelerikValidationSummary>` tag inside the `<FormValidation>` child tag of the `<TelerikForm>`.
-1. (optional) Disable the built-in validation messages of the Telerik Form to avoid repetition. Set `ValidationMessageType="@FormValidationMessageType.None"`.
+## Using with TelerikForm
 
->caption Use Telerik ValidationSummary in a Telerik Form
+There are three ways to add a Telerik ValidationSummary to a Telerik Form:
+
+* To display validation messages at the top of the Telerik Form, add the `<TelerikValidationSummary>` tag inside the [`<FormValidation>` child tag of the `<TelerikForm>`](slug:form-validation).
+* To display validation messages at the bottom of the Telerik Form, add the `<TelerikValidationSummary>` tag inside the [`<FormButtons>` template](slug:form-formitems-buttons). Wrap the `<TelerikValidationSummary>` and all buttons in a single HTML element, otherwise the validation messages will shrink horizontally and display on the same line as the buttons.
+* To display validation messages anywhere else in the Telerik Form, add the `<TelerikValidationSummary>` tag inside a [`<FormItemsTemplate>` child tag of the `<TelerikForm>`](slug:form-formitems-formitemstemplate).
+
+Optionally, [disable the built-in inline validation messages of the Telerik Form](slug:form-validation#validation-message-type) to avoid repetition.
+
+>caption Use Telerik ValidationSummary at the top of a TelerikForm
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px"
-             ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@Employee"
+             ValidationMessageType="@FormValidationMessageType.None"
+             Width="300px">
     <FormValidation>
         <DataAnnotationsValidator />
         <TelerikValidationSummary />
     </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
+        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
+    </FormItems>
 </TelerikForm>
 
 @code {
-    private Customer customer = new Customer();
+    private Person Employee { get; set; } = new();
 
-    public class Customer
+    public class Person
     {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
+        [Required(ErrorMessage = "Please enter a first name")]
+        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
+        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
+        public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
+        [Required]
+        public string LastName { get; set; } = string.Empty;
     }
 }
 ````
 
-## Using Validation Summary with EditForm
+>caption Use Telerik ValidationSummary at the bottom of a TelerikForm
 
-Use the `<TelerikValidationSummary>` tag instead of `<ValidationSummary>` directly in the Blazor `EditForm` component.
+````RAZOR
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm Model="@Employee"
+             ValidationMessageType="@FormValidationMessageType.None"
+             Width="300px">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
+        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
+    </FormItems>
+    <FormButtons>
+        <div>
+            <TelerikValidationSummary />
+            <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Submit</TelerikButton>
+        </div>
+    </FormButtons>
+</TelerikForm>
+
+@code {
+    private Person Employee { get; set; } = new();
+
+    public class Person
+    {
+        [Required(ErrorMessage = "Please enter a first name")]
+        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
+        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
+        public string FirstName { get; set; } = string.Empty;
+
+        [Required]
+        public string LastName { get; set; } = string.Empty;
+    }
+}
+````
+
+## Using with EditForm
+
+In a standard Blazor `EditForm`, place a `<TelerikValidationSummary />` instead of a `<ValidationSummary />` anywhere inside the Form.
 
 >caption Use Telerik ValidationSummary in an EditForm
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
 
-<EditForm Model="@customer" width="600px">
+<EditForm Model="@Employee" style="width:300px">
     <DataAnnotationsValidator />
+
     <TelerikValidationSummary />
-    <InputText @bind-Value="@customer.CustomerName"></InputText>
-    <br />
-    <InputNumber @bind-Value="@customer.CustomerAge"></InputNumber>
-    <br />
-    <InputText @bind-Value="@customer.EmailAddress"></InputText>
-    <br />
-    <input type="submit" value="Submit" />
+
+    <label for="first-name">First Name</label>
+    <TelerikTextBox @bind-Value="@Employee.FirstName" Id="first-name" />
+
+    <label for="last-name">Last Name</label>
+    <TelerikTextBox @bind-Value="@Employee.LastName" Id="last-name" />
+
+    <div>
+        <TelerikButton>Submit</TelerikButton>
+    </div>
 </EditForm>
 
 @code {
-    private Customer customer = new Customer();
+    private Person Employee { get; set; } = new();
 
-    public class Customer
+    public class Person
     {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
+        [Required(ErrorMessage = "Please enter a first name")]
+        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
+        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
+        public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
+        [Required]
+        public string LastName { get; set; } = string.Empty;
     }
 }
 ````
 
 ## Template
 
-The `TelerikValidationSummary` allows you to control its rendering via a nested `<Template>` tag. The `context` is an `IEnumerable<string>` collection of all error messages for the form.
+The Telerik ValidationSummary allows you to customize its rendering with a nested `<Template>` tag. The template `context` is an `IEnumerable<string>` collection of all messages for the validated model.
 
->caption Using TelerikValidationSummary Template
+>caption Using ValidationSummary Template
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@Employee"
+             ValidationMessageType="@FormValidationMessageType.None"
+             Width="300px">
     <FormValidation>
         <DataAnnotationsValidator />
         <TelerikValidationSummary>
-            <Template>
-                @{ 
-                    IEnumerable<string> validationSummaryContext = context;
-
-                    @foreach (var message in validationSummaryContext)
-                    {
-                        <div>
-                            <TelerikSvgIcon Icon="@SvgIcon.XOutline" />
-                            <span>@message</span>
-                        </div>
-                    }
+            <Template Context="validationMessages">
+                @if (validationMessages.Any())
+                {
+                    <div class="k-validation-summary k-messagebox k-messagebox-error" role="alert">
+                        <ul style="list-style-type: none; margin-bottom: 0; padding-left: .4em;">
+                            @foreach (string message in validationMessages)
+                            {
+                                <li @key="@message" style="display: flex; gap: .4em; padding: .2em 0;">
+                                    <TelerikSvgIcon Icon="@SvgIcon.ExclamationCircle" />
+                                    @message
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 }
             </Template>
         </TelerikValidationSummary>
+
+        <TelerikValidationSummary />
     </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
+        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
+    </FormItems>
 </TelerikForm>
 
 @code {
-    private Customer customer = new Customer();
+    private Person Employee { get; set; } = new();
 
-    public class Customer
+    public class Person
     {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
+        [Required(ErrorMessage = "Please enter a first name")]
+        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
+        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
+        public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
+        [Required]
+        public string LastName { get; set; } = string.Empty;
     }
 }
 ````
 
 ## Class
 
-Use the `Class` parameter of the Validation Summary component to add a custom CSS class to the `div.k-validation-summary`. This element wraps the validation summary content.
+Use the `Class` parameter of the Validation Summary to add a custom CSS class to the `div.k-validation-summary` container element. If you need to override the color styles, use [CSS specificity](slug:themes-override) that is higher than 2 CSS classes.
 
 >caption Using TelerikValidationSummary Class
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
-    <FormValidation>
-        <DataAnnotationsValidator />
-        <TelerikValidationSummary Class="validation-summary-class" />
-    </FormValidation>
-</TelerikForm>
+````RAZOR.skip-repl
+<TelerikValidationSummary Class="bold-blue" />
 
 <style>
-    .validation-summary-class {
-        background-color: lightblue;
+    div.bold-blue.k-validation-summary {
+        font-weight: bold;
+        color: blue;
     }
 </style>
-
-@code {
-    private Customer customer = new Customer();
-
-    public class Customer
-    {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
-
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
-    }
-}
 ````
 
 ## Next Steps
