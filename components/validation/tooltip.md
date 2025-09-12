@@ -10,269 +10,226 @@ position: 20
 
 # Telerik Validation Tooltip for Blazor
 
-The <a href = "https://www.telerik.com/blazor-ui/validationtooltip" target="_blank">Telerik Validation Tooltip for Blazor</a> displays validation errors as tooltips that point to the problematic input component. The tooltips show on hover. Validaton Tooltips serve the same purpose as Validation Messages, but as popups, they don't take up space on the page.
+The [Telerik Validation Tooltip for Blazor](https://www.telerik.com/blazor-ui/validationtooltip) displays validation errors as tooltips that point to the problematic input component. The tooltips show on mouse over. Validaton tooltips serve the same purpose as inline [validation messages](slug:validation-tools-message), but as popups, they don't take up space on the page.
 
-## Using Validation Tooltip with TelerikForm
+## Basics
 
-To enable Telerik Validation Tooltip for a field in the Telerik Form:
+To use a Telerik Validation Tooltip:
 
-1. Add a `<TelerikValidationTooltip>` tag inside the TelerikForm `<FormItems>` tag, or [inside a form item `<Template>`](slug:form-formitems-template).
-1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage`.
-1. Set the `TargetSelector` parameter to a CSS selector that points to the element(s) the Tooltip will associate itself with.
-1. (optional) Disable the built-in validation messages of the Telerik Form to avoid repetition. Set `ValidationMessageType="@FormValidationMessageType.None"`.
+1. Add the `<TelerikValidationTooltip>` tag.
+1. Set the `TargetSelector` parameter to a CSS selector that points to the desired element in the Form.
+1. (optional) Set the `Position` parameter to define on which side of the target the tooltip shows. Refer to the [Position article for the Telerik Blazor Tooltip component](slug:tooltip-position) for details.
+1. Set the `For` parameter in the same way as with a standard Blazor `<ValidationMessage>`. There are two options:
+    * If the `TelerikValidationTooltip` is in the same component as the Form or if the Form model object is available, use a lambda expression that points to a property of the Form model.
+        ````RAZOR.skip-repl
+        <TelerikTextBox Id="first-name" />
+        <TelerikValidationTooltip For="@(() => Customer.FirstName)"
+                                  TargetSelector="#first-name" />
 
->caption Use Telerik Validation Tooltip in a Telerik Form
+        @code {
+            private CustomerModel Customer { get; set; } = new();
+
+            public class CustomerModel
+            {
+                public string FirstName { get; set; } = string.Empty;
+            }
+        }
+        ````
+    * If the [validation message is in a child component](slug:inputs-kb-validate-child-component) that receives a `ValueExpression`, set the `For` parameter directly to the expression, without a lambda.
+        ````RAZOR.skip-repl
+        <TelerikTextBox Id="first-name" />
+        <TelerikValidationTooltip For="@FirstNameExpression"
+                                  TargetSelector="#first-name" />
+
+        @code {
+            [Parameter]
+            public Expression<System.Func<string>>? FirstNameExpression { get; set; }
+        }
+        ````
+
+Refer to the following sections for additional information and examples with the [Telerik Form](#using-with-telerikform) and standard [Blazor `<EditForm>`](#using-with-editform).
+
+## Using with TelerikForm
+
+The Telerik Form can [display built-in validation tooltips](slug:form-validation#validation-message-type). You may need to define `<TelerikValidationTooltip>` components manually when you want to:
+
+* Use [form item templates](slug:form-formitems-template). In this case, [add the validation tooltip in the form item template](slug:form-formitems-template#example).
+* Customize the validation tooltips, for example, change their rendering with a [validation tooltip template](#template). In this case, add the validation tooltip inside a [Form item template](slug:form-formitems-template#example).
+
+The following example sets a `Tooltip` `ValidationMessageType` on the Form. This is not required, but makes the validation user experience the same for `FirstName` and `LastName` properties, as the latter is not using an explicit `<TelerikValidationTooltip>`.
+
+>caption Use Telerik ValidationTooltip in a Telerik Form
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px"
-             ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@Employee"
+             Width="300px"
+             ValidationMessageType="@FormValidationMessageType.Tooltip">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
-
     <FormItems>
-        <FormItem Field="@nameof(Customer.CustomerName)" Id="customer-name-field" LabelText="Name" />
-        <TelerikValidationTooltip For="@(() => customer.CustomerName)" TargetSelector="#customer-name-field" />
-
-        <FormItem Field="@nameof(Customer.CustomerAge)" Id="customer-age-field" LabelText="Age" />
-        <TelerikValidationTooltip For="@(() => customer.CustomerAge)" TargetSelector="#customer-age-field" />
-
-        <FormItem Field="@nameof(Customer.EmailAddress)" Id="customer-email-field" LabelText="Email Address" />
-        <TelerikValidationTooltip For="@(() => customer.EmailAddress)" TargetSelector="#customer-email-field" />
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name">
+            <Template>
+                <label for="first-name" class="k-label k-form-label">First Name</label>
+                <div class="k-form-field-wrap">
+                    <TelerikTextBox @bind-Value="@Employee.FirstName"
+                                    Id="first-name" />
+                    <TelerikValidationTooltip For="@(() => Employee.FirstName)"
+                                              Position="@TooltipPosition.Right"
+                                              TargetSelector="#first-name" />
+                </div>
+            </Template>
+        </FormItem>
+        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
     </FormItems>
 </TelerikForm>
 
 @code {
-    private Customer customer = new Customer();
+    private Person Employee { get; set; } = new();
 
-    public class Customer
+    public class Person
     {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
+        [Required(ErrorMessage = "Please enter a first name")]
+        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
+        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
+        public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
+        [Required]
+        public string LastName { get; set; } = string.Empty;
     }
 }
 ````
 
->tip The Telerik Form can provide tooltips out-of-the-box with a single setting - see [Form Validation - Validation Message Type](slug:form-validation#validation-message-type). Use standalone validation tooltips only to make more advanced customizations such as the ones in this article.
+## Using with EditForm
 
-## Using Validation Tooltip with EditForm
-
-1. Add a `<TelerikValidationTooltip>` tag inside the `EditForm`.
-1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage`.
-1. Set the `TargetSelector` parameter to a CSS selector that points to the element(s) the Tooltip will associate itself with.
+In an existing Blazor `EditForm`, replace the `<ValidationMessage>` tags with `<TelerikValidationTooltip>` tags. The `For` parameter is set in the same way for both validation components.
 
 >caption Use Telerik Validation Tooltip in an EditForm
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
 
-<EditForm Model="@customer" width="600px">
+<EditForm Model="@Employee" style="width:300px">
     <DataAnnotationsValidator />
 
-    <InputText @bind-Value="@customer.CustomerName" id="name"></InputText>
-    <TelerikValidationTooltip For="@(() => customer.CustomerName)" TargetSelector="#name" />
-    <br />
-    <InputNumber @bind-Value="@customer.CustomerAge" id="age"></InputNumber>
-    <TelerikValidationTooltip For="@(() => customer.CustomerAge)" TargetSelector="#age" />
-    <br />
-    <InputText @bind-Value="@customer.EmailAddress" id="email"></InputText>
-    <TelerikValidationTooltip For="@(() => customer.EmailAddress)" TargetSelector="#email" />
-    <br />
-    <input type="submit" value="Submit" />
+    <label for="first-name">First Name</label>
+    <TelerikTextBox @bind-Value="@Employee.FirstName" Id="first-name" />
+    <TelerikValidationTooltip For="@(() => Employee.FirstName)"
+                              Position="@TooltipPosition.Right"
+                              TargetSelector="#first-name" />
+
+
+    <label for="last-name">Last Name</label>
+    <TelerikTextBox @bind-Value="@Employee.LastName" Id="last-name" />
+    <TelerikValidationTooltip For="@(() => Employee.LastName)"
+                              Position="@TooltipPosition.Right"
+                              TargetSelector="#last-name" />
+
+    <div>
+        <TelerikButton>Submit</TelerikButton>
+    </div>
 </EditForm>
 
 @code {
-    private Customer customer = new Customer();
+    private Person Employee { get; set; } = new();
 
-    public class Customer
+    public class Person
     {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
+        [Required(ErrorMessage = "Please enter a first name")]
+        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
+        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
+        public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
+        [Required]
+        public string LastName { get; set; } = string.Empty;
     }
 }
 ````
 
 ## Position
 
-Control the position of the validation tooltips through their `Position` parameter. It takes a member of the `TooltipPosition` enum:
+The position of the ValidationTooltip is configured in the [same way as for the Telerik Tooltip component for Blazor](slug:tooltip-position).
 
-* `Top` (default)
-* `Bottom`
-* `Right`
-* `Left`
+## Template
+
+The Telerik ValidationTooltip allows you to customize its rendering with a nested `<Template>` tag. The template `context` is an `IEnumerable<string>` collection of all messages for the validated model property.
+
+>caption Using ValidationTooltip Template
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
+<TelerikForm Model="@Employee"
+             Width="300px"
+             ValidationMessageType="@FormValidationMessageType.Tooltip">
     <FormValidation>
         <DataAnnotationsValidator />
     </FormValidation>
-
     <FormItems>
-        <FormItem Field="@nameof(Customer.CustomerName)" Id="customer-name-field" LabelText="Name" />
-        <TelerikValidationTooltip For="@(() => customer.CustomerName)" TargetSelector="#customer-name-field" Position="@TooltipPosition.Left" />
-
-        <FormItem Field="@nameof(Customer.CustomerAge)" Id="customer-age-field" LabelText="Age"  />
-        <TelerikValidationTooltip For="@(() => customer.CustomerAge)" TargetSelector="#customer-age-field" Position="@TooltipPosition.Bottom" />
-
-        <FormItem Field="@nameof(Customer.EmailAddress)" Id="customer-email-field" LabelText="Email Address" />
-        <TelerikValidationTooltip For="@(() => customer.EmailAddress)" TargetSelector="#customer-email-field" Position="@TooltipPosition.Right" />
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Customer customer = new Customer();
-
-    public class Customer
-    {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
-
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
-    }
-}
-````
-
-## Template
-
-The `ValidationTooltip` allows you to control its rendering via a nested `<Template>` tag. The `context` is an `IEnumerable<string>` collection of all messages for the property.
-
-````RAZOR
-<TelerikForm Model="@customer" Width="600px"
-             ValidationMessageType="@FormValidationMessageType.None">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-
-    <FormItems>
-        <FormItem Field="@nameof(Customer.CustomerName)" Id="customer-name-field" LabelText="Name" />
-        <TelerikValidationTooltip For="@(() => customer.CustomerName)" TargetSelector="#customer-name-field">
+        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name">
             <Template>
-                @{ 
-                    IEnumerable<string> validationContext = context;
-
-                    @foreach (var message in validationContext)
-                    {
-                        <div>
-                            <TelerikSvgIcon Icon="@SvgIcon.XOutline"></TelerikSvgIcon>
-                            <span>@message</span>
-                        </div>
-                    }
-                }
+                <label for="first-name" class="k-label k-form-label">First Name</label>
+                <div class="k-form-field-wrap">
+                    <TelerikTextBox @bind-Value="@Employee.FirstName"
+                                    Id="first-name" />
+                    <TelerikValidationTooltip For="@(() => Employee.FirstName)"
+                                              Position="@TooltipPosition.Right"
+                                              TargetSelector="#first-name">
+                        <Template Context="validationMessages">
+                            @foreach (string message in validationMessages)
+                            {
+                                <div>
+                                    <span style="display:flex; gap: .4em;">
+                                        <TelerikSvgIcon Icon="@SvgIcon.ExclamationCircle" />
+                                        @message
+                                    </span>
+                                </div>
+                            }
+                        </Template>
+                    </TelerikValidationTooltip>
+                </div>
             </Template>
-        </TelerikValidationTooltip>
-
-        <FormItem Field="@nameof(Customer.CustomerAge)" Id="customer-age-field" LabelText="Age" />
-        <TelerikValidationTooltip For="@(() => customer.CustomerAge)" TargetSelector="#customer-age-field" />
-
-        <FormItem Field="@nameof(Customer.EmailAddress)" Id="customer-email-field" LabelText="Email Address" />
-        <TelerikValidationTooltip For="@(() => customer.EmailAddress)" TargetSelector="#customer-email-field" />
+        </FormItem>
+        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
     </FormItems>
 </TelerikForm>
 
 @code {
-    private Customer customer = new Customer();
+    private Person Employee { get; set; } = new();
 
-    public class Customer
+    public class Person
     {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
+        [Required(ErrorMessage = "Please enter a first name")]
+        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
+        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
+        public string FirstName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
+        [Required]
+        public string LastName { get; set; } = string.Empty;
     }
 }
 ````
 
 ## Class
 
-Use the `Class` parameter of the Validation Tooltip to add a custom CSS class to `div.k-animation-container`. This element wraps the `div.k-tooltip` element.
+Use the `Class` parameter of the Validation Tooltip to add a custom CSS class to `div.k-animation-container`. This element wraps the `div.k-tooltip` and element and its child `div.k-tooltip`.
 
 ````RAZOR
+<TelerikValidationTooltip Class="bold-red" />
+
 <style>
-    .my-custom-tooltip-class .k-tooltip {
-        color: #f00;
-        text-decoration: underline;
+    .bold-red .k-tooltip-content {
+        font-weight: bold;
+        color: var(--kendo-color-error);
     }
 </style>
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@customer" Width="600px"
-             ValidationMessageType="@FormValidationMessageType.None">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-
-    <FormItems>
-        <FormItem Field="@nameof(Customer.CustomerName)" Id="customer-name-field" LabelText="Name" />
-        <TelerikValidationTooltip For="@(() => customer.CustomerName)" TargetSelector="#customer-name-field" />
-
-        <FormItem Field="@nameof(Customer.CustomerAge)" Id="customer-age-field" LabelText="Age"  />
-        <TelerikValidationTooltip For="@(() => customer.CustomerAge)" TargetSelector="#customer-age-field" Class="my-custom-tooltip-class" />
-
-        <FormItem Field="@nameof(Customer.EmailAddress)" Id="customer-email-field" LabelText="Email Address" />
-        <TelerikValidationTooltip For="@(() => customer.EmailAddress)" TargetSelector="#customer-email-field" />
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Customer customer = new Customer();
-
-    public class Customer
-    {
-        [Required(ErrorMessage = "Please enter your name")]
-        [MaxLength(40, ErrorMessage = "The name must be up to 40 characters long")]
-        public string CustomerName { get; set; }
-
-        [Required(ErrorMessage = "Please enter your age")]
-        [Range(18, 120, ErrorMessage = "You should be at least 18 years old to place an order")]
-        public int CustomerAge { get; set; }
-
-        [Required(ErrorMessage = "Please enter your email")]
-        [EmailAddress(ErrorMessage = "Enter a valid email address")]
-        public string EmailAddress { get; set; }
-    }
-}
 ````
 
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [TelerikValidationSummary](slug:validation-tools-summary)
-* [TelerikValidationTooltip](slug:validation-tools-message)
-* [Form Component](slug:form-overview)
+* [Validate Inputs in Child Components](slug:inputs-kb-validate-child-component)
+* [Telerik ValidationSummary](slug:validation-tools-summary)
+* [Telerik ValidationMessage](slug:validation-tools-message)
