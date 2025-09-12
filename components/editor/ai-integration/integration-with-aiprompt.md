@@ -35,21 +35,21 @@ To enable the AIPrompt in the Editor:
 </TelerikEditor>
 
 @code {
-
-    private string EditorValue { get; set; } = "<p>Sample Editor content</p>";
-
+    private string EditorValue { get; set; } = "<p>Editor content</p>";
 }
 ````
 ````C# Program.cs
 // ...
 
-// This example uses Azure OpenAI but you must configure the service depending on the model you are using. Read more at
-// https://www.telerik.com/blazor-ui/documentation/common-features/microsoft-extensions-ai-integration
-services.AddSingleton(new AzureOpenAIClient(
-    new Uri("YOUR_AZURE_OPENAI_ENDPOINT"),
-    new AzureKeyCredential("YOUR_AZURE_OPENAI_CREDENTIAL")));
+// This example uses Azure OpenAI but you must configure the service depending on the model you are using.
+// Read more at https://www.telerik.com/blazor-ui/documentation/common-features/microsoft-extensions-ai-integration
 
-services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient>().AsChatClient("gpt-4o-mini"));
+builder.Services.AddSingleton(new AzureOpenAIClient(
+    new Uri("YOUR_AZURE_OPENAI_ENDPOINT"),
+    new AzureKeyCredential("YOUR_AZURE_OPENAI_API_KEY")
+));
+
+builder.Services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient>().GetChatClient("YOUR_MODEL_NAME").AsIChatClient());
 
 // ...
 ````
@@ -67,20 +67,19 @@ The Editor allows customizing some of the integrated AIPrompt's settings. For th
 
 >caption Customizing the AIPrompt in the Editor
 
-<div class="skip-repl"></div>
-````RAZOR Editor
+````RAZOR.skip-repl
 <TelerikEditor @bind-Value="@EditorValue"
                EnableAIPrompt="true"
                Height="400px">
     <EditorSettings>
-        <EditorAIPromptSettings Commands="@Commands"></EditorAIPromptSettings>
+        <EditorAIPromptSettings Commands="@AIPromptCommands" />
     </EditorSettings>
 </TelerikEditor>
 
 @code {
     private string EditorValue { get; set; } = "Sample Editor content";
 
-    private List<AIPromptCommandDescriptor> Commands { get; set; } = new List<AIPromptCommandDescriptor>
+    private List<AIPromptCommandDescriptor> AIPromptCommands { get; set; } = new()
     {
         new AIPromptCommandDescriptor() { Id = "1", Title = "Simplify", Icon = SvgIcon.MinWidth, Prompt = "Simplify the text" },
         new AIPromptCommandDescriptor() { Id = "2", Title = "Expand", Icon = SvgIcon.MaxWidth , Prompt = "Expand the text" },
@@ -94,18 +93,6 @@ The Editor allows customizing some of the integrated AIPrompt's settings. For th
         }
     };
 }
-````
-````C# Program.cs
-// ...
-
-// This example uses Azure OpenAI but you must configure the service depending on the model you are using. Read more at https://www.telerik.com/blazor-ui/documentation/common-features/microsoft-extensions-ai-integration
-services.AddSingleton(new AzureOpenAIClient(
-    new Uri("YOUR_AZURE_OPENAI_ENDPOINT"),
-    new AzureKeyCredential("YOUR_AZURE_OPENAI_CREDENTIAL")));
-
-services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient>().AsChatClient("gpt-4o-mini"));
-
-// ...
 ````
 
 ## See Also
