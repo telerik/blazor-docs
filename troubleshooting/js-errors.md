@@ -37,18 +37,18 @@ If you get such errors, the reason may be:
 
 ### Missing File
 
-You can check if this is the case by inspecting the Network tab of your browser console to see if `telerik-blazor.js` is served successfully. Some common causes for the missing JS Interop file are:
+You can verify if `telerik-blazor.js` is loaded successfully by inspecting the **Network** tab of your browser developer tools. The following list reveals some common causes for a missing JS Interop file. Most of the mentioned issues result in failing requests for non-Telerik static assets as well.
 
-* The application is missing references to the needed [assets](slug:getting-started/what-you-need#css-theme-and-javascript-files).
-
-* Network setup blocks access to the cloud, and thus, to our CDN. If this is the case, you have two options:
-    * Discuss the case with your network administrators to have our CDN allowed.
-    * Use [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) from the app folder to avoid going to the cloud.
-
-* Static assets are not enabled on the server project, or the hosting environment does not work well with them. You need to ensure that the static assets are available after the build and on the deployment server - they are in the local NuGet cache, under a path similar to `C:\Users\<theUser>\.nuget\packages\telerik.ui.for.blazor\<theVersion>\staticwebassets`. It is also possible that the hosting server does not support static assets or has issues with them and you may need to confirm this with the hosting provider or by testing with a simple package having a static asset to see whether it gets returned.
-    * [Clearing the NuGet cache](https://docs.microsoft.com/en-us/nuget/consume-packages/managing-the-global-packages-and-cache-folders#clearing-local-folders), then running a `Clean` and `Rebuild` on the solution may fix the problem in case something went wrong with fetching the NuGet package. In case `Clean` does not clean up the `bin` and `obj` folders, you can also delete them manually before `Rebuild`.
-
-* A problem occurs during the deployment. See the [Deployment Troubleshooting](slug:deployment-troubleshooting) article for more details.
+* The application is missing references to the [required assets](slug:getting-started/what-you-need#css-theme-and-javascript-files).
+* The request for `telerik-blazor.js` fails due to incorrect or incompatible values in:
+    * `<base href="..." />` in `App.razor`
+    * `launchUrl` and `applicationUrl` in `launchSettings.json`
+* [Static assets are not enabled](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files). Starting from .NET 9, there are two different ways to enable them.
+* Static assests are enabled, but the `ASPNETCORE_ENVIRONMENT` variable is not set to `Development` in `launchSettings.json`. In such cases, you can load [assets from CDN](slug:common-features-cdn) or enable [static assets for non-`Development` environments](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files#static-files-in-non-development-environments).
+* The network setup blocks access to remote URLs like a CDN. In such cases, you have two options:
+    * Ask your network administrators to allow the remote host.
+    * Load [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) from the NuGet package or from the `wwwroot` app folder.
+* A problem occurs during deployment. See the [Deployment Troubleshooting](slug:deployment-troubleshooting) article for more details.
 
 ### Defer Attribute
 
