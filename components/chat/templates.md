@@ -69,8 +69,8 @@ This template allows you to customize the input area where users type their mess
 
 ````RAZOR.skip-repl
 <MessageBoxTemplate>
-    <input type="text" class="k-textbox" placeholder="Type your message here..." @bind-value="@FirstChatInputValue" @bind-value:event="oninput" />
-    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" @onclick="@(() => OnSendMessage(new ChatSendMessageEventArgs { Message = FirstChatInputValue }, "1"))">Send</button>
+    <input type="text" class="k-textbox" placeholder="Type your message here..." @bind-value="@ChatInputValue" @bind-value:event="oninput" />
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" @onclick="@( () => OnChatSendMessage(new ChatSendMessageEventArgs { Message = ChatInputValue }) )">Send</button>
 </MessageBoxTemplate>
 ````
 
@@ -103,16 +103,16 @@ This allows you to define context menu actions that can be performed on Chat mes
 >caption A complete example that integrates all templates into a Chat component
 
 ````RAZOR.skip-repl
-<TelerikChat Data="@ChatConversation"
-            @ref="@Chat1"
-            Width="600px"
-            Height="700px"
-            TextField="Content"
-            Suggestions="@(new List<string>() { "Suggestion 1", "Suggestion 2" })"
-            ReplyToIdField="ReplyToMessageId"
-            InputValue="@FirstChatInputValue"
-            EnableSpeechToText="true"
-            AuthorId="@(1.ToString())">
+<TelerikChat Data="@ChatData"
+             @ref="@ChatRef"
+             Width="600px"
+             Height="700px"
+             TextField="@nameof(ChatMessage.Content)"
+             Suggestions="@ChatSuggestions"
+             ReplyToIdField="@nameof(ChatMessage.MessageToReplyId)"
+             InputValue="@ChatInputValue"
+             EnableSpeechToText="@ChatSpeechToTextEnabled"
+             AuthorId="@CurrentUserId">
     <HeaderTemplate>
         <span style="padding: 1rem; font-weight: 500;">
             Chat with John Smith
@@ -134,8 +134,8 @@ This allows you to define context menu actions that can be performed on Chat mes
         </div>
     </SuggestionTemplate>
     <MessageBoxTemplate>
-        <input type="text" class="k-textbox" placeholder="Type your message here..." @bind-value="@FirstChatInputValue" @bind-value:event="oninput" />
-        <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" @onclick="@(() => OnSendMessage(new ChatSendMessageEventArgs { Message = FirstChatInputValue }, "1"))">Send</button>
+        <input type="text" class="k-textbox" placeholder="Type your message here..." @bind-value="@ChatInputValue" @bind-value:event="oninput" />
+        <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" @onclick="@( () => OnChatSendMessage(new ChatSendMessageEventArgs { Message = ChatInputValue }, CurrentUserId) )">Send</button>
     </MessageBoxTemplate>
     <TimestampTemplate>
         <span style="font-size: 12px; color: #888;">
@@ -145,15 +145,45 @@ This allows you to define context menu actions that can be performed on Chat mes
     <ChatMessageContextMenuActions>
         <ChatMessageContextMenuAction Name="Reply" />
         <ChatMessageContextMenuAction Name="Copy" />
-        <ChatMessageContextMenuAction Icon="@SvgIcon.Pin" OnClick="PinMessage" Text="Pin" />
+        <ChatMessageContextMenuAction Icon="@SvgIcon.Pin" OnClick="@OnPinMessageClick" Text="Pin" />
     </ChatMessageContextMenuActions>
 </TelerikChat>
 
 @code {
-
-    private void OnUnpin(ChatMessageUnpinEventArgs args)
+    #region Component References
+    
+    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    
+    #endregion
+    
+    #region Component Parameters
+    
+    private const string FirstUserImage = "images/user.webp";
+    private const string SecondUserImage = "images/user.webp";
+    private List<ChatMessage> ChatData { get; set; }
+    private List<string> ChatSuggestions { get; set; }
+    private string ChatInputValue { get; set; }
+    private string CurrentUserId { get; set; } = "1";
+    private bool ChatSpeechToTextEnabled { get; set; } = true;
+    
+    #endregion
+    
+    #region Lifecycle Methods
+    
+    protected override void OnInitialized()
     {
-        var message = ChatConversation.FirstOrDefault(x => x.Id == args.MessageId);
+        GenerateChatData();
+        
+        ChatSuggestions = new List<string> { "Suggestion 1", "Suggestion 2" };
+    }
+    
+    #endregion
+    
+    #region Methods
+
+    private void OnChatMessageUnpin(ChatMessageUnpinEventArgs args)
+    {
+        var message = ChatData.FirstOrDefault(x => x.Id == args.MessageId);
         if (message != null)
         {
             message.IsPinned = false;
@@ -164,24 +194,22 @@ This allows you to define context menu actions that can be performed on Chat mes
         }
     }
 
-    private string FirstChatInputValue { get; set; }
-
-    private void OnFirstInputValueChange(string value)
+    private void OnChatInputValueChanged(string newValue)
     {
-        FirstChatInputValue = value;
+        ChatInputValue = newValue;
     }
 
-    private void PinMessage(ChatMessageActionClickEventArgs args)
+    private void OnPinMessageClick(ChatMessageActionClickEventArgs args)
     {
-        var message = ChatConversation.FirstOrDefault(m => m.Id == args.MessageId);
+        var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
         if (message != null)
         {
-            ChatConversation.ForEach(m => m.IsPinned = false);
+            ChatData.ForEach(m => m.IsPinned = false);
             message.IsPinned = true;
         }
     }
 
-    private void OnSendMessage(ChatSendMessageEventArgs args, string authorId)
+    private void OnChatSendMessage(ChatSendMessageEventArgs args, string authorId)
     {
         var newMessage = new ChatMessage
         {
@@ -195,64 +223,49 @@ This allows you to define context menu actions that can be performed on Chat mes
             Timestamp = DateTime.Now
         };
 
-        ChatConversation.Add(newMessage);
-        RefreshChats();
+        ChatData.Add(newMessage);
+        RefreshChat();
     }
 
-    private void RefreshChats()
+    private void RefreshChat()
     {
-        Chat1?.Refresh();
+        ChatRef?.Refresh();
     }
+    
+    #endregion
+    
+    #region Data Generation
 
-    private TelerikChat<ChatMessage> Chat1;
-
-    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
+    private void GenerateChatData()
     {
-       new ChatMessage()
-       {
-           Id="first",
-           AuthorId="1",
-           AuthorName="John Smith",
-           AuthorImageUrl=FirstUserImage,
-           Content="Hello, I wanted to confirm the details of the project update.",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 12, 0, 0)
-       },
-       new ChatMessage()
-       {
-           Id="second",
-           AuthorId="2",
-           AuthorName="Jane Doe",
-           AuthorImageUrl=SecondUserImage,
-           Content="Hi John, the project update has been finalized and shared with the team.",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 12, 5, 0)
-       },
-       new ChatMessage()
-       {
-           Id="third",
-           AuthorId="1",
-           AuthorName="John Smith",
-           AuthorImageUrl=FirstUserImage,
-           Content="Thank you, Jane. I will review it and provide feedback shortly.",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 12, 10, 0)
-       },
-       new ChatMessage()
-       {
-           Id="fourth",
-           AuthorId="2",
-           AuthorName="Jane Doe",
-           AuthorImageUrl=SecondUserImage,
-           Content="Sounds good, John. Let me know if you need any additional information.",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 12, 15, 0)
-       }
-    };
-
-    private const string FirstUserImage = "images/user.webp";
-
-    private const string SecondUserImage = "images/user.webp";
+        ChatData = new List<ChatMessage>();
+        
+        var messageTexts = new[]
+        {
+            "Hello, I wanted to confirm the details of the project update.",
+            "Hi John, the project update has been finalized and shared with the team.",
+            "Thank you, Jane. I will review it and provide feedback shortly.",
+            "Sounds good, John. Let me know if you need any additional information."
+        };
+        
+        for (int i = 1; i <= 4; i++)
+        {
+            ChatData.Add(new ChatMessage
+            {
+                Id = $"message{i}",
+                AuthorId = (i % 2 == 1) ? "1" : "2",
+                AuthorName = (i % 2 == 1) ? "John Smith" : "Jane Doe",
+                AuthorImageUrl = (i % 2 == 1) ? FirstUserImage : SecondUserImage,
+                Content = messageTexts[i - 1],
+                Status = "Seen",
+                Timestamp = new DateTime(2023, 10, 1, 12, 0, 0).AddMinutes(i * 5)
+            });
+        }
+    }
+    
+    #endregion
+    
+    #region Class Declarations
 
     public class ChatMessage
     {
@@ -280,6 +293,8 @@ This allows you to define context menu actions that can be performed on Chat mes
 
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
+    
+    #endregion
 }
 ````
 
