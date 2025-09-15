@@ -23,39 +23,51 @@ The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target=
 >caption Basic configuration of the Telerik Chat
 
 ````razor
-<TelerikChat Data="@Messages"
+<TelerikChat Data="@ChatData"
              AuthorId="@CurrentUserId"
-             OnSendMessage="@HandleSendMessage"
-             TextField="Content"
-             AuthorIdField="UserId"
-             TimestampField="SentAt"
+             OnSendMessage="@OnChatSendMessage"
+             TextField="@nameof(ChatMessage.Content)"
+             AuthorIdField="@nameof(ChatMessage.UserId)"
+             TimestampField="@nameof(ChatMessage.SentAt)"
              Height="600px"
              Width="400px"
-             EnableSpeechToText="true"
-             EnableFileUpload="true">
+             EnableFileUpload="@ChatFileUploadEnabled"
+             EnableSpeechToText="@ChatSpeechToTextEnabled">
 </TelerikChat>
 
 @code {
-    private List<ChatMessage> Messages { get; set; } = new List<ChatMessage>()
+    #region Component Parameters
+    
+    private List<ChatMessage> ChatData { get; set; }
+    private string CurrentUserId { get; set; } = "user1";
+    private bool ChatFileUploadEnabled { get; set; } = true;
+    private bool ChatSpeechToTextEnabled { get; set; } = true;
+    
+    #endregion
+    
+    #region Lifecycle Methods
+    
+    protected override void OnInitialized()
     {
-        new ChatMessage
+        ChatData = new List<ChatMessage>();
+        
+        for (int i = 1; i <= 2; i++)
         {
-            Id = "1",
-            Content = "Hello! How can I help you today?",
-            UserId = "assistant",
-            SentAt = DateTime.Now.AddMinutes(-5)
-        },
-        new ChatMessage
-        {
-            Id = "2",
-            Content = "Hi there! I'm looking for information about the new features.",
-            UserId = "user1",
-            SentAt = DateTime.Now.AddMinutes(-3)
+            ChatData.Add(new ChatMessage
+            {
+                Id = i.ToString(),
+                Content = i == 1 ? "Hello! How can I help you today?" : "Hi there! I'm looking for information about the new features.",
+                UserId = i == 1 ? "assistant" : "user1",
+                SentAt = DateTime.Now.AddMinutes(-5 + (i * 2))
+            });
         }
-    };
-    private string CurrentUserId = "user1";
-
-    private async Task HandleSendMessage(ChatSendMessageEventArgs args)
+    }
+    
+    #endregion
+    
+    #region Methods
+    
+    private async Task OnChatSendMessage(ChatSendMessageEventArgs args)
     {
         var newMessage = new ChatMessage
         {
@@ -65,10 +77,14 @@ The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target=
             SentAt = DateTime.Now
         };
         
-        Messages.Add(newMessage);
+        ChatData.Add(newMessage);
         await InvokeAsync(StateHasChanged);
     }
-
+    
+    #endregion
+    
+    #region Class Declarations
+    
     public class ChatMessage
     {
         public string Id { get; set; }
@@ -77,6 +93,8 @@ The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target=
         public DateTime SentAt { get; set; }
         public List<FileSelectFileInfo> Attachments { get; set; }
     }
+    
+    #endregion
 }
 ````
 
@@ -135,16 +153,16 @@ The Chat component exposes a `Refresh()` method that refreshes the  component an
 
 ````RAZOR.skip-repl
 <TelerikChat @ref="@ChatRef" 
-             Data="@Messages"
-             OnSendMessage="@HandleSendMessage">
+             Data="@ChatData"
+             OnSendMessage="@OnChatSendMessage">
 </TelerikChat>
 
-<TelerikButton OnClick="@RefreshChat">Refresh Chat</TelerikButton>
+<TelerikButton OnClick="@OnRefreshChatClick">Refresh Chat</TelerikButton>
 
 @code {
     private TelerikChat<ChatMessage> ChatRef { get; set; }
     
-    private void RefreshChat()
+    private void OnRefreshChatClick()
     {
         ChatRef?.Refresh();
     }

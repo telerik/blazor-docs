@@ -57,6 +57,7 @@ Configure file upload behavior using the `ChatFileSelectSettings` component:
 
 @code {
     private TelerikChat<ChatMessage> Chat1;
+    
     private List<string> AllowedExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".pdf", ".docx", ".txt" };
 
     private List<ChatMessage> ChatConversation = new List<ChatMessage>()
