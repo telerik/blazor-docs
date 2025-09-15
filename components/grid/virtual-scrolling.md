@@ -40,7 +40,7 @@ Set the Grid `PageSize` parameter to an `int` value. The `PageSize` determines:
 * How many table rows are populated and rendered at any given time.
 * How many data items are requested from the data source when using the [Grid `OnRead` event to load data on demand](slug:components/grid/manual-operations).
 
-Set the `PageSize` value, so that the rendered table rows do fit in the [Grid height](#height). At least one table row must be completely invisible.Otherwise, empty row skeletons may display in the Grid while users are not scrolling. The exact `PageSize` value allows you to balance between better user experience and data request efficiency:
+Set the `PageSize` value, so that the rendered table rows do fit in the [Grid height](#height). At least one table row must be completely invisible. Otherwise, empty row skeletons may display in the Grid while users are not scrolling. The exact `PageSize` value allows you to balance between better user experience and data request efficiency:
 
 * A larger `PageSize` value will make the Grid display empty row skeletons more rarely while users are scrolling down. At the same time, the Grid may be requesting a larger number of data items repetitively.
 * A smaller `PageSize` will make the Grid request a smaller number of items on each user scroll. At the same time, users will see row skeletons sooner or more frequently during scrolling.
