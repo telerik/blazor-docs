@@ -10,21 +10,20 @@ position: 45
 
 # Getting Started with Telerik.AI.SmartComponents.Extensions
 
-The `Telerik.AI.SmartComponents.Extensions` library provides AI-powered functionality for Grid operations, enabling natural language processing for filtering, sorting, grouping, and highlighting data. This library integrates seamlessly with Microsoft.Extensions.AI and Azure OpenAI to provide intelligent Grid interactions.
+The `Telerik.AI.SmartComponents.Extensions` library provides AI-powered functionality for Grid operations, enabling natural language processing for filtering, sorting, grouping, and highlighting data. This library integrates seamlessly with `Microsoft.Extensions.AI` and Azure OpenAI to provide intelligent Grid interactions.
 
 ## Prerequisites
 
 - .NET 8.0 or later
-- `Microsoft.Extensions.AI` package
 - Azure OpenAI or OpenAI API access
 - ASP.NET Core (for web API scenarios)
 
 ## Installation
 
-1. Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your project.
-1. Add the required dependency packages:
+1. Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your project. It adds the following dependencies:
     * `Microsoft.Extensions.AI`
     * `Azure.AI.OpenAI`
+1. Add the [`Microsoft.Extensions.AI.OpenAI` NuGet package](https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI). Note that it's a preview (pre-release) package.
 
 ## Configuration
 
@@ -37,22 +36,22 @@ using Azure.AI.OpenAI;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Azure OpenAI Chat Client
-builder.Services.AddSingleton<IChatClient>(serviceProvider =>
+builder.Services.AddChatClient(serviceProvider =>
 {
-    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
-    var endpoint = configuration["AI:AzureOpenAI:Endpoint"];
-    var apiKey = configuration["AI:AzureOpenAI:Key"];
-    var modelId = configuration["AI:AzureOpenAI:Chat:ModelId"];
-    
+    IConfiguration configuration = serviceProvider.GetRequiredService<IConfiguration>();
+    string endpoint = configuration["AI:AzureOpenAI:Endpoint"] ?? "";
+    string apiKey = configuration["AI:AzureOpenAI:Key"] ?? "";
+    string modelId = configuration["AI:AzureOpenAI:Chat:ModelId"] ?? "";
+
     var client = new AzureOpenAIClient(new Uri(endpoint), new Azure.AzureKeyCredential(apiKey));
-    return client.AsChatClient(modelId);
+    return client.GetChatClient(modelId).AsIChatClient();
 });
 
 builder.Services.AddControllers();
 var app = builder.Build();
 ```
 
-### 2. Configure appsettings.json
+### 2. Configure AI Properties in appsettings.json
 
 ```json
 {
