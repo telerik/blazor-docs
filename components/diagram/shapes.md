@@ -137,7 +137,7 @@ Some Shape types provide unique behavior or settings:
     ````
 * The `Terminator` Shape normally requires a `Width` that is larger than the `Height`.
 * The `Text` Shape has no borders and background. It occupies the minimum required amount of space to enclose the text content. To display text Shapes with some empty space around the content, use transparent Shapes of another type.
-* All shapes, except `Circle`, `Image`, `Rectangle`, and `Text` can display with rounded corners. See [`CornerRadius` in the Styling section](#styling).
+* All shapes, except `Circle`, `Image`, and `Text` can display with rounded corners. See [`CornerRadius` in the Styling section](#styling).
 
 >caption Using transparent Rectangle shapes instead of Text shapes
 
