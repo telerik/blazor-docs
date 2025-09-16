@@ -17,6 +17,7 @@ The Telerik Blazor [GitHub Copilot](https://github.com/features/copilot) extensi
 To use the Telerik GitHub Copilot extension for Blazor, you need to have:
 
 * An active [GitHub Copilot](https://github.com/features/copilot) subscription. You can enable or configure GitHub Copilot on the [Copilot Settings page in your GitHub account](https://github.com/settings/copilot).
+* [Enabled Copilot extensions](https://github.com/settings/copilot/features) in your GitHub account.
 * A [Telerik user account](https://www.telerik.com/account/).
 * An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
