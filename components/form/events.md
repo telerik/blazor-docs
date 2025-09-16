@@ -55,7 +55,7 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 
         if (isFormValid)
         {
-            //apply some custom logic when the form is valud
+            //apply some custom logic when the form is valid
         }
         else
         {
