@@ -34,13 +34,13 @@ Configure context menu actions that appear when users right-click on messages. T
 @code {
     #region Component References
     
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private TelerikChat<ChatMessage>? ChatRef { get; set; }
     
     #endregion
     
     #region Component Parameters
     
-    private List<ChatMessage> ChatData { get; set; }
+    private List<ChatMessage> ChatData { get; set; } = new();
     private string CurrentUserId { get; set; } = "1";
     
     #endregion
@@ -130,28 +130,17 @@ Configure context menu actions that appear when users right-click on messages. T
 
     public class ChatMessage
     {
-        public string Id { get; set; }
-        
-        public string AuthorId { get; set; }
-        
-        public string AuthorName { get; set; }
-        
-        public string AuthorImageUrl { get; set; }
-        
-        public string Content { get; set; }
-        
-        public string ReplyToMessageId { get; set; }
-        
-        public string Status { get; set; }
-        
-        public bool IsDeleted { get; set; }
-        
-        public bool IsPinned { get; set; }
-        
-        public DateTime Timestamp { get; set; }
-        
-        public List<string> SuggestedActions { get; set; }
-        
+        public string Id { get; set; }        
+        public string AuthorId { get; set; }        
+        public string AuthorName { get; set; }        
+        public string AuthorImageUrl { get; set; }        
+        public string Content { get; set; }        
+        public string ReplyToMessageId { get; set; }        
+        public string Status { get; set; }        
+        public bool IsDeleted { get; set; }      
+        public bool IsPinned { get; set; }        
+        public DateTime Timestamp { get; set; }        
+        public List<string> SuggestedActions { get; set; }        
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
     
@@ -224,7 +213,7 @@ Set the `InputValue` property to define the message box content and handle the `
         }
     };
 
-    private TelerikChat<ChatMessage> Chat1;
+    private TelerikChat<ChatMessage>? Chat1;
 
     private string CurrentInputValue { get; set; } = "";
 

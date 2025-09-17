@@ -74,27 +74,16 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
     public class ChatMessage
     {
         public string Id { get; set; }
-
         public string AuthorId { get; set; }
-
         public string AuthorName { get; set; }
-
         public string AuthorImageUrl { get; set; }
-
         public string Text { get; set; }
-
         public string MessageToReplyId { get; set; }
-
         public string Status { get; set; }
-
         public bool IsDeleted { get; set; }
-
         public bool IsPinned { get; set; }
-
         public DateTime Timestamp { get; set; }
-
         public List<string> SuggestedActions { get; set; }
-
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
     
@@ -204,18 +193,12 @@ The Chat component automatically reflects changes to the bound data collection. 
 
     public class ChatMessage
     {
-        public string Id { get; set; }
-        
-        public string AuthorId { get; set; }
-        
-        public string AuthorName { get; set; }
-        
-        public string Content { get; set; }
-        
-        public DateTime Timestamp { get; set; }
-        
-        public string Status { get; set; }
-        
+        public string Id { get; set; }        
+        public string AuthorId { get; set; }        
+        public string AuthorName { get; set; }        
+        public string Content { get; set; }        
+        public DateTime Timestamp { get; set; }        
+        public string Status { get; set; }        
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
     

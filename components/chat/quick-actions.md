@@ -33,8 +33,8 @@ Message suggestions provide users with quick reply options that appear below the
 
 @code {
     private string ChatInputValue { get; set; } = "";
-    
-    private TelerikChat<ChatMessage> Chat1;
+
+    private TelerikChat<ChatMessage>? Chat1;
 
     private List<string> QuickReplies = new List<string>
     {
@@ -165,7 +165,7 @@ Customize the appearance of suggestions using the Chat's `SuggestionTemplate`.
 @code {
     private string ChatInputValue { get; set; } = "";
 
-    private TelerikChat<ChatMessage> Chat1;
+    private TelerikChat<ChatMessage>? Chat1;
 
     private List<string> CurrentSuggestions = new List<string> { "Yes, I need help with my order", "No, I was just checking in" };
 

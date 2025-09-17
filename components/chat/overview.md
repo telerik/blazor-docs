@@ -160,7 +160,7 @@ The Chat component exposes a `Refresh()` method that refreshes the  component an
 <TelerikButton OnClick="@OnRefreshChatClick">Refresh Chat</TelerikButton>
 
 @code {
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private TelerikChat<ChatMessage>? ChatRef { get; set; }
     
     private void OnRefreshChatClick()
     {
