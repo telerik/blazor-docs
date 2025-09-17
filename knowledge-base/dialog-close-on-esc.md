@@ -13,6 +13,7 @@ This knowledge base article answers to the following questions:
 
 * How to make Dialog responsive to keyboard events when content is clicked?
 * Why doesn't ESC key work after clicking inside Dialog content?
+* How can I make the Dialog close with the ESC key after the title has been clicked?
 * How to maintain keyboard functionality in Dialog after focus changes?
 
 When you click or focus inside the Dialog content area, the focus moves away from the Dialog component. As a result, the Dialog does not receive keyboard events, and pressing the `ESC` key does not close it. This behavior occurs because the keydown events are not invoked for the Dialog when the focus is on another element or the body tag.
@@ -28,8 +29,13 @@ To ensure the Dialog closes on `ESC` even after focusing the content, wrap the D
                Width="500px"
                Height="300px"
                Class="focusable-content">
+    <DialogTitle>
+        <div tabindex="0" class="dialog-wrapper">
+            Focusable Title
+        </div>
+    </DialogTitle>
     <DialogContent>
-        <div tabindex="0" class="dialog-content-wrapper">
+        <div tabindex="0" class="dialog-wrapper">
             <p>Click anywhere in this content area, then press ESC to close the dialog.</p>
         </div>
     </DialogContent>
@@ -46,8 +52,19 @@ To ensure the Dialog closes on `ESC` even after focusing the content, wrap the D
         padding: 0;
     }
 
+    /* Remove default Dialog title padding to let wrapper handle it */
+    .focusable-content .k-dialog-titlebar {
+        padding: 0;
+    }
+
+    /* Focusable wrapper that fills the entire Dialog title area */
+    .focusable-content .k-dialog-titlebar-actions {
+        padding-block: var(--kendo-spacing-3, 0.75rem);
+        padding-inline: var(--kendo-spacing-4, 1rem);
+    }
+
     /* Focusable wrapper that fills the entire Dialog content area */
-    .focusable-content .dialog-content-wrapper {
+    .focusable-content .dialog-wrapper {
         padding: 1rem;
         outline: none;
         height: 100%;
@@ -56,9 +73,9 @@ To ensure the Dialog closes on `ESC` even after focusing the content, wrap the D
     }
 
         /* Optional visual indication when the wrapper is focused */
-        .focusable-content .dialog-content-wrapper:focus-within {
+        /* .focusable-content .dialog-wrapper:focus-within {
             background-color: rgba(0, 123, 255, 0.05);
-        }
+        } */
 </style>
 
 @code {
