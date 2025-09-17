@@ -152,7 +152,7 @@ This allows you to define context menu actions that can be performed on Chat mes
 @code {
     #region Component References
     
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private TelerikChat<ChatMessage>? ChatRef { get; set; }
     
     #endregion
     
@@ -160,7 +160,7 @@ This allows you to define context menu actions that can be performed on Chat mes
     
     private const string FirstUserImage = "images/user.webp";
     private const string SecondUserImage = "images/user.webp";
-    private List<ChatMessage> ChatData { get; set; }
+    private List<ChatMessage> ChatData { get; set; } = new();
     private List<string> ChatSuggestions { get; set; }
     private string ChatInputValue { get; set; }
     private string CurrentUserId { get; set; } = "1";
@@ -270,27 +270,16 @@ This allows you to define context menu actions that can be performed on Chat mes
     public class ChatMessage
     {
         public string Id { get; set; }
-
         public string AuthorId { get; set; }
-
         public string AuthorName { get; set; }
-
         public string AuthorImageUrl { get; set; }
-
         public string Content { get; set; }
-
         public string MessageToReplyId { get; set; }
-
         public string Status { get; set; }
-
         public bool IsDeleted { get; set; }
-
         public bool IsPinned { get; set; }
-
         public DateTime Timestamp { get; set; }
-
         public List<string> SuggestedActions { get; set; }
-
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
     

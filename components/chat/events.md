@@ -44,27 +44,16 @@ The `OnSendMessage` event fires when a user sends a new message. Use this event 
     public class ChatMessage
     {
         public string Id { get; set; }
-
         public string AuthorId { get; set; }
-
         public string AuthorName { get; set; }
-
         public string AuthorImageUrl { get; set; }
-
         public string Content { get; set; }
-
         public string MessageToReplyId { get; set; }
-
         public string Status { get; set; }
-
         public bool IsDeleted { get; set; }
-
         public bool IsPinned { get; set; }
-
         public DateTime Timestamp { get; set; }
-
         public List<string> SuggestedActions { get; set; }
-
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }
@@ -84,9 +73,9 @@ The `OnSuggestionClick` event fires when a user clicks on a quick reply suggesti
 </TelerikChat>
 
 @code {    
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private TelerikChat<ChatMessage>? ChatRef { get; set; }
     
-    private List<ChatMessage> ChatData { get; set; }
+    private List<ChatMessage> ChatData { get; set; } = new();
     
     private List<string> ChatSuggestions { get; set; }
     
