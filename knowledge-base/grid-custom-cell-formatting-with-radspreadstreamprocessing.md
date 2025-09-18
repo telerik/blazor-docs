@@ -79,171 +79,164 @@ To customize the cell format of the exported file before it reaches the client:
     </GridExport>
 
     <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="300px" />
-        <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="200px" />
-        <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.FirstReleaseDate)" Title="Release Date" Width="300px" />
+        <GridColumn Field="@nameof(Product.Id)" Title="ID" Width="60px" />
+        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" Width="180px" />
+        <GridColumn Field="@nameof(Product.Price)" Width="160px" />
+        <GridColumn Field="@nameof(Product.Quantity)" Width="120px" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" DisplayFormat="{0:d}" Width="240px" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Width="160px" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private List<SampleData> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
     private bool ExportAllPages { get; set; }
 
-    private async Task OnExcelAfterExport(GridAfterExcelExportEventArgs args)
+    private void OnExcelAfterExport(GridAfterExcelExportEventArgs args)
     {
-        var bytes = args.Stream.ToArray();
+        byte[] bytes = args.Stream.ToArray();
 
-        var excelStream = new MemoryStream(bytes);
+        using MemoryStream importStream = new MemoryStream(bytes);
 
-        var export = new MemoryStream();
+        using MemoryStream exportStream = new MemoryStream();
 
-        //define the desired styling - https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/cell-styles
-        SpreadCellFormat markedCell = new SpreadCellFormat()
-            {
-                Fill = SpreadPatternFill.CreateSolidFill(new SpreadColor(230, 238, 223)),
-                IsBold = true
-            };
-
-        //import the stream to modify it and then export it - 
-        //see https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/workbook
-        using (excelStream)
+        // Define the desired styling.
+        // https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/cell-styles
+        SpreadCellFormat customCellFormat = new SpreadCellFormat()
         {
-            using (IWorkbookImporter workBookImporter = SpreadImporter.CreateWorkbookImporter(SpreadDocumentFormat.Xlsx, excelStream))
+            Fill = SpreadPatternFill.CreateSolidFill(new SpreadColor(230, 238, 223)),
+            IsBold = true
+        };
 
-            using (IWorkbookExporter workbookExporter = SpreadExporter.CreateWorkbookExporter(SpreadDocumentFormat.Xlsx, export))
+        // Import the stream to modify it and then export it.
+        // https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/workbook
+        using IWorkbookImporter workBookImporter = SpreadImporter.CreateWorkbookImporter(SpreadDocumentFormat.Xlsx, importStream);
+
+        using IWorkbookExporter workbookExporter = SpreadExporter.CreateWorkbookExporter(SpreadDocumentFormat.Xlsx, exportStream);
+
+        // Loop through the sheets to copy their content.
+        foreach (IWorksheetImporter worksheetImporter in workBookImporter.WorksheetImporters)
+        {
+            using IWorksheetExporter worksheetExporter = workbookExporter.CreateWorksheetExporter(worksheetImporter.Name);
+
+            // Set fixed width to all columns.
+            // If you need to autofit the content, use the CellContentSizeHelper:
+            //https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/text-measuring
+            for (int i = 0; i < 6; i++)
             {
-                //loop through the sheets to copy their content
-                foreach (IWorksheetImporter worksheetImporter in workBookImporter.WorksheetImporters)
+                IColumnExporter column = worksheetExporter.CreateColumnExporter();
+
+                column.SetWidthInPixels(160);
+
+                column.Dispose();
+            }
+
+            int lastRow = 0;
+
+            // Loop through the rows to copy their content.
+            foreach (IRowImporter rowImporter in worksheetImporter.Rows)
+            {
+                int rowDifference = rowImporter.RowIndex - lastRow;
+
+                // Ensure proper row order in case there are any empty rows.
+                if (rowDifference > 1)
                 {
-                    using (var worksheetExporter = workbookExporter.CreateWorksheetExporter(worksheetImporter.Name))
-                    {
-                        //this sets fixed width to all columns. 
-                        //If you need to autofit the content, use the CellContentSizeHelper -
-                        //https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/text-measuring
-                        for (int i = 0; i < 5; i++)
-                        {
-                            var column = worksheetExporter.CreateColumnExporter();
-
-                            column.SetWidthInPixels(100);
-
-                            column.Dispose();
-                        }
-
-                        int lastRow = 0;
-
-                        //loop through the rows to copy their content
-                        foreach (IRowImporter rowImporter in worksheetImporter.Rows)
-                        {
-                            int rowDifference = rowImporter.RowIndex - lastRow;
-
-                            //this part ensures the proper cells order in case there are any empty rows
-                            if (rowDifference > 1)
-                            {
-                                worksheetExporter.SkipRows(rowDifference - 1);
-                            }
-
-                            int lastColumn = 0;
-
-                            using (var rowExporter = worksheetExporter.CreateRowExporter())
-                            {
-                                //loop through the cells to copy their content
-                                foreach (ICellImporter cellImporter in rowImporter.Cells)
-                                {
-                                    string value = cellImporter.Value;
-
-                                    if (string.IsNullOrEmpty(value))
-                                    {
-                                        continue;
-                                    }
-
-                                    var valueType = cellImporter.ValueType;
-
-
-                                    var importedFormat = new SpreadCellFormat();
-
-                                    if (cellImporter.Format != null)
-                                    {
-                                        importedFormat = cellImporter.Format;
-                                    }
-
-
-                                    int cellDifference = cellImporter.ColumnIndex - lastColumn;
-
-                                    //this part ensures the proper cells order in case there are any empty cells
-                                    if (cellDifference > 1)
-                                    {
-                                        rowExporter.SkipCells(cellDifference - 1);
-                                    }
-
-                                    //check the cell value to apply proper formatting
-                                    using (var cellExporter = rowExporter.CreateCellExporter())
-                                    {
-                                        switch (valueType)
-                                        {
-                                            case CellValueType.Boolean:
-                                                var boolValue = bool.Parse(value);
-                                                cellExporter.SetValue(boolValue);
-                                                break;
-                                            case CellValueType.Number:
-                                                var dateNumberValue = double.Parse(value);
-                                                cellExporter.SetFormat(importedFormat);
-                                                cellExporter.SetValue(dateNumberValue);
-                                                break;
-                                            case CellValueType.Error:
-                                            case CellValueType.Text:
-                                            case CellValueType.SharedString:
-                                            case CellValueType.RichText:
-                                                cellExporter.SetValue(value);
-                                                break;
-                                        }
-
-                                        //apply the defined style to the desired cells
-                                        if (cellImporter.RowIndex == 0)
-                                        {
-                                            cellExporter.SetFormat(markedCell);
-                                        }
-                                    }
-
-                                    lastColumn = cellImporter.ColumnIndex;
-                                }
-                            }
-
-                            lastRow = rowImporter.RowIndex;
-                        }
-                    }
+                    worksheetExporter.SkipRows(rowDifference - 1);
                 }
+
+                int lastColumn = 0;
+
+                using IRowExporter rowExporter = worksheetExporter.CreateRowExporter();
+
+                // Loop through the cells to copy their content.
+                foreach (ICellImporter cellImporter in rowImporter.Cells)
+                {
+                    string value = cellImporter.Value;
+
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        continue;
+                    }
+
+                    CellValueType valueType = cellImporter.ValueType;
+
+                    SpreadCellFormat importedFormat = new SpreadCellFormat();
+
+                    if (cellImporter.Format != null)
+                    {
+                        importedFormat = cellImporter.Format;
+                    }
+
+                    int cellDifference = cellImporter.ColumnIndex - lastColumn;
+
+                    // Ensure proper cell order in case there are any empty cells.
+                    if (cellDifference > 1)
+                    {
+                        rowExporter.SkipCells(cellDifference - 1);
+                    }
+
+                    // Check the cell value to apply proper formatting.
+                    using ICellExporter cellExporter = rowExporter.CreateCellExporter();
+
+                    switch (valueType)
+                    {
+                        case CellValueType.Boolean:
+                            bool boolValue = bool.Parse(value);
+                            cellExporter.SetValue(boolValue);
+                            break;
+                        case CellValueType.Number:
+                            double dateNumberValue = double.Parse(value);
+                            cellExporter.SetFormat(importedFormat);
+                            cellExporter.SetValue(dateNumberValue);
+                            break;
+                        case CellValueType.Error:
+                        case CellValueType.Text:
+                        case CellValueType.SharedString:
+                        case CellValueType.RichText:
+                            cellExporter.SetValue(value);
+                            break;
+                    }
+
+                    // Apply the defined style to the desired cells.
+                    if (cellImporter.RowIndex == 0)
+                    {
+                        cellExporter.SetFormat(customCellFormat);
+                    }
+
+                    lastColumn = cellImporter.ColumnIndex;
+                }
+
+                lastRow = rowImporter.RowIndex;
             }
         }
 
-        //pass the modified stream to the event arguments
-        args.Stream = export;
+        // Pass the modified stream to the GridAfterExcelExportEventArgs event argument.
+        args.Stream = exportStream;
     }
 
     protected override void OnInitialized()
     {
-        GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-            {
-                ProductId = x,
-                ProductName = "Product " + x,
-                UnitsInStock = x * 2,
-                Price = 3.14159m * x,
-                Discontinued = x % 4 == 0,
-                FirstReleaseDate = DateTime.Now.AddDays(-x)
-            }).ToList();
+        Random rnd = Random.Shared;
+        GridData = Enumerable.Range(1, 100).Select(x => new Product
+        {
+            Id = x,
+            Name = $"Product {x}",
+            Price = rnd.Next(1, 100) * 1.23m,
+            Quantity = rnd.Next(0, 100),
+            ReleaseDate = DateTime.Now.AddDays(-rnd.Next(1, 1000)),
+            Discontinued = x % 4 == 0
+        }).ToList();
     }
 
-    public class SampleData
+    public class Product
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int UnitsInStock { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public DateTime ReleaseDate { get; set; }
         public bool Discontinued { get; set; }
-        public DateTime FirstReleaseDate { get; set; }
     }
 }
 ````
