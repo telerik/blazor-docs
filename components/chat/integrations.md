@@ -38,7 +38,7 @@ The following example demonstrates using the `OnSendMessage` event to communicat
              OnSendMessage="@(async (args) => await AskAI(args))" />
 
 @code {
-    private TelerikChat<ChatMessage> AIChat;
+    private TelerikChat<ChatMessage>? AIChat;
     private List<ChatMessage> AIChatConversation { get; set; } = new List<ChatMessage>();
     private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
@@ -83,27 +83,16 @@ The following example demonstrates using the `OnSendMessage` event to communicat
     public class ChatMessage
     {
         public string Id { get; set; }
-
         public string AuthorId { get; set; }
-
         public string AuthorName { get; set; }
-
         public string AuthorImageUrl { get; set; }
-
         public string Content { get; set; }
-
         public string MessageToReplyId { get; set; }
-
         public string Status { get; set; }
-
         public bool IsDeleted { get; set; }
-
         public bool IsPinned { get; set; }
-
         public DateTime Timestamp { get; set; }
-
         public List<string> SuggestedActions { get; set; }
-
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
 }

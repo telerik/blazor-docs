@@ -19,21 +19,42 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
 >caption Basic data binding
 
 ````Razor
-<TelerikChat Data="@Messages"
+<TelerikChat Data="@ChatData"
              AuthorId="@CurrentUserId"
-             OnSendMessage="@HandleSendMessage">
+             OnSendMessage="@OnChatSendMessage">
 </TelerikChat>
 
 @code {
-    private List<ChatMessage> Messages { get; set; } = new List<ChatMessage>
-    {
-        new ChatMessage { Id = "1", Text = "Hello!", AuthorId = "user1", Timestamp = DateTime.Now.AddMinutes(-5) },
-        new ChatMessage { Id = "2", Text = "Hi there!", AuthorId = "user2", Timestamp = DateTime.Now.AddMinutes(-3) }
-    };
+    #region Component Parameters
     
-    private string CurrentUserId { get; set;  } = "user1";
-
-    private void HandleSendMessage(ChatSendMessageEventArgs args)
+    private List<ChatMessage> ChatData { get; set; }
+    private string CurrentUserId { get; set; } = "user1";
+    
+    #endregion
+    
+    #region Lifecycle Methods
+    
+    protected override void OnInitialized()
+    {
+        ChatData = new List<ChatMessage>();
+        
+        for (int i = 1; i <= 2; i++)
+        {
+            ChatData.Add(new ChatMessage 
+            { 
+                Id = i.ToString(), 
+                Text = i == 1 ? "Hello!" : "Hi there!", 
+                AuthorId = i == 1 ? "user1" : "user2", 
+                Timestamp = DateTime.Now.AddMinutes(-5 + (i * 2))
+            });
+        }
+    }
+    
+    #endregion
+    
+    #region Methods
+    
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
     {
         var newMessage = new ChatMessage
         {
@@ -43,35 +64,30 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
             Timestamp = DateTime.Now
         };
         
-        Messages.Add(newMessage);
+        ChatData.Add(newMessage);
     }
+    
+    #endregion
+    
+    #region Class Declarations
 
     public class ChatMessage
     {
         public string Id { get; set; }
-
         public string AuthorId { get; set; }
-
         public string AuthorName { get; set; }
-
         public string AuthorImageUrl { get; set; }
-
         public string Text { get; set; }
-
         public string MessageToReplyId { get; set; }
-
         public string Status { get; set; }
-
         public bool IsDeleted { get; set; }
-
         public bool IsPinned { get; set; }
-
         public DateTime Timestamp { get; set; }
-
         public List<string> SuggestedActions { get; set; }
-
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
+    
+    #endregion
 }
 ````
 
@@ -98,24 +114,44 @@ The Chat component provides field mapping parameters to work with different data
 The Chat component automatically reflects changes to the bound data collection. You can add, modify, or remove messages programmatically:
 
 ````Razor
-<TelerikChat @ref="@Chat1"
-             Data="@Messages"
-             TextField="Content"
+<TelerikChat @ref="@ChatRef"
+             Data="@ChatData"
+             TextField="@nameof(ChatMessage.Content)"
              AuthorId="@CurrentUserId"
-             OnSendMessage="@HandleSendMessage">
+             OnSendMessage="@OnChatSendMessage">
 </TelerikChat>
 
 <div style="margin-top: 20px;">
-    <TelerikButton OnClick="@AddSystemMessage">Add System Message</TelerikButton>
-    <TelerikButton OnClick="@ClearMessages">Clear All Messages</TelerikButton>
+    <TelerikButton OnClick="@OnAddSystemMessageClick">Add System Message</TelerikButton>
+    <TelerikButton OnClick="@OnClearMessagesClick">Clear All Messages</TelerikButton>
 </div>
 
 @code {
-    private TelerikChat<ChatMessage> Chat1 { get; set; }
-    private List<ChatMessage> Messages { get; set; } = new List<ChatMessage>();
-    private string CurrentUserId = "user1";
+    #region Component References
+    
+    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    
+    #endregion
+    
+    #region Component Parameters
+    
+    private List<ChatMessage> ChatData { get; set; }
+    private string CurrentUserId { get; set; } = "user1";
+    
+    #endregion
+    
+    #region Lifecycle Methods
+    
+    protected override void OnInitialized()
+    {
+        ChatData = new List<ChatMessage>();
+    }
+    
+    #endregion
+    
+    #region Methods
 
-    private void HandleSendMessage(ChatSendMessageEventArgs args)
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
     {
         var newMessage = new ChatMessage
         {
@@ -126,14 +162,14 @@ The Chat component automatically reflects changes to the bound data collection. 
             Timestamp = DateTime.Now
         };
 
-        Messages.Add(newMessage);
+        ChatData.Add(newMessage);
 
-        Chat1?.Refresh();
+        ChatRef?.Refresh();
     }
 
-    private void AddSystemMessage()
+    private void OnAddSystemMessageClick()
     {
-        Messages.Add(new ChatMessage
+        ChatData.Add(new ChatMessage
         {
             Id = Guid.NewGuid().ToString(),
             Content = "System notification: New user joined the chat",
@@ -142,25 +178,31 @@ The Chat component automatically reflects changes to the bound data collection. 
             Timestamp = DateTime.Now
         });
 
-        Chat1?.Refresh();
+        ChatRef?.Refresh();
     }
 
-    private void ClearMessages()
+    private void OnClearMessagesClick()
     {
-        Messages.Clear();
-        Chat1?.Refresh();
+        ChatData.Clear();
+        ChatRef?.Refresh();
     }
+    
+    #endregion
+    
+    #region Class Declarations
 
     public class ChatMessage
     {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string Content { get; set; }
-        public DateTime Timestamp { get; set; }
-        public string Status { get; set; }
+        public string Id { get; set; }        
+        public string AuthorId { get; set; }        
+        public string AuthorName { get; set; }        
+        public string Content { get; set; }        
+        public DateTime Timestamp { get; set; }        
+        public string Status { get; set; }        
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
+    
+    #endregion
 }
 ````
 

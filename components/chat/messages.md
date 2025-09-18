@@ -17,12 +17,12 @@ The Telerik UI for Blazor Chat component provides comprehensive control over mes
 Configure context menu actions that appear when users right-click on messages. These actions provide quick access to common message operations.
 
 ````Razor
-<TelerikChat Data="@ChatConversation"
-             @ref="@Chat1"
+<TelerikChat Data="@ChatData"
+             @ref="@ChatRef"
              Width="600px"
              Height="700px"
-             TextField="Content"
-             AuthorId="@(1.ToString())">
+             TextField="@nameof(ChatMessage.Content)"
+             AuthorId="@CurrentUserId">
     <ChatMessageContextMenuActions>
         <ChatMessageContextMenuAction Name="Reply" Text="Reply" Icon="@SvgIcon.Undo" OnClick="@OnReplyClick" />
         <ChatMessageContextMenuAction Name="Copy" Text="Copy" Icon="@SvgIcon.Copy" OnClick="@OnCopyClick" />
@@ -32,33 +32,33 @@ Configure context menu actions that appear when users right-click on messages. T
 </TelerikChat>
 
 @code {
-    private TelerikChat<ChatMessage> Chat1;
-
-    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
+    #region Component References
+    
+    private TelerikChat<ChatMessage>? ChatRef { get; set; }
+    
+    #endregion
+    
+    #region Component Parameters
+    
+    private List<ChatMessage> ChatData { get; set; } = new();
+    private string CurrentUserId { get; set; } = "1";
+    
+    #endregion
+    
+    #region Lifecycle Methods
+    
+    protected override void OnInitialized()
     {
-        new ChatMessage()
-        {
-            Id = "1",
-            AuthorId = "1",
-            AuthorName = "John Smith",
-            Content = "Hello, how are you today?",
-            Status = "Seen",
-            Timestamp = DateTime.Now.AddMinutes(-10)
-        },
-        new ChatMessage()
-        {
-            Id = "2",
-            AuthorId = "2",
-            AuthorName = "Jane Doe",
-            Content = "Hi John! I'm doing great, thanks for asking.",
-            Status = "Seen",
-            Timestamp = DateTime.Now.AddMinutes(-8)
-        }
-    };
+        GenerateChatData();
+    }
+    
+    #endregion
+    
+    #region Methods
 
     private void OnReplyClick(ChatMessageActionClickEventArgs args)
     {
-        var message = ChatConversation.FirstOrDefault(m => m.Id == args.MessageId);
+        var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
         if (message != null)
         {
             // Set up reply context
@@ -68,7 +68,7 @@ Configure context menu actions that appear when users right-click on messages. T
 
     private void OnCopyClick(ChatMessageActionClickEventArgs args)
     {
-        var message = ChatConversation.FirstOrDefault(m => m.Id == args.MessageId);
+        var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
         if (message != null)
         {
             // Copy message content to clipboard
@@ -78,39 +78,73 @@ Configure context menu actions that appear when users right-click on messages. T
 
     private void OnPinClick(ChatMessageActionClickEventArgs args)
     {
-        var message = ChatConversation.FirstOrDefault(m => m.Id == args.MessageId);
+        var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
         if (message != null)
         {
             message.IsPinned = !message.IsPinned;
-            Chat1?.Refresh();
+            ChatRef?.Refresh();
         }
     }
 
     private void OnDeleteClick(ChatMessageActionClickEventArgs args)
     {
-        var message = ChatConversation.FirstOrDefault(m => m.Id == args.MessageId);
+        var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
         if (message != null)
         {
             message.IsDeleted = true;
-            Chat1?.Refresh();
+            ChatRef?.Refresh();
         }
     }
+    
+    #endregion
+    
+    #region Data Generation
+
+    private void GenerateChatData()
+    {
+        ChatData = new List<ChatMessage>();
+        
+        var messageTexts = new[]
+        {
+            "Hello, how are you today?",
+            "Hi John! I'm doing great, thanks for asking."
+        };
+        
+        for (int i = 1; i <= 2; i++)
+        {
+            ChatData.Add(new ChatMessage
+            {
+                Id = i.ToString(),
+                AuthorId = i.ToString(),
+                AuthorName = i == 1 ? "John Smith" : "Jane Doe",
+                Content = messageTexts[i - 1],
+                Status = "Seen",
+                Timestamp = DateTime.Now.AddMinutes(-10 + (i * 2))
+            });
+        }
+    }
+    
+    #endregion
+    
+    #region Class Declarations
 
     public class ChatMessage
     {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorImageUrl { get; set; }
-        public string Content { get; set; }
-        public string ReplyToMessageId { get; set; }
-        public string Status { get; set; }
-        public bool IsDeleted { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<string> SuggestedActions { get; set; }
+        public string Id { get; set; }        
+        public string AuthorId { get; set; }        
+        public string AuthorName { get; set; }        
+        public string AuthorImageUrl { get; set; }        
+        public string Content { get; set; }        
+        public string ReplyToMessageId { get; set; }        
+        public string Status { get; set; }        
+        public bool IsDeleted { get; set; }      
+        public bool IsPinned { get; set; }        
+        public DateTime Timestamp { get; set; }        
+        public List<string> SuggestedActions { get; set; }        
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
     }
+    
+    #endregion
 }
 ````
 
@@ -119,13 +153,13 @@ Configure context menu actions that appear when users right-click on messages. T
 Configure toolbar actions that appear when messages are selected or hovered. These provide quick access to frequently used operations.
 
 ````RAZOR.skip-repl
-    <TelerikChat>
-        <ChatMessageToolbarActions>
-            <ChatMessageToolbarAction Name="React" Text="React" Icon="@SvgIcon.Heart" OnClick="@OnReactClick" />
-            <ChatMessageToolbarAction Name="Forward" Text="Forward" Icon="@SvgIcon.Forward" OnClick="@OnForwardClick" />
-            <ChatMessageToolbarAction Name="Quote" Text="Quote" Icon="@SvgIcon.Quote" OnClick="@OnQuoteClick" />
-        </ChatMessageToolbarActions>
-    </TelerikChat>
+<TelerikChat>
+    <ChatMessageToolbarActions>
+        <ChatMessageToolbarAction Name="React" Text="React" Icon="@SvgIcon.Heart" OnClick="@OnReactClick" />
+        <ChatMessageToolbarAction Name="Forward" Text="Forward" Icon="@SvgIcon.Forward" OnClick="@OnForwardClick" />
+        <ChatMessageToolbarAction Name="Quote" Text="Quote" Icon="@SvgIcon.Quote" OnClick="@OnQuoteClick" />
+    </ChatMessageToolbarActions>
+</TelerikChat>
 ````
 
 ## Messages Styling
@@ -179,7 +213,7 @@ Set the `InputValue` property to define the message box content and handle the `
         }
     };
 
-    private TelerikChat<ChatMessage> Chat1;
+    private TelerikChat<ChatMessage>? Chat1;
 
     private string CurrentInputValue { get; set; } = "";
 
