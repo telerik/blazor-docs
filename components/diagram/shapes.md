@@ -414,7 +414,7 @@ When using a visual function, the Diagram ignores all Shape parameters in the Ra
 
 > This section links to the documentation of Kendo UI for jQuery. The Telerik Diagram for Blazor is not a wrapper of the Kendo UI Diagram. However, both components use the same client-side rendering engine. When the Kendo UI documentation mentions the `kendo.dataviz.diagram` JavaScript namespace, you must use `TelerikBlazor.DiagramCommon` instead.
 
-In addition to the following example, also check this [Blazor Diagram demo](https://demos.telerik.com/blazor-ui/diagram/overview), which uses a visual function.
+In addition to the following example, also check the [Blazor Diagram Overview demo](https://demos.telerik.com/blazor-ui/diagram/overview) and the [Show Diagram Shape Text Below Image](slug:diagram-kb-show-shape-text-below-image) knowledge base article. Both use a visual function.
 
 >caption Using Diagram Shape visual function
 
