@@ -32,7 +32,7 @@ When using the template, the built-in popup form is replaced by the declared con
 * There are [two ways to define custom Form buttons](slug:grid-kb-handle-empty-popup-footer):
     * Use the [Form `<FormButtons>` template](slug:form-formitems-buttons).
     * Use the [Grid `<ButtonsTemplate>`](slug:grid-templates-popup-buttons), which is empty by default when using a `<FormTemplate>`. Remove the duplicate [built-in Form Submit button with an empty `<FormButtons>` template](slug:form-formitems-buttons).
-* Using the [Grid `<ButtonsTemplate>`](slug:grid-templates-popup-buttons) is possible and the content will render in the popup footer, which is empty by default.
+* If you leave the Grid popup footer (`<ButtonsTemplate>`) empty, it takes up some space in the popup. You can [remove this empty popup footer space with CSS](slug:grid-kb-handle-empty-popup-footer).
 * The `FormTemplate` disables the [built-in validation](slug:grid-editing-validation) of the Grid. Implement a [Form Validation](slug:form-validation) instead.
 * The [`<GridPopupEditFormSettings>` parameters](slug:grid-editing-popup#form-layout) do not apply to a custom `TelerikForm` that you may render inside the `<FormTemplate>` tag. Set the desired Form configurations such as `Columns`, `Orientation`, and more on the [Form component](slug:form-overview#form-parameters).
 
