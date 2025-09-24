@@ -54,26 +54,16 @@ app {
 
 ## Wrong Popup Position
 
-The position of popups (Window, various dropdowns such as DropDownList, ComboBox, DatePicker) can be wrong or offset.
+The position of popups (Dialog, Notification, Window) and dropdowns (ComboBox, DatePicker, DropDownList, SplitButton) can be wrong or offset.
 
-The most common reason for such a problem is that the [`<TelerikRootComponent>`](slug:rootcomponent-overview) does not match the `<body>` and the browser viewport - this is required because that component is the topmost element our components can access in order to render popups/dropdowns.
+The possible reasons and remedies for this problem are:
 
-There are several common cases when such a mismatch occurs:
+* The [`<TelerikRootComponent>`](slug:rootcomponent-overview) does not wrap all the visible HTML content on the web page. As a result, the Telerik popups and dropdowns do not render at the root of the app and their position is affected by other styles and parent HTML elements on the page. Normally, the `<TelerikRootComponent>` must be the topmost component in the topmost layout of the app, except in [apps with Per Page/Component interactivity location](slug:rootcomponent-percomponent).
+* There is more than one rendered `<TelerikRootComponent>` in the app. Remove the inner one, which most likely does not wrap all the content on the page.
+* The `<body>` HTML element has non-zero [`margin` styles](https://developer.mozilla.org/en-US/docs/Web/CSS/margin). This breaks the position calculations for the Telerik popups and dropdowns. Even if a `margin` style is set on a child element, it may propagate up the DOM to the `<body>` due to [CSS margin collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing). In such cases, you can replace `margin` styles with `padding` styles.
+* A parent HTML element of the `<TelerikRootComponent>` has non-default positioning styles, for example `position:relative`, `top:20px`, or `left:100px`. Such styles offset all children, including the Telerik popups and dropdowns. Move such positioning styles to another element inside the `TelerikRootComponent`.
 
-* The position and size of the `<app>` element (or however the root component of your Blazor app is called) does not match the `<body>`.
-
-* There is more than one `<TelerikRootComponent>` in the app (for example, a certain Razor Component has its own). There should be only one instance - either in `MainLayout`, or in a separate layout file, which is referenced in `MainLayout`. We recommend the second option for better separation of concerns.
-
-* CSS related cases:
-
-    * There are CSS rules that offset the `<app>` element or its parent element (such as `position: absolute` or `margin: auto`, or placing it in some form of popup like a jQuery dialog).  
-
-    * The default `margin` of the `body` element (such as the one that Bootstrap brings in) is not removed. With this margin in play the `<body>` and the browser viewport do not match exactly and Telerik popups may be displaced with the value of the margin. The solution in this case is to remove it with a rule like `body { margin:0; }`, so the popups are placed correctly.
-
-    * There are CSS rules that alter the positioning of an element or class used in the Telerik popup elements.
-
-You can check the application for such issues and ensure that the `<app>` element size and position matches the `<body>` and the browser viewport, and that the `<TelerikRootComponent>` is a direct child of the `<app>` element and wraps the `@Body` in the main layout.
-
+The `<TelerikRootComponent>` itself does not render any HTML elements. For troubleshooting purposes, you can assess the placement of the root component by the placement of the currently visible Telerik popups and dropdowns. See [how to inspect auto-hiding popups in the browser](slug:themes-override#tools).
 
 ## Unable to find package Telerik.Documents.SpreadsheetStreaming
 
