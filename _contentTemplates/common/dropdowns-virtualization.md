@@ -32,8 +32,8 @@ the component will call this method to request the model that matches the `Value
 
 
 #limitations
-* When the initially selected item/items are on a page different than the first one, opening the dropdown list will NOT scroll the list to the selected item.
-* When virtualization is enabled, the component calculates the position of the items. In this case, the loading indicators are not displayed as they would affect the proper item positioning.
+* When the initially selected item is not on the first page, the dropdown does not scroll to it on first opening.
+* The component calculates the position of the dropdown items during virtual scrolling. In this case, the loading indicators (skeletons) do not display as they would affect the proper item positioning.
 #end
 
 #remote-data-sample-intro
