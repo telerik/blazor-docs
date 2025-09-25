@@ -26,7 +26,7 @@ The Tree Diagram layout positions the shapes in a hierarchical way. A typical us
 
 ### Tree Layout Subtypes
 
-The Layered Diagram layout has the following sub types:
+The Tree Diagram layout has the following sub types:
 
 * `Down`&mdash;the root shape is at the top and all descendants are arranged below it.
 * `Left`&mdash;the root shape is on the right.
@@ -37,12 +37,44 @@ The Layered Diagram layout has the following sub types:
 * `TipOver`&mdash;a variation of the `Down` sub type. The root shape is at the top. The direct children are arranged horizontally in a row, while the grand children are arranged verticallu on columns.
 * `Up`&mdash;the root shape is at the bottom.
 
->caption Setting a Tree Diagram Layout Subtype
+`<DiagramLayout>` provides apperance settings that apply to specific tree layout sub types. The snippets below list these settings and their default values. `HorizontalSeparation` and `VerticalSeparation` apply to all sub types, except `Radial`.
+
+>caption Using a classic Tree Diagram Layout
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
     <DiagramLayout Type="@DiagramLayoutType.Tree"
-                   Subtype="@DiagramLayoutSubtype.Radial" />
+                   Subtype="@DiagramLayoutSubtype.Down"
+                   HorizontalSeparation="90"
+                   VerticalSeparation="50" />
+</TelerikDiagram>
+````
+
+>caption Using a Radial Tree Diagram Layout
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Tree"
+                   Subtype="@DiagramLayoutSubtype.Radial"
+                   StartRadialAngle="0"
+                   EndRadialAngle="360"
+                   RadialSeparation="150"
+                   RadialFirstLevelSeparation="200" />
+</TelerikDiagram>
+````
+
+When using the Tree `TipOver` sub type, the `HorizontalSeparation` and `VerticalSeparation` parameters affect the distances between shapes at the initial levels, which are not affected by the tipover algorithm. The number of these levels depends on the value of `TipOverTreeStartLevel`.
+
+>caption Using a TipOver Tree Diagram Layout
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramLayout Type="@DiagramLayoutType.Tree"
+                   Subtype="@DiagramLayoutSubtype.TipOver"
+                   TipOverTreeStartLevel="1"
+                   UnderneathHorizontalOffset="15"
+                   UnderneathVerticalSeparation="15"
+                   UnderneathVerticalTopOffset="15" />
 </TelerikDiagram>
 ````
 
@@ -62,11 +94,14 @@ The layered layout works best with:
 
 When the graph is a tree, the layout reduces to a standard tree layout and thus can be considered as an extension to the classic tree layout.
 
+The `LayerSeparation` parameter sets the distance between the layout layers. The default value is `50`.
+
 >caption Using the Layered Diagram Layout
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
-    <DiagramLayout Type="@DiagramLayoutType.Layered" />
+    <DiagramLayout Type="@DiagramLayoutType.Layered"
+                   LayerSeparation="50" />
 </TelerikDiagram>
 ````
 
@@ -92,17 +127,24 @@ The Layered Diagram layout has the following sub types. Each subtype name signif
 
 The [Force-directed Diagram layout](https://en.wikipedia.org/wiki/Force-directed_graph_drawing) (also known as the spring-embedder algorithm) is based on a physical simulation of forces acting on the Diagram nodes (shapes), whereby the connections define whether two nodes act upon each other. Each link is like a spring embedded in the Diagram. The simulation attempts to find a minimum energy state, so that the springs are in their base state and do not pull or push any linked node.
 
-> The force-directed Diagram layout is non-deterministic. Each layout pass is unique, unpredictable, and not reproducible.
+The force-directed Diagram layout is non-deterministic. Each layout pass is unique, unpredictable, and not reproducible.
+
+The layout provides two settings that affect the final appearance:
+
+* `NodeDistance` defines the optimal distance between the shapes for minimum energy state. The default value is `50`.
+* `Iterations` sets the number of position calculations. A larger number produces better results, but is more resource-intensive. The default value is `300`.
+
+The force-directed layout type has no subtypes.
 
 >caption Using the Force Diagram Layout
 
 ````RAZOR.skip-repl
 <TelerikDiagram>
-    <DiagramLayout Type="@DiagramLayoutType.Force" />
+    <DiagramLayout Type="@DiagramLayoutType.Force"
+                   Iterations="300"
+                   NodeDistance="50" />
 </TelerikDiagram>
 ````
-
-The force-directed layout type has no subtypes.
 
 ## Example
 
@@ -317,46 +359,78 @@ The `<DiagramLayoutGrid>` tag exposes settings that allow you to define:
 * The horizontal and vertical distance (offset) between the components and the Diagram boundaries.
 * The width of the layout grid. If the width is large enough, the Diagram displays multiple components (groups) in a single row. Otherwise the components fall one below another.
 
+The following example starts with the default values of the `DiagramLayoutGrid` parameters, except the `Width` which has a default value of `1500`. Use the Up and Down arrow keys to change the NumericTextBox values more easily and observe the result.
+
 >caption Using Diagram Layout Grid settings
 
 ````RAZOR
-<TelerikDiagram Zoom="0.8">
+<TelerikDiagram Zoom="0.5" Height="360px">
     <DiagramLayout Type="@DiagramLayoutType.Tree">
-        <DiagramLayoutGrid ComponentSpacingX="50"
-                           ComponentSpacingY="50"
-                           OffsetX="10"
-                           OffsetY="10"
-                           Width="300" />
+        <DiagramLayoutGrid ComponentSpacingX="@XSpacing"
+                           ComponentSpacingY="@YSpacing"
+                           OffsetX="@XOffset"
+                           OffsetY="@YOffset"
+                           Width="@LayoutWidth" />
     </DiagramLayout>
 
     <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
+        <DiagramShape Id="shape1-1">
+            <DiagramShapeContent Text="Shape 1-1" />
         </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
+        <DiagramShape Id="shape1-2">
+            <DiagramShapeContent Text="Shape 1-2" />
         </DiagramShape>
-        <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3" />
+        <DiagramShape Id="shape1-3">
+            <DiagramShapeContent Text="Shape 1-3" />
         </DiagramShape>
-        <DiagramShape Id="shape4">
-            <DiagramShapeContent Text="Shape 4" />
+        <DiagramShape Id="shape2-1">
+            <DiagramShapeContent Text="Shape 2-1" />
         </DiagramShape>
-        <DiagramShape Id="shape5">
-            <DiagramShapeContent Text="Shape 5" />
+        <DiagramShape Id="shape2-2">
+            <DiagramShapeContent Text="Shape 2-2" />
         </DiagramShape>
-        <DiagramShape Id="shape6">
-            <DiagramShapeContent Text="Shape 6" />
+        <DiagramShape Id="shape2-3">
+            <DiagramShapeContent Text="Shape 2-3" />
+        </DiagramShape>
+        <DiagramShape Id="shape3-1">
+            <DiagramShapeContent Text="Shape 3-1" />
+        </DiagramShape>
+        <DiagramShape Id="shape3-2">
+            <DiagramShapeContent Text="Shape 3-2" />
+        </DiagramShape>
+        <DiagramShape Id="shape3-3">
+            <DiagramShapeContent Text="Shape 3-3" />
         </DiagramShape>
     </DiagramShapes>
 
     <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
-        <DiagramConnection FromId="shape1" ToId="shape3" />
-        <DiagramConnection FromId="shape4" ToId="shape5" />
-        <DiagramConnection FromId="shape4" ToId="shape6" />
+        <DiagramConnection FromId="shape1-1" ToId="shape1-2" />
+        <DiagramConnection FromId="shape1-1" ToId="shape1-3" />
+        <DiagramConnection FromId="shape2-1" ToId="shape2-2" />
+        <DiagramConnection FromId="shape2-1" ToId="shape2-3" />
+        <DiagramConnection FromId="shape3-1" ToId="shape3-2" />
+        <DiagramConnection FromId="shape3-1" ToId="shape3-3" />
     </DiagramConnections>
 </TelerikDiagram>
+
+ComponentSpacingX:
+<TelerikNumericTextBox @bind-Value="@XSpacing" Width="80px" Step="30" />
+ComponentSpacingY:
+<TelerikNumericTextBox @bind-Value="@YSpacing" Width="80px" Step="30" />
+OffsetX:
+<TelerikNumericTextBox @bind-Value="@XOffset" Width="80px" Step="30" />
+OffsetY:
+<TelerikNumericTextBox @bind-Value="@YOffset" Width="80px" Step="30" />
+Width:
+<TelerikNumericTextBox @bind-Value="@LayoutWidth" Width="80px" Step="200" />
+
+@code {
+    private int XSpacing { get; set; } = 20;
+    private int YSpacing { get; set; } = 20;
+    private int XOffset { get; set; } = 50;
+    private int YOffset { get; set; } = 50;
+    private int LayoutWidth { get; set; } = 500;
+}
 ````
 
 ## See Also
