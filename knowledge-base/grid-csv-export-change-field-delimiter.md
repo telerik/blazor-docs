@@ -34,29 +34,24 @@ A possible option is to manually modify the exported CSV file before it reaches 
 
 For that purpose use the [`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library - it allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the [`CsvFormatProvider` which exposes setting to configure the field delimiter](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings).
 
-To change the field delimiter, do the following:
+To change the CSV value delimiter, do the following:
 
-1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package, so you can use the `CsvFormatProvider`
+1. Install the `Telerik.Documents.Spreadsheet.FormatProviders.Xls` NuGet package, so you can use the `CsvFormatProvider`.
+1. Handle the [Grid `OnAfterExport` event](slug:grid-export-events#onafterexport). The `Stream` it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
+1. Create a `CsvFormatProvider` and [set its `Delimiter` setting to a comma `','`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings). This is necessary because the delimiter in the exported CSV file is always a comma, while the `CsvFormatProvider` assumes it based on the culture.
+1. [Import the new `MemoryStream` to a `Workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
+1. Set the desired new `Delimiter` through the [settings of the `CsvFormatProvider` instance](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings).
+1. [Export the modified `Workbook` to a new `MemoryStream`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#save-workbook-to-filestream-or-memorystream).
+1. Pass that `MemoryStream` to the `Stream` property of the `GridAfterCsvExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
-1. Handle the [OnAfterExport](slug:grid-export-events#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
-
-1. Create a `CsvFormatProvider` instance and use it to [import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
-
-1. Set the desired `Delimiter` through the [settings of the `CsvFormatProvider` instance](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings)
-
-1. [Export the modified `workbook` to a `MemoryStream`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#save-workbook-to-filestream-or-memorystream).
-
-1. Pass that `MemoryStream` to the `args.Stream` of the `GridAfterCsvExportEventArgs`, so that the modifications can be saved to the actual exported file.
-
-<div class="skip-repl"></div>
-````RAZOR
-@*Customize the field delimiter of the exported CSV file*@
-
+````RAZOR.skip-repl
 @using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv
 @using Telerik.Windows.Documents.Spreadsheet.Model
 @using System.IO
 
-<TelerikGrid Data="@GridData" Pageable="true">
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             Sortable="true">
 
     <GridToolBarTemplate>
         <GridCommandButton Command="CsvExport" Icon="@SvgIcon.FileCsv">Export to CSV</GridCommandButton>
@@ -71,69 +66,72 @@ To change the field delimiter, do the following:
     </GridExport>
 
     <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="300px" />
-        <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="200px" />
-        <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.FirstReleaseDate)" Title="Release Date" Width="300px" />
+        <GridColumn Field="@nameof(Product.Id)" Title="ID" Width="100px" />
+        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" Width="300px" />
+        <GridColumn Field="@nameof(Product.Price)" Width="200px" />
+        <GridColumn Field="@nameof(Product.Quantity)" Width="100px" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" Width="300px" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Title="Discontinued" Width="100px" />
     </GridColumns>
 
 </TelerikGrid>
 
 @code {
-
-    private async Task OnCSVAfterExport(GridAfterCsvExportEventArgs args)
+    private void OnCSVAfterExport(GridAfterCsvExportEventArgs args)
     {
-        //args.Stream is finalized. The Import() method of the CSVFormatProvider requires a readable stream, so you should copy the stream bytes to a new MemoryStream instance which will be used for the import.
-        var bytes = args.Stream.ToArray();
+        //args.Stream is finalized. The Import() method of the CSVFormatProvider requires a readable stream,
+        //so you should copy the stream bytes to a new MemoryStream for the import.
+        using MemoryStream importCsvStream = new MemoryStream(args.Stream.ToArray());
 
-        var CSVStream = new MemoryStream(bytes);
-
-        //create a format provider instance to call the import
+        //Create a CSV format provider that imports and exports the CSV file.
         CsvFormatProvider formatProvider = new CsvFormatProvider();
 
-        //import the stream to a workbook
-        Workbook workbook = formatProvider.Import(CSVStream, new TimeSpan(0, 0, 5));
+        //The delimiter in the exported CSV file is always a comma,
+        //while the CsvFormatProvider assumes it based on the culture.
+        //Set the delimiter explicitly to avoid mismatch.
+        formatProvider.Settings.Delimiter = ',';
 
-        //create a new MemoryStream to export the modified workbook in
-        MemoryStream modifiedExport = new MemoryStream();
+        //Import the stream to a Telerik Workbook
+        Workbook workbook = formatProvider.Import(importCsvStream, new TimeSpan(0, 0, 5));
 
-        //set the desired delimiter
+        //Create a new MemoryStream to export the modified Workbook
+        using MemoryStream exportCsvStream = new MemoryStream();
+
+        //Set the desired new CSV delimiter.
         formatProvider.Settings.Delimiter = ';';
 
-        //export the modified workbook to a stream
-        formatProvider.Export(workbook, modifiedExport);
+        //Export the modified Workbook.
+        formatProvider.Export(workbook, exportCsvStream, new TimeSpan(0, 0, 5));
 
-        //pass the modified stream to the event arguments
-        args.Stream = modifiedExport;
+        //Pass the modified Stream to the OnAfterExport event argument.
+        args.Stream = exportCsvStream;
     }
 
-    private List<SampleData> GridData { get; set; }
+    private List<Product>? GridData { get; set; }
 
     private bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
-        GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-            {
-                ProductId = x,
-                ProductName = $"Product {x}",
-                UnitsInStock = x * 2,
-                Price = 3.14159m * x,
-                Discontinued = x % 4 == 0,
-                FirstReleaseDate = DateTime.Now.AddDays(-x)
-            }).ToList();
+        GridData = Enumerable.Range(1, 100).Select(x => new Product
+        {
+            Id = x,
+            Name = $"Product {x}",
+            Quantity = x * 2,
+            Price = 3.14159m * x,
+            Discontinued = x % 4 == 0,
+            ReleaseDate = DateTime.Now.AddDays(-x)
+        }).ToList();
     }
 
-    public class SampleData
+    public class Product
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int UnitsInStock { get; set; }
-        public decimal Price { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal? Price { get; set; }
+        public int Quantity { get; set; }
         public bool Discontinued { get; set; }
-        public DateTime FirstReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
     }
 }
 ````
