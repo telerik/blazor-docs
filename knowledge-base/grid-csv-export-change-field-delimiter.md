@@ -6,35 +6,36 @@ page_title: Grid export to CSV - change the default field delimiter (comma)
 slug: grid-kb-csv-export-change-field-delimiter
 position: 
 tags: grid, export, csv, field, delimiter, change, semicolon, comma, custom
-ticketid: 1576816
+ticketid: 1576816, 1699366
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I want to change the default field delimiter when exporting the Grid to CSV file. How to set a different list separator?
 
 I want to use a semicolon field delimiter for the exported CSV Grid instead of comma. How to achieve this?
 
->tip At the time of writing (**UI for Blazor 3.5.0**), the Blazor Grid [does not expose a built-in option for configuring the field delimiter](https://feedback.telerik.com/blazor/1577167-option-to-configure-the-field-delimiter-when-exporting-to-csv). You may vote for the enhancement and follow it to receive status updates.
+>tip The Blazor Grid [does not expose a built-in option for setting the CSV delimiter](https://feedback.telerik.com/blazor/1577167-option-to-configure-the-field-delimiter-when-exporting-to-csv). You can vote for the enhancement and follow it to receive status updates. It depends on a [feature of RadSpreadProcessing](https://feedback.telerik.com/document-processing/1356286-spreadstreamprocessing-implement-settings-for-changing-the-delimiter-and-quote-when-exporting-to-csv).
 
 ## Solution
 
-A possible option is to manually modify the exported CSV file before it reaches the client to change the field delimiter.
+Modify the exported CSV file before it reaches the user to change the field delimiter.
 
-For that purpose use the [`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library - it allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the [`CsvFormatProvider` which exposes setting to configure the field delimiter](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings).
+Use the [`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library. It allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the [`CsvFormatProvider` which exposes setting to configure the field delimiter](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/settings).
 
-To change the CSV value delimiter, do the following:
+To change the CSV value delimiter:
 
 1. Install the `Telerik.Documents.Spreadsheet.FormatProviders.Xls` NuGet package, so you can use the `CsvFormatProvider`.
 1. Handle the [Grid `OnAfterExport` event](slug:grid-export-events#onafterexport). The `Stream` it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
@@ -94,7 +95,7 @@ To change the CSV value delimiter, do the following:
         //Import the stream to a Telerik Workbook
         Workbook workbook = formatProvider.Import(importCsvStream, new TimeSpan(0, 0, 5));
 
-        //Create a new MemoryStream to export the modified Workbook
+        //Create a new MemoryStream to export the modified Workbook.
         using MemoryStream exportCsvStream = new MemoryStream();
 
         //Set the desired new CSV delimiter.
@@ -138,7 +139,6 @@ To change the CSV value delimiter, do the following:
 
 ## See Also
 
-  * [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
-  * [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
-  * [Configure Document Processing Libraries](slug:getting-started-vs-integration-dpl)
-
+* [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
+* [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
+* [Configure Document Processing Libraries](slug:getting-started-vs-integration-dpl)
