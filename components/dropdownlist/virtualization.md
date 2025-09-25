@@ -18,16 +18,13 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 * [Local Data Example](#local-data-example)
 * [Remote Data Example](#remote-data-example)
 
-
 >caption Display, scroll and filter over 10k records in the DropDownList without delays and performance issues.
 
 ![Virtual Scrolling of large local data](images/dropdownlist-virtual-scrolling-local.gif)
 
-
 ## Basics
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#basics-core)
-
 
 * `ValueMapper` - `Func<TValue, Task<TItem>>` - @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-mapper-text)
 
@@ -35,10 +32,9 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 
 ### Limitations
 
-* When the initially selected item is not on the first page, the dropdown will *not* scroll the list to the selected item when opening.
+@[template](/_contentTemplates/common/dropdowns-virtualization.md#limitations)
 
 ## Local Data Example
-
 
 ````RAZOR
 @SelectedValue
@@ -76,8 +72,6 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
     }
 }
 ````
-
-
 
 ## Remote Data Example
 
@@ -172,7 +166,6 @@ Run this and see how you can display, scroll and filter over 10k records in the 
     }
 }
 ````
-
 
 ## See Also
 
