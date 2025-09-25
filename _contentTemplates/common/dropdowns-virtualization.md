@@ -33,7 +33,7 @@ the component will call this method to request the model that matches the `Value
 
 #limitations
 * When the initially selected item is not on the first page, the dropdown does not scroll to it on first opening.
-* The component calculates the position of the dropdown items during virtual scrolling. In this case, the loading indicators (skeletons) do not display as they will affect the proper item positioning.
+* The component calculates the position of the dropdown items during virtual scrolling. In this case, the loading indicators (skeletons) do not display as they will affect the proper item positioning. You can [add loading skeletons to the virtual dropdown with CSS](slug:dropdowns-kb-show-loading-indicator-skeletons-during-virtual-scrolling).
 #end
 
 #remote-data-sample-intro
