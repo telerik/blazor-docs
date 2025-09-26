@@ -8,43 +8,68 @@ published: true
 position: 10
 ---
 
-# FileSelect - Selected Files Validation
+# FileSelect File Validation
 
 If you want to validate the selected files, you should implement the validation in two parts:
 
-* client validation - performed by the Telerik FileSelect component
-* server validation - must be implemented in the application endpoints
+* Client validation&mdash;performed by the Telerik FileSelect component
+* Server validation&mdash;must be implemented in the application backend or endpoints
 
-The Telerik FileSelect component offers parameters to validate the file selection on the client:
+## Parameters
 
-* `Accept` - `string` - not validation per se, but this parameter can [instruct the browser what file types to allow users to select](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept).
-* `AllowedExtensions` - `List<string>` - a list of valid file extensions. Choosing other file types will mark them as invalid in the UI. The default value is `null`, which allows all extensions.
-* `MinFileSize`- `int?` - the minimum size of a file in bytes. Files with a smaller size will be marked as invalid in the UI.
-* `MaxFileSize`- `int?` - the maximum size of a file in bytes. Files with a larger size will be marked as invalid in the UI.
+The Telerik [FileSelect component offers parameters](slug:Telerik.Blazor.Components.TelerikFileSelect) to validate the file selection on the client:
 
->caption Client validation in the Telerik FileSelect component
+* `AllowedExtensions`
+* `MinFileSize`
+* `MaxFileSize`
 
-For brevity, this sample does not showcase actual upload of the files. You can find an example in the [FileSelect Events article](slug:fileselect-events).
+Selected files that don't meet the defined criteria are marked as invalid in the component UI.
+
+The FileSelect also provides and `Accept` parameter. It does not enforce validation, but [instructs the browser what file types to allow users to select](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept). This can also help users find the correct files more easily.
+
+## Events
+
+The [FileSelect fires its `OnSelect` and `OnRemove` events](slug:fileselect-events) for both valid and invalid files. The application can confirm file validity through the [event argument properties](slug:fileselect-events#fileselectfileinfo) and decide how to proceed.
+
+## Example
+
+For brevity, the code below does not handle the selected file. See a full example in the [FileSelect Events article](slug:fileselect-events#example).
+
+>caption Telerik FileSelect file validation
 
 ````RAZOR
-@* Some images are only allowed, min size 1KB, max size 4MB *@
+<TelerikFileSelect AllowedExtensions="@AllowedExtensions"
+                   MinFileSize="@MinSize"
+                   MaxFileSize="@MaxSize"
+                   Multiple="false"
+                   OnSelect="@OnFileSelect">
+</TelerikFileSelect>
 
-<div style="width:300px">
-	<TelerikFileSelect AllowedExtensions="@AllowedExtensions"
-					   MinFileSize="@MinSize"
-					   MaxFileSize="@MaxSize">
-	</TelerikFileSelect>
-	<div class="k-form-hint">
-		Expected files: <strong> JPG, PNG, JPEG </strong> between <strong>1KB</strong> and <strong>4MB</strong>.
-	</div>
+<div class="k-form-hint">
+    Expected files: JPG, PNG, SVG between 1 KB  and 4 MB.
 </div>
 
 @code {
-	public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".png", ".jpeg" };
+    private readonly List<string> AllowedExtensions = new List<string>() { ".jpg", ".jpeg", ".png", ".svg" };
 
-	public int MinSize { get; set; } = 1024;
+    private const int MinSize = 1024;
 
-	public int MaxSize { get; set; } = 4 * 1024 * 1024;
+    private const int MaxSize = 4 * 1024 * 1024;
+
+    private void OnFileSelect(FileSelectEventArgs args)
+    {
+        FileSelectFileInfo file = args.Files.First();
+
+        if (file.InvalidExtension || file.InvalidMaxFileSize || file.InvalidMinFileSize)
+        {
+            // Optionally, ignore the user action completely.
+            // The selected file(s) will not appear in the file list.
+            //args.IsCancelled = true;
+            return;
+        }
+
+        // Handle selected valid file...
+    }
 }
 ````
 
