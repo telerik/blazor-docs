@@ -84,7 +84,7 @@ To show loading indicators (skeletons) during virtual scrolling of Telerik dropd
 
     /* Show skeletons during virtual scrolling */
     .k-list-container .k-virtual-scroller-size {
-        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9Ijk2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogPGcgaWQ9IkxheWVyXzEiPgogIDx0aXRsZT5Ta2VsZXRvbnM8L3RpdGxlPgogIDxyZWN0IGlkPSJzdmdfMSIgaGVpZ2h0PSIxNCIgd2lkdGg9IjE4MCIgeT0iMCIgeD0iMCIgZmlsbD0iI2Q5ZDlkOSIvPgogIDxyZWN0IGlkPSJzdmdfMiIgaGVpZ2h0PSIxNCIgd2lkdGg9IjkwIiB5PSIyNCIgeD0iMCIgZmlsbD0iI2Q5ZDlkOSIvPgogIDxyZWN0IGlkPSJzdmdfMyIgaGVpZ2h0PSIxNCIgd2lkdGg9IjE1MCIgeT0iNDgiIHg9IjAiIGZpbGw9IiNkOWQ5ZDkiLz4KICA8cmVjdCBpZD0ic3ZnXzQiIGhlaWdodD0iMTQiIHdpZHRoPSIxMjAiIHk9IjcyIiB4PSIwIiBmaWxsPSIjZDlkOWQ5Ii8+CiA8L2c+Cjwvc3ZnPg==");
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9Ijk2IiB2aWV3Qm94PSIwIDAgMTgwIDk2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMCA0QzAgMS43OTA4NiAxLjc5MDg2IDAgNCAwSDE3NkMxNzguMjA5IDAgMTgwIDEuNzkwODYgMTgwIDRWMTBDMTgwIDEyLjIwOTEgMTc4LjIwOSAxNCAxNzYgMTRINEMxLjc5MDg2IDE0IDAgMTIuMjA5MSAwIDEwVjRaIiBmaWxsPSIjRDlEOUQ5IiAvPgo8cGF0aCBkPSJNMCAyOEMwIDI1Ljc5MDkgMS43OTA4NiAyNCA0IDI0SDg2Qzg4LjIwOTEgMjQgOTAgMjUuNzkwOSA5MCAyOFYzNEM5MCAzNi4yMDkxIDg4LjIwOTEgMzggODYgMzhINEMxLjc5MDg2IDM4IDAgMzYuMjA5MSAwIDM0VjI4WiIgZmlsbD0iI0Q5RDlEOSIgLz4KPHBhdGggZD0iTTAgNTJDMCA0OS43OTA5IDEuNzkwODYgNDggNCA0OEgxNDZDMTQ4LjIwOSA0OCAxNTAgNDkuNzkwOSAxNTAgNTJWNThDMTUwIDYwLjIwOTEgMTQ4LjIwOSA2MiAxNDYgNjJINEMxLjc5MDg2IDYyIDAgNjAuMjA5MSAwIDU4VjUyWiIgZmlsbD0iI0Q5RDlEOSIgLz4KPHBhdGggZD0iTTAgNzZDMCA3My43OTA5IDEuNzkwODYgNzIgNCA3MkgxMTZDMTE4LjIwOSA3MiAxMjAgNzMuNzkwOSAxMjAgNzZWODJDMTIwIDg0LjIwOTEgMTE4LjIwOSA4NiAxMTYgODZINEMxLjc5MDg2IDg2IDAgODQuMjA5MSAwIDgyVjc2WiIgZmlsbD0iI0Q5RDlEOSIgLz4KPC9zdmc+");
         background-repeat: repeat-y;
         background-position: 8px 0;
     }
@@ -142,14 +142,11 @@ To show loading indicators (skeletons) during virtual scrolling of Telerik dropd
 The Base64-encoded SVG image above was created from the following markup. You can modify it, according to your preferences, instead of starting from scratch.
 
 ````HTML
-<svg width="180" height="96" xmlns="http://www.w3.org/2000/svg">
-    <g id="Layer_1">
-        <title>Skeletons</title>
-        <rect id="svg_1" height="14" width="180" y="0" x="0" fill="#d9d9d9" />
-        <rect id="svg_2" height="14" width="90" y="24" x="0" fill="#d9d9d9" />
-        <rect id="svg_3" height="14" width="150" y="48" x="0" fill="#d9d9d9" />
-        <rect id="svg_4" height="14" width="120" y="72" x="0" fill="#d9d9d9" />
-    </g>
+<svg width="180" height="96" viewBox="0 0 180 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 4C0 1.79086 1.79086 0 4 0H176C178.209 0 180 1.79086 180 4V10C180 12.2091 178.209 14 176 14H4C1.79086 14 0 12.2091 0 10V4Z" fill="#d9d9d9" />
+    <path d="M0 28C0 25.7909 1.79086 24 4 24H86C88.2091 24 90 25.7909 90 28V34C90 36.2091 88.2091 38 86 38H4C1.79086 38 0 36.2091 0 34V28Z" fill="#d9d9d9" />
+    <path d="M0 52C0 49.7909 1.79086 48 4 48H146C148.209 48 150 49.7909 150 52V58C150 60.2091 148.209 62 146 62H4C1.79086 62 0 60.2091 0 58V52Z" fill="#d9d9d9" />
+    <path d="M0 76C0 73.7909 1.79086 72 4 72H116C118.209 72 120 73.7909 120 76V82C120 84.2091 118.209 86 116 86H4C1.79086 86 0 84.2091 0 82V76Z" fill="#d9d9d9" />
 </svg>
 ````
 
