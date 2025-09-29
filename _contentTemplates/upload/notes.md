@@ -1,6 +1,6 @@
 #server-security-note
 
->warning File handling, saving and deletion can create application vulnerabilities. This includes upload and remove controllers. Learn about all possible security risks and how to avoid them. Do not trust the user files or requests, and implement server-side validation.
+>warning File handling, saving and deletion can create application vulnerabilities. This includes any related controller methods. Learn about all possible security risks and how to avoid them. Do not trust the user files or requests, and implement server-side validation.
 >
 * [ASP.NET Core Secuirty Considerations](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
 * [File Upload Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
