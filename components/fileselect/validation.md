@@ -25,7 +25,7 @@ The Telerik [FileSelect component offers parameters](slug:Telerik.Blazor.Compone
 
 Selected files that don't meet the defined criteria are marked as invalid in the component UI.
 
-The FileSelect also provides and `Accept` parameter. It does not enforce validation, but [instructs the browser what file types to allow users to select](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept). This can also help users find the correct files more easily.
+The FileSelect also provides an `Accept` parameter. It does not enforce validation, but [instructs the browser what file types to allow users to select](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept). This can also help users find the correct files more easily.
 
 ## Events
 
