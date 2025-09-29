@@ -39,21 +39,25 @@ Property | Type | Description
 
 ## OnSelect
 
-The `OnSelect` fires when one or more files have been selected. The selection of files is achieved either through the **Select Files** button or by dropping the files anywhere in the component.
+The `OnSelect` event fires each time when the user selects file(s) through the **Select Files** button or by drag and drop anywhere in the component.
 
-The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). If you set its `IsCancelled` property to `true`, the component will ignore the user action and the selected files will not appear in the component file list.
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). If you set its `IsCancelled` property to `true`, the component ignores the user action and all newly selected files do not appear in the component file list.
+
+`OnSelect` fires for both valid and invalid files. You can verify if the file is valid by checking the validation-related properties of each [`FileSelectFileInfo`](slug:fileselect-events#fileselectfileinfo) object. If necessary, the application can still handle invalid files, for example, read their content.
 
 See the [example below](#example).
 
 ## OnRemove
 
-The `OnRemove` fires when a file has been removed from the list of selected files either by clicking the **x** icon or by pressing the `Del` key.
+The `OnRemove` event fires when the user deletes a file from the list by clicking the **x** icon or by pressing the `Del` key.
 
-The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). The `Files` collection in the event argument always contains a single `FileSelectFileInfo` object. This is unlike the `OnSelect` event where `Files` may include one or more files.
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). The `Files` collection in the event argument always contains a single `FileSelectFileInfo` object. This is unlike the `OnSelect` event where `Files` can include one or more files.
+
+`OnRemove` fires for both valid and invalid files.
 
 ## Example
 
->caption Handling the `OnSelect` and `OnRemove` events of the FileSelect
+>caption Handle the FileSelect `OnSelect` and `OnRemove` events
 
 ````RAZOR
 @using System.Threading
@@ -66,35 +70,44 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 @using IONS = System.IO
 
 
-<div class="k-form-hint">
-    Expected files: <strong>@string.Join(", ", AllowedExtensions)</strong>
-</div>
-
 <TelerikFileSelect AllowedExtensions="@AllowedExtensions"
-                   OnRemove="@RemoveFiles"
-                   OnSelect="@HandleFiles">
+                   OnRemove="@OnFileRemove"
+                   OnSelect="@OnFileSelect">
 </TelerikFileSelect>
 
+<div class="k-form-hint">
+    Expected files: &nbsp; <strong>@string.Join(", ", AllowedExtensions)</strong>
+</div>
+
 @code {
-    private readonly List<string> AllowedExtensions = new() { ".jpg", ".png", ".gif" };
+    private readonly List<string> AllowedExtensions = new() { ".gif", ".jpg", ".jpeg", ".png", ".svg" };
 
     private Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new();
 
-    private async Task HandleFiles(FileSelectEventArgs args)
+    private async Task OnFileSelect(FileSelectEventArgs args)
     {
         foreach (var file in args.Files)
         {
-            if (!file.InvalidExtension)
+            if (file.InvalidExtension || file.InvalidMaxFileSize || file.InvalidMinFileSize)
             {
-                // Read file in-memory.
-                await ReadFile(file);
+                // Skip invalid files.
+                continue;
 
                 // OR
 
-                // Save to local file system.
-                // This works only in server apps and the Upload component may be a better choice.
-                //await UploadFile(file);
+                // Cancel all files, but refactor the handler to iterate and validate all files before reading any of them.
+                //args.IsCancelled = true;
+                //return;
             }
+
+            // Read file in-memory.
+            await ReadFile(file);
+
+            // OR
+
+            // Save to local file system.
+            // This works only in server apps and the Upload component may be a better choice.
+            //await UploadFile(file);
         }
     }
 
@@ -117,7 +130,7 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
         //await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
     }
 
-    private async Task RemoveFiles(FileSelectEventArgs args)
+    private async Task OnFileRemove(FileSelectEventArgs args)
     {
         foreach (var file in args.Files)
         {
