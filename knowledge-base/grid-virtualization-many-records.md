@@ -31,6 +31,8 @@ This KB article discusses the following issues:
 
 Other symptoms can include the grid content overflowing its parent and hiding content after the grid, or you could see a border from the grid near the end of the scrollable container.
 
+> A problem with accessing all rows at the bottom of the Grid may also occur due to an incorrect configuration, for example, too small value for the [Grid `RowHeight` parameter](slug:components/grid/virtual-scrolling#rowheight). Such scenarios are outside the scope of this article.
+
 ## Steps to Reproduce
 
 >caption Sample reproducible - try dragging the scrollbar to the end - you won't see record number 1 000 000
