@@ -21,7 +21,7 @@ You can use all of them together to achieve the desired appearance.
 
 ## FillMode
 
-The `FillMode` parameter changes or removes the background and border of the Button. Set the parameter to a member of the static class `Telerik.Blazor.ThemeConstants.Button.FillMode`. When setting the `FillMode` parameter value inline, start with a `@` character, otherwise the predefined string constant cannot be resolved.
+The `FillMode` parameter changes or removes the background and border of the Button. Set the parameter to a member of the static class `Telerik.Blazor.ThemeConstants.Button.FillMode`. When setting the `FillMode` parameter value inline, start with an `@` character, otherwise the predefined string constant cannot be resolved.
 
 | FillMode Class Member | Actual String Value |
 | --- | --- |
