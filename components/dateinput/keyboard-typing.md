@@ -61,12 +61,10 @@ See the [example](#example) below.
 
 The left and right arrows always change the focused segment, regardless of this parameter value.
 
-To define `Tab` as an auto-switch key, use its ASCII code `9`. Note that this may be unexpected for some keyboard users.
+To define `Tab` as an auto-switch key, use its key name `"tab"`. Note that this may be unexpected for some keyboard users.
 
-<div class="skip-repl"></div>
-
-````RAZOR
-<TelerikDateInput AutoSwitchKeys="@( new List<object>() { "/", 9 } )" />
+````RAZOR.skip-repl
+<TelerikDateInput AutoSwitchKeys="@( new List<object>() { "/", "tab" } )" />
 ````
 
 See the [complete example](#example) below.
