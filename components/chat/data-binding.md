@@ -95,10 +95,13 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
 
 The Chat component provides field mapping parameters to work with different data models. Use these parameters to specify which properties in your data model correspond to Chat features:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Description | Default Value |
 |-----------|-------------|---------------|
 | `TextField` | Field containing message text content | `"Text"` |
 | `AuthorIdField` | Field containing the author/user ID | `"AuthorId"` |
+| `AuthorImageUrlField` | Field containing the author/user avatar image | `"AuthorImageUrl"` |
 | `AuthorNameField` | Field containing the author display name | `"AuthorName"` |
 | `TimestampField` | Field containing the message timestamp | `"Timestamp"` |
 | `IdField` | Field containing the unique message ID | `"Id"` |
