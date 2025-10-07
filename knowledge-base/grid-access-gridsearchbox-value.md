@@ -3,7 +3,7 @@ title: How to Access GridSearchBox Value
 description: Learn how to retrieve the GridSearchBox value in a GridToolBarTemplate in Telerik UI for Blazor.
 type: how-to
 page_title: Capturing GridSearchBox Input
-meta_title: Capturing GridSearchBox Input
+meta_title: Capture GridSearchBox Input
 slug: grid-kb-access-gridsearchbox-value
 tags: toolbar, searchbox, datasource, filters, grid
 res_type: kb
