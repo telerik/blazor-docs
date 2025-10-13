@@ -89,14 +89,14 @@ Here’s an example:
         new SchedulerAppointment
         {
             Title = "Vet visit",
-            Description = "Check this link: https://www.telerik.com/blazor-ui/documentation/components/scheduler/templates/appointment",
+            Description = "Check this link: https://demos.telerik.com/blazor-ui/scheduler/templates",
             Start = new DateTime(2019, 11, 26, 11, 30, 0),
             End = new DateTime(2019, 11, 26, 12, 30, 0)
         },
         new SchedulerAppointment
         {
             Title = "Planning meeting",
-            Description = "Details here: http://example.com/meeting-notes",
+            Description = "Details here: https://demos.telerik.com/blazor-ui/scheduler/events",
             Start = new DateTime(2019, 11, 25, 9, 30, 0),
             End = new DateTime(2019, 11, 25, 12, 45, 0),
             Icon = SvgIcon.ExclamationCircle
