@@ -6,7 +6,6 @@ slug: ai-copilot-extension
 tags: telerik,blazor,ai
 published: True
 position: 10
-previous_url: /ai
 ---
 
 # Telerik Blazor GitHub Copilot Extension
