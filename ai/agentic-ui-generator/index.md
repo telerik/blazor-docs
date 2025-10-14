@@ -23,46 +23,56 @@ At its core, the Agentic UI Generator integrates five specialized tools:
 
 The tools are working together in an agentic flow to deliver complete, beautiful, on-brand and enterprise-ready UIs. The main generator coordinates these tools to handle component generation, styling, theming, and design system integration seamlessly.
 
-## How It Works
+### How It Works
 
 The Blazor Agentic UI Generator uses an intelligent approach where specialized tools work together to handle different aspects of UI development. When you provide a prompt, the main generator analyzes your requirements and coordinates the appropriate tools to deliver the desired outcome. For more control over specific aspects of your UI, you can also call individual tools directly as described in the [Advanced Use](#advanced-use) section.
 
-## Intended Use
+### Intended Use
 
 The Agentic UI Generator is designed to help with various development scenarios:
 
-### Create Individual Components
+#### Create Individual Components
 
 Build specific Telerik components with specific configurations and features like filtering, validation, and data binding
 
-**Example:** "#telerik_ui_generator Create a Select component with filtering and the option to add new items"
+````TEXT.skip-repl
+#telerik_ui_generator Create a Select component with filtering and the option to add new items
+````
 
-### Create Full Responsive Pages
+#### Create Full Responsive Pages
 
 * Build complete dashboards, landing pages, and listing pages in existing applications
 * Generate pages similar to the [Progress Design System page templates](https://www.telerik.com/design-system/docs/ui-templates/templates/automotive-industry/)
 
-**Example:** "#telerik_ui_generator I have created an empty application that now needs a login screen and an admin dashboard. Create a new PoC"
+````TEXT.skip-repl
+#telerik_ui_generator I have created an empty application that now needs a login screen and an admin dashboard. Create a new PoC
+````
 
-### Modify Existing Pages
+#### Modify Existing Pages
 
 * Enhance existing dashboards by adding new sections
 * Insert new sections that match existing layout style and responsiveness
 
-**Example:** "#telerik_ui_generator Insert a new section in the middle of an existing page. In that added section, a Dashboard Card displays summary KPIs (revenue, active users, growth rate), next to a Compact Card showing a recent alert or message"
+````TEXT.skip-repl
+#telerik_ui_generator Insert a new section in the middle of an existing page. In that added section, a Dashboard Card displays summary KPIs (revenue, active users, growth rate), next to a Compact Card showing a recent alert or message
+````
 
-### Create and Modify Themes
+#### Create and Modify Themes
 
 * Generate new themes inside existing applications. Add dark mode or high-contrast themes
 
-**Example:** "Generate a complete dark theme for my app based on a prompt so my UI looks on-brand in dark mode as well"
+````TEXT.skip-repl
+#telerik_ui_generator Generate a complete dark theme for my app based on a prompt so my UI looks on-brand in dark mode as well
+````
 
-### Implement Responsive Layout
+#### Implement Responsive Layout
 
 * Create new responsive pages and sections
 * Convert existing pages to be responsive for mobile and tablet views
 
-**Example:** "Update an existing page layout to make it responsive"
+````TEXT.skip-repl
+#telerik_ui_generator Update the existing page layout to make it responsive
+````
 
 For specific examples of these use cases, see the [Sample Prompts](#sample-prompts) section.
 
@@ -72,7 +82,7 @@ The Agentic UI Generator is available as an MCP (Model Context Protocol) server 
 
 ### Prerequisites
 
-* An AI-powered IDE that supports MCP servers, for example, Visual Studio, Visual Studio Code, Cursor.
+An AI-powered IDE that supports MCP servers, for example, Visual Studio, Visual Studio Code, Cursor.
 
 ### Configuration Steps
 
@@ -80,24 +90,25 @@ This section contains information about how to set up the Agentic UI Generator i
 
 #### Visual Studio
 
-To enable the Agentic UI Generator in a specific Blazor app, add a `.mcp.json` file to the solution folder and paste the configuration from the [Agentic UI Generator | MCP Configuration page](https://uiagent.mcp.telerik.com/preview). 
+1. Log in with a valid [Telerik user account](https://www.telerik.com/account/).
+2. To enable the Agentic UI Generator in a specific Blazor app, add a `.mcp.json` file to the solution folder and paste the configuration from the [Agentic UI Generator | MCP Configuration page](https://uiagent.mcp.telerik.com/preview). 
 
 To enable global automatic discovery of the Agentic UI Generator in Visual Studio, add the above `.mcp.json` file to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
 
 #### Visual Studio Code
 
-1. Go to the [Agentic UI Generator Preview Configuration](https://uiagent.mcp.telerik.com/preview). 
-2. Log in with a valid Telerik account. 
+1. Log in with a valid [Telerik user account](https://www.telerik.com/account/).
+2. Go to the [Agentic UI Generator Preview Configuration](https://uiagent.mcp.telerik.com/preview). 
 3. Click the **Add to VS Code** button. This will open a tab named **MCP Server: telerik-ui-generator** in your VS Code instance.
 4. In the new VS Code tab, click **Install**.
 
 After adding the configuration, restart your IDE to load the MCP server.
 
-## Call the Generator
+## Using the Agentic UI Generator
 
 The Agentic UI Generator can be used in two primary modes: basic usage through the main tool, or advanced usage by calling specific MCP tools directly.
 
-### Basic Use
+### Call the Agentic UI Generator
 
 To use the Agentic UI Generator, you can call it in two ways:
 
