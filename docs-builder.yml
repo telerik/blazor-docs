@@ -616,8 +616,8 @@ meta:
     title: Common Features
     position: 15
   ai:
-    title: AI Coding Assistant
-    position: 14
+    title: AI Tools
+    position: 6
   styling-and-themes:
     title: Styling and Themes
     position: 12
@@ -639,6 +639,9 @@ meta:
     res_type: kb
     relativeUrl: /knowledge-base
     hideChildren: true
+  ai/agentic-ui-generator:
+    hidden: true
+    position: 0
 
 
 redirects: 
