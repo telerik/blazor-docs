@@ -615,7 +615,7 @@ meta:
   common-features:
     title: Common Features
     position: 15
-  ai-tools:
+  ai:
     title: AI Tools
     position: 6
   styling-and-themes:
@@ -639,6 +639,9 @@ meta:
     res_type: kb
     relativeUrl: /knowledge-base
     hideChildren: true
+  ai/agentic-ui-generator:
+    hidden: true
+    position: 0
 
 
 redirects: 

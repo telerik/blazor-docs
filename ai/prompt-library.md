@@ -6,7 +6,6 @@ slug: ai-prompt-library
 tags: telerik,blazor,ai
 published: True
 position: 30
-previous_url: /ai
 ---
 
 # Telerik Blazor Prompt Library

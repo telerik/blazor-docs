@@ -6,7 +6,6 @@ slug: ai-overview
 tags: telerik,blazor,ai
 published: True
 position: 1
-previous_url: /ai
 ---
 
 # Telerik Blazor AI Coding Assistant Overview
