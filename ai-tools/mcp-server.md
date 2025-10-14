@@ -6,6 +6,7 @@ slug: ai-mcp-server
 tags: telerik,blazor,ai
 published: True
 position: 20
+previous_url: /ai
 ---
 
 # Telerik Blazor MCP Server
