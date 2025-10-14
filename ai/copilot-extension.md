@@ -12,6 +12,10 @@ position: 10
 
 The Telerik Blazor [GitHub Copilot](https://github.com/features/copilot) extension provides proprietary context for the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui). The extension works as a Blazor AI code generator and can help you reach new levels of developer productivity. You can get useful tips and generate tailored code snippets that include Telerik UI for Blazor components and API.
 
+> [Microsoft is sunsetting GitHub Copilot extensions](https://github.blog/changelog/2025-09-24-deprecate-github-copilot-extensions-github-apps) on November 10, 2025, in favor of the Model Context Protocol (MCP) standard.
+>
+> From that date, the Telerik and Kendo UI AI Coding Assistants will be available exclusively through our [MCP servers](slug:ai-mcp-server). You can enjoy the same powerful capabilities that are delivered by a modern, open, and officially recommended standard.
+
 ## Prerequisites
 
 To use the Telerik GitHub Copilot extension for Blazor, you need to have:
