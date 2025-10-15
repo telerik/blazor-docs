@@ -46,6 +46,7 @@ The `FileManagerController` class below assumes that the project name and namesp
     <FileManagerSettings>
         <FileManagerUploadSettings SaveUrl="@ToAbsoluteUrl("api/filemanager/save")"
                                    RemoveUrl="@ToAbsoluteUrl("api/filemanager/remove")"
+                                   Multiple="true"
                                    OnUpload="@OnFileManagerUploadRequest"
                                    OnRemove="@OnFileManagerUploadRequest"
                                    OnSuccess="@OnFileManagerUploadSuccess" />
@@ -294,6 +295,8 @@ app.MapDefaultControllerRoute();
 
 app.Run();
 ````
+
+>tip When uploading multiple files at the same time, you may want to [optimize the logic that reloads the FileManager `Data` in the Upload `OnSuccess` handler, so that it executes just once after all files have been uploaded](slug:upload-kb-count-selected-uploaded-files).
 
 ## Next Steps
 
