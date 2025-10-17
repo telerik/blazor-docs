@@ -139,4 +139,4 @@ Here’s an example:
 ````
 
 ## See Also
-- [Scheduler Appointment Templates](scheduler-templates-appointment)
+* [Scheduler Appointment Templates](slug:scheduler-templates-appointment)
