@@ -34,7 +34,7 @@ Main events you need to implement so you can store the appointment information c
 
 * `OnCreate` - fires when the user saves a new appointment, including an exception for a recurring appointment.
 * `OnUpdate` - fires when the user changes an existing appointment. Fires for the recurring appointment when an exception has been created for it.
-* `OnDelete` - fires when the user deletes and appointment (including a recurring appointment). You can also enable a [delete confirmation dialog](#delete-confirmation-dialog).
+* `OnDelete` - fires when the user deletes an appointment (including a recurring appointment). You can also enable a [delete confirmation dialog](#delete-confirmation-dialog). 
 
 There are two other events that you are not required to handle - you can use them to implement application logic:
 
@@ -44,6 +44,8 @@ There are two other events that you are not required to handle - you can use the
     * You can also use it to implement a [custom edit/insert form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form) to, for example, have more fields than the built-in ones, or implement custom validation. To do that, always cancel the event and implement the desired logic after that.
     * `OnEdit` does not fire when the user drags to resize or move appointments, it fires only for the advanced edit form (double clicks on the appointment).
 * `OnCancel` - fires when the user clicks the `Cancel` button in the edit form or the `[x]` close button at the window titlebar to discard the changes they just made to an appointment.
+
+The event arguments that are received by the `OnEdit`, `OnUpdate`, and `OnDelete` events include a `EditMode` property that indicates whether the user chose to delete the entire series (`SchedulerRecurrenceEditMode.Series`) or only a single occurrence (`SchedulerRecurrenceEditMode.Occurrence`). For detailed information and examples, see the [Handling Recurring Appointments in CRUD Events](slug:scheduler-recurrence#handling-recurring-appointments-in-crud-events) section.
 
 
 ## User Experience
