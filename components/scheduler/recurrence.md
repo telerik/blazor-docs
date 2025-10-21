@@ -272,21 +272,21 @@ You can use the `EditMode` property to implement different logic based on whethe
     {
         Appointment item = (Appointment)args.Item;
 
-        // OnEdit fires when the user is about to edit or create an appointment
-        // SchedulerRecurrenceEditMode indicates whether they chose to edit the series or occurrence
+        // OnEdit fires when the user is about to edit or create an appointment.
+        // SchedulerRecurrenceEditMode indicates whether they chose to edit the series or occurrence.
         if (args.EditMode == SchedulerRecurrenceEditMode.Series)
         {
             Console.WriteLine("User chose to edit the entire series");
-            // The item represents the recurring appointment with RecurrenceRule
+            // The item represents the recurring appointment with RecurrenceRule.
         }
         else if (args.EditMode == SchedulerRecurrenceEditMode.Occurrence)
         {
             Console.WriteLine("User chose to edit only this occurrence");
-            // The item will have RecurrenceId set to the parent appointment's Id
+            // The item will have RecurrenceId set to the parent appointment's Id.
             Console.WriteLine($"Editing exception for recurring appointment: {item.RecurrenceId}");
         }
 
-        // You can cancel the event to prevent editing
+        // You can cancel the event to prevent editing.
         // args.IsCancelled = true;
     }
 
@@ -296,10 +296,10 @@ You can use the `EditMode` property to implement different logic based on whethe
 
         if (args.EditMode == SchedulerRecurrenceEditMode.Series)
         {
-            // User chose to update the entire series
+            // User chose to update the entire series.
             Console.WriteLine("Updating entire series of recurring appointments");
             
-            // Update the recurring appointment
+            // Update the recurring appointment.
             int originalItemIndex = SchedulerData.FindIndex(a => a.Id == item.Id);
             if (originalItemIndex >= 0)
             {
@@ -308,11 +308,11 @@ You can use the `EditMode` property to implement different logic based on whethe
         }
         else if (args.EditMode == SchedulerRecurrenceEditMode.Occurrence)
         {
-            // User chose to update only this occurrence
+            // User chose to update only this occurrence.
             Console.WriteLine("Creating exception for single occurrence");
             
-            // This creates a new exception appointment
-            // The item will have RecurrenceId pointing to the parent
+            // This creates a new exception appointment.
+            // The item will have RecurrenceId pointing to the parent.
             int originalItemIndex = SchedulerData.FindIndex(a => a.Id == item.Id);
             if (originalItemIndex >= 0)
             {
@@ -327,13 +327,13 @@ You can use the `EditMode` property to implement different logic based on whethe
 
         if (args.EditMode == SchedulerRecurrenceEditMode.Series)
         {
-            // User chose to delete the entire series
+            // User chose to delete the entire series.
             Console.WriteLine("Deleting entire series");
             
-            // Remove the recurring appointment
+            // Remove the recurring appointment.
             SchedulerData.Remove(item);
             
-            // Optionally, remove all exceptions for this series
+            // Optionally, remove all exceptions for this series.
             if (!string.IsNullOrEmpty(item.RecurrenceRule))
             {
                 SchedulerData.RemoveAll(a => a.RecurrenceId?.Equals(item.Id) == true);
@@ -341,26 +341,26 @@ You can use the `EditMode` property to implement different logic based on whethe
         }
         else if (args.EditMode == SchedulerRecurrenceEditMode.Occurrence)
         {
-            // User chose to delete only this occurrence
+            // User chose to delete only this occurrence.
             Console.WriteLine("Deleting single occurrence");
             
             if (item.RecurrenceId != null)
             {
-                // This is already an exception, just remove it
+                // This is already an exception, just remove it.
                 SchedulerData.Remove(item);
                 
-                // Update the parent appointment's RecurrenceExceptions list
+                // Update the parent appointment's RecurrenceExceptions list.
                 var parentAppointment = SchedulerData.FirstOrDefault(a => a.Id.Equals(item.RecurrenceId));
                 if (parentAppointment != null)
                 {
-                    // Remove the exception date from the parent's list
+                    // Remove the exception date from the parent's list.
                     parentAppointment.RecurrenceExceptions?.Remove(item.Start);
                 }
             }
             else
             {
-                // This is a recurring appointment, create an exception
-                // The Scheduler automatically adds the occurrence date to RecurrenceExceptions
+                // This is a recurring appointment, create an exception.
+                // The Scheduler automatically adds the occurrence date to RecurrenceExceptions.
                 SchedulerData.Remove(item);
             }
         }
