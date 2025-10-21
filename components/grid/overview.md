@@ -98,6 +98,7 @@ The Grid supports custom content in various parts of the component such as data 
 
 ## More Blazor Grid Features
 
+* [Prompt-Controlled DataGrid](slug:grid-prompt-controlled)—control the Grid through natural language prompts using AI-enabled features for filtering, sorting, grouping, and highlighting.
 * [Selection](slug:grid-selection-overview)—select one or multiple rows through clicks or checkboxes or select one or multiple cells through clicks.
 * [State](slug:grid-state)—get or set the Grid configuration programmatically.
 * [Toolbar](slug:components/grid/features/toolbar)—define user actions in a toolbar above the header cells.
@@ -143,6 +144,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 * [Explore Grid data binding](slug:grid-data-binding)
 * [Learn about Grid columns](slug:components/grid/columns/bound)
+* [Control the Grid with natural language prompts](slug:grid-prompt-controlled)
 
 ## See Also
 
