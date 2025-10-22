@@ -49,6 +49,7 @@ In Blazor **Server** apps, the PDF Viewer uses the **SignalR WebSocket** to:
 
 * Open PDF files from the server and send them to the browser.
 * Read the PDF file `Stream` from the user device in the [`OnOpen` event handler](slug:pdfviewer-events#onopen). The PDF Viewer uses internally a [FileSelect component](slug:fileselect-overview) to get the user file.
+* Get the loaded or edited PDF file from the browser to the .NET runtime when using the [`GetFileAsync()` method](#pdfviewer-reference-and-methods).
 
 The SignalR WebSocket has a default maximum message size of **32 KB**. To work with larger files in the above two scenarios, [increase the max WebSocket message size for the Blazor application](slug:common-kb-increase-signalr-max-message-size).
 
