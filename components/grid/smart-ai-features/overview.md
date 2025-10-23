@@ -10,7 +10,9 @@ position: 1
 
 # Grid AI Features
 
-This article describes the built-in AI-enabled features of the Telerik Grid for Blazor. You can allow users to type prompts, which are sent to an AI service that suggests the appropriate data operations for the Grid to perform. The currently supported data operations include filtering, grouping, sorting, and highlighting of items.
+The Telerik Grid for Blazor supports AI-enabled features that allow users to control the Grid through natural language prompts. This Prompt-Controlled DataGrid functionality enables users to type plain text instructions, which are sent to an AI service that suggests the appropriate data operations for the Grid to perform. The currently supported data operations include filtering, grouping, sorting, and highlighting of items.
+
+For a comprehensive overview of the Prompt-Controlled DataGrid feature, see the [Prompt-Controlled DataGrid article](slug:grid-prompt-controlled).
 
 ## API Reference
 
@@ -114,6 +116,7 @@ The following online demos show complete implementations of the Grid AI smart fu
 
 ## Next Steps
 
+* [Learn about the Prompt-Controlled DataGrid feature](slug:grid-prompt-controlled)
 * [Use a Grid AI Column Assistant to perform AI operations that target a specific Grid data item](slug:grid-ai-column)
 
 ## See Also
