@@ -21,6 +21,7 @@ In this article:
    * [Built-in Commands](#built-in-commands)
    * [OnClick Handler](#the-onclick-handler)
    * [Context](#context)
+   * [Header Template](#header-template)
 * [Code Example](#example)
 
 ## Features
@@ -90,6 +91,10 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
     </GridCommandButton>
 </GridCommandColumn>
 ````
+
+### Header Template
+
+The Grid command column supports [`HeaderTemplate`](slug:grid-templates-command-column-header) that allows you to customize the header cell's rendering.
 
 ## Example
 
