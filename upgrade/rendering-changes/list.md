@@ -11,6 +11,7 @@ position: 0
 As the Telerik UI for Blazor matures we will continuously optimize the HTML rendering and the usage of CSS classes. The rendering changes only affect the styling of the components if the application [overrides the built-in CSS styles](slug:themes-override) or uses an outdated [custom theme](slug:themes-customize). This article tracks the product versions with rendering changes.
 
 * [10.0.0](slug:rendering-changes-in-10-0-0)
+* [9.0.0](slug:rendering-changes-in-9-0-0)
 * [7.0.0](slug:rendering-changes-in-7-0-0)
 * [6.0.0](slug:rendering-changes-in-6-0-0)
 * [4.6.0](slug:rendering-changes-in-4-6-0)
