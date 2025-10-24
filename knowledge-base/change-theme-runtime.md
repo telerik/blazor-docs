@@ -34,7 +34,7 @@ This KB article answers the following questions:
 
 The app stylesheets reside outside the Razor component hierarchy, so the Blazor code cannot access them. You can change the current Telerik [theme or swatch](slug:themes-overview) at runtime with [JSInterop](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet).
 
-The following algorithm follows the commonly used approach to replace a CSS file in any web app. You can use it for built-in themes and custom themes, regardless of the [CSS theme's physical location](slug:themes-overview#using-a-theme). Keep in mind that the [Telerik UI for Blazor NuGet package contains a limited number of theme swatches](slug:themes-overview#loading-themes-in-blazor-from-the-nuget-package). That's why the example below uses [CDN](slug:common-features-cdn). You can also download all swatches to `wwwroot` and load them locally.
+The following algorithm follows the commonly used approach to replace a CSS file in any web app. You can use it for built-in themes and custom themes, regardless of the [CSS theme's physical location](slug:themes-overview#using-a-theme). Keep in mind that the [Telerik UI for Blazor NuGet package contains a limited number of theme swatches](slug:themes-overview#loading-themes-in-blazor-from-the-nuget-package). That's why the example below uses [CDN](slug:common-features-cdn). You can also download all swatches to `wwwroot` and load them locally. In this case, replace the CSS files when [upgrading the Telerik UI for Blazor version](slug:upgrade-tutorial).
 
 1. [Register the initial Telerik theme](slug:themes-overview#using-a-theme) in a way that allows you to get reference to the `<link>` tag. For example, use an `id` attribute.
     
