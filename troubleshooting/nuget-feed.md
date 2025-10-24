@@ -64,14 +64,14 @@ If you suspect that your saved credentials are wrong, use the following steps to
 * No provided credentials
 * Incorrect password
 * [Correct password with unescaped special characters](#special-characters-in-the-password)
-* Using an invalidated (removed) [Telerik NuGet API key](slug:installation/nuget#use-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/nuget-keys" target="_blank">your Telerik account</a>.
+* Using an invalidated (removed) [Telerik NuGet API key](slug:installation/nuget#use-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/api-keys" target="_blank">your Telerik account</a>.
 * Using a valid Telerik NuGet API key with the wrong username. It must be `api-key`.
 
 An easy way to verify your credentials is to [access the Telerik NuGet server directly in the web browser](#tips-for-handling-common-nuget-issues). Then, depending on your setup, check or update your credentials in:
 
 * The applicable `NuGet.Config` file. There may be <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior" target="_blank">multiple such files on the device</a>.
 * [Windows Credential Manager](#removing-saved-credentials)
-* In a [CI/CD workflow](slug:deployment-nuget#using-net-cli-commands), which [obtains the credentials from a secret](slug:deployment-nuget#storing-nuget-keys).
+* In a [CI/CD workflow](slug:deployment-nuget#using-net-cli-commands), which [obtains the credentials from a secret](slug:deployment-nuget#storing-api-keys).
 
 ### Special Characters in the Password
 
