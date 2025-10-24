@@ -124,7 +124,7 @@ steps:
     TELERIK_LICENSE: ${{ "{{ secrets.Telerik_License_Key }}" }}
 ````
 
-Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.
+Also see [Using API Keys](slug:deployment-nuget#using-api-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.
 
 ## Docker
 
