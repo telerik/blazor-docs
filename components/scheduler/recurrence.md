@@ -15,6 +15,7 @@ The Telerik Scheduler for Blazor supports displaying and editing of recurring ap
 * Configure the Scheduler for using recurring appointments.
 * Define recurrence rules and recurrence exceptions in the Scheduler data.
 * Edit recurring appointments and exceptions.
+* Handle editing and deleting recurring appointments with the recurrence context.
 
 ## Basics
 
@@ -218,6 +219,177 @@ A single Scheduler data item defines one series of recurring appointments. Set t
     }
 }
 ````
+
+## Handling Recurring Appointments in CRUD Events
+
+When users edit, update, or delete a recurring appointment, the Scheduler prompts them to choose whether to modify only the current occurrence or the entire series. This choice is reflected in the `EditMode` property of the event arguments.
+
+### RecurrenceEditMode Property
+
+The `OnEdit`, `OnUpdate`, and `OnDelete` event handlers receive event arguments that include a `EditMode` property. This property indicates the user's choice when interacting with recurring appointments:
+
+* `SchedulerRecurrenceEditMode.Series` - The user chose to edit or delete the entire series of recurring appointments.
+* `SchedulerRecurrenceEditMode.Occurrence` - The user chose to edit or delete only a single occurrence of the recurring appointment.
+
+### Example
+
+You can use the `EditMode` property to implement different logic based on whether the user is modifying a single occurrence or the entire series.
+
+>caption Handle RecurrenceEditMode in OnUpdate and OnDelete events
+
+````RAZOR
+<TelerikScheduler Data="@SchedulerData"
+                  @bind-Date="@SchedulerDate"
+                  @bind-View="@SchedulerView"
+                  AllowCreate="true"
+                  AllowDelete="true"
+                  AllowUpdate="true"
+                  OnCreate="@OnSchedulerCreate"
+                  OnEdit="@OnSchedulerEdit"
+                  OnDelete="@OnSchedulerDelete"
+                  OnUpdate="@OnSchedulerUpdate"
+                  Height="600px">
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@SchedulerViewStartTime" />
+        <SchedulerWeekView StartTime="@SchedulerViewStartTime" />
+        <SchedulerMonthView />
+    </SchedulerViews>
+</TelerikScheduler>
+
+@code {
+    private List<Appointment> SchedulerData { get; set; } = new();
+    private DateTime SchedulerDate { get; set; } = DateTime.Today;
+    private SchedulerView SchedulerView { get; set; } = SchedulerView.Week;
+    private DateTime SchedulerViewStartTime { get; set; } = DateTime.Today.AddHours(8);
+
+    private void OnSchedulerCreate(SchedulerCreateEventArgs args)
+    {
+        Appointment item = (Appointment)args.Item;
+        SchedulerData.Add(item);
+    }
+
+    private void OnSchedulerEdit(SchedulerEditEventArgs args)
+    {
+        Appointment item = (Appointment)args.Item;
+
+        // OnEdit fires when the user is about to edit or create an appointment.
+        // SchedulerRecurrenceEditMode indicates whether they chose to edit the series or occurrence.
+        if (args.EditMode == SchedulerRecurrenceEditMode.Series)
+        {
+            Console.WriteLine("User chose to edit the entire series");
+            // The item represents the recurring appointment with RecurrenceRule.
+        }
+        else if (args.EditMode == SchedulerRecurrenceEditMode.Occurrence)
+        {
+            Console.WriteLine("User chose to edit only this occurrence");
+            // The item will have RecurrenceId set to the parent appointment's Id.
+            Console.WriteLine($"Editing exception for recurring appointment: {item.RecurrenceId}");
+        }
+
+        // You can cancel the event to prevent editing.
+        // args.IsCancelled = true;
+    }
+
+    private void OnSchedulerUpdate(SchedulerUpdateEventArgs args)
+    {
+        Appointment item = (Appointment)args.Item;
+
+        if (args.EditMode == SchedulerRecurrenceEditMode.Series)
+        {
+            // User chose to update the entire series.
+            Console.WriteLine("Updating entire series of recurring appointments");
+            
+            // Update the recurring appointment.
+            int originalItemIndex = SchedulerData.FindIndex(a => a.Id == item.Id);
+            if (originalItemIndex >= 0)
+            {
+                SchedulerData[originalItemIndex] = item;
+            }
+        }
+        else if (args.EditMode == SchedulerRecurrenceEditMode.Occurrence)
+        {
+            // User chose to update only this occurrence.
+            Console.WriteLine("Creating exception for single occurrence");
+            
+            // This creates a new exception appointment.
+            // The item will have RecurrenceId pointing to the parent.
+            int originalItemIndex = SchedulerData.FindIndex(a => a.Id == item.Id);
+            if (originalItemIndex >= 0)
+            {
+                SchedulerData[originalItemIndex] = item;
+            }
+        }
+    }
+
+    private void OnSchedulerDelete(SchedulerDeleteEventArgs args)
+    {
+        Appointment item = (Appointment)args.Item;
+
+        if (args.EditMode == SchedulerRecurrenceEditMode.Series)
+        {
+            // User chose to delete the entire series.
+            Console.WriteLine("Deleting entire series");
+            
+            // Remove the recurring appointment.
+            SchedulerData.Remove(item);
+            
+            // Optionally, remove all exceptions for this series.
+            if (!string.IsNullOrEmpty(item.RecurrenceRule))
+            {
+                SchedulerData.RemoveAll(a => a.RecurrenceId?.Equals(item.Id) == true);
+            }
+        }
+        else if (args.EditMode == SchedulerRecurrenceEditMode.Occurrence)
+        {
+            // User chose to delete only this occurrence.
+            Console.WriteLine("Deleting single occurrence");
+            
+            if (item.RecurrenceId != null)
+            {
+                // This is already an exception, just remove it.
+                SchedulerData.Remove(item);
+                
+                // Update the parent appointment's RecurrenceExceptions list.
+                var parentAppointment = SchedulerData.FirstOrDefault(a => a.Id.Equals(item.RecurrenceId));
+                if (parentAppointment != null)
+                {
+                    // Remove the exception date from the parent's list.
+                    parentAppointment.RecurrenceExceptions?.Remove(item.Start);
+                }
+            }
+            else
+            {
+                // This is a recurring appointment, create an exception.
+                // The Scheduler automatically adds the occurrence date to RecurrenceExceptions.
+                SchedulerData.Remove(item);
+            }
+        }
+    }
+
+    public class Appointment
+    {
+        public Guid Id { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; } = string.Empty;
+        public List<DateTime>? RecurrenceExceptions { get; set; }
+        public Guid? RecurrenceId { get; set; }
+
+        public Appointment()
+        {
+            Id = Guid.NewGuid();
+        }
+    }
+}
+````
+
+### Important Considerations
+
+* When the user edits or deletes a single occurrence of a recurring appointment, the Scheduler automatically manages the `RecurrenceExceptions` list and creates exception appointments with the appropriate `RecurrenceId`.
+* The `RecurrenceEditMode` property is only relevant when working with recurring appointments. For regular (non-recurring) appointments, this property is not used.
+* When creating a new appointment in a time slot that matches a recurring appointment, the user can choose to create an exception or a new independent appointment.
 
 ## Recurrence Editor Components
 
