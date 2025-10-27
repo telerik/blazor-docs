@@ -18,7 +18,7 @@ When you need to restore the [Telerik NuGet packages](slug:getting-started/what-
 
 ## Storing API Keys
 
->warning Never check in a NuGet API key with your source code or leave them publicly visible in plain text (for example, in a `NuGet.Config` file). An API key is valuable and bad actors can use it to access the NuGet packages that are licensed under your account. A key abuse can lead to a review of the affected Telerik account.
+>warning Never check in NuGet API keys with your source code or leave them publicly visible in plain text (for example, in a `NuGet.Config` file). An API key is valuable and bad actors can use it to access the NuGet packages that are licensed under your account. A key abuse can lead to a review of the affected Telerik account.
 
 To protect the API key, store it as a secret environment variable. The exact store steps depend on your workflow and environment:
 
