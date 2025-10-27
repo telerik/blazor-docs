@@ -46,8 +46,9 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 
 1. Click OK.
 
-1. Open a project that references a Telerik NuGet package. For example, generate one through our [New Project Wizard](slug:getting-started-vs-integration-new-project).
-    * Make sure to remove local `NuGet.Config` files from the solution that contain information about Telerik packages.
+1. Open a project that references a Telerik NuGet package. For example, generate one with the [New Project Wizard](slug:getting-started-vs-integration-new-project).
+
+   > Remove local `NuGet.Config` files that contain information about Telerik packages from the solution.
 
 1. Rebuild the solution.
 
@@ -60,7 +61,8 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
     7.3. Check the **Remember My Password** checkbox.
 
 1. Your project should now build and restore all packages—including those from nuget.org and from Telerik.
-    * If you experience issues, see the [NuGet Feed Troubleshooting](slug:troubleshooting-nuget) article.
+
+> If you experience issues, see the [NuGet Feed Troubleshooting](slug:troubleshooting-nuget) article.
 
 ## Use the .NET CLI
 
