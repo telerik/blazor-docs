@@ -35,8 +35,8 @@ The examples below assume that the secret environment variable name is `TELERIK_
 
 There are two common ways to use a [stored API key](#storing-api-keys) with the Telerik NuGet server during a build:
 
-* [Using a NuGet.Config file](#using-a-nuget-config-file)
-* [Using only CLI commands](#using-net-cli-commands)
+* [Use a NuGet.Config file](#using-a-nuget-config-file)
+* [Use only CLI commands](#using-net-cli-commands)
 
 For more information on how to use API keys in a build, check the [Announcing NuGet Keys](https://www.telerik.com/blogs/announcing-nuget-keys) blog post by Lance McCarthy.
 
