@@ -88,8 +88,6 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 ![Blazor Grid Header Template](images/header-template.png)
 
->note Header Templates are not available for the `GridCheckboxColumn`.
-
 ## See Also
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
