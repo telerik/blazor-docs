@@ -18,7 +18,7 @@ The Spreadsheet for Blazor enables users to view and edit tabular data with an E
 To use the Telerik Spreadsheet for Blazor:
 
 1. Add the `TelerikSpreadsheet` tag.
-1. (optional) Set the `Data` parameter to a byte array to load an existing Excel file.
+1. (optional) Set the `Data` parameter to a byte array to load an existing Excel file in Open XML (XLSX) format. [Using other formats is also possible](#spreadsheet-file-format).
 
 >caption Basic Blazor Spreadsheet
 
@@ -44,6 +44,16 @@ To use the Telerik Spreadsheet for Blazor:
     private const string SampleExcelFile = @[template](/_contentTemplates/spreadsheet/sample-files.md#default);
 }
 ````
+
+
+## Spreadsheet File Format
+
+The Telerik Spreadsheet component loads and exports files in the Open XML SpreadsheetML (XLSX) format. If you want to work with other formats, consider [Telerik Document Processing](slug:dpl-in-blazor). The library includes [different `FormatProvider`s](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/general-information), which allow you to convert from one format to another. Here are a few possible use cases:
+
+* Convert a CSV or XLS file to XLSX. Then, use the XLSX byte array to set the Spreadsheet `Data` parameter.
+* Convert an [exported XLSX file](#spreadsheet-reference-and-methods) to another office document format before saving.
+* [Create an XLSX file from `IEnumerable` and pass it to the Spreadsheet](slug:spreadsheet-kb-bind-to-json-ienumerable-list-collection).
+* [Read an exported XLSX file and obtain all cell values](slug:spreadsheet-kb-get-cell-values).
 
 
 ## Tools
