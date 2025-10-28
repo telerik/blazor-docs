@@ -16,10 +16,10 @@ The Agentic UI Generator is an intelligent, prompt-driven AI development assista
 
 At its core, the Agentic UI Generator integrates five specialized tools: 
 * UI Generator
-* Style Search
-* Component Search
-* Style Customization
-* Icon Search
+* Layout Assistant
+* Component Assistant
+* Style Assistant
+* Icon Assistant
 
 The tools are working together in an agentic flow to deliver complete, beautiful, on-brand and enterprise-ready UIs. The main generator coordinates these tools to handle component generation, styling, theming, and design system integration seamlessly.
 
