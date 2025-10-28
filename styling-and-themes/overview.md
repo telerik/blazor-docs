@@ -58,7 +58,10 @@ You can explore and compare the built-in theme swatches on the [live Telerik UI 
 
 ## Using a Theme
 
-To register a theme, you must reference its stylesheet in the `<head>` of the web page. The exact project file that contains the `<head>` tag depends on the .NET version and the Blazor application type. See our [Getting Started guides](slug:blazor-overview#getting-started) for more information.
+To register a theme:
+
+* Reference its stylesheet in the `<head>` of the web page. The exact project file that contains the `<head>` tag depends on the .NET version and the Blazor application type. See our [Getting Started guides](slug:blazor-overview#getting-started) for more information.
+* Set the `k-body` CSS class to the root container of your app, which is normally the `<body>` element. This class applies default text color and background color to generic web content and is especially important when using dark theme swatches.
 
 There are three ways to load a Telerik theme, in terms of physical CSS file location. Note that each option provides access to a different number of theme swatches.
 
