@@ -77,6 +77,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
         document.getElementsByTagName("head")[0].appendChild(newLink);
     }
     ````
+1. Set a `k-body` CSS class to the root HTML element of your app, which is normally the `<body>`. The CSS class can apply text color and background color to generic web content and is especially important when using dark Telerik themes.
 1. Implement UI that triggers the JavaScript theme change. After the new CSS theme is loaded, refresh all Telerik components that use SVG or Canvas rendering, such as Barcodes, Charts, Gauges, and QR Codes.
 
     > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor](slug:themes-overview#compatibility-and-maintenance).
