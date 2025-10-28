@@ -21,16 +21,15 @@ The `Telerik.AI.SmartComponents.Extensions` library provides AI-powered function
 ## Installation
 
 Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your project. It adds the following dependencies:
-    * `Microsoft.Extensions.AI`
-    * `Azure.AI.OpenAI`
+
+* `Microsoft.Extensions.AI`
+* `Azure.AI.OpenAI`
 
 ## Configuration
 
 ### 1. Configure AI Services in Program.cs
 
-### 1. Configure AI Services in Program.cs
-
-```csharp
+```csharp.skip-repl
 using Microsoft.Extensions.AI;
 using Azure.AI.OpenAI;
 
@@ -54,7 +53,7 @@ var app = builder.Build();
 
 ### 2. Configure AI Properties in appsettings.json
 
-```json
+```json.skip-repl
 {
   "AI": {
     "AzureOpenAI": {
@@ -72,7 +71,7 @@ var app = builder.Build();
 
 ### 1. Create a Grid Controller
 
-```csharp
+```csharp.skip-repl
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.AI;
 using Telerik.AI.SmartComponents.Extensions;
@@ -116,7 +115,7 @@ public class GridController : Controller
 
 ### 2. Define Your Data Model
 
-```csharp
+```csharp.skip-repl
 public class Employee
 {
     public string FirstName { get; set; }
@@ -131,7 +130,7 @@ public class Employee
 
 ### 3. Create Grid AI Request
 
-```csharp
+```csharp.skip-repl
 var request = new GridAIRequest
 {
     Columns = new List<GridAIColumn>
@@ -157,7 +156,7 @@ var request = new GridAIRequest
 
 The library supports various natural language filtering queries:
 
-```csharp
+```csharp.skip-repl
 // Example queries that work with the AI:
 "Show me employees older than 30"
 "Filter people in IT department"
@@ -167,7 +166,7 @@ The library supports various natural language filtering queries:
 
 ### 2. Sorting Operations
 
-```csharp
+```csharp.skip-repl
 // Natural language sorting examples:
 "Sort by age descending"
 "Order by salary ascending"
@@ -176,7 +175,7 @@ The library supports various natural language filtering queries:
 
 ### 3. Grouping Operations
 
-```csharp
+```csharp.skip-repl
 // Grouping examples:
 "Group by department"
 "Group by city, then by age"
@@ -185,7 +184,7 @@ The library supports various natural language filtering queries:
 
 ### 4. Highlighting Operations
 
-```csharp
+```csharp.skip-repl
 // Highlighting examples:
 "Highlight employees whose name starts with A"
 "Mark salary cells of people older than 30"
@@ -196,7 +195,7 @@ The library supports various natural language filtering queries:
 
 The AI service returns a `GridAIResponse` object containing a list of commands that represent the operations:
 
-```csharp
+```csharp.skip-repl
 public async Task<GridAIResponse> ProcessGridRequest(GridAIRequest request)
 {
     var options = new ChatOptions();
@@ -234,7 +233,7 @@ The library supports various filter operators:
 
 When the options for the column are of Enum type provide meaningful column values to help the AI understand your data:
 
-```csharp
+```csharp.skip-repl
 new GridAIColumn
 {
     Field = "Status",
@@ -245,7 +244,7 @@ new GridAIColumn
 
 ### 2. Error Handling
 
-```csharp
+```csharp.skip-repl
 try
 {
     var completion = await _chatClient.GetResponseAsync(conversationMessages, options);
@@ -260,7 +259,7 @@ catch (Exception ex)
 
 ### 3. Input Validation
 
-```csharp
+```csharp.skip-repl
 if (request?.Columns == null || !request.Columns.Any())
 {
     return BadRequest("Columns are required");
@@ -276,7 +275,7 @@ if (request.Contents == null || !request.Contents.Any())
 
 The library includes comprehensive test coverage. You can run tests to verify functionality:
 
-```bash
+```bash.skip-repl
 cd tests
 dotnet test
 ```
@@ -285,9 +284,7 @@ For integration testing with your specific data model, create test cases that ve
 
 ## Example Client Usage
 
-### JavaScript/TypeScript Frontend
-
-```typescript
+```typescript.skip-repl
 interface GridAIRequest {
   columns: GridAIColumn[];
   contents: GridAIRequestContent[];
