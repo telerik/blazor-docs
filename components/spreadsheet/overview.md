@@ -48,7 +48,7 @@ To use the Telerik Spreadsheet for Blazor:
 
 ## Spreadsheet File Format
 
-The Telerik Spreadsheet component loads and exports files in the Open XML SpreadsheetML (XLSX) format. If you want to work with other formats, consider [Telerik Document Processing](slug:dpl-in-blazor). The library includes [different `FormatProvider`s](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/general-information), which allow you to convert from one format to another. Here are a few possible use cases:
+The Telerik Spreadsheet component loads and exports files in the Open XML SpreadsheetML (XLSX) format. If you want to work with other formats, consider [Telerik Document Processing](slug:dpl-in-blazor). The library includes [different Spreadsheet `FormatProvider`s](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/general-information), which allow you to convert from one format to another. Here are a few possible use cases:
 
 * Convert a CSV or XLS file to XLSX. Then, use the XLSX byte array to set the Spreadsheet `Data` parameter.
 * Convert an [exported XLSX file](#spreadsheet-reference-and-methods) to another office document format before saving.
