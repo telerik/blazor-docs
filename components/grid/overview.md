@@ -58,7 +58,7 @@ The Blazor Grid supports all fundamental data operations out-of-the-box:
 * [Filtering](slug:components/grid/filtering)
 * [Grouping](slug:components/grid/features/grouping). The Grid can also [load the data for each group on demand](slug:grid-group-lod).
 * [Aggregates](slug:grid-aggregates)
-* The component supports most [data operations through AI-driven natural language commands](slug:grid-ai-overview).
+* Most data operations support [AI-driven natural language commands](slug:grid-ai-overview).
 
 
 ## Editing
