@@ -17,7 +17,7 @@
                        OnClick="@SetGridSort">Sort Grid by HireDate</TelerikButton>
         <label>
             <TelerikCheckBox @bind-Value="@ShouldResetSortState" />
-            Reset Existing Sort State
+            Clear Existing Sorting On Button Click
         </label>
     </GridToolBarTemplate>
     <GridColumns>
