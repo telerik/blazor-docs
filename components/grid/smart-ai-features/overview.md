@@ -16,7 +16,7 @@ This article describes the built-in AI-enabled features of the Telerik Grid for 
 
 The Prompt-Controlled DataGrid currently supports the following data operations through natural language prompts:
 
-* **Filtering** - Filter data based on specific criteria (for example, "Show only products with price greater than 100").
+* Filtering&mdash;Filter data based on specific criteria (for example, "Show only products with price greater than 100").
 * **Sorting** - Sort data by one or multiple columns (for example, "Sort by name in ascending order").
 * **Grouping** - Group data by specific fields (for example, "Group by category").
 * **Highlighting** - Highlight specific rows or cells that meet certain conditions (for example, "Highlight products that are out of stock").
