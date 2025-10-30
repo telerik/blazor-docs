@@ -26,36 +26,7 @@ To define the available output actions, set the `OutputActions` parameter to a l
 
 The event handler receives an argument of type `AIPromptOutputActionClickEventArgs`, which provides details about the clicked action, the prompt, the output, and the related command (if any). For a full list of available properties, refer to the [`AIPromptOutputActionClickEventArgs` API reference](slug:Telerik.Blazor.Components.AIPromptOutputActionClickEventArgs).
 
->caption Handle output action clicks in the AIPrompt
-
-````RAZOR
-<TelerikAIPrompt OutputActions="@OutputActions"
-                 OnOutputActionClick="@OnOutputActionClick"
-                 OnPromptRequest="@HandlePromptRequest">
-</TelerikAIPrompt>
-
-@code {
-    private void OnOutputActionClick(AIPromptOutputActionClickEventArgs args)
-    {
-        // Handle the output action click event
-        Console.WriteLine($"Action clicked: {args.Action.Name}");
-    }
-
-    private List<AIPromptOutputActionDescriptor> OutputActions { get; set; } = new List<AIPromptOutputActionDescriptor>()
-    {
-        new AIPromptOutputActionDescriptor() { Name = "Copy", Icon = nameof(SvgIcon.Copy) },
-        new AIPromptOutputActionDescriptor() { Name = "Retry", Icon = nameof(SvgIcon.Share) },
-        new AIPromptOutputActionDescriptor() { Icon = SvgIcon.ThumbUp, Name = "Thumbs Up" },
-        new AIPromptOutputActionDescriptor() { Icon = SvgIcon.ThumbDown, Name = "Thumbs Down" }
-    };
-
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-    }
-}
-````
+See the [example below](#example).
 
 ## OnPromptRequest
 
@@ -108,9 +79,9 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
 
 <TelerikAIPrompt OnPromptRequest="@OnPromptRequestHandler"
                  OnCommandExecute="@OnCommandExecuteHandler"
-                 OnOutputRate="@OnOutputRateHandler"
+                 OutputActions="@OutputActions"
+                 OnOutputActionClick="@OnOutputActionClick"
                  PromptChanged="@OnPromptChanged"
-                 ShowOutputRating="true"
                  Prompt="@Prompt"
                  Commands="@PromptCommands">
 </TelerikAIPrompt>
@@ -133,6 +104,14 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
         },
     };
 
+    private List<AIPromptOutputActionDescriptor> OutputActions { get; set; } = new List<AIPromptOutputActionDescriptor>()
+    {
+        new AIPromptOutputActionDescriptor() { Name = "Copy", Icon = nameof(SvgIcon.Copy) },
+        new AIPromptOutputActionDescriptor() { Name = "Retry", Icon = nameof(SvgIcon.Share) },
+        new AIPromptOutputActionDescriptor() { Name = "Thumbs Up", Icon = SvgIcon.ThumbUp },
+        new AIPromptOutputActionDescriptor() { Name = "Thumbs Down", Icon = SvgIcon.ThumbDown }
+    };
+
     private void OnPromptRequestHandler(AIPromptPromptRequestEventArgs args)
     {
         // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
@@ -145,9 +124,10 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
         args.Output = "Nisl pretium fusce id velit ut tortor pretium. A pellentesque sit amet porttitor eget dolor. Lectus mauris ultrices eros in cursus turpis massa tincidunt.";
     }
 
-    private void OnOutputRateHandler(AIPromptOutputRateEventArgs args)
+    private void OnOutputActionClick(AIPromptOutputActionClickEventArgs args)
     {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
+        // Handle the output action click event
+        Console.WriteLine($"Action clicked: {args.Action.Name}");
     }
 
     private void OnPromptChanged(string prompt)
@@ -155,7 +135,8 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
         Prompt = prompt;
     }
 }
-
 ````
 
-* [Live Demo: AIPrompt Overview](https://demos.telerik.com/blazor-ui/aiprompt/overview)
+## See Also
+
+  * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
