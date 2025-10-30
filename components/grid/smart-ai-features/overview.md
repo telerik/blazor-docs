@@ -12,6 +12,19 @@ position: 1
 
 This article describes the built-in AI-enabled features of the Telerik Grid for Blazor. You can allow users to type prompts, which are sent to an AI service that suggests the appropriate data operations for the Grid to perform. The currently supported data operations include filtering, grouping, sorting, and highlighting of items.
 
+## Supported Operations
+
+The Prompt-Controlled DataGrid currently supports the following data operations through natural language prompts:
+
+* Filtering&mdash;Filter data based on specific criteria (for example, "Show only products with price greater than 100").
+* **Sorting** - Sort data by one or multiple columns (for example, "Sort by name in ascending order").
+* **Grouping** - Group data by specific fields (for example, "Group by category").
+* **Highlighting** - Highlight specific rows or cells that meet certain conditions (for example, "Highlight products that are out of stock").
+* **Column Operations** – Resize, reorder (change column position), show/hide, and lock/unlock columns.
+* **Pagination** – Navigate between pages and adjust page sizes.
+* **Selection** – Select or deselect rows based on criteria, or select/deselect all.
+* **Export** – Export grid data to Excel, PDF, or CSV formats.
+
 ## API Reference
 
 The following types and Grid methods are relevant to scenarios when you want to integrate AI functionality with the Telerik Grid.
