@@ -43,7 +43,7 @@ The Telerik license key size depends on the number of licenses it includes, incl
 * Windows and Windows Server machines (up to 32,767 characters for all environment variables and much smaller limits for setting variables in the Registry or the system settings)
 * [GitLab](https://docs.gitlab.com/ci/variables/) (up to 10,000 characters)
 
-In such cases, use `TELERIK_LICENSE_PATH` or [only a license file](slug:installation-license-key#manual-installation) instead of `TELERIK_LICENSE`. The `TELERIK_LICENSE_PATH` must point to the Telerik license file location, including the `telerik-license.txt` file name. The license file must be stored and provided to the deployment pipeline in a secure manner.
+In such cases, use `TELERIK_LICENSE_PATH` or [only a license file](slug:installation-license-key#manual-installation) instead of `TELERIK_LICENSE`. The `TELERIK_LICENSE_PATH` variable must point to the Telerik license file location, including the `telerik-license.txt` file name itself. The license file must be stored and provided to the deployment pipeline in a secure manner.
 
 
 ## Azure Pipelines
