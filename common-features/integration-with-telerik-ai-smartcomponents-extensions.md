@@ -20,31 +20,31 @@ The `Telerik.AI.SmartComponents.Extensions` library provides AI-powered function
 
 ## Installation
 
-1. Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your project. It adds the following dependencies:
-    * `Microsoft.Extensions.AI`
-    * `Azure.AI.OpenAI`
-1. Add the [`Microsoft.Extensions.AI.OpenAI` NuGet package](https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI). Note that it's a preview (pre-release) package.
+Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your project. It adds the following dependencies:
+
+* `Microsoft.Extensions.AI`
+* `Azure.AI.OpenAI`
 
 ## Configuration
 
 ### 1. Configure AI Services in Program.cs
 
-```csharp
+```csharp.skip-repl
 using Microsoft.Extensions.AI;
 using Azure.AI.OpenAI;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Azure OpenAI Chat Client
-builder.Services.AddChatClient(serviceProvider =>
+builder.Services.AddSingleton<IChatClient>(serviceProvider =>
 {
     IConfiguration configuration = serviceProvider.GetRequiredService<IConfiguration>();
-    string endpoint = configuration["AI:AzureOpenAI:Endpoint"] ?? "";
-    string apiKey = configuration["AI:AzureOpenAI:Key"] ?? "";
-    string modelId = configuration["AI:AzureOpenAI:Chat:ModelId"] ?? "";
+    string endpoint = configuration["AI:AzureOpenAI:Endpoint"];
+    string apiKey = configuration["AI:AzureOpenAI:Key"];
+    string modelId = configuration["AI:AzureOpenAI:Chat:ModelId"];
 
     var client = new AzureOpenAIClient(new Uri(endpoint), new Azure.AzureKeyCredential(apiKey));
-    return client.GetChatClient(modelId).AsIChatClient();
+    return client.AsChatClient(modelId);
 });
 
 builder.Services.AddControllers();
@@ -53,7 +53,7 @@ var app = builder.Build();
 
 ### 2. Configure AI Properties in appsettings.json
 
-```json
+```json.skip-repl
 {
   "AI": {
     "AzureOpenAI": {
@@ -71,10 +71,9 @@ var app = builder.Build();
 
 ### 1. Create a Grid Controller
 
-```csharp
+```csharp.skip-repl
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.AI;
-using OpenAI.Chat;
 using Telerik.AI.SmartComponents.Extensions;
 
 [ApiController]
@@ -93,37 +92,30 @@ public class GridController : Controller
     public async Task<IActionResult> SmartState([FromBody] GridAIRequest request)
     {
         // Create chat completion options
-        var options = new ChatCompletionOptions();
-        
+        var options = new ChatOptions();
+
         // Add Grid-specific chat tools for AI processing
-        ChatTools.AddGridChatTools(
-            request.Columns.Select(x => new GridAIColumn { 
-                Field = x.Field, 
-                Values = x.Values 
-            }).ToList(), 
-            options
-        );
+        options.AddGridChatTools(request.Columns);
 
         // Convert request contents to chat messages
         var conversationMessages = request.Contents
-            .Select(m => new UserChatMessage(m.Text))
+            .Select(m => new ChatMessage(ChatRole.User, m.Text))
             .ToList();
 
-        // Get the chat service and process the request
-        var chatService = _chatClient.GetService<ChatClient>();
-        var completion = await chatService.CompleteChatAsync(conversationMessages, options);
-        
-        // Extract Grid options from AI response
-        var gridOptions = completion.ToolCalls.ExtractGridOptions();
-        
-        return Json(gridOptions);
+        // Process the request
+        ChatResponse completion = await _chatClient.GetResponseAsync(conversationMessages, options);
+
+        // Extract Grid response from AI response
+        GridAIResponse response = completion.ExtractGridResponse();
+
+        return Json(response);
     }
 }
 ```
 
 ### 2. Define Your Data Model
 
-```csharp
+```csharp.skip-repl
 public class Employee
 {
     public string FirstName { get; set; }
@@ -138,7 +130,7 @@ public class Employee
 
 ### 3. Create Grid AI Request
 
-```csharp
+```csharp.skip-repl
 var request = new GridAIRequest
 {
     Columns = new List<GridAIColumn>
@@ -164,7 +156,7 @@ var request = new GridAIRequest
 
 The library supports various natural language filtering queries:
 
-```csharp
+```csharp.skip-repl
 // Example queries that work with the AI:
 "Show me employees older than 30"
 "Filter people in IT department"
@@ -174,7 +166,7 @@ The library supports various natural language filtering queries:
 
 ### 2. Sorting Operations
 
-```csharp
+```csharp.skip-repl
 // Natural language sorting examples:
 "Sort by age descending"
 "Order by salary ascending"
@@ -183,7 +175,7 @@ The library supports various natural language filtering queries:
 
 ### 3. Grouping Operations
 
-```csharp
+```csharp.skip-repl
 // Grouping examples:
 "Group by department"
 "Group by city, then by age"
@@ -192,7 +184,7 @@ The library supports various natural language filtering queries:
 
 ### 4. Highlighting Operations
 
-```csharp
+```csharp.skip-repl
 // Highlighting examples:
 "Highlight employees whose name starts with A"
 "Mark salary cells of people older than 30"
@@ -201,26 +193,23 @@ The library supports various natural language filtering queries:
 
 ## Working with Grid Responses
 
-The AI service returns a `GridAIResponse` object containing the processed operations:
+The AI service returns a `GridAIResponse` object containing a list of commands that represent the operations:
 
-```csharp
+```csharp.skip-repl
 public async Task<GridAIResponse> ProcessGridRequest(GridAIRequest request)
 {
-    var options = new ChatCompletionOptions();
-    ChatTools.AddGridChatTools(request.Columns, options);
-    
-    var messages = request.Contents.Select(m => new UserChatMessage(m.Text)).ToList();
-    var completion = await _chatClient.CompleteChatAsync(messages, options);
-    
-    var response = completion.ToolCalls.ExtractGridOptions();
-    
+    var options = new ChatOptions();
+    options.AddGridChatTools(request.Columns);
+
+    var messages = request.Contents.Select(m => new ChatMessage(ChatRole.User, m.Text)).ToList();
+    var completion = await _chatClient.GetResponseAsync(conversationMessages, options);
+
+    var response = response = completion.ExtractGridResponse();
+
     // The response contains:
-    // - response.Filter: Composite filter conditions
-    // - response.Sort: Array of sort descriptors
-    // - response.Group: Array of group descriptors  
-    // - response.Highlight: Array of highlight descriptors
+    // - response.Commands: A list of commands, containing information about the type of operation, and parameters associated with it.
     // - response.Messages: Status/info messages
-    
+
     return response;
 }
 ```
@@ -244,22 +233,22 @@ The library supports various filter operators:
 
 When the options for the column are of Enum type provide meaningful column values to help the AI understand your data:
 
-```csharp
-new GridAIColumn 
-{ 
-    Field = "Status", 
+```csharp.skip-repl
+new GridAIColumn
+{
+    Field = "Status",
     // only when only a set of values are used
-    Values = new[] { "Active", "Inactive", "Pending" } 
+    Values = new[] { "Active", "Inactive", "Pending" }
 }
 ```
 
 ### 2. Error Handling
 
-```csharp
+```csharp.skip-repl
 try
 {
-    var completion = await chatService.CompleteChatAsync(messages, options);
-    var response = completion.ToolCalls.ExtractGridOptions();
+    var completion = await _chatClient.GetResponseAsync(conversationMessages, options);
+    var response = completion.ExtractGridResponse();
     return Json(response);
 }
 catch (Exception ex)
@@ -270,7 +259,7 @@ catch (Exception ex)
 
 ### 3. Input Validation
 
-```csharp
+```csharp.skip-repl
 if (request?.Columns == null || !request.Columns.Any())
 {
     return BadRequest("Columns are required");
@@ -286,14 +275,57 @@ if (request.Contents == null || !request.Contents.Any())
 
 The library includes comprehensive test coverage. You can run tests to verify functionality:
 
-```bash
+```bash.skip-repl
 cd tests
 dotnet test
 ```
 
 For integration testing with your specific data model, create test cases that verify AI responses match expected Grid operations.
 
-## Troubleshooting
+## Example Client Usage
+
+```typescript.skip-repl
+interface GridAIRequest {
+  columns: GridAIColumn[];
+  contents: GridAIRequestContent[];
+  role?: string;
+}
+
+interface GridAIColumn {
+  field: string;
+  values: string[];
+}
+
+interface GridAIRequestContent {
+  $type: string;
+  text: string;
+}
+
+async function processGridQuery(query: string, columns: GridAIColumn[]) {
+  const request: GridAIRequest = {
+    columns: columns,
+    contents: [{ $type: "text", text: query }],
+    role: "user",
+  };
+
+  const response = await fetch("/grid/smart-state", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
+
+  return await response.json();
+}
+
+// Usage
+const columns = [
+  { field: "Name", values: ["John", "Jane", "Bob"] },
+  { field: "Age", values: ["25", "30", "35"] },
+  { field: "Department", values: ["IT", "HR", "Finance"] },
+];
+
+const result = await processGridQuery("Show me IT employees", columns);
+```
 
 ### Common Issues
 
