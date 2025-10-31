@@ -36,7 +36,7 @@ In most cases, the recommended way to provide your license key to the `Telerik.L
 
 > Treat the license key and the license file as secrets. Always store and retrieve them in a secure manner, according to the build platform's best practices.
 
-### Environment Variable Length Limitations
+## Environment Variable Length Limitations
 
 The Telerik license key size depends on the number of licenses it includes, including renewals. Some environments may have a limit on the environment variable size, which is smaller than your Telerik license key length. Such examples include:
 
