@@ -34,9 +34,17 @@ The Telerik license activation process in CI/CD test, build, staging, and produc
 
 In most cases, the recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environments is to use one of the available environment variables.
 
-Use `TELERIK_LICENSE_PATH` or [only a license file](slug:installation-license-key#manual-installation) on Windows and Windows Server machines, which are managed directly through the operating system's user interface. Do not use the `TELERIK_LICENSE` environment variable in this case, due to the large variable value length.
-
 > Treat the license key and the license file as secrets. Always store and retrieve them in a secure manner, according to the build platform's best practices.
+
+## Environment Variable Length Limitations
+
+The Telerik license key size depends on the number of licenses it includes, including renewals. Some environments may have a limit on the environment variable size, which is smaller than your Telerik license key length. Such examples include:
+
+* Windows and Windows Server machines (up to 32,767 characters for all environment variables and much smaller limits for setting variables in the Registry or the system settings)
+* [GitLab](https://docs.gitlab.com/ci/variables/) (up to 10,000 characters)
+
+In such cases, use `TELERIK_LICENSE_PATH` or [only a license file](slug:installation-license-key#manual-installation) instead of `TELERIK_LICENSE`. The `TELERIK_LICENSE_PATH` must point to the Telerik license file location, including the `telerik-license.txt` file name. The license file must be stored and provided to the deployment pipeline in a secure manner.
+
 
 ## Azure Pipelines
 
