@@ -132,8 +132,13 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 | Method | Type | Description |
 | --- | --- | --- |
-| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported excel file to the browser for download. You can pass [`GridExcelExportOptions`](slug:Telerik.Blazor.Components.TelerikGrid-1) to customize the export. |
-| `ExportToExcelAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`GridExcelExportOptions`](slug:Telerik.Blazor.Components.TelerikGrid-1) to customize the export. |
+| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported excel file to the browser for download. You can pass [`GridExcelExportOptions`](slug:Telerik.Blazor.Components.Grid.GridExcelExportOptions) to customize the export. |
+| `ExportToExcelAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`GridExcelExportOptions`](slug:Telerik.Blazor.Components.Grid.GridExcelExportOptions) to customize the export. |
+
+When exporting programmatically with a `GridExcelExportOptions` argument:
+
+* Always set the `Columns` and `Data` properties of `GridExcelExportOptions`.
+* Multi-column headers are not supported.
 
 >caption Invoke the export function from code
 
