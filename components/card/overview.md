@@ -31,7 +31,7 @@ The below snippet demonstrates the setup of a Card component with all building b
     <CardHeader>
         <CardTitle>Tourism</CardTitle>
     </CardHeader>
-    <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rome.jpg"></CardImage>
+    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/places/rome.jpg"></CardImage>
     <CardBody>
         <CardTitle>Rome</CardTitle>
         <CardSubTitle>Capital of Italy</CardSubTitle>
