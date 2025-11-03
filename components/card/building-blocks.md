@@ -113,7 +113,7 @@ Use the [`CardImage`](slug:card-image) tag to render the image section of the Ca
         <CardSubTitle>Capital of Italy</CardSubTitle>
     </CardHeader>
     
-    <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rome.jpg"></CardImage>
+    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/places/rome.jpg"></CardImage>
     
 </TelerikCard>
 ````
