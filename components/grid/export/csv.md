@@ -128,7 +128,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 When exporting programmatically with a `GridCsvExportOptions` argument:
 
-* Always set the `Columns` and `Data` properties of `GridCsvExportOptions`.
+* The `Columns` and `Data` properties of `GridCsvExportOptions` are required.
 * Multi-column headers are not supported.
 
 >caption Invoke the export function from code

@@ -137,7 +137,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 When exporting programmatically with a `GridExcelExportOptions` argument:
 
-* Always set the `Columns` and `Data` properties of `GridExcelExportOptions`.
+* The `Columns` and `Data` properties of `GridExcelExportOptions` are required.
 * Multi-column headers are not supported.
 
 >caption Invoke the export function from code
