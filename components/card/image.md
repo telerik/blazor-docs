@@ -12,9 +12,7 @@ position: 7
 
 Every Blazor Card can have a dedicated area to render a card image that will fill the size of the card. The content of the CardImage as well as its size is completely customizable through the available configuration options.
 
->caption Use the CardImage building block to insert an image in the Card. The result from the snippet below.
-
-![Image in Card](images/cardimage-example.png)
+>caption Use the CardImage building block to insert an image in the Card
 
 ````RAZOR
 @* Insert an image in the Card *@
@@ -25,7 +23,7 @@ Every Blazor Card can have a dedicated area to render a card image that will fil
         <CardSubTitle>Bulgaria, Europe</CardSubTitle>
     </CardHeader>
 
-    <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rila_lakes.jpg"></CardImage>
+    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/bg/rila_lakes.jpg"></CardImage>
 
     <CardActions Layout="CardActionsLayout.Stretch">
         <TelerikButton Class="k-flat" Icon="@SvgIcon.HeartOutline" Title="Like"></TelerikButton>
