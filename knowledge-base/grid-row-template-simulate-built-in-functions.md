@@ -57,12 +57,11 @@ To implement a custom command column:
 * In the Row Template add a `<td>` element with a [Button component](slug:components/button/overview) and handle the Grid items editing and deleting programmatically. Refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically](slug:grid-kb-add-edit-state).
 * Set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank">`stopPropagation` method</a> of the <a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank">`onclick` event</a> to the `<td>` element to prevent row selection when clicking a command button.
 
-### Column Resizing, Auto-Fitting, Visibility, Locking, Reordering
+### Column Resizing, Auto-Fitting, Visibility, Locking
 
 * Column resizing and auto-fitting will work if the Row Template structure resembles an actual table row, with a corresponding number of cells matching the Grid columns.
 * Column visibility depends on including a `<td>` element for the column in the Row Template.
 * To implement column locking, add the `k-grid-content-sticky` class to the `<td>` element of the columns that you want locked, and calculate and set the correct `left` and `right` CSS properties, as the content inside the Row Template can be any valid HTML.
-* For column reordering, manage the `left` and `right` CSS properties on the `<td>` elements within the Row Template.
 
 ## Example
 
