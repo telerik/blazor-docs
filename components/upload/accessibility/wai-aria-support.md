@@ -34,7 +34,7 @@ The Upload selected files list implements roving tabindex navigation. Meaning th
 | `.k-upload input` | `tabindex=-1` | Assures that the input element inside the upload is not focusable. |
 |  | `aria-hidden=true` | The input needs to be hidden from the readers. |
 | `.k-upload-files` | `role=list` | Explicitly sets the UL role to list because of https://developer.mozilla.org/en-US/docs/Web/CSS/list-style#accessibility_concerns |
-|  | `id` | Unique and deterministic id linked to the button aria-controls attribute. |
+|  | `id` | Unique and deterministic id linked to the button "aria-controls" attribute. |
 | `.k-upload-files .k-file` | `role=listitem` | Explicitly sets the LI role to listitem because of https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listitem_role#best_practices (note 2). |
 |  | `tabindex=0/-1` | The element should be focusable. Value should be changed dynamically based on the roving tabindex navigation. |
 | `.k-upload .k-file .k-file-validation-message` | `aria-live=polite` | Announces the change in the upload status of the file. |

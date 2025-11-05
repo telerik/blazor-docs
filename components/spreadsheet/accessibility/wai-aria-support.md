@@ -89,7 +89,7 @@ The Name editor must implement the spec for a ComboBox component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| `.k-spreadsheet-formula-list` | `id` | Unique and deterministic id linked to the `aria-controls` attribute of the corresponding formula input. |
+| `.k-spreadsheet-formula-list` | `id` | Unique and deterministic id linked to the "aria-controls" attribute of the corresponding formula input. |
 | `.k-spreadsheet-formula-list` | `role=menu` | Announces the `menu` role of the popup. |
 | `.k-list-item` | `role=menuitem` | Announces the `menuitem` role of the popup items. |
 
