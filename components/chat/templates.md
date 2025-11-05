@@ -27,16 +27,108 @@ This template allows you to customize the Chat header, where you can display tit
 </HeaderTemplate>
 ````
 
-## MessageTemplate
+## NoDataTemplate
 
-Customize how individual messages are rendered within the Chat.
+The `NoDataTemplate` allows you to define custom content displayed when the Chat has no messages. This is useful for showing welcome messages, instructions, or branding when the conversation is empty.
 
 ````RAZOR.skip-repl
-<MessageTemplate>
+<NoDataTemplate>
+    <p><strong style="color: var(--kendo-color-primary);">No Messages Available.</strong></p>
+    <p>Start a conversation by typing a message below!</p>
+</NoDataTemplate>
+````
+
+## MessageContentTemplate
+
+Customize how individual message content is rendered within the Chat. This template has been renamed from `MessageTemplate` for better clarity.
+
+````RAZOR.skip-repl
+<MessageContentTemplate>
     <div style="color:red;">
         @context.Message.Content
     </div>
+</MessageContentTemplate>
+````
+
+## AuthorMessageContentTemplate
+
+The `AuthorMessageContentTemplate` allows you to customize the appearance of message content for messages sent by the current user (author). This template takes precedence over `MessageContentTemplate` when defined, enabling different styling for sent versus received messages.
+
+````RAZOR.skip-repl
+<AuthorMessageContentTemplate>
+    <div style="color: blue; font-weight: bold;">
+        @context.Message.Content
+    </div>
+</AuthorMessageContentTemplate>
+````
+
+## ReceiverMessageContentTemplate
+
+The `ReceiverMessageContentTemplate` allows you to customize the appearance of message content for messages received from other users. This template takes precedence over `MessageContentTemplate` when defined, providing flexibility to style incoming messages differently.
+
+````RAZOR.skip-repl
+<ReceiverMessageContentTemplate>
+    <div style="color: green; font-style: italic;">
+        @context.Message.Content
+    </div>
+</ReceiverMessageContentTemplate>
+````
+
+## MessageTemplate
+
+The `MessageTemplate` allows you to customize the entire message bubble rendering, including the wrapper and structure around the message content. This provides complete control over the message appearance.
+
+````RAZOR.skip-repl
+<MessageTemplate>
+    <div class="custom-message-bubble">
+        <div class="message-header">@context.Message.AuthorName</div>
+        <div class="message-body">@context.Message.Content</div>
+    </div>
 </MessageTemplate>
+````
+
+## AuthorMessageTemplate
+
+The `AuthorMessageTemplate` allows you to customize the entire message bubble for messages sent by the current user (author). This template takes precedence over `MessageTemplate` when defined, enabling control over the author's message structure and appearance.
+
+````RAZOR.skip-repl
+<AuthorMessageTemplate>
+    <div class="author-message-bubble" style="background: #e3f2fd;">
+        <div class="message-content">@context.Message.Content</div>
+        <div class="message-time">@context.Message.Timestamp.ToString("hh:mm tt")</div>
+    </div>
+</AuthorMessageTemplate>
+````
+
+## ReceiverMessageTemplate
+
+The `ReceiverMessageTemplate` allows you to customize the entire message bubble for messages received from other users. This template takes precedence over `MessageTemplate` when defined, providing the option to specify how incoming messages are structured and displayed.
+
+````RAZOR.skip-repl
+<ReceiverMessageTemplate>
+    <div class="receiver-message-bubble" style="background: #f5f5f5;">
+        <div class="sender-name">@context.Message.AuthorName</div>
+        <div class="message-content">@context.Message.Content</div>
+        <div class="message-time">@context.Message.Timestamp.ToString("hh:mm tt")</div>
+    </div>
+</ReceiverMessageTemplate>
+````
+
+## UserStatusTemplate
+
+The `UserStatusTemplate` allows you to render custom content next to the user avatar, such as status badges, indicators, or icons. This is useful for showing user availability (online, away, busy) or other contextual information.
+
+````RAZOR.skip-repl
+<UserStatusTemplate>
+    @if (context.Message.AuthorStatus == "online")
+    {
+        <span class="status-badge" style="background: green; width: 12px; height: 12px; border-radius: 50%; display: inline-block;"></span>
+    }
+    else if (context.Message.AuthorStatus == "away")
+    {
+        <span class="status-badge" style="background: orange; width: 12px; height: 12px; border-radius: 50%; display: inline-block;"></span>
+    }
+</UserStatusTemplate>
 ````
 
 ## MessageStatusTemplate
@@ -118,16 +210,30 @@ This allows you to define context menu actions that can be performed on Chat mes
             Chat with John Smith
         </span>
     </HeaderTemplate>
+    <NoDataTemplate>
+        <p><strong style="color: var(--kendo-color-primary);">No Messages Available.</strong></p>
+    </NoDataTemplate>
     <MessageStatusTemplate>
         <div style="color:red;">
             @context.Message.Status
         </div>
     </MessageStatusTemplate>
-    <MessageTemplate>
-        <div style="color:red;">
+    <AuthorMessageContentTemplate>
+        <div style="color:blue;">
             @context.Message.Content
         </div>
-    </MessageTemplate>
+    </AuthorMessageContentTemplate>
+    <ReceiverMessageContentTemplate>
+        <div style="color:green;">
+            @context.Message.Content
+        </div>
+    </ReceiverMessageContentTemplate>
+    <UserStatusTemplate>
+        @if (context.Message.AuthorStatus == "online")
+        {
+            <span style="background: green; width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+        }
+    </UserStatusTemplate>
     <SuggestionTemplate>
         <div style="color:blue;">
             @context.Suggestion
@@ -152,7 +258,7 @@ This allows you to define context menu actions that can be performed on Chat mes
 @code {
     #region Component References
     
-    private TelerikChat<ChatMessage>? ChatRef { get; set; }
+    private TelerikChat<ChatMessage> ChatRef { get; set; }
     
     #endregion
     
@@ -273,11 +379,13 @@ This allows you to define context menu actions that can be performed on Chat mes
         public string AuthorId { get; set; }
         public string AuthorName { get; set; }
         public string AuthorImageUrl { get; set; }
+        public string AuthorStatus { get; set; }
         public string Content { get; set; }
         public string MessageToReplyId { get; set; }
         public string Status { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsPinned { get; set; }
+        public bool IsTyping { get; set; }
         public DateTime Timestamp { get; set; }
         public List<string> SuggestedActions { get; set; }
         public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();

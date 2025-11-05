@@ -12,6 +12,70 @@ position: 5
 
 The Telerik UI for Blazor Chat component provides comprehensive control over message display, interactions, and styling to create rich conversational experiences.
 
+## Typing Indicator
+
+The Chat component supports displaying a typing indicator to show when another user is composing a message. Set the `IsTypingField` parameter to specify which field in your data model indicates typing status, and set that field to `true` on a message to display the typing indicator instead of message content.
+
+````Razor
+<TelerikButton OnClick="@AddTypingMessage">Show Typing Indicator</TelerikButton>
+
+<TelerikChat Data="@ChatData"
+             @ref="@ChatRef"
+             AuthorId="@CurrentUserId"
+             IsTypingField="@nameof(ChatMessage.IsTyping)"
+             OnSendMessage="@OnChatSendMessage">
+</TelerikChat>
+
+@code {
+    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private List<ChatMessage> ChatData { get; set; } = new();
+    private string CurrentUserId { get; set; } = "user1";
+
+    private void AddTypingMessage()
+    {
+        var typingMessage = new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            Content = null,
+            AuthorId = "support",
+            AuthorName = "Support Agent",
+            Timestamp = DateTime.Now,
+            IsTyping = true
+        };
+
+        ChatData.Add(typingMessage);
+    }
+
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
+    {
+        ChatData.RemoveAll(m => m.IsTyping);
+        
+        var newMessage = new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            Content = args.Message,
+            AuthorId = CurrentUserId,
+            Timestamp = DateTime.Now
+        };
+
+        ChatData.Add(newMessage);
+        ChatRef?.Refresh();
+    }
+
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public string Content { get; set; }
+        public bool IsTyping { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+}
+````
+
+When a message has `IsTyping` set to `true`, the Chat will display an animated typing indicator (typically three dots) instead of the message content. This provides visual feedback that enhances the conversational experience, especially in real-time chat scenarios.
+
 ## Context Menu Message Actions
 
 Configure context menu actions that appear when users right-click on messages. These actions provide quick access to common message operations.
@@ -178,6 +242,145 @@ Control the width behavior of chat messages using the `MessageWidthMode` paramet
 
 * `MessageWidthMode.Standard` - Messages take up a portion of the available space for better readability (default behavior)
 * `MessageWidthMode.Full` - Messages span the full width of the chat container
+
+## Author and Receiver Message Settings
+
+The Chat component allows you to configure settings specifically for author messages (sent by the current user) and receiver messages (received from other users) using `ChatAuthorMessageSettings` and `ChatReceiverMessageSettings` components. These settings take precedence over global Chat settings, enabling different configurations for sent and received messages.
+
+Use these settings to customize message behavior, appearance, and available actions based on whether the message was sent or received. For example, you might want different context menu actions, toolbar actions, or file actions for your own messages versus messages from others.
+
+````Razor
+<TelerikChat Data="@ChatData"
+             @ref="@ChatRef"
+             AuthorId="@CurrentUserId"
+             OnSendMessage="@OnChatSendMessage">
+    <ChatSettings>
+        <ChatAuthorMessageSettings EnableMessageCollapse="true"
+                                   MessageWidthMode="@MessageWidthMode.Full">
+            <ChatMessageContextMenuActions>
+                <ChatMessageContextMenuAction Name="Edit" Text="Edit" Icon="@SvgIcon.Pencil" />
+                <ChatMessageContextMenuAction Name="Delete" Text="Delete" Icon="@SvgIcon.Trash" />
+            </ChatMessageContextMenuActions>
+            <ChatMessageToolbarActions>
+                <ChatMessageToolbarAction Icon="@SvgIcon.Pin" OnClick="@PinMessage" Text="Pin My Message" />
+            </ChatMessageToolbarActions>
+            <ChatFileActions>
+                <ChatFileAction Name="Download" Text="Download My File" />
+            </ChatFileActions>
+        </ChatAuthorMessageSettings>
+
+        <ChatReceiverMessageSettings EnableMessageCollapse="false"
+                                     MessageWidthMode="@MessageWidthMode.Standard">
+            <ChatMessageContextMenuActions>
+                <ChatMessageContextMenuAction Name="Reply" Text="Reply" Icon="@SvgIcon.Undo" />
+                <ChatMessageContextMenuAction Name="Forward" Text="Forward" Icon="@SvgIcon.Forward" />
+            </ChatMessageContextMenuActions>
+            <ChatMessageToolbarActions>
+                <ChatMessageToolbarAction Icon="@SvgIcon.Heart" OnClick="@ReactToMessage" Text="Like" />
+            </ChatMessageToolbarActions>
+            <ChatFileActions>
+                <ChatFileAction Name="Download" Text="Download Shared File" />
+            </ChatFileActions>
+        </ChatReceiverMessageSettings>
+    </ChatSettings>
+</TelerikChat>
+
+@code {
+    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private List<ChatMessage> ChatData { get; set; } = new()
+    {
+        new ChatMessage()
+        {
+            Id = "1",
+            AuthorId = "support",
+            Content = "Hello! How can I assist you today?",
+            Timestamp = DateTime.Now.AddMinutes(-10)
+        },
+        new ChatMessage()
+        {
+            Id = "2",
+            AuthorId = "user1",
+            Content = "Hi, I have a question about the new features.",
+            Timestamp = DateTime.Now.AddMinutes(-5)
+        }
+    };
+    private string CurrentUserId { get; set; } = "user1";
+
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
+    {
+        var newMessage = new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            Content = args.Message,
+            AuthorId = CurrentUserId,
+            Timestamp = DateTime.Now
+        };
+
+        ChatData.Add(newMessage);
+    }
+
+    private void PinMessage(ChatMessageActionClickEventArgs args)
+    {
+        var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
+        if (message != null)
+        {
+            message.IsPinned = true;
+            ChatRef?.Refresh();
+        }
+    }
+
+    private void ReactToMessage(ChatMessageActionClickEventArgs args)
+    {
+        Console.WriteLine($"Liked message: {args.MessageId}");
+    }
+
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string Content { get; set; }
+        public bool IsPinned { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+}
+````
+
+Available settings for both `ChatAuthorMessageSettings` and `ChatReceiverMessageSettings`:
+
+* `EnableMessageCollapse` - Enables the collapse functionality for long messages
+* `MessageWidthMode` - Controls message width (`Standard` or `Full`)
+* `ChatMessageContextMenuActions` - Define context menu actions for right-click interactions
+* `ChatMessageToolbarActions` - Define toolbar actions that appear on hover or selection
+* `ChatFileActions` - Define actions available for file attachments
+
+If no author or receiver-specific setting is provided, the component falls back to the global Chat settings.
+
+## Send Message Button Customization
+
+Customize the appearance of the send message button using the `ChatSendMessageButtonSettings` component. The `Class` parameter allows you to apply custom CSS classes for styling.
+
+````Razor
+<TelerikChat Data="@ChatData"
+             AuthorId="@CurrentUserId"
+             OnSendMessage="@OnChatSendMessage">
+    <ChatSettings>
+        <ChatSendMessageButtonSettings Class="custom-send-button" />
+    </ChatSettings>
+</TelerikChat>
+
+<style>
+    .custom-send-button {
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    .custom-send-button:hover {
+        background-color: #45a049;
+    }
+</style>
+````
 
 ## Message Box Value Persistence
 
