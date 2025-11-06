@@ -84,7 +84,7 @@ Use JavaScript to dynamically adjust the `z-index` of the predefined dialog. Thi
 
 #### JavaScript Code
 
-```javascript
+```javascript.skip-repl
 <script suppress-error="BL9992">
     function bringDialogToTop() {
     var dialogWrapper = document.querySelector(".k-window.k-dialog.k-alert.telerik-blazor").closest(".k-dialog-wrapper");
@@ -95,7 +95,7 @@ Use JavaScript to dynamically adjust the `z-index` of the predefined dialog. Thi
 </script>
 ```
 
-```razor
+```razor.skip-repl
 @inject IJSRuntime js
 
 <TelerikDialog Visible="@Visible" VisibleChanged="OnDialogClosingAsync">
@@ -145,6 +145,8 @@ Use JavaScript to dynamically adjust the `z-index` of the predefined dialog. Thi
         await base.OnAfterRenderAsync(firstRender);
     }
 }
+
+```
 
 This approach targets the dialog wrapper using CSS selectors and modifies its `z-index`.
 
