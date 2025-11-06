@@ -27,6 +27,8 @@ The tools are working together in an agentic flow to deliver complete, beautiful
 
 The Blazor Agentic UI Generator uses an intelligent approach where specialized tools work together to handle different aspects of UI development. When you provide a prompt, the main generator analyzes your requirements and coordinates the appropriate tools to deliver the desired outcome. For more control over specific aspects of your UI, you can also call individual tools directly as described in the [Advanced Use](slug:agentic-ui-generator-getting-started#advanced-use) section.
 
+> We recommend using the Agentic UI Generator in projects that already have Telerik UI for Blazor installed.
+
 ## Intended Use
 
 The Agentic UI Generator is designed to help with various development scenarios:
