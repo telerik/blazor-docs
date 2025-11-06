@@ -20,9 +20,11 @@ Message suggestions provide users with quick reply options that appear below the
 
 The `SuggestionsLayoutMode` parameter controls how suggestions are displayed in the chat interface. Choose from three layout options to optimize the presentation based on the number and length of your suggestions:
 
-* `ChatSuggestionsLayoutMode.Wrap` - Suggestions wrap to the next line if they exceed the container width (default)
-* `ChatSuggestionsLayoutMode.Scroll` - Suggestions are displayed in a single line with horizontal scrolling
-* `ChatSuggestionsLayoutMode.ScrollButtons` - Suggestions are displayed in a single line with horizontal scrolling and navigation buttons
+* `ChatSuggestionsLayoutMode.Wrap`&mdash;Suggestions wrap to the next line if they exceed the container width (default)
+* `ChatSuggestionsLayoutMode.Scroll`&mdash;Suggestions are displayed in a single line with horizontal scrolling
+* `ChatSuggestionsLayoutMode.ScrollButtons`&mdash;Suggestions are displayed in a single line with horizontal scrolling and navigation 
+
+Use `Scroll` or `ScrollButtons` mode when you have many suggestions or longer text that won't fit comfortably in the available width. The `ScrollButtons` mode is particularly helpful for users who prefer button navigation over scrolling gestures.
 
 ````Razor
 <TelerikChat Data="@ChatData"
@@ -58,15 +60,13 @@ The `SuggestionsLayoutMode` parameter controls how suggestions are displayed in 
 }
 ````
 
-Use `Scroll` or `ScrollButtons` mode when you have many suggestions or longer text that won't fit comfortably in the available width. The `ScrollButtons` mode is particularly helpful for users who prefer button navigation over scrolling gestures.
-
 ## Suggested Actions Layout Mode
 
 The `SuggestedActionsLayoutMode` parameter controls how suggested actions (quick actions attached to specific messages) are displayed. Similar to `SuggestionsLayoutMode`, it offers three layout options:
 
-* `ChatSuggestedActionsLayoutMode.Wrap` - Suggested actions wrap to the next line (default)
-* `ChatSuggestedActionsLayoutMode.Scroll` - Suggested actions are displayed in a single line with horizontal scrolling
-* `ChatSuggestedActionsLayoutMode.ScrollButtons` - Suggested actions are displayed in a single line with horizontal scrolling and navigation buttons
+* `ChatSuggestedActionsLayoutMode.Wrap`&mdash;Suggested actions wrap to the next line (default)
+* `ChatSuggestedActionsLayoutMode.Scroll`&mdash;Suggested actions are displayed in a single line with horizontal scrolling
+* `ChatSuggestedActionsLayoutMode.ScrollButtons`&mdash;Suggested actions are displayed in a single line with horizontal scrolling and navigation buttons
 
 ````Razor
 <TelerikChat Data="@ChatData"

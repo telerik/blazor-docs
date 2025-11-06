@@ -29,7 +29,7 @@ This template allows you to customize the Chat header, where you can display tit
 
 ## NoDataTemplate
 
-The `NoDataTemplate` allows you to define custom content displayed when the Chat has no messages. This is useful for showing welcome messages, instructions, or branding when the conversation is empty.
+The `NoDataTemplate` lets you to define custom content displayed when the Chat has no messages. This is useful for showing welcome messages, instructions, or branding when the conversation is empty.
 
 ````RAZOR.skip-repl
 <NoDataTemplate>
@@ -40,7 +40,7 @@ The `NoDataTemplate` allows you to define custom content displayed when the Chat
 
 ## MessageContentTemplate
 
-Customize how individual message content is rendered within the Chat. This template has been renamed from `MessageTemplate` for better clarity.
+The `MessageContentTemplate` provides the option to customize how individual message content is rendered within the Chat.
 
 ````RAZOR.skip-repl
 <MessageContentTemplate>
