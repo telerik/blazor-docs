@@ -14,7 +14,7 @@ This article provides example prompts that demonstrate the capabilities of the T
 
 ## How to Use the Prompts
 
-All prompts in this library target the Agentic UI Generator. The `#telerik_ui_generator` handle explicitly calls the generator, but you can also use natural language descriptions and let your AI assistant automatically recognize when to use the Agentic UI Generator.
+All prompts in this library target the Agentic UI Generator. The `#telerik_ui_generator` handle explicitly calls the generator, but you can also use natural language descriptions and let your AI assistant automatically recognize when to use the UI Generator or one of the other specialized tools.
 
 1. Browse the prompt library to find a prompt that suits your needs.
 2. Copy the prompt text (including the `#telerik_ui_generator` handle if present).
@@ -25,36 +25,48 @@ All prompts in this library target the Agentic UI Generator. The `#telerik_ui_ge
 
 ## Sample Prompts
 
-Here are some example prompts that demonstrate the generator's capabilities:
+Here are some example prompts that demonstrate the capabilities of the Agentic UI Generator tools.
 
-### Dashboard Creation
+### UI Generator Prompts
 
 ````TEXT.skip-repl
-Create a new page using the existing top navigation and footer. In the middle, add 3 rows with 3 responsive columns each. The top row shows charts, the second data grids, and the bottom contains column summaries
+Create a new page using the existing top navigation and footer. In the middle, add 3 rows with 3 responsive columns each. The top row shows system health KPIs for CPU, memory, and error counts. The middle rows include a Log Stream panel, a Line Chart of API response times, and a Bar Chart of requests per service. The bottom row contains a Deployment History table, an Alerts panel, and a list of open tickets.
 ````
 
-### Interactive Data Page
-
 ````TEXT.skip-repl
-Insert a new section with a Data Grid on the left to filter, sort, and edit product data. On the right, add a Chart and Date Range Picker to visualize product sales over time. Both components should be data-bound to the same source and reactively update based on the selected date range
+Build a landing page similar to the automotive industry template with a hero section, feature highlights, statistics, and a call-to-action section.
 ````
 
-### Theme Customization
+### Layout Assistant Prompts
 
 ````TEXT.skip-repl
-Add a dark mode theme to the application with rounded corners and larger spacing between components
+Update the existing page layout by adding a new section in the middle of the page. In that added section, a Dashboard Card displays summary KPIs (revenue, active users, growth rate), next to a Compact Card showing a recent alert or message. Make the page responsive with proper spacing and typography.
 ````
 
-### Responsive Page
+### Component Assistant Prompts
 
 ````TEXT.skip-repl
-Create a product catalog page with a responsive grid layout, filtering options, and detail view modals that work seamlessly on mobile, tablet, and desktop
+Create a Grid component with paging, sorting, and filtering. Include column configuration for a product catalog with name, price, category, and actions. Ensure the Grid is properly integrated into a card layout with responsive design and consistent spacing.
 ````
 
-### Landing Page
+### Style Assistant Prompts
 
 ````TEXT.skip-repl
-Build a landing page similar to the automotive industry template with a hero section, feature highlights, statistics, and a call-to-action section
+Generate a custom theme for a corporate blue and green color scheme with high contrast accessibility requirements.
+````
+
+````TEXT.skip-repl
+Create a comprehensive dark mode theme with a dark background, light text, subtle border radius on cards and buttons, and increased spacing between the UI components.
+````
+
+### Icon Assistant Prompts
+
+````TEXT.skip-repl
+Add icons suitable for the Home, Settings, and User Profile buttons in my navigation bar.
+````
+
+````TEXT.skip-repl
+Find appropriate icons for data visualization actions like export, print, refresh, and search in a dashboard toolbar.
 ````
 
 ## See Also
