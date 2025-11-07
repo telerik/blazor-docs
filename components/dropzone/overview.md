@@ -80,3 +80,4 @@ The following parameters enable you to customize the appearance of the Blazor Dr
 ## See Also
 
 * [Live Demo: Blazor DropZone Overview and Key Features](https://demos.telerik.com/blazor-ui/dropzone/overview)
+* [Display DropZone Over the Whole Page](slug:dropzone-kb-display-over-whole-page)
