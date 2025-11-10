@@ -25,7 +25,8 @@ First, set the `IsTypingField` parameter to specify which field in your data mod
              @ref="@ChatRef"
              AuthorId="@CurrentUserId"
              IsTypingField="@nameof(ChatMessage.IsTyping)"
-             OnSendMessage="@OnChatSendMessage">
+             OnSendMessage="@OnChatSendMessage"
+             TextField="@nameof(ChatMessage.Content)">
 </TelerikChat>
 
 @code {

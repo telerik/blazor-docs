@@ -30,7 +30,8 @@ Use `Scroll` or `ScrollButtons` mode when you have many suggestions or longer te
 <TelerikChat Data="@ChatData"
              Suggestions="@QuickReplies"
              SuggestionsLayoutMode="@ChatSuggestionsLayoutMode.Scroll"
-             OnSuggestionClick="@HandleSuggestionClick">
+             OnSuggestionClick="@HandleSuggestionClick"
+             Width="70vw">
 </TelerikChat>
 
 @code {
@@ -71,7 +72,8 @@ The `SuggestedActionsLayoutMode` parameter controls how suggested actions (quick
 ````Razor
 <TelerikChat Data="@ChatData"
              SuggestedActionsLayoutMode="@ChatSuggestedActionsLayoutMode.ScrollButtons"
-             OnSendMessage="@HandleSendMessage">
+             OnSendMessage="@HandleSendMessage"
+             Width="80vw">
 </TelerikChat>
 
 @code {

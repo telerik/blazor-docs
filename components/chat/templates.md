@@ -194,7 +194,7 @@ This allows you to define context menu actions that can be performed on Chat mes
 
 >caption A complete example that integrates all templates into a Chat component
 
-````RAZOR.skip-repl
+````RAZOR
 <TelerikChat Data="@ChatData"
              @ref="@ChatRef"
              Width="600px"
@@ -322,7 +322,6 @@ This allows you to define context menu actions that can be performed on Chat mes
             Id = Guid.NewGuid().ToString(),
             AuthorName = authorId == "1" ? "John Smith" : "Jane Doe",
             AuthorId = authorId,
-            AuthorImageUrl = authorId == "1" ? FirstUserImage : SecondUserImage,
             Content = args.Message,
             MessageToReplyId = args.ReplyMessageId,
             Status = "Sent",
@@ -361,7 +360,6 @@ This allows you to define context menu actions that can be performed on Chat mes
                 Id = $"message{i}",
                 AuthorId = (i % 2 == 1) ? "1" : "2",
                 AuthorName = (i % 2 == 1) ? "John Smith" : "Jane Doe",
-                AuthorImageUrl = (i % 2 == 1) ? FirstUserImage : SecondUserImage,
                 Content = messageTexts[i - 1],
                 Status = "Seen",
                 Timestamp = new DateTime(2023, 10, 1, 12, 0, 0).AddMinutes(i * 5)
