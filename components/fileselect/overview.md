@@ -98,12 +98,15 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 
 ## FileSelect Reference and Methods
 
-The File Select exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (example below). The FileSelect methods are:
+The File Select exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute. The FileSelect methods are:
 
 | Method | Description |
 | --- | --- |
-| `ClearFiles` | Clears all files from the list. |
-| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions](slug:upload-kb-openselectfilesdialog-safari). |
+| `ClearFiles()` | Clears all files from the list. |
+| `OpenSelectFilesDialog()` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions](slug:upload-kb-openselectfilesdialog-safari). |
+| `RemoveFileAsync(string fileId)` | Removes the file with the specified identifier from the collection. |
+
+For a complete list of all FileSelect methods, see the [FileSelect API reference](slug:Telerik.Blazor.Components.TelerikFileSelect#methods).
 
 >caption Get reference to the FileSelect and execute methods
 
