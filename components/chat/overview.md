@@ -130,20 +130,24 @@ The Chat component provides a variety of parameters:
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Data` | `IEnumerable<TItem>` | The data source for chat messages. |
-| `AuthorId` | `string` | The ID of the current user sending messages. |
-| `TextField` | `string` <br /> (`"Text"`) | The name of the field containing the message content. |
-| `AuthorIdField` | `string` <br /> (`"AuthorId"`) | The name of the field containing the author identifier. |
-| `TimestampField` | `string` <br /> (`"Timestamp"`) | The name of the field containing the message timestamp. |
-| `AuthorNameField` | `string` <br /> (`"AuthorName"`) | The name of the field containing the author display name. |
-| `AuthorImageUrlField` | `string` <br /> (`"AuthorImageUrl"`) | The name of the field containing the author's avatar image URL. |
 | `AttachmentsField` | `string` <br /> (`"Attachments"`) | The name of the field containing message file attachments. |
-| `Height` | `string` | The height of the chat component in CSS units. |
-| `Width` | `string` | The width of the chat component in CSS units. |
+| `AuthorId` | `string` | The ID of the current user sending messages. |
+| `AuthorIdField` | `string` <br /> (`"AuthorId"`) | The name of the field containing the author identifier. |
+| `AuthorImageUrlField` | `string` <br /> (`"AuthorImageUrl"`) | The name of the field containing the author's avatar image URL. |
+| `AuthorNameField` | `string` <br /> (`"AuthorName"`) | The name of the field containing the author display name. |
+| `Data` | `IEnumerable<TItem>` | The data source for chat messages. |
 | `EnableFileUpload` | `bool` <br /> (`false`) | Enables file upload functionality in the chat input. |
 | `EnableSpeechToText` | `bool` <br /> (`true`) | Enables speech-to-text functionality with microphone input. |
+| `Height` | `string` | The height of the chat component in CSS units. |
+| `IsTypingField` | `string` | The name of the field that indicates whether a message represents a typing indicator. |
+| `MessageFilesLayoutMode` | `ChatMessageFilesLayoutMode` enum <br /> (`Vertical`) | Controls how file attachments are displayed (Vertical, Horizontal, or Wrap). |
 | `MessageWidthMode` | `MessageWidthMode` enum <br /> (`Standard`) | Controls the width behavior of messages (Standard or Full). |
+| `SuggestedActionsLayoutMode` | `ChatSuggestedActionsLayoutMode` enum <br /> (`Wrap`) | Controls how suggested actions are displayed (Wrap, Scroll, or ScrollButtons). |
 | `Suggestions` | `IEnumerable<string>` | Collection of quick reply suggestions. |
+| `SuggestionsLayoutMode` | `ChatSuggestionsLayoutMode` enum <br /> (`Wrap`) | Controls how message suggestions are displayed (Wrap, Scroll, or ScrollButtons). |
+| `TextField` | `string` <br /> (`"Text"`) | The name of the field containing the message content. |
+| `TimestampField` | `string` <br /> (`"Timestamp"`) | The name of the field containing the message timestamp. |
+| `Width` | `string` | The width of the chat component in CSS units. |
 
 ## Chat Reference and Methods
 

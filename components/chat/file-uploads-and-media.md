@@ -21,6 +21,21 @@ Enable file uploads by setting the `EnableFileUpload` parameter to `true`:
 </TelerikChat>
 ````
 
+## Message Files Layout
+
+The `MessageFilesLayoutMode` parameter controls how file attachments are displayed within chat messages. Choose from three layout options to best fit your application's design:
+
+* `ChatMessageFilesLayoutMode.Vertical`&mdash;Files are displayed in a vertical stack (default)
+* `ChatMessageFilesLayoutMode.Horizontal`&mdash;Files are displayed in a horizontal row
+* `ChatMessageFilesLayoutMode.Wrap`&mdash;Files wrap to the next line when they exceed the message width
+
+````RAZOR.skip-repl
+<TelerikChat Data="@ChatData"
+             EnableFileUpload="true"
+             MessageFilesLayoutMode="@ChatMessageFilesLayoutMode.Horizontal">
+</TelerikChat>
+````
+
 ## File Upload Settings
 
 Configure file upload behavior using the `ChatFileSelectSettings` component:

@@ -16,6 +16,103 @@ The Telerik UI for Blazor Chat component supports quick actions and message sugg
 
 Message suggestions provide users with quick reply options that appear below the message input area.
 
+## Suggestions Layout Mode
+
+The `SuggestionsLayoutMode` parameter controls how suggestions are displayed in the chat interface. Choose from three layout options to optimize the presentation based on the number and length of your suggestions:
+
+* `ChatSuggestionsLayoutMode.Wrap`&mdash;Suggestions wrap to the next line if they exceed the container width (default)
+* `ChatSuggestionsLayoutMode.Scroll`&mdash;Suggestions are displayed in a single line with horizontal scrolling
+* `ChatSuggestionsLayoutMode.ScrollButtons`&mdash;Suggestions are displayed in a single line with horizontal scrolling and navigation 
+
+Use `Scroll` or `ScrollButtons` mode when you have many suggestions or longer text that won't fit comfortably in the available width. The `ScrollButtons` mode is particularly helpful for users who prefer button navigation over scrolling gestures.
+
+````Razor
+<TelerikChat Data="@ChatData"
+             Suggestions="@QuickReplies"
+             SuggestionsLayoutMode="@ChatSuggestionsLayoutMode.Scroll"
+             OnSuggestionClick="@HandleSuggestionClick"
+             Width="70vw">
+</TelerikChat>
+
+@code {
+    private List<ChatMessage> ChatData { get; set; } = new();
+    
+    private List<string> QuickReplies = new List<string>
+    {
+        "Request project status update",
+        "Schedule a follow-up meeting",
+        "Review document",
+        "Send report",
+        "Approve changes"
+    };
+    
+    private void HandleSuggestionClick(ChatSuggestionClickEventArgs args)
+    {
+        // Handle suggestion click
+    }
+    
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string Content { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+}
+````
+
+## Suggested Actions Layout Mode
+
+The `SuggestedActionsLayoutMode` parameter controls how suggested actions (quick actions attached to specific messages) are displayed. Similar to `SuggestionsLayoutMode`, it offers three layout options:
+
+* `ChatSuggestedActionsLayoutMode.Wrap`&mdash;Suggested actions wrap to the next line (default)
+* `ChatSuggestedActionsLayoutMode.Scroll`&mdash;Suggested actions are displayed in a single line with horizontal scrolling
+* `ChatSuggestedActionsLayoutMode.ScrollButtons`&mdash;Suggested actions are displayed in a single line with horizontal scrolling and navigation buttons
+
+````Razor
+<TelerikChat Data="@ChatData"
+             SuggestedActionsLayoutMode="@ChatSuggestedActionsLayoutMode.ScrollButtons"
+             OnSendMessage="@HandleSendMessage"
+             Width="80vw">
+</TelerikChat>
+
+@code {
+    private List<ChatMessage> ChatData { get; set; } = new()
+    {
+        new ChatMessage
+        {
+            Id = "1",
+            AuthorId = "bot",
+            Content = "How would you like to proceed?",
+            Timestamp = DateTime.Now,
+            SuggestedActions = new List<string>
+            {
+                "Option 1: Quick action",
+                "Option 2: Detailed review",
+                "Option 3: Schedule later",
+                "Option 4: Request more info"
+            }
+        }
+    };
+    
+    private void HandleSendMessage(ChatSendMessageEventArgs args)
+    {
+        // Handle send message
+    }
+    
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string Content { get; set; }
+        public DateTime Timestamp { get; set; }
+        public List<string> SuggestedActions { get; set; }
+    }
+}
+````
+
+Suggested actions are contextual quick replies that appear below specific messages, helping guide users through conversations or workflows. The layout mode ensures they are displayed effectively regardless of their number or length.
+
 >caption Basic message suggestions
 
 ````razor
