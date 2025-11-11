@@ -33,7 +33,7 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikFilter Value="@FilterValue" ValueChanged="@OnValueChanged">
+<TelerikFilter Value="@FilterValue" OnUpdate="@OnUpdate">
     <FilterFields>
         <FilterField Name="@(nameof(Food.Id))" Type="@(typeof(int))" Label="Id" />
         <FilterField Name="@(nameof(Food.Name))" Type="@(typeof(string))" Label="Name">
@@ -49,7 +49,7 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
                 <TelerikNumericTextBox Value="@((decimal?)context.FilterDescriptor.Value)"
                                        Format="C"
                                        Step="0.01m"
-                                       ValueChanged="@( (decimal? value) => NumericValueChanged(context.FilterDescriptor, value) )">
+                                       ValueChanged="@((decimal? value) => NumericValueChanged(context.FilterDescriptor, value))">
                 </TelerikNumericTextBox>
             </ValueTemplate>
         </FilterField>
@@ -76,7 +76,7 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
 
     private CompositeFilterDescriptor FilterValue { get; set; } = new();
 
-    private List<string> Suggestions { get; set; } = new () { "Pasta", "Burger", "Pizza", "Kebab", "Steak", "Ice Cream" };
+    private List<string> Suggestions { get; set; } = new() { "Pasta", "Burger", "Pizza", "Kebab", "Steak", "Ice Cream" };
 
     private void OnFilterValueChanged(FilterDescriptor fd, string value)
     {
@@ -89,10 +89,9 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
         fd.Value = value;
         ProcessGridData(FilterValue);
     }
-    
-    private void OnValueChanged(CompositeFilterDescriptor value)
+
+    private void OnUpdate()
     {
-        FilterValue = value;
         ProcessGridData(FilterValue);
     }
 

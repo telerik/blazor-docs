@@ -25,7 +25,7 @@ This article contains the following sections:
 
 **To integrate the Filter with the Telerik Grid, you need to:**
 
-1. Set the Value parameter of the Filter via [one-way](slug:filter-events#valuechanged) or two-way binding. If you want to filter at the moment of change, use Filter with a one-way bound value.
+1. Set the Value parameter of the Filter via [one-way](slug:filter-events#onupdate) or two-way binding. If you want to filter at the moment of change, use Filter with a one-way bound value.
 2. Update the Grid data based on the Filter value.
 
 >caption Filter with two-way bound value in Grid
@@ -124,7 +124,7 @@ This article contains the following sections:
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikFilter ValueChanged="@OnValueChanged">
+<TelerikFilter Value="@FilterValue" OnUpdate="@OnUpdate">
     <FilterFields>
         <FilterField Name="@(nameof(TreeItem.Id))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(TreeItem.Text))" Type="@(typeof(string))" Label="Text"></FilterField>
@@ -140,13 +140,14 @@ This article contains the following sections:
 </TelerikTreeView>
 
 @code {
+    private CompositeFilterDescriptor FilterValue { get; set; } = new CompositeFilterDescriptor();
     public static List<TreeItem> InitialData { get; set; } = new List<TreeItem>();
     public List<TreeItem> FlatData { get; set; }
     public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
-    private void OnValueChanged(CompositeFilterDescriptor filter)
+    private void OnUpdate()
     {
-        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { FilterValue } };
 
         var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
         var filteredList = datasourceResult.Data.Cast<TreeItem>().ToList();
@@ -157,7 +158,7 @@ This article contains the following sections:
             var currentItem = item;
             FlatData.Add(currentItem);
 
-            while(currentItem.ParentIdValue != null)
+            while (currentItem.ParentIdValue != null)
             {
                 var parent = InitialData.First(p => p.Id == currentItem.ParentIdValue);
 
@@ -178,7 +179,7 @@ This article contains the following sections:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public ISvgIcon Icon { get; set; }                                                  
+        public ISvgIcon Icon { get; set; }
     }
 
     protected override void OnInitialized()
@@ -192,63 +193,63 @@ This article contains the following sections:
         List<TreeItem> items = new List<TreeItem>();
 
         items.Add(new TreeItem()
-            {
-                Id = 1,
-                Text = "Project",
-                ParentIdValue = null,
-                HasChildren = true,
-                Icon = SvgIcon.Folder
-            });
+        {
+            Id = 1,
+            Text = "Project",
+            ParentIdValue = null,
+            HasChildren = true,
+            Icon = SvgIcon.Folder
+        });
 
         items.Add(new TreeItem()
-            {
-                Id = 2,
-                Text = "Design",
-                ParentIdValue = 1,
-                HasChildren = true,
-                Icon = SvgIcon.Brush
-            });
+        {
+            Id = 2,
+            Text = "Design",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = SvgIcon.Brush
+        });
         items.Add(new TreeItem()
-            {
-                Id = 3,
-                Text = "Implementation",
-                ParentIdValue = 1,
-                HasChildren = true,
-                Icon = SvgIcon.Folder
-            });
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentIdValue = 1,
+            HasChildren = true,
+            Icon = SvgIcon.Folder
+        });
 
         items.Add(new TreeItem()
-            {
-                Id = 4,
-                Text = "site.psd",
-                ParentIdValue = 2,
-                HasChildren = false,
-                Icon = SvgIcon.FilePsd
-            });
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentIdValue = 2,
+            HasChildren = false,
+            Icon = SvgIcon.FilePsd
+        });
         items.Add(new TreeItem()
-            {
-                Id = 5,
-                Text = "index.js",
-                ParentIdValue = 3,
-                HasChildren = false,
-                Icon = SvgIcon.Js
-            });
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = SvgIcon.Js
+        });
         items.Add(new TreeItem()
-            {
-                Id = 6,
-                Text = "index.html",
-                ParentIdValue = 3,
-                HasChildren = false,
-                Icon = SvgIcon.Html5
-            });
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = SvgIcon.Html5
+        });
         items.Add(new TreeItem()
-            {
-                Id = 7,
-                Text = "styles.css",
-                ParentIdValue = 3,
-                HasChildren = false,
-                Icon = SvgIcon.Css
-            });
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentIdValue = 3,
+            HasChildren = false,
+            Icon = SvgIcon.Css
+        });
 
         InitialData = items;
         FlatData = InitialData;
@@ -272,7 +273,7 @@ This article contains the following sections:
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikFilter ValueChanged="@OnValueChanged">
+<TelerikFilter Value="@FilterValue" OnUpdate="@OnUpdate">
     <FilterFields>
         <FilterField Name="@(nameof(Employee.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(Employee.FirstName))" Type="@(typeof(string))" Label="First Name"></FilterField>
@@ -291,12 +292,13 @@ This article contains the following sections:
 </TelerikTreeList>
 
 @code {
+    private CompositeFilterDescriptor FilterValue { get; set; } = new CompositeFilterDescriptor();
     public static List<Employee> InitialData { get; set; } = new List<Employee>();
     public List<Employee> Data { get; set; }
 
-    private void OnValueChanged(CompositeFilterDescriptor filter)
+    private void OnUpdate()
     {
-        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { FilterValue } };
 
         var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
         var filteredList = datasourceResult.Data.Cast<Employee>().ToList();
@@ -381,7 +383,7 @@ This article contains the following sections:
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikFilter ValueChanged="@OnValueChanged">
+<TelerikFilter Value="@FilterValue" OnUpdate="@OnUpdate">
     <FilterFields>
         <FilterField Name="@(nameof(SampleData.Id))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(SampleData.Name))" Type="@(typeof(string))" Label="Name"></FilterField>
@@ -401,12 +403,13 @@ This article contains the following sections:
     </Template>
 </TelerikListView>
 
-@code{
+@code {
+    private CompositeFilterDescriptor FilterValue { get; set; } = new CompositeFilterDescriptor();
     List<SampleData> ListViewData { get; set; } = InitialData;
 
-    private void OnValueChanged(CompositeFilterDescriptor filter)
+    private void OnUpdate()
     {
-        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor>{ filter } };
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { FilterValue } };
 
         var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
 
@@ -458,7 +461,7 @@ This article contains the following sections:
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikFilter ValueChanged="@OnValueChanged">
+<TelerikFilter Value="@FilterValue" OnUpdate="@OnUpdate">
     <FilterFields>
         <FilterField Name="@(nameof(MyChartDataModel.ItemValue))" Type="@(typeof(double))" Label="Value"></FilterField>
         <FilterField Name="@(nameof(MyChartDataModel.Category))" Type="@(typeof(string))" Label="Category"></FilterField>
@@ -479,7 +482,7 @@ This article contains the following sections:
 
 @code {
     TelerikChart myChartRef;
-
+    private CompositeFilterDescriptor FilterValue { get; set; } = new CompositeFilterDescriptor();
     public static List<MyChartDataModel> InitialData { get; set; } = new List<MyChartDataModel>();
     public List<MyChartDataModel> ChartData { get; set; }
 
@@ -490,9 +493,9 @@ This article contains the following sections:
         public string Color { get; set; }
     }
 
-    private void OnValueChanged(CompositeFilterDescriptor filter)
+    private void OnUpdate()
     {
-        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { FilterValue } };
 
         var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
 

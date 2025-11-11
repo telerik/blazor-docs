@@ -79,7 +79,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikFilter @ref="FilterRef" Value="@FilterValue" ValueChanged="@OnValueChanged">
+<TelerikFilter @ref="FilterRef" Value="@FilterValue" OnUpdate="@OnUpdate">
     <FilterFields>
         <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
@@ -105,9 +105,8 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 
     private List<Person> InitialData { get; set; } = new();
 
-    private void OnValueChanged(CompositeFilterDescriptor value)
+    private void OnUpdate()
     {
-        FilterValue = value;
         ProcessGridData(FilterValue);
     }
 
@@ -127,7 +126,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
             FilterValue.FilterDescriptors.Clear();
             FilterValue.LogicalOperator = FilterCompositionLogicalOperator.Or;
 
-            FilterValue.FilterDescriptors = new FilterDescriptorCollection() 
+            FilterValue.FilterDescriptors = new FilterDescriptorCollection()
             {
                 new FilterDescriptor
                 {
@@ -168,11 +167,11 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
         for (int i = 1; i <= 30; i++)
         {
             InitialData.Add(new Person
-                {
-                    EmployeeId = i,
-                    Name = "Name" + i,
-                    HireDate = DateTime.Today.AddYears(-rnd.Next(1, 10)).AddMonths(-rnd.Next(0, 10)).AddDays(-rnd.Next(0, 10))
-                });
+            {
+                EmployeeId = i,
+                Name = "Name" + i,
+                HireDate = DateTime.Today.AddYears(-rnd.Next(1, 10)).AddMonths(-rnd.Next(0, 10)).AddDays(-rnd.Next(0, 10))
+            });
         }
 
         ProcessGridData(FilterValue);
@@ -181,7 +180,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
     public class Person
     {
         public int EmployeeId { get; set; }
-        public string Name { get; set; } 
+        public string Name { get; set; }
         public DateTime HireDate { get; set; }
     }
 }
