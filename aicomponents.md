@@ -5,6 +5,7 @@ description: "Discover the AI-powered components in Telerik UI for Blazor design
 slug: ai-components-blazor
 position: 8
 tag: new
+hidden: true
 ---
 
 # Telerik UI for Blazor AI Components & Features
