@@ -12,18 +12,12 @@ ticketid: 1686792
 ## Environment
 
 <table>
-<tbody>
-<tr>
-<td>Product</td>
-<td>
-Dialog for Blazor
-</td>
-</tr>
-<tr>
-<td>Version</td>
-<td>Current</td>
-</tr>
-</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Dialog for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -43,13 +37,15 @@ You can hide the close button of the main modal dialog via the `ShowCloseButton`
 
 Or, you can apply a workaround to adjust the `z-index` of the predefined dialog.
 
-### Using the `ShowCloseButton` Parameter
+### Set `ShowCloseButton` to `false`
 
 Set the `ShowCloseButton` parameter of the main modal dialog to `false`, and move the confirmation logic to a button within the modal dialog. This ensures the predefined dialog does not overlap with the modal.
 
-```razor
+````razor
 <TelerikDialog ShowCloseButton="false" @bind-Visible="@Visible">
-    <!-- Modal Dialog Content -->
+    <DialogContent>
+        Dialog Content
+    </DialogContent>
     <DialogButtons>
         <TelerikButton OnClick="@OnShowConfirm">ShowDialog</TelerikButton>
     </DialogButtons>
@@ -57,13 +53,13 @@ Set the `ShowCloseButton` parameter of the main modal dialog to `false`, and mov
 
 @code {
     [CascadingParameter]
-    private DialogFactory Dialogs { get; set; }
+    private DialogFactory? Dialogs { get; set; }
 
-    private bool Visible { get; set; }
+    private bool Visible { get; set; } = true;
 
     private async Task OnShowConfirm()
     {
-        bool isConfirmed = await Dialogs.ConfirmAsync("Are you sure?");
+        bool isConfirmed = await Dialogs!.ConfirmAsync("Are you sure?");
 
         if (isConfirmed)
         {
@@ -76,26 +72,28 @@ Set the `ShowCloseButton` parameter of the main modal dialog to `false`, and mov
         }
     }
 }
-```
+````
 
-### Workaround: Adjust the `z-index` Dynamically
+### Adjust the `z-index` Dynamically
 
-Use JavaScript to dynamically adjust the `z-index` of the predefined dialog. This ensures it appears above the modal dialog.
+Use JavaScript to dynamically adjust the `z-index` of the predefined dialog. This ensures it appears above the modal dialog. The approach targets the dialog wrapper using CSS selectors and modifies its `z-index` style.
 
-#### JavaScript Code
+> This workaround relies on CSS selectors which may change in future updates of the Telerik theme. Use this approach with caution.
 
-```javascript
-<script suppress-error="BL9992">
-    function bringDialogToTop() {
-    var dialogWrapper = document.querySelector(".k-window.k-dialog.k-alert.telerik-blazor").closest(".k-dialog-wrapper");
+>caption JavaScript
+
+````javascript.skip-repl
+function bringDialogToTop() {
+    var dialogWrapper = document.querySelector(".k-window.k-dialog.k-alert").closest(".k-dialog-wrapper");
     if (dialogWrapper) {
-    dialogWrapper.style.zIndex = parseInt(dialogWrapper.style.zIndex) + 2;
+        dialogWrapper.style.zIndex = parseInt(dialogWrapper.style.zIndex) + 2;
     }
-    }
-</script>
-```
+}
+````
 
-```razor
+>caption Razor
+
+````razor
 @inject IJSRuntime js
 
 <TelerikDialog Visible="@Visible" VisibleChanged="OnDialogClosingAsync">
@@ -145,12 +143,7 @@ Use JavaScript to dynamically adjust the `z-index` of the predefined dialog. Thi
         await base.OnAfterRenderAsync(firstRender);
     }
 }
-
-This approach targets the dialog wrapper using CSS selectors and modifies its `z-index`.
-
-#### Note
-
-This workaround relies on CSS selectors which may change in future updates of the Telerik theme. Use this approach with caution.
+````
 
 ## See Also
 
