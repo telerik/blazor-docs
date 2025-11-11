@@ -236,13 +236,18 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 
 ## Upload Reference and Methods
 
-The Upload exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (example below). The Upload methods are:
+The Upload exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute. The Upload methods are:
 
 | Method | Description |
 | --- | --- |
-| `ClearFiles` | Clears all files from the list, both uploaded and in queue. |
-| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions](slug:upload-kb-openselectfilesdialog-safari). |
-| `UploadFiles` | Uploads all valid selected files. Fires the [OnUpload](slug:upload-events#onupload) event. |
+| `CancelFile(string fileId)` | Cancels the upload of the specified file and removes it from the collection. |
+| `ClearFiles()` | Clears all files from the list, both uploaded and in queue. |
+| `OpenSelectFilesDialog()` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions](slug:upload-kb-openselectfilesdialog-safari). |
+| `PauseFile(string fileId)` | Pauses the upload of the file with the specified identifier, if it exists in the current collection. |
+| `RemoveFile(string fileId)` | Removes the file with the specified identifier from the collection. |
+| `ResumeFile(string fileId)` | Resumes the upload process for the specified file. |
+| `RetryFile(string fileId)` | Attempts to retry the upload of a file with the specified identifier. |
+| `UploadFiles()` | Uploads all valid selected files. Fires the [OnUpload](slug:upload-events#onupload) event. |
 
 >caption Get reference to the Upload and execute methods
 
