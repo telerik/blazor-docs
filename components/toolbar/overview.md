@@ -82,9 +82,8 @@ The Blazor ToolBar provides parameters to configure the component:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Adaptive` <br /> (deprecated) | `bool` <br /> (`true`) | Toggles the overflow popup of the ToolBar. The component displays an additional anchor on its side, where it places all items which do not fit and overflow. [Template items](slug:toolbar-templated-item#notes) don't participate in this mechanism and they are always rendered in the ToolBar itself. This parameter is deprecated in favor of `OverflowMode`. |
 | `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations](slug:themes-override). |
-| `OverflowMode` | `ToolBarOverflowMode` <br /> (`Menu`) | The adaptive mode of the Toolbar. |
+| `OverflowMode` | `ToolBarOverflowMode` <br /> (`Menu`) | Toggles the overflow popup of the ToolBar. The component displays an additional anchor on its side, where it places all items which do not fit and overflow.|
 | `ScrollButtonsPosition` | `ToolBarScrollButtonsPosition` enum <br /> (`Split`) | Specifies the position of the buttons when the ToolBar scroll adaptive mode is enabled. |
 | `ScrollButtonsVisibility` | `ToolBarScrollButtonsVisibility` enum <br /> (`Visible`)| Specifies the visibility of the buttons when the ToolBar scroll adaptive mode is enabled. |
 
@@ -112,8 +111,8 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 <br />
 <br />
 
-<div class="toolbar-wrapper">    
-    <TelerikToolBar Adaptive="@ToolBarAdaptive">
+<div class="toolbar-wrapper">
+    <TelerikToolBar OverflowMode="@ToolBarOverflowMode.Menu">
         <ToolBarButton Icon="@SvgIcon.Undo">Undo</ToolBarButton>
         <ToolBarButton Icon="@SvgIcon.Redo">Redo</ToolBarButton>
         <ToolBarButton Icon="@SvgIcon.Image" Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
@@ -123,29 +122,28 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
         <ToolBarButton Icon="@SvgIcon.Copy" Overflow="ToolBarItemOverflow.Never">Copy</ToolBarButton>
         <ToolBarButton Icon="@SvgIcon.Clipboard" Overflow="ToolBarItemOverflow.Never">Paste</ToolBarButton>
         <ToolBarSeparator></ToolBarSeparator>
-    <ToolBarButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-        <ToolBarToggleButton Icon="@SvgIcon.AlignLeft" OverflowText="Left"></ToolBarToggleButton>
-        <ToolBarToggleButton Icon="@SvgIcon.AlignCenter" OverflowText="Center"></ToolBarToggleButton>
-        <ToolBarToggleButton Icon="@SvgIcon.AlignRight" OverflowText="Right"></ToolBarToggleButton>
-    </ToolBarButtonGroup>
+        <ToolBarButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
+            <ToolBarToggleButton Icon="@SvgIcon.AlignLeft" OverflowText="Left"></ToolBarToggleButton>
+            <ToolBarToggleButton Icon="@SvgIcon.AlignCenter" OverflowText="Center"></ToolBarToggleButton>
+            <ToolBarToggleButton Icon="@SvgIcon.AlignRight" OverflowText="Right"></ToolBarToggleButton>
+        </ToolBarButtonGroup>
     </TelerikToolBar>
 </div>
 
-@code {
-    void ChangeWidth()
-    {
-        Width = 40;
-    }
-
-    public double Width { get; set; } = 100;
-    public bool ToolBarAdaptive { get; set; } = true;
-}
-
 <style>
-    .toolbar-wrapper{
+    .toolbar-wrapper {
         width: @(Width.ToString() + "%");
     }
 </style>
+
+@code {
+    private double Width { get; set; } = 100;
+
+    private void ChangeWidth()
+    {
+        Width = 40;
+    }
+}
 ````
 
 ## Next Steps

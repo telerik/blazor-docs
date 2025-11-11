@@ -80,7 +80,6 @@ The Blazor Pager provides various parameters that allow you to configure the com
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | ----------- | ----------- | ----------- |
-|`Adaptive` | `bool` <br /> (`true`) | Defines whether pager elements change based on the screen size. When enabled, the Pager will hide its `Pager Info` and `PageSize Dropdownlist` if they cannot fit in the available space. In the smallest resolution, the page buttons will be rendered as a select element. This parameter will be deprecated in the next major version in favor of the new `Responsive` parameter. |
 | `AdaptiveMode` | `AdaptiveMode` enum <br /> (`None`) | Defines the adaptive mode of the Pager. When set to `Auto`, and the window width is below [`768px` or `RootComponentAdaptiveSettings.Medium`](slug:adaptive-rendering#rendering-specifics), components with popups will render them as an `ActionSheet`. In this case, the page sizes dropdown only. |
 | `ButtonCount` | `int` | The maximum number of page buttons that will be visible. To take effect, `ButtonCount` must be smaller than the page count (`ButtonCount < Total / PageSize`). |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-pager-wrap">` element. |
