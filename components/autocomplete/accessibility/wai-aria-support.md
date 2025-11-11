@@ -58,8 +58,8 @@ The popup element of the AutoComplete has to implement the WAI-ARIA specificatio
 | `.k-list-ul` | `role=listbox` | Identifies the `ul` element as a listbox. |
 |  | `aria-label` or `aria-labelledby` | Provides a label for the listbox of the ComboBox. |
 | `.k-list-item` | `role=option` | Identifies the `li` element as a listbox option. |
-|  | `id` | When grouped, the list items must have an `id` attribute specified, so that the `aria-owns` attribute of their group header elements (with `role=group`) point to that ids. |
-|  | `aria-describedby` | When grouped, the list items must have an `aria-describedby` attribute pointing to the id of the `k-list-item-text` element in their `k-list-group-item`. |
+|  | `id` | When grouped, the list items must have an `id` attribute specified, so that the "aria-owns" attribute of their group header elements (with `role=group`) point to that ids. |
+|  | `aria-describedby` | When grouped, the list items must have an "aria-describedby" attribute pointing to the id of the `k-list-item-text` element in their `k-list-group-item`. |
 | `.k-list-item.k-selected` | `aria-selected=true` | Indicates the selected state of the item. |
 | `.k-list-group-item` | `role=group` | The group elements in the popup list must be have `role=group`. |
 |  | `aria-owns` | The group elements in the popup list must own the list items belonging to their group. |

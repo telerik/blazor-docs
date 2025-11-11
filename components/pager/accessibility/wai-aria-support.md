@@ -41,9 +41,9 @@ The `Page` select, which is present for mobile devices and smaller screens with 
 |  | `title` | Specifies the purpose of each button. |
 |  | `aria-label` or `title` | Specifies the purpose of each link, for example, `Page 6`. |
 |  | `aria-current=page` | The attribute must be present on the currently selected page element. |
-| `.k-pager-sizes>.k-dropdownlist` | `aria-label` | The element requires an `aria-label` to specify its purpose. |
-| `.k-pager-numbers-wrap>.k-dropdown` | `aria-label` | The element requires an `aria-label` to specify its purpose. |
-| `.k-pager-input>.k-input>.k-input-inner` | `aria-label` | The element requires an `aria-label` to specify its purpose. |
+| `.k-pager-sizes>.k-dropdownlist` | `aria-label` | The element requires an "aria-label" to specify its purpose. |
+| `.k-pager-numbers-wrap>.k-dropdown` | `aria-label` | The element requires an "aria-label" to specify its purpose. |
+| `.k-pager-input>.k-input>.k-input-inner` | `aria-label` | The element requires an "aria-label" to specify its purpose. |
 
 ## Resources
 

@@ -47,8 +47,8 @@ The element with `role="grid"` - includes the row headers, column headers, and d
 | -------- | --------- | ----- |
 | `.k-pivotgrid-column-headers>.k-pivotgrid-table` | `role=presentation/none` | Negates the default semantic role of the `<table>` element. |
 | `.k-pivotgrid-empty-cell` | `role=columnheader` | Announces the empty cell role as a part of the programmatically constructed a11y tree. |
-|  | `aria-colspan` | Sets the correct aria-colspan corresponding to the number of columns in the row headers table. |
-|  | `aria-rowspan` | Sets the correct aria-rowspan corresponding to the number of rows in the column headers table. |
+|  | `aria-colspan` | Sets the correct "aria-colspan" corresponding to the number of columns in the row headers table. |
+|  | `aria-rowspan` | Sets the correct "aria-rowspan" corresponding to the number of rows in the column headers table. |
 |  | `id` | Sets an unique identifier for the cell to be referenced from the first row in the column header table `aria-owns` attribute. |
 | `.k-pivotgrid-empty-cell>.k-sr-only` | `undefined` | The empty cell should have a nested span.k-sr-only element containing the localizable text message that will be announced by screen readers when the empty cell is focused. |
 | `.k-pivotgrid-column-headers>.k-pivotgrid-table>tbody` | `role=rowgroup` | Required as the owner `<table>` element has its semantic role removed. |

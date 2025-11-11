@@ -41,7 +41,7 @@ The FlatColorPicker contains in itself ColorGradient, ColorPalette, a UI to swit
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-colorgradient` | `role=none/` | The ColorGradient element must have its role removed. |
-|  | `aria-label` | The ColorGradient element must have its `aria-label` attribute removed. |
+|  | `aria-label` | The ColorGradient element must have its "aria-label" attribute removed. |
 |  | `tabindex=-1/` | The ColorGradient must be removed from the page tab sequence. |
 
 ## Section 508

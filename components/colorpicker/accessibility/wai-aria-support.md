@@ -58,7 +58,7 @@ When the component is in adaptive mode, the popup element follows the specificat
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-colorgradient` | `role=none/undefined` | The ColorGradient element must have its role removed. |
-|  | `aria-label=undefined` | The ColorGradient element must have its `aria-label` attribute removed. |
+|  | `aria-label=undefined` | The ColorGradient element must have its "aria-label" attribute removed. |
 
 ## Section 508
 

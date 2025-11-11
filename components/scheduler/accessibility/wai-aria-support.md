@@ -47,7 +47,7 @@ Below are listed the requirements for those components part of the ToolBar.
 | -------- | --------- | ----- |
 | `.k-nav-prev,.k-nav-next` | `aria-label` | Required as those buttons contain only icon (no text). |
 | `.k-nav-current` | `aria-live=polite` | The new date of the Scheduler view will be announced upon navigation to new time span / view type. |
-| `.k-views-dropdown` | `aria-label` | Specifies the purpose of the element. The `<select>` element visible on the toolbar on small screens must have its `aria-label` set. |
+| `.k-views-dropdown` | `aria-label` | Specifies the purpose of the element. The `<select>` element visible on the toolbar on small screens must have its "aria-label" set. |
 
 
 Depending on the current view, The Scheduler component implements different roles. Below are described the three possible approaches:
