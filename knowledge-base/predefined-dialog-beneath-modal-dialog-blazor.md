@@ -17,6 +17,10 @@ ticketid: 1686792
             <td>Product</td>
             <td>Dialog for Blazor</td>
         </tr>
+        <tr>
+            <td>Version</td>
+            <td>7.1.0 and earlier</td>
+        </tr>
     </tbody>
 </table>
 
@@ -147,7 +151,6 @@ function bringDialogToTop() {
 
 ## See Also
 
-- [Dialog Overview](https://www.telerik.com/blazor-ui/documentation/components/dialog/overview)
-- [VisibleChanged Event](https://www.telerik.com/blazor-ui/documentation/components/dialog/events#visiblechanged)
-- [Feature Request: Dialog Behind Modal Window](https://feedback.telerik.com/blazor/1675962-telerik-dialog-shows-behind-modal-window-after-second-opening) 
-- [Predefined Dialogs](https://www.telerik.com/blazor-ui/documentation/components/dialogfactory/overview)
+- [Dialog Overview](slug:dialog-overview)
+- [VisibleChanged Event](slug:dialog-events#visiblechanged)
+- [Predefined Dialogs](slug:dialog-predefined)
