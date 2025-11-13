@@ -27,18 +27,80 @@ This section contains information about how to set up the Agentic UI Generator i
 #### Visual Studio
 
 1. Log in with a valid [Telerik user account](https://www.telerik.com/account/).
-2. To enable the Agentic UI Generator in a specific Blazor app, add a `.mcp.json` file to the solution folder and paste the configuration from the [Agentic UI Generator | MCP Configuration page](https://uiagent.mcp.telerik.com/preview). 
+2. Go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account. If you already have an existing API key, you can skip steps 3-7 and continue from step 8, instead of creating a new key.
+3. Click **Generate New Key +**. 
+4. In the **Key Note** field, add a note that describes the API key.
+5. Click **Generate Key**.
+6. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **API Keys** page displays only a portion of the key.
+7. Store the generated NuGet API key as you will need it in the next steps.
+8. To enable the Agentic UI Generator in a specific Blazor app, add a `.mcp.json` file to the solution folder.
+9. In the `.mcp.json` file, set your API Key as `x-api-key` value, as demonstrated in the JSON configuration below.
+
+>caption .mcp.json
+
+````JSON.skip-repl
+{
+  "servers": {
+    "telerik-ui-generator": {
+      "type": "http",
+      "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
+      "headers": {
+        "x-api-key": "YOUR API KEY"
+      }
+    }
+  }
+}
+````
 
 To enable global automatic discovery of the Agentic UI Generator in Visual Studio, add the above `.mcp.json` file to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
+
+> Once the MCP server configuration is added, make sure that the `telerik-ui-generator` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking on a wrench icon 🔧 at the bottom of the Copilot Window. The Telerik Agentic UI Generator may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
 
 #### Visual Studio Code
 
 1. Log in with a valid [Telerik user account](https://www.telerik.com/account/).
-2. Go to the [Agentic UI Generator Preview Configuration](https://uiagent.mcp.telerik.com/preview). 
-3. Click the **Add to VS Code** button. This will open a tab named **MCP Server: telerik-ui-generator** in your VS Code instance.
-4. In the new VS Code tab, click **Install**.
+2. Go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account. If you already have an existing API key, you can skip steps 3-7 and continue from step 8, instead of creating a new key.
+3. Click **Generate New Key +**. 
+4. In the **Key Note** field, add a note that describes the API key.
+5. Click **Generate Key**.
+6. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **API Keys** page displays only a portion of the key.
+7. Store the generated NuGet API key as you will need it in the next steps.
+8. To enable the Agentic UI Generator in a specific [workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace), Blazor app, or [globally](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-configuration), add a `.vscode` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
 
-After adding the configuration, restart your IDE to load the MCP server.
+> This section applies to VS Code 1.102.1 and newer versions.
+
+Make sure that [`chat.mcp.enabled`](vscode://settings/chat.mcp.enabled) is enabled in the VS Code settings.
+
+9. In the `mcp.json` file, set your API Key as `x-api-key` value, as demonstrated in the JSON configuration below.
+
+>caption .vscode/mcp.json
+
+````JSON.skip-repl
+{
+  "servers": {
+    "telerik-ui-generator": {
+      "type": "http",
+      "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
+      "headers": {
+        "x-api-key": "YOUR API KEY"
+      }
+    }
+  }
+}
+````
+
+To use the Agentic UI Generator in all workspaces and apps, make sure that [`chat.mcp.discovery.enabled`](vscode://settings/chat.mcp.discovery.enabled) is enabled in [`settings.json`](https://code.visualstudio.com/docs/configure/settings#_settings-json-file).
+
+>caption VS Code settings.json
+
+````JSON.skip-repl
+{
+  // ...
+  "chat.mcp.discovery.enabled": true,
+}
+````
+
+After adding the configuration, restart your IDE to load the Agentic UI Generator.
 
 ## Basic Usage
 
@@ -79,6 +141,8 @@ For more granular control, you can call individual tools that make up the Agenti
 | `telerik_icon_assistant` | Searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this tool when you need to find and add specific icons for your UI components or design elements. |
 
 You can call these tools directly when you need specific functionality, allowing for more precise control over the generation process.
+
+> Tagging specific tools in Visual Studio currently is not available. To increase the probability that a tool will be called, either explicitly mention the tool in your prompt, or specify that in your Copilot instructions. 
 
 ## See Also
 
