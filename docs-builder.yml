@@ -20,6 +20,7 @@ enable-tabbed-code-blocks: true
 blazor-repl: true
 pdf-cover-png-path: ./images/pdf-cover.png
 gitLastCommitDateEnabled: true
+search-provider: nuclia
 
 demos:
   metaFileName: demo.json
