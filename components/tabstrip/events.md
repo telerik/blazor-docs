@@ -57,7 +57,7 @@ If you programmatically remove the currently active tab, the `ActiveTabIndexChan
 
 > The `ActiveTabIndexChanged` event and `ActiveTabIndex` parameter will be deprecated in a future product version. Use the [`ActiveTabId`](slug:tabstrip-tabs-collection) parameter with [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event instead.
 
->caption Handle the ActiveTabIndexChanged event
+>caption Handle the TabStrip ActiveTabIndexChanged event
 
 ````RAZOR
 <TelerikTabStrip ActiveTabIndex="@TabStripActiveTabIndex"
