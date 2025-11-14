@@ -21,7 +21,7 @@ The `ActiveTabIdChanged` event was added in [version 9.0.0](https://www.telerik.
 
 The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection). Update the `ActiveTabId` parameter value manually in the `ActiveTabIdChanged` handler.
 
->caption Handle the ActiveTabIdChanged event
+>caption Handle the TabStrip ActiveTabIdChanged event
 
 ````RAZOR
 <TelerikTabStrip ActiveTabId="@TabStripActiveTabId"
