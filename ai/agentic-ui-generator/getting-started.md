@@ -26,15 +26,14 @@ This section contains information about how to set up the Agentic UI Generator i
 
 #### Visual Studio
 
-1. Log in with a valid [Telerik user account](https://www.telerik.com/account/).
-2. Go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account. If you already have an existing API key, you can skip steps 3-7 and continue from step 8, instead of creating a new key.
-3. Click **Generate New Key +**. 
-4. In the **Key Note** field, add a note that describes the API key.
-5. Click **Generate Key**.
-6. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **API Keys** page displays only a portion of the key.
-7. Store the generated NuGet API key as you will need it in the next steps.
-8. To enable the Agentic UI Generator in a specific Blazor app, add a `.mcp.json` file to the solution folder.
-9. In the `.mcp.json` file, set your API Key as `x-api-key` value, as demonstrated in the JSON configuration below.
+1. In your browser, go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account. If you already have an existing API key, you can skip steps 2-6 and continue from step 7, instead of creating a new key.
+2. Click **Generate New Key +**. 
+3. In the **Key Note** field, add a note that describes the API key.
+4. Click **Generate Key**.
+5. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **API Keys** page displays only a portion of the key.
+6. Store the generated NuGet API key as you will need it in the next steps.
+7. To enable the Agentic UI Generator in your application, in Visual Studio, add a `.mcp.json` file to the solution folder.
+8. In the `.mcp.json` file, set your API Key as `x-api-key` value, as demonstrated in the JSON configuration below.
 
 >caption .mcp.json
 
@@ -54,18 +53,17 @@ This section contains information about how to set up the Agentic UI Generator i
 
 To enable global automatic discovery of the Agentic UI Generator in Visual Studio, add the above `.mcp.json` file to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
 
-> Once the MCP server configuration is added, make sure that the `telerik-ui-generator` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking on a wrench icon 🔧 at the bottom of the Copilot Window. The Telerik Agentic UI Generator may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
+> Once the MCP server configuration is added, make sure that the `telerik-ui-generator` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking the wrench icon 🔧 at the bottom of the Copilot Window. The Telerik Agentic UI Generator may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
 
 #### Visual Studio Code
 
-1. Log in with a valid [Telerik user account](https://www.telerik.com/account/).
-2. Go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account. If you already have an existing API key, you can skip steps 3-7 and continue from step 8, instead of creating a new key.
-3. Click **Generate New Key +**. 
-4. In the **Key Note** field, add a note that describes the API key.
-5. Click **Generate Key**.
-6. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **API Keys** page displays only a portion of the key.
-7. Store the generated NuGet API key as you will need it in the next steps.
-8. To enable the Agentic UI Generator in a specific [workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace), Blazor app, or [globally](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-configuration), add a `.vscode` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
+1. In your browser, go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account. If you already have an existing API key, you can skip steps 2-6 and continue from step 7, instead of creating a new key.
+2. Click **Generate New Key +**. 
+3. In the **Key Note** field, add a note that describes the API key.
+4. Click **Generate Key**.
+5. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **API Keys** page displays only a portion of the key.
+6. Store the generated NuGet API key as you will need it in the next steps.
+7. To enable the Agentic UI Generator in a specific [workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace), Blazor app, or [globally](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-configuration), add a `.vscode` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
 
 > This section applies to VS Code 1.102.1 and newer versions.
 
@@ -123,7 +121,7 @@ Prefix your prompt with `#telerik_ui_generator` followed by your request:
 Prefixing your prompt with `#telerik_ui_generator` will make it more likely for the Agentic UI Generator to get called. Alternatively, you can use natural language and simply describe what you want. The AI assistant automatically recognizes when to use the Agentic UI Generator:
 
 ````TEXT.skip-repl
-Create a product management page with a grid for displaying products, a form for adding new items, and filtering options
+Create a product management page with a Telerik grid for displaying products, a form for adding new items, and filtering options
 ````
 
 The generator analyzes your prompt and creates the appropriate Blazor components, markup, and styling.
@@ -136,7 +134,7 @@ For more granular control, you can call individual tools that make up the Agenti
 |------------|-------------|
 | `telerik_ui_generator` | Main generator for building full UI flows. Coordinates all other tools to deliver complete solutions. |
 | `telerik_layout_assistant` | Applies suitable CSS utility classes from the Progress Design System for styling and positioning elements. Use this tool when you need help with spacing, typography, colors, layout structure, or transforms. |
-| `telerik_component_assistant` | Answers questions and generates code related to Teelrik UI for Blazor components. Use this tool when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc. |
+| `telerik_component_assistant` | Answers questions and generates code related to Telerik UI for Blazor components. Use this tool when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc. |
 | `telerik_style_assistant` | Generates custom styles and theme configurations for your application. Use this tool when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI. |
 | `telerik_icon_assistant` | Searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this tool when you need to find and add specific icons for your UI components or design elements. |
 

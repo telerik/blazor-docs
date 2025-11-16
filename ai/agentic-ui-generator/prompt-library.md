@@ -29,6 +29,8 @@ Here are some example prompts that demonstrate the capabilities of the Agentic U
 
 ### UI Generator Prompts
 
+The UI generator is the main tool for building full UI flows, which coordinates all other tools to deliver complete solutions.
+
 ````TEXT.skip-repl
 Create a new page using the existing top navigation and footer. In the middle, add 3 rows with 3 responsive columns each. The top row shows system health KPIs for CPU, memory, and error counts. The middle rows include a Log Stream panel, a Line Chart of API response times, and a Bar Chart of requests per service. The bottom row contains a Deployment History table, an Alerts panel, and a list of open tickets.
 ````
@@ -39,17 +41,23 @@ Build a landing page similar to the automotive industry template with a hero sec
 
 ### Layout Assistant Prompts
 
+The Layout Assistant tool applies suitable CSS utility classes from the Progress Design System for styling and positioning elements. You can use it, when you need help with spacing, typography, colors, layout structure, or transforms.
+
 ````TEXT.skip-repl
 Update the existing page layout by adding a new section in the middle of the page. In that added section, a Dashboard Card displays summary KPIs (revenue, active users, growth rate), next to a Compact Card showing a recent alert or message. Make the page responsive with proper spacing and typography.
 ````
 
 ### Component Assistant Prompts
 
+The Component Assistant tool answers questions and generates code related to Telerik UI for Blazor components. Use this tool when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc.
+
 ````TEXT.skip-repl
 Create a Grid component with paging, sorting, and filtering. Include column configuration for a product catalog with name, price, category, and actions. Ensure the Grid is properly integrated into a card layout with responsive design and consistent spacing.
 ````
 
 ### Style Assistant Prompts
+
+The Style Assistant tool generates custom styles and theme configurations for your application. Use this tool when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI.
 
 ````TEXT.skip-repl
 Generate a custom theme for a corporate blue and green color scheme with high contrast accessibility requirements.
@@ -60,6 +68,8 @@ Create a comprehensive dark mode theme with a dark background, light text, subtl
 ````
 
 ### Icon Assistant Prompts
+
+The Icon Assistant tool searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this tool when you need to find and add specific icons for your UI components or design elements.
 
 ````TEXT.skip-repl
 Add icons suitable for the Home, Settings, and User Profile buttons in my navigation bar.

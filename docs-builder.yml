@@ -640,6 +640,12 @@ meta:
     res_type: kb
     relativeUrl: /knowledge-base
     hideChildren: true
+  ai/agentic-ui-generator:
+    title: Agentic UI Generator
+    position: 0
+  ai/ai-coding-assistant:
+    title: AI Coding Assistant
+    position: 1
 
 
 redirects: 
