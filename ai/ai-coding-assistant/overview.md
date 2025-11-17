@@ -24,6 +24,8 @@ To use the Telerik Blazor AI Coding Assistant, you need:
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 * @[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
+To learn how to set up and use the Telerik Blazor AI Coding Assistant, see the [Getting Started with the Telerik UI for Blazor AI Coding Assistant](slug:ai-mcp-server) article.
+
 ## Intended Use
 
 You can use the Telerik AI Coding Assistant for:
