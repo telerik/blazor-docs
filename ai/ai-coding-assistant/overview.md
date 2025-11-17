@@ -13,11 +13,7 @@ previous_url: /ai
 
 The Telerik Blazor AI Coding Assistant improves your developer experience and increases your productivity when implementing Blazor apps that include Telerik UI for Blazor. The coding assistant is an AI code generator that provides proprietary context to AI models in order to produce higher quality code samples with the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui) and API.
 
-The Telerik AI Coding Assistant is integrated in the [Telerik Blazor MCP Server](slug:ai-mcp-server)
-
-The major differences between these tools are:
-
-* The MCP server is more powerful and can handle more complex prompts that require several requests to the AI model. An MCP-enabled client like Cursor or GitHub Copilot in **Agent** mode can directly suggest changes to your app and even rebuild it to verify the new AI generated code.
+The Telerik AI Coding Assistant is integrated in the [Telerik Blazor MCP Server](slug:ai-mcp-server).
 
 ## Getting Started
 

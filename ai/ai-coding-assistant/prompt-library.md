@@ -5,7 +5,7 @@ description: Get familiar with some example prompts that show how to use the Tel
 slug: ai-prompt-library
 tags: telerik,blazor,ai
 published: True
-position: 30
+position: 2
 previous_url: /ai/prompt-library
 ---
 

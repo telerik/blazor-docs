@@ -4,7 +4,7 @@ meta_title: Telerik Blazor AI Coding Assistant Changelog
 description: Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Coding Assistant.
 slug: ai-changelog
 tags: AI, changelog, updates
-position: 10
+position: 3
 ---
 
 # Telerik Blazor AI Coding Assistant Changelog
