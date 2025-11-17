@@ -17,6 +17,8 @@ Learn about the latest changes, improvements and bug fixes in the Telerik UI for
 * Improved API descriptions for better context matching and accuracy.
 * Overall improvement of the coding assistant answers through enhanced documentation context.
 
+> [Microsoft sunset GitHub Copilot extensions](https://github.blog/changelog/2025-09-24-deprecate-github-copilot-extensions-github-apps) on November 10, 2025, in favor of the Model Context Protocol (MCP) standard.
+
 ## August, 2025 Changelog
 
 * Refactoring of internal tools leading to continuous improvements of the quality of the coding assistant.

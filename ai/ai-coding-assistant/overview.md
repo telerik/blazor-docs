@@ -5,7 +5,7 @@ description: Learn about the AI-powered developer tools that integrate with your
 slug: ai-overview
 tags: telerik,blazor,ai
 published: True
-position: 1
+position: 0
 previous_url: /ai
 ---
 

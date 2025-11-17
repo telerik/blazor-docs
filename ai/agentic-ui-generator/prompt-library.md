@@ -31,6 +31,8 @@ Here are some example prompts that demonstrate the capabilities of the Agentic U
 
 The UI generator is the main tool for building full UI flows, which coordinates all other tools to deliver complete solutions.
 
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+
 ````TEXT.skip-repl
 Create a new page using the existing top navigation and footer. In the middle, add 3 rows with 3 responsive columns each. The top row shows system health KPIs for CPU, memory, and error counts. The middle rows include a Log Stream panel, a Line Chart of API response times, and a Bar Chart of requests per service. The bottom row contains a Deployment History table, an Alerts panel, and a list of open tickets.
 ````
@@ -38,6 +40,8 @@ Create a new page using the existing top navigation and footer. In the middle, a
 ````TEXT.skip-repl
 Build a landing page similar to the automotive industry template with a hero section, feature highlights, statistics, and a call-to-action section.
 ````
+
+</div>
 
 ### Layout Assistant Prompts
 
@@ -59,6 +63,8 @@ Create a Grid component with paging, sorting, and filtering. Include column conf
 
 The Style Assistant tool generates custom styles and theme configurations for your application. Use this tool when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI.
 
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+
 ````TEXT.skip-repl
 Generate a custom theme for a corporate blue and green color scheme with high contrast accessibility requirements.
 ````
@@ -67,9 +73,13 @@ Generate a custom theme for a corporate blue and green color scheme with high co
 Create a comprehensive dark mode theme with a dark background, light text, subtle border radius on cards and buttons, and increased spacing between the UI components.
 ````
 
+</div>
+
 ### Icon Assistant Prompts
 
 The Icon Assistant tool searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this tool when you need to find and add specific icons for your UI components or design elements.
+
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
 ````TEXT.skip-repl
 Add icons suitable for the Home, Settings, and User Profile buttons in my navigation bar.
@@ -78,6 +88,8 @@ Add icons suitable for the Home, Settings, and User Profile buttons in my naviga
 ````TEXT.skip-repl
 Find appropriate icons for data visualization actions like export, print, refresh, and search in a dashboard toolbar.
 ````
+
+</div>
 
 ## See Also
 
