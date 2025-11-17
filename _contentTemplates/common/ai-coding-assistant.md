@@ -3,11 +3,11 @@ A Telerik [Subscription license](https://www.telerik.com/purchase/faq/licensing-
 #end
 
 #vs-intro
-provides automated configuration commands for the Telerik AI-powered development tools. These commands help you quickly set up the [Telerik MCP server](slug:ai-mcp-server) and [GitHub Copilot extension](slug:ai-copilot-extension) for enhanced developer productivity with Telerik UI for Blazor components.
+provides automated configuration commands for the Telerik AI-powered development tools. These commands help you quickly set up the [Telerik MCP server](slug:ai-mcp-server) for enhanced developer productivity with Telerik UI for Blazor components.
 #end
 
 #prerequisites
-* Check the tool-specific prerequisites for the [Telerik Blazor MCP Server](slug:ai-mcp-server#prerequisites) and the [Telerik Blazor extension for GitHub Copilot](slug:ai-copilot-extension#prerequisites).
+* Check the tool-specific prerequisites for the [Telerik Blazor MCP Server](slug:ai-mcp-server#prerequisites).
 #end
 
 #verify-license-key
@@ -15,7 +15,7 @@ file to verify that the `TELERIK_LICENSE_PATH` value matches your actual [Teleri
 #end
 
 #command-github-app
-command opens the [TelerikBlazor GitHub App installation page](https://github.com/apps/telerikblazor/installations/select_target) in your default browser. Then, follow the [installation instructions for the Telerik Blazor GitHub Copilot Extension](slug:ai-copilot-extension#installation).
+command opens the [TelerikBlazor GitHub App installation page](https://github.com/apps/telerikblazor/installations/select_target) in your default browser.
 #end
 
 #copilot-instructions
@@ -29,5 +29,4 @@ command generates a `copilot-instructions.md` file in the `.github` folder under
 #see-also
 * [Telerik AI Tooling Overview](slug:ai-overview)
 * [Telerik Blazor MCP Server](slug:ai-mcp-server)
-* [Telerik Blazor GitHub Copilot Extension](slug:ai-copilot-extension)
 #end

@@ -33,4 +33,3 @@ To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `C
 ## See Also
 
 * [AI Configuration in VS Code](slug:getting-started-vs-code-integration-ai-configuration)
-* [Telerik GitHub Copilot extension for Blazor](slug:ai-copilot-extension)

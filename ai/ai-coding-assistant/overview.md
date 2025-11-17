@@ -13,19 +13,11 @@ previous_url: /ai
 
 The Telerik Blazor AI Coding Assistant improves your developer experience and increases your productivity when implementing Blazor apps that include Telerik UI for Blazor. The coding assistant is an AI code generator that provides proprietary context to AI models in order to produce higher quality code samples with the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui) and API.
 
-The Telerik AI Coding Assistant is integrated in:
-
-* The [Telerik Blazor GitHub Copilot Extension](slug:ai-copilot-extension)
-* The [Telerik Blazor MCP Server](slug:ai-mcp-server)
+The Telerik AI Coding Assistant is integrated in the [Telerik Blazor MCP Server](slug:ai-mcp-server)
 
 The major differences between these tools are:
 
 * The MCP server is more powerful and can handle more complex prompts that require several requests to the AI model. An MCP-enabled client like Cursor or GitHub Copilot in **Agent** mode can directly suggest changes to your app and even rebuild it to verify the new AI generated code.
-* The responses of the GitHub Copilot extension may contain more explanations how to accomplish the task, and shorter or partial code snippets. When using the MCP server, the AI response is mostly code.
-
-> [Microsoft sunset GitHub Copilot extensions](https://github.blog/changelog/2025-09-24-deprecate-github-copilot-extensions-github-apps) on November 10, 2025, in favor of the Model Context Protocol (MCP) standard.
->
-> The Telerik and Kendo UI AI Coding Assistants are available exclusively through our [MCP servers](slug:ai-mcp-server). You can enjoy the same powerful capabilities that are delivered by a modern, open, and officially recommended standard.
 
 ## Getting Started
 
@@ -70,7 +62,7 @@ The Telerik Blazor AI Conding Assistant allows the following maximum number of r
 * Subscription licenses: virtually unlimited number of requests with a fair use threshold of 300 requests per day
 * Trial licenses: 300 requests per trial per year. Activating the same trial for a new release does not grant additional 300 requests.
 
-> All Telerik AI tools share a single request limit for your Telerik account. For example, the [Telerik Copilot extension](slug:ai-copilot-extension) and the [Telerik MCP server](slug:ai-mcp-server) both take up from the same usage quota.
+> All Telerik AI tools share a single request limit for your Telerik account. For example, the [Telerik MCP server](slug:ai-mcp-server) and the [Agentic UI Generator](slug:agentic-ui-generator-overview) both take up from the same usage quota.
 > When using the Telerik MCP server, one prompt may trigger several requests, depending on the prompt complexity.
 
 ## Privacy
@@ -87,5 +79,4 @@ Make sure to also get familiar with the terms and privacy policy of your selecte
 
 ## Next Steps
 
-* Install the [Telerik Blazor GitHub Copilot Extension](slug:ai-copilot-extension).
-* Add the [Telerik Blazor MCP Server](slug:ai-mcp-server) to an MCP-enabled client.
+* Getting Started with the [Telerik Blazor MCP Server](slug:ai-mcp-server).

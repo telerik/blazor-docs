@@ -209,4 +209,3 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 ## See Also 
 
 * [Telerik Blazor MCP Server](slug:ai-mcp-server)
-* [Telerik Blazor extension for GitHub Copilot](slug:ai-copilot-extension)

@@ -178,4 +178,4 @@ You can use the Telerik Blazor MCP server with local large language models (LLM)
 
 ## See Also 
 
-* [Telerik Blazor extension for GitHub Copilot](slug:ai-copilot-extension)
+* [Telerik Agentic UI Generator](slug:agentic-ui-generator-overview)
