@@ -6,6 +6,7 @@ slug: agentic-ui-generator-overview
 position: 0
 tags: telerik,blazor,ai,agentic,ui,generator
 published: True
+tag: new
 ---
 
 # Telerik UI for Blazor Agentic UI Generator

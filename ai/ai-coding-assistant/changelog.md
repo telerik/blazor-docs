@@ -5,6 +5,7 @@ description: Learn about the latest changes, improvements and bug fixes in the T
 slug: ai-changelog
 tags: AI, changelog, updates
 position: 3
+tag: new
 ---
 
 # Telerik Blazor AI Coding Assistant Changelog
