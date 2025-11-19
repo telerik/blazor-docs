@@ -101,6 +101,28 @@ To get the best results from the Agentic UI Generator:
 * Use the advanced tool handles when you need precise control over specific aspects.
 * Leverage existing [Telerik Design System](https://www.telerik.com/design-system/docs/) patterns for consistency.
 
+## Usage Limits
+
+Access to the Agentic UI Generator depends on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
+
+* DevCraft Complete and Ultimate Subscription
+  * These are the licenses that grant full access to the Agentic UI Generator.
+  * Include a virtually unlimited number of requests, with fair usage applied.
+  * Best for ongoing and high-volume usage.
+* All Other Licenses (including Perpetual Licenses and other Subscriptions)
+  * License holders have no access to the Agentic UI Generator by default.
+  * Require starting a [30-day trial](https://www.telerik.com/try/ui-for-blazor) to access the Agentic UI Generator.
+  * After the trial expires, access is no longer available unless a DevCraft Complete or Ultimate Subscription is purchased.
+* Trial License
+  * Automatically provides a 30-day trial for the AI products when starting a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
+  * Trial licenses grant access to both the [AI Coding Assistant](slug:ai_mcp_server) and the Agentic UI Generator.
+  * Includes a virtually unlimited number of requests, with fair usage applied.
+  * Reactivating the same trial for a new release does not grant additional requests.
+  * Designed for evaluating the feature before purchasing.
+
+> All Telerik AI tools share the same fair usage quota for your Telerik account. For example, the [AI Coding Assistant](slug:ai-mcp-server) and the Agentic UI Generator both take up from the same usage quota.
+> When using the Agentic UI Generator, one prompt may trigger several requests, depending on the prompt complexity.
+
 ## See Also
 
 * [Getting Started with the Agentic UI Generator](slug:agentic-ui-generator-getting-started)
