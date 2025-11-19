@@ -1,9 +1,9 @@
 ---
 title: Events
 page_title: TabStrip - Events
-description: Events of the Tab Strip for Blazor.
+description: Learn about the events and event arguments of the Telerik TabStrip for Blazor.
 slug: tabstrip-events
-tags: telerik,blazor,tab strip,events
+tags: telerik, blazor, tabstrip, events
 published: True
 position: 20
 ---
@@ -19,12 +19,13 @@ This article explains the events available in the Telerik TabStrip for Blazor:
 
 The `ActiveTabIdChanged` event was added in [version 9.0.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/telerik-ui-for-blazor-9-0-0-(2025-q2)). It fires when the user changes the active tab. The event handler receives the new tab ID of type `string` as an argument. If the `Id` parameter of the `TabStripTab` is not set, the component will generate one automatically.
 
-The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection).
+The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection). Update the `ActiveTabId` parameter value manually in the `ActiveTabIdChanged` handler.
 
->caption Handle the tab ID selection changed event
+>caption Handle the TabStrip ActiveTabIdChanged event
 
 ````RAZOR
-<TelerikTabStrip ActiveTabIdChanged="@HandleTabIdChange">
+<TelerikTabStrip ActiveTabId="@TabStripActiveTabId"
+                 ActiveTabIdChanged="@TabStripActiveTabIdChanged">
     <TabStripTab Title="First" Id="tab1">
         First tab content. Click through the tabs.
     </TabStripTab>
@@ -36,58 +37,31 @@ The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` p
     </TabStripTab>
 </TelerikTabStrip>
 
-@Result
+<p>The current active tab is <code>@TabStripActiveTabId</code></p>
 
 @code {
-    private string Result { get; set; } = string.Empty;
+    private string TabStripActiveTabId { get; set; } = "tab1";
 
-    private void HandleTabIdChange(string tabId)
+    private void TabStripActiveTabIdChanged(string newTabId)
     {
-        Result = $"The current tab ID is {tabId}";
+        TabStripActiveTabId = newTabId;
     }
 }
 ````
 
 ## ActiveTabIndexChanged 
 
-The `ActiveTabIndexChanged` event fires when the user changes the tab that is currently shown. The event handler receives the new index as an argument.
+The `ActiveTabIndexChanged` event fires when the user selects another tab. The event handler receives the new zero-based index as an argument. Update the `ActiveTabIndex` parameter value manually in the `ActiveTabIndexChanged` handler.
 
-If you remove programmatically the currently active tab, when it disposes, the event will fire with index `-1` as there will be no selected tab anymore.
+If you programmatically remove the currently active tab, the `ActiveTabIndexChanged` event fires with index `-1` as there is no selected tab anymore.
 
-> The `ActiveTabIndexChanged` event and `ActiveTabIndex` parameter will be deprecated in a future releases. It is recommended to use the [`ActiveTabId`](slug:tabstrip-tabs-collection) parameter with [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event instead.
+> The `ActiveTabIndexChanged` event and `ActiveTabIndex` parameter will be deprecated in a future product version. Use the [`ActiveTabId`](slug:tabstrip-tabs-collection) parameter with [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event instead.
 
->caption Handle the tab selection changed event
-
-````RAZOR
-@result
-
-<TelerikTabStrip ActiveTabIndexChanged="@TabChangedHandler">
-	<TabStripTab Title="First">
-		First tab content. Click through the tabs.
-	</TabStripTab>
-	<TabStripTab Title="Second">
-		Second tab content.
-	</TabStripTab>
-	<TabStripTab Title="Third">
-		Third tab content.
-	</TabStripTab>
-</TelerikTabStrip>
-
-@code {
-    string result {get;set;}
-    void TabChangedHandler(int newIndex)
-    {
-        result = $"current tab {newIndex} selected on {DateTime.Now}";
-    }
-}
-````
-
->caption Cancel the event
+>caption Handle the TabStrip ActiveTabIndexChanged event
 
 ````RAZOR
-@* If the tab strip is bound to a field in the view model, when you do not update that field in the event handler, you will effectively cancel the event *@
-
-<TelerikTabStrip ActiveTabIndex="@ActiveTabIndex" ActiveTabIndexChanged="@TabChangedHandler">
+<TelerikTabStrip ActiveTabIndex="@TabStripActiveTabIndex"
+                 ActiveTabIndexChanged="@TabStripActiveTabIndexChanged">
     <TabStripTab Title="First">
         First tab content. Click through the tabs.
     </TabStripTab>
@@ -99,16 +73,46 @@ If you remove programmatically the currently active tab, when it disposes, the e
     </TabStripTab>
 </TelerikTabStrip>
 
+<p>The current tab index is <code>@TabStripActiveTabIndex</code></p>
+
 @code {
-    int ActiveTabIndex { get; set; }
-    
-    void TabChangedHandler(int newIndex)
+    private int TabStripActiveTabIndex { get; set; }
+
+    private void TabStripActiveTabIndexChanged(int newTabIndex)
     {
-        // this will update the view-model for all items but the third, 
-        // effectively cancelling the event for the third tab
-        if (newIndex != 2)
+        TabStripActiveTabIndex = newTabIndex;
+    }
+}
+````
+
+If you do not update the `ActiveTabIndex` parameter value in the `ActiveTabIndexChanged` handler, the selected tab will not change, so the event will be cancelled.
+
+>caption Cancel the ActiveTabIndexChanged event
+
+````RAZOR
+<TelerikTabStrip ActiveTabIndex="@TabStripActiveTabIndex"
+                 ActiveTabIndexChanged="@TabStripActiveTabIndexChanged">
+    <TabStripTab Title="First">
+        First tab content. Click through the tabs.
+    </TabStripTab>
+    <TabStripTab Title="Second">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Title="Third">
+        Third tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+<p>The current tab index is <code>@TabStripActiveTabIndex</code></p>
+
+@code {
+    private int TabStripActiveTabIndex { get; set; }
+
+    private void TabStripActiveTabIndexChanged(int newTabIndex)
+    {
+        if (newTabIndex != 2)
         {
-            ActiveTabIndex = newIndex;
+            TabStripActiveTabIndex = newTabIndex;
         }
     }
 }
@@ -116,5 +120,5 @@ If you remove programmatically the currently active tab, when it disposes, the e
 
 ## See Also
 
-  * [TabStrip Overview](slug:components/tabstrip/overview)
-  * [Dynamic Tabs](slug:tabstrip-tabs-collection)
+* [TabStrip Overview](slug:components/tabstrip/overview)
+* [Dynamic Tabs](slug:tabstrip-tabs-collection)
