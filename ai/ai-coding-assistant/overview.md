@@ -20,7 +20,7 @@ The Telerik AI Coding Assistant is integrated in the [Telerik Blazor MCP Server]
 To use the Telerik Blazor AI Coding Assistant, you need:
 
 * A [Telerik user account](https://www.telerik.com/account/).
-* An active [DevCraft or Telerik UI for Blazor license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/blazor-ui).
+* An active [DevCraft or Telerik UI for Blazor subscription license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 * @[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
@@ -56,9 +56,24 @@ You can also use the AI Coding Assistant for [Telerik Document Processing](https
 
 The Telerik Blazor AI Conding Assistant allows the following maximum number of requests, depending on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
 
-* Perpetual licenses: include 50 requests per year to let you explore and try out the AI Coding Assistant. If you'd like ongoing, higher-volume access, switch to a Subscription license.
-* Subscription licenses: virtually unlimited number of requests with a fair use threshold of 300 requests per day
-* Trial licenses: 300 requests per trial per year. Activating the same trial for a new release does not grant additional 300 requests.
+### Subscription Licenses
+
+* A Subscription is the primary license that grants full access to the AI Coding Assistant.
+* Includes a virtually unlimited number of requests, with fair usage applied
+
+### Perpetual Licenses
+
+* Perpetual license holders have no access to the AI Coding Assistant by default.
+* You can start a [30-day trial](https://www.telerik.com/try/ui-for-blazor) to access the AI Coding Assistant.
+* After the trial expires, access is no longer available unless the [Perpetual license is converted to a Subscription license](https://www.telerik.com/account/support-center/contact-us/account-support).
+
+### Trial Licenses
+
+* A [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) automatically starts a 30-day trial for the AI tools.
+* Trial licenses grant access to both the AI Coding Assistant and the [Agentic UI Generator](slug:agentic_ui_generator_overview).
+* The number of requests is virtually unlimited, with fair use policy applied.
+* Reactivating the same trial for a new release does not grant additional requests.
+* Designed for evaluating the feature before purchasing.
 
 > All Telerik AI tools share a single request limit for your Telerik account. For example, the [Telerik MCP server](slug:ai-mcp-server) and the [Agentic UI Generator](slug:agentic-ui-generator-overview) both take up from the same usage quota.
 > When using the Telerik MCP server, one prompt may trigger several requests, depending on the prompt complexity.
