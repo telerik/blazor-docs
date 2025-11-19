@@ -70,7 +70,7 @@ The Telerik Blazor AI Conding Assistant allows the following maximum number of r
 ### Trial Licenses
 
 * A [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) automatically starts a 30-day trial for the AI tools.
-* Trial licenses grant access to both the AI Coding Assistant and the [Agentic UI Generator](slug:agentic_ui_generator_overview).
+* Trial licenses grant access to both the AI Coding Assistant and the [Agentic UI Generator](slug:agentic-ui-generator-overview).
 * The number of requests is virtually unlimited, with fair use policy applied.
 * Reactivating the same trial for a new release does not grant additional requests.
 * Designed for evaluating the feature before purchasing.

@@ -115,7 +115,7 @@ Access to the Agentic UI Generator depends on your [Telerik license type](https:
   * After the trial expires, access is no longer available unless the [Perpetual license is converted to a Subscription license](https://www.telerik.com/account/support-center/contact-us/account-support).
 * Trial License
   * A [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) automatically starts a 30-day trial for the AI tools.
-  * Trial licenses grant access to both the [AI Coding Assistant](slug:ai_mcp_server) and the Agentic UI Generator.
+  * Trial licenses grant access to both the [AI Coding Assistant](slug:ai-mcp-server) and the Agentic UI Generator.
   * Includes a virtually unlimited number of requests, with fair usage applied.
   * Reactivating the same trial for a new release does not grant additional requests.
   * Designed for evaluating the feature before purchasing.
