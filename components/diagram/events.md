@@ -51,6 +51,8 @@ The `OnShapeClick` event fires when the user clicks on a shape. The event argume
 }
 ````
 
+Use the [Diagram JSON state](slug:diagram-overview#define-shapes-and-connections-in-json) if you need to [make changes to the Diagram configuration on shape click](slug:diagram-kb-change-shape-color-onshapeclick).
+
 ## Example
 
 The following example demonstrates all Diagram events in action.
