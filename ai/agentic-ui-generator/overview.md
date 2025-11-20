@@ -111,7 +111,7 @@ Access to the Agentic UI Generator depends on your [Telerik license type](https:
   * Best for ongoing and high-volume usage.
 * All Other Licenses (including Perpetual Licenses and other Subscriptions)
   * License holders have no access to the Agentic UI Generator by default.
-  * Require starting a [30-day trial](https://www.telerik.com/try/ui-for-blazor) to access the Agentic UI Generator.
+  * Require starting a [30-day AI Tools trial](https://www.telerik.com/try/agentic-ui-generator) to access the Agentic UI Generator.
   * After the trial expires, access is no longer available unless the [Perpetual license is converted to a Subscription license](https://www.telerik.com/account/support-center/contact-us/account-support).
 * Trial License
   * A [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) automatically starts a 30-day trial for the AI tools.
