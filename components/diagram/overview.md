@@ -100,7 +100,10 @@ Optionally, you can also define:
 * Shape `width` and `height` as numbers.
 * Connection `from.connector` and `to.connector` that determine which shape side the connection touches (`"Top"`, `"Right"`, `"Bottom"`, `"Left"`).
 
-The Diagram provides a `SaveAsJsonAsync()` method that returns the current shape and connection state as a JSON string. This allows you to [persist user changes](slug:diagram-kb-change-shape-color-onshapeclick) or see how to define more advanced shape and connection settings in JSON format.
+The Diagram provides a `SaveAsJsonAsync()` method that returns the current shape and connection state as a JSON string. This allows you to:
+
+* [Persist user changes and apply them to the component in a future user session](slug:diagram-kb-change-shape-color-onshapeclick).
+* Review the JSON structure and see how to define all possible shape and connection settings in JSON format.
 
 >caption Loading and saving the Diagram shape and connection state
 
