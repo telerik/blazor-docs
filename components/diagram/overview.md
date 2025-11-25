@@ -228,6 +228,38 @@ The Diagram allows users to zoom the graph in and out for better perception. The
                 MinZoom="0" />
 ````
 
+## Pan
+
+The Diagram content may overflow the component boundaries if there are a lot of shapes or if the user zooms in. By default, the Diagram allows users to pan the content by holding the **Ctrl** key and dragging. The following code snippet shows the relevant parameters together with their default values.
+
+When both panning and [selection](#select) are enabled, make sure the two features use a different `Key`.
+
+>caption Pan-related Diagram parameters
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramPannable Enabled="true" Key="@DiagramPannableKey.Ctrl" />
+</TelerikDiagram>
+````
+
+## Select
+
+Users can select a single shape or connection with a click. The Diagram also supports multiple selection through dragging a rectangular marquee. The following code snippet shows the relevant parameters together with their default values.
+
+Once the user selects some shapes and connections, they can drag them to another position or remove them with the **Del** key.
+
+When both [panning](#pan) and selection are enabled, make sure the two features use a different `Key`.
+
+>caption Selection-related Diagram parameters
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramSelectable Enabled="true" Multiple="true" Key="@DiagramSelectableKey.None">
+        <DiagramSelectableStroke Color="black" DashType="@DashType.Dash" Width="1" />
+    </DiagramSelectable>
+</TelerikDiagram>
+````
+
 ## Events
 
 The Telerik Diagram fires events that enable the app to detect and react to user interactions with the component. Find out more about the [Diagram events and event arguments](slug:diagram-events).
