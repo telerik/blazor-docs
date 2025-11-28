@@ -79,9 +79,11 @@ The code snippet below uses 3 stacked columns. The first one is twice as wide as
 
 ## Integration with Other Features
 
-When the Grid is in `Stacked` data layout mode, it does not render column headers. As a result, column features like sorting, filtering, grouping, locking are not available through the classic Grid UI. Instead, use [ToolBar command tools](slug:components/grid/features/toolbar#command-tools) to enable the same functionality through different UI.
+In `Stacked` data layout mode the Grid rendering is different and some features use different UI and UX:
 
-Hierarchy relies on an expand/collapse button, which is below the stacked table row content.
+* The Grid does not render column headers. Column features like sorting, filtering, grouping, and locking require [ToolBar command tools](slug:components/grid/features/toolbar#command-tools).
+* The Grid does not render a command column. Combine [Grid row selection](slug:grid-selection-row) with [Toolbar command tools for the `Delete`, `Edit`, `Save`, and `Cancel` command buttons](slug:components/grid/features/toolbar#command-tools).
+* Hierarchy relies on an expand/collapse button, which renders below the stacked table row content.
 
 ## Example
 
@@ -89,7 +91,7 @@ The following sample shows how to:
 
 * Enable and disable column stacking, depending on the viewport width.
 * Display 1 or 2 stacked columns, depending on the viewport width.
-* Render ToolBar tools for column operations only when the Grid is in `Stacked` data layout mode.
+* Render ToolBar tools for column and edit operations only when the Grid is in `Stacked` data layout mode.
 
 >caption Using stacked data layout mode in the Blazor Grid
 
@@ -125,6 +127,9 @@ The following sample shows how to:
             <GridToolBarFilterTool>Filter</GridToolBarFilterTool>
             <GridToolBarColumnChooserTool>Columns</GridToolBarColumnChooserTool>
             <GridToolBarGroupTool>Group</GridToolBarGroupTool>
+            <GridToolBarEditTool>Edit</GridToolBarEditTool>
+            <GridToolBarSaveEditTool>Save</GridToolBarSaveEditTool>
+            <GridToolBarCancelEditTool>Cancel</GridToolBarCancelEditTool>
         }
     </GridToolBar>
     <GridColumns>
