@@ -36,6 +36,8 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Sort | `GridToolBarSortTool` | A toggle button that opens a list of the sortable columns. Click a column to sort by it. On mobile devices, the popup renders as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
 | SearchBox | `GridToolBarSearchBoxTool` | A [searchbox that filters multiple string columns](slug:grid-searchbox) simultaneously. |
 
+The **Edit** command button is disabled if there is no [selected Grid row](slug:grid-selection-row). The **Save** and **Cancel** buttons are disabled when there is no row in edit mode.
+
 ### Layout Tools
 
 | Tool Name | Tool Tag | Description |
@@ -84,45 +86,16 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
             <TelerikButton OnClick="@OnToolbarCustomClick">Custom Grid Tool</TelerikButton>
         </GridToolBarCustomTool>
 
-        <GridToolBarAddTool>
-            Add a product
-        </GridToolBarAddTool>
-
-        <GridToolBarCsvExportTool>
-            Export to CSV
-        </GridToolBarCsvExportTool>
-
-        <GridToolBarExcelExportTool>
-            Export to Excel
-        </GridToolBarExcelExportTool>
-
-        <GridToolBarFilterTool>
-            Filter
-        </GridToolBarFilterTool>
-
-        <GridToolBarSortTool>
-            Sort
-        </GridToolBarSortTool>
-
-        <GridToolBarGroupTool>
-            Group
-        </GridToolBarGroupTool>
-
-        <GridToolBarEditTool>
-            Edit
-        </GridToolBarEditTool>
-
-        <GridToolBarSaveEditTool>
-            Save
-        </GridToolBarSaveEditTool>
-
-        <GridToolBarCancelEditTool>
-            Cancel
-        </GridToolBarCancelEditTool>
-
-        <GridToolBarDeleteTool>
-            Delete
-        </GridToolBarDeleteTool>
+        <GridToolBarAddTool>Add a product</GridToolBarAddTool>
+        <GridToolBarCsvExportTool>Export to CSV</GridToolBarCsvExportTool>
+        <GridToolBarExcelExportTool>Export to Excel</GridToolBarExcelExportTool>
+        <GridToolBarFilterTool>Filter</GridToolBarFilterTool>
+        <GridToolBarSortTool>Sort</GridToolBarSortTool>
+        <GridToolBarGroupTool>Group</GridToolBarGroupTool>
+        <GridToolBarEditTool>Edit</GridToolBarEditTool>
+        <GridToolBarSaveEditTool>Save</GridToolBarSaveEditTool>
+        <GridToolBarCancelEditTool>Cancel</GridToolBarCancelEditTool>
+        <GridToolBarDeleteTool>Delete</GridToolBarDeleteTool>
 
         <GridToolBarSpacerTool />
 
@@ -141,7 +114,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 </TelerikGrid>
 
 @code {
-    private List<Person> GridData { get; set; }
+    private List<Person> GridData { get; set; } = new();
     private IEnumerable<Person> SelectedPeople { get; set; } = Enumerable.Empty<Person>();
 
     private void OnToolbarCustomClick()
@@ -151,12 +124,11 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
     protected override void OnInitialized()
     {
-        var data = new List<Person>();
         var rand = new Random();
 
         for (int i = 0; i < 50; i++)
         {
-            data.Add(new Person()
+            GridData.Add(new Person()
             {
                 EmployeeId = i,
                 Name = "Employee " + i.ToString(),
@@ -164,38 +136,37 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
                 AgeInYears = 20
             });
         }
-        GridData = new List<Person>(data);
     }
 
     private void CreateItem(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as Person;
+        var createdItem = (Person)args.Item;
 
-        argsItem.EmployeeId = GridData.Count + 1;
+        createdItem.EmployeeId = GridData.Count + 1;
 
-        GridData.Insert(0, argsItem);
+        GridData.Insert(0, createdItem);
     }
 
     private void UpdateItem(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as Person;
-        var itemForEdit = GridData.FirstOrDefault(i => i.EmployeeId == argsItem.EmployeeId);
+        var updatedItem = (Person)args.Item;
+        var itemForEdit = GridData.FirstOrDefault(i => i.EmployeeId == updatedItem.EmployeeId);
 
         if (itemForEdit != null)
         {
-            itemForEdit.AgeInYears = argsItem.AgeInYears;
-            itemForEdit.HireDate = argsItem.HireDate;
-            itemForEdit.Name = argsItem.Name;
+            itemForEdit.AgeInYears = updatedItem.AgeInYears;
+            itemForEdit.HireDate = updatedItem.HireDate;
+            itemForEdit.Name = updatedItem.Name;
         }
     }
     
     private void DeleteItem(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as Person;
+        var deletedItem = (Person)args.Item;
 
-        if (GridData.Contains(argsItem))
+        if (GridData.Contains(deletedItem))
         {
-            GridData.Remove(argsItem);
+            GridData.Remove(deletedItem);
         }
     }
 
@@ -203,7 +174,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
     {
         public int? EmployeeId { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         public int? AgeInYears { get; set; }
 
