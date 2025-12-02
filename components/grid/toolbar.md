@@ -36,7 +36,7 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Sort | `GridToolBarSortTool` | A toggle button that opens a list of the sortable columns. Click a column to sort by it. On mobile devices, the popup renders as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
 | SearchBox | `GridToolBarSearchBoxTool` | A [searchbox that filters multiple string columns](slug:grid-searchbox) simultaneously. |
 
-The `Edit` command tool is disabled if there is no [selected Grid row](slug:grid-selection-row). The `Save` and `Cancel` tools are disabled when there is no row in edit mode.
+The **Edit** command button is disabled if there is no [selected Grid row](slug:grid-selection-row). The **Save** and **Cancel** buttons are disabled when there is no row in edit mode.
 
 ### Layout Tools
 
