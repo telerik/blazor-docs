@@ -246,7 +246,7 @@ When both panning and [selection](#select) are enabled, make sure the two featur
 
 Users can select a single shape or connection with a click. The Diagram also supports multiple selection through dragging a rectangular marquee. The following code snippet shows the relevant parameters together with their default values.
 
-Once the user selects some shapes and connections, they can drag them to another position or remove them with the **Del** key.
+Once the user selects some shapes and connections, they can drag them to another position or remove them with the `Del` key.
 
 When both [panning](#pan) and selection are enabled, make sure the two features use a different `Key`.
 
