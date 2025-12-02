@@ -82,7 +82,7 @@ The code snippet below uses 3 stacked columns. The first one is twice as wide as
 In `Stacked` data layout mode the Grid rendering is different and some features use different UI and UX:
 
 * The Grid does not render column headers. Column features like sorting, filtering, grouping, and locking require [ToolBar command tools](slug:components/grid/features/toolbar#command-tools).
-* The Grid does not render a command column. Combine [Grid row selection](slug:grid-selection-row) with [Toolbar command tools for the **Delete**, **Edit**, **Save**, and **Cancel** command buttons](slug:components/grid/features/toolbar#command-tools).
+* The Grid does not render a command column. Combine [Grid row selection](slug:grid-selection-row) with [Toolbar command tools for the **Delete**, **Edit**, **Save**, and **Cancel** buttons](slug:components/grid/features/toolbar#command-tools).
 * Hierarchy relies on an expand/collapse button, which renders below the stacked table row content.
 
 ## Example
