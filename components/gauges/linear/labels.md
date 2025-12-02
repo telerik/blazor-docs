@@ -20,6 +20,8 @@ You can customize the appearance of the labels rendered on the [scale](slug:line
 
 * [Additional Customization](#additional-customization)
 
+The LinearGauge scale width decreases when the `Min` and `Max` label length increases. See how to [define the same LinearGauge scale widths with different `Min` and `Max` values in multiple Gauge instances](slug:lineargauge-kb-align-gauge-widths-with-different-min-max).
+
 ## Format
 
 The `Format` (`string`) parameter allows you to customize the rendering of the labels by using the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings" target="_blank">standard numeric format strings</a>. You can set the values of the labels to showcase, for example, currency, percentage, and so on.
