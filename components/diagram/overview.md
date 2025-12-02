@@ -230,7 +230,7 @@ The Diagram allows users to zoom the graph in and out for better perception. The
 
 ## Pan
 
-The Diagram content may overflow the component boundaries if there are a lot of shapes or if the user zooms in. By default, the Diagram allows users to pan the content by holding the **Ctrl** key and dragging. The following code snippet shows the relevant parameters together with their default values.
+The Diagram content may overflow the component boundaries if there are a lot of shapes or if the user zooms in. By default, the Diagram allows users to pan the content by holding the `Ctrl` key and dragging. The following code snippet shows the relevant parameters together with their default values.
 
 When both panning and [selection](#select) are enabled, make sure the two features use a different `Key`.
 
