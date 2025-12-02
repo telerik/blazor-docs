@@ -54,9 +54,9 @@ The ranges are used to visually distinguish particular values on the scale. [Rea
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-lineargauge">` element. |
-| `Width` | `string` | Controls the width of the Linear Gauge. |
-| `Height` | `string` | Controls the height of the Linear Gauge. |
+| `Class` | `string` | A custom CSS class for the `<div class="k-lineargauge">` element. |
+| `Width` | `string` | The width of the Linear Gauge. The [scale](slug:linear-gauge-scale) width is smaller and [depends on the length of its `Min` and `Max` values](slug:lineargauge-kb-align-gauge-widths-with-different-min-max). |
+| `Height` | `string` | The height of the Linear Gauge. |
 | `Transitions` | `bool?` | Controls if the Linear Gauge uses animations for its value changes. |
 | `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
 
