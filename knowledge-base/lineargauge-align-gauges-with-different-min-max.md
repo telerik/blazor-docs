@@ -41,6 +41,8 @@ To achieve consistent width of multiple LinearGauges, set larger `Width` to the 
 >caption Align linear Gauges with different Min and Max values
 
 ````RAZOR
+<div class="example-container">
+
 Width Correction Multiplier:
 <TelerikNumericTextBox @bind-Value="@WidthMultiplier"
                        Min="@(0.1m)" Max="@(10m)"
@@ -134,7 +136,9 @@ Gauge Widths:
     </TelerikLinearGauge>
 </div>
 
-<div style="position:absolute;top:125px;left:105px;width:390px;height:230px;border:solid red;border-width:0 1px;"></div>
+<div class="alignment-checker"></div>
+
+</div>
 
 <style>
     /* Use monospace font for easier and consistent width adjustments. */
@@ -142,14 +146,23 @@ Gauge Widths:
         font-family: monospace !important;
     }
 
-    body {
-        padding: 0 !important;
+    .example-container {
+        position: relative;
     }
     .gauge-container {
         display: flex;
         justify-content: center;
         width: 600px;
         background: lime;
+    }
+    .alignment-checker {
+        position: absolute;
+        top: 125px;
+        left: 105px;
+        width: 390px;
+        height: 230px;
+        border: solid red;
+        border-width: 0 1px;
     }
     div.k-gauge {
         background: yellow;
