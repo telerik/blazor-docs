@@ -41,7 +41,7 @@ This section contains information about how to set up the Agentic UI Generator i
 ````JSON.skip-repl
 {
   "servers": {
-    "telerik-ui-generator": {
+    "blazor-ui-generator": {
       "type": "http",
       "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
       "headers": {
@@ -54,7 +54,7 @@ This section contains information about how to set up the Agentic UI Generator i
 
 To enable global automatic discovery of the Agentic UI Generator in Visual Studio, add the above `.mcp.json` file to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
 
-> Once the MCP server configuration is added, make sure that the `telerik-ui-generator` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking the wrench icon 🔧 at the bottom of the Copilot Window. The Telerik Agentic UI Generator may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
+> Once the MCP server configuration is added, make sure that the `blazor-ui-generator` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking the wrench icon 🔧 at the bottom of the Copilot Window. The Telerik Agentic UI Generator may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
 
 #### Visual Studio Code
 
@@ -77,7 +77,7 @@ Make sure that [`chat.mcp.enabled`](vscode://settings/chat.mcp.enabled) is enabl
 ````JSON.skip-repl
 {
   "servers": {
-    "telerik-ui-generator": {
+    "blazor-ui-generator": {
       "type": "http",
       "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
       "headers": {
