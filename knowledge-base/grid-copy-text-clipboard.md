@@ -38,8 +38,9 @@ To achieve this, implement a context menu for the Grid and include a "Copy to Cl
 @using System.Collections.ObjectModel
 @inject IJSRuntime JS
 
-<TelerikEditor @bind-Value="@TheEditorValue" Width="650px" Height="400px"></TelerikEditor>
-
+<TelerikTextBox @bind-Value="@TheEditorValue" Placeholder="Paste text here.." Width="300px"></TelerikTextBox>
+<br/>
+<br/>
 <TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems"
                     OnClick="@((MenuItem item) => ContextMenuClickHandler(item))">
 </TelerikContextMenu>
@@ -60,14 +61,6 @@ To achieve this, implement a context menu for the Grid and include a "Copy to Cl
     private SampleData SelectedPerson { get; set; }
     private TelerikContextMenu<MenuItem> ContextMenuRef { get; set; }
     private TelerikGrid<SampleData> GridRef { get; set; }
-
-    public class MenuItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public Action Action { get; set; }
-        public string CommandName { get; set; }
-    }
 
     private async Task OnContextMenu(GridRowClickEventArgs args)
     {
@@ -126,6 +119,14 @@ To achieve this, implement a context menu for the Grid and include a "Copy to Cl
         }
     }
 
+    public class MenuItem
+    {
+        public string Text { get; set; }
+        public ISvgIcon Icon { get; set; }
+        public Action Action { get; set; }
+        public string CommandName { get; set; }
+    }
+
     public class SampleData
     {
         public int ID { get; set; }
@@ -138,3 +139,5 @@ To achieve this, implement a context menu for the Grid and include a "Copy to Cl
 
 * [Grid Overview](slug:grid-overview)
 * [Context Menu Overview](slug:contextmenu-overview)
+* [Grid Context Menu Integration Demo](https://demos.telerik.com/blazor-ui/contextmenu/integration)
+* [Grid Context Menu Integration Documentation](slug:contextmenu-integration)
