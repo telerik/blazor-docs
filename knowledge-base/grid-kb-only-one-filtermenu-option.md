@@ -6,22 +6,24 @@ page_title: Only one filter option in FilterMenu
 slug: grid-kb-only-one-filtermenu-option
 position: 
 tags: 
-ticketid: 1451755, 1551245
+ticketid: 1451755, 1551245, 1705873
 res_type: kb
 ---
 
 ## Environment
+
 <table>
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Blazor</td>
+			<td>Grid for Blazor, <br /> TreeList for Blazor</td>
 		</tr>
 	</tbody>
 </table>
 
 
 ## Description
+
 I want simple filtering options in the Grid filter menu - both for my uses and my backend. How do I remove the extra conditions so it behaves like the filter row and does not have extra and/or operators?
 
 >caption Before and after results
@@ -33,70 +35,50 @@ I want simple filtering options in the Grid filter menu - both for my uses and m
 There are two options:
 
 * Use a [custom filter template](slug:grid-templates-filter). It provides full flexibility over the interface and building the filter descriptor.
-* Use custom CSS to [override the theme](slug:themes-override) and hide the elements that provide the and/or secondary conditions. The example below demonstrates this approach. Note that **the required CSS is different for different UI for Blazor versions**:
+* Use custom CSS to [override the theme](slug:themes-override) and hide the elements that provide the and/or secondary conditions. The example below demonstrates this approach.
 
-<div class="skip-repl"></div>
-````CSS
-<style>
-    /* UI for Blazor 3.0+ */
-    .k-filter-menu-container > span:nth-child(n+3) {
-        display: none;
-    }
-    /* UI for Blazor 2.30- */
-    .k-filter-menu-container > div > :nth-child(n+3) {
-        display: none;
-    }
-</style>
+````CSS.skip-repl
+.k-filter-menu-container > .k-button-group,
+.k-filter-menu-container > span:nth-child(n+3) {
+	display: none;
+}
 ````
 
->caption Hide And/Or filter options in the Grid/TreeList FilterMenu with CSS
+>caption Hide And/Or ButtonGroup and second filter option in the Grid/TreeList FilterMenu with CSS
 
 ````RAZOR
-@* Hide the secondary filter interface with CSS *@
-
 <TelerikGrid Data="@GridData"
-             Pageable="true"
-             PageSize="5"
-             Sortable="true"
              FilterMode="GridFilterMode.FilterMenu">
     <GridColumns>
-        <GridColumn Field=@nameof(Product.Name) Title="Product Name" />
-        <GridColumn Field=@nameof(Product.Price) Title="Price" />
-        <GridColumn Field=@nameof(Product.ReleaseDate) Title="Release Date" />
-        <GridColumn Field=@nameof(Product.Discontinued) Title="Discontinued" />
+        <GridColumn Field="@nameof(Product.Name)" Title="Product" />
+        <GridColumn Field="@nameof(Product.Price)" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" />
     </GridColumns>
 </TelerikGrid>
 
 <style>
-
-    /* UI for Blazor 3.0+ */
+    .k-filter-menu-container > .k-button-group,
     .k-filter-menu-container > span:nth-child(n+3) {
         display: none;
     }
-
-    /* UI for Blazor 2.30- */
-    .k-filter-menu-container > div > :nth-child(n+3) {
-        display: none;
-    }
-
 </style>
 
 @code {
-    List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        GridData = new List<Product>();
-        var rnd = new Random();
+        var rnd = Random.Shared;
 
-        for (int i = 1; i <= 15; i++)
+        for (int i = 1; i <= 7; i++)
         {
             GridData.Add(new Product()
             {
-                ID = i,
-                Name = "Product " + i.ToString(),
-                Price = (decimal)rnd.Next(1, 100),
-                ReleaseDate = new DateTime(rnd.Next(2020, 2023), rnd.Next(1, 13), rnd.Next(1, 28)),
+                Id = i,
+                Name = $"Product {i}",
+                Price = rnd.Next(1, 100) * 1.23m,
+                ReleaseDate = DateTime.Today.AddDays(-rnd.Next(1, 3650)),
                 Discontinued = i % 4 == 0
             });
         }
@@ -104,8 +86,8 @@ There are two options:
 
     public class Product
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
         public bool Discontinued { get; set; }
