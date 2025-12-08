@@ -19,6 +19,7 @@ The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use featur
 
 The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a highly customizable Grid that delivers lighting fast performance.
 
+> tip **Jumpstart Your Grid** <br/><br/> With the Agentic UI Generator, you can build components and layouts using natural language prompts — directly inside AI-powered IDEs like VS Code and Cursor. Get intelligent assistance with component implementation, styling, layout design, and iconography powered by our documentation and APIs. <br/><br/>[Try the Agentic UI Generator](slug:agentic-ui-generator-getting-started)
 
 ## Creating Blazor Grid
 
