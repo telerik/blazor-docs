@@ -37,23 +37,21 @@ For dynamic positioning of the mentions list, set the [`EditMode`](slug:Telerik.
 
 ### Setting up WebPack and Installing proseMirror-mentions
 
-1. Create a directory at the root of your project which will contain your JavaScript module (e.g. `npmjs`). All of the next steps will be done inside that directory
-2. Setup the Javascript project by running:
+1. Setup the Javascript project by running at the root of your project:
     ````SH.skip-repl
     npm init -y
     ````
     > This command creates a `package.json` file containing the project's configuration. The `-y` flag accepts all defaults for simplicity. In a real world application, consider running `npm init` without the flag to configure settings interactively.
-3. Install a JavaScript bundler. In this example we will use [webpack](https://webpack.js.org), so run:
+2. Install a JavaScript bundler. In this example we will use [webpack](https://webpack.js.org), so run:
     ````SH.skip-repl
     npm install webpack webpack-cli --save-dev
     ````
-4. Configure the build script in the `scripts` section of `package.json`: 
+3. Configure the build script in the `scripts` section of `package.json` (in this example all of our Javascript files will go into `wwwroot/js`): 
     ````JSON.skip-repl
     "scripts": {
-        "build": "webpack ./src/index.js --output-path ../wwwroot/js --output-filename index.bundle.js"
+        "build": "webpack ./wwwroot/js/index.js --output-path ./wwwroot/js --output-filename index.bundle.js"
     },
     ````
-    > In this example all of our Javascript files will go into `npmjs/src`
 5. Update the module type in `package.json`:
     ````JSON.skip-repl
     "type": module"
@@ -63,7 +61,8 @@ For dynamic positioning of the mentions list, set the [`EditMode`](slug:Telerik.
     ````SH.skip-repl
     npm install prosemirror-mentions
     ````
-7. Build the JavaScript bundle by running:
+7. Create a file named `index.js` in your project's `wwwroot/js` directory and paste the contents from the **JavaScript Code** section below.
+8. Build the JavaScript bundle by running:
     ````SH.skip-repl
     npm run build
     ````
@@ -89,19 +88,6 @@ After building the JavaScript bundle, you need to include it in your Blazor appl
 </body>
 </html>
 ````
-
-**Component Level (Component.razor):**
-If you prefer to load the script only when the component is used, include it in your component with the `defer` attribute:
-
-<div class="skip-repl"></div>
-
-````razor Component.razor
-<!-- component content -->
-
-<script src="js/index.bundle.js" defer></script>
-````
-
-> Note: The script tag does not need `type="module"` since webpack bundles all ES6 modules into a single compatible file.
 
 ### Integrate the Mentions Plugin
 
@@ -230,7 +216,7 @@ public class Mention
     public string Email { get; set; } = string.Empty;
 }
 ````
-````js npmjs/src/index.js
+````js wwwroot/js/index.js
 import { addMentionNodes, addTagNodes, getMentionsPlugin } from 'prosemirror-mentions';
 
 let _dotnetRef;
