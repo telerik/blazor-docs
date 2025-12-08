@@ -130,6 +130,24 @@ To use the Agentic UI Generator in all workspaces and apps, make sure that [`cha
 
 After adding the configuration, restart your IDE to load the Agentic UI Generator.
 
+### Obtaining the API Key
+
+> This section will guide you through the details of **Step 3** from the [Quick Start](#quick-start).
+
+The following steps provide detailed instructions for obtaining your [Telerik API key](https://www.telerik.com/account/downloads/api-keys), which you need to add as a `headers` parameter in the `mcp.json` file:
+
+1. Log in to your [Telerik account](https://www.telerik.com/account/).
+2. Navigate to **License Keys > API Keys**, or go directly to the [API Keys page](https://www.telerik.com/account/downloads/api-keys).
+
+    <img alt="Telerik Account API Keys Page" src="../images/api-keys-page.png" style="width: 90%"/>
+
+3. Click **Generate New Key** and provide a name of your choice, or use an existing API key if you already have one.
+
+    <img alt="Generate New API Key Dialog" src="../images/api-keys-generate-dialog.png" style="width: 90%"/>
+
+4. Copy the generated API key for use in the MCP configuration.
+
+
 ## Using the Agentic UI Generator
 
 > This section will guide you through the details of **Step 4** from the [Quick Start](#quick-start).
