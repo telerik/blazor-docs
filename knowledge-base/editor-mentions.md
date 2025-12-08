@@ -70,7 +70,7 @@ For dynamic positioning of the mentions list, set the [`EditMode`](slug:Telerik.
 
 ### Include the JavaScript Bundle
 
-After building the JavaScript bundle, you need to include it in your Blazor application. You can do this at either the global or component level:
+After building the JavaScript bundle, you need to include it in your Blazor application:
 
 **Global Level (App.razor):**
 <div class="skip-repl"></div>
