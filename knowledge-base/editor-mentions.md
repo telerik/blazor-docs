@@ -41,7 +41,7 @@ For dynamic positioning of the mentions list, set the [`EditMode`](slug:Telerik.
     ````SH.skip-repl
     npm init -y
     ````
-    > This command creates a `package.json` file containing the project's configuration. The `-y` flag accepts all defaults for simplicity. In a real world application, consider running `npm init` without the flag to configure settings interactively.
+    > This command creates a `package.json` file with the project's configuration. The `-y` flag accepts all defaults for simplicity. In a real world application, consider running `npm init` without the flag to configure settings interactively.
 2. Install a JavaScript bundler. In this example we will use [webpack](https://webpack.js.org), so run:
     ````SH.skip-repl
     npm install webpack webpack-cli --save-dev
@@ -61,7 +61,7 @@ For dynamic positioning of the mentions list, set the [`EditMode`](slug:Telerik.
     ````SH.skip-repl
     npm install prosemirror-mentions
     ````
-7. Create a file named `index.js` in your project's `wwwroot/js` directory and paste the contents from the **JavaScript Code** section below.
+7. Create a file named `index.js` in your project's `wwwroot/js` directory and paste the contents from the respective code tab below.
 8. Build the JavaScript bundle by running:
     ````SH.skip-repl
     npm run build
@@ -175,37 +175,38 @@ The following code demonstrates how to integrate the `proseMirror-mentions` plug
 ````razor MentionSuggestionList.razor
 @*
     IMPORTANT: outer div's "suggestion-item-list" class is mandatory. The plugin uses this class for querying.
-    IMPORTANT: inner div's "suggestion-item" class is mandatory too for the same reasons
+    IMPORTANT: inner div's "suggestion-item" class is mandatory too for the same reasons.
 *@
 
-<div class="suggestion-item-list">
-    @if (Items == null || Items.Count() == 0)
-    {
-        <div class="suggestion-item">
-            No suggestions
-        </div>
-    } else
-    {
-        @foreach (Mention item in Items) {
-            <div class="suggestion-item">
-                <div class="suggestion-item-content">
-                    <div class="suggestion-text">
-                        <div class="suggestion-name">
+<div class="suggestion-item-list k-popup k-list-container" style="max-height: 200px;">
+    <div class="k-list">
+        <div class="k-list-content">
+            <ul class="k-list-ul">
+                @if (Items == null || Items.Count() == 0)
+                {
+                    <li class="suggestion-item k-list-item">
+                        No Suggestions
+                    </li>
+                }
+                else
+                {
+                    @foreach (Mention item in Items)
+                    {
+                        <li class="suggestion-item k-list-item">
                             @item.Name
-                        </div>
-                        <div class="suggestion-title">
+                            <br />
                             @item.Email
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    }
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
 </div>
 
 @code {
     [Parameter]
-    public IEnumerable<Mention> Items { get; set; }
+    public IEnumerable<Mention>? Items { get; set; }
 }
 ````
 ````cs Mention.cs
