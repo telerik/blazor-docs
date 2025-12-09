@@ -37,7 +37,7 @@ For dynamic positioning of the mentions list, set the [`EditMode`](slug:Telerik.
 
 ### Setting up WebPack and Installing proseMirror-mentions
 
-1. Setup the Javascript project by running at the root of your project:
+1. Setup the Javascript project by running the following command in the root folder of your project:
     ````SH.skip-repl
     npm init -y
     ````
