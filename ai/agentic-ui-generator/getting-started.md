@@ -17,33 +17,38 @@ This article describes how to install, configure, and use the Telerik UI for Bla
 
 Follow these steps to set up the Agentic UI Generator:
 
-1. Ensure you have a supported license&mdash;You need a DevCraft Complete or Ultimate Subscription to access the Agentic UI Generator. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers/thank-you-blazor).
+1. Ensure you have a supported license. You need a DevCraft Complete or Ultimate Subscription to access the Agentic UI Generator. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers/thank-you-blazor).
 
     > For more information about access requirements based on the license type, see [Usage Limits](slug:agentic-ui-generator-overview#usage-limits).
-1. Add the MCP server to your IDE&mdash;Create an `mcp.json` file in your workspace with the following configuration:
+1. To add the MCP server to your IDE, create an `.mcp.json` file in your solution (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code) with the following configuration:
    ````JSON.skip-repl
    {
      "servers": {
-     "blazor-ui-generator": {
-       "type": "http",
-       "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
-       "headers": {
-         "x-api-key": "YOUR API KEY"
+       "blazor-ui-generator": {
+         "type": "http",
+         "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
+         "headers": {
+           "x-api-key": "YOUR API KEY"
+         }
        }
+      }
      }
-    }
-   }
    ````
-   > The server name `blazor-ui-generator` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
-1. Obtain your API key&mdash;Log in to your [Telerik account](https://www.telerik.com/account/) and generate an API key from the [API Keys page](https://www.telerik.com/account/downloads/api-keys). Replace `YOUR API KEY` in the `mcp.json` file with the generated key.
-1. Start using the generator&mdash;Open the AI chat interface of your IDE and start your prompt with the `#telerik_ui_generator` handle to invoke the main generator tool:
+   The server name `blazor-ui-generator` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
+
+   > For more details on how to configure the MCP server, refer to the instructions for your specific IDE below:
+   > * [Visual Studio](#visual-studio)
+   > * [Visual Studio Code](#visual-studio-code)
+
+1. Log in to your [Telerik account](https://www.telerik.com/account/) and generate an API key from the [API Keys page](https://www.telerik.com/account/downloads/api-keys). Replace `YOUR API KEY` in the `mcp.json` file with the generated key.
+
+    > Refer to the [Obtaining the API Key](#obtaining-the-api-key) section below for detailed instructions.
+1. Open the AI chat interface of your IDE and start your prompt with the `#telerik_ui_generator` handle to invoke the main generator tool:
     ````TEXT.skip-repl
     #telerik_ui_generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
     ````
 
-   Step-by-step usage instructions are available in [Using the Agentic UI Generator](#using-the-agentic-ui-generator).
-
-For comprehensive setup guide specific to your IDE, workspace and global configuration options, and detailed API key instructions, refer to the [Installation](#installation) section below.
+   > Step-by-step usage instructions are available in [Using the Agentic UI Generator](#using-the-agentic-ui-generator).
 
 ## Installation
 
@@ -51,7 +56,7 @@ Use the documentation of your AI-powered MCP client to add the Agentic UI Genera
 
 ### Visual Studio
 
-> This section will guide you through the details of **Step 2** from the [Quick Start](#quick-start).
+You can use the Agentic UI Generator in Visual Studio on an application level, and you can also enable global automatic discovery of the tool.
 
 #### Application Configuration
 
@@ -84,8 +89,6 @@ To enable global automatic discovery of the Agentic UI Generator in Visual Studi
 > Once the MCP server configuration is added, make sure that the `blazor-ui-generator` tool is [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking the wrench icon 🔧 at the bottom of the Copilot Window. The Telerik Agentic UI Generator may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
 
 ### Visual Studio Code
-
-> This section will guide you through the details of **Step 2** from the [Quick Start](#quick-start).
 
 For more information about using MCP servers in Visual Studio Code, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
@@ -132,8 +135,6 @@ After adding the configuration, restart your IDE to load the Agentic UI Generato
 
 ### Obtaining the API Key
 
-> This section will guide you through the details of **Step 3** from the [Quick Start](#quick-start).
-
 The following steps provide detailed instructions for obtaining your [Telerik API key](https://www.telerik.com/account/downloads/api-keys), which you need to add as a `headers` parameter in the `mcp.json` file:
 
 1. Log in to your [Telerik account](https://www.telerik.com/account/).
@@ -149,8 +150,6 @@ The following steps provide detailed instructions for obtaining your [Telerik AP
 
 
 ## Using the Agentic UI Generator
-
-> This section will guide you through the details of **Step 4** from the [Quick Start](#quick-start).
 
 Once installed, start a new chat session in your IDE to begin interacting with the Agentic UI Generator via natural language prompts. The Agentic UI Generator can be used in two primary modes: basic usage through [the main tool](#call-the-agentic-ui-generator), or advanced usage by [calling specific MCP tools directly](#target-the-tools-advanced).
 
