@@ -121,7 +121,7 @@ The following table lists the Dock Manager parameters. Also check the [DockManag
 | --- | --- | --- |
 | `AllowFloat` | `bool` | Determines whether the pane can be dragged from the dock manager layout to create a new floating pane. |
 | `Class` | `string` | The custom CSS class of the `<div class="k-pane-scrollable">` element. Use it to [override theme styles](slug:themes-override). |
-| `Closeable` | `bool` | Determines whether the pane can be closed. |
+| Closeable | bool | Default true. If false, the close button is hidden and closing via Esc key or code is disabled. |
 | `Dockable` | `bool` | Specifies whether the pane allows other panes to be docked to or over it. This determines if the end user can drop other panes over it or next to it, creating a DockManagerSplitPane (Splitter) or a DockManagerTabGroupPane (TabStrip). |
 | `HeaderText` | `string` | The pane title, displayed in the pane header and as the button text in the DockManager toolbar when the pane is unpinned. |
 | `Id` | `string` <br /> (`Guid`) | The id of the pane. |
