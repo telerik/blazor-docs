@@ -17,7 +17,7 @@ This article describes how to install, configure, and use the Telerik UI for Bla
 
 Follow these steps to set up the Agentic UI Generator:
 
-1. Ensure you have a supported license. You need a DevCraft Complete or Ultimate Subscription to access the Agentic UI Generator. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers/thank-you-blazor).
+1. Ensure you have a supported license. You need a DevCraft Complete or Ultimate Subscription to access the Agentic UI Generator. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you).
 
     > For more information about access requirements based on the license type, see [Usage Limits](slug:agentic-ui-generator-overview#usage-limits).
 1. To add the MCP server to your IDE, create an `.mcp.json` file in your solution (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code) with the following configuration:
@@ -49,6 +49,14 @@ Follow these steps to set up the Agentic UI Generator:
     ````
 
    > Step-by-step usage instructions are available in [Using the Agentic UI Generator](#using-the-agentic-ui-generator).
+
+The following video will walk you through:
+
+* Adding and configuring the MCP server
+* Authenticating the Agentic UI Generator using an API key
+* Making your first prompt to ensure everything is working correctly
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u8X_3mMvn58?si=hw0MDwahsJkePSwk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Installation
 
