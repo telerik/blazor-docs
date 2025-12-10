@@ -50,6 +50,14 @@ Follow these steps to set up the Agentic UI Generator:
 
    > Step-by-step usage instructions are available in [Using the Agentic UI Generator](#using-the-agentic-ui-generator).
 
+The following video will walk you through:
+
+* Adding and configuring the MCP server
+* Authenticating the Agentic UI Generator using an API key
+* Making your first prompt to ensure everything is working correctly
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u8X_3mMvn58?si=hw0MDwahsJkePSwk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Installation
 
 Use the documentation of your AI-powered MCP client to add the Agentic UI Generator to a specific workspace or globally. Below you can find installation tips and examples for some popular MCP clients, and instructions for obtaining your API key.
