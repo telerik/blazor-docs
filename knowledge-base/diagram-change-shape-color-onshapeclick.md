@@ -22,15 +22,17 @@ res_type: kb
 
 ## Description
 
-I am using the Diagram `OnShapeClick` event to update the `DiagramShapeFill` `Color` of the selected Diagram shape. However, this resets the positions of the shapes that the user has dragged. How to update the shape background colors while maintaining the current shape positions?
+I am using the Diagram `OnShapeClick` event to update the `DiagramShapeFill` `Color` of the selected Diagram shape. However, this resets the positions of the shapes that the user has dragged. How to update the shape background colors while maintaining the current shape positions? In addition, I want to persist the custom shape colors when the Diagram `Layout` changes.
 
 ## Cause
 
-The Diagram `OnShapeClick` event handler is an `EventCallback` and triggers component re-render. If the [Diagram shapes are defined](slug:diagram-shapes#basics) without their `X` and `Y` properties and [shape dragging](slug:diagram-shapes#editability) is enabled, the component definition does not include the current shape positions. As a result, a re-render resets the shapes to their original places.
+The Diagram `OnShapeClick` event handler is an `EventCallback` and triggers component re-render. If the [Diagram shapes are defined](slug:diagram-shapes#basics) without their `X` and `Y` properties and [shape dragging](slug:diagram-shapes#editability) is enabled, the Razor component definition does not include the current shape positions. As a result, a re-render resets the shapes to their original places.
+
+Similarly, if the Diagram Shape background colors are not part of the Razor component declaration, they will be reset to the default value if the Diagram `Layout` changes.
 
 ## Solution
 
-Use the Diagram `SaveAsJsonAsync` and `LoadFromJsonAsync` methods to [persist the Diagram state through JSON](slug:diagram-overview#define-shapes-and-connections-in-json) on each re-render:
+Use the Diagram `SaveAsJsonAsync` and `LoadFromJsonAsync` methods to [define and persist the Diagram state through JSON](slug:diagram-overview#define-shapes-and-connections-in-json) on each render:
 
 1. Implement classes with property names that correspond to the ones in the [Diagram JSON state](slug:diagram-overview#define-shapes-and-connections-in-json).
 1. Subscribe to the [Diagram `OnShapeClick` event](slug:diagram-events#onshapeclick).
@@ -45,49 +47,33 @@ Use the Diagram `SaveAsJsonAsync` and `LoadFromJsonAsync` methods to [persist th
 @using System.Text.Json
 @using System.Text.Json.Serialization
 
+Drag a shape and then click on a shape to change its background color. The shape positions will persist.
+<br />
+Click on a shape and
+<TelerikButton OnClick="@OnButtonClick"
+    ThemeColor="@ThemeConstants.Button.ThemeColor.Success">
+    Toggle Diagram Layout Type
+</TelerikButton>
+The shape background colors will persist.
+
 <TelerikDiagram @ref="@DiagramRef"
-                Height="100vh"
-                OnShapeClick="@OnDiagramShapeClick"
-                Zoom="0.8">
-    <DiagramLayout Type="@DiagramLayoutType.Tree" />
-
-    <DiagramShapes>
-        @foreach (DiagramModel shape in DiagramData)
-        {
-            <DiagramShape Id="@shape.Id" Type="@shape.Type">
-                <DiagramShapeContent Text="@shape.Text" />
-                <DiagramShapeFill Color="@shape.BackgroundColor"/>
-            </DiagramShape>
-        }
-    </DiagramShapes>
-
-    <DiagramConnections>
-        @foreach (DiagramModel shape in DiagramData)
-        {
-            if (shape.ParentId is not null)
-            {
-                <DiagramConnection @key="@shape"
-                                   FromId="@( $"{shape.ParentId}" )"
-                                   ToId="@( $"{shape.Id}" )" />
-            }
-        }
-    </DiagramConnections>
+                OnShapeClick="@OnDiagramShapeClick">
+    <DiagramConnectionDefaults Type="@DiagramConnectionType.Cascading" />
+    <DiagramLayout Type="@DiagramLayoutType" />
+    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle" />
 </TelerikDiagram>
 
 @code {
     #nullable enable
 
     private TelerikDiagram? DiagramRef { get; set; }
-    private string DiagramJson { get; set; } = string.Empty;
 
-    private List<DiagramModel> DiagramData { get; set; } = Enumerable.Range(1, 6).Select(x => new DiagramModel()
+    private DiagramLayoutType DiagramLayoutType { get; set; } = DiagramLayoutType.Tree;
+
+    private void OnButtonClick()
     {
-        Id = x.ToString(),
-        ParentId = x == 1 ? null : (x <= 4 ? 1 : 3),
-        Text = $"Shape {x}",
-        Type = x % 2 == 0 ? DiagramShapeType.Rectangle : DiagramShapeType.Circle,
-        BackgroundColor = "#666"
-    }).ToList();
+        DiagramLayoutType = DiagramLayoutType == DiagramLayoutType.Tree ? DiagramLayoutType.Force : DiagramLayoutType.Tree;
+    }
 
     private async Task OnDiagramShapeClick(DiagramShapeClickEventArgs args)
     {
@@ -102,7 +88,7 @@ Use the Diagram `SaveAsJsonAsync` and `LoadFromJsonAsync` methods to [persist th
         if (diagramStateObject is not null && diagramStateObject.Shapes is not null)
         {
             var rnd = Random.Shared;
-            string newFillColor = $"rgb({rnd.Next(0, 127)},{rnd.Next(0, 127)},{rnd.Next(0, 127)})";
+            string newFillColor = $"rgb({rnd.Next(48, 128)},{rnd.Next(48, 128)},{rnd.Next(48, 128)})";
 
             diagramStateObject.Shapes.First(x => x.Id == args.Id).Fill.Color = newFillColor;
 
@@ -110,6 +96,74 @@ Use the Diagram `SaveAsJsonAsync` and `LoadFromJsonAsync` methods to [persist th
             await DiagramRef!.LoadFromJsonAsync(DiagramJson);
         }
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && DiagramRef is not null)
+        {
+            // Wait for HTML and client-side Diagram instance
+            await Task.Delay(1);
+    
+            await DiagramRef.LoadFromJsonAsync(DiagramJson);
+            StateHasChanged();
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private string DiagramJson { get; set; } = @"
+    {
+      ""shapes"": [
+        {
+          ""id"": ""shape1"",
+          ""type"": ""Circle"",
+          ""content"": {
+            ""text"": ""Shape 1""
+          },
+          ""x"": 200,
+          ""y"": 50
+        },
+        {
+          ""id"": ""shape2"",
+          ""content"": {
+            ""text"": ""Shape 2""
+          },
+          ""height"": 100,
+          ""width"": 160,
+          ""x"": 50,
+          ""y"": 200
+        },
+        {
+          ""id"": ""shape3"",
+          ""type"": ""Display"",
+          ""content"": {
+            ""text"": ""Shape 3""
+          },
+          ""x"": 300,
+          ""y"": 200
+        }
+      ],
+      ""connections"": [
+        {
+          ""from"": {
+            ""shapeId"": ""shape1""
+          },
+          ""to"": {
+            ""shapeId"": ""shape2""
+          }
+        },
+        {
+          ""from"": {
+            ""shapeId"": ""shape1"",
+            ""connector"":""Right""
+          },
+          ""to"": {
+            ""shapeId"": ""shape3"",
+            ""connector"":""Top""
+          }
+        }
+      ]
+    }";
 
     #region Diagram State Classes
 
@@ -192,7 +246,7 @@ Use the Diagram `SaveAsJsonAsync` and `LoadFromJsonAsync` methods to [persist th
             Utf8JsonWriter writer,
             DiagramShapeType shapeType,
             JsonSerializerOptions options) =>
-                writer.WriteStringValue(shapeType.ToString().ToLower());
+                writer.WriteStringValue(shapeType.ToString());
     }
 }
 ```
