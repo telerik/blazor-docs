@@ -64,7 +64,7 @@ The Telerik Blazor AI Conding Assistant allows the following maximum number of r
 ### Perpetual Licenses
 
 * Perpetual license holders have no access to the AI Coding Assistant by default.
-* You can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers/thank-you-blazor) to access the AI Coding Assistant.
+* You can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) to access the AI Coding Assistant.
 * After the trial expires, access is no longer available unless the [Perpetual license is converted to a Subscription license](https://www.telerik.com/account/support-center/contact-us/account-support).
 
 ### Trial Licenses
