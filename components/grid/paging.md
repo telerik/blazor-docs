@@ -109,7 +109,7 @@ In addition to `Page` and `PageSize`, the Grid provides advanced pager configura
         <GridPagerSettings InputType="PagerInputType.Input"
                            PageSizes="@PageSizes"
                            ButtonCount="5"
-                           Adaptive="true"
+                           Responsive="true"
                            Position="PagerPosition.Top">
         </GridPagerSettings>
     </GridSettings>
