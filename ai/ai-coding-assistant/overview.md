@@ -45,7 +45,8 @@ You can use the Telerik AI Coding Assistant for:
 Consider the following recommendations when working with the Telerik AI Coding Assistant:
 
 * When switching between tasks and files, start a new session in a new chat window to avoid polluting the context with irrelevant or outdated information.
-* At the time of publishing, Claude Sonnet 4 and GPT-5 produce better results.
+* As of December 2025, Claude Sonnet 4.5, Gemini pro 3, and
+GPT 5.2 produce better results.
 * Sometimes, the AI Coding Assistant might generate custom styles. To avoid any custom styling, include a similar statement in your prompts: `Don't add custom CSS styles`.
 
 ## Telerik Document Processing AI Coding Assistant
