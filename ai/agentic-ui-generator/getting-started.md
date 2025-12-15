@@ -43,7 +43,7 @@ Follow these steps to set up the Agentic UI Generator:
 1. Log in to your [Telerik account](https://www.telerik.com/account/) and generate an API key from the [API Keys page](https://www.telerik.com/account/downloads/api-keys). Replace `YOUR API KEY` in the `mcp.json` file with the generated key.
 
     > Refer to the [Obtaining the API Key](#obtaining-the-api-key) section below for detailed instructions.
-1. Open the AI chat interface of your IDE and start your prompt with the `#telerik_ui_generator` handle to invoke the main generator tool:
+1. Open the AI chat interface of your IDE and start your prompt with `Telerik` to make it more likely for the Agentic UI Generator to get called. If you are using VS Code, then you can start your prompt with the `#telerik_ui_generator` handle to invoke the main generator tool:
     ````TEXT.skip-repl
     #telerik_ui_generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
     ````
