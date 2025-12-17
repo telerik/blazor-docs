@@ -856,31 +856,30 @@ This event fires when each Grid row renders. This can happen in the following ca
 >caption Use the OnRowRender event to apply custom styles to Grid rows based on certain condition
 
 ````RAZOR
-@* Conditional styling/formatting for rows (including locked/frozen columns). *@
-
 <style>
-    /*the following selectors target the locked/frozen columns*/
-    /*===*/
-    .k-grid .k-master-row.myCustomRowFormatting .k-grid-content-sticky,
-    .k-grid .k-master-row.myCustomRowFormatting.k-alt .k-grid-content-sticky
-    /*===*/ {
-        background-color: inherit;
-    }
-
-    .k-grid .k-master-row.myCustomRowFormatting:hover {
-        background-color: red !important;
-    }
-
+    /* Conditional row background */
     .k-grid .k-master-row.myCustomRowFormatting {
-        background-color: #90EE90;
+        background-color: #fda;
+    }
+    /* Conditional row hover background */
+    .k-grid .k-table-tbody>.k-table-row.myCustomRowFormatting:hover {
+        background-color: #fb8;
+    }
+
+    /* Conditional row background for frozen columns */
+    .k-grid .k-master-row.myCustomRowFormatting .k-table-td.k-grid-content-sticky,
+    .k-grid .k-master-row.myCustomRowFormatting.k-table-alt-row .k-table-td.k-grid-content-sticky {
+        background-color: inherit;
     }
 </style>
 
-<TelerikGrid Data="@MyData"
-             Height="446px"
+<TelerikGrid Data="@GridData"
+             Height="360px"
+             OnRowRender="@OnRowRenderHandler"
              Pageable="true"
-             Width="450px"
-             OnRowRender="@OnRowRenderHandler">
+             SelectionMode="@GridSelectionMode.Multiple"
+             @bind-SelectedItems="@GridSelectedItems"
+             Width="450px">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" Locked="true" />
         <GridColumn Field="@(nameof(SampleData.Name))" Width="200px" Title="Employee Name" />
@@ -889,33 +888,31 @@ This event fires when each Grid row renders. This can happen in the following ca
 </TelerikGrid>
 
 @code {
-    void OnRowRenderHandler(GridRowRenderEventArgs args)
+    private IEnumerable<SampleData> GridSelectedItems { get; set; } = new List<SampleData>();
+
+    private void OnRowRenderHandler(GridRowRenderEventArgs args)
     {
         var item = args.Item as SampleData;
 
-        //conditional applying Class
-        if (item.Name.Contains("5") || item.Name.Contains("6"))
-        {
-            args.Class = "myCustomRowFormatting";
-        }
-        if (item.Id < 2)
+        // Conditional row Class
+        if (item.Id % 3 == 0)
         {
             args.Class = "myCustomRowFormatting";
         }
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
         {
             Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5
+            Name = $"Name {x}",
+            Team = $"Team {x % 5 + 1}"
         });
 
     public class SampleData
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
     }
 }
 ````
