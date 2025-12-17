@@ -126,6 +126,87 @@ Note the difference between caps and selection handles:
 </TelerikDiagram>
 ````
 
+## Connection Text
+
+The Diagram allows you to display text labels on Connections and control their position and offset from the Connection path. You can configure the text content, color, and precise positioning relative to the Connection.
+
+The text positioning is controlled by two parameters:
+
+* `Offset`&mdash;the distance in pixels between the label and the Connection path
+* Position settings that use the following enums:
+    * `DiagramConnectionsContentPositionHorizontal`&mdash;`Left` or `Right`
+    * `DiagramConnectionsContentPositionVertical`&mdash;`Top` or `Bottom`
+
+To configure Connection text globally for all Connections, use the `Text`, `Color`, and `Offset` parameters of `<DiagramConnectionDefaultsContent>`, and the `Horizontal` and `Vertical` parameters of `<DiagramConnectionDefaultsContentPosition>`.
+
+To configure the text for a specific Connection, use the `Text`, `Color`, and `Offset` parameters of `<DiagramConnectionContent>`, and the `Horizontal` and `Vertical` parameters of `<DiagramConnectionContentPosition>`.
+
+>caption Setting Connection text with positioning
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramConnections>
+        <DiagramConnection FromId="1" ToId="2">
+            <DiagramConnectionStroke />
+            <DiagramConnectionContent Text="Connection 1" Color="red" Offset="16">
+                <DiagramConnectionContentPosition Vertical="@DiagramConnectionsContentPositionVertical.Bottom"
+                                                  Horizontal="@DiagramConnectionsContentPositionHorizontal.Right" />
+            </DiagramConnectionContent>
+        </DiagramConnection>
+
+        <DiagramConnection FromId="3" ToId="1">
+            <DiagramConnectionStroke />
+            <DiagramConnectionContent Text="Connection 3" Color="blue" Offset="10">
+                <DiagramConnectionContentPosition Vertical="@DiagramConnectionsContentPositionVertical.Top"
+                                                  Horizontal="@DiagramConnectionsContentPositionHorizontal.Left" />
+            </DiagramConnectionContent>
+        </DiagramConnection>
+    </DiagramConnections>
+</TelerikDiagram>
+````
+
+## Tooltips
+
+The Diagram allows you to display tooltips when hovering over Connections. Each Connection requires explicit tooltip content configuration through the `Template` parameter.
+
+The available tooltip parameters are:
+
+* `Visible` (bool, default: `false`)&mdash;controls whether the tooltip is displayed on hover
+* `Class` (string)&mdash;applies a custom CSS class to the tooltip for styling
+* `Template` (RenderFragment)&mdash;defines the custom content to display in the tooltip
+
+>caption Configuring Connection tooltips
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramShapes>
+        <DiagramShape Id="shape1">
+            <DiagramShapeContent Text="Shape 1" />
+        </DiagramShape>
+        <DiagramShape Id="shape2">
+            <DiagramShapeContent Text="Shape 2" />
+        </DiagramShape>
+    </DiagramShapes>
+
+    <DiagramConnections>
+        <DiagramConnection Id="connection1" FromId="shape1" ToId="shape2">
+            <DiagramConnectionStroke Color="red" />
+            <DiagramConnectionContent Text="Connection 1" Color="ff0000" Offset="16">
+                <DiagramConnectionContentPosition Vertical="@DiagramConnectionsContentPositionVertical.Bottom"
+                                                  Horizontal="@DiagramConnectionsContentPositionHorizontal.Right" />
+            </DiagramConnectionContent>
+            <DiagramConnectionTooltip Class="connection1" Visible="true">
+                <Template>
+                    <div>
+                        id: 1
+                    </div>
+                </Template>
+            </DiagramConnectionTooltip>
+        </DiagramConnection>
+    </DiagramConnections>
+</TelerikDiagram>
+````
+
 ## Selection Handles
 
 Selection handles are the additional visual elements that appear at both ends of a Connection when it is selected (clicked). The handles appear on top of the [caps and connectors](slug:diagram-overview#diagram-elements).

@@ -207,6 +207,46 @@ You can customize connectors globally or per shape. Connectors settings are part
 </TelerikDiagram>
 ````
 
+## Tooltips
+
+The Diagram allows you to display tooltips when hovering over Shapes. Each Shape requires explicit tooltip content configuration through the `Template` parameter.
+
+The available tooltip parameters are:
+
+* `Visible` (bool, default: `false`)&mdash;controls whether the tooltip is displayed on hover
+* `Class` (string)&mdash;applies a custom CSS class to the tooltip for styling
+* `Template` (RenderFragment)&mdash;defines the custom content to display in the tooltip
+
+>caption Configuring Shape tooltips
+
+````RAZOR.skip-repl
+<TelerikDiagram>
+    <DiagramShapes>
+        <DiagramShape Id="shape1" X="640" Y="240">
+            <DiagramShapeFill Color="lightgreen" />
+            <DiagramShapeContent Text="Shape 1" />
+            <DiagramShapeTooltip Class="shape1" Visible="true">
+                <Template>
+                    <div>
+                        shape id: 1
+                    </div>
+                </Template>
+            </DiagramShapeTooltip>
+        </DiagramShape>
+
+        <DiagramShape Id="shape2" X="-100" Y="90">
+            <DiagramShapeFill Color="lightblue" />
+            <DiagramShapeContent Text="Shape 2" Color="red" />
+            <DiagramShapeTooltip Class="shape2" Visible="true">
+                <Template>
+                    <div>shape 2</div>
+                </Template>
+            </DiagramShapeTooltip>
+        </DiagramShape>
+    </DiagramShapes>
+</TelerikDiagram>
+````
+
 ## Styling
 
 The following Shape styling options are available in child tags of `<DiagramShapeDefaults>` and `<DiagramShape>`:
