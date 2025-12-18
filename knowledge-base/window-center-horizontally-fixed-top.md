@@ -36,7 +36,8 @@ To center a Telerik Window horizontally while maintaining a fixed distance from 
 >caption Telerik Blazor Window Centered Horizontally with Fixed Top Value
 
 ````RAZOR
-<TelerikButton OnClick="@( () => WindowVisible = !WindowVisible )">Toggle Window</TelerikButton>
+<TelerikButton OnClick="@(() => WindowVisible = !WindowVisible)">Toggle Window</TelerikButton>
+<TelerikButton OnClick="@OnResetButtonClick">Reset Position</TelerikButton>
 
 <style>
     .k-centered.centered-top {
@@ -45,8 +46,11 @@ To center a Telerik Window horizontally while maintaining a fixed distance from 
     }
 </style>
 
-<TelerikWindow @bind-Visible="@WindowVisible"
-               Class="centered-top" >
+<TelerikWindow @ref="@WindowRef"
+               Class="centered-top"
+               @bind-Top="@WindowTop"
+               @bind-Left="@WindowLeft"
+               @bind-Visible="@WindowVisible">
     <WindowActions>
         <WindowAction Name="Minimize" />
         <WindowAction Name="Close" />
@@ -60,7 +64,17 @@ To center a Telerik Window horizontally while maintaining a fixed distance from 
 </TelerikWindow>
 
 @code {
+    private TelerikWindow? WindowRef { get; set; }
     private bool WindowVisible { get; set; } = true;
+    private string WindowTop { get; set; } = string.Empty;
+    private string WindowLeft { get; set; } = string.Empty;
+
+    private void OnResetButtonClick()
+    {
+        WindowTop = string.Empty;
+        WindowLeft = string.Empty;
+        WindowRef!.Refresh();
+    }
 }
 ````
 
