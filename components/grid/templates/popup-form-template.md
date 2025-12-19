@@ -59,7 +59,7 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
         <GridPopupEditFormSettings Context="formContext">
             <FormTemplate>
                 @{
-                    if (if (GridEditItem != formContext.Item))
+                    if (GridEditItem != formContext.Item)
                     {
                         // Setting GridEditItem unconditionally may
                         // reset the modified and unsaved values after re-render.
