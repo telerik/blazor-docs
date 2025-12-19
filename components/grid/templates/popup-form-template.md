@@ -49,6 +49,7 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
              OnRead="@OnGridRead"
              TItem="@Product"
              EditMode="@GridEditMode.Popup"
+             OnCancel="@OnGridCancel"
              OnDelete="@OnGridDelete">
     <GridToolBarTemplate>
         <GridCommandButton Command="Add">Add Item</GridCommandButton>
@@ -58,7 +59,7 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
         <GridPopupEditFormSettings Context="formContext">
             <FormTemplate>
                 @{
-                    if (GridEditItem is null)
+                    if (if (GridEditItem != formContext.Item))
                     {
                         // Setting GridEditItem unconditionally may
                         // reset the modified and unsaved values after re-render.
@@ -155,6 +156,12 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
 
         await GridRef.SetStateAsync(state);
 
+        GridEditItem = default;
+    }
+
+    private void OnGridCancel(GridCommandEventArgs args)
+    {
+        // Fires when using the Window's Close button.
         GridEditItem = default;
     }
 
