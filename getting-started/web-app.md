@@ -36,17 +36,16 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 ## Step 2: Create a New Project
 
-1. Open Visual Studio and select **Create a new project**.
+To create a new Blazor app:
 
-1. Select the [**Blazor Web App**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app) project type, enter a name for your project, and then click **Next**.
-
-1. Select the desired [Interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#render-modes) and **Global** Interactivity location. Global interactivity ensures easier setup and usage of the Telerik components.
-
-1. Click **Create**.
+1. Open your preferred IDE or [run the `dotnet new` .NET CLI command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
+1. Use the [**Blazor Web App**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure) project template.
+1. Select the desired [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes).
+1. Enable **Global** Interactivity location.
 
 ### Interactive Render Mode
 
-> Telerik UI for Blazor requires interactive render mode. Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended.
+> Telerik UI for Blazor requires interactive render mode. Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended, as it ensures easier setup and usage of the Telerik components.
 > The Telerik Blazor components will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
 >
 > The `Account` section in the Blazor Web App template with identity is static by design. Most Telerik Blazor components cannot work in this section.
@@ -55,15 +54,9 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 ## Step 4: Install the Telerik UI for Blazor Components
 
-1. To include the Telerik component library, right-click each project that will use Telerik Blazor components, and select **Manage NuGet Packages**.
+Add the `Telerik.UI.for.Blazor` package from the NuGet source that you [added earlier](#step-3-add-the-telerik-nuget-feed) to every project that will use the Telerik Blazor components. Apps with global interactive **Auto** or **WebAssembly** render mode need the Telerik NuGet package in the `Client` project.
 
-    * Apps with interactive Server render mode need the Telerik Nuget package in the server project.
-    * Apps with global interactive Auto or WebAssembly render mode need the Telerik NuGet package in the client project.
-
-1. Install the Telerik Blazor NuGet package:
-
-   1. Select the `telerik.com` **Package source** that you [added earlier](#step-3-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate using `api-key` as the username and [your NuGet API key](#step-3-add-the-telerik-nuget-feed-to-visual-studio) as the password.
-   1. Select the **Browse** tab, find the `Telerik.UI.for.Blazor` NuGet package, and click **Install**.
+When prompted, authenticate using `api-key` as the username and [your NuGet API key](#generate-nuget-api-key) as the password.
 
 ## Step 5: Enable the Blazor UI Components
 
