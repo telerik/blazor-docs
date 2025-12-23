@@ -121,7 +121,7 @@ To use the Telerik MCP server in all workspaces and apps, make sure that [`chat.
 
 ### Cursor
 
-For detailed instructions, refer to [Model Context Protocol](https://docs.cursor.com/context/mcp).
+For detailed instructions, refer to [Model Context Protocol](https://cursor.com/docs/context/mcp).
 
 To [enable the Telerik MCP Server in a specific workspace, Blazor app, or globally](https://docs.cursor.com/context/mcp#using-mcp-json), add a `.cursor` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
 
