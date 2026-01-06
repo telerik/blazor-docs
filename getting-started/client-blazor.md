@@ -39,7 +39,7 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 ## Step 4: Install the Telerik UI for Blazor Components
 
-Add the `Telerik.UI.for.Blazor` NuGet package from the package source that you [added earlier](#step-3-add-the-telerik-nuget-feed) to every project that will use the Telerikk Blazor components. When prompted, authenticate using `api-key` as the username and [your NuGet API key](#generate-nuget-api-key) as the password.
+Add the `Telerik.UI.for.Blazor` NuGet package from the package source that you [added earlier](#step-3-add-the-telerik-nuget-feed) to every project that will use the Telerik Blazor components. When prompted, authenticate using `api-key` as the username and [your NuGet API key](#generate-nuget-api-key) as the password.
 
 ## Step 5: Enable the Blazor UI Components
 
