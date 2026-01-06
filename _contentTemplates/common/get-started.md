@@ -54,7 +54,7 @@ Next, add the Telerik NuGet feed to your local development environment:
 * [Visual Studio on Windows](#visual-studio)
 * [All IDEs and operating systems](#all-ides-and-operating-systems)
 
->tip For more information on the Telerik NuGet packages and download options, check [section NuGet Packages in the Workflow article](slug:getting-started/what-you-need#nuget-packages).
+>tip For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:getting-started/what-you-need#nuget-packages).
 
 ### Visual Studio
 
