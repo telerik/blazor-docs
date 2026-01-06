@@ -60,7 +60,7 @@ Next, add the Telerik NuGet feed to your local development environment:
 
 The following approach will store the Telerik NuGet server URL in your [global `NuGet.Config` file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior), and save your NuGet API key in the Windows Credential Manager.
 
-1. Go to **Tools** > **NuGet Package Manager** > **Package Manager Settings**.
+1. In Visual Studio, go to **Tools** > **NuGet Package Manager** > **Package Manager Settings**.
 1. Select **Package Sources** and then click the **+** or **Add** button.
 1. Enter a **Name** for the new package source. The examples in this documentation usually use `TelerikOnlineFeed`.
 1. Add `https://nuget.telerik.com/v3/index.json` as a **Source** URL. Click **OK** or **Save**.
