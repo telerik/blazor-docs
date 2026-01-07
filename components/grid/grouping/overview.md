@@ -7,6 +7,7 @@ tags: telerik,blazor,grid,grouping
 published: True
 previous_url: /components/grid/grouping
 position: 0
+tag: new
 ---
 
 # Grid Grouping
@@ -17,6 +18,7 @@ The Grid component offers support for grouping.
 * [Aggregates](#aggregates)
 * [Load On Demand](#load-on-demand)
 * [Group From Code](#group-from-code)
+* [Grouping Settings](#grouping-settings)
 * [More Examples](#more-examples)
 
 ## Basics
@@ -98,6 +100,47 @@ You can group the Grid from your code through the [Grid state](slug:grid-state).
 
 ````RAZOR
 @[template](/_contentTemplates/grid/state.md#group-from-code)
+````
+
+## Grouping Settings
+
+The Grid provides advanced grouping configuration options via the `GridGroupableSettings` tag, which is nested inside `GridSettings`. These configuration attributes include:
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
+| `Reorderable` | `bool` <br/> (`false`) | Specifies whether the grouped columns can be reordered. |
+| `Sortable`    | `bool` <br/> (`false`) | Specifies whether sorting is enabled through the group chip in the Group Panel. Applies when the `Groupable` parameter is set to `true`. |
+
+````RAZOR
+<TelerikGrid Data="@MyData"
+             Groupable="true"
+             Sortable="true">
+    <GridSettings>
+        <GridGroupableSettings Reorderable="true"
+                               Sortable="true" />
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" />
+        <GridColumn Field="@(nameof(SampleData.Name))" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "name " + x,
+        HireDate = DateTime.Now.AddDays(-x).Date
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
 ````
 
 ## More Examples
