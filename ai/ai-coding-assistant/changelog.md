@@ -14,7 +14,7 @@ Learn about the latest changes, improvements and bug fixes in the Telerik UI for
 
 ## December, 2025 Changelog
 
-* Updated component snippets with refined and expanded code examples for newly introduced features, improving the quality and accuracy of AI Assistant responses.
+* Updated component snippets with refined and expanded code examples for newly introduced features, improving the quality and accuracy of AI Assistant responses for Charts, Grid, FileSelect and Upload components.
 
 ## November, 2025 Changelog
 
