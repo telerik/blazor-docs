@@ -36,39 +36,51 @@ Whenever you need to authenticate your system with the Telerik NuGet server, use
 #end
 
 #add-nuget-feed
-## Step 3: Add the Telerik NuGet Feed to Visual Studio
+## Step 3: Add the Telerik NuGet Feed
 
-In this tutorial, you will use the [Telerik NuGet feed](slug:installation/nuget) to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with a NuGet API key.
+In this tutorial, you will use the [Telerik NuGet server](slug:installation/nuget) to download the UI for Blazor components. The NuGet feed is private and requires you to authenticate with a NuGet API key.
 
-To generate your NuGet API key:
+### Generate NuGet API Key
 
 1. Go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account.
-
 1. Click **Generate New Key +**.
-
 1. In the **Key Note** field, add a note that describes the API key.
-
 1. Click **Generate Key**.
-
 1. Select **Copy and Close**. Once you close the window, you can no longer copy the generated key. For security reasons, the **API Keys** page displays only a portion of the key.
-
 1. Store the generated NuGet API key as you will need it in the next steps.
 
-Next, add the Telerik NuGet feed to Visual Studio:
+Next, add the Telerik NuGet feed to your local development environment:
 
-1. In Visual Studio and go to **Tools** > **NuGet Package Manager** > **Package Manager Settings**.
+* [Visual Studio on Windows](#visual-studio)
+* [All IDEs and operating systems](#all-ides-and-operating-systems)
 
-1. Select **Package Sources** and then click the **+** button to add a new package source.
+>tip For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:getting-started/what-you-need#nuget-packages).
 
-1. Enter a **Name** for the new package source, for example, `telerik.com`.
+### Visual Studio
 
-1. Add the `https://nuget.telerik.com/v3/index.json` URL as a **Source**. Click **OK**.
+The following approach will store the Telerik NuGet server URL in your [global `NuGet.Config` file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior), and save your NuGet API key in the Windows Credential Manager.
 
-![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
-
+1. In Visual Studio, go to **Tools** > **NuGet Package Manager** > **Package Manager Settings**.
+1. Select **Package Sources** and then click the **+** or **Add** button.
+1. Enter a **Name** for the new package source. The examples in this documentation usually use `TelerikOnlineFeed`.
+1. Add `https://nuget.telerik.com/v3/index.json` as a **Source** URL. Click **OK** or **Save**.
 1. Whenever Visual Studio displays a dialog to enter credentials for `nuget.telerik.com`, use `api-key` as the username and your NuGet API key as the password.
 
->tip For alternative NuGet package download options, check the [Workflow article](slug:getting-started/what-you-need).
+### All IDEs and Operating Systems
+
+Run [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) in your preferred command line interface (cmd, Terminal, PowerShell, Bash). The command will store the Telerik NuGet server URL and your NuGet API key in your [global `NuGet.Config` file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior).
+
+Replace `<YOUR-NUGET-API-KEY>` with the API key that you [generated previously](#generate-nuget-api-key).
+
+>caption Use the .NET CLI to add the Telerik NuGet source
+
+````SH.skip-repl
+dotnet nuget add source https://nuget.telerik.com/v3/index.json \
+--name TelerikOnlineFeed \
+--username api-key \
+--password <YOUR-NUGET-API-KEY> \
+--store-password-in-clear-text
+````
 
 #end
 

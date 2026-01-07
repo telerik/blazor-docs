@@ -32,26 +32,14 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 ## Step 2: Create a New Project
 
-1. Open Visual Studio and select **Create a new project**.
-
-1. Select the **Blazor WebAssembly App** project type, enter a name for your project, and then click **Next**.
-
-1. Select the **ASP.NET Core hosted** checkbox and the desired framework, and then click **Create**.
+* To create a new Blazor app, open your preferred IDE or [run the `dotnet new` .NET CLI command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
+* Use the [**Blazor WebAssembly Standalone App**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure) project template.
 
 @[template](/_contentTemplates/common/get-started.md#add-nuget-feed)
 
 ## Step 4: Install the Telerik UI for Blazor Components
 
-1. Right-click the `.Client` project in the solution and select **Manage NuGet Packages**.
-
-   ![Manage NuGet Packages](images/manage-nuget-packages-for-client-app.png)
-
-2. Install the Telerik Blazor NuGet package:
-
-   1. Select the `telerik.com` **Package source** that you [added earlier](#step-3-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate using `api-key` as the username and [your NuGet API key](#step-3-add-the-telerik-nuget-feed-to-visual-studio) as the password.
-   1. Select the **Browse** tab, find the `Telerik.UI.for.Blazor` NuGet package, and click **Install**.
-
-   ![Add Telerik Blazor Package to Client Project](images/add-telerik-nuget-to-client-app.png)
+Add the `Telerik.UI.for.Blazor` NuGet package from the package source that you [added earlier](#step-3-add-the-telerik-nuget-feed) to every project that will use the Telerik Blazor components. When prompted, authenticate using `api-key` as the username and [your NuGet API key](#generate-nuget-api-key) as the password.
 
 ## Step 5: Enable the Blazor UI Components
 
