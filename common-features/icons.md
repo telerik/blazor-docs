@@ -105,7 +105,7 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
 |---|---|---|
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
 | `Icon` | `FontIcon` `enum` | Any of the [built-in Telerik Blazor font icons](#icons-list). This parameter takes precedence over `IconClass`, if both are set. |
-| `IconClass` | `string` | Custom CSS class for a custom third-party icon. Do not use together with the `Icon` parameter. |
+| `IconClass` | `string` | Custom CSS class for a [custom or third-party icon](#use-custom-font-icons). Do not use together with the `Icon` parameter. |
 | `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.FontIcon.Size` class](slug:telerik.blazor.themeconstants.fonticon.size). |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.FontIcon.ThemeColor` class](slug:telerik.blazor.themeconstants.fonticon.themecolor) properties. By default, the icon color will inherit the current CSS text color. |
 
@@ -169,6 +169,37 @@ Our font icons are designed on a 16px grid base. For better display quality, use
 <TelerikFontIcon Icon="@FontIcon.Filter"></TelerikFontIcon>
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+````
+
+### Use Custom Font Icons
+
+To show a custom font icon or image icon, use the `IconClass` parameter to set the required CSS class(es). Verify that the classes apply all necessary styles, for example, `display`, `width`, and `height`. Otherwise the rendered `<span>` element may not expand and the icon may not display.
+
+>caption Use custom font icons with the TelerikFontIcon component
+
+````RAZOR
+FontAwesome Icon:
+<TelerikFontIcon IconClass="fa fa-cog" />
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+<br /><br />
+
+Custom Icon:
+<TelerikFontIcon IconClass="custom-icon" />
+
+<style>
+    .custom-icon {
+        width: 1em;
+        height: 1em;
+        font-size: 16px;
+        line-height: 1;
+        display: inline-flex;
+        vertical-align: middle;
+        /* define a background image or a custom font icon here */
+        background: purple;
+    }
+</style>
 ````
 
 ### Render Font Icons with HTML
@@ -334,7 +365,7 @@ The icon list may contain icons which are not available in older versions of Tel
 Telerik UI for Blazor supports using custom (third-party) icons:
 
 * [In the `SvgIcon` component](#use-custom-svg-icon-collection).
-* [In the `FontIcon` component](#fonticon-component).
+* [In the `FontIcon` component](#use-custom-font-icons).
 * In [Buttons](slug:button-icons), [Menu items](slug:menu-icons), [Drawer items](slug:drawer-icons) and other [navigation components](slug:blazor-overview#list-of-components).
 
 [Using custom icons for the automatically rendered icons is not supported yet](https://feedback.telerik.com/blazor/1641361-ability-to-change-the-built-in-icons). For example, the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList.
