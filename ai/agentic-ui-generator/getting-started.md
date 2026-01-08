@@ -24,25 +24,28 @@ Follow these steps to set up the Agentic UI Generator:
    ````JSON.skip-repl
    {
      "servers": {
-       "blazor-ui-generator": {
-         "type": "http",
-         "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
-         "headers": {
-           "x-api-key": "YOUR API KEY"
+       "telerik-blazor-mcp": {
+         "type": "stdio",
+         "command": "dnx",
+         "args": ["Telerik.Blazor.MCP", "--yes"],
+         "env": {
+           "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
+           // or
+           // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
          }
        }
       }
      }
    ````
-   The server name `blazor-ui-generator` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
+   The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
 
    > For more details on how to configure the MCP server, refer to the instructions for your specific IDE below:
    > * [Visual Studio](#visual-studio)
    > * [Visual Studio Code](#visual-studio-code)
 
-1. Log in to your [Telerik account](https://www.telerik.com/account/) and generate an API key from the [API Keys page](https://www.telerik.com/account/downloads/api-keys). Replace `YOUR API KEY` in the `mcp.json` file with the generated key.
+1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
 
-    > Refer to the [Obtaining the API Key](#obtaining-the-api-key) section below for detailed instructions.
+    > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
 1. Open the AI chat interface of your IDE and start your prompt with `Telerik` to make it more likely for the Agentic UI Generator to get called. If you are using VS Code, then you can start your prompt with the `#telerik_ui_generator` handle to invoke the main generator tool:
     ````TEXT.skip-repl
     #telerik_ui_generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
@@ -71,20 +74,23 @@ To enable the Agentic UI Generator in your application, in Visual Studio, add a 
 ````JSON.skip-repl
 {
   "servers": {
-    "blazor-ui-generator": {
-      "type": "http",
-      "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
-      "headers": {
-        "x-api-key": "YOUR API KEY"
+    "telerik-blazor-mcp": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["Telerik.Blazor.MCP", "--yes"],
+      "env": {
+        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
+        // or
+        // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
       }
     }
   }
 }
 ````
 
-> Replace `YOUR API KEY` with the API key you generate.
+> Replace `THE_PATH_TO_YOUR_LICENSE_FILE` with the path to your Telerik license file, or use the `TELERIK_LICENSE` environment variable with your license key.
 
-The server name `blazor-ui-generator` can be changed to a custom value based on your preferences.
+The server name `telerik-blazor-mcp` can be changed to a custom value based on your preferences.
 
 #### Global Configuration
 
@@ -107,20 +113,23 @@ To enable the Agentic UI Generator in a specific [workspace](https://code.visual
 ````JSON.skip-repl
 {
   "servers": {
-    "blazor-ui-generator": {
-      "type": "http",
-      "url": "https://uiagent.mcp.telerik.com/mcp/blazor",
-      "headers": {
-        "x-api-key": "YOUR API KEY"
+    "telerik-blazor-mcp": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["Telerik.Blazor.MCP", "--yes"],
+      "env": {
+        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
+        // or
+        // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
       }
     }
   }
 }
 ````
 
-> Replace `YOUR API KEY` with the API key you generate.
+> Replace `THE_PATH_TO_YOUR_LICENSE_FILE` with the path to your Telerik license file, or use the `TELERIK_LICENSE` environment variable with your license key.
 
-The server name `blazor-ui-generator` can be changed to a custom value based on your preferences.
+The server name `telerik-blazor-mcp` can be changed to a custom value based on your preferences.
 
 #### Global Configuration
 
@@ -137,21 +146,34 @@ To use the Agentic UI Generator in all workspaces and apps, make sure that [`cha
 
 After adding the configuration, restart your IDE to load the Agentic UI Generator.
 
-### Obtaining the API Key
+### Cursor
 
-The following steps provide detailed instructions for obtaining your [Telerik API key](https://www.telerik.com/account/downloads/api-keys), which you need to add as a `headers` parameter in the `mcp.json` file:
+Refer to [Model Context Protocol](https://cursor.com/docs/context/mcp), which enables Cursor to connect to external tools.
 
-1. Log in to your [Telerik account](https://www.telerik.com/account/).
-2. Navigate to **License Keys > API Keys**, or go directly to the [API Keys page](https://www.telerik.com/account/downloads/api-keys).
+To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.cursor` folder with an `mcp.json` file at the root of the workspace.
 
-    <img alt="Telerik Account API Keys Page" src="../images/api-keys-page.png" style="width: 90%"/>
+>caption .cursor/mcp.json at the workspace root
 
-3. Click **Generate New Key** and provide a name of your choice, or use an existing API key if you already have one.
+````JSON.skip-repl
+{
+  "mcpServers": {
+    "telerik-blazor-mcp": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": ["Telerik.Blazor.MCP"],
+      "env": {
+        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
+        // or
+        // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+      }
+    }
+  }
+}
+````
 
-    <img alt="Generate New API Key Dialog" src="../images/api-keys-generate-dialog.png" style="width: 90%"/>
+> Replace `THE_PATH_TO_YOUR_LICENSE_FILE` with the path to your Telerik license file, or use the `TELERIK_LICENSE` environment variable with your license key.
 
-4. Copy the generated API key for use in the MCP configuration.
-
+The server name `telerik-blazor-mcp` can be changed to a custom value based on your preferences.
 
 ## Using the Agentic UI Generator
 
@@ -162,7 +184,7 @@ Once installed, start a new chat session in your IDE to begin interacting with t
 1. Open the AI chat interface in your IDE&mdash;Start a new chat session to begin interacting with the Agentic UI Generator.
 1. In Visual Studio Code, you can start your prompt with the `#telerik_ui_generator` handle&mdash;this invokes the main MCP tool that uses an agentic flow to analyze and process your request.
     > Using the `#telerik_ui_generator` handle ensures the Agentic UI Generator is called. Alternatively, you can use natural language without the handle. Make sure to mention the "telerik" keyword in your natural language prompt, so that the AI model can automatically recognize when to call the generator. The generator analyzes your prompt and creates the appropriate Blazor components, markup, and styling.
-1. Inspect the output and verify that the `blazor-ui-generator` MCP server  (or the one with your custom server name) is called. Look for a similar statement in the output:
+1. Inspect the output and verify that the `telerik-blazor-mcp` MCP server (or the one with your custom server name) is called. Look for a similar statement in the output:
 
     <img alt="MCP Server uses Telerik UI Generator in VS Code" src="../images/generator-confirmation.png" style="width: 80%"/>
 
