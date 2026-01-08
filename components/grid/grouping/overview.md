@@ -7,6 +7,7 @@ tags: telerik,blazor,grid,grouping
 published: True
 previous_url: /components/grid/grouping
 position: 0
+tag: updated
 ---
 
 # Grid Grouping
@@ -17,6 +18,7 @@ The Grid component offers support for grouping.
 * [Aggregates](#aggregates)
 * [Load On Demand](#load-on-demand)
 * [Group From Code](#group-from-code)
+* [Grouping Settings](#grouping-settings)
 * [More Examples](#more-examples)
 
 ## Basics
@@ -98,6 +100,42 @@ You can group the Grid from your code through the [Grid state](slug:grid-state).
 
 ````RAZOR
 @[template](/_contentTemplates/grid/state.md#group-from-code)
+````
+
+## Grouping Settings
+
+The Grid provides grouping configuration options via the [`GridGroupableSettings` tag](slug:Telerik.Blazor.Components.GridGroupableSettings), which is nested inside `GridSettings`.
+
+````RAZOR
+<TelerikGrid Data="@GridData"
+             Groupable="true"
+             Sortable="true">
+    <GridSettings>
+        <GridGroupableSettings Reorderable="true"
+                               Sortable="true" />
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" />
+        <GridColumn Field="@(nameof(SampleData.Name))" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+    {
+        Id = x,
+        Name = "Name " + x,
+        HireDate = DateTime.Today.AddDays(-x)
+    });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public DateTime HireDate { get; set; }
+    }
+}
 ````
 
 ## More Examples
