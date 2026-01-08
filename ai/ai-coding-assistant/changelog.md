@@ -5,18 +5,18 @@ description: Learn about the latest changes, improvements and bug fixes in the T
 slug: ai-changelog
 tags: AI, changelog, updates
 position: 3
-tag: new
+tag: updated
 ---
 
 # Telerik Blazor AI Coding Assistant Changelog
 
 Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Coding Assistant. The updates are structured in a chronological order with the newest ones appearing first.
 
-## December, 2025 Changelog
+## December, 2025
 
 * Updated component snippets with refined and expanded code examples for newly introduced features, improving the quality and accuracy of AI Assistant responses for Charts, Grid, FileSelect and Upload components.
 
-## November, 2025 Changelog
+## November, 2025
 
 * Updated component snippets with refined code examples.
 * Improved API descriptions for better context matching and accuracy.
@@ -24,11 +24,11 @@ Learn about the latest changes, improvements and bug fixes in the Telerik UI for
 
 > [Microsoft sunset GitHub Copilot extensions](https://github.blog/changelog/2025-09-24-deprecate-github-copilot-extensions-github-apps) on November 10, 2025, in favor of the Model Context Protocol (MCP) standard.
 
-## August, 2025 Changelog
+## August, 2025
 
 * Refactoring of internal tools leading to continuous improvements of the quality of the coding assistant.
 
-## May, 2025 Changelog
+## May, 2025
 
 * Initial launch of the AI Coding Assistant for Blazor.
 * Provides intelligent code suggestions, context-aware documentation, and quick access to component APIs.
