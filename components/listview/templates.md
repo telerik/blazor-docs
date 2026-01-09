@@ -59,7 +59,7 @@ This piece of code renders just below the items, but within the main listview wr
 
 >caption Footer Template in the ListView
 
-<demo metaUrl="client/listview/foottemplate/" height="420"></demo>
+<demo metaUrl="client/listview/footertemplate/" height="420"></demo>
 
 >caption The result from the code snippet above
 
