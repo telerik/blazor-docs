@@ -42,7 +42,7 @@ The **Edit** command button is disabled if there is no [selected Grid row](slug:
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| Spacer | `GridToolBarSpacerTool` | Consumes the available empty space and pushes the rest of the tools next to one another. |
+| Spacer | `GridToolBarSpacerTool` | Consumes the available empty space and pushes the rest of the tools next to one another. When using a [`GridToolBarTemplate`](#custom-toolbar-configuration), you can mimic this tool with `<span class="k-toolbar-spacer"></span>`. |
 
 ## Custom Tools
 

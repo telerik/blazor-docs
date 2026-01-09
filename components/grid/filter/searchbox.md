@@ -12,44 +12,68 @@ position: 20
 
 In addition to [Grid filtering](slug:components/grid/filtering), you can enhance functionality by adding a SearchBox to the [Grid Toolbar](slug:components/grid/features/toolbar). This search box filters multiple Grid columns simultaneously.
 
-Users type their query, and the Grid performs a case-insensitive Contains search on all visible string columns, adjusting the filters accordingly. To customize the filter delay and selected fields, see the [Customize the SearchBox section](#customize-the-searchbox).
+Users type their query, and the Grid performs a case-insensitive Contains search on all visible string columns. To customize the filter delay and searchable columns, see the [Customize the SearchBox section](#customize-the-searchbox).
 
-The SearchBox operates independently of Grid filtering, respecting existing filters and adding extra criteria to refine search results. To enable the SearchBox, include the `<GridSearchBox>` tag in the [`<GridToolBarTemplate>`](slug:components/grid/features/toolbar).
+The SearchBox operates independently of Grid filtering, respecting existing filters and adding extra criteria to refine search results.
 
-To enable the SearchBox, add the `<GridSearchBox>` tag in the [`<GridToolBarTemplate>`](slug:components/grid/features/toolbar).
+## Basic Usage
+
+To enable the built-in Grid SearchBox, use one of the following options:
+
+* Add a `<GridToolBarSearchBoxTool>` tag to the [Grid ToolBar](slug:components/grid/features/toolbar). This approach is suitable if you are not using a Grid ToolBar yet, or if you are using only built-in ToolBar tools.
+    ````RAZOR.skip-repl
+    <TelerikGrid>
+        <GridToolBar>
+            <GridToolBarSearchBoxTool />
+        </GridToolBar>
+    </TelerikGrid>
+    ````
+
+* Add a `<GridSearchBox>` tag to the [Grid ToolBar Template](slug:components/grid/features/toolbar#custom-toolbar-configuration). This approach is suitable if you have or need custom Grid ToolBar content.
+    ````RAZOR.skip-repl
+    <TelerikGrid>
+        <GridToolBarTemplate>
+            <GridSearchBox />
+        </GridToolBarTemplate>
+    </TelerikGrid>
+    ````
+
+The following example shows the first option in action, while the [customization demo](#customize-the-searchbox) below uses a `GridToolBarTemplate`.
 
 >caption Grid SearchBox
 
 ````RAZOR
 <TelerikGrid Data="@GridData"
-             Pageable="true"
-             Sortable="true">
-    <GridToolBarTemplate>
-        <GridSearchBox />
-    </GridToolBarTemplate>
+             Height="90vh"
+             Pageable="true">
+    <GridToolBar>
+        <GridToolBarSearchBoxTool Placeholder="Type a letter or digit..." Width="180px" />
+    </GridToolBar>
     <GridColumns>
-        <GridColumn Field="@nameof(SampleModel.Name)" />
-        <GridColumn Field="@nameof(SampleModel.Description)" />
+        <GridColumn Field="@nameof(GridModel.Id)" />
+        <GridColumn Field="@nameof(GridModel.Name)" />
+        <GridColumn Field="@nameof(GridModel.Description)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private List<SampleModel> GridData { get; set; } = new();
+    private List<GridModel> GridData { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        for (int i = 1; i <= 50; i++)
+        Random rnd = Random.Shared;
+        for (int i = 1; i <= 1000; i++)
         {
-            GridData.Add(new SampleModel()
+            GridData.Add(new GridModel()
             {
                 Id = i,
-                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
-                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
+                Name = $"{(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)} {rnd.Next(10, 100)}",
+                Description = $"{(char)rnd.Next(97, 123)}{(char)rnd.Next(97, 123)} {rnd.Next(10, 100)}"
             });
         }
     }
 
-    public class SampleModel
+    public class GridModel
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -57,7 +81,6 @@ To enable the SearchBox, add the `<GridSearchBox>` tag in the [`<GridToolBarTemp
     }
 }
 ````
-
 
 ## Search From Code
 
@@ -73,37 +96,36 @@ You can set or remove the search filters programmatically through the `SearchFil
 
 ## Customize the SearchBox
 
-The `GridSearchBox` component offers the following parameters to customize its behavior:
+The [`GridToolBarSearchBoxTool`](slug:telerik.blazor.components.gridtoolbarsearchboxtool) and [`GridSearchBox`](slug:telerik.blazor.components.gridsearchbox) components offer the same variety of parameters to customize its behavior.
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+`DebounceDelay` sets the time in milliseconds between the user typing ends and the search starts. This provides a performance optimization when using the [`OnRead` event](slug:common-features-data-binding-onread). Filtering does not occur on every keystroke during fast typing, unless `DebounceDelay` is set to `0`.
 
-| Parameter | Type and Default&nbsp;Value | Description |
-| --- | --- | --- |
-| `Class` | `string`| The custom CSS class that renders on the SearchBox wrapper (`<span class="k-searchbox">`). |
-| `DebounceDelay` | `int` <br /> (`300`) | The time in milliseconds between the user typing ends and the search starts. This provides a performance optimization when using the [`OnRead` event](slug:common-features-data-binding-onread). Filtering does not occur on every keystroke during fast typing, unless `DebounceDelay` is set to `0`. |
-| `Fields` | `List<string>` | The collection of model properties to search in. By default, the Grid searches in all visible columns that are bound to `string` fields. You can only define a subset of those fields. It is also possible to programmatically [search in `string` fields, which are not displayed in the Grid](slug:grid-kb-search-in-hidden-fields). |
-| `Placeholder` | `string` <br /> (`"Search..."`) | The textbox placeholder that hints the user what the SearchBox does. The built-in default value is [localized](slug:globalization-localization). |
-| `Width` | `string` | Specifies the width of the SearchBox component. |
+The Grid searches in all visible string columns or a subset of theirs. It is also possible to programmatically [search in `string` fields, which are not displayed in the Grid](slug:grid-kb-search-in-hidden-fields).
 
-The example below demonstrates all SearchBox settings in action, and also how to move the SearchBox on the opposite side of the Grid toolbar.
+The example below demonstrates all SearchBox settings in action, and also how to move the SearchBox on the opposite side of the Grid ToolBar when using `GridToolBarTemplate`.
 
 >caption Grid SearchBox customizaton
 
 ````RAZOR
 <TelerikGrid Data="@GridData"
              Pageable="true"
-             Sortable="true">
+             PageSize="20"
+             Sortable="true"
+             Height="90vh">
     <GridToolBarTemplate>
         <span class="k-toolbar-spacer"></span>
         <GridSearchBox Class="primary-searchbox"
                        DebounceDelay="300"
                        Fields="@SearchableFields"
+                       FillMode="@ThemeConstants.SearchBox.FillMode.Outline"
                        Placeholder="Search Name Column..."
+                       Rounded="@ThemeConstants.SearchBox.Rounded.Large"
+                       Size="@ThemeConstants.SearchBox.Size.Small"
                        Width="240px" />
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@nameof(SampleModel.Name)" />
-        <GridColumn Field="@nameof(SampleModel.Description)" />
+        <GridColumn Field="@nameof(GridModel.Name)" />
+        <GridColumn Field="@nameof(GridModel.Description)" />
     </GridColumns>
 </TelerikGrid>
 
@@ -114,24 +136,25 @@ The example below demonstrates all SearchBox settings in action, and also how to
 </style>
 
 @code {
-    private List<SampleModel> GridData { get; set; } = new();
+    private List<GridModel> GridData { get; set; } = new();
 
-    private List<string> SearchableFields = new List<string> { nameof(SampleModel.Name) };
+    private List<string> SearchableFields = new List<string> { nameof(GridModel.Name) };
 
     protected override void OnInitialized()
     {
-        for (int i = 1; i <= 50; i++)
+        Random rnd = Random.Shared;
+        for (int i = 1; i <= 1000; i++)
         {
-            GridData.Add(new SampleModel()
+            GridData.Add(new GridModel()
             {
                 Id = i,
-                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
-                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
+                Name = $"{(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)} {rnd.Next(10, 100)}",
+                Description = $"{(char)rnd.Next(97, 123)}{(char)rnd.Next(97, 123)} {rnd.Next(10, 100)}"
             });
         }
     }
 
-    public class SampleModel
+    public class GridModel
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
