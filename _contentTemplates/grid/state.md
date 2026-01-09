@@ -396,14 +396,16 @@
              Data="@GridData"
              Pageable="true"
              Sortable="true">
-    <GridToolBarTemplate>
-        <GridSearchBox />
-        <TelerikButton Icon="@SvgIcon.Search"
-                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                       OnClick="@OnSearchButtonClick">Search Programmatically</TelerikButton>
-        <TelerikButton Icon="@SvgIcon.X"
-                       OnClick="@OnClearButtonClick">Clear Search</TelerikButton>
-    </GridToolBarTemplate>
+    <GridToolBar>
+        <GridToolBarCustomTool>
+            <TelerikButton Icon="@SvgIcon.Search"
+                        ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                        OnClick="@OnSearchButtonClick">Search Programmatically</TelerikButton>
+            <TelerikButton Icon="@SvgIcon.X"
+                        OnClick="@OnClearButtonClick">Clear Search</TelerikButton>
+        </GridToolBarCustomTool>
+        <GridToolBarSearchBoxTool />
+    </GridToolBar>
     <GridColumns>
         <GridColumn Field="@nameof(GridModel.Name)" />
         <GridColumn Field="@nameof(GridModel.Description)" />
@@ -417,49 +419,53 @@
 
     private async Task OnSearchButtonClick()
     {
-        if (GridRef != null)
+        if (GridRef is null)
         {
-            var gridState = GridRef.GetState();
-
-            var searchString = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)}";
-
-            var cfd = new CompositeFilterDescriptor();
-
-            cfd.LogicalOperator = FilterCompositionLogicalOperator.Or;
-            cfd.FilterDescriptors = new FilterDescriptorCollection();
-
-            // Add one FilterDesccriptor for each string column
-            cfd.FilterDescriptors.Add(new FilterDescriptor()
-            {
-                Member = nameof(GridModel.Name),
-                MemberType = typeof(string),
-                Operator = FilterOperator.Contains,
-                Value = searchString
-            });
-            cfd.FilterDescriptors.Add(new FilterDescriptor()
-            {
-                Member = nameof(GridModel.Description),
-                MemberType = typeof(string),
-                Operator = FilterOperator.Contains,
-                Value = searchString
-            });
-
-            gridState.SearchFilter = cfd;
-
-            await GridRef.SetStateAsync(gridState);
+            return;
         }
+
+        GridState<GridModel> gridState = GridRef.GetState();
+
+        string searchString = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)}";
+
+        CompositeFilterDescriptor cfd = new();
+
+        cfd.LogicalOperator = FilterCompositionLogicalOperator.Or;
+        cfd.FilterDescriptors = new FilterDescriptorCollection();
+
+        // Add one FilterDesccriptor for each string column
+        cfd.FilterDescriptors.Add(new FilterDescriptor()
+        {
+            Member = nameof(GridModel.Name),
+            MemberType = typeof(string),
+            Operator = FilterOperator.Contains,
+            Value = searchString
+        });
+        cfd.FilterDescriptors.Add(new FilterDescriptor()
+        {
+            Member = nameof(GridModel.Description),
+            MemberType = typeof(string),
+            Operator = FilterOperator.Contains,
+            Value = searchString
+        });
+
+        gridState.SearchFilter = cfd;
+
+        await GridRef.SetStateAsync(gridState);
     }
 
     private async Task OnClearButtonClick()
     {
-        if (GridRef != null)
+        if (GridRef is null)
         {
-            var gridState = GridRef.GetState();
-
-            (gridState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
-
-            await GridRef.SetStateAsync(gridState);
+            return;
         }
+
+        GridState<GridModel> gridState = GridRef.GetState();
+
+        (gridState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
+
+        await GridRef.SetStateAsync(gridState);
     }
 
     protected override void OnInitialized()
