@@ -5,6 +5,7 @@ description: Learn how to install and configure the Telerik Blazor MCP Server fo
 slug: ai-installation
 tags: ai, mcp, installation, setup
 published: True
+tag: new
 position: 2
 ---
 
@@ -48,9 +49,11 @@ An alternative way to authenticate without using a `telerik-license.txt` file is
 
 ## MCP Server Configuration
 
+Use the documentation of your AI-powered MCP client to enable the Telerik MCP Server in a specific workspace or globally. Below you can find installation tips and examples for some popular MCP clients.
+
 ### Generic Settings of the Telerik Blazor MCP Server
 
-* Server name: `telerik-blazor-mcp` (depends on your preferences)
+* Server name: `telerik-blazor-mcp` (an arbitrary name that depends on your preferences)
 * Type: `stdio` (standard input/output transport)
 * Command: `dnx` (the MCP server works through a NuGet package)
 * Supported arguments: `--yes`
@@ -60,11 +63,13 @@ An alternative way to authenticate without using a `telerik-license.txt` file is
 
 Refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/copilot/visual-studio-github-copilot-extension?view=vs-2022#model-context-protocol-mcp-support).
 
+To enable global automatic discovery of the Telerik MCP Server in Visual Studio, add the `.mcp.json` file posted below to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
+
 To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code).
 
-**SOLUTIONDIR/.mcp.json**
+**.mcp.json**
 
-```json
+````JSON.skip-repl
 {
   "servers": {
     "telerik-blazor-mcp": {
@@ -80,13 +85,13 @@ To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` fil
   },
   "inputs": []
 }
-```
+````
 
 The `TELERIK_LICENSE_PATH` value must be the full path to the license key file, including the license file name itself, for example, 
 
-```json
+````JSON.skip-repl
 "TELERIK_LICENSE_PATH": "C:\\Users\\YourName\\AppData\\Roaming\\Telerik\\telerik-license.txt"
-```
+````
 
 Once the Telerik MCP server is added, make sure that all of its tools are enabled (checked) in the Copilot Chat window's tool selection dropdown in Visual Studio.
 
@@ -98,7 +103,7 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
 
 **.vscode/mcp.json at the workspace root**
 
-```json
+````JSON.skip-repl
 {
   "servers": {
     "telerik-blazor-mcp": {
@@ -114,13 +119,26 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
   },
   "inputs": []
 }
-```
+````
 
 The `TELERIK_LICENSE_PATH` value must be the full path to the license key file, including the license file name itself, for example, 
 
-```json
+````JSON.skip-repl
 "TELERIK_LICENSE_PATH": "C:\\Users\\YourName\\AppData\\Roaming\\Telerik\\telerik-license.txt"
-```
+````
+
+Make sure that [`chat.mcp.enabled`](vscode://settings/chat.mcp.enabled) is enabled in the VS Code settings. 
+
+To use the Agentic UI Generator in all workspaces and apps, make sure that [`chat.mcp.discovery.enabled`](vscode://settings/chat.mcp.discovery.enabled) is enabled in [`settings.json`](https://code.visualstudio.com/docs/configure/settings#_settings-json-file).
+
+>caption VS Code settings.json
+
+````JSON.skip-repl
+{
+  // ...
+  "chat.mcp.discovery.enabled": true,
+}
+````
 
 After adding the configuration, restart your IDE to load the Agentic UI Generator.
 
@@ -132,7 +150,7 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
 
 **.cursor/mcp.json at the workspace root**
 
-```json
+````JSON.skip-repl
 {
   "mcpServers": {
     "telerik-blazor-mcp": {
@@ -147,21 +165,21 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
     }
   }
 }
-```
+````
 
 ### .NET 8 and 9 Local Tool Installation
 
 For .NET 8 and 9 projects, you can install the MCP server as a local tool without global installation:
 
-```bash
+````bash.skip-repl
 dotnet tool install Telerik.Blazor.MCP
-```
+````
 
 ### MCP Configuration for .NET 8 and 9 Local Tools
 
 For VS Code `.vscode/mcp.json` using local tools:
 
-```json
+````JSON.skip-repl
 {
   "servers": {
     "telerik-blazor-mcp": {
@@ -177,7 +195,7 @@ For VS Code `.vscode/mcp.json` using local tools:
   },
   "inputs": []
 }
-```
+````
 
 ## See Also
 

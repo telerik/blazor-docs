@@ -13,147 +13,45 @@ previous_url: /ai/mcp-server
 
 The Telerik Blazor [MCP Server](https://modelcontextprotocol.io/introduction) lets you interact with AI and reach new levels of developer productivity. The MCP server provides proprietary context to AI-powered IDEs, apps and tools. You can use the Telerik Blazor MCP server for Blazor AI code generation and ask about [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui), features, or general usage. You can successfully prompt more complex questions and tasks, and generate tailored code that includes Telerik UI for Blazor components and API.
 
-## Prerequisites
+## Quick Start
 
-To use the Telerik Blazor MCP server, you need:
+Follow these steps to set up the AI Coding Assistant:
 
-* [.NET 10](https://dotnet.microsoft.com/en-us/download)
-* A [compatible MCP client (IDE, code editor or app)](https://modelcontextprotocol.io/clients) that supports *MCP tools*. Using the latest version of the MCP client is highly recommended.
-* A [Telerik user account](https://www.telerik.com/account/).
-* An active [DevCraft or Telerik UI for Blazor subscription license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
-* A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
+1. Ensure you have a supported license. You need a [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) to access the AI Coding Assistant. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you).
 
-Check [AI Coding Assistant Overview](slug:ai-overview) for more recommendations and usage information.
-
-## Installation
-
-There are two ways to install the Telerik Blazor MCP server:
-
-* Use a manual approach, which is described below.
-* Use an automated process provided by the Telerik extensions for [Visual Studio](slug:getting-started-vs-integration-ai-configuration) and [VS Code](slug:getting-started-vs-code-integration-ai-configuration).
-
-To install the Telerik MCP server manually, use the documentation of your AI-powered MCP client. You can enable the MCP server for specific workspaces or globally. The sections below provide installation tips and examples for some popular MCP clients like [Visual Studio](#visual-studio), [VS Code](#vs-code), and [Cursor](#cursor). The generic settings of the Telerik Blazor MCP server are:
-
-* NuGet package name: `Telerik.Blazor.MCP`
-* Type: `stdio` (standard input/output transport)
-* Command: `dnx` (the MCP server works through a NuGet package)
-* Supported arguments: `--yes`
-* Server name: `telerik-blazor-mcp`. This name depends on your preferences. See the notes below.
-* Your [Telerik license key](#license-key) as an `env` parameter
-
-> * Some MCP clients expect the MCP servers to be listed under a `servers` JSON key, while others expect `mcpServers`.
-> * Some MCP clients expect an `mcp.json` file, while others like Visual Studio 2022 expect an `.mcp.json` file.
-> * Some MCP clients, including older Visual Studio versions, may not accept a server name that uses hyphens (`-`) or underscores (`_`). In such cases, update the MCP client version or use a different server name.
-
-### License Key
-
-To use the Telerik MCP Server, you need to provide your [Telerik licence key](slug:installation-license-key). There are multiple options:
-
-**Recommended approach**&mdash;place the license file in the following folder:
-
-* On Windows at `%AppData%/Telerik/telerik-license.txt`
-* On macOS or Linux at `~/.telerik/telerik-license.txt`
-
-**Alternative approaches**&mdash;use an `env` parameter in the MCP `.json` file:
-
-* Use a `TELERIK_LICENSE_PATH` argument and point to your Telerik license file location.
-* Use a `TELERIK_LICENSE` argument and paste your Telerik license key. Make sure to [update the license key](slug:installation-license-key#license-key-updates) when necessary.
-
-### Visual Studio
-
-For detailed instructions, refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers). You can also install the Telerik Blazor MCP server through the [Telerik UI for Blazor Visual Studio extension](slug:getting-started-vs-integration-ai-configuration).
-
-> Early Visual Studio 17.14 versions require the Copilot Chat window to be open and active when you open a solution. Otherwise the Telerik MCP server is not used.
-
-To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` file to the solution folder.
-
->caption .mcp.json
-
-````JSON.skip-repl
-{
-  "servers": {
-    "telerik-blazor-mcp": {
-      "type": "stdio",
-      "command": "dnx",
-      "args": ["Telerik.Blazor.MCP", "--yes"],
-      "env": {
-        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
-        // or
-        // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+2. To add the MCP server to your IDE, create an `.mcp.json` file in your solution (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code) with the following configuration:
+   ````JSON.skip-repl
+   {
+     "servers": {
+       "telerik-blazor-mcp": {
+         "type": "stdio",
+         "command": "dnx",
+         "args": ["Telerik.Blazor.MCP", "--yes"],
+         "env": {
+           "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
+           // or
+           // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+         }
+       }
       }
-    }
-  }
-}
-````
+     }
+   ````
+   The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
 
-To enable global automatic discovery of the Telerik MCP Server in Visual Studio, add the above `.mcp.json` file to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
+   > For more details on how to configure the MCP server, refer to the instructions for your specific IDE below:
+   > * [Visual Studio](slug:ai-installation#visual-studio)
+   > * [Visual Studio Code](slug:ai-installation#visual-studio-code)
+   > * [Cursor](slug:ai-installation#cursor)
 
-> Once the Telerik MCP server is added, make sure that all of its tools are [enabled (checked) in the Copilot Chat window's tool selection dropdown](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022#configuration-example-with-github-mcp-server). This dropdown opens when clicking on a wrench icon 🔧 at the bottom of the Copilot Window. The Telerik MCP server may get disabled when starting a new chat, changing threads, or relaunching Visual Studio. This is a known issue with MCP servers in general.
+1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
 
-### VS Code
+    > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
+1. Open the AI chat interface of your IDE and start your prompt with `Telerik` to make it more likely for the AI Coding Assistant to get called. If you are using VS Code, then you can start your prompt with the `#telerik_blazor_assistant` handle to invoke the main generator tool:
+    ````TEXT.skip-repl
+    #telerik_blazor_assistant Create a basic Grid component that displays employee data with columns for ID, Name, Position, and Salary. Include sorting and pagination functionality.
+    ````
 
-For detailed instructions, refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). You can also install the Telerik Blazor MCP server through the [Telerik UI for Blazor VS Code extension](slug:getting-started-vs-code-integration-ai-configuration).
-
-> This section applies to VS Code 1.102.1 and newer versions.
-
-Make sure that [`chat.mcp.enabled`](vscode://settings/chat.mcp.enabled) is enabled in the VS Code settings.
-
-To enable the Telerik MCP Server in a specific [workspace](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-workspace), Blazor app, or [globally](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server-to-your-user-configuration), add a `.vscode` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
-
->caption .vscode/mcp.json
-
-````JSON.skip-repl
-{
-  "servers": {
-    "telerik-blazor-mcp": {
-      "type": "stdio",
-      "command": "dnx",
-      "args": ["Telerik.Blazor.MCP", "--yes"],
-      "env": {
-        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
-        // or
-        // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
-      }
-    }
-  }
-}
-````
-
-To use the Telerik MCP server in all workspaces and apps, make sure that [`chat.mcp.discovery.enabled`](vscode://settings/chat.mcp.discovery.enabled) is enabled in [`settings.json`](https://code.visualstudio.com/docs/configure/settings#_settings-json-file).
-
->caption VS Code settings.json
-
-````JSON.skip-repl
-{
-  // ...
-  "chat.mcp.discovery.enabled": true,
-}
-````
-
-### Cursor
-
-For detailed instructions, refer to [Model Context Protocol](https://cursor.com/docs/context/mcp), which enables Cursor to connect to external tools.
-
-To [enable the Telerik MCP Server in a specific workspace, Blazor app, or globally](https://docs.cursor.com/context/mcp#using-mcp-json), add a `.cursor` folder with an `mcp.json` file at the root of the workspace, app, or your user folder, respectively.
-
->caption .cursor/mcp.json
-
-````JSON.skip-repl
-{
-  "mcpServers": {
-    "telerik-blazor-mcp": {
-      "type": "stdio",
-      "command": "dnx",
-      "args": ["Telerik.Blazor.MCP"],
-      "env": {
-        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
-        // or
-        // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
-      }
-    }
-  }
-}
-````
+   > Step-by-step usage instructions are available in the [Usage](#usage) section.
 
 ## Usage
 

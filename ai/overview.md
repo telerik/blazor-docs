@@ -5,12 +5,13 @@ description: Learn about the Telerik Blazor MCP Server, its modes of operation, 
 slug: ai-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
+tag: new
 position: 1
 ---
 
 # Telerik Blazor MCP Server Overview
 
-The Telerik Blazor MCP Server enables you to achieve interaction with AI and reach new levels of developer productivity. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools. You can use the Telerik Blazor MCP server to ask about Telerik UI for Blazor components, features, or general usage. You can successfully prompt more complex questions and tasks, and generate tailored code that includes Telerik UI for Blazor components and API.
+The Telerik Blazor MCP Server enables you to achieve interaction with AI and reach new levels of developer productivity. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools. You can use the Telerik Blazor MCP server to ask about [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components, features, or general usage. You can successfully prompt more complex questions and tasks, and generate tailored code that includes Telerik UI for Blazor components and API.
 
 ## Single Unified MCP Server
 

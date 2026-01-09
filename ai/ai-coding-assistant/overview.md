@@ -20,7 +20,7 @@ The Telerik AI Coding Assistant is integrated in the [Telerik Blazor MCP Server]
 To use the Telerik Blazor AI Coding Assistant, you need:
 
 * A [Telerik user account](https://www.telerik.com/account/).
-* An active [DevCraft or Telerik UI for Blazor subscription license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
+* An active [Telerik UI for Blazor subscription license](https://www.telerik.com/purchase/blazor-ui) or a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
 * A [Blazor application that includes Telerik UI for Blazor](slug:blazor-overview#getting-started).
 * @[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
@@ -39,6 +39,15 @@ You can use the Telerik AI Coding Assistant for:
 >warning Always double-check the suggested code and solutions of any AI-powered tool before applying them to your app.
 
 > The Telerik AI Coding Assistant is not intended for styling and theme customization. If you are looking for AI-powered styling and theming, check out [Telerik ThemeBuilder](https://www.telerik.com/themebuilder).
+
+## Tools
+
+The AI Coding Assistant contains the following tools: 
+
+| Tool Handle | Description |
+|------------|-------------|
+| `telerik_ui_orchestrator` | Main tool. Coordinates all other tools to deliver complete solutions. |
+| `telerik_icon_assistant` | Searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this tool when you need to find and add specific icons for your UI components or design elements. |
 
 ## Recommendations
 

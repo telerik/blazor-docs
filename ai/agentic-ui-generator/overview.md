@@ -6,7 +6,6 @@ slug: agentic-ui-generator-overview
 position: 0
 tags: telerik,blazor,ai,agentic,ui,generator
 published: True
-tag: new
 ---
 
 # Telerik UI for Blazor Agentic UI Generator
@@ -15,12 +14,13 @@ The Agentic UI Generator is an intelligent, prompt-driven AI development assista
 
 ## What Is the Agentic UI Generator
 
-At its core, the Agentic UI Generator integrates five specialized tools: 
+At its core, the Agentic UI Generator integrates six specialized tools: 
 * UI Generator
 * Layout Assistant
 * Component Assistant
 * Style Assistant
 * Icon Assistant
+* Validator Assistant
 
 The tools are working together in an agentic flow to deliver complete, beautiful, on-brand and enterprise-ready UIs. The main generator coordinates these tools to handle component generation, styling, theming, and design system integration seamlessly.
 
