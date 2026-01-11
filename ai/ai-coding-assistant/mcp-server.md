@@ -17,7 +17,11 @@ The Telerik Blazor [MCP Server](https://modelcontextprotocol.io/introduction) le
 
 Follow these steps to set up the AI Coding Assistant:
 
-1. Ensure you have a supported license. You need a [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) to access the AI Coding Assistant. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you).
+1. Ensure you have a supported license. You need a [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license to access the AI Coding Assistant. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you).
+
+1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
+
+    > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
 
 2. To add the MCP server to your IDE, create an `.mcp.json` file in your solution (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code) with the following configuration:
    ````JSON.skip-repl
@@ -43,9 +47,6 @@ Follow these steps to set up the AI Coding Assistant:
    > * [Visual Studio Code](slug:ai-installation#visual-studio-code)
    > * [Cursor](slug:ai-installation#cursor)
 
-1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
-
-    > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
 1. Open the AI chat interface of your IDE and start your prompt with `Telerik` to make it more likely for the AI Coding Assistant to get called. If you are using VS Code, then you can start your prompt with the `#telerik_blazor_assistant` handle to invoke the main generator tool:
     ````TEXT.skip-repl
     #telerik_blazor_assistant Create a basic Grid component that displays employee data with columns for ID, Name, Position, and Salary. Include sorting and pagination functionality.
@@ -67,8 +68,6 @@ To use the Telerik MCP Server:
     * `Calling MCP tool telerik_blazor_assistant` (in Cursor)
 1. Grant the Telerik tool permission to run for the current session, workspace, or always.
 
-Also check the general [AI Coding Assistant Recommendations](slug:ai-overview#recommendations) for more usage tips.
-
 To call the Telerik MCP server without the need to type `Telerik` or `#telerik_blazor_assistant` explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
 
 ### Sample Prompts
@@ -83,10 +82,6 @@ The following list describes how your prompts may look like. Check the [Prompt L
 
 @[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
-## Connect to Local AI Model
-
-You can use the Telerik Blazor MCP server with local large language models (LLM). For example, run your local model through [Ollama](https://ollama.com) and use a third-party package such as [MCP-LLM Bridge](https://github.com/patruff/ollama-mcp-bridge) to connect the model to the Telerik MCP server. This will allow you to use the Telerik AI Coding Assistant without a cloud-based AI model.
-
 ## See Also 
 
-* [Telerik Agentic UI Generator](slug:agentic-ui-generator-overview)
+* [Telerik MCP Server Overview](slug:ai-overview)

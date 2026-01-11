@@ -18,7 +18,10 @@ Follow these steps to set up the Agentic UI Generator:
 
 1. Ensure you have a supported license. You need a DevCraft Complete or Ultimate Subscription to access the Agentic UI Generator. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you).
 
-    > For more information about access requirements based on the license type, see [Usage Limits](slug:agentic-ui-generator-overview#usage-limits).
+1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
+
+    > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
+
 1. To add the MCP server to your IDE, create an `.mcp.json` file in your solution (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code) with the following configuration:
    ````JSON.skip-repl
    {
@@ -43,9 +46,6 @@ Follow these steps to set up the Agentic UI Generator:
    > * [Visual Studio Code](slug:ai-installation#visual-studio-code)
    > * [Cursor](slug:ai-installation#cursor)
 
-1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
-
-    > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
 1. Open the AI chat interface of your IDE and start your prompt with `Telerik` to make it more likely for the Agentic UI Generator to get called. If you are using VS Code, then you can start your prompt with the `#telerik_ui_generator` handle to invoke the main generator tool:
     ````TEXT.skip-repl
     #telerik_ui_generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
@@ -88,6 +88,5 @@ You can call these tools directly when you need specific functionality, allowing
 
 ## See Also
 
-* [Agentic UI Generator Overview](slug:agentic-ui-generator-overview)
 * [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library)
 * [Telerik Design System](https://www.telerik.com/design-system/docs/)

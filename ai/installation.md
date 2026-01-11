@@ -19,9 +19,9 @@ To use the Telerik Blazor MCP server, you need:
 
 * A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP tools
 * A [Telerik User Account](https://www.telerik.com/account/)
-* An active license:
-  * **AI Coding Assistant**&mdash;[Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license
-  * **Agentic UI Generator**&mdash;[DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license (or [trial](https://www.telerik.com/try/ui-for-blazor))
+* An active Telerik license. Your license type determines which [MCP server mode]({% slug ai-overview %}) you can access: 
+  * [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license&mdash;grants access to the **AI Coding Assistant** mode
+  * [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license (or [trial](https://www.telerik.com/try/ui-for-blazor))&mdash;grants access to the **Agentic UI Generator** mode
 * [.NET 10](https://dotnet.microsoft.com/en-us/download)
 
 ## Installation
@@ -36,16 +36,15 @@ You need to add and activate your Telerik license key. The type of license you h
 
 * **Agentic UI Generator**&mdash;available exclusively with [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses (or [trial](https://www.telerik.com/try/ui-for-blazor)). This mode includes all AI Coding Assistant capabilities plus advanced UI generation, responsive layout creation, and custom theming tools.
 
+If you are new to Telerik UI for Blazor, sign up for a free [trial](https://www.telerik.com/try/ui-for-blazor).
+
+#### Installing Your License Key
+
+@[template](/_contentTemplates/common/get-started.md#license-key-manual-steps)
+
+@[template](/_contentTemplates/common/get-started.md#license-key-update-whenever)
+
 For more detailed guidance on activating your license, see the [Telerik License Key](slug:installation-license-key#basics) article. 
-
-To successfully authenticate, you may use either a license file or a license key. We recommend using a license file. Once you download it, place the file in the following folder:
-
-* On Windows at `%AppData%/Telerik/telerik-license.txt`
-* On macOS or Linux at `~/.telerik/telerik-license.txt`
-
-In the MCP Server configuration, use a `TELERIK_LICENSE_PATH` argument and point to your Telerik license file location.
-
-An alternative way to authenticate without using a `telerik-license.txt` file is to set the `TELERIK_LICENSE` argument in the MCP Server configuration and paste your Telerik license key. Make sure to update the license key when necessary.
 
 ## MCP Server Configuration
 
@@ -92,6 +91,8 @@ The `TELERIK_LICENSE_PATH` value must be the full path to the license key file, 
 ````JSON.skip-repl
 "TELERIK_LICENSE_PATH": "C:\\Users\\YourName\\AppData\\Roaming\\Telerik\\telerik-license.txt"
 ````
+
+An alternative way to authenticate without using a `telerik-license.txt` file is to set the `TELERIK_LICENSE` argument in the MCP Server configuration and paste your Telerik license key. Make sure to update the license key when necessary.
 
 Once the Telerik MCP server is added, make sure that all of its tools are enabled (checked) in the Copilot Chat window's tool selection dropdown in Visual Studio.
 

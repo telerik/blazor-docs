@@ -18,7 +18,7 @@ All prompts in this library target the Agentic UI Generator. The `#telerik_ui_ge
 
 1. Browse the prompt library to find a prompt that suits your needs.
 2. Copy the prompt text (including the `#telerik_ui_generator` handle if present).
-3. (optional) Customize the prompt as needed for your specific use case. Make sure the changes comply with the [intended use](slug:agentic-ui-generator-overview#intended-use) and the [recommendations](slug:agentic-ui-generator-overview#recommendations) for the Agentic UI Generator.
+3. (optional) Customize the prompt as needed for your specific use case. Make sure the changes comply with the [intended use](slug:agentic-ui-generator-getting-started#using-the-agentic-ui-generator)  for the Agentic UI Generator.
 4. Run the prompt against your AI-powered IDE.
 
 >warning Always double-check the code and solutions proposed by any AI-powered tool before applying them to your project.
@@ -93,6 +93,6 @@ Find appropriate icons for data visualization actions like export, print, refres
 
 ## See Also
 
-* [Agentic UI Generator Overview](slug:agentic-ui-generator-overview)
+* [Telerik MCP Server Overview](slug:ai-overview)
 * [Getting Started with the Agentic UI Generator](slug:agentic-ui-generator-getting-started)
 * [Telerik Design System](https://www.telerik.com/design-system/docs/)

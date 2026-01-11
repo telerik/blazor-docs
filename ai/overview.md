@@ -11,75 +11,70 @@ position: 1
 
 # Telerik Blazor MCP Server Overview
 
-The Telerik Blazor MCP Server enables you to achieve interaction with AI and reach new levels of developer productivity. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools. You can use the Telerik Blazor MCP server to ask about [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components, features, or general usage. You can successfully prompt more complex questions and tasks, and generate tailored code that includes Telerik UI for Blazor components and API.
+The Telerik Blazor MCP Server improves your developer experience and increases your productivity when implementing Blazor apps that leverage Telerik UI for Blazor. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools, enabling you to generate tailored code and prompt complex questions and tasks that include [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components and API. You can also use it to ask about component features, properties, events, or general usage.
 
-## Single Unified MCP Server
+## What Is the Telerik MCP Server
 
-The Telerik Blazor MCP Server has been significantly enhanced to provide a more streamlined development experience. The **Agentic UI Generator** and **AI Coding Assistant** have been merged into a single local MCP server. This consolidation simplifies installation, configuration, and usage, eliminating the need to manage multiple server instances.
+The Telerik Blazor MCP Server is local MCP server that operates in two modes based on your Telerik license: **AI Coding Assistant** (for Telerik UI for Blazor subscription licenses) and **Agentic UI Generator** (for DevCraft Complete or Ultimate subscription licenses). 
 
-Benefits of merging the AI tools into a single local MCP server:
-* Simplified Usage&mdash;install and configure once, access all capabilities based on your license. Refer to [Modes of Operation](#modes-of-operation) for more details. 
-* Seamless Experience&mdash;switch between coding assistance and UI generation without changing tools or servers.
-* Reduced Complexity&mdash;no need to manage separate remote and local MCP configurations.
-* Streamlined Authentication&mdash;you can now use your Telerik license key to activate the AI tools
-
-## NuGet Distribution
-
-The MCP server is now distributed via NuGet instead of npm. In addition to leveraging NuGet's robust package management, this opens the door to the integration of the Orchestrator and Validator tools.
-
-* Orchestrator Tool&mdash;intelligently manages the agentic workflow, including the `Icons` tool for seamless icon integration.
-* Validator Tool&mdash;ensures generated code follows Telerik UI for Blazor best practices and standards.
+The server is distributed via NuGet, which provides robust package management, streamlined authentication with your Telerik license key, and seamless integration with .NET development workflows.
 
 ## Modes of Operation
 
 The Telerik Blazor MCP server supports two modes of operation that depend on your Telerik license type:
+* Agentic UI Generator&mdash;this mode provides advanced capabilities for building complete user interfaces with responsive layouts and custom theming.
+* AI Coding Assistant&mdash;a mode designed for streamlined component integration and configuration tasks.
 
-| Mode | Available With | Included Tools |
-|------|----------------|----------------|
-| **AI Coding Assistant** | [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license | Component documentation assistant, code generation, configuration assistance, troubleshooting support, Orchestrator, Icon, and Validator tools |
-| **Agentic UI Generator** | [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | UI Generator, Component Assistant, Layout Assistant, Icon Assistant, Style Assistant, and Validator tools |
+| Mode | Available With | When to Use | What it Generates | Included Tools |
+|------|----------------|----------------|----------------|----------------|
+| Agentic UI Generator | [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | You need to build complete pages, dashboards, or entire UI sections from scratch. <br> You need comprehensive styling, theming, and responsive design. <br> You want to create a full visual design with layout and theme| Complete pages with layout, styling, components, and responsiveness | <ul><li>UI Generator</li><li>Component Assistant</li><li>Layout Assistant</li><li>Icon Assistant</li><li>Style Assistant</li><li>Validator Assistant</li></ul> |
+| AI Coding Assistant | [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license |You need to add or configure individual Telerik UI for Blazor components. <br> You're asking component-specific questions (APIs, properties, events). <br> You want to find icons for your buttons and components.| Individual components with proper data binding and configuration | <ul><li>Orchestrator</li><li>Icon Assistant</li><li>Validator Assistant</li></ul> |
 
 > The Agentic UI Generator includes the AI Coding Assistant, providing a comprehensive development experience.
 
-### AI Coding Assistant
+Available Tools:
 
-The AI Coding Assistant mode is designed for streamlined component integration and configuration tasks.
-
-**Intended Use:**
-
-* Initial Code Generation&mdash;quickly add components to your app to speed up initial development.
-* Component Configuration&mdash;enable or disable specific component features, or fine-tune the configuration through prompting. More complex configurations are possible but may require additional manual work to be production-ready.
-* Dummy Data Generation and Data Binding&mdash;quickly add data to your app for testing and prototyping purposes. Avoid exposing or providing access to your proprietary or production data to AI-enabled tools.
-* Step-by-Step Explanations&mdash;understand the solutions provided by the AI Coding Assistant through detailed explanations (depends on the tool, mode, and model used). To further develop your knowledge, check the respective documentation.
-* Preliminary Troubleshooting&mdash;resolve obvious and easy-to-solve issues affecting your code. For more complex issues, look for assistance from the community or contact the support team.
-
-### Agentic UI Generator
-
-The Agentic UI Generator mode provides advanced capabilities for building complete user interfaces with responsive layouts and custom theming.
-
-**Intended Use:**
-
-* Create Individual Components&mdash;build specific Telerik UI for Blazor components with particular configurations and features like filtering, validation, and data binding.
-* Create full responsive pages
-  * Build complete dashboards, landing pages, and listing pages in existing applications.
-  * Generate pages similar to the Progress Design System page templates.
-* Modify existing pages&mdash;generate new themes inside existing applications. Add dark mode or high-contrast themes.
-* Implement responsive layout
-  * Create new responsive pages and sections.
-  * Convert existing pages to be responsive for mobile and tablet views.
+* UI Generator&mdash;creates complete pages with layout, styling, and components (Agentic UI Generator mode only).
+* Component Assistant&mdash;answers questions and generates code related to Telerik UI for Blazor components.
+* Layout Assistant&mdash;helps with responsive design and CSS utilities from the Progress Design System (Agentic UI Generator mode only).
+* Icon Assistant&mdash;searches and retrieves icons from the Progress Design System iconography.
+* Style Assistant&mdash;generates custom themes and CSS variables (Agentic UI Generator mode only).
+* Orchestrator&mdash;intelligently manages the workflow and coordinates the usage of the other tools.
+* Validator&mdash;ensures that the generated code follows Telerik UI for Blazor best practices and standards.
 
 ## Getting Started
 
 To start using the Telerik Blazor MCP Server:
 
-1. **Configure MCP**&mdash;add the Telerik Blazor MCP Server configuration to your AI-powered IDE or tool.
-2. **Add Your License Key**&mdash;authenticate with your Telerik license key.
-3. **Start Using**&mdash;open a chat session in your AI-powered IDE and begin prompting for component assistance or UI generation based on your license.
+1. Activate your license&mdash;authenticate with your [Telerik license key]({% slug ai-installation#license-key %}).
+2. Configure MCP&mdash;add the [Telerik Blazor MCP Server configuration]({% slug ai-installation#mcp-server-configuration %}) to your AI-powered IDE or tool.
+3. Start Using&mdash;open a chat session in your AI-powered IDE and begin prompting for component assistance or UI generation based on your license.
 
 For detailed setup instructions, refer to the [Installation]({% slug ai-installation %}) article. For mode-specific usage guidance, see the [AI Coding Assistant]({% slug ai-mcp-server %}) or [Agentic UI Generator]({% slug agentic-ui-generator-getting-started %}) articles.
+
+## Usage Limits
+
+Access to the Telerik MCP Server modes of operation depends on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
+
+* DevCraft Complete and Ultimate Subscription
+  * These are the licenses that grant full access to the Agentic UI Generator mode of operation.
+  * The number of requests is virtually unlimited, with fair use policy applied.
+* Telerik UI for Blazor Subscription
+  * Grants access to the AI Coding Assistant mode of operation.
+  * Includes a virtually unlimited number of requests, with fair usage applied
+* Trial License
+  * A [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) automatically starts a 30-day trial for the AI tools.
+  * Includes a virtually unlimited number of requests, with fair usage applied.
+  * Reactivating the same trial for a new release does not grant additional requests.
+  * Designed for evaluating the feature before purchasing.
+
+> All Telerik AI tools share the same fair usage quota for your Telerik account.
+> When using the AI tools, one prompt may trigger several requests, depending on the prompt complexity.
+
+## Connect to Local AI Model
+
+You can use the Telerik Blazor MCP server with local large language models (LLM). For example, run your local model through [Ollama](https://ollama.com) and use a third-party package such as [MCP-LLM Bridge](https://github.com/patruff/ollama-mcp-bridge) to connect the model to the Telerik MCP server. This will allow you to use the Telerik AI Coding Assistant without a cloud-based AI model.
 
 ## See Also
 
 * [Installation]({% slug ai-installation %})
-* [Agentic UI Generator]({% slug agentic-ui-generator-overview %})
-* [AI Coding Assistant]({% slug ai-overview %})
