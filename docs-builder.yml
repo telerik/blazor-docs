@@ -642,10 +642,10 @@ meta:
     hideChildren: true
   ai/agentic-ui-generator:
     title: Agentic UI Generator
-    position: 0
+    position: 3
   ai/ai-coding-assistant:
     title: AI Coding Assistant
-    position: 1
+    position: 4
 
 
 redirects: 

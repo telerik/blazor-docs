@@ -19,7 +19,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 1. Browse the prompt library to find a prompt that suits your needs.
 2. Copy the prompt text including the `#telerik_blazor_assistant` handle.
-3. (optional) Customize the prompt as needed for your specific use case. Make sure the changes comply with the [intended use](slug:ai-overview#intended-use) and the [recommendations](slug:ai-overview#recommendations) for the AI Coding Assistant.
+3. (optional) Customize the prompt as needed for your specific use case.
 4. Run the prompt against the MCP server.
 
 >warning Always double-check the code and solutions proposed by any AI-powered tool before applying them to your project.
