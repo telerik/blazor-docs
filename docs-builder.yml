@@ -654,13 +654,17 @@ redirects:
     to: "/introduction"
 
 - 
-    from: ^/ai/overview$
-    to: "/ai/ai-coding-assistant/overview"
+    from: ^/ai/agentic-ui-generator/overview$
+    to: "/ai/overview"
+
+- 
+    from: ^/ai/ai-coding-assistant/overview$
+    to: "/ai/overview"
 
 - 
     from: ^/ai/ai-coding-assistant/coding-extension$
-    to: "/ai/ai-coding-assistant/overview"
+    to: "/ai/overview"
 
 - 
     from: ^/ai/coding-extension$
-    to: "/ai/ai-coding-assistant/overview"
+    to: "/ai/overview"

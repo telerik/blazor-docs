@@ -18,7 +18,9 @@ Follow these steps to set up the Agentic UI Generator:
 
 1. Ensure you have a supported license. You need a DevCraft Complete or Ultimate Subscription to access the Agentic UI Generator. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you).
 
-1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
+1. Save your `telerik-license.txt` file in:  
+    * (on Windows) `%AppData%\Telerik\telerik-license.txt`, for example, `C:\Users\...\AppData\Roaming\Telerik\telerik-license.txt`
+    * (on Mac or Linux) `~/.telerik/telerik-license.txt`, for example, `/Users/.../.telerik/telerik-license.txt`
 
     > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
 
@@ -39,6 +41,9 @@ Follow these steps to set up the Agentic UI Generator:
       }
      }
    ````
+
+   An alternative way to authenticate without using a `telerik-license.txt` file is to set the `TELERIK_LICENSE` argument in the MCP Server configuration and paste your Telerik license key. Make sure to update the license key when necessary.
+   
    The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
 
    > For more details on how to configure the MCP server, refer to the instructions for your specific IDE below:

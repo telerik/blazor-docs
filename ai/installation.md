@@ -198,6 +198,8 @@ For VS Code `.vscode/mcp.json` using local tools:
 }
 ````
 
+> The `command` argument value must be `dotnet`, when you configure the MCP Server for .NET 8 or 9. 
+
 ## See Also
 
 * [Overview]({% slug ai-overview %})
