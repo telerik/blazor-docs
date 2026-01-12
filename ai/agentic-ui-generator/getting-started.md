@@ -10,6 +10,8 @@ published: True
 
 # Getting Started with the Agentic UI Generator
 
+The Agentic UI Generator is an intelligent, prompt-driven AI development assistant designed to accelerate the creation and styling of modern web applications. Built around Telerik and Kendo UI, the Agent enables developers to move from idea to quality UI with speed, precision, and confidence.
+
 This article describes how to install, configure, and use the Telerik UI for Blazor Agentic UI Generator in Visual Studio and Visual Studio Code.
 
 ## Quick Start
@@ -43,7 +45,7 @@ Follow these steps to set up the Agentic UI Generator:
    ````
 
    An alternative way to authenticate without using a `telerik-license.txt` file is to set the `TELERIK_LICENSE` argument in the MCP Server configuration and paste your Telerik license key. Make sure to update the license key when necessary.
-   
+
    The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
 
    > For more details on how to configure the MCP server, refer to the instructions for your specific IDE below:
