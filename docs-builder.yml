@@ -642,10 +642,10 @@ meta:
     hideChildren: true
   ai/agentic-ui-generator:
     title: Agentic UI Generator
-    position: 0
+    position: 3
   ai/ai-coding-assistant:
     title: AI Coding Assistant
-    position: 1
+    position: 4
 
 
 redirects: 
@@ -654,13 +654,9 @@ redirects:
     to: "/introduction"
 
 - 
-    from: ^/ai/overview$
-    to: "/ai/ai-coding-assistant/overview"
-
-- 
     from: ^/ai/ai-coding-assistant/coding-extension$
-    to: "/ai/ai-coding-assistant/overview"
+    to: "/ai/overview"
 
 - 
     from: ^/ai/coding-extension$
-    to: "/ai/ai-coding-assistant/overview"
+    to: "/ai/overview"

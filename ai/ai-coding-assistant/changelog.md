@@ -36,5 +36,4 @@ Learn about the latest changes, improvements and bug fixes in the Telerik UI for
 
 ## See Also
 
-* [Telerik Blazor AI Coding Assistant Overview](slug:ai-overview)
-* [MCP Server](slug:ai-mcp-server)
+* [Telerik MCP Server Overview](slug:ai-overview)
