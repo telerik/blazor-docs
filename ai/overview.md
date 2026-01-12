@@ -33,7 +33,9 @@ The Telerik Blazor MCP server supports two modes of operation that depend on you
 | Agentic UI Generator | [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | - Build complete pages, dashboards, or entire UI sections from scratch. <br>- Apply comprehensive styling, theming, and responsive design. <br>- Create a full visual design with layout and theme | Individual components with proper data binding and configuration. Complete pages with layout, styling, components, and responsiveness | <ul><li>UI Generator</li><li>Component Assistant</li><li>Layout Assistant</li><li>Icon Assistant</li><li>Style Assistant</li><li>Validator Assistant</li></ul> |
 | AI Coding Assistant | [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license | - Add or configure individual Telerik UI for Blazor components.<br>- Ask component-specific questions (APIs, properties, events).<br>- Find icons for your buttons and components.</li></ul>| Individual components with proper data binding and configuration | <ul><li>Orchestrator</li><li>Icon Assistant</li><li>Validator Assistant</li></ul> |
 
-### Available Tools
+## Available Tools
+
+Each mode provides access to specific tools that work together to generate high-quality code:
 
 * UI Generator&mdash;Creates complete pages with layout, styling, and components (Agentic UI Generator mode only).
 * Component Assistant&mdash;Answers questions and generates code related to Telerik UI for Blazor components.
