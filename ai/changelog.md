@@ -13,7 +13,7 @@ tag: new
 
 Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Coding Assistant. The updates are structured in a chronological order with the newest ones appearing first.
 
-## January, 2026 Changelog
+## January, 2026
 
 ### Highlights
 
