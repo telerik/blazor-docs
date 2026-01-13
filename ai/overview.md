@@ -12,7 +12,7 @@ position: 1
 
 # Telerik Blazor MCP Server Overview
 
-The Telerik Blazor MCP Server improves your developer experience and increases your productivity when implementing Blazor apps that leverage Telerik UI for Blazor. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools, enabling you to generate tailored code and prompt complex questions and tasks that include [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components and API. The MCP server can help you create responsive dashboards and landing pages, and you can also ask it about component features, properties, events, or general usage.
+The Telerik Blazor MCP Server improves your developer experience and increases your productivity when implementing Blazor apps that leverage Telerik UI for Blazor. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools, enabling you to generate tailored code and prompt complex questions and tasks that include [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components and API. The MCP server can help you create responsive dashboards, landing pages, and more. You can also ask it about component features, properties, events, or general usage.
 
 ## What Is the Telerik MCP Server
 
