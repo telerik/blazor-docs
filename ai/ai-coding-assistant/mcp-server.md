@@ -100,7 +100,7 @@ The AI Coding Assistant includes three specialized tools coordinated by an orche
 <tr>
 <td><strong>Component Tool</strong></td>
 <td><code>#telerik_component_assistant</code></td>
-<td>Answers questions and generates code related to KendoReact components. Use this tool when you need to implement or configure specific KendoReact components like Grid, Charts, Forms, etc.</td>
+<td>Answers questions and generates code related to Telerik UI for Blazor components. Use this tool when you need to implement or configure specific Telerik UI for Blazor components like Grid, Charts, Forms, etc.</td>
 </tr>
 <tr>
 <td><strong>Icon Tool</strong></td>
