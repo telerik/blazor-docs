@@ -74,11 +74,9 @@ To call the Telerik MCP server without the need to type `Telerik` or `#telerik_b
 ### Call the AI Coding Assistant
 
 1. Open the AI chat interface in your IDE&mdash;Start a new chat session to begin interacting with the AI Coding Assistant.
-1. Start your prompt with the `#kendo_react_assistant` handle&mdash;this invokes the orchestrator tool that uses an agentic flow to analyze and process your request.
-1. Inspect the output and verify that the `kendo-react-mcp-server` MCP server  (or the one with your custom server name) is called. Look for a similar statement in the output:
-
-    <img alt="MCP Server uses Kendo UI Assistant in VS Code"  src="images/assistant-confirmation.png" style="width: 80%"/>
-
+1. In Visual Studio Code, you can start your prompt with the `#telerik_blazor_assistant` handle&mdash;this invokes the main MCP tool that uses an agentic flow to analyze and process your request.
+    > Using the `#telerik_blazor_assistant` handle ensures the AI Coding Assistant is called. Alternatively, you can use natural language without the handle. Make sure to mention the "telerik" keyword in your natural language prompt, so that the AI model can automatically recognize when to call the Assistant. The Assistant analyzes your prompt and creates the appropriate Blazor components, markup, and styling.
+1. Inspect the output and verify that the `telerik-blazor-mcp` MCP server (or the one with your custom server name) is called. 
 1. If prompted, grant the MCP server permission to run for this session, workspace, or always.
 
 ### Target the Tools (Advanced)
