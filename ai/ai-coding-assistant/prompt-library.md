@@ -9,7 +9,7 @@ position: 2
 previous_url: /ai/prompt-library
 ---
 
-# Telerik Blazor Prompt Library
+# AI Coding Assistant Prompt Library
 
 This article provides a list of sample prompts for use with the [Telerik Blazor MCP Server](slug:ai-mcp-server). They can help you get a better idea what the Telerik AI Coding Assistant can do and how to compose your prompts. This collection is not exhaustive and you can prompt the Telerik AI Coding Assistant about other scenarios and components as well.
 

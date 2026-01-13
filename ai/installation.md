@@ -11,7 +11,13 @@ position: 2
 
 # Installing the Telerik Blazor MCP Server
 
-This article provides step-by-step instructions for installing and configuring the Telerik Blazor MCP Server in your development environment.
+The Telerik AI Tools are delivered through a single MCP (Model Context Protocol) server that automatically provides access to the appropriate level of functionality based on your Telerik license:
+
+* **Agentic UI Generator**&mdash;Available exclusively with [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses (or [Trial](https://www.telerik.com/try/ui-for-blazor)). This mode includes all AI Coding Assistant capabilities plus advanced UI generation, responsive layout creation, and custom theming tools.
+
+* **AI Coding Assistant**&mdash;Available with a [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription or [DevCraft UI](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses. This mode provides access to component documentation, code generation, configuration assistance, and troubleshooting tools.
+
+This article provides detailed installation instructions for popular AI-powered IDEs.
 
 ## Prerequisites
 
@@ -19,44 +25,41 @@ To use the Telerik Blazor MCP server, you need:
 
 * A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP tools
 * A [Telerik User Account](https://www.telerik.com/account/)
-* An active Telerik license. Your license type determines which [MCP server mode]({% slug ai-overview %}) you can access:
-  * [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license (or [trial](https://www.telerik.com/try/ui-for-blazor))&mdash;Grants access to the **Agentic UI Generator** mode
-  * [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license&mdash;Grants access to the **AI Coding Assistant** mode
-* [.NET 10](https://dotnet.microsoft.com/en-us/download)
+* An active [Telerik license]({% slug installation-license-key %}). Your license type determines which [MCP server operation mode]({% slug ai-overview %}) you can access:
+  * [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription (or [Trial](https://www.telerik.com/try/ui-for-blazor)) licenses&mdash;Grant access to the **Agentic UI Generator** mode
+  * [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription or [DevCraft UI](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses&mdash;Grant access to the **AI Coding Assistant** mode
+* [.NET 8 or newer](https://dotnet.microsoft.com/en-us/download).
 
-## Installation
-
-Use the documentation of your AI-powered MCP client to add the Telerik MCP server to a specific workspace or globally. You can see installation tips and examples for some popular MCP clients below.
-
-### License Key
-
-You need to add and activate your Telerik license key. The type of license you have determines which modes of operation are available to you:
-
-* **Agentic UI Generator**&mdash;Available exclusively with [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses (or [trial](https://www.telerik.com/try/ui-for-blazor)). This mode includes all AI Coding Assistant capabilities plus advanced UI generation, responsive layout creation, and custom theming tools.
-
-* **AI Coding Assistant**&mdash;Available with a [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license. This mode provides access to component documentation, code generation, configuration assistance, and troubleshooting tools.
-
-#### License Key Activation
-
-@[template](/_contentTemplates/common/get-started.md#license-key-manual-steps)
-
-@[template](/_contentTemplates/common/get-started.md#license-key-update-whenever)
-
-For more detailed guidance on activating your license, see the [Telerik License Key](slug:installation-license-key#basics) article. 
-
-### MCP Server Configuration
+## MCP Server Configuration
 
 Use the documentation of your AI-powered MCP client to enable the Telerik MCP Server in a specific workspace or globally. Below you can find installation tips and examples for some popular MCP clients.
 
-#### Generic Settings of the Telerik Blazor MCP Server
+### Generic Settings of the Telerik Blazor MCP Server
 
 * Server name: `telerik-blazor-mcp` (an arbitrary name that depends on your preferences)
 * Type: `stdio` (standard input/output transport)
-* Command: `dnx` (the MCP server works through a NuGet package)
+* Command: `dnx` (the MCP server works through a NuGet package). The `dnx` value is valid when setting up the MCP Server on .NET 10. For .NET 8 or 9, see [.NET 8 and 9 Local Tool Installation](#-net-8-and-9-local-tool-installation)
 * Supported arguments: `--yes`
 * NuGet package name: `Telerik.Blazor.MCP`
 
-#### Visual Studio
+### License Key Setup
+
+The Telerik MCP server requires a valid Telerik license key for authentication. You can configure your license key either globally *(recommended)* on your machine or locally in the `env` configuration of the `.mcp.json` file.
+
+If you already have your `telerik-license.txt` license file in the default location *(recommended)*, the MCP server will discover it automatically and authenticate successfully:  
+
+>caption Default license file location
+
+````JSON.skip-repl
+"TELERIK_LICENSE_PATH": "C:\\Users\\YourName\\AppData\\Roaming\\Telerik\\telerik-license.txt"
+````
+> For detailed instructions on installing and activating your license, see the [Telerik License Key](slug:installation-license-key#manual-installation) article.
+
+When configured locally, you have to define either one of the following arguments inside the `env` configuration of the `.mcp.json` file:
+    * `TELERIK_LICENSE_PATH`&mdash;The full path to your license file location, including the license file name itself.
+    * `TELERIK_LICENSE`&mdash;Paste your license key directly. Make sure to update the license key when necessary.
+
+### Visual Studio
 
 Refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/copilot/visual-studio-github-copilot-extension?view=vs-2022#model-context-protocol-mcp-support).
 
@@ -72,29 +75,22 @@ To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` fil
     "telerik-blazor-mcp": {
       "type": "stdio",
       "command": "dnx",
-      "args": ["Telerik.Blazor.MCP", "--yes"],
-      "env": {
-        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
-        // or
-        "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
-      }
+      "args": ["Telerik.Blazor.MCP", "--yes"]
+      // set any of the arguments in the 'env' configuration below, if you haven't set up your license file globally 
+      //"env": {
+      //  "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
+      //  // or
+      //  "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+      //}
     }
   },
   "inputs": []
 }
 ````
 
-The `TELERIK_LICENSE_PATH` value must be the full path to the license key file, including the license file name itself, for example, 
-
-````JSON.skip-repl
-"TELERIK_LICENSE_PATH": "C:\\Users\\YourName\\AppData\\Roaming\\Telerik\\telerik-license.txt"
-````
-
-An alternative way to authenticate without using a `telerik-license.txt` file is to set the `TELERIK_LICENSE` argument in the MCP Server configuration and paste your Telerik license key. Make sure to update the license key when necessary.
-
 Once the Telerik MCP server is added, make sure that all of its tools are enabled (checked) in the Copilot Chat window's tool selection dropdown in Visual Studio.
 
-#### Visual Studio Code
+### Visual Studio Code
 
 Refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/copilot-mcp-architecture).
 
@@ -108,22 +104,17 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
     "telerik-blazor-mcp": {
       "type": "stdio",
       "command": "dnx",
-      "args": ["Telerik.Blazor.MCP", "--yes"],
-      "env": {
-        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
-        // or
-        "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
-      }
+      "args": ["Telerik.Blazor.MCP", "--yes"]
+      // set any of the arguments in the 'env' configuration below, if you haven't set up your license file globally 
+      //"env": {
+      //  "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
+      //  // or
+      //  "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+      //}
     }
   },
   "inputs": []
 }
-````
-
-The `TELERIK_LICENSE_PATH` value must be the full path to the license key file, including the license file name itself, for example, 
-
-````JSON.skip-repl
-"TELERIK_LICENSE_PATH": "C:\\Users\\YourName\\AppData\\Roaming\\Telerik\\telerik-license.txt"
 ````
 
 Make sure that [`chat.mcp.enabled`](vscode://settings/chat.mcp.enabled) is enabled in the VS Code settings. 
@@ -141,7 +132,7 @@ To use the Agentic UI Generator in all workspaces and apps, make sure that [`cha
 
 After adding the configuration, restart your IDE to load the Agentic UI Generator.
 
-#### Cursor
+### Cursor
 
 Refer to [Model Context Protocol](https://cursor.com/docs/context/mcp), which enables Cursor to connect to external tools.
 
@@ -155,12 +146,13 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
     "telerik-blazor-mcp": {
       "type": "stdio",
       "command": "dnx",
-      "args": ["Telerik.Blazor.MCP"],
-      "env": {
-        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
-        // or
-        "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
-      }
+      "args": ["Telerik.Blazor.MCP"]
+      // set any of the arguments in the 'env' configuration below, if you haven't set up your license file globally 
+      //"env": {
+      //  "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
+      //  // or
+      //  "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+      //}
     }
   }
 }
@@ -183,11 +175,12 @@ MCP Configuration for VS Code `.vscode/mcp.json` using local tools:
       "type": "stdio",
       "command": "dotnet",
       "args": ["tool", "run", "telerik-blazor-mcp"],
-      "env": {
-        "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
-        // or
-        "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
-      }
+      // set any of the arguments in the 'env' configuration below, if you haven't set up your license file globally 
+      //"env": {
+      //  "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
+      //  // or
+      //  "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+      //}
     }
   },
   "inputs": []

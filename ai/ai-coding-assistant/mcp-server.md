@@ -15,37 +15,38 @@ The Telerik Blazor AI Coding Assistant improves your developer experience and in
 
 ## Quick Start
 
+> If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to **step 3** to start using the AI Coding Assistant.
+
 Follow these steps to set up the AI Coding Assistant:
 
-1. Ensure you have a supported license. You need a [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license to access the AI Coding Assistant. If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you).
-
-1. Add your Telerik license key by either placing the license file in `%AppData%/Telerik/telerik-license.txt` (Windows) or `~/.telerik/telerik-license.txt` (macOS/Linux), or by using the `TELERIK_LICENSE_PATH` or `TELERIK_LICENSE` environment variables in the configuration above.
-
-    > For more information about obtaining and using your license key, refer to the [Installation]({% slug ai-installation %}) article.
-
-2. To add the MCP server to your IDE, create an `.mcp.json` file in your solution (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code) with the following configuration:
+1. Create an `.mcp.json` file in your solution (if you are using Visual Studio), or an `mcp.json` file in your workspace (if you are using Visual Studio Code) with the following configuration:
    ````JSON.skip-repl
    {
      "servers": {
        "telerik-blazor-mcp": {
          "type": "stdio",
          "command": "dnx",
-         "args": ["Telerik.Blazor.MCP", "--yes"],
-         "env": {
-           "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE"
-           // or
-           // "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
-         }
+         "args": ["Telerik.Blazor.MCP", "--yes"]
+         // set any of the arguments in the 'env' configuration below, if you haven't set up your license file globally 
+         //"env": {
+         //  "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
+         //  // or
+         //  "TELERIK_LICENSE": "YOUR_LICENSE_KEY"
+         //}
        }
       }
      }
    ````
-   The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the generator tool in your prompt.
+   The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the AI Code Assistant in your prompt.
 
    > For more details on how to configure the MCP server, refer to the instructions for your specific IDE below:
    > * [Visual Studio](slug:ai-installation#visual-studio)
    > * [Visual Studio Code](slug:ai-installation#visual-studio-code)
    > * [Cursor](slug:ai-installation#cursor)
+
+1. Ensure you have a [supported license]({% slug ai-overview#license-requirements %}) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates [the appropriate tools]({% slug ai-overview#ai-tools-overview-and-comparison %}).
+
+     > Refer to the [Telerik License Key Setup](slug:installation-license-key#manual-installation) section for detailed instructions.
 
 1. Open the AI chat interface of your IDE and start your prompt with `Telerik` to make it more likely for the AI Coding Assistant to get called. If you are using VS Code, then you can start your prompt with the `#telerik_blazor_assistant` handle to invoke the main generator tool:
     ````TEXT.skip-repl
@@ -58,7 +59,7 @@ Follow these steps to set up the AI Coding Assistant:
 
 By default, MCP clients do not call MCP tools in a deterministic way. Some MCP clients like [VS Code](#vs-code) allow you to explicitly reference the desired MCP tool in your prompt.
 
-To use the Telerik MCP Server:
+To use the AI Coding Assistant:
 
 1. Start your prompt with `Telerik` to make it more likely for the Telerik MCP server to get called. If you are using VS Code, then start your prompt with:
     * `#` and the MCP server name that you used in `mcp.json` (for example, `#telerik-blazor-mcp`)
@@ -70,6 +71,56 @@ To use the Telerik MCP Server:
 
 To call the Telerik MCP server without the need to type `Telerik` or `#telerik_blazor_assistant` explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
 
+### Call the AI Coding Assistant
+
+1. Open the AI chat interface in your IDE&mdash;Start a new chat session to begin interacting with the AI Coding Assistant.
+1. Start your prompt with the `#kendo_react_assistant` handle&mdash;this invokes the orchestrator tool that uses an agentic flow to analyze and process your request.
+1. Inspect the output and verify that the `kendo-react-mcp-server` MCP server  (or the one with your custom server name) is called. Look for a similar statement in the output:
+
+    <img alt="MCP Server uses Kendo UI Assistant in VS Code"  src="images/assistant-confirmation.png" style="width: 80%"/>
+
+1. If prompted, grant the MCP server permission to run for this session, workspace, or always.
+
+### Target the Tools (Advanced)
+
+The AI Coding Assistant includes three specialized tools coordinated by an orchestrator tool optimized for component-level development:
+
+<table>
+<thead>
+<tr>
+<th width="17%">Tool</th>
+<th width="26%">Handle</th>
+<th width="57%">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Orchestrator Tool</strong></td>
+<td><code>#telerik_blazor_assistant</code></td>
+<td>Main tool that coordinates all other tools to answer questions and generate code samples.</td>
+</tr>
+<tr>
+<td><strong>Component Tool</strong></td>
+<td><code>#telerik_component_assistant</code></td>
+<td>Answers questions and generates code related to KendoReact components. Use this tool when you need to implement or configure specific KendoReact components like Grid, Charts, Forms, etc.</td>
+</tr>
+<tr>
+<td><strong>Icon Tool</strong></td>
+<td><code>#telerik_icon_assistant</code></td>
+<td>Searches and retrieves icons from the <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/">Progress Design System iconography</a> by name, category, or keywords. You can also call it directly when you need to find specific icons for your UI components or design elements.</td>
+</tr>
+<tr>
+<td><strong>Validator Tool</strong></td>
+<td><code>N/A</code></td>
+<td>Not designed to be invoked manually. It is called automatically by the orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards.</td>
+</tr>
+</tbody>
+</table>
+
+You can call these tools directly when you need specific functionality, allowing for more precise control over the generation process.
+
+> Tagging specific tools in Visual Studio currently is not available. To increase the probability that a tool will be called, either explicitly mention the tool in your prompt, or specify that in your Copilot instructions. 
+
 ### Sample Prompts
 
 The following list describes how your prompts may look like. Check the [Prompt Library](slug:ai-prompt-library) for more examples.
@@ -77,10 +128,6 @@ The following list describes how your prompts may look like. Check the [Prompt L
 * &quot;Telerik Generate a Blazor Grid with sorting and paging enabled. Bind the Grid to a Person model and provide dummy data.&quot;
 * &quot;Telerik Generate a ComboBox for Blazor that shows a list of products. Create a Product class and generate sample data.&quot;
 * &quot;Telerik Show me sample code for a Blazor Grid with virtual scrolling for the rows and columns.&quot;
-
-## Usage Limits
-
-@[template](/_contentTemplates/common/ai-coding-assistant.md#number-of-requests)
 
 ## See Also 
 

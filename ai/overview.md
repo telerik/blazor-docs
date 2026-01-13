@@ -12,57 +12,107 @@ position: 1
 
 # Telerik Blazor MCP Server Overview
 
-The Telerik Blazor MCP Server improves your developer experience and increases your productivity when implementing Blazor apps that leverage Telerik UI for Blazor. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools, enabling you to generate tailored code and prompt complex questions and tasks that include [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components and API. You can also use it to ask about component features, properties, events, or general usage.
+The Telerik Blazor MCP Server improves your developer experience and increases your productivity when implementing Blazor apps that leverage Telerik UI for Blazor. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools, enabling you to generate tailored code and prompt complex questions and tasks that include [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components and API. The MCP server can help you create responsive dashboards, landing pages, and more. You can also ask it about component features, properties, events, or general usage.
 
 ## What Is the Telerik MCP Server
 
-The Telerik Blazor MCP Server is a local MCP server that operates in two modes based on your Telerik license: **Agentic UI Generator** (for DevCraft Complete or Ultimate subscription licenses) and **AI Coding Assistant** (for Telerik UI for Blazor subscription licenses). If you have a different license type, you can start a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you). 
+The Telerik Blazor MCP Server is a local MCP server that operates in two modes based on your Telerik license: **Agentic UI Generator** (for DevCraft Complete or Ultimate subscription licenses) and **AI Coding Assistant** (for Telerik UI for Blazor or DevCraft UI subscription licenses). 
 
 The server is distributed via NuGet, which provides robust package management, streamlined authentication with your Telerik license key, and seamless integration with .NET development workflows.
 
-## Modes of Operation
+## General Workflow
+
+To get started with the Telerik MCP server, complete the following steps:
+
+1. [Configure the MCP server]({% slug ai-installation#mcp-server-configuration %}).
+2. (Optional) If you have not installed your license key, follow the [License Key Guidelines]({% slug installation-license-key#manual-installation %}).
+3. Start using the tools—Open a chat session in your AI-powered IDE and begin prompting for component assistance or UI generation
+
+For tool-specific usage guidance, visit the [Agentic UI Generator Getting Started]({% slug agentic-ui-generator-getting-started %}) or [AI Coding Assistant Getting Started]({% slug ai-mcp-server %}) articles.
+
+## AI Tools Overview and Comparison
 
 The Telerik Blazor MCP server supports two modes of operation that depend on your Telerik license type:
 * Agentic UI Generator&mdash;This mode provides advanced capabilities for building complete user interfaces with responsive layouts and custom theming.
 * AI Coding Assistant&mdash;A mode designed for streamlined component integration and configuration tasks.
 
-> The Agentic UI Generator includes the AI Coding Assistant, providing a comprehensive development experience.
-
 | Mode | Available With | When to Use | What it Generates | Included Tools |
 |------|----------------|----------------|----------------|----------------|
-| Agentic UI Generator | [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | - Build complete pages, dashboards, or entire UI sections from scratch. <br>- Apply comprehensive styling, theming, and responsive design. <br>- Create a full visual design with layout and theme | Individual components with proper data binding and configuration. Complete pages with layout, styling, components, and responsiveness | <ul><li>UI Generator</li><li>Component Assistant</li><li>Layout Assistant</li><li>Icon Assistant</li><li>Style Assistant</li><li>Validator Assistant</li></ul> |
-| AI Coding Assistant | [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription license | - Add or configure individual Telerik UI for Blazor components.<br>- Ask component-specific questions (APIs, properties, events).<br>- Find icons for your buttons and components.</li></ul>| Individual components with proper data binding and configuration | <ul><li>Orchestrator</li><li>Icon Assistant</li><li>Validator Assistant</li></ul> |
+| Agentic UI Generator | [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | - Build complete pages, dashboards, or entire UI sections from scratch. <br>- Apply comprehensive styling, theming, and responsive design. <br>- Create a full visual design with layout and theme | Individual components with proper data binding and configuration. Complete pages with layout, styling, components, and responsiveness | - UI Generator <br>- Component Tool <br>- Layout Tool <br>- Icon Tool <br>- Style Tool <br>- Validator Tool |
+| AI Coding Assistant | [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) or [DevCraft UI](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | - Add or configure individual Telerik UI for Blazor components.<br>- Ask component-specific questions (APIs, properties, events).<br>- Find icons for your buttons and components.| Individual components with proper data binding and configuration | - Orchestrator<br>- Component Tool<br>- Icon Tool<br>- Validator Tool |
 
-## Available Tools
+## License Requirements
 
-Each mode provides access to specific tools that work together to generate high-quality code:
+Access to the Telerik AI Tools depends on your [Telerik license type](https://www.telerik.com/purchase.aspx?filter=web). The table below summarizes which level of functionality you can access with each license type:
 
-* UI Generator&mdash;Creates complete pages with layout, styling, and components (Agentic UI Generator mode only).
-* Component Assistant&mdash;Answers questions and generates code related to Telerik UI for Blazor components.
-* Layout Assistant&mdash;Helps with responsive design and CSS utilities from the [Progress Design System](https://www.telerik.com/design-system/docs/) (Agentic UI Generator mode only).
-* Icon Assistant&mdash;Searches and retrieves icons from the Progress Design System iconography.
-* Style Assistant&mdash;Generates custom themes and CSS variables (Agentic UI Generator mode only).
-* Orchestrator&mdash;Intelligently manages the workflow and coordinates the usage of the other tools.
-* Validator&mdash;Ensures that the generated code follows Telerik UI for Blazor best practices and standards.
+<table>
+<thead>
+<tr>
+<th width="25%"></th>
+<th width="15%">DevCraft Complete or Ultimate Subscription</th>
+<th width="15%">Other Subscriptions</th>
+<th width="15%">Perpetual License</th>
+<th width="15%">Trial License</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UI Generator Orchestrator Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No*</td>
+<td>No*</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<td><strong>Coding Assistant Orchestrator Tool</strong></td>
+<td>No**</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No**</td>
+<td>No**</td>
+</tr>
+<tr>
+<td><strong>Component Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No*</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<td><strong>Icon Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No*</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<td><strong>Layout Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No*</td>
+<td>No*</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<td><strong>Styling Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No*</td>
+<td>No*</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+</tbody>
+</table>
 
-## Quick Start
+*Available with a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) or [a Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
 
-To start using the Telerik Blazor MCP Server:
-
-1. Activate your license&mdash;Authenticate with your [Telerik license key]({% slug ai-installation#license-key %}).
-2. Configure MCP&mdash;Add the [Telerik Blazor MCP Server configuration]({% slug ai-installation#mcp-server-configuration %}) to your AI-powered IDE or tool.
-3. Start using&mdash;Open a chat session in your AI-powered IDE and begin prompting for component assistance or UI generation based on your license.
-
-For detailed setup instructions, refer to the [Installation]({% slug ai-installation %}) article. For mode-specific usage guidance, see the [AI Coding Assistant]({% slug ai-mcp-server %}) or [Agentic UI Generator]({% slug agentic-ui-generator-getting-started %}) articles.
+**The Coding Assistant Orchestrator Tool is available only when you have a subscription license that enables the limited set of tools (Component and Icon Tool). When you have access to the full set of tools (DevCraft Complete/Ultimate subscription or Trial), the UI Generator Orchestrator Tool is in charge of coordinating all tools.
 
 ## Usage Limits
 
-Access to the Telerik MCP Server modes of operation depends on your [Telerik license type](https://www.telerik.com/purchase/faq/licensing-purchasing):
+Usage limits for the Telerik MCP Server and its modes of operation:
 
 * DevCraft Complete and Ultimate Subscription
   * These are the licenses that grant full access to the Agentic UI Generator mode of operation.
   * The number of requests is virtually unlimited, with fair use policy applied.
-* Telerik UI for Blazor Subscription
+* Telerik UI for Blazor or DevCraft UI Subscription
   * Grants access to the AI Coding Assistant mode of operation.
   * Includes a virtually unlimited number of requests, with fair usage applied
 * Trial License
@@ -74,6 +124,23 @@ Access to the Telerik MCP Server modes of operation depends on your [Telerik lic
 > All Telerik AI tools share the same fair usage quota for your Telerik account.
 > When using the AI tools, one prompt may trigger several requests, depending on the prompt complexity.
 
+## Privacy
+
+The Telerik MCP server operates under the following conditions:
+
+* The MCP server does not have access to your workspace and application code. Note that when using the Telerik MCP server (or any other MCP server), the LLM generates parameters for the MCP server request, which may include parts of your application code.
+* The MCP server does not use your prompts to train Telerik AI models.
+* The MCP server does not generate the actual responses and has no access to these responses. The MCP server only provides a better context that helps your selected model (for example, GPT, Gemini, Claude) provide better responses.
+* The MCP server does not associate your prompts to your Telerik user account. Your prompts and generated context are anonymized and stored for statistical and troubleshooting purposes.
+* The MCP server stores metrics about how often and how much you use it in order to ensure compliance with the [allowed number of requests that correspond to your current license](#usage-limits).
+
+## Next Steps
+
+* [Install the Telerik MCP server]({% slug ai-installation %})
+* [Agentic UI Generator Getting Started]({% slug agentic-ui-generator-getting-started %}) 
+* [AI Coding Assistant Getting Started]({% slug ai-mcp-server %})
+
 ## See Also
 
-* [Installation]({% slug ai-installation %})
+* [Agentic UI Generator Prompt Library]({% slug agentic-ui-generator-prompt-library %})
+* [AI Coding Assistant Prompt Library]({% slug ai-prompt-library %})
