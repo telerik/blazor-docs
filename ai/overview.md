@@ -52,58 +52,66 @@ Access to the Telerik AI Tools depends on your [Telerik license type](https://ww
 <th width="15%">DevCraft Complete or Ultimate Subscription</th>
 <th width="15%">Other Subscriptions</th>
 <th width="15%">Perpetual License</th>
-<th width="15%">Trial License</th>
+<th width="15%">Trial License**</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>UI Generator Orchestrator Tool</strong></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No*</td>
-<td>No*</td>
+<td>No</td>
+<td>No</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 <tr>
 <td><strong>Coding Assistant Orchestrator Tool</strong></td>
-<td>No**</td>
+<td>No*</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No**</td>
-<td>No**</td>
+<td>No</td>
+<td>No*</td>
 </tr>
 <tr>
 <td><strong>Component Tool</strong></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No*</td>
+<td>No</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 <tr>
 <td><strong>Icon Tool</strong></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No*</td>
+<td>No</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 <tr>
 <td><strong>Layout Tool</strong></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No*</td>
-<td>No*</td>
+<td>No</td>
+<td>No</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 <tr>
 <td><strong>Styling Tool</strong></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No*</td>
-<td>No*</td>
+<td>No</td>
+<td>No</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+</tr>
+<tr>
+<td><strong>Validator Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 </tbody>
 </table>
 
-*Available with a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) or [a Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
+*The Coding Assistant Orchestrator Tool is available only when you have a subscription license that enables the limited set of tools (Component and Icon Tool). When you have access to the full set of tools (DevCraft Complete/Ultimate subscription or Trial), the UI Generator Orchestrator Tool is in charge of coordinating all tools.
 
-**The Coding Assistant Orchestrator Tool is available only when you have a subscription license that enables the limited set of tools (Component and Icon Tool). When you have access to the full set of tools (DevCraft Complete/Ultimate subscription or Trial), the UI Generator Orchestrator Tool is in charge of coordinating all tools.
+**Tools available with a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) or [a Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
 
 ## Usage Limits
 

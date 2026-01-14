@@ -69,7 +69,7 @@ To use the AI Coding Assistant:
     * `Calling MCP tool telerik_blazor_assistant` (in Cursor)
 1. Grant the Telerik tool permission to run for the current session, workspace, or always.
 
-To call the Telerik MCP server without the need to type `Telerik` or `#telerik_blazor_assistant` explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://docs.cursor.com/context/rules).
+To call the Telerik MCP server without the need to type `Telerik` or `#telerik_blazor_assistant` explicitly, add custom instructions to your AI-powered tool. Here are examples for [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot#about-repository-custom-instructions-for-github-copilot-chat) and [Cursor](https://cursor.com/docs/context/rules).
 
 ### Call the AI Coding Assistant
 
