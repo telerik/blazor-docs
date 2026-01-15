@@ -18,7 +18,7 @@ The Telerik Blazor MCP Server improves your developer experience and increases y
 
 The Telerik Blazor MCP Server is a local MCP server that operates in two modes based on your Telerik license: **Agentic UI Generator** (for DevCraft Complete or Ultimate subscription licenses) and **AI Coding Assistant** (for Telerik UI for Blazor or DevCraft UI subscription licenses). 
 
-The server is distributed via NuGet ([Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP)), which provides robust package management, streamlined authentication with your Telerik license key, and seamless integration with .NET development workflows.
+The server is distributed via the ([Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP)) NuGet package, which provides robust package management, streamlined authentication with your Telerik license key, and seamless integration with .NET development workflows.
 
 ## General Workflow
 
@@ -36,11 +36,16 @@ For tool-specific usage guidance, visit the [Agentic UI Generator Getting Starte
 * AI Coding Assistant&mdash;A tool designed for streamlined component integration and configuration tasks.
 
 <table>
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="35%" />
+</colgroup>
 <thead>
 <tr>
-<th width="20%"></th>
-<th width="30%">Agentic UI Generator</th>
-<th width="35%">AI Coding Assistant</th>
+<th></th>
+<th>Agentic UI Generator</th>
+<th>AI Coding Assistant</th>
 </tr>
 </thead>
 <tbody>
