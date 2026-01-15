@@ -15,86 +15,58 @@ The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target=
 ## Creating Blazor Chat
 
 1. Add the `<TelerikChat>` tag to your page.
-2. Set the `Data` parameter to a collection of messages.
-3. Set the `AuthorId` parameter to identify the current user.
-4. Subscribe to the `OnSendMessage` event to handle new messages.
-5. (optional) Configure additional features like file uploads, speech-to-text, and quick actions.
+1. Set the `Data` parameter to a collection of messages.
+1. Set the `AuthorId` parameter to identify the current user.
+1. Subscribe to the `OnSendMessage` event to handle new messages.
+1. (optional) Configure additional settings like dimensions and speech-to-text support.
+1. (optional) [Define the Chat model property names if they don't match the defaults](slug:chat-data-binding#field-mapping).
 
 >caption Basic configuration of the Telerik Chat
 
 ````razor
-<TelerikChat Data="@ChatData"
+<TelerikChat @ref="@ChatRef"
+             Data="@ChatData"
              AuthorId="@CurrentUserId"
+             EnableSpeechToText="@ChatSpeechToTextEnabled"
              OnSendMessage="@OnChatSendMessage"
-             TextField="@nameof(ChatMessage.Content)"
-             AuthorIdField="@nameof(ChatMessage.UserId)"
-             TimestampField="@nameof(ChatMessage.SentAt)"
              Height="600px"
-             Width="400px"
-             EnableFileUpload="@ChatFileUploadEnabled"
-             EnableSpeechToText="@ChatSpeechToTextEnabled">
+             Width="400px">
 </TelerikChat>
 
 @code {
-    #region Component Parameters
-    
-    private List<ChatMessage> ChatData { get; set; }
+    private TelerikChat<Message>? ChatRef;
+    private List<Message> ChatData { get; set; } = new();
     private string CurrentUserId { get; set; } = "user1";
-    private bool ChatFileUploadEnabled { get; set; } = true;
     private bool ChatSpeechToTextEnabled { get; set; } = true;
-    
-    #endregion
-    
-    #region Lifecycle Methods
-    
-    protected override void OnInitialized()
-    {
-        ChatData = new List<ChatMessage>();
-        
-        for (int i = 1; i <= 2; i++)
-        {
-            ChatData.Add(new ChatMessage
-            {
-                Id = i.ToString(),
-                Content = i == 1 ? "Hello! How can I help you today?" : "Hi there! I'm looking for information about the new features.",
-                UserId = i == 1 ? "assistant" : "user1",
-                SentAt = DateTime.Now.AddMinutes(-5 + (i * 2))
-            });
-        }
-    }
-    
-    #endregion
-    
-    #region Methods
     
     private async Task OnChatSendMessage(ChatSendMessageEventArgs args)
     {
-        var newMessage = new ChatMessage
+        var newMessage = new Message
         {
-            Id = Guid.NewGuid().ToString(),
-            Content = args.Message,
-            UserId = CurrentUserId,
-            SentAt = DateTime.Now
+            AuthorId = CurrentUserId,
+            Text = args.Message
         };
         
         ChatData.Add(newMessage);
-        await InvokeAsync(StateHasChanged);
+        ChatRef?.Refresh();
     }
-    
-    #endregion
-    
-    #region Class Declarations
-    
-    public class ChatMessage
+
+    protected override void OnInitialized()
     {
-        public string Id { get; set; }
-        public string Content { get; set; }
-        public string UserId { get; set; }
-        public DateTime SentAt { get; set; }
-        public List<FileSelectFileInfo> Attachments { get; set; }
+        ChatData = new List<Message>();
+        
+        for (int i = 1; i <= 2; i++)
+        {
+            ChatData.Add(new Message
+            {
+                Text = i == 1 ? "Hello! How can I help you today?" : "Hi there! I'm looking for information about the new features.",
+                AuthorId = i == 1 ? "assistant" : "user1",
+                Timestamp = DateTime.Now.AddMinutes(-5 + i)
+            });
+        }
     }
-    
-    #endregion
+ 
+@[template](/_contentTemplates/chat/general.md#messagecs)
 }
 ````
 

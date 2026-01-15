@@ -14,9 +14,9 @@ The Telerik UI for Blazor Chat component supports data binding to collections of
 
 ## Bind to Data
 
-To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where `T` represents your message model.
+To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where `T` represents your message model. The Chat items have features that map to properties in the model. The following example uses property model names that work automatically, with no [additional field mapping](#field-mapping).
 
->caption Basic data binding
+>caption Chat basic data binding
 
 ````Razor
 <TelerikChat Data="@ChatData"
@@ -25,69 +25,36 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
 </TelerikChat>
 
 @code {
-    #region Component Parameters
-    
-    private List<ChatMessage> ChatData { get; set; }
+    private List<Message> ChatData { get; set; } = new();
     private string CurrentUserId { get; set; } = "user1";
-    
-    #endregion
-    
-    #region Lifecycle Methods
     
     protected override void OnInitialized()
     {
-        ChatData = new List<ChatMessage>();
+        ChatData = new List<Message>();
         
         for (int i = 1; i <= 2; i++)
         {
-            ChatData.Add(new ChatMessage 
+            ChatData.Add(new Message 
             { 
-                Id = i.ToString(), 
                 Text = i == 1 ? "Hello!" : "Hi there!", 
-                AuthorId = i == 1 ? "user1" : "user2", 
-                Timestamp = DateTime.Now.AddMinutes(-5 + (i * 2))
+                AuthorId = i == 1 ? CurrentUserId : "user2", 
+                Timestamp = DateTime.Now.AddMinutes(-5 + i)
             });
         }
     }
     
-    #endregion
-    
-    #region Methods
-    
     private void OnChatSendMessage(ChatSendMessageEventArgs args)
     {
-        var newMessage = new ChatMessage
+        var newMessage = new Message
         {
-            Id = Guid.NewGuid().ToString(),
             Text = args.Message,
-            AuthorId = CurrentUserId,
-            Timestamp = DateTime.Now
+            AuthorId = CurrentUserId
         };
         
         ChatData.Add(newMessage);
     }
-    
-    #endregion
-    
-    #region Class Declarations
 
-    public class ChatMessage
-    {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorImageUrl { get; set; }
-        public string Text { get; set; }
-        public string MessageToReplyId { get; set; }
-        public string Status { get; set; }
-        public bool IsDeleted { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<string> SuggestedActions { get; set; }
-        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
-    }
-    
-    #endregion
+@[template](/_contentTemplates/chat/general.md#messagecs)
 }
 ````
 
@@ -97,72 +64,71 @@ The Chat component provides field mapping parameters to work with different data
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Description | Default Value |
+| Property Name | Description | Default Value |
 |-----------|-------------|---------------|
-| `TextField` | Field containing message text content | `"Text"` |
-| `AuthorIdField` | Field containing the author/user ID | `"AuthorId"` |
-| `AuthorImageUrlField` | Field containing the author/user avatar image | `"AuthorImageUrl"` |
-| `AuthorNameField` | Field containing the author display name | `"AuthorName"` |
-| `TimestampField` | Field containing the message timestamp | `"Timestamp"` |
-| `IdField` | Field containing the unique message ID | `"Id"` |
-| `FilesField` | Field containing file attachments | `"Files"` |
-| `StatusField` | Field containing message status | `"Status"` |
-| `IsDeletedField` | Field indicating if message is deleted | `"IsDeleted"` |
-| `IsPinnedField` | Field indicating if message is pinned | `"IsPinned"` |
-| `ReplyToIdField` | Field containing the ID of replied message | `"ReplyToId"` |
-| `SuggestedActionsField` | Field containing suggested actions | `"SuggestedActions"` |
+| `TextField` | The message text content | `"Text"` |
+| `AuthorIdField` | The author/user ID | `"AuthorId"` |
+| `AuthorImageUrlField` | The author/user avatar image | `"AuthorImageUrl"` |
+| `AuthorNameField` | The author display name | `"AuthorName"` |
+| `TimestampField` | The message timestamp | `"Timestamp"` |
+| `IdField` | the unique message ID | `"Id"` |
+| `FilesField` | File attachments | `"Files"` |
+| `StatusField` | Message status | `"Status"` |
+| `IsDeletedField` | Indicates if the message is deleted | `"IsDeleted"` |
+| `IsPinnedField` | Iindicaties if the message is pinned | `"IsPinned"` |
+| `ReplyToIdField` | The ID of replied message | `"ReplyToId"` |
+| `SuggestedActionsField` | Predefined quick replies | `"SuggestedActions"` |
+
+>caption Using custom Chat model property names
+
+````RAZOR.skip-repl
+<TelerikChat AuthorIdField="@nameof(Message.UserId)"
+             AuthorNameField="@nameof(Message.UserName)"
+             TextField="@nameof(Message.Content)">
+</TelerikChat>
+
+@code {
+    public class Message
+    {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string UserId { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public DateTime Timestamp { get; set; } = DateTime.Now;
+        public string Status { get; set; } = "Sent";
+    }
+}
+````
 
 ## Dynamic Updates
 
-The Chat component automatically reflects changes to the bound data collection. You can add, modify, or remove messages programmatically:
+The Chat component automatically reflects changes to the bound data collection. You can add, modify, or remove messages programmatically.
 
 ````Razor
+<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+               OnClick="@OnAddSystemMessageClick">Add System Message</TelerikButton>
+<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+               OnClick="@OnClearMessagesClick">Clear All Messages</TelerikButton>
+
 <TelerikChat @ref="@ChatRef"
              Data="@ChatData"
-             TextField="@nameof(ChatMessage.Content)"
              AuthorId="@CurrentUserId"
              OnSendMessage="@OnChatSendMessage">
 </TelerikChat>
 
-<div style="margin-top: 20px;">
-    <TelerikButton OnClick="@OnAddSystemMessageClick">Add System Message</TelerikButton>
-    <TelerikButton OnClick="@OnClearMessagesClick">Clear All Messages</TelerikButton>
-</div>
-
 @code {
-    #region Component References
+    private TelerikChat<Message>? ChatRef { get; set; }
     
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
-    
-    #endregion
-    
-    #region Component Parameters
-    
-    private List<ChatMessage> ChatData { get; set; }
+    private List<Message> ChatData { get; set; } = new();
     private string CurrentUserId { get; set; } = "user1";
-    
-    #endregion
-    
-    #region Lifecycle Methods
-    
-    protected override void OnInitialized()
-    {
-        ChatData = new List<ChatMessage>();
-    }
-    
-    #endregion
-    
-    #region Methods
 
     private void OnChatSendMessage(ChatSendMessageEventArgs args)
     {
-        var newMessage = new ChatMessage
+        var newMessage = new Message
         {
-            Id = Guid.NewGuid().ToString(),
-            Content = args.Message,
             AuthorId = CurrentUserId,
-            AuthorName = "User",
-            Timestamp = DateTime.Now
+            AuthorName = "User 1",
+            Text = args.Message
         };
 
         ChatData.Add(newMessage);
@@ -172,13 +138,11 @@ The Chat component automatically reflects changes to the bound data collection. 
 
     private void OnAddSystemMessageClick()
     {
-        ChatData.Add(new ChatMessage
+        ChatData.Add(new Message
         {
-            Id = Guid.NewGuid().ToString(),
-            Content = "System notification: New user joined the chat",
             AuthorId = "system",
             AuthorName = "System",
-            Timestamp = DateTime.Now
+            Text = "System notification: New user joined the chat"
         });
 
         ChatRef?.Refresh();
@@ -189,23 +153,8 @@ The Chat component automatically reflects changes to the bound data collection. 
         ChatData.Clear();
         ChatRef?.Refresh();
     }
-    
-    #endregion
-    
-    #region Class Declarations
 
-    public class ChatMessage
-    {
-        public string Id { get; set; }        
-        public string AuthorId { get; set; }        
-        public string AuthorName { get; set; }        
-        public string Content { get; set; }        
-        public DateTime Timestamp { get; set; }        
-        public string Status { get; set; }        
-        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
-    }
-    
-    #endregion
+@[template](/_contentTemplates/chat/general.md#messagecs)
 }
 ````
 
