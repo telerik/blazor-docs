@@ -18,7 +18,7 @@ The Telerik Blazor MCP Server improves your developer experience and increases y
 
 The Telerik Blazor MCP Server is a local MCP server that operates in two modes based on your Telerik license: **Agentic UI Generator** (for DevCraft Complete or Ultimate subscription licenses) and **AI Coding Assistant** (for Telerik UI for Blazor or DevCraft UI subscription licenses). 
 
-The server is distributed via NuGet, which provides robust package management, streamlined authentication with your Telerik license key, and seamless integration with .NET development workflows.
+The server is distributed via the ([Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP)) NuGet package, which provides robust package management, streamlined authentication with your Telerik license key, and seamless integration with .NET development workflows.
 
 ## General Workflow
 
@@ -32,14 +32,63 @@ For tool-specific usage guidance, visit the [Agentic UI Generator Getting Starte
 
 ## AI Tools Overview and Comparison
 
-The Telerik Blazor MCP server supports two modes of operation that depend on your Telerik license type:
-* Agentic UI Generator&mdash;This mode provides advanced capabilities for building complete user interfaces with responsive layouts and custom theming.
-* AI Coding Assistant&mdash;A mode designed for streamlined component integration and configuration tasks.
+* Agentic UI Generator&mdash;This tool provides advanced capabilities for building complete user interfaces with responsive layouts and custom theming.
+* AI Coding Assistant&mdash;A tool designed for streamlined component integration and configuration tasks.
 
-| Mode | Available With | When to Use | What it Generates | Included Tools |
-|------|----------------|----------------|----------------|----------------|
-| Agentic UI Generator | [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | - Build complete pages, dashboards, or entire UI sections from scratch. <br>- Apply comprehensive styling, theming, and responsive design. <br>- Create a full visual design with layout and theme | Individual components with proper data binding and configuration. Complete pages with layout, styling, components, and responsiveness | - UI Generator <br>- Component Tool <br>- Layout Tool <br>- Icon Tool <br>- Style Tool <br>- Validator Tool |
-| AI Coding Assistant | [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) or [DevCraft UI](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription license | - Add or configure individual Telerik UI for Blazor components.<br>- Ask component-specific questions (APIs, properties, events).<br>- Find icons for your buttons and components.| Individual components with proper data binding and configuration | - Orchestrator<br>- Component Tool<br>- Icon Tool<br>- Validator Tool |
+<table>
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="35%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>Agentic UI Generator</th>
+<th>AI Coding Assistant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Orchestrator Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<tr>
+<td><strong>Component Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<td><strong>Icon Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<td><strong>Layout Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Styling Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Validator Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Complete pages, dashboards with layout, styling, components, and responsivenes.</td>
+<td>Individual components with proper data binding and configuration.</td>
+</tr>
+</tbody>
+</table>
+
+
 
 ## License Requirements
 
