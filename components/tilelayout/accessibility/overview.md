@@ -43,6 +43,7 @@ The following example demonstrates the [accessibility compliance of the TileLayo
 
 <TelerikTileLayout Columns="2"
                    RowHeight="150px"
+                   Navigable="true"
                    Resizable="true"
                    Reorderable="true">
     <TileLayoutItems>
