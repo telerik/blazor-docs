@@ -260,6 +260,7 @@ This KB answers the following questions:
 
     public void Dispose()
     {
+        _ = JS.InvokeVoidAsync("dispose");
         DotNetRef?.Dispose();
     }
 }
