@@ -17,7 +17,7 @@
 
 * If you are new to UI for Blazor and haven’t purchased a license yet, you can <a href="https://www.telerik.com/try/ui-for-blazor" target="_blank">Start a Free Trial</a> by downloading and installing the UI for Blazor components. This process activates your free trial and enables you to use the components. During the installation, select the **Set up Telerik NuGet package source** checkbox so the installer can automatically configure the Telerik [online NuGet feed](slug:installation/nuget), which you will use later in the tutorial. 
 
-* Starting a free trial alone is not enough. Trial users must also complete the local installation of the components; otherwise, the trial license will not activate and the tutorial cannot be completed successfully.
+* Just starting a free trial on telerik.com is not enough. Trial users must also complete the local installation of the components. Otherwise, the trial license does not activate and the tutorial cannot be completed successfully.
 
 #end
 
