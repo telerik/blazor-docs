@@ -88,7 +88,7 @@ The following table lists the Tile Layout parameters. Also check the [TileLayout
 | `Columns` | `int` | The number of columns in the Tile Layout. |
 | `ColumnWidth` | `string` | The width of one tile. If not set, the tile widths will distribute evenly. |
 | `Height` | `string` | The Tile Layout height. If not set, the component will expand automatically to fit all rows. |
-| `Navigable` | `bool` | Enables [keyboard navigation](slug:accessibility-overview#keyboard-navigation). |
+| `Navigable` | `bool` | Enables [keyboard navigation](slug:tilelayout-accessibility-overview#keyboard-navigation). |
 | `RowHeight` | `string` | The height of one tile. If not set, the base tile height will be set by the component, based on the highest tile. |
 | `RowSpacing` | `string` <br /> (`"16px"`) | The empty space between rows. |
 | `Reorderable` | `bool` | Enables tile reordering. |
