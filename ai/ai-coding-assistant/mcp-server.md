@@ -39,10 +39,7 @@ Follow these steps to set up the AI Coding Assistant:
    ````
    The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the AI Code Assistant in your prompt.
 
-   > For more details on how to configure the MCP server, refer to the instructions for your specific IDE below:
-   > * [Visual Studio](slug:ai-installation#visual-studio)
-   > * [Visual Studio Code](slug:ai-installation#visual-studio-code)
-   > * [Cursor](slug:ai-installation#cursor)
+   > For IDE-specific setup instructions and advanced configuration options, see [MCP Server Configuration](slug:ai-installation#mcp-clients-configuration).
 
 1. Ensure you have a [supported license]({% slug ai-overview#license-requirements %}) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates [the appropriate tools]({% slug ai-overview#ai-tools-overview-and-comparison %}).
 
