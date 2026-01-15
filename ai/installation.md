@@ -38,7 +38,7 @@ Use the documentation of your AI-powered MCP client to enable the Telerik MCP Se
 
 * Server name: `telerik-blazor-mcp` (an arbitrary name that depends on your preferences)
 * Type: `stdio` (standard input/output transport)
-* Command: `dnx` (the MCP server works through a NuGet package). The `dnx` value is valid when setting up the MCP Server on .NET 10. For .NET 8 or 9, see [.NET 8 and 9 Local Tool Installation](#-net-8-and-9-local-tool-installation)
+* Command: `dnx` (the MCP server works through the [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP) NuGet package). The `dnx` value is valid when setting up the MCP Server on .NET 10. For .NET 8 or 9, see [.NET 8 and 9 Local Tool Installation](#-net-8-and-9-local-tool-installation)
 * Supported arguments: `--yes`
 * NuGet package name: `Telerik.Blazor.MCP`
 
@@ -59,7 +59,12 @@ When configured locally, you have to define either one of the following argument
   * `TELERIK_LICENSE_PATH`&mdash;The full path to your license file location, including the license file name itself.
   * `TELERIK_LICENSE`&mdash;Paste your license key directly. Make sure to update the license key when necessary.
 
-### Visual Studio
+### MCP Clients Configuration
+
+Below you can find installation tips and MCP server configuration for some popular MCP clients.
+
+<TabStrip>
+<TabStripTab title="Visual Studio">
 
 Refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/copilot/visual-studio-github-copilot-extension?view=vs-2022#model-context-protocol-mcp-support).
 
@@ -90,7 +95,8 @@ To enable the Telerik MCP Server in a specific Blazor app, add a `.mcp.json` fil
 
 Once the Telerik MCP server is added, make sure that all of its tools are enabled (checked) in the Copilot Chat window's tool selection dropdown in Visual Studio.
 
-### Visual Studio Code
+</TabStripTab>
+<TabStripTab title="Visual Studio Code">
 
 Refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/copilot-mcp-architecture).
 
@@ -132,7 +138,8 @@ To use the Agentic UI Generator in all workspaces and apps, make sure that [`cha
 
 After adding the configuration, restart your IDE to load the Agentic UI Generator.
 
-### Cursor
+</TabStripTab>
+<TabStripTab title="Cursor">
 
 Refer to [Model Context Protocol](https://cursor.com/docs/context/mcp), which enables Cursor to connect to external tools.
 
@@ -157,6 +164,9 @@ To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.
   }
 }
 ````
+
+</TabStripTab>
+</TabStrip>
 
 ### .NET 8 and 9 Local Tool Installation
 
