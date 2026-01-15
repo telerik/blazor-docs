@@ -16,8 +16,6 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
-> Telerik UI for Blazor [requires interactive render mode](#interactive-render-mode). Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended.
-
 {% if site.has_cta_panels == true %}
 {% include cta-panel-introduction.html %}
 {% endif %}
@@ -27,8 +25,6 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
 ## Step 1: Install a License Key
-
-@[template](/_contentTemplates/common/get-started.md#license-key-version)
 
 @[template](/_contentTemplates/common/get-started.md#license-key-manual-steps)
 
@@ -42,8 +38,6 @@ To create a new Blazor app:
 1. Use the [**Blazor Web App**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure) project template.
 1. Select the desired [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes).
 1. Enable **Global** Interactivity location.
-
-### Interactive Render Mode
 
 > Telerik UI for Blazor requires interactive render mode. Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended, as it ensures easier setup and usage of the Telerik components.
 > The Telerik Blazor components will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
