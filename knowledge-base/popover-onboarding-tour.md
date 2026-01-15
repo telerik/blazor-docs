@@ -44,7 +44,7 @@ This KB answers the following questions:
 >caption Interactive Blazor tour UX
 
 ```RAZOR
-@implements IDisposable
+@implements IAsyncDisposable
 
 @inject IJSRuntime JS
 
@@ -160,6 +160,7 @@ This KB answers the following questions:
             element.scrollIntoView({behavior: "smooth", block: "center"});
         }
     }
+
     function dispose() {
         dotNet = null;
 
@@ -258,9 +259,9 @@ This KB answers the following questions:
         DotNetRef = DotNetObjectReference.Create(this);
     }
 
-    public void Dispose()
+    public async ValueTask DisposeAsync()
     {
-        _ = JS.InvokeVoidAsync("dispose");
+        await JS.InvokeVoidAsync("dispose");
         DotNetRef?.Dispose();
     }
 }
