@@ -160,6 +160,12 @@ This KB answers the following questions:
             element.scrollIntoView({behavior: "smooth", block: "center"});
         }
     }
+    function dispose() {
+        dotNet = null;
+
+        window.removeEventListener("resize", onWindowResize);
+        document.removeEventListener("keydown", onDocumentKeyDown);
+    }
 </script>
 
 @code {
