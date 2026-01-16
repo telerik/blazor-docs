@@ -136,3 +136,4 @@ The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`.
 ## See Also
 
 * [TileLayout Overview](slug:tilelayout-overview)
+* [Set TabIndex Dynamically in TileLayout OnReorder](slug:tilelayout-kb-tabindex)
