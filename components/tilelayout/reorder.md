@@ -60,3 +60,4 @@ Reordering a tile fires the [OnReorder event](slug:tilelayout-events#onreorder).
 
 * [Overview](slug:tilelayout-overview)
 * [Live Demo: TileLayout Reordering](https://demos.telerik.com/blazor-ui/tilelayout/reordering)
+* [Set TabIndex Dynamically in TileLayout OnReorder](slug:tilelayout-kb-tabindex)
