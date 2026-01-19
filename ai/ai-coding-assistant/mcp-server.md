@@ -7,6 +7,7 @@ tags: telerik,blazor,ai
 published: True
 position: 1
 previous_url: /ai/mcp-server
+tag: updated
 ---
 
 # Getting Started with the Telerik UI for Blazor AI Coding Assistant

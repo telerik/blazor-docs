@@ -7,6 +7,7 @@ tags: telerik,blazor,ai
 published: True
 position: 2
 previous_url: /ai/prompt-library
+tag: updated
 ---
 
 # AI Coding Assistant Prompt Library
@@ -24,7 +25,73 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 >warning Always double-check the code and solutions proposed by any AI-powered tool before applying them to your project.
 
-## Grid
+## General Prompts
+
+This section provides examples of general questions related to Telerik UI for Blazor.
+
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+
+```prompt Setup New Project
+#telerik_blazor_assistant in the current Blazor project, help me add and configure the Grid, Charts, and DatePicker components. Include the necessary component implementations with sample data.
+```
+```Razor
+```
+
+```prompt Component Overview
+#telerik_blazor_assistant What are the main Telerik UI for Blazor components and their primary use cases? Provide examples of when to use Grid vs TreeList vs ListView.
+```
+```Razor
+```
+
+</div>
+
+## Tool-Specific Prompts
+
+This section provides prompt examples for directly calling individual specialized tools for more granular control.
+
+### Component Tool
+
+Use the `#telerik_component_assistant` handle for specific implementations that need the UI for Blazor components:
+
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+
+```prompt Grid Configuration
+#telerik_component_assistant Create a Grid component with paging, sorting, and filtering.
+```
+```Razor
+```
+
+```prompt Grid with Virtual Scrolling
+#telerik_component_assistant Show me sample code for a Telerik UI for Blazor Grid with virtual scrolling.
+```
+```Razor
+```
+
+</div>
+
+### Icon Tool
+
+Use the `#telerik_icon_assistant` handle for finding and implementing suitable icons based on your scenario:
+
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+
+```prompt Navigation Icons
+#telerik_icon_assistant Add icons suitable for the Home, Settings, and User Profile buttons in my navigation bar.
+```
+```Razor
+```
+
+```prompt Toolbar Action Icons
+#telerik_icon_assistant Find appropriate icons for data visualization actions like export, print, refresh, and search in a dashboard toolbar.
+```
+```Razor
+```
+
+</div>
+
+## Component-Specific Prompts
+
+### Grid
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -66,7 +133,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## Scheduler
+### Scheduler
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -92,7 +159,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## Chart
+### Chart
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -106,7 +173,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## Form
+### Form
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -120,7 +187,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## Upload
+### Upload
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -134,7 +201,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## DropDownList
+### DropDownList
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -148,7 +215,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## DatePicker
+### DatePicker
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -174,7 +241,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## Calendar
+### Calendar
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -192,7 +259,7 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 
 </div>
 
-## MultiSelect
+### MultiSelect
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -209,3 +276,9 @@ All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-s
 ## See Also 
 
 * [Telerik Blazor MCP Server](slug:ai-mcp-server)
+
+<style>
+.d-print-none button:nth-child(2) {
+  display: none !important;
+}
+</style>
