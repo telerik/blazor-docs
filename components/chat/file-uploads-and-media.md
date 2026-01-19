@@ -17,21 +17,19 @@ The Telerik UI for Blazor Chat component supports file uploads, media sharing, a
 Enable file uploads by setting the `EnableFileUpload` parameter to `true`:
 
 ````RAZOR.skip-repl
-<TelerikChat EnableFileUpload="true">
-</TelerikChat>
+<TelerikChat EnableFileUpload="true" />
 ````
 
 ## Message Files Layout
 
-The `MessageFilesLayoutMode` parameter controls how file attachments are displayed within chat messages. Choose from three layout options to best fit your application's design:
+The `MessageFilesLayoutMode` parameter controls how file attachments displaye within Chat messages. Choose from the `ChatMessageFilesLayoutMode` enum options to best fit your application's design:
 
-* `ChatMessageFilesLayoutMode.Vertical`&mdash;Files are displayed in a vertical stack (default)
-* `ChatMessageFilesLayoutMode.Horizontal`&mdash;Files are displayed in a horizontal row
-* `ChatMessageFilesLayoutMode.Wrap`&mdash;Files wrap to the next line when they exceed the message width
+* `Vertical`&mdash;Files are displayed in a vertical stack (default)
+* `Horizontal`&mdash;Files are displayed in a horizontal row
+* `Wrap`&mdash;Files wrap to the next line when they exceed the message width
 
 ````RAZOR.skip-repl
-<TelerikChat Data="@ChatData"
-             EnableFileUpload="true"
+<TelerikChat EnableFileUpload="true"
              MessageFilesLayoutMode="@ChatMessageFilesLayoutMode.Horizontal">
 </TelerikChat>
 ````
@@ -41,24 +39,22 @@ The `MessageFilesLayoutMode` parameter controls how file attachments are display
 Configure file upload behavior using the `ChatFileSelectSettings` component:
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+|---|---|---|---|
 | `AllowedExtensions` | `List<string>` | `null` | Allowed file extensions for upload |
 | `MaxFileSize` | `long` | `null` | Maximum file size in bytes |
 | `Multiple` | `bool` | `true` | Allow multiple file selection |
 | `OnSelect` | `EventCallback` | - | Event fired when files are selected |
 
->caption An exemplary Chat file upload configuration is shown below
+>caption An exemplary Chat file upload configuration
 
 ````razor
-<TelerikChat Data="@ChatConversation"
-             @ref="@Chat1"
-             Width="600px"
-             Height="700px"
-             TextField="Content"
-             FilesField="Attachments"
+<TelerikChat @ref="@ChatRef"
+             Data="@ChatData"
+             AuthorId="@CurrentUserId"
              EnableFileUpload="true"
-             AuthorId="user"
-             OnSendMessage="@HandleSendMessage">
+             OnSendMessage="@OnChatSendMessage"
+             Height="90vh"
+             Width="600px">
     <ChatSettings>
         <ChatFileSelectSettings AllowedExtensions="@AllowedExtensions"
                                 MaxFileSize="10485760"
@@ -71,28 +67,30 @@ Configure file upload behavior using the `ChatFileSelectSettings` component:
 </TelerikChat>
 
 @code {
-    private TelerikChat<ChatMessage>? Chat1;
+    private TelerikChat<Message>? ChatRef;
 
     private List<string> AllowedExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".pdf", ".docx", ".txt" };
 
-    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
+    private const string CurrentUserId = "user1";
+
+    private List<Message> ChatData = new List<Message>()
     {
-        new ChatMessage()
+        new Message()
         {
             Id = "1",
             AuthorId = "support",
             AuthorName = "File Support",
-            Content = "Welcome! You can upload files by clicking the attachment button or dragging files into the input area.",
+            Text = "Welcome! You can upload files by clicking the attachment button or dragging files into the input area.",
             Timestamp = DateTime.Now.AddMinutes(-5)
         },
-        new ChatMessage()
+        new Message()
         {
             Id = "2",
             AuthorId = "support",
             AuthorName = "File Support", 
-            Content = "Here's an example message with an attachment:",
+            Text = "Here's an example message with an attachment:",
             Timestamp = DateTime.Now.AddMinutes(-3),
-            Attachments = new List<FileSelectFileInfo>
+            Files = new List<FileSelectFileInfo>
             {
                 new FileSelectFileInfo
                 {
@@ -105,53 +103,36 @@ Configure file upload behavior using the `ChatFileSelectSettings` component:
         }
     };
 
-    private void HandleSendMessage(ChatSendMessageEventArgs args)
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
     {
-        var newMessage = new ChatMessage
+        var newMessage = new Message
         {
-            Id = Guid.NewGuid().ToString(),
-            Content = args.Message,
-            AuthorId = "user",
+            AuthorId = CurrentUserId,
             AuthorName = "You",
-            Timestamp = DateTime.Now,
-            Attachments = args.Files?.ToList() ?? new List<FileSelectFileInfo>()
+            Text = args.Message,
+            Files = args.Files?.ToList() ?? new List<FileSelectFileInfo>()
         };
 
-        ChatConversation.Add(newMessage);
+        ChatData.Add(newMessage);
 
         if (args.Files?.Any() == true)
         {
             var fileNames = string.Join(", ", args.Files.Select(f => f.Name));
-            var responseMessage = new ChatMessage
+            var responseMessage = new Message
             {
-                Id = Guid.NewGuid().ToString(),
-                Content = $"Thank you! I received {args.Files.Count()} file(s): {fileNames}",
                 AuthorId = "support",
                 AuthorName = "File Support",
+                Text = $"Thank you! I received {args.Files.Count()} file(s): {fileNames}",
                 Timestamp = DateTime.Now.AddSeconds(1)
             };
             
-            ChatConversation.Add(responseMessage);
+            ChatData.Add(responseMessage);
         }
 
-        Chat1?.Refresh();
+        ChatRef?.Refresh();
     }
 
-    public class ChatMessage
-    {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorImageUrl { get; set; }
-        public string Content { get; set; }
-        public string ReplyToMessageId { get; set; }
-        public string Status { get; set; }
-        public bool IsDeleted { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<string> SuggestedActions { get; set; }
-        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
-    }
+@[template](/_contentTemplates/chat/general.md#messagecs)
 }
 ````
 

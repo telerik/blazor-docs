@@ -18,10 +18,11 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
 
 >caption Chat basic data binding
 
-````Razor
+````RAZOR
 <TelerikChat Data="@ChatData"
              AuthorId="@CurrentUserId"
-             OnSendMessage="@OnChatSendMessage">
+             OnSendMessage="@OnChatSendMessage"
+             Height="90vh">
 </TelerikChat>
 
 @code {
@@ -104,7 +105,7 @@ The Chat component provides field mapping parameters to work with different data
 
 The Chat component automatically reflects changes to the bound data collection. You can add, modify, or remove messages programmatically.
 
-````Razor
+````RAZOR
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
                OnClick="@OnAddSystemMessageClick">Add System Message</TelerikButton>
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
@@ -132,8 +133,6 @@ The Chat component automatically reflects changes to the bound data collection. 
         };
 
         ChatData.Add(newMessage);
-
-        ChatRef?.Refresh();
     }
 
     private void OnAddSystemMessageClick()

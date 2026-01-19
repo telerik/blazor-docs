@@ -24,17 +24,15 @@ The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target=
 >caption Basic configuration of the Telerik Chat
 
 ````razor
-<TelerikChat @ref="@ChatRef"
-             Data="@ChatData"
+<TelerikChat Data="@ChatData"
              AuthorId="@CurrentUserId"
              EnableSpeechToText="@ChatSpeechToTextEnabled"
              OnSendMessage="@OnChatSendMessage"
-             Height="600px"
+             Height="90vh"
              Width="400px">
 </TelerikChat>
 
 @code {
-    private TelerikChat<Message>? ChatRef;
     private List<Message> ChatData { get; set; } = new();
     private string CurrentUserId { get; set; } = "user1";
     private bool ChatSpeechToTextEnabled { get; set; } = true;
@@ -48,7 +46,6 @@ The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target=
         };
         
         ChatData.Add(newMessage);
-        ChatRef?.Refresh();
     }
 
     protected override void OnInitialized()
