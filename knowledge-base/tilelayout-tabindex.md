@@ -22,7 +22,7 @@ res_type: kb
 
 ## Description
 
-This KB shows how to change textbox tabindex in Telerik TileLayout tiles when they are reordered by the user. The goal is for the tabindex to always match the visible tile order.
+This KB shows how to change the TextBox `tabindex` in Telerik TileLayout tiles when they are reordered by the user. The goal is for the `tabindex` to always match the visible tile order.
 
 ## Solution
 
