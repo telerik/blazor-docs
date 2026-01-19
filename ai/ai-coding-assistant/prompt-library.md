@@ -14,11 +14,13 @@ tag: updated
 
 This article provides a list of sample prompts for use with the [Telerik Blazor MCP Server](slug:ai-mcp-server). They can help you get a better idea what the Telerik AI Coding Assistant can do and how to compose your prompts. This collection is not exhaustive and you can prompt the Telerik AI Coding Assistant about other scenarios and components as well.
 
+>tip [Go straight to the prompts ⬇️](#general-prompts)
+
 ## How to Use the Prompts
 
 All prompts in this library target the [Telerik Blazor MCP Server](slug:ai-mcp-server). The [`#telerik_blazor_assistant` handle](slug:ai-mcp-server#usage) assumes that this is the server name you have [entered in the `mcp.json` file during installation](slug:ai-mcp-server#installation).
 
-1. Browse the prompt library to find a prompt that suits your needs.
+1. Browse the [prompt library](#general-prompts) to find a prompt that suits your needs.
 2. Copy the prompt text including the `#telerik_blazor_assistant` handle.
 3. (optional) Customize the prompt as needed for your specific use case.
 4. Run the prompt against the MCP server.
