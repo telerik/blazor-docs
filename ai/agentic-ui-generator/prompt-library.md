@@ -49,7 +49,7 @@ Create a responsive appointments dashboard in the Schedule.razor page using a 3x
 ```
 
 ```prompt Responsive Page
-Create a product catalog page with a responsive CSS grid layout displaying product cards. Add a Telerik toolbar with filtering options, and expandable detail view for each product that work seamlessly on mobile, tablet, and desktop.
+Create a product catalog page with a responsive CSS layout that uses Telerik components. The layout should display product cards. Add a Telerik toolbar with filtering options, and expandable detail view for each product that work seamlessly on mobile, tablet, and desktop.
 ```
 ```Razor
 ```
