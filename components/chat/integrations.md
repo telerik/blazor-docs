@@ -6,99 +6,260 @@ slug: chat-integrations
 tags: telerik,blazor,chat,integrations,ai,llm,chatbot
 published: True
 position: 7
+tag: updated
 ---
 
 # Chat Integrations
 
-The Chat component can be integrated with various AI services, Large Language Models (LLMs), and chatbot frameworks, and other messaging platforms to create intelligent conversational experiences.
+The Chat integrates seamlessly with various AI services, Large Language Models (LLMs), chatbot frameworks, and other messaging platforms to create intelligent conversational experiences. You can use it with popular providers like OpenAI, Azure OpenAI, or custom AI services. 
 
-This article explains:
+This article describes the following integration scenarios:
 
-* [AI and LLM Integration](#ai-and-llm-integration) - Connect to AI services and language models
-* [Chatbot Integration](#chatbot-integration) - Integrate with chatbot frameworks
-* [Message Processing](#message-processing) - Handle AI responses and user interactions
+* [Microsoft.Extensions.AI](#microsoftextensionsai)
+* [`IChatClient`](#ichatclient)
+* [Chatbot](#chatbot) with [suggested actions](#suggested-actions)
 
-## AI and LLM Integration
-
-The Chat component works seamlessly with AI services and Large Language Models. You can integrate with various providers like OpenAI, Azure OpenAI, or custom AI services. 
-
-### Microsoft.Extensions.AI Integration Example
+## Microsoft.Extensions.AI
 
 The following example demonstrates using the `OnSendMessage` event to communicate with an AI service. The event handler passes user messages to the AI service, retrieves the response, and displays it in the Chat:
 
-````RAZOR.skip-repl
+>caption Use Chat with Microsoft.Extensions.AI
+
+<div class="skip-repl"></div>
+
+````RAZOR Home.razor
 @using Microsoft.Extensions.AI
 @using System.Threading
-@using Microsoft.AspNetCore.Hosting
-@inject AIPromptService AIPromptService
-@inject IWebHostEnvironment Environment
 
-<TelerikChat @ref="@AIChat"
-             Data="@AIChatConversation"
-             OnSendMessage="@(async (args) => await AskAI(args))" />
+@inject AIPromptService AIPromptService
+
+<TelerikChat @ref="@ChatRef"
+             AuthorId="user-id"
+             Data="@ChatData"
+             OnSendMessage="@OnChatSendMessage" />
 
 @code {
-    private TelerikChat<ChatMessage>? AIChat;
-    private List<ChatMessage> AIChatConversation { get; set; } = new List<ChatMessage>();
-    private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+    private TelerikChat<Message>? ChatRef;
+    private List<Message> ChatData { get; set; } = new();
+    private CancellationTokenSource CancellationToken { get; set; } = new();
 
-    private async Task AskAI(ChatSendMessageEventArgs args)
+    private async Task OnChatSendMessage(ChatSendMessageEventArgs args)
     {
-        cancellationTokenSource = new CancellationTokenSource();
+        CancellationToken = new();
         
-        var prompt = new ChatMessage()
-        {
-            Id = Guid.NewGuid().ToString(),
-            AuthorId = "user",
-            AuthorName = "John Doe",
-            Content = args.Message,
-            Timestamp = DateTime.Now,
-            Status = "Sent"
-        };
+        Message prompt = new() { AuthorId = "user-id", Text = args.Message };
 
-        var response = new ChatMessage()
-        {
-            Id = Guid.NewGuid().ToString(),
-            AuthorId = "ai",
-            AuthorName = "AI Assistant",
-            AuthorImageUrl = "https://demos.telerik.com/blazor-ui/images/devcraft-ninja-small.svg",
-            Timestamp = DateTime.Now,
-            Status = "Sent"
-        };
+        Message response = new() { AuthorId = "ai-id", IsTyping = true };
 
-        AIChatConversation.Add(prompt);
-        AIChatConversation.Add(response);
-        AIChat?.Refresh();
+        ChatData.Add(prompt);
+        ChatData.Add(response);
+        ChatRef?.Refresh();
 
         var chatMessage = new Microsoft.Extensions.AI.ChatMessage(ChatRole.User, args.Message);
-        var fullResponse = string.Empty;
-        await foreach (var answer in AIPromptService.GetStreamingResponseAsync(chatMessage, cancellationToken: cancellationTokenSource.Token))
+
+        await foreach (var answer in AIPromptService.GetStreamingResponseAsync(chatMessage, cancellationToken: CancellationToken.Token))
         {
-            fullResponse += answer.Text;
-            response.Content = fullResponse;
-            AIChat?.Refresh();
+            response.Text += answer.Text;
+            ChatRef?.Refresh();
         }
+
+        response.IsTyping = false;
+    }
+}
+````
+````C# Message.cs
+@[template](/_contentTemplates/chat/general.md#messagecs)
+````
+
+## IChatClient
+
+The Telerik Chat for Blazor can integrate with an `IChatClient` instance that is registered in `Program.cs`. In such cases, the Chat component automatically calls the `IChatClient` service methods and renders the responses.
+
+To enable the `IChatClient` integration:
+
+1. Set `EnableAIChatClient` to `true` in the Chat component.
+1. Set other optional settings related to:
+    * Name and image url for the `IChatClient` responses
+    * [Manual AI response handling](#onairesponse-event)
+    * [Response streaming](#stream-responses)
+    * Message history
+    * System prompt
+
+See the [`ChatAIClientSettings` API reference](slug:Telerik.Blazor.Components.ChatAIClientSettings) for more information.
+
+>caption Use Chat with a single registered IChatClient
+
+<div class="skip-repl"></div>
+
+````RAZOR Home.razor
+<TelerikChat @ref="@ChatRef"
+             EnableAIChatClient="true"
+             AuthorId="user-id"
+             Data="@ChatData"
+             OnSendMessage="@OnChatSendMessage">
+    <ChatSettings>
+        <ChatAIClientSettings AIName="AI Assistant"
+                              HistoryMessageCount="10" />
+    </ChatSettings>
+</TelerikChat>
+
+@code {
+    private List<Message> ChatData { get; set; } = new();
+
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
+    {
+        Messages.Add(new() { AuthorId = "user-id", Text = args.Message });
+    }
+}
+````
+````C# Program.cs
+IChatClient gpt5Client = new OpenAI.OpenAIClient()
+    .GetChatClient("gpt-5.0")
+    .AsIChatClient();
+
+builder.Services.AddChatClient(gpt5Client);
+````
+````C# Message.cs
+@[template](/_contentTemplates/chat/general.md#messagecs)
+````
+
+### OnAIResponse Event
+
+You can have flexible control over the `IChatClient` replies and their rendering in the Chat. Subscribe to the `OnAIResponse` event in the `<ChatAIClientSettings>` tag inside `<ChatSettings>`. Use the event to receive, manupulate and add the AI response to the Chat component `Data`, similar to the [`OnSendMessage` event](slug:chat-events#onsendmessage). The `OnAIResponse` event argument is of type [`ChatAIResponseEventArgs`](slug:Telerik.Blazor.Components.ChatAIResponseEventArgs).
+
+When using `OnAIResponse`, the Chat ignores the `AIName` and `AIImageUrl` parameters in `ChatAIClientSettings`.
+
+````RAZOR.skip-repl
+<TelerikChat @ref="@ChatRef"
+             EnableAIChatClient="true"
+             AuthorId="user-id"
+             Data="@ChatData"
+             OnSendMessage="@OnChatSendMessage">
+    <ChatSettings>
+        <ChatAIClientSettings OnAIResponse="@OnChatAIResponse" />
+    </ChatSettings>
+</TelerikChat>
+
+@code {
+    private List<Message> ChatData { get; set; } = new();
+
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
+    {
+        Messages.Add(new() { AuthorId = "user-id", Text = args.Message });
     }
 
-    public class ChatMessage
+    private async Task OnChatAIResponse(ChatAIResponseEventArgs args)
     {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorImageUrl { get; set; }
-        public string Content { get; set; }
-        public string MessageToReplyId { get; set; }
-        public string Status { get; set; }
-        public bool IsDeleted { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<string> SuggestedActions { get; set; }
-        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
+        Message newMessage = new() { AuthorId = "ai-id", AuthorName = "AI Assistant", IsTyping = true };
+
+        Messages.Add(newMessage);
+
+        if (args.Response is not null)
+        {
+            newMessage.Text = (await args.Response).Text;
+            newMessage.IsTyping = false;
+            ChatRef?.Refresh();
+        }
     }
 }
 ````
 
-## Chatbot Integration
+### Stream Responses
+
+To stream the `IChatClient` responses, set `EnableStreaming` to `true` in `ChatAIClientSettings`.
+
+>caption Use Chat with streamed IChatClient responses
+
+````RAZOR.skip-repl
+<TelerikChat EnableAIChatClient="true">
+    <ChatSettings>
+        <ChatAIClientSettings AIName="AI Assistant"
+                              EnableStreaming="true" />
+    </ChatSettings>
+</TelerikChat>
+````
+
+When using the `OnAIResponse` event, iterate the `IAsyncEnumerable` `ResponseStream` event argument in the handler.
+
+>caption Use Chat with streamed IChatClient responses and OnAIResponse event
+
+````RAZOR.skip-repl
+<TelerikChat EnableAIChatClient="true">
+    <ChatSettings>
+        <ChatAIClientSettings EnableStreaming="true"
+                              OnAIResponse="@OnChatAIResponse" />
+    </ChatSettings>
+</TelerikChat>
+
+@code {
+    private async Task OnChatAIResponse(ChatAIResponseEventArgs args)
+    {
+        var newMessage = new() { AuthorId = "ai-id", AuthorName = "AI Assistant", IsTyping = true };
+
+        Messages.Add(newMessage);
+
+        if (args.ResponseStream is not null)
+        {
+            await foreach (ChatAIResponse chunk in args.ResponseStream)
+            {
+                newMessage.Text += chunk.Text;
+                ChatRef?.Refresh();
+            }
+        }
+
+        newMessage.IsTyping = false;
+    }
+}
+````
+
+### Multiple Instances
+
+When the app has registered several `IChatClient` instances, then the `ChatClientKey` parameter of `ChatAIClientSettings` must point to the service key that matches the respective `AddKeyedChatClient("serviceKey")` method call in `Program.cs`.
+
+>caption Use Chat with one of multiple registered IChatClient instances
+
+<div class="skip-repl"></div>
+
+````C# Program.cs
+IChatClient gpt4Client = new OpenAI.OpenAIClient()
+    .GetChatClient("gpt-4.1")
+    .AsIChatClient();
+
+IChatClient gpt5Client = new OpenAI.OpenAIClient()
+    .GetChatClient("gpt-5.0")
+    .AsIChatClient();
+
+builder.Services.AddKeyedChatClient("gpt4.1", gptChat4Client);
+builder.Services.AddKeyedChatClient("gpt5.0", gptChat5Client);
+````
+````RAZOR Home.razor
+<TelerikChat @ref="@ChatRef"
+             EnableAIChatClient="true"
+             AuthorId="user-id"
+             Data="@ChatData"
+             OnSendMessage="@OnChatSendMessage">
+    <ChatSettings>
+        <ChatAIClientSettings AIName="AI Assistant"
+                              ChatClientKey="@ChatServiceKey" />
+    </ChatSettings>
+</TelerikChat>
+
+@code {
+    private List<Message> ChatData { get; set; } = new();
+
+    private string ChatServiceKey { get; set; } = "gpt5.0";
+
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
+    {
+        Messages.Add(new Message() { AuthorId = "user-id", Text = args.Message });
+    }
+}
+````
+````C# Message.cs
+@[template](/_contentTemplates/chat/general.md#messagecs)
+````
+
+## Chatbot
 
 Chatbots are intelligent software solutions that replicate human-like conversations and can manage various tasks autonomously without requiring manual intervention.
 
@@ -108,14 +269,10 @@ You can connect the Chat component to various chatbot platforms including Micros
 
 ### Suggested Actions
 
-The Chat component supports suggested actions through the `SuggestedActions` parameter. This feature allows chatbots to provide quick reply options that users can click instead of typing responses manually. You can bind the `SuggestedActions` parameter to a field in your chatbot service response to display these interactive buttons.
+The Chat component supports suggested actions per message. This feature allows chatbots to provide quick reply options that users can click instead of typing responses manually. You can [bind the `SuggestedActionsField` parameter](slug:chat-data-binding#field-mapping) to a property of your Chat model class to display these interactive buttons. The default assumed value for the property name is `SuggestedActions`.
 
 ````RAZOR.skip-repl
-<TelerikChat @ref="@AIChat"
-             Data="@AIChatConversation"
-             SuggestedActions="SuggestedActionsField"
- />
-
+<TelerikChat SuggestedActionsField="@nameof(MessageModel.MySuggestedActionsProperty)" />
 ````
 
 ## See Also

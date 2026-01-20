@@ -18,7 +18,7 @@ The Chat supports displaying a typing indicator to show when another user is com
 
 First, set the `IsTypingField` parameter to specify which field in your data model indicates typing status. Next, set that field to `true` on a message to display the typing indicator.
 
-````Razor
+````RAZOR
 <TelerikButton OnClick="@AddTypingMessage">Show Typing Indicator</TelerikButton>
 
 <TelerikChat Data="@ChatData"
@@ -81,7 +81,7 @@ First, set the `IsTypingField` parameter to specify which field in your data mod
 
 Configure context menu actions that appear when users right-click on messages. These actions provide quick access to common message operations.
 
-````Razor
+````RAZOR
 <TelerikChat Data="@ChatData"
              @ref="@ChatRef"
              Width="600px"
@@ -250,7 +250,7 @@ The Chat component lets you configure settings specifically for author messages 
 
 Use these settings to customize message behavior, appearance, and available actions based on whether the message was sent or received. For example, you might want different context menu actions, toolbar actions, or file actions for your own messages versus messages from others.
 
-````Razor
+````RAZOR
 <TelerikChat Data="@ChatData"
              @ref="@ChatRef"
              AuthorId="@CurrentUserId"
@@ -360,7 +360,7 @@ If no author or receiver-specific setting is provided, the component falls back 
 
 Customize the appearance of the send message button using the `ChatSendMessageButtonSettings` component. The `Class` parameter allows you to apply custom CSS classes for styling.
 
-````Razor
+````RAZOR
 <TelerikChat Data="@ChatData"
              AuthorId="@CurrentUserId"
              OnSendMessage="@OnChatSendMessage">
@@ -391,7 +391,7 @@ The Chat component offers complete control over the message input using the `Inp
 
 Set the `InputValue` property to define the message box content and handle the `OnInputValueChange` event to track user typing in real-time. This enables implementing features such as draft auto-saving, input validation, or contextually pre-populating the message box.
 
-````Razor
+````RAZOR
 <TelerikChat Data="@ChatConversation"
              @ref="@Chat1"
              Width="600px"

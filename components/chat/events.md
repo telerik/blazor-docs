@@ -16,15 +16,18 @@ The Telerik UI for Blazor Chat component exposes various events that allow you t
 
 The `OnSendMessage` event fires when a user sends a new message. Use this event to handle message processing, validation, and persistence.
 
->caption Handle the OnSendMessage event
+After the event handler executes, the Chat automatically scrolls down to the last message.
 
-````Razor
+>caption Handle the Chat OnSendMessage event
+
+````RAZOR
 <TelerikChat Data="@ChatData"
-             OnSendMessage="@OnChatSendMessage">
+             OnSendMessage="@OnChatSendMessage"
+             Height="90vh">
 </TelerikChat>
 
-@code {    
-    private List<ChatMessage> ChatData { get; set; } = new List<ChatMessage>();
+@code {
+    private List<Message> ChatData { get; set; } = new();
 
     private string CurrentUserId { get; set; } = "user1";
 
@@ -32,30 +35,15 @@ The `OnSendMessage` event fires when a user sends a new message. Use this event 
     {
         var newMessage = new ChatMessage
         {
-            Id = Guid.NewGuid().ToString(),
-            Content = args.Message,
             AuthorId = CurrentUserId,
-            Timestamp = DateTime.Now
+            Text = args.Message
+            
         };
 
         ChatData.Add(newMessage);
     }
 
-    public class ChatMessage
-    {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorImageUrl { get; set; }
-        public string Content { get; set; }
-        public string MessageToReplyId { get; set; }
-        public string Status { get; set; }
-        public bool IsDeleted { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<string> SuggestedActions { get; set; }
-        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
-    }
+@[template](/_contentTemplates/chat/general.md#messagecs)
 }
 ````
 
@@ -63,29 +51,35 @@ The `OnSendMessage` event fires when a user sends a new message. Use this event 
 
 The `OnSuggestionClick` event fires when a user clicks on a quick reply suggestion. You can use this event to customize suggestion handling.
 
->caption Handle suggestion clicks
+If the handler adds new messages to the Chat, call the component `Refresh()` method to scroll down to the last message.
 
-````Razor
-<TelerikChat Data="@ChatData"
-             @ref="@ChatRef"
+>caption Handle Chat suggestion clicks
+
+````RAZOR
+<TelerikChat @ref="@ChatRef"
+             Data="@ChatData"
+             AuthorId="@CurrentUserId"
              Suggestions="@ChatSuggestions"
-             OnSuggestionClick="@OnChatSuggestionClick">
+             OnSuggestionClick="@OnChatSuggestionClick"
+             Height="90vh">
 </TelerikChat>
 
-@code {    
-    private TelerikChat<ChatMessage>? ChatRef { get; set; }
+@code {
+    private TelerikChat<Message>? ChatRef { get; set; }
     
-    private List<ChatMessage> ChatData { get; set; } = new();
+    private List<Message> ChatData { get; set; } = new();
+
+    private const string CurrentUserId = "user1";
     
-    private List<string> ChatSuggestions { get; set; }
+    private List<string> ChatSuggestions { get; set; } = new();
     
     protected override void OnInitialized()
     {
-        ChatData = new List<ChatMessage>();
+        ChatData = new List<Message>();
         
         ChatSuggestions = new List<string>
         {
-            "Request project status update"
+            "Request Project Status Update"
         };
     }
 
@@ -93,23 +87,23 @@ The `OnSuggestionClick` event fires when a user clicks on a quick reply suggesti
     {
         string responseMessage = string.Empty;
 
-        if (args.Suggestion == "Request project status update")
+        if (args.Suggestion == "Request Project Status Update")
         {
-            responseMessage = "Could you please provide the current status of all ongoing projects?";
+            responseMessage = "Please provide the current status of all ongoing projects.";
         }
 
-        ChatData.Add(new ChatMessage
+        ChatData.Add(new Message
         {
-            Id = Guid.NewGuid().ToString(),
-            AuthorId = "user2",
+            AuthorId = CurrentUserId,
             AuthorName = "Jane Doe",
-            Content = responseMessage,
-            Status = "Sent",
-            Timestamp = DateTime.Now
+            Text = responseMessage,
+            Status = "Sent"
         });
 
         ChatRef?.Refresh();
     }
+
+@[template](/_contentTemplates/chat/general.md#messagecs)
 }
 ````
 
@@ -117,7 +111,7 @@ The `OnSuggestionClick` event fires when a user clicks on a quick reply suggesti
 
 The `OnDownload` event fires when a user downloads files from a message. Use this event to handle file access, logging, or custom download logic.
 
->caption Handle file downloads
+>caption Handle Chat file downloads
 
 ````RAZOR.skip-repl
 <TelerikChat Data="@ChatData"
@@ -127,13 +121,9 @@ The `OnDownload` event fires when a user downloads files from a message. Use thi
 @code {  
     private async Task OnChatDownload(ChatDownloadEventArgs args)
     {
-        foreach (var file in args.Files)
+        foreach (FileSelectFileInfo file in args.Files)
         {
-            // Log download activity
-            await LogFileDownload(file.Name, args.MessageId);
-            
             // Implement custom download logic
-            await ProcessFileDownload(file);
         }
     }
 }
@@ -143,21 +133,21 @@ The `OnDownload` event fires when a user downloads files from a message. Use thi
 
 The `OnMessageUnpin` event fires when a user unpins a message. Handle this event to update your data model and persist the change.
 
->caption Handle message unpinning
+>caption Handle Chat message unpinning
 
 ````RAZOR.skip-repl
 <TelerikChat Data="@ChatData"
              OnMessageUnpin="@OnChatMessageUnpin">
 </TelerikChat>
 
-@code {    
+@code {
+    private List<Message> ChatData { get; set; } = new();
+
     private void OnChatMessageUnpin(ChatMessageUnpinEventArgs args)
     {
-        var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
-        if (message != null)
-        {
-            message.IsPinned = false;
-        }
+        var message = ChatData.First(m => m.Id == args.MessageId);
+
+        message.IsPinned = false;
     }
 }
 ````
@@ -166,7 +156,7 @@ The `OnMessageUnpin` event fires when a user unpins a message. Handle this event
 
 The `OnInputValueChanged` event fires when the input value changes. Use this for real-time validation, auto-save drafts, or typing indicators.
 
->caption Handle input value changes
+>caption Handle Chat input value changes
 
 ````RAZOR.skip-repl
 <TelerikChat Data="@ChatData"
@@ -175,6 +165,8 @@ The `OnInputValueChanged` event fires when the input value changes. Use this for
 </TelerikChat>
 
 @code {
+    private List<Message> ChatData { get; set; } = new();
+
     private string ChatInputValue { get; set; } = string.Empty;
 
     private void OnChatInputValueChanged(string newValue)
