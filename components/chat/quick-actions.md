@@ -10,14 +10,14 @@ position: 3
 
 # Quick Actions
 
-The Telerik UI for Blazor Chat component supports quick actions and message suggestions to enhance the user experience and provide convenient interaction options.
+The Telerik UI for Blazor Chat component supports quick message actions to enhance the user experience and provide convenient interaction options:
 
-* [Suggestions](#suggestions) relate to the Chat component instance. They display above the message input area and by default remain visible after use.
-* [Suggested actions](#suggested-actions) relate to a specific Chat message. They display below that Chat message and disappear when another message appears. The primary purpose of suggested actions is to act like quick replies and spare manual typing.
+* [Suggestions](#suggestions) relate to the Chat component instance. They display above the message input area and are always visible. When the user clicks on a suggestion, its text can [appear in the input area and the user can edit it before sending](#suggestion-clicks-and-inputvalue-behavior).
+* [Suggested actions](#suggested-actions) relate to a specific Chat message. They display below that message and disappear when another message appears. The primary purpose of suggested actions is to act like quick replies and spare manual typing.
 
 ## Suggestions
 
-Message suggestions provide users with quick reply options that appear above the message input area.
+Chat suggestions provide users with options that appear above the message input area. You can use suggestions as predefined message templates, conversation starters, or for custom user actions. The Chat suggestions are always visible, unless the app modifies the `Suggestions` parameter value.
 
 ### Suggestions Layout Mode
 
@@ -29,30 +29,102 @@ The `SuggestionsLayoutMode` parameter controls how suggestions display in the Ch
 
 Use `Scroll` or `ScrollButtons` mode when you have many suggestions or longer text that won't fit comfortably in the available width. The `ScrollButtons` mode is particularly helpful for users who prefer button navigation over scrolling gestures.
 
+### Suggestion Clicks and InputValue Behavior
+
+When the user clicks on a Chat suggestion, the suggestion text may or may not appear in the Chat input area. This depends on the Chat configuration and the `OnSuggestionClick` event handler:
+
+* When the `InputValue` parameter is set and the `OnInputValueChanged` event is handled, the suggestion text will appear as message text. The user can modify the text and send it.
+* Even if the above point is true, the suggestion text will not render in the Chat input area if the `OnSuggestionClick` event is cancelled by setting `args.IsCancelled` to `true`. In this case, the app can set a different `InputValue` or no `InputValue` at all.
+
+### Example
+
+>caption Using Chat Suggestions and SuggestionsLayoutMode
+
 ````RAZOR
-<TelerikChat Data="@ChatData"
-             Suggestions="@ChatSuggestions"
-             SuggestionsLayoutMode="@ChatSuggestionsLayoutMode.ScrollButtons"
+<TelerikChat @ref="@ChatRef"
+             Data="@ChatData"
+             AuthorId="@CurrentUserId"
+             InputValue="@ChatInputValue"
+             OnInputValueChanged="@((string newValue) => ChatInputValue = newValue)"
+             OnSendMessage="@OnChatSendMessage"
              OnSuggestionClick="@OnChatSuggestionClick"
+             Suggestions="@ChatSuggestions"
+             SuggestionsLayoutMode="@ChatSuggestionsLayoutMode.Wrap"
              Height="90vh"
-             Width="70vw">
+             Width="400px">
 </TelerikChat>
 
 @code {
-    private List<Message> ChatData { get; set; } = new();
-    
+    private TelerikChat<Message>? ChatRef;
+
+    private const string CurrentUserId = "jane";
+
+    private string ChatInputValue { get; set; } = string.Empty;
+
     private List<string> ChatSuggestions = new List<string>
     {
-        "Request project status update",
-        "Schedule a follow-up meeting",
-        "Review document",
-        "Send report",
-        "Approve changes"
+        "Request quote",
+        "Schedule maintenance",
+        "Close Chat Session"
     };
-    
+
+    private List<Message> ChatData { get; set; } = new()
+    {
+       new Message()
+       {
+           AuthorId = "john",
+           AuthorName = "John Smith",
+           Text = "Hello and welcome to the Car Company support chat. Please select the desired topic of discussion.",
+           Status = "Seen"
+       }
+    };
+
     private void OnChatSuggestionClick(ChatSuggestionClickEventArgs args)
     {
-        // Handle suggestion click
+        if (args.Suggestion == ChatSuggestions.Last())
+        {
+            ChatInputValue = string.Empty;
+
+            // Prevent suggestion text from appearing in the Chat TextArea
+            args.IsCancelled = true;
+
+            ChatData.Clear();
+
+            return;
+        }
+
+        string messageText = string.Empty;
+
+        if (args.Suggestion == ChatSuggestions.First())
+        {
+            messageText = "To request a new car quote, please specify the model and trim level.";
+        }
+        else if (args.Suggestion == ChatSuggestions.ElementAt(1))
+        {
+            messageText = "To schedule maintenance for your car, please specify its model and year.";
+        }
+
+        ChatData.Add(new Message
+        {
+            AuthorId = "john",
+            AuthorName = "John Smith",
+            Text = messageText,
+            Status = "Seen"
+        });
+
+        ChatRef?.Refresh();
+    }
+
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
+    {
+        Message newMessage = new()
+        {
+            AuthorId = CurrentUserId,
+            AuthorName = "Jane Doe",
+            Text = args.Message
+        };
+
+        ChatData.Add(newMessage);
     }
 
 @[template](/_contentTemplates/chat/general.md#messagecs)
@@ -64,19 +136,19 @@ Use `Scroll` or `ScrollButtons` mode when you have many suggestions or longer te
 Customize the appearance of suggestions using the Chat's `SuggestionTemplate`.
 
 ````razor.skip-repl
-<TelerikChat Data="@ChatConversation"
-             @ref="@Chat1"
-             Width="600px"
-             Height="700px"
-             TextField="Content"
-             Suggestions="@CurrentSuggestions"
+<TelerikChat @ref="@ChatRef"
+             Data="@ChatData"
+             AuthorId="@ChatAuthorId"
              InputValue="@ChatInputValue"
-             AuthorId="@(2.ToString())"
-             OnSuggestionClick="@HandleSuggestionClick">
-    <SuggestionTemplate Context="suggestionContext">
-        <div class="custom-suggestion" data-suggestion="@suggestionContext.Suggestion">
+             OnSendMessage="@OnChatSendMessage"
+             OnSuggestionClick="@OnChatSuggestionClick"
+             Suggestions="@ChatSuggestions"
+             Height="90vh"
+             Width="600px">
+    <SuggestionTemplate>
+        <div class="custom-suggestion" data-suggestion="@context.Suggestion">
             <span class="suggestion-icon">💬</span>
-            <span class="suggestion-text">@suggestionContext.Suggestion</span>
+            <span class="suggestion-text">@context.Suggestion</span>
         </div>
     </SuggestionTemplate>
 </TelerikChat>
@@ -114,44 +186,45 @@ Customize the appearance of suggestions using the Chat's `SuggestionTemplate`.
 </style>
 
 @code {
-    private string ChatInputValue { get; set; } = "";
 
-    private TelerikChat<ChatMessage>? Chat1;
+    private TelerikChat<Message>? ChatRef;
 
-    private List<string> CurrentSuggestions = new List<string> { "Yes, I need help with my order", "No, I was just checking in" };
+    private List<string> ChatSuggestions = new List<string> { "Help with Order", "Just Checking in" };
 
-    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
+    private string ChatInputValue { get; set; } = string.Empty;
+
+    private string ChatAuthorId { get; set; } = "user";
+
+    private List<Message> ChatData = new()
     {
-       new ChatMessage()
+       new Message()
        {
-           Id="first",
-           AuthorId="1",
-           AuthorName="Customer Support",
-           Content="Welcome to TelerikStore! I'm here to help you today.",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 14, 30, 0)
+           AuthorId = "support",
+           AuthorName = "Customer Support",
+           Text = "Welcome to Telerik Store! I'm here to help you today.",
+           Status = "Seen",
+           Timestamp = DateTime.Now.AddSeconds(-10)
        },
-       new ChatMessage()
+       new Message()
        {
-           Id="second",
-           AuthorId="1",
-           AuthorName="Customer Support",
-           Content="I see you've been browsing our UI components. Is there anything specific you need assistance with?",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 14, 31, 0)
+           AuthorId = "support",
+           AuthorName = "Customer Support",
+           Text = "I see you've been browsing our UI components. Is there anything specific you need assistance with?",
+           Status = "Seen",
+           Timestamp = DateTime.Now.AddSeconds(-5)
        }
     };
 
-    private void HandleSuggestionClick(ChatSuggestionClickEventArgs args)
+    private void OnChatSuggestionClick(ChatSuggestionClickEventArgs args)
     {
         string responseMessage = string.Empty;
 
         // Initial responses
-        if (args.Suggestion == "Yes, I need help with my order")
+        if (args.Suggestion == "Help with Order")
         {
             responseMessage = "I'd be happy to help you with your order! Can you please provide your order number or the email address you used for the purchase?";
         }
-        else if (args.Suggestion == "No, I was just checking in")
+        else if (args.Suggestion == "Just Checking in")
         {
             responseMessage = "That's great! Feel free to browse around. If you have any questions about our Blazor components or need a demo, just let me know!";
         }
@@ -162,46 +235,48 @@ Customize the appearance of suggestions using the Chat's `SuggestionTemplate`.
         }
 
         // Add the support agent's response
-        ChatConversation.Add(new ChatMessage
+        ChatData.Add(new Message
         {
             Id = Guid.NewGuid().ToString(),
-            AuthorId = "1",
+            AuthorId = "support",
             AuthorName = "Customer Support",
-            Content = responseMessage,
-            Status = "Sent",
-            Timestamp = DateTime.Now
+            Text = responseMessage,
+            Status = "Sent"
         });
 
-        Chat1?.Refresh();
+        ChatRef?.Refresh();
     }
 
-    public class ChatMessage
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
     {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorImageUrl { get; set; }
-        public string Content { get; set; }
-        public string ReplyToMessageId { get; set; }
-        public string Status { get; set; }
-        public bool IsDeleted { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<string> SuggestedActions { get; set; }
-        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
+        Message newMessage = new()
+        {
+            AuthorId = ChatAuthorId,
+            AuthorName = "User",
+            Text = args.Message
+        };
+
+        ChatData.Add(newMessage);
     }
+@[template](/_contentTemplates/chat/general.md#messagecs)
 }
 ````
 
 ## Suggested Actions
 
-## Suggested Actions Layout Mode
+Suggestion actions serve as quick predefined contextual replies to a specific Chat message. They display below the associated Chat message and are visible only while that Chat message is the last one in the conversation. Suggested actions can guide users through conversations or workflows.
+
+### Suggested Actions Layout Mode
 
 The `SuggestedActionsLayoutMode` parameter controls how suggested actions (quick actions attached to specific messages) are displayed. Similar to `SuggestionsLayoutMode`, it offers three layout options that are members of the `ChatSuggestedActionsLayoutMode` enum type:
 
 * `Wrap`&mdash;Suggested actions wrap to the next line (default)
 * `Scroll`&mdash;Suggested actions are displayed in a single line with horizontal scrolling
 * `ScrollButtons`&mdash;Suggested actions are displayed in a single line with horizontal scrolling and navigation buttons
+
+### Example
+
+>caption Using Chat SuggestedActions and SuggestedActionsLayoutMode
 
 ````RAZOR
 <TelerikChat Data="@ChatData"
@@ -242,100 +317,6 @@ The `SuggestedActionsLayoutMode` parameter controls how suggested actions (quick
 }
 ````
 
-Suggested actions are contextual quick replies that appear below specific messages, helping guide users through conversations or workflows. The layout mode ensures they are displayed effectively regardless of their number or length.
-
->caption Basic message suggestions
-
-````razor
-<TelerikChat Data="@ChatConversation"
-             @ref="@Chat1"
-             Width="600px"
-             Height="700px"
-             TextField="Content"
-             Suggestions="@QuickReplies"
-             ReplyToIdField="ReplyToMessageId"
-             InputValue="@ChatInputValue"
-             AuthorId="@(2.ToString())"
-             OnSuggestionClick="@HandleSuggestionClick">
-</TelerikChat>
-
-@code {
-    private string ChatInputValue { get; set; } = "";
-
-    private TelerikChat<ChatMessage>? Chat1;
-
-    private List<string> QuickReplies = new List<string>
-    {
-        "Request project status update",
-        "Schedule a follow-up meeting"
-    };
-
-    private List<ChatMessage> ChatConversation = new List<ChatMessage>()
-    {
-       new ChatMessage()
-       {
-           Id="first",
-           AuthorId="1",
-           AuthorName="John Smith",
-           Content="Hello, I wanted to confirm the details of the project update.",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 12, 0, 0)
-       },
-       new ChatMessage()
-       {
-           Id="second",
-           AuthorId="2",
-           AuthorName="Jane Doe",
-           Content="Hi John, the project update has been finalized and shared with the team.",
-           Status="Seen",
-           Timestamp=new System.DateTime(2023, 10, 1, 12, 5, 0)
-       }
-    };
-
-    private void HandleSuggestionClick(ChatSuggestionClickEventArgs args)
-    {
-        string responseMessage = string.Empty;
-
-        if (args.Suggestion == "Request project status update")
-        {
-            responseMessage = "Could you please provide the current status of all ongoing projects?";
-        }
-        else if (args.Suggestion == "Schedule a follow-up meeting")
-        {
-            responseMessage = "Let's schedule a follow-up meeting to discuss the next steps.";
-        }
-
-        ChatConversation.Add(new ChatMessage
-        {
-            Id = Guid.NewGuid().ToString(),
-            AuthorId = "2",
-            AuthorName = "Jane Doe",
-            Content = responseMessage,
-            Status = "Sent",
-            Timestamp = DateTime.Now
-        });
-
-        Chat1?.Refresh();
-    }
-
-    public class ChatMessage
-    {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorImageUrl { get; set; }
-        public string Content { get; set; }
-        public string ReplyToMessageId { get; set; }
-        public string Status { get; set; }
-        public bool IsDeleted { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime Timestamp { get; set; }
-        public List<string> SuggestedActions { get; set; }
-        public IEnumerable<FileSelectFileInfo> Attachments { get; set; } = new List<FileSelectFileInfo>();
-    }
-}
-````
-
 ## Integration with AI Services
 
 You can use suggestions and suggested actions to guide AI conversations. With the help of the Chat's `OnSuggestionClick` event, you can access the clicked suggestion and pass it to the AI service for processing. 
@@ -362,7 +343,6 @@ private async Task OnSuggestionClick(ChatSuggestionClickEventArgs args)
     return; 
 }
 ````
-
 
 ## See Also
 
