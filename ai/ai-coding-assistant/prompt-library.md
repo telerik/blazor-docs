@@ -33,14 +33,15 @@ This section provides examples of general questions related to Telerik UI for Bl
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
-```prompt Setup New Project
-#telerik_blazor_assistant in the current Blazor project, help me add and configure the Grid, Charts, and DatePicker components. Include the necessary component implementations with sample data.
+```prompt Setup Components
+#telerik_blazor_assistant in the current Blazor project, use the existing model classes and data and help me visualize the data by configuring a Grid, a Chart, and a DatePicker. The Grid should display Product details, the Chart should show Sales figures per Category, and the DatePicker should allow filtering Products by date range.
+
 ```
 ```Razor
 ```
 
 ```prompt Component Overview
-#telerik_blazor_assistant What are the main Telerik UI for Blazor components and their primary use cases? Provide examples of when to use Grid vs TreeList vs ListView.
+#telerik_blazor_assistant What are the primary use cases of the Telerik UI for Blazor Grid vs TreeList vs ListView? Provide examples of their usage.
 ```
 ```Razor
 ```
@@ -58,13 +59,13 @@ Use the `#telerik_component_assistant` handle for specific implementations that 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
 ```prompt Grid Configuration
-#telerik_component_assistant Create a Grid component with paging, sorting, and filtering.
+#telerik_component_assistant Create a Grid component that uses the Product model and has paging (50 records per page), sorting, and filtering enabled.
 ```
 ```Razor
 ```
 
 ```prompt Grid with Virtual Scrolling
-#telerik_component_assistant Show me sample code for a Telerik UI for Blazor Grid with virtual scrolling.
+#telerik_component_assistant Show me sample code for a Telerik UI for Blazor Grid with virtual scrolling. The page size must be 20 records, the height of the Grid must be 450px, and the rows must be 40px high.
 ```
 ```Razor
 ```
