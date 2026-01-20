@@ -6,6 +6,7 @@ slug: agentic-ui-generator-getting-started
 position: 10
 tags: telerik,blazor,ai,agentic,ui,generator,installation
 published: True
+tag: updated
 ---
 
 # Getting Started with the Agentic UI Generator
