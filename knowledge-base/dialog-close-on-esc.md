@@ -3,8 +3,9 @@ title: How to Close the Dialog on ESC When its Content is Focused
 description: Learn how to enable closing the Dialog on ESC key after focusing the content by adding a focusable wrapper.
 type: how-to
 page_title: How to Close the Dialog on ESC When its Content is Focused
-tags: blazor, dialog, keyboard
 slug: dialog-kb-close-on-esc
+tags: blazor, dialog, keyboard
+res_type: kb
 ---
 
 ## Description
