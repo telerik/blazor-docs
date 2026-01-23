@@ -41,8 +41,7 @@ When the user clicks on a Chat suggestion, the suggestion text may or may not ap
 >caption Using Chat Suggestions and SuggestionsLayoutMode
 
 ````RAZOR
-<TelerikCheckBox @bind-Value="@EnabledSuggestionsHiding" Id="suggestionsHidingCheckBox"></TelerikCheckBox>
-<label class="k-checkbox-label" for="suggestionsHidingCheckBox">Hide Suggestions on Click</label>
+<label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@EnabledSuggestionsHiding" Id="suggestionsHidingCheckBox" /> Hide Suggestions on Click</label>
 
 <TelerikChat @ref="@ChatRef"
              Data="@ChatData"
