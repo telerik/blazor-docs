@@ -10,16 +10,72 @@ position: 0
 
 # Blazor DropDownTree Overview
 
-The Blazor DropDownTree component
+The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntree) combines features of the [DropDownList](slug:components/dropdownlist/overview) and the [TreeView](slug:treeview-overview). The DropDownTree component allows users to select a single value from a dropdown list of items that are displayed as a hierachy.
 
 ## Creating Blazor DropDownTree
 
-1. Use the `TelerikDropDownTree` tag to your razor page.
+1. Add the `TelerikDropDownTree` tag to your Razor page.
+1. Populate its `Data` parameter with an `IEnumerable<T>` collection of items you want to appear in the dropdown list. The DropDownTree automatically recognizes property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names](slug:dropdowntree-data-binding-overview).
+1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names in the model.
+1. [Bind the Value parameter](slug:get-started-value-vs-data-binding#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
+1. (optional) Set the `Value` parameter to an initial default value.
+1. (optional) Set the [`ExpandedItems`](slug:dropdowntree-expanded-items) parameter to a non-null `IEnumerable<object>`. Use it to expand items in the dropdown programmatically.
 
 >caption Basic DropDownTree
 
 ````RAZOR
-<TelerikDropDownTree />
+<TelerikDropDownTree Data="@DropDownTreeData"
+                     @bind-Value="DropDownTreeValue"
+                     TextField="@nameof(TreeItem.Text)"
+                     ValueField="@nameof(TreeItem.Id)"
+                     Width="300px" />
+
+@code {
+    private List<TreeItem> DropDownTreeData { get; set; } = new();
+
+    private int DropDownTreeValue { get; set; } = 3;
+
+    private IEnumerable<object> DropDownTreeExpandedItems { get; set; } = new List<TreeItem>();
+
+    private int LastId { get; set; }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            DropDownTreeValue.Add(new TreeItem()
+            {
+                Id = ++LastId,
+                Text = $"Root Item {i}",
+                HasChildren = true
+            });
+
+            int parentId = LastId;
+
+            for (int j = 1; j <= 3; j++)
+            {
+                DropDownTreeValue.Add(new TreeItem()
+                {
+                    Id = ++LastId,
+                    ParentId = parentId,
+                    Text = $"Child Item {i}-{j}"
+                });
+            }
+        }
+
+        ExpandedItems = DropDownTreeData.Where(x => x.HasChildren == true).ToList();
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public bool HasChildren { get; set; }
+        public ISvgIcon Icon { get; set; }
+    }
+
+}
 ````
 
 <!-- <demo metaUrl="client/dropdowntree/overview/" height="380"></demo> -->
@@ -54,7 +110,6 @@ Add a reference to the component instance to use the [DropDownList's methods](sl
 
 ````RAZOR
 ````
-
 
 ## Next Steps
 
