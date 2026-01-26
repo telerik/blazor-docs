@@ -7,8 +7,8 @@ slug: grid-kb-prevent-onrowclick-on-doubleclick
 tags: grid, blazor, onrowclick, onrowdoubleclick
 res_type: kb
 ticketid: 1684377
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

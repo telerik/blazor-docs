@@ -6,8 +6,8 @@ slug: grid-ai-column
 tags: telerik,blazor,grid,ai
 published: True
 position: 30
+components: ["grid"]
 ---
-
 # Grid AI Column Assistant
 
 The Grid AI Column Assistant is an integration between the Telerik Inline AI Prompt and Grid components. This article shows how to display an Inline AI Prompt from a Grid column template to allow users to use AI for a specific Grid data item. Depending on the business requirements, the AI model can analyze the Grid data item and suggest additions or modifications.

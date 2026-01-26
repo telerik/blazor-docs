@@ -6,8 +6,8 @@ slug: validation-tools-tooltip
 tags: telerik,blazor,validation,tools,tooltip
 published: True
 position: 20
+components: ["validationmessage", "validationsummary", "validationtooltip"]
 ---
-
 # Telerik Validation Tooltip for Blazor
 
 The [Telerik Validation Tooltip for Blazor](https://www.telerik.com/blazor-ui/validationtooltip) displays validation errors as tooltips that point to the problematic input component. The tooltips show on mouse over. Validaton tooltips serve the same purpose as inline [validation messages](slug:validation-tools-message), but as popups, they don't take up space on the page.

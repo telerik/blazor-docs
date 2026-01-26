@@ -6,8 +6,8 @@ slug: chart-trendlines
 tags: telerik,blazor,chart,trendlines
 published: true
 position: 25
+components: ["charts"]
 ---
-
 # Trendlines
 
 Trendlines are dynamic indicators that automatically reveal the overarching trends within your series data. These trendlines are defined as a special type of series linked to the main series by name.

@@ -6,8 +6,8 @@ slug: aiprompt-toolbar
 tags: telerik,blazor,aiprompt,ai,prompt,toolbar
 published: True
 position: 20
+components: ["aiprompt"]
 ---
-
 # AIPrompt ToolBar
 
 The AIPrompt ToolBar renders buttons for the predefined views (Prompt, Output, and Command) and also allows you to add custom tools, which may invoke arbitrary commands or handlers.

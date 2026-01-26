@@ -6,8 +6,8 @@ slug: contextmenu-data-binding-flat-data
 tags: telerik,blazor,context menu,data,bind,databind,databinding,flat
 published: True
 position: 2
+components: ["contextmenu"]
 ---
-
 # Context Menu Data Binding to Flat Data
 
 This article explains how to bind the Context Menu for Blazor to flat data. 

@@ -8,8 +8,8 @@ position:
 tags: switch, stretch, resize, expand, labels
 ticketid: 1539464
 res_type: kb
+components: ["switch"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: carousel-refresh-data
 tags: telerik,blazor,carousel,observable,data,new,collection
 published: True
 position: 15
+components: ["carousel"]
 ---
-
 # Carousel - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

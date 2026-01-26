@@ -6,8 +6,8 @@ slug: pdfviewer-toolbar
 tags: telerik,blazor,pdf,pdfviewer
 published: True
 position: 10
+components: ["pdfviewer"]
 ---
-
 # PdfViewer Toolbar
 
 The [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or customize the toolbar.

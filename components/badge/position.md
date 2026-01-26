@@ -6,8 +6,8 @@ slug: badge-position-alignment
 tags: telerik,blazor,badge,position,align,alignment
 published: True
 position: 35
+components: ["badge"]
 ---
-
 # Position Settings
 
 You can position and align the Blazor Badge component relative to its parent container by using the available parameters.

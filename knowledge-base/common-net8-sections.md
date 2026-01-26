@@ -7,8 +7,8 @@ slug: common-kb-net8-sections
 tags: telerik, blazor, net8, section, sectionoutlet, sectioncontent
 ticketid: 1633408
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

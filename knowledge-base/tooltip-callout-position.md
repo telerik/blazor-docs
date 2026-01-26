@@ -7,8 +7,8 @@ slug: tooltip-kb-callout-position
 tags: tooltip, styling, callout
 ticketid: 1628953, 1565205
 res_type: kb
+components: ["tooltip"]
 ---
-
 ## Environment
 
 <table>

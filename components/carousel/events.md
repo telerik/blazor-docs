@@ -6,8 +6,8 @@ slug: carousel-events
 tags: telerik,blazor,carousel,events
 published: true
 position: 20
+components: ["carousel"]
 ---
-
 # Carousel Events
 
 This article describes the available events of the Telerik Carousel for Blazor.

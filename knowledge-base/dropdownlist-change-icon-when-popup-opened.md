@@ -7,8 +7,8 @@ slug: dropdownlist-kb-change-icon-when-popup-opened
 tags: dropdownlist, icon
 ticketid: 1636055
 res_type: kb
+components: ["dropdownlist"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -7,8 +7,8 @@ slug: common-kb-persist-selection-across-pages
 position:
 tags:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: tooltip-position
 tags: telerik,blazor,upload,async,validate,validation
 published: true
 position: 2
+components: ["tooltip"]
 ---
-
 # Tooltip Position
 
 The Tooltip component lets you define the location of its popup according to its target element.

@@ -7,8 +7,8 @@ slug: tabstrip-kb-load-all-tabs
 tags: telerik, blazor, tabstrip
 ticketid: 1673750, 1654667
 res_type: kb
+components: ["tabstrip"]
 ---
-
 ## Environment
 
 <table>

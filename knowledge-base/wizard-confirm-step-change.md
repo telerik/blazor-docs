@@ -8,8 +8,8 @@ position:
 tags: wizard
 ticketid: 1559188
 res_type: kb
+components: ["wizard"]
 ---
-
 ## Environment
 <table>
 	<tbody>

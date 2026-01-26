@@ -6,9 +6,8 @@ slug: editor-toolbar
 tags: telerik,blazor,toolbar
 published: True
 position: 20
+components: ["editor"]
 ---
-
-
 # Editor Toolbar
 
 The toolbar of the editor is where it command buttons reside and they let the end user apply various formatting and styling - from bold and italic words, to creating lists, tables, inserting images or [custom tools](slug:editor-custom-tools) you can define.

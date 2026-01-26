@@ -8,8 +8,8 @@ position:
 tags: grid,popup,edit,form,columns,multicolumn,scroll
 ticketid: 1534563,1536862
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

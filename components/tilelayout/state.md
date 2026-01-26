@@ -6,8 +6,8 @@ slug: tilelayout-state
 tags: telerik,blazor,tile,layout,dashboard,state
 published: True
 position: 25
+components: ["tilelayout"]
 ---
-
 # TileLayout State
 
 You can save, load and control the state of the tile layout dashboard through code. The state management includes the order of the tiles and their size (`RowSpan` and `ColSpan`).

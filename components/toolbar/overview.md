@@ -6,8 +6,8 @@ slug: toolbar-overview
 tags: telerik,blazor,toolbar,tools,buttoncontainer
 published: True
 position: 0
+components: ["toolbar"]
 ---
-
 # Blazor ToolBar Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor ToolBar component</a> is a container for buttons or other application-specific tools. This article explains the available features.

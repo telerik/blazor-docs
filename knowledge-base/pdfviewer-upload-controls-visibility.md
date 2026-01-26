@@ -7,8 +7,8 @@ slug: pdfviewer-kb-hide-upload
 tags: pdfviewer, blazor, upload, visibility, enableloadercontainer, hide, dropzone
 res_type: kb
 ticketid: 1675214
+components: ["pdfviewer"]
 ---
-
 ## Environment
 
 <table>

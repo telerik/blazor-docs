@@ -7,8 +7,8 @@ slug: tilelayout-kb-nested-instances
 tags: tilelayout, blazor, nested, resize, reorder
 res_type: kb
 ticketid: 1666719
+components: ["tilelayout"]
 ---
-
 ## Environment
 
 <table>

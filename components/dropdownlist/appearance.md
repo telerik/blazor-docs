@@ -6,8 +6,8 @@ slug: dropdownlist-appearance
 tags: telerik,blazor,dropdownlist,appearance
 published: True
 position: 65
+components: ["dropdownlist"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the DropDownList by setting the following attribute:

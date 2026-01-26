@@ -7,6 +7,7 @@ slug: inputs-kb-disable-copy-paste
 tags: autocomplete, combobox, datepicker, daterangepicker, datetimepicker, multicolumncombobox, numerictextbox,   textbox, textarea, timepicker, blazor, copy, paste
 res_type: kb
 ticketid: 1670453
+components: ["autocomplete","combobox","datepicker","datetimepicker","daterangepicker","multicolumncombobox","textarea","numerictextbox","textbox","timepicker"]
 ---
 
 ## Environment

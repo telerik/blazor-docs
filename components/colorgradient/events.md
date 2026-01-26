@@ -6,8 +6,8 @@ slug: colorgradient-events
 tags: telerik,blazor,colorgradient,events
 published: true
 position: 10
+components: ["colorgradient"]
 ---
-
 # ColorGradient Events
 
 This article describes the available events of the Telerik ColorGradient for Blazor.

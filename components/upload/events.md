@@ -6,8 +6,8 @@ slug: upload-events
 tags: telerik,blazor,upload,async,events
 published: true
 position: 20
+components: ["upload"]
 ---
-
 # Upload Events
 
 This article describes the events of the Telerik Upload for Blazor.

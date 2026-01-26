@@ -8,8 +8,8 @@ position:
 tags: grid, number, date, format, radspreadprocessing
 ticketid: 1563689
 res_type: kb
+components: ["grid"]
 ---
- 
 ## Environment
 <table>
     <tbody>

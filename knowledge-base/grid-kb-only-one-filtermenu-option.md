@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1451755, 1551245, 1705873
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

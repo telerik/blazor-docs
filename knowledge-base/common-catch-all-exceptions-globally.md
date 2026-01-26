@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, catch, exceptions, globally, errorboundary
 ticketid: 1554591
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

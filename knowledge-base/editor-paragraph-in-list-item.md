@@ -8,8 +8,8 @@ position:
 tags: editor, styling
 ticketid: 1551863, 1563286
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 
 <table>

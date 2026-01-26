@@ -6,6 +6,7 @@ slug: sankey-labels
 tags: telerik,blazor,sankey,diagram,chart,labels
 published: True
 position: 5
+components: ["sankey"]
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

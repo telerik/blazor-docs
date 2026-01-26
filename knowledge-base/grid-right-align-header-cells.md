@@ -8,8 +8,8 @@ position:
 tags: grid, header, headers, right, align, text-align
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

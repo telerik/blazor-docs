@@ -6,8 +6,8 @@ slug: arc-gauge-overview
 tags: telerik,blazor,arcgauge,arc,gauge,overview
 published: True
 position: 0
+components: ["arcgauge"]
 ---
-
 # Blazor Arc Gauge Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Telerik Arc Gauge for Blazor</a> represents [numerical values](slug:arc-gauge-pointers) on an arc [scale](slug:arc-gauge-scale).

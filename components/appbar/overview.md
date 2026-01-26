@@ -6,8 +6,8 @@ slug: appbar-overview
 tags: telerik,blazor,appbar,navbar
 published: True
 position: 0
+components: ["appbar"]
 ---
-
 # Blazor AppBar Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor AppBar component</a> helps you build navigation bars for your application seamlessly. This article explains how to start using the component and describes its features.

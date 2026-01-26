@@ -6,8 +6,8 @@ slug: stockchart-overview
 tags: telerik,blazor,stock,chart,overview
 published: True
 position: 0
+components: ["stockchart"]
 ---
-
 # Blazor Stock Chart Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/stock-chart" target="_blank">Blazor Stock Chart component</a> allows you to visualize the deviation of a financial unit over a period of time to the user in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins, tooltips and templates.

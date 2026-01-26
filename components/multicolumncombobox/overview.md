@@ -6,8 +6,8 @@ slug: multicolumncombobox-overview
 tags: telerik,blazor,multicolumncombobox,combo,columns,overview
 published: True
 position: 0
+components: ["multicolumncombobox"]
 ---
-
 # Blazor MultiColumnComboBox Overview
 
 The <a href="https://www.telerik.com/blazor-ui/multicolumncombobox" target="_blank">Blazor MultiColumnComboBox</a> enables users to select an option from a [predefined set of choices](slug:multicolumncombobox-data-binding) in a dropdown grid layout. Users can also [filter](slug:multicolumncombobox-filter) or [group](slug:multicolumncombobox-grouping) the available items, or enter [custom values](slug:multicolumncombobox-custom-value).

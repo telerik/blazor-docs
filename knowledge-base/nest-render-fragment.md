@@ -8,9 +8,8 @@ position:
 tags: context, child, content, element, nest, renderfragment, render, fragment, enclosing
 ticketid: 1432878, 1525801, 1525673, 1525563, 1525450, 1593007
 res_type: kb
+components: ["general"]
 ---
-
-
 ## Environment
 
 <table>

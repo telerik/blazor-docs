@@ -6,8 +6,8 @@ slug: filter-operators
 tags: telerik,blazor,filter,fields,operators
 published: True
 position: 5
+components: ["filter"]
 ---
-
 # Filter Fields Operators
 The Filter provides options for defining which filter operators will be displayed in the filtering dropdown.
 

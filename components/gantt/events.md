@@ -6,8 +6,8 @@ slug: gantt-events
 tags: telerik,blazor,gantt,events
 published: True
 position: 25
+components: ["gantt"]
 ---
-
 # Gantt Events
 
 This article explains the events available in the Telerik Gantt for Blazor. They are grouped logically.

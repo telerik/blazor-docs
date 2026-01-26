@@ -6,8 +6,8 @@ slug: maskedtextbox-mask-prompt
 tags: telerik,blazor,masked,textbox,mask,prompt,value
 published: true
 position: 10
+components: ["maskedtextbox"]
 ---
-
 # Mask and Prompt
 
 This article explains the relationship and the configuration options that tie the Mask, the prompts and the Value of the Telerik MaskedTextbox for Blazor. The settings and behaviors described below let you customize the behavior of the component and what data you will get out of it.

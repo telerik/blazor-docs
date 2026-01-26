@@ -6,8 +6,8 @@ slug: window-draggable
 tags: telerik,blazor,window,draggable,movable
 published: True
 position: 5
+components: ["window"]
 ---
-
 # Draggable Window
 
 You can move the Window for Blazor by dragging its titlebar with the mouse or with a touch and hold gesture, then dragging on a touch screen.

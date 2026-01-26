@@ -6,8 +6,8 @@ slug: checkbox-appearance
 tags: telerik,blazor,button,checkbox,appearance
 published: True
 position: 35
+components: ["checkbox"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the CheckBox button by setting the following attribute:

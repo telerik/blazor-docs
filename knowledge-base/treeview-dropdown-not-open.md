@@ -8,8 +8,8 @@ position:
 tags: treeview, dropdownlist, textbox, combobox, focus
 ticketid: 1500437, 1548428
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 <table>
     <tbody>

@@ -7,8 +7,8 @@ slug: window-kb-responsive
 position:
 tags:
 res_type: kb
+components: ["window"]
 ---
-
 ## Environment
 <table>
     <tbody>

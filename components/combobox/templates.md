@@ -6,8 +6,8 @@ slug: components/combobox/templates
 tags: telerik,blazor,combo,combobox,templates
 published: True
 position: 25
+components: ["combobox"]
 ---
-
 # ComboBox Templates
 
 The ComboBox component allows you to change what is rendered in its items, header and footer through templates.

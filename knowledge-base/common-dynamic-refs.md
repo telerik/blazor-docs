@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, ref
 ticketid: 1528590, 1587253
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

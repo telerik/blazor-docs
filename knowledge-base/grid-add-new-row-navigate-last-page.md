@@ -7,8 +7,8 @@ slug: grid-add-new-row-navigate-last-page
 tags: grid, blazor, add, row, navigate, page, programmatically, last
 res_type: kb
 ticketid: 1667656
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

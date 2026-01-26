@@ -6,8 +6,8 @@ slug: gantt-data-binding-flat-data
 tags: telerik,blazor,gantt,data,bind,databind,databinding,flat
 published: True
 position: 2
+components: ["gantt"]
 ---
-
 # Gantt Tree Data Binding to Flat Data
 
 This article explains how to bind the Gantt Tree for Blazor to flat data.

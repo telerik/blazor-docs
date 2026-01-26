@@ -8,8 +8,8 @@ position:
 tags: grid, column, menu, sort, only
 ticketid: 1552190
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

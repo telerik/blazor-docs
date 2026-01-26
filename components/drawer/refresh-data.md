@@ -6,8 +6,8 @@ slug: drawer-refresh-data
 tags: telerik,blazor,drawer,observable,data,new,collection
 published: True
 position: 23
+components: ["drawer"]
 ---
-
 # Drawer - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

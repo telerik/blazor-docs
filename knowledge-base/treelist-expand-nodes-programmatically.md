@@ -7,8 +7,8 @@ slug: treelist-kb-expand-nodes-programmatically
 tags: treelist, expand, collapse
 res_type: kb
 ticketid: 1663716, 1649445, 1548181
+components: ["treelist"]
 ---
-
 ## Environment
 
 <table>

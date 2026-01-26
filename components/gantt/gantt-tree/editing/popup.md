@@ -6,8 +6,8 @@ slug: gant-tree-popup-editing
 tags: telerik,blazor,gantt,popup,editing
 published: True
 position: 15
+components: ["gantt"]
 ---
-
 # Gantt Tree Popup Editing
 
 In this article:

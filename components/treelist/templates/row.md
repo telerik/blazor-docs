@@ -6,8 +6,8 @@ slug: treelist-templates-row
 tags: telerik,blazor,treelist,templates,row
 published: True
 position: 10
+components: ["treelist"]
 ---
-
 # Row Template
 
 The row template allows you to define in your own code the entire contents of the `<tr>` element the treelist will render for each record. To set it, provide contents to the `<RowTemplate>` inner tag of the treelist.

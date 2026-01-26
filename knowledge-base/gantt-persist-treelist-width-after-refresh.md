@@ -7,8 +7,8 @@ slug: gantt-kb-persist-treelist-width-after-refresh
 tags: gantt, blazor, treelist, width
 res_type: kb
 ticketid: 1690467
+components: ["gantt"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -6,8 +6,8 @@ slug: treelist-sorting
 tags: telerik,blazor,treelist,sorting
 published: True
 position: 21
+components: ["treelist"]
 ---
-
 # TreeList Sorting
 
 The TreeList component offers support for sorting.

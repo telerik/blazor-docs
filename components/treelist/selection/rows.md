@@ -6,8 +6,8 @@ slug: treelist-selection-row
 tags: telerik,blazor,treelist,selection,rows
 previous_url: /treelist-selection-multiple,/treelist-selection-single
 position: 3
+components: ["treelist"]
 ---
-
 # Row Selection
 
 The TreeList component supports [single or multiple row selection](slug:treelist-selection-overview#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.

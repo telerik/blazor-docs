@@ -8,8 +8,8 @@ position:
 tags: textbox, empty, value, autofill
 ticketid: 1546904
 res_type: kb
+components: ["textbox"]
 ---
-
 ## Environment
 <table>
 	<tbody>

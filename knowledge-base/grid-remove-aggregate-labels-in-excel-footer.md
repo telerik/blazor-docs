@@ -7,8 +7,8 @@ slug: grid-kb-remove-aggregate-labels-in-excel-footer
 tags: blazor, grid, treelist, excel, aggregates
 ticketid: 1676757, 1619584, 1610795
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

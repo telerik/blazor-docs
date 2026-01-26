@@ -6,8 +6,8 @@ slug: gantt-refresh-data
 tags: telerik,blazor,Gantt,observable,data,new,collection
 published: True
 position: 20
+components: ["gantt"]
 ---
-
 # Gantt - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

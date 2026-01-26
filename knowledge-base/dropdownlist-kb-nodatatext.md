@@ -7,8 +7,8 @@ slug: dropdownlist-kb-nodatatext
 tags: telerik, blazor, dropdownlist, popup, dropdownlistpopupsettings, css
 ticketid: 1635198
 res_type: kb
+components: ["dropdownlist"]
 ---
-
 ## Environment
 
 <table>

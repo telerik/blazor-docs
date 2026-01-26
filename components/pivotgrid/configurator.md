@@ -6,8 +6,8 @@ slug: pivotgrid-configurator
 tags: telerik,blazor,pivotgrid
 published: True
 position: 20
+components: ["pivotgrid"]
 ---
-
 # PivotGrid Configurator
 
 This article describes the appearance and behavior of the PivotGrid configurator.

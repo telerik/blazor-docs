@@ -7,8 +7,8 @@ position:
 tags: telerik,blazor,grid,columns,position,order
 ticketid: 1518367
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

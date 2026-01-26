@@ -6,8 +6,8 @@ slug: filemanager-views
 tags: telerik,blazor,filemanager,views
 published: True
 position: 5
+components: ["filemanager"]
 ---
-
 # FileManager Views
 
 The `FileManager` provides two built-in views for content visualization. It can show files and folders as a grid (table) or as a list of thumbnails.

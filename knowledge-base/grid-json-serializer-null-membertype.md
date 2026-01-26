@@ -8,8 +8,8 @@ position:
 tags: blazor, json, serializer
 ticketid: 1545884, 1574761
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

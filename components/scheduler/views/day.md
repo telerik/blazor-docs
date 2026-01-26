@@ -6,8 +6,8 @@ slug: scheduler-views-day
 tags: telerik,blazor,scheduler,view,day
 published: True
 position: 1
+components: ["scheduler"]
 ---
-
 # Day View
 
 The Day view of the Scheduler for Blazor shows a single day to the user.

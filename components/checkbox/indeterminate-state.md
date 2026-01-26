@@ -6,8 +6,8 @@ slug: checkbox-indeterminate-state
 tags: telerik,blazor,checkbox,state,indeterminate
 published: true
 position: 2
+components: ["checkbox"]
 ---
-
 # Indeterminate State
 
 In addition to `checked` and `unchecked` basic states, the Telerik CheckBox has a third state - `Indeterminate`. This means that its state is something in between - neither checked, nor unchecked.

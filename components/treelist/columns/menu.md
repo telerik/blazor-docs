@@ -6,8 +6,8 @@ slug: treelist-column-menu
 tags: telerik,blazor,treelist,column,columns,menu
 published: True
 position: 20
+components: ["treelist"]
 ---
-
 # Column Menu
 
 The TreeList enables you to show a menu with quick actions for its columns. The Column Menu enables you to perform high-level customization like [sorting](slug:treelist-sorting), [filtering](slug:treelist-filtering), [showing or hiding](slug:treelist-columns-visible) columns and [freezing or unfreezing](slug:treelist-columns-frozen) them.

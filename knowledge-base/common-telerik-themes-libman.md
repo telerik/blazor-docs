@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, layout, bootstrap
 ticketid:
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

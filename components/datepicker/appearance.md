@@ -6,8 +6,8 @@ slug: datepicker-appearance
 tags: telerik,blazor,datepicker,appearance
 published: True
 position: 35
+components: ["datepicker"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the DatePicker by setting the following attribute:

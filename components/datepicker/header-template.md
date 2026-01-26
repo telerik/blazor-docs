@@ -6,8 +6,8 @@ slug: datepicker-header-template
 tags: telerik,blazor,datepicker,template
 published: True
 position: 15
+components: ["datepicker"]
 ---
-
 # Header Template
 
 The DatePicker `<HeaderTemplate>` allows you to customize the header of the Calendar popup. If the application defines this template, the component will not render any of the built-in buttons and labels in the Calendar header area.

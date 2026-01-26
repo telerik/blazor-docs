@@ -7,8 +7,8 @@ slug: window-kb-center-horizontally-fixed-top
 tags: window, center horizontally, positioning, blazor, fixed top
 res_type: kb
 ticketid: 1672113
+components: ["window"]
 ---
-
 ## Environment
 <table>
 	<tbody>

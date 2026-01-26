@@ -8,8 +8,8 @@ position:
 tags: editor, plain, text, txt, convert, retrieve
 ticketid: 1527523
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: chart-kb-responsive
 position: 
 tags: 
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, splitbutton
 ticketid: 
 res_type: kb
+components: ["splitbutton"]
 ---
-
 ## Environment
 
 <table>

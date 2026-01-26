@@ -8,8 +8,8 @@ position:
 tags: multiselect
 ticketid: 1540543, 1557872
 res_type: kb
+components: ["multiselect"]
 ---
-
 ## Environment
 
 <table>

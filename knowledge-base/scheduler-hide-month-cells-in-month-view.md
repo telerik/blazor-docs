@@ -7,8 +7,8 @@ slug: scheduler-kb-hide-month-cells-in-month-view
 tags: hiding, other month cells, month view, scheduler
 ticketid: 1637063
 res_type: kb
+components: ["scheduler"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: dropdownlist-custom-sorting-order-groups
 tags: dropdownlist, blazor, telerik, grouping, custom order
 res_type: kb
 ticketid: 1666981, 1579415
+components: ["dropdownlist"]
 ---
-
 ## Environment
 
 <table>

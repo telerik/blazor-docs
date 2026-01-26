@@ -6,8 +6,8 @@ slug: scheduler-refresh-data
 tags: telerik,blazor,scheduler,observable,data,new,collection
 published: True
 position: 40
+components: ["scheduler"]
 ---
-
 # Scheduler - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

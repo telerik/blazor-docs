@@ -6,8 +6,8 @@ slug: scheduler-views-week
 tags: telerik,blazor,scheduler,view,week
 published: True
 position: 2
+components: ["scheduler"]
 ---
-
 # Week View
 
 The Week view of the Scheduler shows the entire week to the user.

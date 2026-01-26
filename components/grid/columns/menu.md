@@ -6,8 +6,8 @@ slug: grid-column-menu
 tags: telerik,blazor,grid,column,columns,menu
 published: True
 position: 55
+components: ["grid"]
 ---
-
 # Column Menu
 
 The Grid allows you to set up a menu for its columns. It enables you to perform high-level customization like [sorting](slug:components/grid/features/sorting), [filtering](slug:components/grid/filtering), [showing or hiding](slug:grid-columns-visible) columns and [freezing or unfreezing](slug:grid-columns-frozen) them.

@@ -7,8 +7,8 @@ slug: grid-kb-conditionally-hide-command-buttons
 tags: blazor, grid, commandbutton
 res_type: kb
 ticketid: 1675338
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: validation-tools-overview
 tags: telerik,blazor,validation,tools,overview
 published: True
 position: 0
+components: ["validationmessage", "validationsummary", "validationtooltip"]
 ---
-
 # Blazor Validation Tools Overview
 
 Telerik UI for Blazor provides different ways to show and customize validation messages. The validation tools can be used together with the [Telerik Form](slug:form-overview) or with any form that provides an [`EditContext`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext) like the [standard Blazor `EditForm`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform).

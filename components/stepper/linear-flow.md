@@ -6,8 +6,8 @@ slug: stepper-linear-flow
 tags: telerik,blazor,stepper,linear,flow
 published: True
 position: 20
+components: ["stepper"]
 ---
-
 # Linear Flow
 
 By default, the user can select any step in the Stepper component. This behavior could be customized by configuring its `Linear` flow property. When it is enabled, the completion of the previous step is required before proceeding to the next step. The user will be able to go one step at a time (back or forth).

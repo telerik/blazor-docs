@@ -7,8 +7,8 @@ slug: chart-kb-remove-excess-whitespace
 tags: chart, padding
 res_type: kb
 ticketid: 1663179, 1559824
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

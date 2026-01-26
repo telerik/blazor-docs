@@ -6,8 +6,8 @@ slug: gantt-columns-width
 tags: telerik,blazor,gantt,column,width
 published: True
 position: 4
+components: ["gantt"]
 ---
-
 # Gantt Column Width Behavior
 
 This article explains how the Gantt column width behaves depending on the settings applied by the developer.

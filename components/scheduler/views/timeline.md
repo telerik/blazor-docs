@@ -6,8 +6,8 @@ slug: scheduler-views-timeline
 tags: telerik,blazor,scheduler,view,timeline
 published: True
 position: 5
+components: ["scheduler"]
 ---
-
 # Timeline View
 
 The Timeline view displays appointments in a continuous horizontal direction.

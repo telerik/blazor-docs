@@ -6,8 +6,8 @@ slug: daterangepicker-events
 tags: telerik,blazor,DateRangePicker,events
 published: true
 position: 20
+components: ["daterangepicker"]
 ---
-
 # Events
 
 This article explains the events available in the Telerik DateRangePicker for Blazor:

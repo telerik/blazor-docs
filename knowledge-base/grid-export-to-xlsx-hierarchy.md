@@ -7,9 +7,8 @@ slug: grid-kb-export-to-xlsx-hierarchy
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
-
 ## Description
 
 How to export hierarchical data to Excel?

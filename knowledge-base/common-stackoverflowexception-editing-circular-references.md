@@ -7,8 +7,8 @@ slug: common-kb-stackoverflowexception-editing-circular-references
 tags: telerik, blazor, grid, gantt, listview, scheduler, treelist, stackoverflowexception, circular reference, editing
 res_type: kb
 ticketid: 1660663, 1592634
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

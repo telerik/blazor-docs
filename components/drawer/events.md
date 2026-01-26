@@ -6,8 +6,8 @@ slug: drawer-events
 tags: telerik,blazor,drawer,event,events
 published: True
 position: 25
+components: ["drawer"]
 ---
-
 # Drawer Events
 
 This article explains the events available in the Telerik Drawer for Blazor:

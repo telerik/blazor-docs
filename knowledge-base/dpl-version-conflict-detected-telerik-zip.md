@@ -7,8 +7,8 @@ slug: dpl-kb-version-conflict-detected-telerik-zip
 tags: telerik, blazor, dpl, document processing
 ticketid: 1666834, 1663672, 1652709, 1651020, 1649684, 1647998, 1647404, 1646717
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

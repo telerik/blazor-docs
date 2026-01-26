@@ -6,8 +6,8 @@ slug: speechtotextbutton-events
 tags: blazor, speech recognition, events
 published: true
 position: 3
+components: ["speechtotextbutton"]
 ---
-
 # SpeechToTextButton Events
 
 The SpeechToTextButton component emits events that notify you about speech recognition results, errors, and state changes. Use these events to update the UI, display messages, or process the recognized speech.

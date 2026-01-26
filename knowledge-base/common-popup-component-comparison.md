@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, animationcontainer, dialog, popover, popup, tooltip, window
 ticketid: 1642784, 1648528
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

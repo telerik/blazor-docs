@@ -8,8 +8,8 @@ slug: dockmanager-kb-reset-state
 tags: dockmanager, blazor, state
 res_type: kb
 ticketid: 1691957
+components: ["dockmanager"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -6,8 +6,8 @@ slug: spreadsheet-tools
 tags: telerik,blazor,spreadsheet
 published: True
 position: 20
+components: ["spreadsheet"]
 ---
-
 # Spreadsheet Tools
 
 The Telerik Blazor Spreadsheet organizes all its tools in a tool set with one or more tool set items. This article describes the built-in Spreadsheet tools and how to define custom tools.

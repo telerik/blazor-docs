@@ -7,8 +7,8 @@ slug: dropdown-kb-cascading
 position: 
 tags: 
 res_type: kb
+components: ["dropdownlist"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -8,8 +8,8 @@ position:
 tags: grid,checkbox,filter
 ticketid: 1541980
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

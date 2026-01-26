@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, loader, loadercontainer, notification, position
 ticketid: 1516033
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 <table>
 	<tbody>

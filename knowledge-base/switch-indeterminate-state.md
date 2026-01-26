@@ -7,8 +7,8 @@ slug: switch-kb-indeterminate-state
 tags: blazor, switch, css, styling
 ticketid: 1677869, 1587745
 res_type: kb
+components: ["switch"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: grid-kb-cannot-open-dropdown-in-navigable-grid
 tags: telerik, blazor, grid, treelist
 ticketid: 1623773
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

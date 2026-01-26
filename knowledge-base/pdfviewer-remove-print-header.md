@@ -7,8 +7,8 @@ slug: pdfviewer-kb-remove-print-header
 tags: pdfviewer, print, headers, footers
 res_type: kb
 ticketid: 1681329, 1617601,
+components: ["pdfviewer"]
 ---
-
 ## Environment
 <table>
 	<tbody>

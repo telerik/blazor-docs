@@ -6,8 +6,8 @@ slug: textbox-appearance
 tags: telerik,blazor,button,textbox,appearance
 published: True
 position: 35
+components: ["textbox"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the TextBox button by setting the following attribute:

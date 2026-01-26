@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, search, searchbox
 ticketid: 1540910
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

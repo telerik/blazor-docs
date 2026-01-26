@@ -6,8 +6,8 @@ slug: button-styling
 tags: telerik,blazor,button,styling,
 published: True
 position: 10
+components: ["button"]
 ---
-
 # Styling
 
 There are a few ways to style the Button component:

@@ -7,8 +7,8 @@ slug: popover-kb-tutorial
 tags: blazor, popover, loadercontainer, button
 ticketid: 1703553, 1706064
 res_type: kb
+components: ["popover"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: fileselect-kb-autofac
 tags: telerik, blazor, fileselect, autofac, dependency injection
 ticketid: 1637702, 1634460, 1634313, 1632874
 res_type: kb
+components: ["fileselect"]
 ---
-
 ## Environment
 
 <table>

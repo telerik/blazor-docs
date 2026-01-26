@@ -6,8 +6,8 @@ slug: components/dateinput/supported-formats
 tags: telerik,blazor,DateInput,format,formats
 published: true
 position: 5
+components: ["dateinput"]
 ---
-
 # Supported Date Formats
 
 This article explains the format strings and specifiers supported by the Telerik DateInput for Blazor and how to set them to its `Format` property.

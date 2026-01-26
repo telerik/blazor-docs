@@ -9,8 +9,8 @@ tags: card, buttons
 ticketid: 1558442
 res_type: kb
 category: knowledge-base
+components: ["card"]
 ---
-
 ## Environment
 
 <table>

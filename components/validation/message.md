@@ -6,8 +6,8 @@ slug: validation-tools-message
 tags: telerik,blazor,validation,tools,message
 published: True
 position: 15
+components: ["validationmessage", "validationsummary", "validationtooltip"]
 ---
-
 # Telerik Validation Message for Blazor
 
 The [Telerik Validation Message for Blazor](https://www.telerik.com/blazor-ui/validation-message) adds built-in styling and customization options on top of the standard [.NET ValidationMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationmessage-1), such as [`Template`](#template) and [`Class`](#class) parameters.

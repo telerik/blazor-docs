@@ -6,9 +6,8 @@ slug: breadcrumb-templates
 tags: telerik,blazor,breadcrumb,templates
 published: True
 position: 25
+components: ["breadcrumb"]
 ---
-
-
 # Breadcrumb Templates
 
 The Breadcrumb can be customized by using Templates. This article explains the available templates for the component.

@@ -7,8 +7,8 @@ slug: spreadsheet-kb-get-cell-values
 tags: telerik, blazor, spreadsheet
 ticketid: 1661533
 res_type: kb
+components: ["spreadsheet"]
 ---
-
 ## Environment
 
 <table>

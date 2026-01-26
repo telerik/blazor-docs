@@ -7,8 +7,8 @@ slug: calendar-kb-customize-multiview-header
 tags: telerik, blazor, calendar, multiview
 res_type: kb
 ticketid: 1672888
+components: ["calendar"]
 ---
-
 ## Environment
 
 <table>

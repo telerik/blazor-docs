@@ -7,8 +7,8 @@ slug: wizard-kb-wrap-step-label-text
 tags: telerik, blazor, wizard, css, styles
 res_type: kb
 ticketid: 1671064, 1574805, 1527700
+components: ["wizard"]
 ---
-
 ## Environment
 
 <table>

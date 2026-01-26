@@ -6,8 +6,8 @@ slug: grid-templates-column-group-footer
 tags: telerik,blazor,grid,templates,column,group,footer
 published: True
 position: 25
+components: ["grid"]
 ---
-
 # Column Group Footer
 
 When the grid is grouped, the columns can display a footer with information about the column data [aggregates](slug:grid-aggregates) and some custom text/logic. The template is strongly typed and exposes the available aggregates values.

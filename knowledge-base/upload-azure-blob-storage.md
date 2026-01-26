@@ -8,8 +8,8 @@ position:
 tags: fileselect, upload, azure
 ticketid: 1532310, 1555878, 1567320
 res_type: kb
+components: ["upload"]
 ---
-
 ## Environment
 
 <table>

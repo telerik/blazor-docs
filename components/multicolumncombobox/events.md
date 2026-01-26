@@ -6,8 +6,8 @@ slug: multicolumncombobox-events
 tags: telerik,blazor,multicolumncombobox,combobox,combo,events
 published: true
 position: 50
+components: ["multicolumncombobox"]
 ---
-
 # MultiColumnComboBox Events
 
 This article describes the events of the Telerik MultiColumnComboBox for Blazor.

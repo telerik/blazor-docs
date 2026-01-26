@@ -6,8 +6,8 @@ slug: radial-gauge-pointers
 tags: telerik,blazor,radial,gauge,pointers
 published: True
 position: 10
+components: ["radialgauge"]
 ---
-
 # Radial Gauge Pointers
 
 The Pointers mark the values on the scale. They consist of pointer arrow (called just "pointer" for brevity) and a pointer cap - the circle that marks the pointer center. You can customize pointers and pointer caps through the parameters they expose:

@@ -6,8 +6,8 @@ slug: button-appearance
 tags: telerik,blazor,button,appearance
 published: True
 position: 35
+components: ["button"]
 ---
-
 # Appearance Settings
 
 The Telerik Button component for Blazor provides several ways to control its appearance. This article discusses the following component parameters:

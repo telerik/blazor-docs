@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, icon
 ticketid: 1594733
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

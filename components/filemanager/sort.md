@@ -6,8 +6,8 @@ slug: filemanager-sort
 tags: telerik,blazor,filemanager,sort
 published: True
 position: 13
+components: ["filemanager"]
 ---
-
 # FileManager Sort
 
 The `FileManager` provides an inbuilt Sort functionality that allows you to sort the files and folders in the current folder. The main options are Ascending and Descending.

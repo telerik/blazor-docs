@@ -6,8 +6,8 @@ slug: grid-columns-frozen
 tags: telerik,blazor,grid,column,freeze,frozen
 published: true
 position: 40
+components: ["grid"]
 ---
-
 # Frozen Columns
 
 The Grid lets you freeze one or more columns. This will allow the user to scroll horizontally through the Grid, but still be able to keep some important columns visible at all times (such as ID or command column).

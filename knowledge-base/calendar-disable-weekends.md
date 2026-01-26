@@ -8,8 +8,8 @@ position:
 tags: disable, weekends, calendar, datepicker, daterangepicker
 ticketid: 1543661
 res_type: kb
+components: ["calendar"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,grid,incell,dropdown,open,quick,click
 ticketid: 1516498
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

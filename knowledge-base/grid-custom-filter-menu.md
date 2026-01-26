@@ -7,8 +7,8 @@ slug: grid-kb-custom-filter-menu
 tags: blazor, grid, filter, filtermenu
 res_type: kb
 ticketid: 1669381
+components: ["grid"]
 ---
-
 ## Environment
 <table>
     <tbody>

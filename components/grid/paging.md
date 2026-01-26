@@ -6,8 +6,8 @@ slug: components/grid/features/paging
 tags: telerik,blazor,grid,paging
 published: True
 position: 20
+components: ["grid"]
 ---
-
 # Grid Paging
 
 The Grid component can page the entire data source automatically. Alternatively, you can hook to an event and fetch each page of data yourself.

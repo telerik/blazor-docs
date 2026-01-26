@@ -8,8 +8,8 @@ slug: grid-kb-expand-edited-row
 tags: grid, expand, template, edit, mode, hierarchy
 res_type: kb
 ticketid: 1694649
+components: ["grid"]
 ---
-
 ## Environment
 <table>
     <tbody>

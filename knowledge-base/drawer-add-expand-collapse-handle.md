@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, drawer, expand, collapse, handle
 ticketid: 1527830
 res_type: kb
+components: ["drawer"]
 ---
-
 ## Environment
 <table>
 	<tbody>

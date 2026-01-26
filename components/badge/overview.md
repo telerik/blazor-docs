@@ -6,8 +6,8 @@ slug: badge-overview
 tags: telerik,blazor,badge,navbar
 published: True
 position: 0
+components: ["badge"]
 ---
-
 # Blazor Badge Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/badge" target="_blank">Blazor Badge component</a> is a visual element that displays additional information, such as a status indicator, notification icon, short text, and others.

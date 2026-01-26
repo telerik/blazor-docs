@@ -6,8 +6,8 @@ slug: multiselect-refresh-data
 tags: telerik,blazor,multiselect,observable,data,new,collection
 published: True
 position: 30
+components: ["multiselect"]
 ---
-
 # MultiSelect - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

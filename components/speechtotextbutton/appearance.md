@@ -6,8 +6,8 @@ slug: speechtotextbutton-appearance
 tags: blazor, speech recognition, appearance, customization
 published: true
 position: 2
+components: ["speechtotextbutton"]
 ---
-
 # SpeechToTextButton Appearance
 
 You can customize the appearance of the SpeechToTextButton component by using its built-in parameters and CSS classes. The component supports the same appearance options as the [Telerik UI for Blazor Button](slug:components/button/overview).

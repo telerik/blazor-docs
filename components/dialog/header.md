@@ -6,8 +6,8 @@ slug: dialog-header
 tags: telerik,blazor,dialog,header
 published: True
 position: 5
+components: ["dialog"]
 ---
-
 # Dialog Header
 
 The header contains the `Title` and the [`Close Action` button](slug:dialog-action-buttons).

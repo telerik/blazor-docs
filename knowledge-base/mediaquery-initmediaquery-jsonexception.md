@@ -7,8 +7,8 @@ slug: mediaquery-kb-initmediaquery-jsonexception
 tags: blazor, mediaquery, serialization
 ticketid: 1676092, 1680874
 res_type: kb
+components: ["mediaquery"]
 ---
-
 ## Environment
 
 <table>

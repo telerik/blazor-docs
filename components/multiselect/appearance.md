@@ -6,8 +6,8 @@ slug: multiselect-appearance
 tags: telerik,blazor,multiselect,appearance
 published: True
 position: 65
+components: ["multiselect"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the MultiSelect by setting the following attribute:

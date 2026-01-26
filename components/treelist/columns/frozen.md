@@ -6,8 +6,8 @@ slug: treelist-columns-frozen
 tags: telerik,blazor,treelist,column,freeze,frozen
 published: true
 position: 5
+components: ["treelist"]
 ---
-
 # Frozen Columns
 
 The treelist lets you freeze one or more columns. This will allow the user to scroll horizontally through the treelist, but still be able to keep some important columns visible at all times (such as ID or command column).

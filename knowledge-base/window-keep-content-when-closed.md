@@ -7,8 +7,8 @@ slug: window-kb-keep-content-when-closed
 tags: telerikui, blazor, window, keep, save, preserve, dom, close, disposed
 ticketid: 1598259
 res_type: kb
+components: ["window"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,8 @@ position:
 tags: repl, code, example, snippet, documentation, throw, do not, work, compile
 ticketid: 1565701
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

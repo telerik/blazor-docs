@@ -6,8 +6,8 @@ slug: validation-tools-summary
 tags: telerik,blazor,validation,tools,summary
 published: True
 position: 5
+components: ["validationmessage", "validationsummary", "validationtooltip"]
 ---
-
 # Telerik Validation Summary for Blazor
 
 The [Telerik Validation Summary for Blazor](https://www.telerik.com/blazor-ui/validationsummary) adds built-in styling and customization options on top of the standard [.NET ValidationSummary](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.validationsummary), such as [`Template`](#template) and [`Class`](#class) parameters.

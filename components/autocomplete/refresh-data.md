@@ -6,8 +6,8 @@ slug: autocomplete-refresh-data
 tags: telerik,blazor,autocomplete,observable,data,new,collection
 published: True
 position: 30
+components: ["autocomplete"]
 ---
-
 # Autocomplete - Refresh Data
 
 

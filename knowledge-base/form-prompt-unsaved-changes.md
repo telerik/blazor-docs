@@ -7,8 +7,8 @@ slug: form-kb-prompt-unsaved-changes
 tags: blazor, form, navigation, unsaved changes
 res_type: kb
 ticketid: 1682122, 1629951
+components: ["form"]
 ---
-
 ## Environment
 
 <table>

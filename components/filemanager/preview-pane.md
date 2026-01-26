@@ -6,8 +6,8 @@ slug: filemanager-preview-pane
 tags: telerik,blazor,filemanager,preview,pane
 published: True
 position: 9
+components: ["filemanager"]
 ---
-
 # FileManager Preview Pane
 
 The Preview Pane shows additional information about the selected file or folder in the view.

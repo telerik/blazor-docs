@@ -8,8 +8,8 @@ position:
 tags: error, update, WASM, WebAssembly
 ticketid: 1545248, 1550215, 1550371, 1552007
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

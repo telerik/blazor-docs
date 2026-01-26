@@ -6,8 +6,8 @@ slug: rangeslider-events
 tags: telerik,blazor,range,slider,events
 published: true
 position: 20
+components: ["rangeslider"]
 ---
-
 # Events
 
 This article showcases the available events in the Telerik RangeSlider component:

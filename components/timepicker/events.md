@@ -6,8 +6,8 @@ slug: components/timepicker/events
 tags: telerik,blazor,TimePicker,events
 published: true
 position: 20
+components: ["timepicker"]
 ---
-
 # Events
 
 This article explains the events available in the Telerik TimePicker for Blazor:

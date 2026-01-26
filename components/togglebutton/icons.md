@@ -6,8 +6,8 @@ slug: togglebutton-icons
 tags: telerik,blazor,Toggle,button,icon,sprite,image
 published: True
 position: 2
+components: ["togglebutton"]
 ---
-
 # ToggleButton Icons
 
 You can put a Font or Svg Icon in the toggle button to illustrate its purpose for your end users.

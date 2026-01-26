@@ -7,8 +7,8 @@ slug: grid-kb-create-reusable-columns
 tags: grid, blazor, gridcolumn, reusable component, templates, editor template
 res_type: kb
 ticketid: 1671641
+components: ["grid"]
 ---
-
 ## Description
 This knowledge base article answers the following questions:
 - How can I create a reusable `GridColumn` component in Blazor?

@@ -6,8 +6,8 @@ slug: treelist-columns-resize
 tags: telerik,blazor,treelist,column,resize,drag
 published: True
 position: 3
+components: ["treelist"]
 ---
-
 # Resize Columns
 
 The TreeList features two different column resizing mechanisms:

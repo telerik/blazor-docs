@@ -6,8 +6,8 @@ slug: chiplist-overview
 tags: telerik,blazor,chiplist,overview
 published: True
 position: 0
+components: ["chiplist"]
 ---
-
 # Blazor ChipList Overview
 
 The <a href="https://www.telerik.com/blazor-ui/chiplist" target="_blank">Blazor ChipList component</a> shows pieces of information in a compact form. The individual chips can be [selected](slug:chiplist-selection), removed, or disabled. You can respond to various user interactions through the exposed [events](slug:chiplist-events), customize the [appearance](slug:chiplist-appearance) of the chips, or define custom content for the chip with the [ItemTemplate](slug:chiplist-templates).

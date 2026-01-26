@@ -7,8 +7,8 @@ tags: telerik,blazor,form,edit,form,columns,spacing,column
 published: True
 position: 15
 previous_url: /components/form/colums
+components: ["form"]
 ---
-
 # Form Columns
 
 The Form component for Blazor allows you to add multiple columns by using the `Columns` parameter. It takes an `int` which represents the number of columns the Form will have. To manipulate the spacing between the columns you can use the `ColumnSpacing` parameter. 

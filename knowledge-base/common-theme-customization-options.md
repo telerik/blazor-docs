@@ -9,8 +9,8 @@ tags: themes, styling, css
 ticketid: 1545598, 1557991, 1559673
 res_type: kb
 category: knowledge-base
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1536209
 res_type: kb
+components: ["gantt"]
 ---
-
 ## Environment
 <table>
 	<tbody>

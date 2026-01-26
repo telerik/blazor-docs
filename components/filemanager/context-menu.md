@@ -6,8 +6,8 @@ slug: filemanager-context-menu
 tags: telerik,blazor,filemanager,contextmenu, menu, context
 published: True
 position: 3
+components: ["filemanager"]
 ---
-
 # FileManager Context Menu
 
 The ContextMenu of the FileManager enables you to easily execute commands on the selected file or folder.

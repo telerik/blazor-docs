@@ -6,8 +6,8 @@ slug: dateinput-steps
 tags: telerik,blazor,DateInput,step
 published: true
 position: 15
+components: ["dateinput"]
 ---
-
 # Steps
 
 The DateInput for Blazor can increment or decrement the values for each segment of the date with a different step when the Up or Down arrows are pressed.

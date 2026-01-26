@@ -6,8 +6,8 @@ slug: grid-selection-row
 tags: telerik,blazor,grid,selection,rows
 previous_url: /components/grid/selection/single,/components/grid/selection/multiple
 position: 3
+components: ["grid"]
 ---
-
 # Row Selection
 
 The Grid component supports [single or multiple row selection](slug:grid-selection-overview#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.

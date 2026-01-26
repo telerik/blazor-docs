@@ -6,8 +6,8 @@ slug: chart-tooltip-overview
 tags: telerik,blazor,chart,tooltip,tooltips
 published: True
 position: 1
+components: ["charts"]
 ---
-
 # Tooltip for Telerik Blazor Chart
 
 The Telerik Chart provides a tooltip for its data points. You can have settings specific to each `<ChartSeries>`, common tooltip settings for all series, or a [shared](slug:chart-tooltip-shared) tooltip for all categories.

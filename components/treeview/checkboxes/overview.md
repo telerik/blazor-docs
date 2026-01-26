@@ -6,8 +6,8 @@ slug: treeview-checkboxes-overview
 tags: telerik,blazor,treeview,checkbox,node,checkboxes,checking,selection,overview
 published: True
 position: 1
+components: ["treeview"]
 ---
-
 # TreeView Checkbox Selection
 
 The Checkbox Selection of nodes is an alternative to the [standard selection](slug:treeview-selection-overview). It provides a different UX by not adding the background highlight color on the selected node. Instead, a checkbox is rendered to the left of each item in the TreeView and the user utilizes them to select the desired nodes. 

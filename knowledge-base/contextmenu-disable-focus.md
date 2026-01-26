@@ -7,8 +7,8 @@ slug: contextmenu-kb-disable-focus
 tags: context-menu
 ticketid: 1622761, 1635324
 res_type: kb
+components: ["contextmenu"]
 ---
-
 ## Environment
 
 <table>

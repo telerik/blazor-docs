@@ -7,8 +7,8 @@ slug: grid-kb-merge-cells
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

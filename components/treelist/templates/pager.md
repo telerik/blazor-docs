@@ -6,9 +6,8 @@ slug: treelist-templates-pager
 tags: telerik,blazor,treelist,templates,pager
 published: True
 position: 40
+components: ["treelist"]
 ---
-
-
 # Pager Template
 
 The `TreeListPagerTemplate` allows you to modify the layout, content, and functionality of the Pager. To paginate the data, you can use any set of Blazor components and DOM elements instead of the default TreeList [Pager](slug:pager-overview).

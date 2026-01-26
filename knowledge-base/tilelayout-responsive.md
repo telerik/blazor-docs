@@ -7,8 +7,8 @@ slug: tilelayout-kb-responsive
 position: 
 tags: 
 res_type: kb
+components: ["tilelayout"]
 ---
-
 ## Environment
 <table>
     <tbody>

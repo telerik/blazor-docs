@@ -7,8 +7,8 @@ slug: grid-kb-set-all-pagesize-option-as-default
 tags: grid, page, size, all, option, default
 ticketid: 1624891
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

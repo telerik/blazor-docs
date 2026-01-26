@@ -7,8 +7,8 @@ slug: dropzone-kb-display-over-whole-page
 tags: telerik, blazor, dropzone, fileselect, upload
 ticketid: 1703123
 res_type: kb
+components: ["dropzone"]
 ---
-
 ## Environment
 
 <table>

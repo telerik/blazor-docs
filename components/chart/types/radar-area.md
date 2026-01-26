@@ -6,8 +6,8 @@ slug: chart-types-radararea
 tags: telerik,blazor,chart,radar,area
 published: True
 position: 0
+components: ["charts"]
 ---
-
 # Radar Area Chart
 
 The <a href="https://www.telerik.com/blazor-ui/radar-area-chart" target="_blank">Blazor Radar Area chart </a>shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Area chart connects the data points on each category with lines, and fills up the enclosed space to the center to provide a visual representation of the total enclosed volume.

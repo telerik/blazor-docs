@@ -6,6 +6,7 @@ slug: sankey-data-binding
 tags: telerik,blazor,sankey,diagram,chart,data,binding
 published: True
 position: 3
+components: ["general"]
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

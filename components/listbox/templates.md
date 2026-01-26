@@ -6,8 +6,8 @@ slug: listbox-templates
 tags: telerik,blazor,listbox
 published: True
 position: 50
+components: ["listbox"]
 ---
-
 # ListBox Templates
 
 The ListBox features templates that allow you to customize the component rendering and styling. This article describes all available templates and explains how to use them.

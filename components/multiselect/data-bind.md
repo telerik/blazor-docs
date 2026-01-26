@@ -6,8 +6,8 @@ slug: multiselect-databind
 tags: telerik,blazor,multiselect,data,bind,binding,databind
 published: True
 position: 5
+components: ["multiselect"]
 ---
-
 # MultiSelect Data Binding
 
 This article explains the different ways to provide data to a MultiSelect component, the properties related to data binding and their results.

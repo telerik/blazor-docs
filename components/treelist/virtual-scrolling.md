@@ -6,8 +6,8 @@ slug: treelist-virtual-scrolling
 tags: telerik,blazor,treelist,virtual,scrolling
 published: True
 position: 25
+components: ["treelist"]
 ---
-
 # TreeList Virtual Scrolling
 
 The TreeList virtual scrolling feature allows users to scroll vertically through all records in the data source. The feature is an alternative to paging.

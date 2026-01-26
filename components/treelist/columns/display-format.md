@@ -6,8 +6,8 @@ slug: treelist-columns-displayformat
 tags: telerik,blazor,treelist,column,display,format
 published: True
 position: 2
+components: ["treelist"]
 ---
-
 # Column Display Format
 
 @[template](/_contentTemplates/grid/common-link.md#display-format-basics)

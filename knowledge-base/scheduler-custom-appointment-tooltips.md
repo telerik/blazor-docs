@@ -7,8 +7,8 @@ slug: scheduler-kb-custom-appointment-tooltips
 position: 
 tags: 
 res_type: kb
+components: ["scheduler"]
 ---
-
 ## Environment
 
 <table>

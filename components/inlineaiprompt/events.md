@@ -6,8 +6,8 @@ slug: inlineaiprompt-events
 tags: telerik,blazor,inlineaiprompt,events
 published: true
 position: 10
+components: ["inlineaiprompt"]
 ---
-
 # InlineAIPrompt Events
 
 This article describes the events of the Telerik InlineAIPrompt for Blazor:

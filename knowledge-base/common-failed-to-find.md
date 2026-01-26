@@ -7,8 +7,8 @@ slug: common-kb-failed-to-find
 tags: telerik, blazor, troubleshooting, webassembly
 ticketid: 1645828, 1495720, 1540839, 1557096, 1557819, 1587286, 1615743, 1617356, 1636012
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

@@ -8,6 +8,7 @@ position:
 tags: combobox, dropdownlist, input, textbox
 ticketid: 1531727
 res_type: kb
+components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownlist","numerictextbox","textbox","timepicker"]
 ---
 
 ## Environment

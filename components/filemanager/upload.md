@@ -6,8 +6,8 @@ slug: filemanager-upload
 tags: telerik,blazor,upload,files
 published: True
 position: 17
+components: ["filemanager"]
 ---
-
 # FileManager Upload
 
 The FileManager allows uploading of files through an integrated Upload component. The Upload shows in a dialog when the user clicks on the [`Upload` Toolbar button](slug:filemanager-toolbar).

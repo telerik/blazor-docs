@@ -7,8 +7,8 @@ slug: grid-kb-expand-collapse-multilevel-hierarchy
 tags: blazor, grid, hierarchy, state
 res_type: kb
 ticketid: 1675753
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

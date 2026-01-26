@@ -7,6 +7,7 @@ slug: date-input-kb-select-am-pm-on-keypress
 position:
 tags:
 res_type: kb
+components: ["timepicker","datetimepcicker","dateinput"]
 ---
 
 ## Environment

@@ -6,8 +6,8 @@ slug: arc-gauge-scale
 tags: telerik,blazor,arc,gauge,scale
 published: True
 position: 5
+components: ["arcgauge"]
 ---
-
 ## Arc Gauge Scale
 
 The scale of the arc gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<ArcGaugeScale>` to the `<ArcGaugeScales>` collection, child tag of the `<TelerikArcGauge>`. The `<ArcGaugeScale>` exposes the following parameters:

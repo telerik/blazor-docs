@@ -8,8 +8,8 @@ position:
 tags: pager, grid
 ticketid: 1565123, 1583175
 res_type: kb
+components: ["pager"]
 ---
-
 ## Environment
 
 <table>

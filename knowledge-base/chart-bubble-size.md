@@ -7,8 +7,8 @@ slug: chart-kb-bubble-size
 tags: telerik, blazor, chart, bubble
 ticketid: 1693133
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

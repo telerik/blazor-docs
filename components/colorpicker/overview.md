@@ -6,8 +6,8 @@ slug: colorpicker-overview
 tags: telerik,blazor,colorpicker,overview
 published: True
 position: 0
+components: ["colorpicker"]
 ---
-
 # Blazor ColorPicker Overview
 
 The <a href="https://www.telerik.com/blazor-ui/colorpicker" target="_blank">Telerik UI ColorPicker for Blazor</a> is an interactive component that allows users to select colors from a popup palette or a [Hue, Saturation, Value (HSV) canvas](https://en.wikipedia.org/wiki/HSL_and_HSV), and also manually type a specific RGB or HEX color value.

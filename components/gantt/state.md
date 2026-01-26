@@ -6,8 +6,8 @@ slug: gantt-state
 tags: telerik,blazor,gantt,state,save,load,layout,get,set,change
 published: True
 position: 15
+components: ["gantt"]
 ---
-
 # Gantt State
 
 The Gantt lets you save, load and change its current state through code. The state management includes all the user-configurable properties of the Gantt - such as sorting, filtering, edited items, TreeList width, column size and order.

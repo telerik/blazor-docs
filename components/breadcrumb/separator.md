@@ -6,8 +6,8 @@ slug: breadcrumb-separator
 tags: telerik,blazor,breadcrumb,separator
 published: True
 position: 15
+components: ["breadcrumb"]
 ---
-
 # Breadcrumb Separator
 
 The Breadcrumb component renders a [Telerik font icon](slug:common-features-icons) as a separator between its items. By default the separator icon is `chevron-right`.

@@ -8,8 +8,8 @@ position:
 tags: drawer, dropdown, click, close
 ticketid: 1575100
 res_type: kb
+components: ["drawer"]
 ---
-
 ## Environment
 
 <table>

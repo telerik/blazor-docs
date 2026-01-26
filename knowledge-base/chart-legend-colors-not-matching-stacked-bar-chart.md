@@ -7,8 +7,8 @@ slug: chart-kb-legend-colors-not-matching-stacked-bar-chart
 tags: charts, bar chart, stacked series, legend, color
 res_type: kb
 ticketid: 1684367
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: pivotgrid-kb-local-date-aggregates
 tags: blazor, pivotgrid, aggregates
 ticketid: 1678109
 res_type: kb
+components: ["pivotgrid"]
 ---
-
 ## Environment
 
 <table>

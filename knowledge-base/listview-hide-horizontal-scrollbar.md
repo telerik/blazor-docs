@@ -7,8 +7,8 @@ slug: listview-kb-hide-horizontal-scrollbar
 tags: scrollbar, listview, blazor
 res_type: kb
 ticketid: 1673222
+components: ["listview"]
 ---
-
 ## Environment
 
 <table>

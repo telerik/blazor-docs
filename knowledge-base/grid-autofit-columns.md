@@ -8,8 +8,8 @@ position:
 tags: grid, autofit, columns
 ticketid: 1568815
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

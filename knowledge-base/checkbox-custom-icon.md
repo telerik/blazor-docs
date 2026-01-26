@@ -7,8 +7,8 @@ slug: checkbox-kb-custom-icon
 position: 
 tags: 
 res_type: kb
+components: ["checkbox"]
 ---
-
 ## Environment
 <table>
 	<tbody>

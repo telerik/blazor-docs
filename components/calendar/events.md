@@ -6,8 +6,8 @@ slug: components/calendar/events
 tags: telerik,blazor,calendar,events
 published: true
 position: 21
+components: ["calendar"]
 ---
-
 # Events
 
 This article explains the events available in the Telerik Calendar for Blazor:

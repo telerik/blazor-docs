@@ -7,8 +7,8 @@ slug: form-chrome-autofill
 position: 
 tags: 
 res_type: kb
+components: ["form"]
 ---
-
 ## Environment
 
 <table>

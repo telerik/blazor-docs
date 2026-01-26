@@ -7,8 +7,8 @@ slug: grid-kb-remove-group-indent
 tags: grid, blazor, grouping, indentation
 res_type: kb
 ticketid: 1684110
+components: ["grid"]
 ---
-
 ## Description
 
 This knowledge base article answers the following questions:

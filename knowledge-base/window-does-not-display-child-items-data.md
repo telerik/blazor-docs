@@ -8,8 +8,8 @@ position:
 tags: window, display, child, items, empty, data
 ticketid: 1602103
 res_type: kb
+components: ["window"]
 ---
-
 ## Environment
 
 <table>

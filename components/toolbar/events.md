@@ -6,8 +6,8 @@ slug: toolbar-events
 tags: telerik,blazor,toolbar,events
 published: True
 position: 25
+components: ["toolbar"]
 ---
-
 # Events
 
 The ToolBar exposes events for its [built-in buttons](slug:toolbar-built-in-tools) which allow you to react when the user perform actions on them. Such actions would be a click event or changing the selected state for the toggle button. The available events are:

@@ -6,8 +6,8 @@ slug: treelist-data-binding-interface
 tags: telerik,blazor,treelist,data,bind,databind,databinding,interface
 published: true
 position: 4
+components: ["treelist"]
 ---
-
 # TreeList Data Binding to Interface
 
 Since version 2.27, the TreeList supports binding to a collection of multiple model types that implement the same interface.

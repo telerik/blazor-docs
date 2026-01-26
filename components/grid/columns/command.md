@@ -6,8 +6,8 @@ slug: components/grid/columns/command
 tags: telerik,blazor,grid,column,command
 published: True
 position: 5
+components: ["grid"]
 ---
-
 # Grid Command Column
 
 The command column of a grid allows you to initiate [inline](slug:grid-editing-inline) or [popup](slug:grid-editing-popup) editing, or to execute your own commands.

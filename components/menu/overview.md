@@ -6,8 +6,8 @@ slug: components/menu/overview
 tags: telerik,blazor,menu,overview
 published: True
 position: 0
+components: ["menu"]
 ---
-
 # Blazor Menu Overview
 
 The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu component</a> displays data (flat or hierarchical) in a traditional menu-like structure. In addition to built-in navigation capabilities, you can browse through the items and their children, define [templates](slug:components/menu/templates) for the individual nodes, render text and icons/images, and respond to [events](slug:components/menu/events).

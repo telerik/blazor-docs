@@ -7,8 +7,8 @@ slug: combobox-kb-not-closing
 position:
 tags:
 res_type: kb
+components: ["combobox"]
 ---
-
 ## Environment
 <table>
 	<tbody>

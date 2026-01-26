@@ -6,8 +6,8 @@ slug: grid-columns-stacked
 tags: telerik,blazor,grid,column,stacked
 published: true
 position: 37
+components: ["grid"]
 ---
-
 # Stacked Columns
 
 Stacked columns is an adaptive Grid feature that allows the component to display data item values vertically in one or more cards, instead of horizontally in classic table cells. This facilitates browsing the Grid data on narrow screens like mobile phones in portrait orientation.

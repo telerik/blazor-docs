@@ -8,8 +8,8 @@ position:
 tags: treelist, state, editing
 ticketid:
 res_type: kb
+components: ["treelist"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,9 @@ position:
 tags: item, custom, background, color, combobox, dropdown, dropdownlist
 ticketid: 1540151
 res_type: kb
----
+components: ["autocomplete","combobox","dropdownlist","multiselect"]
 
+---
 ## Environment
 
 <table>
