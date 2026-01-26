@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1460897
 res_type: kb
+components: ["combobox"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -8,8 +8,8 @@ position:
 tags: switch, styles
 ticketid: 1546317
 res_type: kb
+components: ["switch"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: tooltip-show-event
 tags: telerik,blazor,tooltip,show,event
 published: true
 position: 3
+components: ["tooltip"]
 ---
-
 # Tooltip Show Event
 
 You can control what user interaction with the Tooltip target shows the tooltip through the `ShowOn` parameter.

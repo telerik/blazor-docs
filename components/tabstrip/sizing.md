@@ -6,8 +6,8 @@ slug: tabstrip-tabs-size
 tags: telerik,blazor,tab,strip,tabstrip,size
 published: True
 position: 16
+components: ["tabstrip"]
 ---
-
 # TabStrip Tabs Size
 
 By design, the tabs are displayed in medium size.

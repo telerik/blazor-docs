@@ -6,8 +6,8 @@ slug: grid-templates-column
 tags: telerik,blazor,grid,templates,column,cell
 published: True
 position: 5
+components: ["grid"]
 ---
-
 # Column Template
 
 By default, each Grid cell renders the value of the respective column `Field` of the current data item (row). You can change this behavior by using a column `Template` and adding your own content or logic.

@@ -6,8 +6,8 @@ page_title: Programmatic Copy and Paste in the Editor with Toobar Buttons
 slug: editor-kb-copy-paste-programmatically
 ticketid: 1595176
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 
 <table>

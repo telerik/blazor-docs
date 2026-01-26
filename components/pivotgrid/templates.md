@@ -6,8 +6,8 @@ slug: pivotgrid-templates
 tags: telerik,blazor,pivotgrid
 published: True
 position: 30
+components: ["pivotgrid"]
 ---
-
 # PivotGrid Templates
 
 This article describes the PivotGrid templates. They allow you to customize the content and appearance of the PivotGrid row headers, column headers and data cells.

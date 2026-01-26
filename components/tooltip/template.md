@@ -6,8 +6,8 @@ slug: tooltip-template
 tags: telerik,blazor,tooltip,template
 published: true
 position: 4
+components: ["tooltip"]
 ---
-
 # Tooltip Template
 
 The Tooltip component offers a template that lets you customize the content so you can show rich data (such as images or other components). The template context provides the `data-*` attributes and the `title` of the tooltip target so you can tie the content to the metadata.

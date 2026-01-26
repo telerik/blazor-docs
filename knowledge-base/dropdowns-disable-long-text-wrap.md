@@ -7,8 +7,8 @@ slug: dropdowns-kb-disable-long-text-wrap
 tags: blazor, autocomplete, combobox, dropdownlist, multiselect, css, styling
 ticketid: 1663555, 1668373, 1679799, 1682531
 res_type: kb
+components: ["autocomplete","combobox","dropdownlist","multiselect"]
 ---
-
 ## Environment
 
 <table>

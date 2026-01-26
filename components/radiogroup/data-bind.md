@@ -6,8 +6,8 @@ slug: radiogroup-databind
 tags: telerik,blazor,radio button,list,data,bind,binding,databind
 published: True
 position: 5
+components: ["radiogroup"]
 ---
-
 # RadioGroup Data Binding
 
 This article explains the different ways to provide data to a RadioGroup component, the properties related to data binding and their results.

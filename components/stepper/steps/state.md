@@ -6,8 +6,8 @@ slug: stepper-state
 tags: telerik,blazor,stepper,state
 published: True
 position: 5
+components: ["stepper"]
 ---
-
 # Steps State
 
 The Stepper for Blazor allows you to control the state of its steps. You can use to following `StepperStep` parameters to customize the state of the steps:

@@ -7,8 +7,8 @@ slug: common-kb-grid-stack-layout
 position: 
 tags: 
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

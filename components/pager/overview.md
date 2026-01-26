@@ -6,8 +6,8 @@ slug: pager-overview
 tags: telerik,blazor,pager,paging
 published: True
 position: 1
+components: ["pager"]
 ---
-
 # Blazor Pager Overview
 
 The <a href="https://www.telerik.com/blazor-ui/pager" target="_blank">Blazor Pager component</a> will enable you to add paging for your data in a Blazor application. We use it in components like the Grid and ListView, and you can also use it for your own templates and data as a standalone component.

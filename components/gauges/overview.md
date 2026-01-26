@@ -6,8 +6,8 @@ slug: gauges-overview
 tags: telerik,blazor,gauge,overview
 published: True
 position: 0
+components: ["arcgauge", "circulargauge", "lineargauge", "radialgauge"]
 ---
-
 # Blazor Gauges Overview
 
 The Telerik UI for Blazor suite offers several gauge components that let you visualize data values against a scale to easily identify them as suitable or sub-par values.

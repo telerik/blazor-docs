@@ -7,8 +7,8 @@ slug: treeview-kb-show-tooltip-on-parent
 tags: treeview, blazor, tooltip, item template
 res_type: kb
 ticketid: 1684449
+components: ["treeview"]
 ---
-
 ## Environment
 
 <table>

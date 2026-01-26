@@ -7,8 +7,8 @@ slug: listview-kb-display-items-horizontally
 tags: listview, blazor, layout, css, styling
 res_type: kb
 ticketid: 1649286
+components: ["listview"]
 ---
-
 ## Environment
 <table>
     <tbody>

@@ -6,8 +6,8 @@ slug: stepper-steps-overview
 tags: telerik,blazor,steps,overview
 published: True
 position: 0
+components: ["stepper"]
 ---
-
 # Blazor Steps Overview
 
 The Steps are the building blocks of the Stepper component. You can include the desired steps by adding a `StepperStep` tag for every step. The steps appearance can be configured through the features the `StepperStep` exposes - each step includes a visual [indicator](slug:stepper-indicators), you can define a [label](slug:stepper-labels) for the corresponding indicator and manage the step [state](slug:stepper-state) and [validity](slug:stepper-steps-validation).

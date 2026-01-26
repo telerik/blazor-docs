@@ -6,8 +6,8 @@ slug: components/animationcontainer/overview
 tags: telerik,blazor,animation,container
 published: True
 position: 0
+components: ["animationcontainer"]
 ---
-
 # Blazor AnimationContainer Overview
 
 The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_blank">Blazor Animation Container component</a> enables you to create messages and popups or expandable containers. It lets you define its animation, size and position, and arbitrary content.

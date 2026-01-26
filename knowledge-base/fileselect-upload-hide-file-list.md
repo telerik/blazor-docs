@@ -8,8 +8,8 @@ position:
 tags: fileselect, upload, hide, file list
 ticketid: 1555847, 1558501
 res_type: kb
+components: ["fileselect"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: form-stop-cascading-editcontext
 position: 
 tags: 
 res_type: kb
+components: ["form"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -6,8 +6,8 @@ slug: dropdownlist-refresh-data
 tags: telerik,blazor,dropdownlist,observable,data,new,collection
 published: True
 position: 30
+components: ["dropdownlist"]
 ---
-
 # DropDownList - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

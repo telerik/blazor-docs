@@ -6,8 +6,8 @@ slug: gantt-checklist-filter
 tags: telerik,blazor,gantt,filtering,filter,CheckBoxList
 published: True
 position: 15
+components: ["gantt"]
 ---
-
 # Gantt CheckBoxList Filtering
 
 You can change the [filter menu](slug:gantt-filter-menu) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.

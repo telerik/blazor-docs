@@ -6,9 +6,8 @@ slug: breadcrumb-events
 tags: telerik,blazor,breadcrumb,events
 published: True
 position: 30
+components: ["breadcrumb"]
 ---
-
-
 # Breadcrumb Events
 
 This article explains the events available in the Telerik Breadcrumb for Blazor:

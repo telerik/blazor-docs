@@ -8,8 +8,8 @@ slug: treelist-kb-paging-pre-selected-node
 tags: treelist, paging, pre-selected, node, navigation, page, size, blazor
 res_type: kb
 ticketid: 1690423
+components: ["treelist"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: stockchart-ohlc
 tags: telerik,blazor,stock,chart,ohlc
 published: True
 position: 0
+components: ["stockchart"]
 ---
-
 # OHLC Stock Chart
 
 The **OHLC** (open-high-low-close) chart is typically used to illustrate movements in the price of a financial instrument over time. Each vertical line on the chart shows the price range (the highest and lowest prices) over a period of time.

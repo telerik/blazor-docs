@@ -8,8 +8,9 @@ position:
 tags: 
 ticketid: 1489058
 res_type: kb
----
+components: ["autocomplete","combobox","dropdownlist","multiselect"]
 
+---
 ## Environment
 <table>
 	<tbody>

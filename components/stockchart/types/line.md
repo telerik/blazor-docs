@@ -6,8 +6,8 @@ slug: stockchart-line
 tags: telerik,blazor,stock,chart,line
 published: True
 position: 0
+components: ["stockchart"]
 ---
-
 # Line Chart
 
 A **Line** chart displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.

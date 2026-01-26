@@ -6,8 +6,8 @@ slug: components/multiselect/grouping
 tags: telerik,blazor,multiselect,group,grouping
 published: True
 position: 15
+components: ["multiselect"]
 ---
-
 # MultiSelect Grouping
 
 The MultiSelect component allows users to see the dropdown items grouped in categories. This can improve the user experience and make browsing through the items faster.

@@ -7,8 +7,8 @@ slug: grid-dynamically-adjusting-column-header-styles
 tags: grid, blazor, headerclass
 res_type: kb
 ticketid: 1670074
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

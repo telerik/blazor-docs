@@ -6,8 +6,8 @@ slug: tabstrip-tabs-alignment
 tags: telerik,blazor,tab,strip,tabstrip,alignment
 published: True
 position: 11
+components: ["tabstrip"]
 ---
-
 # TabStrip Tabs Alignment
 
 By design, the tabs are displayed on the left side of the TabStrip header.

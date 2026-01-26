@@ -6,6 +6,7 @@ slug: sankey-tooltip
 tags: telerik,blazor,sankey,diagram,chart,tooltip
 published: True
 position: 9
+components: ["sankey"]
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

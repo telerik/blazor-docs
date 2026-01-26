@@ -7,8 +7,8 @@ slug: dialog-kb-dialogfactory-alert-confirm-prompt-width
 tags: telerik, blazor, dialog, css, styling
 ticketid: 1667334
 res_type: kb
+components: ["dialog"]
 ---
-
 ## Environment
 
 <table>

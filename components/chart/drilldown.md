@@ -6,8 +6,8 @@ slug: chart-drilldown
 tags: telerik,blazor,chart,drill,down,drilldown
 published: true
 position: 55
+components: ["charts"]
 ---
-
 # DrillDown Charts
 
 The Telerik UI for Blazor Chart supports drilldown functionality for exploring data.

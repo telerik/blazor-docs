@@ -6,9 +6,8 @@ slug: treelist-templates-filter
 tags: telerik,blazor,treelist,templates,filter
 published: True
 position: 35
+components: ["treelist"]
 ---
-
-
 # Filter Template
 
 The Filter Template lets you customize the appearance and logic of the built-in filters. It lets you step on the built-in filtering logic of the treelist and implement your own design and logic for setting their values.

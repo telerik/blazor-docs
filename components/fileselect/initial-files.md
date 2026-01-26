@@ -6,8 +6,8 @@ slug: fileselect-initial-files
 tags: telerik,blazor,fileselect,initial, files
 published: True
 position: 40
+components: ["fileselect"]
 ---
-
 # FileSelect Initial Files
 
 The Blazor FileSelect component enables you to display specific files in the file list when the component loads for the first time. This is a convenient way to show previously uploaded files.

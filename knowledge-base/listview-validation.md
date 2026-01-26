@@ -7,8 +7,8 @@ slug: listview-kb-validation
 position: 
 tags: 
 res_type: kb
+components: ["listview"]
 ---
-
 ## Environment
 
 <table>

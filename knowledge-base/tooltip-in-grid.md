@@ -6,8 +6,8 @@ slug: tooltip-kb-in-grid
 position: 
 tags: telerik, blazor, grid, tooltip
 res_type: kb
+components: ["tooltip"]
 ---
-
 ## Environment
 
 <table>

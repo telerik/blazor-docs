@@ -6,8 +6,8 @@ slug: radiogroup-templates
 tags: telerik,blazor,radio button group,template
 published: true
 position: 20
+components: ["radiogroup"]
 ---
-
 # RadioGroup Templates
 
 This article describes the available templates of the Telerik RadioGroup component for Blazor.

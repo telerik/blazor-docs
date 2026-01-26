@@ -6,8 +6,8 @@ slug: fileselect-events
 tags: telerik,blazor,upload,async,events
 published: true
 position: 20
+components: ["fileselect"]
 ---
-
 # FileSelect Events
 
 This article describes the events and event arguments of the Telerik FileSelect for Blazor:

@@ -6,8 +6,8 @@ slug: stockchart-tooltip-overview
 tags: telerik,blazor,stock,chart,tooltip,tooltips
 published: True
 position: 1
+components: ["stockchart"]
 ---
-
 # Tooltip for Telerik Blazor Stock Chart
 
 The Telerik Stock Chart provides a tooltip for its data points. You can have settings specific to each `<StockChartSeries>`, common tooltip settings for all series, or a [shared](slug:stockchart-tooltip-shared) tooltip for all categories.

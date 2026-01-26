@@ -7,8 +7,8 @@ slug: form-justify-formbuttons
 position: 
 tags: 
 res_type: kb
+components: ["form"]
 ---
-
 ## Environment
 <table>
 	<tbody>

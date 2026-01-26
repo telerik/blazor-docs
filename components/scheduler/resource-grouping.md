@@ -6,8 +6,8 @@ slug: scheduler-resource-grouping
 tags: telerik,blazor,scheduler,resource,grouping
 published: true
 position: 33
+components: ["scheduler"]
 ---
-
 # Scheduler Resource Grouping
 
 The feature allows grouping Scheduler events by one or more resources. All available supported views: `Day`, `Week`, `MultiDay` and `Month` can render both `horizontal` and `vertical` grouping.

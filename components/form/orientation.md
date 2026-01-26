@@ -6,8 +6,8 @@ slug: form-orientation
 tags: telerik,blazor,form,edit,form,orientation
 published: True
 position: 10
+components: ["form"]
 ---
-
 # Form Orientation
 
 

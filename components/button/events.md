@@ -6,8 +6,8 @@ slug: button-events
 tags: telerik,blazor,button,events
 published: True
 position: 20
+components: ["button"]
 ---
-
 # Button Events
 
 This article explains the events available in the Telerik Button for Blazor:

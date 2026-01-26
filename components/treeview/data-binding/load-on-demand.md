@@ -6,8 +6,8 @@ slug: components/treeview/data-binding/load-on-demand
 tags: telerik,blazor,treeview,data,bind,databind,databinding,load,demand
 published: True
 position: 3
+components: ["treeview"]
 ---
-
 # Treeview Load on Demand
 
 This article explains how to load nodes on demand the TreeView for Blazor. 

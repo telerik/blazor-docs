@@ -7,8 +7,8 @@ slug: buttongroup-kb-mixed-selection-mode
 tags: buttongroup, mixed, button, selection, mode, third, single, multiple
 ticketid: 1585768
 res_type: kb
+components: ["buttongroup"]
 ---
-
 ## Environment
 
 <table>

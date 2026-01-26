@@ -6,8 +6,8 @@ slug: filter-integration
 tags: telerik,blazor,filter,integration
 published: True
 position: 3
+components: ["filter"]
 ---
-
 # Blazor Filter Integration
 You can integrate the Filter in different data-bound components.
 

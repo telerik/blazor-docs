@@ -6,8 +6,8 @@ slug: tabstrip-scroll-tabs
 tags: telerik,blazor,tab,strip,tabstrip,scroll,tabs
 published: True
 position: 15
+components: ["tabstrip"]
 ---
-
 # TabStrip Scrollable Tabs
 
 If the TabStrip dimensions exceed the width or height of the page, a browser-level scrollbar will appear.

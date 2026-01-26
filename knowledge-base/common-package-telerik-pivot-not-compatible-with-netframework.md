@@ -7,8 +7,8 @@ slug: common-kb-package-telerik-pivot-not-compatible-with-netframework
 tags: telerik, blazor, pivot
 ticketid: 1634582, 1641574
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: progressbar-label
 tags: telerik,blazor,progress,bar,progressbar,label
 published: True
 position: 5
+components: ["progressbar"]
 ---
-
 # Label for the ProgressBar
 
 The label for the ProgressBar is a text representation of the completion of the task. By default, the value shows as percent `%` since the default `Max` value is `100`. If you are using a different `Max` value, then override the default label, otherwise the percent value will appear inaccurate.

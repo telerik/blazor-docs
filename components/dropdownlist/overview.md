@@ -7,8 +7,8 @@ tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True
 hideCta: True
 position: 0
+components: ["dropdownlist"]
 ---
-
 # Blazor DropDownList Overview
 
 The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data](slug:components/dropdownlist/databind), sizes, and various appearance options like class and [templates](slug:components/dropdownlist/templates).

@@ -7,8 +7,8 @@ tags: telerik,blazor,grid,filtering,filter
 published: True
 previous_url: /components/grid/filtering
 position: 0
+components: ["grid"]
 ---
-
 # Filtering Overview
 
 This article explains the available filtering modes in the Telerik Grid for Blazor.

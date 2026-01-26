@@ -6,8 +6,8 @@ slug: filemanager-events
 tags: telerik,blazor,upload,async,events
 published: true
 position: 20
+components: ["filemanager"]
 ---
-
 # FileManager Events
 
 This article explains the events available in the Telerik FileManager for Blazor. They are grouped logically.

@@ -6,8 +6,8 @@ slug: components/datepicker/overview
 tags: telerik,blazor,date,picker,datepicker,overview
 published: True
 position: 0
+components: ["datepicker"]
 ---
-
 # Blazor DatePicker Overview
 
 The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazor Date Picker component</a> allows the user to choose a date from a visual Gregorian [Telerik UI for Blazor Calendar](slug:components/calendar/overview) or type it into a [date input](slug:components/dateinput/overview) that can accept only dates. You can control the date format of the input, how the user navigates through the calendar, and which dates the user cannot select.

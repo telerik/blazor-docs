@@ -6,8 +6,8 @@ slug: combobox-appearance
 tags: telerik,blazor,combobox,appearance
 published: True
 position: 65
+components: ["combobox"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the ComboBox by setting the following attribute:

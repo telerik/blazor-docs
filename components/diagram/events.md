@@ -6,8 +6,8 @@ slug: diagram-events
 tags: telerik,blazor,diagram
 published: True
 position: 100
+components: ["diagram"]
 ---
-
 # Blazor Diagram Events
 
 The Telerik Blazor Diagram fires events that are related to different user actions. This article describes all these events and their event arguments:

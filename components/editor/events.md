@@ -6,8 +6,8 @@ slug: editor-events
 tags: telerik,blazor,editor,event
 published: True
 position: 150
+components: ["editor"]
 ---
-
 # Editor Events
 
 This article explains the events available in the Telerik Editor for Blazor:

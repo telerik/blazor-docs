@@ -8,8 +8,8 @@ slug: grid-kb-prevent-rowclick-when-selecting-text
 tags: grid, blazor, rowclick, text-selection
 res_type: kb
 ticketid: 1692651
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 <tbody>

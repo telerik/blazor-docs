@@ -7,8 +7,8 @@ tags: telerik,blazor,grid,templates
 published: True
 previous_url: /grid/templates
 position: 0
+components: ["grid"]
 ---
-
 # Grid Templates
 
 You can customize the grid appearance and behavior through the various templates it provides so you can add more details for your users such as aggregate data, format numbers and dates, use custom editing logic, implement custom filters and more.

@@ -8,8 +8,8 @@ position:
 tags: blazor, editor, prosemirror, schema, icon
 ticketid: 
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 <table>
 	<tbody>

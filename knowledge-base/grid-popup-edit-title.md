@@ -8,8 +8,8 @@ position:
 tags: grid, popup, editing
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

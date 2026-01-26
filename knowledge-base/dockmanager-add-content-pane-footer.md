@@ -8,8 +8,8 @@ slug: dockmanager-kb-add-content-pane-footer
 tags: blazor, dockmanager, footer
 res_type: kb
 ticketid: 1700189
+components: ["dockmanager"]
 ---
-
 ## Environment
 <table>
     <tbody>

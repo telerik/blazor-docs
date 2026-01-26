@@ -6,8 +6,8 @@ slug: filter-overview
 tags: telerik,blazor,filter,overview
 published: True
 position: 0
+components: ["filter"]
 ---
-
 # Blazor Filter Overview
 The <a href="https://www.telerik.com/blazor-ui/filter" target="_blank">Blazor Filter component</a> serves as a complementary addition to data-bound components that do not have built-in filtering.
 

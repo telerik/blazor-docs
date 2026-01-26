@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1548026
 res_type: kb
+components: ["carousel"]
 ---
-
 ## Environment
 <table>
 	<tbody>

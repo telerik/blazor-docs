@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1434214
 res_type: kb
+components: ["calendar"]
 ---
-
 ## Environment
 <table>
 	<tbody>

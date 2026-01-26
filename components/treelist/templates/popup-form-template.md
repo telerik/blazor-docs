@@ -6,9 +6,8 @@ slug: treelist-templates-popup-form
 tags: telerik,blazor,treelist,templates,popup,edit,create
 published: True
 position: 50
+components: ["treelist"]
 ---
-
-
 # Popup Form Template
 
 With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the TreeList. Declare the desired custom content inside the `<FormTemplate>` inner tag of the `<TreeListPopupEditFormSettings>`.

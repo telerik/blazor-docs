@@ -7,8 +7,8 @@ slug: grid-kb-customize-enum-text
 tags: grid, enum, display, customize
 res_type: kb
 ticketid: 1680753
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

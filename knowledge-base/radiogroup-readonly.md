@@ -8,8 +8,8 @@ slug: radiogroup-kb-readonly
 tags: radiogroup, blazor, readonly
 res_type: kb
 ticketid: 1690650
+components: ["radiogroup"]
 ---
-
 ## Environment
 
 <table>

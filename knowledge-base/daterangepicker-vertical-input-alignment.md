@@ -7,8 +7,8 @@ slug: daterangepicker-kb-vertical-input-alignment
 tags: datarangepicker, blazor, css, layout, vertical, align
 res_type: kb
 ticketid: 1656293
+components: ["daterangepicker"]
 ---
-
 ## Environment
 
 <table>

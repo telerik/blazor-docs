@@ -6,8 +6,8 @@ slug: splitbutton-events
 tags: telerik,blazor,splitbutton,events
 published: True
 position: 15
+components: ["splitbutton"]
 ---
-
 # SplitButton Events
 
 This article describes the SplitButton events:

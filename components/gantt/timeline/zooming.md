@@ -6,8 +6,8 @@ slug: gantt-timeline-zootofit
 tags: telerik,blazor,gantt,timeline,zoom
 published: True
 position: 20
+components: ["gantt"]
 ---
-
 # Zoom for the Gantt Timeline
 
 You can change the starting point of the Gantt Timeline view through the `RangeSnapTo`. By default, the range of the view is calculated based on major slot division.

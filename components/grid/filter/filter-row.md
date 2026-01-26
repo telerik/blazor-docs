@@ -6,8 +6,8 @@ slug: grid-filter-row
 tags: telerik,blazor,grid,filtering,filter,row
 published: True
 position: 5
+components: ["grid"]
 ---
-
 # Grid Filter Row
 
 The FilterRow filtering mode renders a row below the column headers, providing a UI where you can fill in the filter criteria.

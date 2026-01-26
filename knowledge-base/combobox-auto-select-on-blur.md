@@ -6,8 +6,8 @@ page_title: How to Automatically Select the Focused Dropdown Item on Tab
 slug: combobox-kb-autoselect-on-blur
 tags: telerik, blazor, combobox, blur, auto-select
 res_type: kb
+components: ["combobox"]
 ---
-
 ## Environment
 
 <table>

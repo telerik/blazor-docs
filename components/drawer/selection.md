@@ -6,8 +6,8 @@ slug: drawer-selection
 tags: telerik,blazor,drawer,selection,item,selected,items
 published: True
 position: 10
+components: ["drawer"]
 ---
-
 # Drawer Selection
 
 The Drawer lets the user select an item. You can also pre-select a desired item. You can use this highlighted item to load/generate content, or to denote the current page.

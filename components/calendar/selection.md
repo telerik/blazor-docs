@@ -6,8 +6,8 @@ slug: components/calendar/selection
 tags: telerik,blazor,calendar,selection,select date,multiple selection
 published: True
 position: 2
+components: ["calendar"]
 ---
-
 # Date Selection
 
 The user can select one or mode dates depending on the Calendar configuration set by the developer. They may also be forbidden selection of certain disabled dates.

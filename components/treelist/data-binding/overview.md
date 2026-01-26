@@ -6,8 +6,8 @@ slug: treelist-data-binding-overview
 tags: telerik,blazor,treelist,data,bind,databind,databinding,basics
 published: True
 position: 0
+components: ["treelist"]
 ---
-
 # TreeList Data Binding Basics
 
 This article explains the different ways to provide data to a treelist component and the properties related to data binding. Reviewing this article will explain the basics of how you can describe the hierarchy of items in your data source to the treelist component so they can render.

@@ -8,8 +8,8 @@ position:
 tags: chart, series, gradient, color
 ticketid: 1545645, 1591373
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 <table>
 	<tbody>

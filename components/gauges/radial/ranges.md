@@ -6,8 +6,8 @@ slug: radial-gauge-ranges
 tags: telerik,blazor,radial,gauge,ranges
 published: True
 position: 15
+components: ["radialgauge"]
 ---
-
 # Radial Gauge Ranges
 
 You can highlight specific value ranges by providing one or more instances of the `<RadialGaugeScaleRange>` to the `<RadialGaugeScaleRanges>` collection, child tag of the `<RadialGaugeScale>`. You can customize them by using the parameters exposed on the `<RadialGaugeScaleRange>`:

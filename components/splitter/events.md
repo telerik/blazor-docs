@@ -6,8 +6,8 @@ slug: splitter-events
 tags: telerik,blazor,splitter,events
 published: true
 position: 20
+components: ["splitter"]
 ---
-
 # Events
 
 This article explains the events available in the Telerik Splitter for Blazor:

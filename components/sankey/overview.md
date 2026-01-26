@@ -6,6 +6,7 @@ slug: sankey-overview
 tags: telerik,blazor,sankey,diagram,chart,overview
 published: True
 position: 0
+components: ["general"]
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

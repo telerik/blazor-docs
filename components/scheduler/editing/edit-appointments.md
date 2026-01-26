@@ -6,8 +6,8 @@ slug: scheduler-appointments-edit
 tags: telerik,blazor,scheduler,appointment,appointments,edit,editing
 published: True
 position: 0
+components: ["scheduler"]
 ---
-
 # Edit Appointments
 
 The Scheduler component lets you edit appointments. This article will explain how to enable and use it.

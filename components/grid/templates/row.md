@@ -6,8 +6,8 @@ slug: grid-templates-row
 tags: telerik,blazor,grid,templates,row
 published: True
 position: 10
+components: ["grid"]
 ---
-
 # Row Template
 
 The row template allows you to define in your own code the entire contents of the `<tr>` element the grid will render for each record. To set it, provide contents to the `<RowTemplate>` inner tag of the grid.

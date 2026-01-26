@@ -6,8 +6,8 @@ slug: fab-events
 tags: telerik,blazor,floating action button,events
 published: True
 position: 3
+components: ["floatingactionbutton"]
 ---
-
 # Button Events
 
 This article explains the events available in the Telerik Floating Action Button for Blazor:

@@ -6,8 +6,8 @@ slug: treelist-checklist-filter
 tags: telerik,blazor,TreeList,filtering,filter,CheckBoxList
 published: True
 position: 15
+components: ["treelist"]
 ---
-
 # TreeList CheckBoxList Filtering
 
 You can change the [filter menu](slug:treelist-filter-menu) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.

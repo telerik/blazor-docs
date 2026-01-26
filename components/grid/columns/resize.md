@@ -6,8 +6,8 @@ slug: components/grid/columns/resize
 tags: telerik,blazor,grid,column,resize,drag
 published: True
 position: 20
+components: ["grid"]
 ---
-
 # Resize Columns
 
 The Grid features two different column resizing mechanisms:

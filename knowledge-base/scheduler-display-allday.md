@@ -7,8 +7,8 @@ slug: scheduler-display-allday
 tags: scheduler, timeline, all-day
 ticketid: 1576096
 res_type: kb
+components: ["scheduler"]
 ---
-
 ## Environment
 
 <table>

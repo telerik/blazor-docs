@@ -6,8 +6,8 @@ slug: aiprompt-views-templates
 tags: telerik,blazor,aiprompt,ai,prompt,templates
 published: True
 position: 40
+components: ["aiprompt"]
 ---
-
 # AIPrompt Views Templates
 
 This article explains the available templates for the views of the AIPrompt for Blazor.

@@ -7,8 +7,8 @@ slug: dropdownlist-kb-add-clear-button
 tags: dropdownlist, clear, button, reset
 res_type: kb
 ticketid: 1680480, 1612125
+components: ["dropdownlist"]
 ---
-
 ## Environment
 <table>
 	<tbody>

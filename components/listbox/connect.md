@@ -6,8 +6,8 @@ slug: listbox-connect
 tags: telerik,blazor,listbox
 published: True
 position: 30
+components: ["listbox"]
 ---
-
 # Connect ListBox Instances
 
 One of the main benefits of the Telerik Blazor ListBox is the ability to move items from one component instance to another. This article explains how to link multiple ListBoxes to transfer items.

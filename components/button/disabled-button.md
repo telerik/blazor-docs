@@ -6,8 +6,8 @@ slug: button-disabled
 tags: telerik,blazor,disabled,button,
 published: True
 position: 5
+components: ["button"]
 ---
-
 # Disabled Button
 
 Sometimes specific buttons in an application must be temporarily disabled. To control the enabled state of the component, use the `Enabled` Boolean attribute.

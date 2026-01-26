@@ -6,8 +6,8 @@ slug: stockchart-navigator
 tags: telerik,blazor,stock,chart,navigator
 published: true
 position: 2
+components: ["stockchart"]
 ---
-
 # Navigator
 
 The Navigator allows the user to zoom or scroll through the data over a certain period of time. The Navigator can be used will all types of stock charts.

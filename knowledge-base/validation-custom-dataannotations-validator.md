@@ -7,8 +7,8 @@ slug: validation-kb-custom-dataannotations-validator
 tags: telerik, blazor, validation, form, grid
 ticketid: 1666005, 1665269, 1658101, 1560189, 1558247, 1543336
 res_type: kb
+components: ["grid, form"]
 ---
-
 ## Environment
 
 <table>

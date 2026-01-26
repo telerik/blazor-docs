@@ -6,8 +6,8 @@ slug: components/textbox/events
 tags: telerik,blazor,textbox,events
 published: true
 position: 20
+components: ["textbox"]
 ---
-
 # Events
 
 This article explains the events available in the <a href = "https://www.telerik.com/blazor-ui/textbox" target="_blank">Telerik Textbox for Blazor</a>:

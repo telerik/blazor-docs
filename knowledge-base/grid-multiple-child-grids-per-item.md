@@ -8,8 +8,8 @@ position:
 tags: grid, hierarchy, multiple, children
 ticketid: 1550340
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

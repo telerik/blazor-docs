@@ -7,8 +7,8 @@ slug: qrcode-barcode-chart-kb-export-to-image
 tags: telerik, blazor, qrcode, barcode, chart, diagram
 ticketid: 1572189, 1588186, 1667798, 1697494, 1697884
 res_type: kb
+components: ["qrcode"]
 ---
-
 ## Environment
 
 <table>

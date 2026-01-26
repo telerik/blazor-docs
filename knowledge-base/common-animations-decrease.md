@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, animations, css
 ticketid: 1637172
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

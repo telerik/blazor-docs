@@ -6,8 +6,8 @@ slug: tilelayout-overview
 tags: telerik,blazor,tile,layout,dashboard,overview
 published: True
 position: 0
+components: ["tilelayout"]
 ---
-
 # Blazor TileLayout Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/tilelayout" target="_blank">Blazor TileLayout component</a> is based on the two-dimensional <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS grid</a> and displays its content in tiles. Users can [drag to rearrange](slug:tilelayout-reorder) and [drag to resize](slug:tilelayout-resize) tiles. The tiles can span across multiple rows and columns. This allows you to build customizable dashboards for your users, save and restore the [layout state](slug:tilelayout-state).

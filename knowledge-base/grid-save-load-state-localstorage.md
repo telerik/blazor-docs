@@ -8,8 +8,8 @@ position:
 tags: grid, state, localstorage
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

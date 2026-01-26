@@ -6,8 +6,8 @@ slug: treelist-columns-checkbox
 tags: telerik,blazor,TreeList,column,selection
 published: True
 position: 2
+components: ["treelist"]
 ---
-
 # TreeList Checkbox Column
 
 This article describes the configuration parameters of the Blazor `TreeListCheckboxColumn`.

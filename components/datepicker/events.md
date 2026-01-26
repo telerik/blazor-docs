@@ -6,8 +6,8 @@ slug: components/datepicker/events
 tags: telerik,blazor,DatePicker,events
 published: true
 position: 20
+components: ["datepicker"]
 ---
-
 # Events
 
 This article describes the events of the Telerik DatePicker for Blazor.

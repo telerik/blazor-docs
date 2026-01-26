@@ -6,8 +6,8 @@ slug: treelist-columns-reorder
 tags: telerik,blazor,treelist,column,reorder,drag
 published: True
 position: 2
+components: ["treelist"]
 ---
-
 # Reorder Columns
 
 The treelist lets the user reorder its columns by dragging their headers.

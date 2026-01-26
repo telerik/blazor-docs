@@ -7,8 +7,8 @@ slug: hierarchical-breadcrumb-dropdowns-blazor
 tags: breadcrumb, blazor, customization, dropdown, itemtemplate, hierarchical
 res_type: kb
 ticketid: 1652751
+components: ["breadcrumb"]
 ---
-
 ## Environment
 
 <table>

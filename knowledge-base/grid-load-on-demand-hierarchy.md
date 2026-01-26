@@ -7,8 +7,8 @@ slug: grid-kb-load-on-demand-hierarchy
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

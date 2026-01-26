@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, listbox, filter, search
 ticketid:
 res_type: kb
+components: ["listbox"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1406319
 res_type: kb
+components: ["loader", "loadercontainer"]
 ---
-
 ## Environment
 
 <table>

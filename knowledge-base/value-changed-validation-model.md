@@ -7,8 +7,8 @@ slug: value-changed-validation-model
 position: 
 tags: 
 res_type: kb
+components: ["autocomplete", "combobox", "datepicker", "datetimepicker", "dropdownlist", "form", "multicolumncombobox", "multiselect", "timepicker"]
 ---
-
 ## Environment
 
 <table>

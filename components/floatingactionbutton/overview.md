@@ -6,8 +6,8 @@ slug: fab-overview
 tags: telerik,blazor,floating action button
 published: True
 position: 0
+components: ["floatingactionbutton"]
 ---
-
 # Blazor Floating Action Button Overview
 
 The <a href="https://www.telerik.com/blazor-ui/floating-action-button" target="_blank">Blazor Floating Action Button</a> is a UI component that shows over the other page content and may not move during scrolling. The component can perform the most logical action expected from a user looking at a particular screen. You can configure the FloatingActionButton to display:

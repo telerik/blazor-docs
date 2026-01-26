@@ -6,8 +6,8 @@ slug: chat-events
 tags: telerik,blazor,chat,events
 published: True
 position: 9
+components: ["chat"]
 ---
-
 # Chat Events
 
 The Telerik UI for Blazor Chat component exposes various events that allow you to implement custom functionality and handle user interactions. This article lists the available events and provides examples for the most common use cases.

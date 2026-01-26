@@ -6,8 +6,8 @@ slug: editor-prosemirror-schema-overview
 tags: telerik,blazor,editor,prosemirror,schema
 published: True
 position: 0
+components: ["editor"]
 ---
-
 # ProseMirror Schema Overview
 
 The Telerik UI for Blazor Editor component is based on the [ProseMirror library](https://prosemirror.net/). ProseMirror provides a set of tools and concepts for building rich textual editors, using user interface inspired by the What-You-See-Is-What-You-Get (WYSIWYG).

@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, upload
 ticketid: 1544295, 1585763, 1590409, 1600123, 1636473
 res_type: kb
+components: ["upload, grid"]
 ---
-
 ## Environment
 
 <table>

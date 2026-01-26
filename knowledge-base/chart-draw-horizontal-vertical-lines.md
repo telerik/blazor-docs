@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, chart, draw, horizontal, vertical, lines
 ticketid: 1511761, 1569732
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

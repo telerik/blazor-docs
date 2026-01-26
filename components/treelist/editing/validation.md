@@ -6,8 +6,8 @@ slug: treelist-editing-validation
 tags: telerik, blazor, treelist, validation, editing
 published: True
 position: 40
+components: ["treelist"]
 ---
-
 # TreeList Validation
 
 The Telerik TreeList for Blazor supports built-in validation that is enabled by default. This article describes how the TreeList validation works and how to customize or disable it.

@@ -6,8 +6,8 @@ slug: contextmenu-navigation
 tags: telerik,blazor,menu,navigation
 published: True
 position: 10
+components: ["contextmenu"]
 ---
-
 # Context Menu for Navigation
 
 The Context Menu can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding](slug:contextmenu-data-binding-overview).

@@ -6,8 +6,8 @@ slug: circular-gauge-pointers
 tags: telerik,blazor,circular,gauge,pointers
 published: True
 position: 10
+components: ["circulargauge"]
 ---
-
 # Circular Gauge Pointers
 
 The pointers are the values that will be marked on the scale. You can customize them through the parameters they expose:

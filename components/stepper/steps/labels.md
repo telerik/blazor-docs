@@ -6,9 +6,8 @@ slug: stepper-labels
 tags: telerik,blazor,stepper,labels
 published: True
 position: 2
+components: ["stepper"]
 ---
-
-
 # Steps Labels
 
 The Stepper component allows you to set labels for the corresponding step indicators. You can define the desired labels through the `Label` parameter the `StepperStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the step indicator.

@@ -6,8 +6,8 @@ slug: treeview-selection-single
 tags: telerik,blazor,treeview,selection,single
 published: True
 position: 5
+components: ["treeview"]
 ---
-
 # Single Selection in TreeView
 
 The TreeView lets the user select a single node at a time.

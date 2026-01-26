@@ -7,8 +7,8 @@ slug: daterangepicker-kb-reposition-labels
 position:
 tags:
 res_type: kb
+components: ["daterangepicker"]
 ---
-
 ## Environment
 <table>
 	<tbody>

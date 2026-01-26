@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, chart, templates, stacking
 ticketid: 1546346, 1598736, 1627415, 1628026
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

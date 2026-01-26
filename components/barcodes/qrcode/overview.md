@@ -6,8 +6,8 @@ slug: qrcode-overview
 tags: telerik,blazor,barcode,qrcode,overview
 published: True
 position: 0
+components: ["qrcode"]
 ---
-
 # Blazor QRCode Overview
 
 The <a href="https://www.telerik.com/blazor-ui/qr-code" target="_blank">Blazor QRCode component</a> generates **Canvas** and **SVG** images that represent Quick Response (QR) codes.

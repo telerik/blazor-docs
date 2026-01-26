@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1504745
 res_type: kb
+components: ["daterangepicker"]
 ---
-
 ## Environment
 <table>
 	<tbody>

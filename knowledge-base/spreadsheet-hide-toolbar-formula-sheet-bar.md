@@ -7,8 +7,8 @@ slug: spreadsheet-kb-hide-toolbar-formula-sheet-bar
 tags: spreadsheet, blazor, toolbar, formula bar, sheet bar, css, visibility
 res_type: kb
 ticketid: 1676073
+components: ["spreadsheet"]
 ---
-
 ## Environment
 
 <table>

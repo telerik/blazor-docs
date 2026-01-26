@@ -8,8 +8,8 @@ position:
 tags: wizard, skip, step
 ticketid: 1541661, 1544088
 res_type: kb
+components: ["wizard"]
 ---
-
 ## Environment
 
 <table>

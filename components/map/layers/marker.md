@@ -6,8 +6,8 @@ slug: components/map/layers/marker
 tags: telerikui, blazor, map, layers, marker
 published: True
 position: 5
+components: ["map"]
 ---
-
 # Marker Layer
 
 The marker functionality allows you to add points of interest to the Map. These points are defined by the geographical position on the map and can show useful information to the user in a tooltip.

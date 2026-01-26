@@ -8,8 +8,8 @@ position:
 tags: splitter, state, save, load, reload
 ticketid: 1546809
 res_type: kb
+components: ["splitter"]
 ---
-
 ## Environment
 <table>
 	<tbody>

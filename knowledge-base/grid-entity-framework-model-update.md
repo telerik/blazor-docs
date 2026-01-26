@@ -7,8 +7,8 @@ slug: grid-kb-entity-framework-model-update
 tags: blazor, grid, treelist, editing, entityframework
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

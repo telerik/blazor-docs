@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, treelist
 ticketid: 1436233, 1537132, 1537553, 1540098, 1540705, 1542404, 1570566, 1573165, 1585454, 1587062, 1595651, 1606327
 res_type: kb
+components: ["grid, treelist"]
 ---
-
 ## Environment
 
 <table>

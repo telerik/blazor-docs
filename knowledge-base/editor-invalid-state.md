@@ -7,8 +7,8 @@ slug: editor-kb-invalid-state
 position:
 tags:
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 <table>
 	<tbody>

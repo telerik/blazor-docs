@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, upload
 ticketid: 1626509, 1637325
 res_type: kb
+components: ["upload"]
 ---
-
 ## Environment
 
 <table>

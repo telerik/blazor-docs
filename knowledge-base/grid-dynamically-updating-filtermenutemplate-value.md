@@ -7,8 +7,8 @@ slug: grid-kb-dynamically-updating-filtermenutemplate-value
 tags: grid, blazor, filter, filtermenutemplate
 res_type: kb
 ticketid: 1677674
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

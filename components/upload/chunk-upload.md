@@ -6,8 +6,8 @@ slug: upload-chunk
 tags: telerik,blazor,upload,chunk
 published: True
 position: 3
+components: ["upload"]
 ---
-
 # Chunk Upload
 
 Chunk upload works by splitting a file into smaller parts (chunks) and sending them in multiple requests. These chunks are then reassembled at the remote endpoint into the final file.

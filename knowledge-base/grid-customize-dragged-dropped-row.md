@@ -8,8 +8,8 @@ position:
 tags: grid, drag, drop, customize, style
 ticketid: 1547069
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

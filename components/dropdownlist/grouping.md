@@ -6,8 +6,8 @@ slug: components/dropdownlist/grouping
 tags: telerik,blazor,dropdown,dropdownlist,group,grouping
 published: True
 position: 15
+components: ["dropdownlist"]
 ---
-
 # DropDownList Grouping
 
 The DropDownList component allows users to see the listed items grouped in categories. This can improve the user experience and make browsing through the items faster.

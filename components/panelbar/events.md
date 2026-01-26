@@ -6,8 +6,8 @@ slug: panelbar-events
 tags: telerik,blazor,panelbar,events
 published: True
 position: 25
+components: ["panelbar"]
 ---
-
 # PanelBar Events
 
 This article explains the events available in the Telerik TreeView for Blazor:

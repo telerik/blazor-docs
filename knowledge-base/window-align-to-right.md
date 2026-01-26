@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1452606
 res_type: kb
+components: ["window"]
 ---
-
 ## Environment
 <table>
 	<tbody>

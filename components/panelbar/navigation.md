@@ -6,8 +6,8 @@ slug: panelbar-navigation
 tags: telerik,blazor,panelbar,navigation
 published: True
 position: 5
+components: ["panelbar"]
 ---
-
 # PanelBar for Navigation
 
 The PanelBar can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding](slug:panelbar-data-binding-overview).

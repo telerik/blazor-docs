@@ -6,8 +6,8 @@ slug: listview-templates
 tags: telerik,blazor,listview,templates
 published: True
 position: 2
+components: ["listview"]
 ---
-
 # ListView Templates
 
 The ListView component is all about your templates - it does not have an item rendering of its own and lets you customize all aspects. You can define:

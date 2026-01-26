@@ -6,9 +6,8 @@ slug: buttongroup-selection
 tags: telerik,blazor,button,group,selection
 published: True
 position: 10
+components: ["buttongroup"]
 ---
-
-
 # ButtonGroup Selection
 
 The ButtonGroup lets you select one or more of its `ButtonGroupToggleButton` instances depending on the `SelectionMode` setting:

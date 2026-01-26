@@ -7,8 +7,8 @@ slug: grid-kb-handle-empty-popup-footer
 tags: grid, blazor, edit form, popup form template, footer, custom buttons, empty
 res_type: kb
 ticketid: 1665785
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

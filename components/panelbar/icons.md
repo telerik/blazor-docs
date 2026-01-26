@@ -6,8 +6,8 @@ slug: panelbar-icons
 tags: telerik,blazor,panelbar,icon,iconclass,image
 published: True
 position: 15
+components: ["panelbar"]
 ---
-
 # PanelBar Icons
 
 You can add [Telerik Font or SVG icons](slug:common-features-icons) to the PanelBar items. The component also supports custom icons.

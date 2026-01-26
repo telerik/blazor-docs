@@ -6,9 +6,9 @@ page_title: How to Show a Loader While Exporting the Grid
 slug: grid-kb-show-loader-while-exporting
 tags: grid, blazor, loader, loadercontainer, export, excel, csv, pdf
 res_type: kb
-ticketid: 
+ticketid:
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

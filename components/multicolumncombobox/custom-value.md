@@ -6,8 +6,8 @@ slug: multicolumncombobox-custom-value
 tags: telerik,blazor,multicolumncombobox,combobox,custom,value,input
 published: True
 position: 20
+components: ["multicolumncombobox"]
 ---
-
 # MultiColumnComboBox Custom Values
 
 The MultiColumnComboBox component allows the user to type in their own value that is not a part of the predefined set of options that the developer provided.

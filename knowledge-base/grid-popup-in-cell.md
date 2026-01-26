@@ -7,8 +7,8 @@ slug: grid-kb-popup-in-cell
 tags: blazor, grid, popup, template
 res_type: kb
 ticketid: 1689992, 1640846
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

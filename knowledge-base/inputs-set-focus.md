@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1618182, 1610413, 1590689, 1544989, 1546166, 1532875, 1527317
 res_type: kb
+components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownlist","multicolumncombobox","multiselect","timepicker"]
 ---
-
 ## Environment
 
 <table>

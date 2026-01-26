@@ -6,8 +6,8 @@ slug: treelist-searchbox
 tags: telerik,blazor,treeList,filtering,filter,searchbox,search
 published: True
 position: 20
+components: ["treelist"]
 ---
-
 # TreeList Toolbar Searchbox
 
 In addition to [TreeList filtering](slug:treelist-filtering), you can also add a `SearchBox` in the [TreeList Toolbar](slug:treelist-toolbar). The search box can filter in multiple TreeList columns at he same time.

@@ -6,8 +6,8 @@ slug: scheduler-toolbar
 tags: telerik,blazor,scheduler,toolbar
 published: True
 position: 2
+components: ["scheduler"]
 ---
-
 # Scheduler Toolbar
 
 The [Blazor Scheduler toolbar](https://demos.telerik.com/blazor-ui/scheduler/toolbar) can render built-in and custom tools. This article shows how to use and customize the toolbar.

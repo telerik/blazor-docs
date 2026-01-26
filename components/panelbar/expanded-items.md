@@ -6,8 +6,8 @@ slug: panelbar-expand-items
 tags: telerik,blazor,panelbar,expand,items
 published: True
 position: 5
+components: ["panelbar"]
 ---
-
 # Expanded Items
 
 You can expand a single or multiple items in the Telerik PanelBar.

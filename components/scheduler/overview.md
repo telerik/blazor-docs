@@ -6,8 +6,8 @@ slug: scheduler-overview
 tags: telerik,blazor,scheduler,overview
 published: True
 position: 0
+components: ["scheduler"]
 ---
-
 # Blazor Scheduler Overview
 
 The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor Scheduler component</a> lets users see, edit and add appointments, so they can plan their agenda. The Scheduler offers different views, control over the workday start and end, resource grouping and various other features and settings.

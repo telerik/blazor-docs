@@ -6,8 +6,8 @@ slug: treelist-column-events
 tags: telerik,blazor,treelist,column,columns,events
 published: True
 position: 100
+components: ["treelist"]
 ---
-
 # TreeList Column Events
 
 This article explains the events available for the Columns of the Telerik TreeList for Blazor.

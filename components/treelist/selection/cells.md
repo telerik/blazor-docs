@@ -5,8 +5,8 @@ description: Learn how to select cell in Blazor TreeList component. Explore the 
 slug: treelist-selection-cell
 tags: telerik,blazor,treelist,selection,cells
 position: 5
+components: ["treelist"]
 ---
-
 # Cell Selection
 
 The TreeList component supports [single or multiple cell selection](slug:treelist-selection-overview#use-single-or-multiple-selection). You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can subscribe to selection events.

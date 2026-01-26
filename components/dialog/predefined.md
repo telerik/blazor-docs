@@ -6,8 +6,8 @@ slug: dialog-predefined
 tags: telerik,blazor,dialog,predefined,alert,confirm,prompt
 published: true
 position: 2
+components: ["dialog"]
 ---
-
 # Predefined Dialogs - Alert, Confirm, Prompt
 
 Telerik UI for Blazor provides styled substitutes to the standard alert, confirm, and prompt dialogs of the browser. These Blazor popup messages match the theme of the components to make it obvious to the user that the modal dialog is coming from your application.

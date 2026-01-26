@@ -7,8 +7,8 @@ slug: datepicker-kb-resize-popup
 position:
 tags:
 res_type: kb
+components: ["datepicker"]
 ---
-
 ## Environment
 <table>
 	<tbody>

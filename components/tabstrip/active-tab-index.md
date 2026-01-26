@@ -6,8 +6,8 @@ slug: tabstrip-activetabindex
 tags: telerik,blazor,tab,strip,tabstrip,active,tab,index
 published: True
 position: 5
+components: ["tabstrip"]
 ---
-
 # TabStrip Active Tab Index
 
 The TabStrip allows you to get or set the index of the currently selected (active) tab through the `ActiveTabIndex` parameter. It supports two-way binding (the `@bind-ActiveTabIndex` syntax) and one-way binding used along with the [`ActiveTabIndexChanged` event](slug:tabstrip-events#activetabindexchanged).

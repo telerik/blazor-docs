@@ -6,8 +6,8 @@ slug: daterangepicker-appearance
 tags: telerik,blazor,DateRangePicker,appearance
 published: True
 position: 35
+components: ["daterangepicker"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the DateRangePicker by setting the following attribute:

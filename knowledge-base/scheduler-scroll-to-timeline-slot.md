@@ -7,8 +7,8 @@ slug: scheduler-kb-scroll-to-timeline-slot
 tags: blazor, scheduler, timeline
 ticketid: 1680788
 res_type: kb
+components: ["scheduler"]
 ---
-
 ## Environment
 
 <table>

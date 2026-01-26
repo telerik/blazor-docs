@@ -6,8 +6,8 @@ slug: panelbar-refresh-data
 tags: telerik,blazor,panelbar,observable,data,new,collection,refresh,rebind
 published: True
 position: 20
+components: ["panelbar"]
 ---
-
 # PanelBar - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

@@ -6,8 +6,8 @@ slug: rangeslider-label-template
 tags: telerik,blazor,range,slider,label,template
 published: true
 position: 10
+components: ["rangeslider"]
 ---
-
 # Label Template
 
 You can customize what the range slider labels render through the `LabelTemplate`.

@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1422293
 res_type: kb
+components: ["tabstrip"]
 ---
-
 ## Environment
 <table>
     <tbody>

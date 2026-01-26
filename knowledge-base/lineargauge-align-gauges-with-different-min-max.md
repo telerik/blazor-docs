@@ -7,8 +7,8 @@ slug: lineargauge-kb-align-gauge-widths-with-different-min-max
 tags: blazor, gauge, lineargauge
 ticketid: 1704384
 res_type: kb
+components: ["lineargauge"]
 ---
-
 ## Environment
 
 <table>

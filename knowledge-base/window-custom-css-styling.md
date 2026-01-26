@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, window, styling
 ticketid:
 res_type: kb
+components: ["window"]
 ---
-
 ## Environment
 <table>
 	<tbody>

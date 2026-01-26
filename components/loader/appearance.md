@@ -6,8 +6,8 @@ slug: loader-appearance
 tags: telerik,blazor,loader,appearance
 published: True
 position: 5
+components: ["loader"]
 ---
-
 # Appearance Settings
 
 The loader component provides the following parameters that control its appearance:

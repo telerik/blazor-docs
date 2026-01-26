@@ -6,8 +6,8 @@ slug: rootcomponent-overview
 tags: telerik,blazor,telerikrootcomponent,rootcomponent
 published: True
 position: 0
+components: ["general"]
 ---
-
 # TelerikRootComponent Overview
 
 The `TelerikRootComponent` is a special component in Telerik UI for Blazor. Its placement and configuration affects all other Telerik Blazor components. This article describes the purpose and usage of `TelerikRootComponent`.

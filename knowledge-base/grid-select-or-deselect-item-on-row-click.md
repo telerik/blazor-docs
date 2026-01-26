@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, select, deselect, row, click
 ticketid: 1534470
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

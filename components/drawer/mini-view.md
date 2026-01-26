@@ -6,8 +6,8 @@ slug: drawer-mini-mode
 tags: telerik,blazor,drawer,mode,mini
 published: True
 position: 7
+components: ["drawer"]
 ---
-
 # Mini View
 
 When the Drawer is collapsed, it is not visible at all by default. You can, however, leave a small hint for the user that shows the icons of the items so they can navigate with just a single action.

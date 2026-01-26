@@ -6,8 +6,8 @@ slug: components/timepicker/overview
 tags: telerik,blazor,time,picker,timepicker,overview
 published: True
 position: 0
+components: ["timepicker"]
 ---
-
 # Blazor Time Picker Overview
 
 The <a href="https://www.telerik.com/blazor-ui/timepicker" target="_blank">Blazor Time Picker component</a> allows the user to choose a time from a visual list in a dropdown, or to type it into a [date input](slug:components/dateinput/overview) that can accept only DateTime values. You can control the format shown in the input and respond to [events](slug:components/timepicker/events).

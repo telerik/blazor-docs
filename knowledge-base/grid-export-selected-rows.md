@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, export
 ticketid: 1589536, 1589039, 1575904, 1557007, 1530512, 1523318, 1520996, 1510436
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

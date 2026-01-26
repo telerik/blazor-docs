@@ -6,8 +6,8 @@ slug: treelist-columns-bound
 tags: telerik,blazor,treelist,bound,column
 published: True
 position: 0
+components: ["treelist"]
 ---
-
 # TreeList DataBound Column
 
 This article explains the basics of showing data in a treelist and the features of its bound columns.

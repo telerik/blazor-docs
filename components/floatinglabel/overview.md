@@ -6,8 +6,8 @@ slug: floatinglabel-overview
 tags: telerik,blazor,floatinglabel,floating,label,overview
 published: True
 position: 0
+components: ["floatinglabel"]
 ---
-
 # Blazor Floating Label Overview
 
 The <a href="https://www.telerik.com/blazor-ui/floatinglabel" target="_blank">Blazor FloatingLabel component</a> provides additional features and improved user experience, compared to the standard HTML `label`. The floating label displays on top of empty non-focused components and moves above them on focus.

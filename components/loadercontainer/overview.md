@@ -6,8 +6,8 @@ slug: loadercontainer-overview
 tags: telerik,blazor,loader,container,loadercontainer,overview
 published: True
 position: 0
+components: ["loadercontainer"]
 ---
-
 # Blazor LoaderContainer Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/loader-container" target="_blank">Blazor LoaderContainer</a> provides an animated indicator, a panel, and an overlay that can be used when the application is performing a time-consuming background operation, for example loading data.

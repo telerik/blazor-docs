@@ -6,8 +6,8 @@ slug: circular-gauge-labels
 tags: telerik,blazor,circular,gauge,labels
 published: True
 position: 15
+components: ["circulargauge"]
 ---
-
 # Circular Gauge Labels
 
 You can customize the appearance of the labels rendered on the [scale](slug:circular-gauge-scale) of the Circular Gauge by using the `<CircularGaugeScaleLabels>`, child tag of the `<CircularGaugeScale>`, and the parameters it exposes:

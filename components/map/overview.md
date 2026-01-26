@@ -6,8 +6,8 @@ slug: components/map/overview
 tags: telerik,blazor,map,overview
 published: True
 position: 0
+components: ["map"]
 ---
-
 # Blazor Map Overview
 
 The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map component</a> displays geospatial information organized in layers. The component provides [tile layers](slug:components/map/layers/tile), [vector shape layers](slug:components/map/layers/shape), [bubble layers](slug:components/map/layers/bubble), and [marker layers](slug:components/map/layers/marker).

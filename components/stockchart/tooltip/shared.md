@@ -6,8 +6,8 @@ slug: stockchart-tooltip-shared
 tags: telerik,blazor,stock,chart,tooltip,shared,tooltips
 published: True
 position: 2
+components: ["stockchart"]
 ---
-
 # Shared Tooltip for Telerik Blazor Stock Chart
 
 The Telerik Stock Chart allows you to show a unified tooltip for all categories in the Chart.

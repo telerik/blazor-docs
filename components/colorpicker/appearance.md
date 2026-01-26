@@ -6,8 +6,8 @@ slug: colorpicker-appearance
 tags: telerik,blazor,colorpicker,appearance
 published: True
 position: 65
+components: ["colorpicker"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the ColorPicker by setting the following attribute:

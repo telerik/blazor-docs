@@ -6,9 +6,8 @@ slug: grid-templates-popup-buttons
 tags: telerik,blazor,grid,templates,popup,buttons
 published: True
 position: 50
+components: ["grid"]
 ---
-
-
 # Popup Buttons Template
 
 With the `ButtonsTemplate`, you can personalize the appearance and behavior of the buttons in the create/edit Popup window of the Grid component.

@@ -8,8 +8,8 @@ position:
 tags: notification, center, centre, custom, position
 ticketid: 1504012, 1526682
 res_type: kb
+components: ["notification"]
 ---
-
 ## Environment
 <table>
 	<tbody>

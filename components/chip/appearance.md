@@ -6,8 +6,8 @@ slug: chip-appearance
 tags: telerik,blazor,chip,appearance
 published: True
 position: 10
+components: ["chip"]
 ---
-
 # Chip Appearance
 
 You can control the appearance of the Chip by using the following parameters:

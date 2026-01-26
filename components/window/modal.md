@@ -6,8 +6,8 @@ slug: components/window/modal
 tags: telerik,blazor,window,modal
 published: True
 position: 5
+components: ["window"]
 ---
-
 # Modal Window
 
 The Window for Blazor can be modal so that the user is unable to interact with the rest of the page until it closes.

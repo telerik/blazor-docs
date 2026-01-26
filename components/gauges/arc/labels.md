@@ -6,8 +6,8 @@ slug: arc-gauge-labels
 tags: telerik,blazor,arc,gauge,labels
 published: True
 position: 20
+components: ["arcgauge"]
 ---
-
 ## Arc Gauge Labels
 
 You can customize the appearance of the labels rendered on the [scale](slug:arc-gauge-scale) of the Arc Gauge by using the `<ArcGaugeScaleLabels>`, child tag of the `<ArcGaugeScale>`, and the parameters it exposes:

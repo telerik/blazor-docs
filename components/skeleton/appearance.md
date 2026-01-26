@@ -6,8 +6,8 @@ slug: skeleton-appearance
 tags: telerik,blazor,skeleton,appearance
 published: True
 position: 5
+components: ["skeleton"]
 ---
-
 # Appearance Settings
 
 This article explains how to control the visual appearance of the Skeleton component.

@@ -6,8 +6,8 @@ slug: treelist-columns-virtual
 tags: telerik,blazor,treelist,column,virtual,scrolling
 published: true
 position: 5
+components: ["treelist"]
 ---
-
 # Virtualized Columns
 
 The Telerik Blazor TreeList provides Virtual Scrolling for its Columns. This means that columns and the corresponding data will be rendered only for the currently visible viewport. When changing the [Page](slug:treelist-paging), [filtering](slug:treelist-filtering) or [Sorting](slug:treelist-sorting) the treelist, fewer elements are rendered which improves the responsiveness and the overall user experience.

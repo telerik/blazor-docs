@@ -6,8 +6,8 @@ slug: stockchart-candlestick
 tags: telerik,blazor,stock,chart,candlestick
 published: True
 position: 0
+components: ["stockchart"]
 ---
-
 # Candlestick Stock Chart
 
 A **Candlestick** chart shows data for the movement of the price of a financial unit. It consists of a bar (the candle), representing the open and close values, and vertical lines, the candlesticks, which illustrate the highest and lowest values.

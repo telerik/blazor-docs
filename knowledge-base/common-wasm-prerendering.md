@@ -7,8 +7,8 @@ slug: common-kb-wasm-prerendering
 position: 
 tags:
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: grid-kb-hide-virtual-row-skeletons
 tags: blazor, grid, treelist, skeleton, styles, css
 ticketid: 1658135, 1642794
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

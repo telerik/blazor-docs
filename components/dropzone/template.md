@@ -6,8 +6,8 @@ slug: dropzone-template
 tags: telerik,blazor,dropzone,external,drag,drop,file,template,custom,content
 published: True
 position: 5
+components: ["dropzone"]
 ---
-
 # DropZone Template
 
 The DropZone allows you to customize the default rendering of its content by using a `Template`. 

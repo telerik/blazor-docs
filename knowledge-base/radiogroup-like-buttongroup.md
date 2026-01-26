@@ -8,8 +8,8 @@ position:
 tags: radiogroup, button, buttongroup, styles
 ticketid: 1547117
 res_type: kb
+components: ["radiogroup"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: grid-custom-grouping-order
 tags: grid, blazor, custom, grouping, order, sorting
 res_type: kb
 ticketid: 1661227
+components: ["grid"]
 ---
-
 ## Environment
 <table>
     <tbody>

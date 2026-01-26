@@ -6,8 +6,8 @@ slug: gantt-filtering-overview
 tags: telerik,blazor,gantt,chart,tree,filtering,filter,menu,row
 published: True
 position: 0
+components: ["gantt"]
 ---
-
 # Blazor Filtering Overview
 
 The Gantt Tree component offers built-in support for filtering.

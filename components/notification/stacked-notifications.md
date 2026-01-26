@@ -6,8 +6,8 @@ slug: notification-stacked-notifications
 tags: telerik,blazor,notification,stacked,stacking,notifications
 published: True
 position: 15
+components: ["notification"]
 ---
-
 # Stacked Notifications
 
 When you invoke multiple notifications from the same component reference they will be stacked on the screen. Notifications which derive from different references will be rendered on top of one another.

@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1455515
 res_type: kb
+components: ["multiselect"]
 ---
-
 ## Environment
 
 <table>

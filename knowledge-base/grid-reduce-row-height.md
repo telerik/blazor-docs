@@ -7,8 +7,8 @@ slug: grid-kb-reduce-row-height
 tags: blazor, grid, treelist, styles, css
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

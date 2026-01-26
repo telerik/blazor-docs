@@ -6,8 +6,8 @@ slug: gantt-timeline-views
 tags: telerik,blazor,gantt,chart,views
 published: True
 position: 5
+components: ["gantt"]
 ---
-
 # Timeline Views
 
 The Gantt Timeline provides four predefined views, which dictate how much time a single time slot represents:
