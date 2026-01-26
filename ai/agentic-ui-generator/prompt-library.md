@@ -60,7 +60,37 @@ Build a landing page similar to the "Automotive Industry" Telerik page ui templa
 ```Razor
 ```
 
-## Tool-Specific Prompts
+```prompt Employee Directory
+Add an employee directory page with a search bar and department filter at the top. Display employee details in a responsive grid layout showing names, titles, hiring dates. Include a TreeView on the left for navigating the organizational hierarchy. Add a Tooltip showing detailed employee information when a row in the Grid is hovered.
+```
+```Razor
+```
+
+```prompt Event Management Calendar
+Create an event management interface with a Scheduler component as the main element displaying events in month, week, and day views. Add a top toolbar with view switcher, date navigation, and create event button. Include a sidebar showing upcoming events list and a small Calendar for quick date selection. Add filtering options for event types and venues.
+```
+```Razor
+```
+
+```prompt Healthcare Patient Portal
+Build a patient portal with a Card layout showing different sections: upcoming appointments with a ListView, current prescriptions Grid, recent lab results with expandable rows, and a messaging panel for communicating with healthcare providers. Add a top navigation with icons for appointments, records, billing, and messages. Include a notification Badge showing unread messages.
+```
+```Razor
+```
+
+```prompt Maintenance Schedule
+Add a maintenance tracking page with a Grid listing all machines showing last service date, next scheduled maintenance, operating hours, and status indicators. Add a Form for scheduling maintenance with DateTimePicker, technician DropDownList, and maintenance type CheckBoxList. Include a Chart showing downtime analysis.
+```
+```Razor
+```
+
+```prompt Employee Wizard
+Create an employee onboarding wizard (using the Telerik Wizard) with step icons: user for personal info, briefcase for job details, id-card for credentials, checkmark for review. Step 1 shows a Form for name, email, and phone with user icon in the header. Step 2 displays department DropDownList and role selection with briefcase icon. Step 3 contains system access CheckBoxList and password setup with lock icon. Final step shows a summary Card with all entered information and a submit Button with checkmark icon.
+```
+```Razor
+```
+
+## Advanced Tool-Specific Prompts
 
 This section provides prompt examples for directly calling individual specialized tools for more granular control.
 

@@ -48,7 +48,7 @@ This section provides examples of general questions related to Telerik UI for Bl
 
 </div>
 
-## Tool-Specific Prompts
+## Advanced Tool-Specific Prompts
 
 This section provides prompt examples for directly calling individual specialized tools for more granular control.
 
