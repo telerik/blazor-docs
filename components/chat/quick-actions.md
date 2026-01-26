@@ -41,6 +41,8 @@ When the user clicks on a Chat suggestion, the suggestion text may or may not ap
 >caption Using Chat Suggestions and SuggestionsLayoutMode
 
 ````RAZOR
+<label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@EnabledSuggestionsHiding" Id="suggestionsHidingCheckBox" /> Hide Suggestions on Click</label>
+
 <TelerikChat @ref="@ChatRef"
              Data="@ChatData"
              AuthorId="@CurrentUserId"
@@ -56,10 +58,9 @@ When the user clicks on a Chat suggestion, the suggestion text may or may not ap
 
 @code {
     private TelerikChat<Message>? ChatRef;
-
     private const string CurrentUserId = "jane";
-
     private string ChatInputValue { get; set; } = string.Empty;
+    private bool EnabledSuggestionsHiding { get; set; }
 
     private List<string> ChatSuggestions = new List<string>
     {
@@ -113,6 +114,12 @@ When the user clicks on a Chat suggestion, the suggestion text may or may not ap
         });
 
         ChatRef?.Refresh();
+
+        if (EnabledSuggestionsHiding)
+        {
+            // Hide suggestions on click
+            ChatSuggestions = new List<string>();
+        }
     }
 
     private void OnChatSendMessage(ChatSendMessageEventArgs args)
