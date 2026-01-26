@@ -106,7 +106,7 @@ The Chat component provides a variety of parameters:
 | `AuthorNameField` | `string` <br /> (`"AuthorName"`) | The name of the field containing the author display name. |
 | `Data` | `IEnumerable<TItem>` | The data source for chat messages. |
 | `EnableFileUpload` | `bool` <br /> (`false`) | Enables file upload functionality in the chat input. |
-| `EnableScrollToBottom` | `bool` <br /> (`true`) | Enables a scroll to bottom button. |
+| `EnableScrollToBottom` | `bool` <br /> (`true`) | Enables a scroll to bottom button, which shows when there are messages below the currently visible ones. |
 | `EnableSpeechToText` | `bool` <br /> (`true`) | Enables speech-to-text functionality with microphone input. |
 | `Height` | `string` | The height of the chat component in CSS units. |
 | `IsTypingField` | `string` | The name of the field that indicates whether a message represents a typing indicator. |
