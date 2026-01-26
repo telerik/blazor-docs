@@ -44,18 +44,27 @@ Use the documentation of your AI-powered MCP client to enable the Telerik MCP Se
 
 ### License Key Setup
 
-The Telerik MCP server requires a valid Telerik license key for authentication. You can configure your license key either globally *(recommended)* on your machine or locally in the `env` configuration of the `.mcp.json` file.
+The Telerik MCP server requires an [active Subscription or trial license](slug:ai-overview#license-requirements) and a valid key for authentication. You can configure your license key either globally *(recommended)* on your machine or locally in the `env` configuration of the `.mcp.json` file.
 
-If you already have your `telerik-license.txt` license file in the default location, the MCP server will discover it automatically and authenticate successfully:  
+> When you start a new trial, you must update your license key. Follow the steps in the [License Key Updates](slug:installation-license-key#license-key-updates) section.
+
+If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to [MCP Clients Configuration](#mcp-clients-configuration).
+
+#### Global License Key Configuration
+
+When the `telerik-license.txt` license file is in its default location, the MCP server will discover it automatically and authenticate successfully:  
 
 >caption Default license file location
 
 ````JSON.skip-repl
 "TELERIK_LICENSE_PATH": "C:\\Users\\YourName\\AppData\\Roaming\\Telerik\\telerik-license.txt"
 ````
-> For detailed instructions on installing and activating your license, see the [Telerik License Key](slug:installation-license-key#manual-installation) article.
 
-When configured locally, you have to define either one of the following arguments inside the `env` configuration of the `.mcp.json` file:
+For detailed instructions on installing and activating your license, see the [Telerik License Key](slug:installation-license-key#manual-installation) article.
+
+#### Local License Key Configuration
+
+To configure the license key locally, you have to define either one of the following arguments inside the `env` configuration of the `.mcp.json` file:
   * `TELERIK_LICENSE_PATH`&mdash;The full path to your license file location, including the license file name itself.
   * `TELERIK_LICENSE`&mdash;Paste your license key directly. Make sure to update the license key when necessary.
 
@@ -66,7 +75,7 @@ Below you can find installation tips and MCP server configuration for some popul
 <TabStrip>
 <TabStripTab title="Visual Studio">
 
-Refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/copilot/visual-studio-github-copilot-extension?view=vs-2022#model-context-protocol-mcp-support).
+Refer to [Use MCP servers in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=visualstudio).
 
 To enable global automatic discovery of the Telerik MCP Server in Visual Studio, add the `.mcp.json` file posted below to your user directory (`%USERPROFILE%`), for example, `C:\Users\____\.mcp.json`.
 
