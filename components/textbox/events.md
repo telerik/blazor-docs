@@ -12,134 +12,94 @@ position: 20
 
 This article explains the events available in the <a href = "https://www.telerik.com/blazor-ui/textbox" target="_blank">Telerik Textbox for Blazor</a>:
 
+* [OnBlur](#onblur)
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
-* [OnBlur](#onblur)
-
-## OnChange
-
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
-
->caption Handle OnChange
-
-````RAZOR
-@result
-<br />
-
-<TelerikTextBox OnChange="@MyOnChangeHandler"></TelerikTextBox>
-
-@code {
-    string result;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
->tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
-
->caption Handle OnChange and use two-way binding
-
-````RAZOR
-@result
-<br />
-model value: @theTbValue
-<br />
-
-<TelerikTextBox OnChange="@MyOnChangeHandler" @bind-Value="theTbValue"></TelerikTextBox>
-
-@code {
-    string result;
-
-    string theTbValue { get; set; } = "lorem ipsum";
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
-
-## ValueChanged
-
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input.
-
->caption Handle ValueChanged
-
-````RAZOR
-@result
-<br />
-
-<TelerikTextBox ValueChanged="@MyValueChangeHandler"></TelerikTextBox>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(string theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
->caption Handle ValueChanged and provide initial value
-
-````RAZOR
-from the handler: @result
-<br />
-from model: @theTbValue
-<br />
-
-<TelerikTextBox ValueChanged="@MyValueChangeHandler" Value="@theTbValue"></TelerikTextBox>
-
-@code {
-    string result;
-
-    public string theTbValue { get; set; } = "lorem ipsum";
-
-    private void MyValueChangeHandler(string theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        theTbValue = theUserInput;
-    }
-}
-````
-
-
 
 ## OnBlur
 
 The `OnBlur` event fires when the component loses focus.
 
->caption Handle the OnBlur event
+>caption Handle the TextBox OnBlur event
 
 ````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
+<TelerikTextBox @bind-Value="@TextBoxValue"
+                OnBlur="@OnTextBoxBlur" />
 
-<TelerikTextBox @bind-Value="@TheValue"
-                OnBlur="@OnBlurHandler">
-</TelerikTextBox>
+<p>TextBoxValue: @TextBoxValue</p>
 
-@code{
-    async Task OnBlurHandler()
+<p>OnBlur log: @OnBlurLog</p>
+
+@code {
+    private string OnBlurLog { get; set; } = string.Empty;
+
+    private string TextBoxValue { get; set; } = "lorem ipsum";
+
+    private void OnTextBoxBlur()
     {
-        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
+        OnBlurLog = $"OnBlur fired at {DateTime.Now.ToString("HH:mm:ss.fff")}.";
     }
-
-    string TheValue { get; set; }
 }
 ````
 
+## OnChange
+
+The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` or `Tab` in the input, or when the input loses focus. If you need to monitor the component `Value` while the user is typing, then use the [`ValueChanged` event](#valuechanged) instead.
+
+>tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
+
+>caption Handle the TextBox OnChange event and use two-way Value binding
+
+````RAZOR
+<TelerikTextBox @bind-Value="TextBoxValue"
+                OnChange="@OnTextBoxChange" />
+
+<p>TextBoxValue: @TextBoxValue</p>
+
+<p>OnChange log: @OnChangeLog</p>
+
+@code {
+    private string OnChangeLog { get; set; } = string.Empty;
+
+    private string TextBoxValue { get; set; } = "lorem ipsum";
+
+    private void OnTextBoxChange(object currentValue)
+    {
+        OnChangeLog = $"OnChange fired at {DateTime.Now.ToString("HH:mm:ss.fff")} with current value '{currentValue}'.";
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+## ValueChanged
+
+The `ValueChanged` event fires upon every change (for example, keystroke) in the input.
+
+>caption Handle the TextBox ValueChanged event
+
+````RAZOR
+<TelerikTextBox Value="@TextBoxValue"
+                ValueChanged="@TextBoxValueChanged" />
+
+<p>TextBoxValue: @TextBoxValue</p>
+
+<p>ValueChanged log: @ValueChangedLog</p>
+
+@code {
+
+    private string TextBoxValue { get; set; } = "lorem ipsum";
+    private string ValueChangedLog { get; set; } = string.Empty;
+
+    private void TextBoxValueChanged(string newValue)
+    {
+        TextBoxValue = newValue;
+        ValueChangedLog = $"ValueChanged fired at {DateTime.Now.ToString("HH:mm:ss.fff")} with a new value '{newValue}'.";
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 ## See Also
 
