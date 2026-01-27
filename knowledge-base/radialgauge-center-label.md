@@ -7,8 +7,8 @@ slug: radialgauge-center-label
 tags: radialgauge, blazor, label, center, css, positioning
 res_type: kb
 ticketid: 1669777
+components: ["radialgauge"]
 ---
-
 ## Environment
 
 <table>

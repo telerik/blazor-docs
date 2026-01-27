@@ -6,8 +6,8 @@ slug: loadercontainer-template
 tags: telerik,blazor,loader,container,loadercontainer,templates
 published: True
 position: 10
+components: ["loadercontainer"]
 ---
-
 # LoaderContainer Template
 
 The `Template` allows you to control the rendering of the LoaderContainer. When you are using the `Template` there will be no panel rendered by default.

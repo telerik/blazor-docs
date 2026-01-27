@@ -6,8 +6,8 @@ slug: grid-kb-save-state-in-webassembly
 position: 
 tags: grid,state,wasm,webassembly,save
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ page_title: Enabling Excel Import in Grid with Telerik DPL
 slug: grid-import-excel
 tags: grid, import, excel, file
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

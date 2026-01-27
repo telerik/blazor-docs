@@ -6,8 +6,8 @@ slug: components/tabstrip/overview
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 0
+components: ["tabstrip"]
 ---
-
 # Blazor TabStrip Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Blazor TabStrip component</a> displays a collection of tabs, containing associated content, which enable the user to switch between different views inside a single component.

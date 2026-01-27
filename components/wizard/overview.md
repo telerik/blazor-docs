@@ -6,8 +6,8 @@ slug: wizard-overview
 tags: telerik,blazor,wizard,overview
 published: True
 position: 0
+components: ["wizard"]
 ---
-
 # Blazor Wizard Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/wizard" target="_blank">Wizard for Blazor component</a> displays content in sequential, stepwise order. Each Wizard step can display any HTML or child components. The Wizard provides flexible layout, form integration and can prevent or allow users to skip steps.

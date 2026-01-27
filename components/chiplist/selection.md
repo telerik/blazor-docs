@@ -6,8 +6,8 @@ slug: chiplist-selection
 tags: telerik,blazor,chiplist,selection,chip,selected,items
 published: True
 position: 10
+components: ["chiplist"]
 ---
-
 # ChipList Selection
 
 The ChipList allows the application users to select one or more chips. This article explains how to enable the built-in selection feature.

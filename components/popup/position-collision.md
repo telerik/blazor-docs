@@ -6,8 +6,8 @@ slug: popup-position-collision
 tags: telerik,blazor,popup,position,collision
 published: True
 position: 10
+components: ["popup"]
 ---
-
 # Popup Position and Collision
 
 This article outlines how to control the position of the Popup based on its anchor and dictate how the component responds to insufficient screen space.

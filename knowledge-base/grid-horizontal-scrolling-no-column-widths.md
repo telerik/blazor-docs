@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, column, css
 ticketid: 1588667, 1576220, 1615618
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

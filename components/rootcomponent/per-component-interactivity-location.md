@@ -6,8 +6,8 @@ slug: rootcomponent-percomponent
 tags: telerik,blazor,telerikrootcomponent,rootcomponent
 published: True
 position: 10
+components: ["sankey"]
 ---
-
 # Using TelerikRootComponent with Per Page/Component Interactivity
 
 .NET 8.0 introduced new [render modes for Blazor web apps](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). The default render mode is static, while Telerik Blazor components require interactive render mode. This article explains how to use the `TelerikRootComponent` in static apps with specific interactive Razor components.

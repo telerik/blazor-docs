@@ -6,8 +6,8 @@ slug: gantt-columns-bound
 tags: telerik,blazor,gantt,bound,column
 published: True
 position: 0
+components: ["gantt"]
 ---
-
 # Gantt DataBound Column
 
 This article explains the basics of showing data in a Gantt Tree and the features of its bound columns.

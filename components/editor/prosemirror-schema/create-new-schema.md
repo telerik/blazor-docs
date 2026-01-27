@@ -6,8 +6,8 @@ slug: editor-create-new-schema
 tags: telerik,blazor,editor,prosemirror,schema
 published: True
 position: 5
+components: ["editor"]
 ---
-
 # Create a New Schema
 
 This article describes how you can create a new [ProseMirror schema](slug:editor-prosemirror-schema-overview) for the Editor to use. Creating a new schema is useful if you want to change the majority of the default schema.

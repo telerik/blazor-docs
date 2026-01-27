@@ -6,8 +6,8 @@ slug: scheduler-views-overview
 tags: telerik,blazor,scheduler,view,overview
 published: True
 position: 0
+components: ["scheduler"]
 ---
-
 # Scheduler Views
 
 The Scheduler component provides several different modes of display to fit different user preferences and needs.

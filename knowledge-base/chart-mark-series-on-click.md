@@ -7,8 +7,8 @@ slug: chart-mark-series-on-click
 position:
 tags:
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

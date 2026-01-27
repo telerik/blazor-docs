@@ -6,8 +6,8 @@ slug: components/autocomplete/grouping
 tags: telerik,blazor,autocomplete,group,grouping
 published: True
 position: 15
+components: ["autocomplete"]
 ---
-
 # AutoComplete Grouping
 
 The AutoComplete component allows users to see the listed items grouped in categories. This can improve the user experience and make browsing through the items faster.

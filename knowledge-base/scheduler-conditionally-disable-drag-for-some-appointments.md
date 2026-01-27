@@ -7,8 +7,8 @@ slug: scheduler-kb-conditionally-disable-drag-for-some-appointments
 tags: blazor, scheduler, drag
 res_type: kb
 ticketid: 1660283
+components: ["scheduler"]
 ---
-
 ## Environment
 
 <table>

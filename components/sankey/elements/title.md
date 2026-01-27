@@ -6,6 +6,7 @@ slug: sankey-title
 tags: telerik,blazor,sankey,diagram,chart,title
 published: True
 position: 7
+components: ["sankey"]
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

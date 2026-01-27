@@ -7,8 +7,8 @@ slug: common-kb-component-requires-telerikrootcomponent
 tags: telerik, blazor, rootcomponent
 ticketid:
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

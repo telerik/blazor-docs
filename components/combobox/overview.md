@@ -6,8 +6,8 @@ slug: components/combobox/overview
 tags: telerik,blazor,combobox,combo,overview
 published: True
 position: 0
+components: ["combobox"]
 ---
-
 # Blazor ComboBox Overview
 
 The <a href="https://www.telerik.com/blazor-ui/combobox" target="_blank">Blazor ComboBox component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. You can also allow them to enter [custom values](slug:components/combobox/custom-value) and to [filter](slug:components/combobox/filter) the available items. You can control the [data](slug:components/dropdownlist/databind), sizes, and various appearance options like class and [templates](slug:components/combobox/templates).

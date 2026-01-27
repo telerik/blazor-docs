@@ -6,8 +6,8 @@ slug: wizard-events
 tags: telerik,blazor,wizard,events
 published: True
 position: 15
+components: ["wizard"]
 ---
-
 ## Events
 
 The available events in the Telerik Wizard for Blazor are:

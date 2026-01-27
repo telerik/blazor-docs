@@ -6,8 +6,8 @@ slug: components/chart/types/rangecolumn
 tags: telerik,blazor,chart,rangecolumn
 published: True
 position: 0
+components: ["charts"]
 ---
-
 # Range Column Chart
 
 The <a href="https://www.telerik.com/blazor-ui/range-column-chart" target="_blank">Blazor Range Column Chart</a> displays data as vertical bars whose position and height vary according to pairs of `from` and `to` values. You can use a Range Column Chart to show a comparison between several sets of data (for example, summaries of quantities or measurements for different time periods). Each series is automatically colored differently for easier perception. The Range Column Chart is similar to the [Column Chart](slug:components/chart/types/column), which can be regarded as a Range Column Chart with zero `from` values.

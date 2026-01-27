@@ -7,8 +7,8 @@ slug: grid-export-image-column-excel
 tags: grid, blazor, telerik, export, excel, image, column
 res_type: kb
 ticketid: 1666986, 1662544, 1645206, 1655440
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

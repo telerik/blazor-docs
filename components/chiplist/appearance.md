@@ -6,8 +6,8 @@ slug: chiplist-appearance
 tags: telerik,blazor,chiplist,appearance
 published: True
 position: 35
+components: ["chiplist"]
 ---
-
 # ChipList Appearance Settings
 
 You can control the appearance of the chips in the ChipList by setting the following parameters:

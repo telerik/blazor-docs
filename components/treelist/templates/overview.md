@@ -6,8 +6,8 @@ slug: treelist-templates-overview
 tags: telerik,blazor,TreeList,templates
 published: True
 position: 0
+components: ["treelist"]
 ---
-
 # TreeList Templates
 
 You can customize the TreeList appearance and behavior through the various templates it provides so you can add more details for your users - such as format numbers and dates, show images and so on.

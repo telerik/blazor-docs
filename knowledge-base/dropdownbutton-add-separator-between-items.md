@@ -7,8 +7,8 @@ slug: dropdownbutton-kb-add-separator-between-items
 tags: dropdownbutton, blazor, item separator, custom styling
 res_type: kb
 ticketid: 1680307
+components: ["dropdownbutton"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -6,8 +6,8 @@ slug: multiselect-templates
 tags: telerik,blazor,multiselect,templates
 published: True
 position: 20
+components: ["multiselect"]
 ---
-
 # MultiSelect Templates
 
 The MultiSelect component allows you to change what is rendered in its items, header and footer through templates.

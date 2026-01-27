@@ -6,9 +6,8 @@ slug: multicolumncombobox-columns-templates
 tags: telerik,blazor,multicolumncombobox,combo,columns,headertemplate,celltemplate,templates
 published: True
 position: 10
+components: ["multicolumncombobox"]
 ---
-
-
 # MultiColumnComboBox Column Templates
 
 This article explains the available templates for the Columns of the MultiColumnComboBox for Blazor.

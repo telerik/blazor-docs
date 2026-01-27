@@ -7,8 +7,8 @@ slug: map-kb-center-on-selected-marker
 tags: blazor, map, marker
 res_type: kb
 ticketid: 1671734
+components: ["map"]
 ---
-
 ## Environment
 
 <table>

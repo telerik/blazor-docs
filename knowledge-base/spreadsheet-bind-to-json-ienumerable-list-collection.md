@@ -7,8 +7,8 @@ slug: spreadsheet-kb-bind-to-json-ienumerable-list-collection
 tags: telerik, blazor, spreadsheet
 ticketid: 1671569
 res_type: kb
+components: ["spreadsheet"]
 ---
-
 ## Environment
 
 <table>

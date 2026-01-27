@@ -6,8 +6,8 @@ slug: components/map/events
 tags: telerik,blazor,map,events,event
 published: true
 position: 11
+components: ["map"]
 ---
-
 # Map Events
 
 This article explains the available events for the Telerik Map for Blazor:

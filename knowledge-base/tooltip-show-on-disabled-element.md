@@ -7,8 +7,8 @@ slug: tooltip-kb-disabled-element
 tags: tooltip, disabled element
 res_type: kb
 ticketid: 1665023
+components: ["tooltip"]
 ---
-
 ## Environment
 
 <table>

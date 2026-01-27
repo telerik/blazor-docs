@@ -6,8 +6,8 @@ slug: breadcrumb-navigation
 tags: telerik,blazor,breadcrumb,navigation
 published: True
 position: 7
+components: ["breadcrumb"]
 ---
-
 # Breadcrumb for Navigation
 
 The Breadcrumb can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding](slug:breadcrumb-data-binding).

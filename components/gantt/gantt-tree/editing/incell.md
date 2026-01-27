@@ -6,8 +6,8 @@ slug: gant-tree-incell-editing
 tags: telerik,blazor,gantt,incell,editing
 published: True
 position: 20
+components: ["gantt"]
 ---
-
 # Gantt Tree InCell Editing
 
 InCell editing is the default mode of Gantt Tree. InCell allows the user to click cells and type new values immediately like in Excel. There is no need for Edit, Update and Cancel buttons.

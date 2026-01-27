@@ -6,8 +6,8 @@ slug: tilelayout-events
 tags: telerik, blazor, tilelayout, events
 published: True
 position: 30
+components: ["tilelayout"]
 ---
-
 # TileLayout Events
 
 This article explains the available events in the Telerik TileLayout for Blazor:

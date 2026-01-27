@@ -6,9 +6,8 @@ slug: editor-edit-modes-overview
 tags: telerik,blazor,edit,mode,overview
 published: True
 position: 0
+components: ["editor"]
 ---
-
-
 # Blazor Editor Edit Modes Overview
 
 The Editor provides two different configuration modes you can set that affect the way the content is styled.

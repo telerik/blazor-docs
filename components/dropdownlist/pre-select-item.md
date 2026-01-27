@@ -6,9 +6,8 @@ slug: dropdownlist-pre-select-item
 tags: telerik,blazor,dropdownlist,pre-selects
 published: True
 position: 8
+components: ["dropdownlist"]
 ---
-
-
 # Pre-Selecting Item
 
 This article provides an example that demonstrates how to pre-select an item for the end-user when the component initializes. The described approach allows you to pre-select an item only if it exists in the data source.

@@ -7,8 +7,8 @@ slug: drawer-kb-two-drawers-on-the-same-site
 position: 
 tags: 
 res_type: kb
+components: ["drawer"]
 ---
-
 ## Environment
 
 <table>

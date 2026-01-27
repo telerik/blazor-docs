@@ -7,8 +7,8 @@ slug: tilelayout-kb-add-remove-tiles
 position:
 tags: telerik,blazor,tilelayout,add,remove,tiles
 res_type: kb
+components: ["tilelayout"]
 ---
-
 ## Environment
 <table>
 	<tbody>

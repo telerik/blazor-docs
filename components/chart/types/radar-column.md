@@ -6,8 +6,8 @@ slug: chart-types-radarcolumn
 tags: telerik,blazor,chart,radar,Column
 published: True
 position: 0
+components: ["charts"]
 ---
-
 # Radar Column Chart
 
 The <a href="https://www.telerik.com/blazor-ui/radar-column-chart" target="_blank">Blazor Radar Column chart </a> shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Column chart creates triangles for the values instead of rectangular bars like regular columns charts do.

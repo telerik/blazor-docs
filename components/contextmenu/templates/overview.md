@@ -6,8 +6,8 @@ slug: contextmenu-templates-overview
 tags: telerik,blazor,context menu,templates
 published: True
 position: 1
+components: ["contextmenu"]
 ---
-
 # Context Menu Templates
 
 The Context Menu component provides templates you can use to customize its appearance and behavior:

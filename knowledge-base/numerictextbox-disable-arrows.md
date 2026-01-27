@@ -7,8 +7,8 @@ slug: numerictextbox-disable-arrows
 tags: numerictextbox, blazor, disable arrows, conditional styling
 res_type: kb
 ticketid: 1665216
+components: ["numerictextbox"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: scheduler-appointments-databinding
 tags: telerik,blazor,scheduler,data,bind,databind,databinding,appointments
 published: True
 position: 1
+components: ["scheduler"]
 ---
-
 # Scheduler Appointments Data Binding
 
 The Scheduler component is designed to work with a collection of appointments. This article will explain their features and how to define the appointment model, so that the Scheduler recognizes it.

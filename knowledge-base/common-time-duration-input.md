@@ -8,8 +8,8 @@ position:
 tags: date, time, input, more than 24
 ticketid: 1540856
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 <table>
 	<tbody>

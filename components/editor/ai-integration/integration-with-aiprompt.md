@@ -6,8 +6,8 @@ slug: editor-aiprompt-integration
 tags: telerik,blazor,editor,ai,ai integration,aiprompt
 published: True
 position: 3
+components: ["editor"]
 ---
-
 # Editor Integration with AIPrompt
 
 The Editor provides a built-in integration with the [AIPrompt component](slug:aiprompt-overview) to help users apply AI-driven suggestions and completions to their Editor.

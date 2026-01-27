@@ -6,8 +6,8 @@ slug: qrcode-encoding
 tags: telerik,blazor,barcode,qrcode,encoding
 published: True
 position: 3
+components: ["qrcode"]
 ---
-
 # QRCode Encoding
 The different types of QRCode values support different **conventions** and **formatting** accordingly.
 

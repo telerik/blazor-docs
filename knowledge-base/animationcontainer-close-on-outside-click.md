@@ -7,8 +7,8 @@ slug: animationcontainer-kb-close-on-outside-click
 tags: telerik, blazor, animationcontainer
 ticketid: 1588069, 1593919
 res_type: kb
+components: ["animationcontainer"]
 ---
-
 ## Environment
 
 <table>

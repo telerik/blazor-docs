@@ -6,8 +6,8 @@ slug: aiprompt-overview
 tags: telerik,blazor,aiprompt,ai,prompt
 published: True
 position: 0
+components: ["aiprompt"]
 ---
-
 # Blazor AIPrompt Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/ai-prompt" target="_blank">Blazor AIPrompt component</a> helps you write input (prompt) instructing the Generative AI to produce the desired response. 

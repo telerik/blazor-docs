@@ -9,8 +9,8 @@ tags: localization, exception, error
 ticketid: 1528567, 1538739, 1542723, 1557818
 res_type: kb
 category: knowledge-base
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

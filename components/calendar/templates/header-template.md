@@ -6,8 +6,8 @@ slug: calendar-templates-header
 tags: telerik,blazor,calendar,templates,header
 published: True
 position: 10
+components: ["calendar"]
 ---
-
 # Header Template
 
 The `<HeaderTemplate>` allows you to customize the header of the calendar. If the application defines this template, the component will not render any of the built-in buttons and labels in the header area.

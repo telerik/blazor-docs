@@ -6,8 +6,8 @@ slug: fileselect-templates
 tags: telerik,blazor,fileselect,templates
 published: True
 position: 30
+components: ["fileselect"]
 ---
-
 # FileSelect Templates
 
 The FileSelect component provides templates that allow you to customize the rendering of the select files button and the file list items.

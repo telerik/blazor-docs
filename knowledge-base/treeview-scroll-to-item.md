@@ -8,8 +8,8 @@ position:
 tags: treeview, scroll, item, node, scrollintoview, javascript
 ticketid: 1650374, 1552684, 1552385, 1549637, 1545970
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: grid-columns-virtual
 tags: telerik,blazor,grid,column,virtual,scrolling
 published: true
 position: 45
+components: ["grid"]
 ---
-
 # Virtualized Columns
 
 The Telerik Blazor Grid provides Virtual Scrolling for its Columns. This means that columns and the corresponding data will be rendered only for the currently visible viewport. When changing the [Page](slug:components/grid/features/paging) or [Sorting](slug:components/grid/features/sorting) the Grid, fewer elements are rendered which improves the responsiveness and the overall user experience.

@@ -6,8 +6,8 @@ slug: treeview-overview
 tags: telerik,blazor,treeview,overview
 published: True
 position: 0
+components: ["treeview"]
 ---
-
 # Blazor Treeview Overview
 
 The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor Treeview component</a> displays data in a traditional tree-like structure. The data itself can be flat or hierarchical. In addition to built-in navigation capabilities, you can navigate through the items and their children, define [templates](slug:components/treeview/templates) for the individual nodes, render text, checkboxes and icons, and respond to events.

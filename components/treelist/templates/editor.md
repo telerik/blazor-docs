@@ -6,8 +6,8 @@ slug: treelist-templates-editor
 tags: telerik,blazor,treelist,templates,editor
 published: True
 position: 15
+components: ["treelist"]
 ---
-
 # Edit Template
 
 The column's `EditTemplate` defines the inline template or component that will be rendered when the user is [editing](slug:treelist-overview#editing) the field. It is also used when inserting a new item.

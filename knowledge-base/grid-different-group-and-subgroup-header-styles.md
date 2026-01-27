@@ -8,8 +8,8 @@ position:
 tags: grid, group, subgroup, differentiate, style, different
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

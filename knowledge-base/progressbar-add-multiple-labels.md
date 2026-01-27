@@ -7,8 +7,8 @@ slug: progressbar-kb-add-multiple-labels
 tags: progressbar, blazor, label, template, css
 res_type: kb
 ticketid: 1659413
+components: ["progressbar"]
 ---
-
 ## Environment
 
 <table>

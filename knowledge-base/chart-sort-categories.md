@@ -7,8 +7,8 @@ slug: chart-kb-sort-categories
 tags: blazor, chart
 ticketid: 1677715
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

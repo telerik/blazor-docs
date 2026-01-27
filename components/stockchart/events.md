@@ -6,8 +6,8 @@ slug: stockchart-events
 tags: telerik,blazor,stock,chart,events,event
 published: true
 position: 32
+components: ["stockchart"]
 ---
-
 # Stock Chart Events
 
 This article explains the available events for the Telerik Stock Chart for Blazor:

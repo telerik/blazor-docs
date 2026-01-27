@@ -6,8 +6,8 @@ slug: rating-overview
 tags: telerik,blazor,rating
 published: True
 position: 0
+components: ["rating"]
 ---
-
 # Blazor Rating Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/rating" target="_blank">Blazor Rating</a> is a component that allows you to intuitively rate by selecting number of items stars from a predefined number of items.

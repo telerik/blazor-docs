@@ -6,8 +6,8 @@ slug: window-overview
 tags: telerik,blazor,window,overview
 published: True
 position: 0
+components: ["window"]
 ---
-
 # Blazor Window Overview
 
 This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a> and its core features.

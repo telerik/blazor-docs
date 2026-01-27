@@ -8,8 +8,8 @@ position:
 tags: grid, treelist, hide, header, row
 ticketid: 1467583
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

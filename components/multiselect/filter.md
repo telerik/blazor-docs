@@ -6,8 +6,8 @@ slug: multiselect-filter
 tags: telerik,blazor,combo,multiselect,filter
 published: True
 position: 10
+components: ["multiselect"]
 ---
-
 # MultiSelect Filter
 
 The MultiSelect component can filter the available suggestions according to the current user input, so they can find the one they need faster. To see the difference in behavior, visit the [Live Demo: MultiSelect Filtering](https://demos.telerik.com/blazor-ui/multiselect/filtering) page.

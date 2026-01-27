@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,dropdownlist,default,text
 ticketid: 1518898
 res_type: kb
+components: ["dropdownlist"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -6,8 +6,8 @@ slug: dockmanager-state
 tags: telerik,blazor,dockmanager,state,save,load,layout,set,change,management
 published: True
 position: 15
+components: ["dockmanager"]
 ---
-
 # DockManager State
 
 The DockManager lets you read, save, load, and change its state through code. The state includes the DockManager features that are controlled by the user, such as the pane resizing, orientation, pinning, docking, and many others.

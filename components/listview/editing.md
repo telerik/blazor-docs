@@ -6,8 +6,8 @@ slug: listview-editing
 tags: telerik,blazor,listview,editing,crud
 published: True
 position: 3
+components: ["listview"]
 ---
-
 # Editing
 
 The ListView lets you edit the data through a dedicated [edit template](slug:listview-templates#edit-template). You can put the items in edit/insert mode, as well as delete items through dedicated command buttons from the listview.

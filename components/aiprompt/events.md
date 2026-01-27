@@ -6,8 +6,8 @@ slug: aiprompt-events
 tags: telerik,blazor,aiprompt,ai,prompt,events
 published: True
 position: 40
+components: ["aiprompt"]
 ---
-
 # AIPrompt Events
 
 This article explains the events available in the Telerik AIPrompt for Blazor:

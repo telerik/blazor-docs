@@ -6,8 +6,8 @@ slug: grid-export-pdf
 tags: telerik,blazor,grid,export,pdf
 published: True
 position: 7
+components: ["grid"]
 ---
-
 # Grid PDF Export
 
 You can export the Grid to PDF with the click of a button. The current filter, sort, page, grouping, column order, and column size are applied to the exported PDF document. When you click the Export button, your browser will receive the resulting file.

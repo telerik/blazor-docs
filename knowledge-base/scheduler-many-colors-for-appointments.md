@@ -8,8 +8,8 @@ position:
 tags: scheduler, many, colors, appointment
 ticketid: 1553828
 res_type: kb
+components: ["scheduler"]
 ---
-
 ## Environment
 <table>
 	<tbody>

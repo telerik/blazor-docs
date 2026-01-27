@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, inplace, in place
 ticketid:
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

@@ -7,6 +7,7 @@ slug: tooltip-kb-display-disabled-context-menu-items
 tags: tooltip, context menu, blazor, disabled items
 res_type: kb
 ticketid: 1678456
+components: ["tooltip"]
 ---
 ## Environment
 <table>

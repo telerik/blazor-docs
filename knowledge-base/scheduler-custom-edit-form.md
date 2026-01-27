@@ -7,8 +7,8 @@ slug: scheduler-kb-custom-edit-form
 position: 
 tags: 
 res_type: kb
+components: ["scheduler"]
 ---
-
 ## Environment
 
 <table>

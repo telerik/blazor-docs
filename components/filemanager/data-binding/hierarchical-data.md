@@ -6,8 +6,8 @@ slug: filemanager-data-binding-hierarchical-data
 tags: telerik,blazor,filemanager,data,bind,databind,databinding,hierarchical
 published: True
 position: 2
+components: ["filemanager"]
 ---
-
 # FileManager Data Binding to Hierarchical Data
 
 This article explains how to bind the FileManager for Blazor to hierarchical data. Before continuing, make sure you are familiar with the [FileManager data binding basics](slug:filemanager-data-binding-overview).

@@ -6,8 +6,8 @@ slug: contextmenu-data-binding-overview
 tags: telerik,blazor,context menu,data,bind,databind,databinding,basics
 published: True
 position: 0
+components: ["contextmenu"]
 ---
-
 # Context Menu Data Binding Basics
 
 This article explains the different ways to provide data to a Context Menu component, the properties related to data binding and their results.

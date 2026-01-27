@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,carousel,thumbnail,navigation,images
 ticketid: 1550292
 res_type: kb
+components: ["carousel"]
 ---
-
 ## Environment
 <table>
 	<tbody>

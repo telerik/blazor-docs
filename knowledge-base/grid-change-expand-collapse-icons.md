@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,grid,icon,expand,collapse,change,hierarchical
 ticketid: 1515980
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

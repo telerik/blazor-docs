@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, exception, error
 ticketid: 1604193, 1602978, 1601905, 1601905
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

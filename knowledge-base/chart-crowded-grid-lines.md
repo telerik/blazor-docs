@@ -7,8 +7,8 @@ slug: chart-kb-crowded-grid-lines
 position:
 tags:
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 <table>
 	<tbody>

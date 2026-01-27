@@ -6,8 +6,8 @@ slug: tooltip-overview
 tags: telerik,blazor,tooltip,overview
 published: True
 position: 0
+components: ["tooltip"]
 ---
-
 # Blazor Tooltip Overview
 
 The <a href="https://www.telerik.com/blazor-ui/tooltip" target="_blank">Blazor Tooltip component</a> enhances the default browser tooltips in a beautiful, cross-browser popup. The Tooltip component allows customization of its size, content, position and show event. Attach a single Tooltip instance to multiple targets to optimize the performance.

@@ -6,9 +6,8 @@ slug: step-template
 tags: telerik,blazor,stepper,step,template
 published: True
 position: 23
+components: ["stepper"]
 ---
-
-
 # Step Template
 
 You can customize the whole appearance of the steps through their Template. It allows you to control the rendering and styles of both indicators and labels of the step.

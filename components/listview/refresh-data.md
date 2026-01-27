@@ -6,8 +6,8 @@ slug: listview-refresh-data
 tags: telerik,blazor,listview,observable,data,new,collection
 published: True
 position: 53
+components: ["listview"]
 ---
-
 # ListView - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

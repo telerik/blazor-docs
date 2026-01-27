@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, treeview, filter, search
 ticketid: 1684940, 1629723, 1468684, 1547890, 1578053, 1541792
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 
 <table>

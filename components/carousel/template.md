@@ -6,8 +6,8 @@ slug: carousel-template
 tags: telerik,blazor,carousel,template
 published: True
 position: 10
+components: ["carousel"]
 ---
-
 # Carousel Template
 
 The Carousel template defines the markup to be rendered by the component. If a template is not set, the Carousel will not display anything.

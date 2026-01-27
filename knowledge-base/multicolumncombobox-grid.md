@@ -7,8 +7,8 @@ slug: multicolumncombobox-kb-grid
 tags: telerik, blazor, multicolumncombobox, grid
 ticketid: 1576248
 res_type: kb
+components: ["multicolumncombobox"]
 ---
-
 ## Environment
 
 <table>

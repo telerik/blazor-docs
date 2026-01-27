@@ -6,8 +6,8 @@ slug: chart-types-radarline
 tags: telerik,blazor,chart,radar,Line
 published: True
 position: 0
+components: ["charts"]
 ---
-
 # Radar Line Chart
 
 The <a href="https://www.telerik.com/blazor-ui/radar-line-chart" target="_blank">Blazor Radar Line chart </a> shows the data points on radial lines starting from a common center and act as value axis. The closer the data point to the center, the lower its value. The Radar Line chart connects the values of the data points with lines.

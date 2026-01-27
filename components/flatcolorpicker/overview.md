@@ -6,8 +6,8 @@ slug: flatcolorpicker-overview
 tags: telerik,blazor,flatcolorpicker,overview
 published: True
 position: 0
+components: ["flatcolorpicker"]
 ---
-
 # Blazor FlatColorPicker Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/flatcolorpicker" target="_blank">FlatColorPicker for Blazor</a> is an interactive component that allows color selection from a color palette or a [HSV](https://en.wikipedia.org/wiki/HSL_and_HSV) canvas. Users can also type a specific RGB/HEX color value manually. The FlatColorPicker is practically identical to the [ColorPicker component](slug:colorpicker-overview) with the only difference that the ColorPicker takes up less space and displays the color selection UI in a popup.

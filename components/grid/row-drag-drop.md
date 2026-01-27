@@ -6,8 +6,8 @@ slug: grid-drag-drop-overview
 tags: telerik,blazor,grid,drap,drop,dragdrop,row,rows,overview
 published: True
 position: 41
+components: ["grid"]
 ---
-
 # Row Drag and Drop
 
 The Drag and Drop functionality for the Grid rows allows you to move a row or a multitude of rows between different parents in the same Grid or between different Telerik Grid instances.

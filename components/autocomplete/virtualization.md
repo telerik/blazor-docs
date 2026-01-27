@@ -6,8 +6,8 @@ slug: autocomplete-virtualization
 tags: telerik,blazor,AutoComplete,virtualization
 published: True
 position: 25
+components: ["autocomplete"]
 ---
-
 # AutoComplete Virtualization
 
 The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-proposition)

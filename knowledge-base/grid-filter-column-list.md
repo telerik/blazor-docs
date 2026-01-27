@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, filter
 ticketid: 1522880, 1623151
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

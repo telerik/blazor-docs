@@ -7,8 +7,8 @@ slug: combobox-multiselect-kb-conditional-tooltips
 tags: blazor, combobox, multiselect, tooltip
 ticketid: 1693287
 res_type: kb
+components: ["combobox"]
 ---
-
 ## Environment
 
 <table>

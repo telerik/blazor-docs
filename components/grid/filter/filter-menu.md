@@ -6,8 +6,8 @@ slug: grid-filter-menu
 tags: telerik,blazor,grid,filtering,filter,menu
 published: True
 position: 10
+components: ["grid"]
 ---
-
 # Grid Filter Menu
 
 The `FilterMenu` filter mode renders a button in the column header. When you click the button, a popup with filtering options appears. The popup allows you to apply two filter criteria, choose a suitable filter operator and buttons to apply, or clear the filter.

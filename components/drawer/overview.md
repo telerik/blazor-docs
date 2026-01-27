@@ -6,8 +6,8 @@ slug: drawer-overview
 tags: telerik,blazor,drawer,overview
 published: True
 position: 0
+components: ["drawer"]
 ---
-
 # Blazor Drawer Overview
 
 The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Drawer component</a> is an interactive side panel for [navigating](slug:drawer-navigation) in responsive web applications. It can be always visible, or expanded and collapsed. The Drawer allows switching the content of different sections on the page. You can customize its [templates](slug:drawer-templates), [expand modes](slug:drawer-modes), [minimize behavior](slug:drawer-mini-mode) and also respond to [events](slug:drawer-events).

@@ -6,8 +6,8 @@ slug: colorpalette-presets
 tags: telerik,blazor,Color,Palette,Predefined,Colors,Presets
 published: true
 position: 14
+components: ["colorpalette"]
 ---
-
 # Predefined Colors
 
 The Telerik Blazor Color Palette component comes with a set of predefined color sets that you can show your users. To use them, set its `Colors` parameter to one of the members of the `Telerik.Blazor.Components.ColorPalettePresets` static class.

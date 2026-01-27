@@ -6,8 +6,8 @@ slug: listbox-dragdrop
 tags: telerik,blazor,listbox
 published: True
 position: 40
+components: ["listbox"]
 ---
-
 # ListBox Item Drag and Drop
 
 The Telerik Blazor ListBox allows users to drag and drop items within the same component instance or across different instances. This is a more flexible alternative to [reordering](slug:listbox-overview#creating-blazor-listbox) or [moving ListBox items](slug:listbox-connect) with toolbar buttons. As a result, dragging and dropping can be a lot faster and convenient to users when the number of related ListBoxes is three or more.

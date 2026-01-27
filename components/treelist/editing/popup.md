@@ -6,8 +6,8 @@ slug: treelist-editing-popup
 tags: telerik, blazor, treelist, editing, popup
 published: True
 position: 2
+components: ["treelist"]
 ---
-
 # TreeList Popup Editing
 
 TreeList popup editing allows the app to render a larger form with customizable dimensions and layout. The popup edit mode is also more suitable for mobile devices with small screens. The popup edit form may contain editable fields from hidden columns in the TreeList table.

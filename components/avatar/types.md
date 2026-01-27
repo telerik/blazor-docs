@@ -6,8 +6,8 @@ slug: avatar-types
 tags: telerik,blazor,avatar,type,image,icon,text
 published: True
 position: 5
+components: ["avatar"]
 ---
-
 # Avatar Types
 
 The `Type` parameter of the Avatar for Blazor defines what kind of content will render inside the component. The parameter allows the Avatar to adjust its styling to its content.

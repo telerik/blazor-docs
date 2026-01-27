@@ -6,8 +6,8 @@ slug: stepper-events
 tags: telerik,blazor,stepper,events
 published: True
 position: 25
+components: ["stepper"]
 ---
-
 # Stepper Events
 
 This article explains the events available in the Telerik Stepper for Blazor:

@@ -8,8 +8,8 @@ position:
 tags: grid, export, csv, field, delimiter, change, semicolon, comma, custom
 ticketid: 1576816, 1699366
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

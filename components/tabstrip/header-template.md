@@ -6,8 +6,8 @@ slug: tabstrip-header-template
 tags: telerik,blazor, tabstrip, header, template
 published: True
 position: 15
+components: ["tabstrip"]
 ---
-
 # TabStrip Header Template
 
 The TabStrip `HeaderTemplate` allows you to define custom content in the tab header - such as components, icons or badges, instead of plain text.

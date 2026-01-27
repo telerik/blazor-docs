@@ -6,8 +6,8 @@ slug: treelist-filter-row
 tags: telerik,blazor,TreeList,filtering,filter,row
 published: True
 position: 5
+components: ["treelist"]
 ---
-
 # TreeList Filter Row
 
 One of the [filter modes of the treelist](slug:treelist-filtering) is a row of filter elements below the column headers.

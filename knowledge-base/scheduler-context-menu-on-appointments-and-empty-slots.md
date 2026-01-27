@@ -8,8 +8,8 @@ tags: scheduler, blazor, contextmenu, appointments, empty slots
 res_type: kb
 ticketid: 1656007
 previous_url: /knowledge-base/scheduler-appointment-context-menu
+components: ["scheduler"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: components/chart/types/rangebar
 tags: telerik,blazor,chart,rangebar
 published: True
 position: 0
+components: ["charts"]
 ---
-
 # Range Bar Chart
 
 The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">Blazor Range Bar Chart</a> displays data as horizontal bars whose position and length vary according to pairs of `from` and `to` values. You can use a Range Bar Chart to show a comparison between several sets of data (for example, summaries of quantitative or time data). Each series is automatically colored differently for easier reading. The Range Bar Chart is similar to the [Bar Chart](slug:components/chart/types/bar), which can be regarded as a Range Bar Chart with zero `from` values.

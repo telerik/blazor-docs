@@ -7,8 +7,8 @@ slug: grid-kb-search-match-visible-columns
 tags: telerik, blazor, grid, search
 ticketid: 1565592
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,8 @@ position:
 tags: grid, treelist, center, checkbox, checkboxcolumn
 ticketid: 1540685
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

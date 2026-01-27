@@ -7,8 +7,8 @@ slug: chart-kb-export-to-image
 tags: telerik, blazor, chart, export, image
 ticketid: 1626687, 1602572
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

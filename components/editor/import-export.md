@@ -5,8 +5,8 @@ description: Import and Export of the content of the Editor for Blazor.
 slug: editor-import-export
 tags: telerik,blazor,editor,import,export
 position: 100
+components: ["editor"]
 ---
-
 # Editor Import and Export
 
 The [Telerik Document Processing tools](slug:dpl-in-blazor) that come with your Blazor license let you import and export the HTML string for the Editor component.

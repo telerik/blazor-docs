@@ -8,8 +8,8 @@ position:
 tags: editor, text, template, insert, add
 ticketid: 1589596
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 <table>
 	<tbody>

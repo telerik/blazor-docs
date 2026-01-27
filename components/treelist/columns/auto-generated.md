@@ -6,8 +6,8 @@ slug: treelist-columns-automatically-generated
 tags: telerik,blazor,treelist,column,automatic,automatically,generated,columns
 published: true
 position: 5
+components: ["treelist"]
 ---
-
 # Automatically Generated Columns
 
 The treelist allows you to automatically generate a column for each public property of its model rather than defining each column manually.

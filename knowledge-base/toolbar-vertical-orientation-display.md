@@ -7,8 +7,8 @@ slug: toolbar-kb-vertical-orientation-display
 tags: telerik, blazor, toolbar
 ticketid: 1693045
 res_type: kb
+components: ["toolbar"]
 ---
-
 ## Environment
 
 <table>

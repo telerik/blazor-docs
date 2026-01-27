@@ -6,8 +6,8 @@ slug: radiogroup-layout
 tags: telerik,blazor,radiobuttongroup,radio,list,layout
 published: True
 position: 10
+components: ["radiogroup"]
 ---
-
 # RadioGroup Layout
 
 The Blazor Radio Button Group component lets you render the list of options in a vertical or in a horizontal fashion.

@@ -7,8 +7,8 @@ slug: chart-kb-customize-separate-markers
 tags: charts, blazor, scatterline, markers, customization
 res_type: kb
 ticketid: 1666618
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

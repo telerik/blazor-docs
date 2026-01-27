@@ -7,8 +7,8 @@ slug: numeric-textbox-kb-zero-decimals
 tags: numeric-textbox, blazor, format, decimals, currency
 res_type: kb
 ticketid: 1661907
+components: ["numerictextbox"]
 ---
-
 ## Environment
 <table>
 	<tbody>

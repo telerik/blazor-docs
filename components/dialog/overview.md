@@ -6,8 +6,8 @@ slug: dialog-overview
 tags: telerik,blazor,dialog,overview
 published: True
 position: 0
+components: ["dialog"]
 ---
-
 # Blazor Dialog Overview
 
 The <a href="https://www.telerik.com/blazor-ui/dialog" target="_blank">Blazor Dialog component</a> is a modal popup that brings information to the user. It provides actions through its action buttons to prompt the user for input or to ask for a decision. The component can also contain more complex UI elements that require the attention of the user.

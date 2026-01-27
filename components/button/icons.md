@@ -6,8 +6,8 @@ slug: button-icons
 tags: telerik,blazor,button,icon,sprite,image
 published: True
 position: 2
+components: ["button"]
 ---
-
 # Button Icons
 
 You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the Button to illustrate its purpose by using the `Icon` parameter.

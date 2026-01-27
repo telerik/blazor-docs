@@ -8,8 +8,8 @@ position:
 tags: fileselect, upload, select, disable, loader
 ticketid: 1639447
 res_type: kb
+components: ["fileselect"]
 ---
-
 ## Environment
 
 <table>

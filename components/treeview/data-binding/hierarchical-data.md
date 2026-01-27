@@ -6,8 +6,8 @@ slug: components/treeview/data-binding/hierarchical-data
 tags: telerik,blazor,treeview,data,bind,databind,databinding,hierarchical
 published: True
 position: 2
+components: ["treeview"]
 ---
-
 # Treeview Data Binding to Hierarchical Data
 
 This article explains how to bind the TreeView for Blazor to hierarchical data. 

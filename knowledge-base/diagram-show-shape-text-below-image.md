@@ -7,8 +7,8 @@ slug: diagram-kb-show-shape-text-below-image
 tags: telerik, blazor, diagram
 ticketid: 1698784
 res_type: kb
+components: ["diagram"]
 ---
-
 ## Environment
 
 <table>

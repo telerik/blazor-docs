@@ -6,8 +6,8 @@ slug: switch-appearance
 tags: telerik,blazor,button,switch,appearance
 published: True
 position: 35
+components: ["switch"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the Switch button by setting the following attribute:

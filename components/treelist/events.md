@@ -6,8 +6,8 @@ slug: treelist-events
 tags: telerik,blazor,treelist,events
 published: True
 position: 100
+components: ["treelist"]
 ---
-
 # TreeList Events
 
 This article explains the events available in the Telerik TreeList for Blazor. They are grouped logically.

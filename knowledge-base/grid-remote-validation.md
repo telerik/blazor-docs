@@ -7,8 +7,8 @@ slug: grid-kb-remote-validation
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

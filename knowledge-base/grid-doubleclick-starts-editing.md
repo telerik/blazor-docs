@@ -8,8 +8,8 @@ position:
 tags: gird, double click, edit
 ticketid: 1501079
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

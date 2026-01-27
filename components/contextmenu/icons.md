@@ -6,8 +6,8 @@ slug: contextmenu-icons
 tags: telerik,blazor,context menu,icon,iconclass,image
 published: True
 position: 15
+components: ["contextmenu"]
 ---
-
 # Context Menu Icons
 
 You can add [Telerik Font or SVG icons](slug:common-features-icons) to the ContextMenu items. The component also supports custom icons.

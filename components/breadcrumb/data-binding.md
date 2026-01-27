@@ -6,8 +6,8 @@ slug: breadcrumb-data-binding
 tags: telerik,blazor,breadcrumb,data,binding
 published: True
 position: 5
+components: ["breadcrumb"]
 ---
-
 # Breadcrumb Data Binding
 
 This article explains how to provide data to a Breadcrumb component, the properties related to data binding and their effect.

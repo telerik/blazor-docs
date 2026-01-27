@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,grid,editing,form
 res_type: kb
 ticketid: 1639016
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

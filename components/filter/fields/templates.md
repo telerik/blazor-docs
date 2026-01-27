@@ -6,8 +6,8 @@ slug: filter-filterfield-templates
 tags: telerik,blazor,filter,filterfields,templates
 published: True
 position: 10
+components: ["filter"]
 ---
-
 # Filter Field Templates
 
 You can customize the `FilterFiled` appearance and behavior through its templates.

@@ -7,8 +7,8 @@ slug: grid-kb-loader-during-contextmenu-actions
 tags: contextmenu, grid, loader, loading, loadercontainer
 res_type: kb
 ticketid: 1675767
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

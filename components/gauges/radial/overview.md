@@ -6,8 +6,8 @@ slug: radial-gauge-overview
 tags: telerik,blazor,radial,gauge,overview
 published: True
 position: 0
+components: ["radialgauge"]
 ---
-
 # Blazor Radial Gauge Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">Telerik Radial Gauge for Blazor</a> represents numerical values on a [scale](slug:radial-gauge-scale) of ranges in a radial format.

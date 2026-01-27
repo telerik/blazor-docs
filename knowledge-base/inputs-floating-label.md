@@ -7,8 +7,8 @@ slug: inputs-kb-floating-label
 position:
 tags:
 res_type: kb
+components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownlist","maskedtextbox","numerictextbox","textbox","timepicker"]
 ---
-
 ## Environment
 
 <table>

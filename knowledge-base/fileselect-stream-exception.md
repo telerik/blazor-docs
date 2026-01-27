@@ -8,8 +8,8 @@ position:
 tags: fileselect, exception
 ticketid: 1551288, 1552410, 1560275, 1585580
 res_type: kb
+components: ["fileselect"]
 ---
-
 ## Environment
 
 <table>

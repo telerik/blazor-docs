@@ -7,8 +7,8 @@ slug: upload-kb-form-validation
 position: 
 tags: 
 res_type: kb
+components: ["upload"]
 ---
-
 ## Environment
 
 <table>

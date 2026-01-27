@@ -6,8 +6,8 @@ slug: components/window/size
 tags: telerik,blazor,window,size
 published: True
 position: 1
+components: ["window"]
 ---
-
 # Window Size
 
 The Window offers different features to control its size:

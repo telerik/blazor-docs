@@ -6,8 +6,8 @@ slug: diagram-layouts
 tags: telerik,blazor,diagram
 published: True
 position: 10
+components: ["diagram"]
 ---
-
 # Blazor Diagram Layouts
 
 The Telerik Blazor Diagram provides a few built-in layouts, so that you don't have to define the positions of all shapes and connections manually. The Diagram supports the most popular layout algorithms, including tree layout, force-directed layout and layered layout.

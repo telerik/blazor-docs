@@ -8,8 +8,8 @@ position:
 tags: blazor, combobox, loader, templates, nodatatemplate, headertemplate
 res_type: kb
 ticketid: 1693304
+components: ["combobox"]
 ---
-
 ## Environment
 
 <table>

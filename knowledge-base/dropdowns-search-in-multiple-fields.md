@@ -8,8 +8,8 @@ position:
 tags: search, filter
 ticketid: 1550307, 1554601
 res_type: kb
+components: ["autocomplete","combobox","dropdownlist","multicolumncombobox","multiselect"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: rangeslider-steps
 tags: telerik,blazor,range,slider,small,large,step
 published: true
 position: 5
+components: ["rangeslider"]
 ---
-
 # Steps
 
 The RangeSlider for Blazor requires values for its large and small ticks. You can control them through the corresponding parameters.

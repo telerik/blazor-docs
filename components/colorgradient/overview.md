@@ -6,8 +6,8 @@ slug: colorgradient-overview
 tags: telerik,blazor,colorgradient,overview
 published: True
 position: 0
+components: ["colorgradient"]
 ---
-
 # Blazor ColorGradient Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/colorgradient" target="_blank">ColorGradient for Blazor</a> enables users to select a color from an [HSVA](https://en.wikipedia.org/wiki/HSL_and_HSV) canvas, or to type a specific RGB/HEX color value. Compared to our [ColorPalette component](slug:colorpalette-overview), the ColorGradient allows selection from unlimited number of colors. It may also be preferred by advanced users.

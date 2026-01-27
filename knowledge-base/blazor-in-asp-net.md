@@ -6,8 +6,8 @@ page_title: Using Telerik UI for Blazor in ASP.NET Web Applications
 slug: telerik-blazor-in-asp-net-app
 ticketid: 1422791
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

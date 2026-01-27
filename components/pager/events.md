@@ -6,8 +6,8 @@ slug: pager-events
 tags: telerik,blazor,pager,paging,events
 published: True
 position: 20
+components: ["pager"]
 ---
-
 # Pager Events
 
 This article explains the events available in the Telerik Pager for Blazor:

@@ -6,8 +6,8 @@ slug: radial-gauge-labels
 tags: telerik,blazor,radial,gauge,labels
 published: True
 position: 20
+components: ["radialgauge"]
 ---
-
 # Radial Gauge Labels
 
 You can customize the appearance of the labels rendered on the [scale](slug:radial-gauge-scale) of the Radial Gauge by using the `<RadialGaugeScaleLabels>`, child tag of the `<RadialGaugeScale>`, and the parameters it exposes:

@@ -6,8 +6,8 @@ slug: grid-columns-displayformat
 tags: telerik,blazor,grid,column,display,format
 published: True
 position: 15
+components: ["grid"]
 ---
-
 # Column Display Format
 
 @[template](/_contentTemplates/grid/common-link.md#display-format-basics)

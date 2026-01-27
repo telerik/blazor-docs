@@ -6,8 +6,8 @@ slug: tabstrip-events
 tags: telerik, blazor, tabstrip, events
 published: True
 position: 20
+components: ["tabstrip"]
 ---
-
 # TabStrip Events
 
 This article explains the events available in the Telerik TabStrip for Blazor:

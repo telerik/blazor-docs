@@ -6,8 +6,8 @@ slug: avatar-appearance
 tags: telerik,blazor,avatar,appearance
 published: True
 position: 10
+components: ["avatar"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the Avatar by setting the following parameters:

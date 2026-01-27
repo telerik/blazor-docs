@@ -6,8 +6,8 @@ slug: treelist-data-binding-flat-data
 tags: telerik,blazor,treelist,data,bind,databind,databinding,flat
 published: True
 position: 2
+components: ["treelist"]
 ---
-
 # TreeList Data Binding to Flat Data
 
 This article explains how to bind the treelist for Blazor to flat data. 

@@ -6,8 +6,8 @@ slug: treeview-selection-overview
 tags: telerik,blazor,treeview,selection,overview
 published: True
 position: 1
+components: ["treeview"]
 ---
-
 # TreeView Selection
 
 The TreeView lets the user select one or more nodes. You can also pre-select them with your own code.

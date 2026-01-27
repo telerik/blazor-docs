@@ -7,8 +7,8 @@ slug: grid-highlight-filter-icon
 tags: grid, blazor, filter, highlight, initialization, compositefilterdescriptor
 res_type: kb
 ticketid: 1668133
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

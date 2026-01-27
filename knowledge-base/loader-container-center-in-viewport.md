@@ -8,8 +8,8 @@ position:
 tags: loadercontainer, center, viewport, long, page
 ticketid: 1564614
 res_type: kb
+components: ["loader"]
 ---
-
 ## Environment
 <table>
 	<tbody>

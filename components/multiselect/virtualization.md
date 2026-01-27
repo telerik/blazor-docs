@@ -6,8 +6,8 @@ slug: multiselect-virtualization
 tags: telerik,blazor,MultiSelect,virtualization
 published: True
 position: 25
+components: ["multiselect"]
 ---
-
 # MultiSelect Virtualization
 
 The MultiSelect @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-proposition)

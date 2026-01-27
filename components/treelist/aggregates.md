@@ -6,8 +6,8 @@ slug: treelist-aggregates
 tags: telerik,blazor,grid,aggreagates,aggregate
 published: false
 position: 23
+components: ["treelist"]
 ---
-
 # Grid Aggregates
 
 The Grid component provides built-in aggregates for column values based on [grouping](slug:components/grid/features/grouping).

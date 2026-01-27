@@ -6,8 +6,8 @@ slug: multicolumncombobox-data-binding
 tags: telerik,blazor,multicolumncombobox,combo,data,bind,binding,databind
 published: True
 position: 5
+components: ["multicolumncombobox"]
 ---
-
 # MultiColumnComboBox Data Binding
 
 This article explains how to provide data to the MultiColumnComboBox component, the properties related to data binding and their results.

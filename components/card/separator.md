@@ -6,8 +6,8 @@ slug: card-separator
 tags: telerik,blazor,card,separator
 published: True
 position: 5
+components: ["card"]
 ---
-
 # Card Separator
 
 The `CardSeparator` element of the Card for Blazor distinguishes separate sections or content in the Card. You can use it as a standalone building block, or inside any of the other Card elements. When used as nested component, the `CardSeparator` will be rendered in accordance to any margin applied to the content.

@@ -6,8 +6,8 @@ slug: grid-export-csv
 tags: telerik,blazor,grid,export,csv
 published: True
 position: 3
+components: ["grid"]
 ---
-
 # Grid CSV Export
 
 You can export the grid to CSV with a click of a button. The current filter, sort, page, grouping and column order are applied to the `.csv` document.

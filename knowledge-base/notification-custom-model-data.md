@@ -8,8 +8,8 @@ position:
 tags: notification, custom, model, data
 ticketid: 1543051
 res_type: kb
+components: ["notification"]
 ---
-
 ## Environment
 <table>
 	<tbody>

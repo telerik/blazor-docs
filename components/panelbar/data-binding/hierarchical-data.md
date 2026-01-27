@@ -6,8 +6,8 @@ slug: panelbar-data-binding-hierarchical
 tags: telerik,blazor,panelbar,data,bind,databind,databinding,hierarchical
 published: True
 position: 2
+components: ["panelbar"]
 ---
-
 # PanelBar Data Binding to Hierarchical Data
 
 This article explains how to bind the PanelBar for Blazor to hierarchical data.

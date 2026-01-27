@@ -6,8 +6,8 @@ slug: autocomplete-filter
 tags: telerik,blazor,combo,autocomplete,filter
 published: True
 position: 10
+components: ["autocomplete"]
 ---
-
 # AutoComplete Filter
 
 The AutoComplete component can filter the available suggestions, according to the current input. In this way users can find the desired value faster. To see the difference in behavior, visit the [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering) page.

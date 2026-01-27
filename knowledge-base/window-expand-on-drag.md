@@ -8,8 +8,8 @@ position:
 tags: window, expand, drag, grid, move
 ticketid: 1522796, 1524154
 res_type: kb
+components: ["window"]
 ---
-
 ## Environment
 
 <table>

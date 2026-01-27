@@ -8,8 +8,8 @@ position:
 tags: treeview, item, expand, collapse, click, onclick
 ticketid: 1583333
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 <table>
 	<tbody>

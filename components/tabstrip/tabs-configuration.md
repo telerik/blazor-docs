@@ -6,8 +6,8 @@ slug: tabstrip-tabs-configuration
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 7
+components: ["tabstrip"]
 ---
-
 # TabStrip Tabs Configuration
 
 You can configure the `TabStripTab` instances in a TabStrip through the following parameters:

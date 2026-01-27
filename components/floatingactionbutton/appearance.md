@@ -6,8 +6,8 @@ slug: fab-appearance
 tags: telerik,blazor,floating action button, appearance
 published: True
 position: 1
+components: ["floatingactionbutton"]
 ---
-
 # Appearance Settings
 
 The Floating Action Button component features built-in appearance parameters that allow you to customize virtually every aspect of its look and feel. The example at the bottom of the page lets you experiment with the available parameters.

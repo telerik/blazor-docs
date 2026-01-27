@@ -6,8 +6,8 @@ slug: appbar-appearance
 tags: telerik,blazor,appbar,navbar,appearance
 published: True
 position: 35
+components: ["appbar"]
 ---
-
 # Appearance Settings
 
 This article outlines the available AppBar parameters, which control its appearance.

@@ -6,8 +6,8 @@ page_title: How To Add a Badge to a Container that Cannot Have Children
 slug: kb-badge-container-no-children
 tags: telerik, badge, avatar, container
 res_type: kb
+components: ["badge"]
 ---
-
 ## Environment
 
 <table>

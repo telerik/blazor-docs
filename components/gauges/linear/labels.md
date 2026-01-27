@@ -6,8 +6,8 @@ slug: linear-gauge-labels
 tags: telerik,blazor,linear,gauge,labels
 published: True
 position: 20
+components: ["lineargauge"]
 ---
-
 ## Linear Gauge Labels
 
 You can customize the appearance of the labels rendered on the [scale](slug:linear-gauge-scale) of the Linear Gauge by using the `<LinearGaugeScaleLabels>`, child tag of the `<LinearGaugeScale>`, and the parameters it exposes:

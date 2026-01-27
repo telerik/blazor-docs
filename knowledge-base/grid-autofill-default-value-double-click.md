@@ -8,8 +8,8 @@ slug: grid-kb-autofill-default-value-double-click
 tags: grid, gridcolumn, double-click, editing
 res_type: kb
 ticketid: 1700794
+components: ["grid"]
 ---
-
 ## Environment
 <table>
     <tbody>

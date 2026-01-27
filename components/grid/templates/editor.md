@@ -6,8 +6,8 @@ slug: grid-templates-editor
 tags: telerik,blazor,grid,templates,editor
 published: True
 position: 15
+components: ["grid"]
 ---
-
 # Editor Template
 
 The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing](slug:grid-editing-overview) the field. It is also used when inserting a new item.

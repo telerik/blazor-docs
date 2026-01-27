@@ -6,8 +6,8 @@ slug: togglebutton-events
 tags: telerik,blazor,Toggle,button,events
 published: True
 position: 20
+components: ["togglebutton"]
 ---
-
 # ToggleButton Events
 
 This article describes the events of the Telerik ToggleButton for Blazor:

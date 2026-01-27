@@ -7,8 +7,8 @@ tags: telerik,blazor,splitter,panes
 published: True
 position: 3
 previous_url: /components/splitter/size
+components: ["splitter"]
 ---
-
 # Splitter Panes
 
 Panes are containers that serve as the building blocks of the Splitter. The panes allow you to add any content, for example, text, HTML markup, or other components. Declare a `<SplitterPane>` instance inside the `<SplitterPanes>` child tag of the Splitter for each pane you want to include in the component.

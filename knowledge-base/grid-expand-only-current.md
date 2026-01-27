@@ -8,8 +8,8 @@ position:
 tags: grid, expand, collapse, programmatically
 ticketid: 1513997, 1520717
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

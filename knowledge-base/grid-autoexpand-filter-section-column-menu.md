@@ -8,8 +8,8 @@ slug: grid-kb-autoexpand-filter-section-column-menu
 tags: grid, column-menu, filter
 res_type: kb
 ticketid: 1705448
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

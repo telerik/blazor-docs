@@ -9,8 +9,8 @@ tags: form, validation
 ticketid: 1543336, 1558247, 1560189
 res_type: kb
 category: knowledge-base
+components: ["form"]
 ---
-
 ## Environment
 
 <table>

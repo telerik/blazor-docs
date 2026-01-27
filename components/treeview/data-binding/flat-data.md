@@ -6,8 +6,8 @@ slug: components/treeview/data-binding/flat-data
 tags: telerik,blazor,treeview,data,bind,databind,databinding,flat
 published: True
 position: 1
+components: ["treeview"]
 ---
-
 # Treeview Data Binding to Flat Data
 
 This article explains how to bind the TreeView for Blazor to flat data. 

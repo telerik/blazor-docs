@@ -6,8 +6,8 @@ slug: multiselect-custom-values
 tags: telerik,blazor,multiselect,custom,value,input
 published: True
 position: 16
+components: ["multiselect"]
 ---
-
 # MultiSelect Custom Values
 
 The MultiSelect component lets users type their own values that are not part of the options predefined by the developer.

@@ -6,8 +6,8 @@ slug: multiselect-events
 tags: telerik,blazor,multiselect,events
 published: true
 position: 35
+components: ["multiselect"]
 ---
-
 # MultiSelect Events
 
 This article explains the events available in the Telerik MultiSelect for Blazor:

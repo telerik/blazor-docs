@@ -8,8 +8,8 @@ position:
 tags: grid, column, header, template
 ticketid: 1498927
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

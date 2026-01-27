@@ -7,8 +7,8 @@ slug: drawer-kb-template-as-side-navigation
 position: 
 tags: 
 res_type: kb
+components: ["drawer"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: drawer-kb-prevent-collapse
 position:
 tags:
 res_type: kb
+components: ["drawer"]
 ---
-
 ## Environment
 <table>
 	<tbody>

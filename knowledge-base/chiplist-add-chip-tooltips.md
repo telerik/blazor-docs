@@ -8,8 +8,8 @@ slug: chiplist-kb-add-chip-tooltips
 tags: blazor, chiplist, tooltip, template
 res_type: kb
 ticketid: 1691888
+components: ["chiplist"]
 ---
-
 ## Environment
 
 <table>

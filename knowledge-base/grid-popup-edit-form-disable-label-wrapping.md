@@ -8,8 +8,8 @@ position:
 tags: grid,popup,edit,form,label,wrap
 ticketid: 1544767
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

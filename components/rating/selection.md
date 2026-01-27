@@ -6,8 +6,8 @@ slug: rating-selection
 tags: telerik,blazor,rating,selection
 published: True
 position: 3
+components: ["rating"]
 ---
-
 # Selection
 
 The Rating allows you to control the selection of its items.

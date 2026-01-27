@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1450139
 res_type: kb
+components: ["dropdownlist"]
 ---
-
 ## Environment
 <table>
 	<tbody>

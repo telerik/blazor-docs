@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, window, dialog
 ticketid: 1486212, 1513605, 1610413, 1659021, 1685761
 res_type: kb
+components: ["window"]
 ---
-
 ## Environment
 
 <table>

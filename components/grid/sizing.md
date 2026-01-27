@@ -6,8 +6,8 @@ slug: grid-sizing
 tags: telerik,blazor,grid,size,compact, dense, small
 published: true
 position: 47
+components: ["grid"]
 ---
-
 # Grid Sizing
 
 This feature attempts to address the need for a **Compact Grid**, which renders more items by utilizing the available space, mainly through setting smaller padding in its cells.

@@ -8,8 +8,8 @@ slug: grid-kb-copy-text-clipboard
 tags: blazor, clipboard, context-menu, copy-text, grid
 res_type: kb
 ticketid: 1695036
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

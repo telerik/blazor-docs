@@ -6,8 +6,8 @@ slug: splitter-overview
 tags: telerik,blazor,splitter,overview
 published: True
 position: 0
+components: ["splitter"]
 ---
-
 # Blazor Splitter Overview
 
 The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor Splitter component</a> lets you divide a portion of the page into several pieces that the user can resize and collapse. This provides real estate management for the app and the end user so they can focus on the content that is important in their current task. You can also [save and load its state](slug:splitter-state), and respond to [events](slug:splitter-events).

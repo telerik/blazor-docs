@@ -6,8 +6,8 @@ slug: grid-templates-pager
 tags: telerik,blazor,grid,templates,pager
 published: True
 position: 40
+components: ["grid"]
 ---
-
 # Pager Template
 
 The `GridPagerTemplate` allows you to modify the layout, content, and functionality of the Pager. To page the data, you can use any set of Blazor components and DOM elements instead of the default Grid [Pager component](slug:pager-overview).

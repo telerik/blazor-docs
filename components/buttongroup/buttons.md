@@ -6,8 +6,8 @@ slug: buttongroup-buttons
 tags: telerik,blazor,toggle,button,group,type
 published: True
 position: 5
+components: ["buttongroup"]
 ---
-
 # ButtonGroup Buttons
 
 The ButtonGroup component supports two types of buttons that have different behaviors:

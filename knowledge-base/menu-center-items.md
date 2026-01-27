@@ -8,8 +8,8 @@ position:
 tags: menu, center, items
 ticketid: 1543208
 res_type: kb
+components: ["menu"]
 ---
-
 ## Environment
 <table>
 	<tbody>

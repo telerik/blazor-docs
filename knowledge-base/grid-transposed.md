@@ -7,8 +7,8 @@ slug: grid-kb-transposed
 tags: telerik, blazor, grid, transposed
 ticketid: 1569198, 1639288, 1660386
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

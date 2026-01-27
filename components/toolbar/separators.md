@@ -6,8 +6,8 @@ slug: toolbar-separators
 tags: telerik,blazor,toolbar,separator,spacer,tools
 published: True
 position: 5
+components: ["toolbar"]
 ---
-
 # Separators
 
 You can visually separate the items in the Telerik ToolBar for Blazor. Depending on the needs of your application you can use of the following, or a combination of them:

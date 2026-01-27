@@ -6,8 +6,8 @@ slug: filter-fields
 tags: telerik,blazor,filter,fields
 published: True
 position: 0
+components: ["filter"]
 ---
-
 # Filter Fields
 You can define different Fields settings. For example, names, labels, and [filter operators](slug:filter-operators).
 

@@ -6,8 +6,8 @@ slug: dialog-action-buttons
 tags: telerik,blazor,dialog,action,buttons
 published: True
 position: 7
+components: ["dialog"]
 ---
-
 # Dialog Action Buttons
 
 The Dialog provides a dedicated area for action buttons. They enable the application to provide specific interaction to users.

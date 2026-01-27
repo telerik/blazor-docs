@@ -7,8 +7,8 @@ slug: popover-kb-refresh-callout-position
 tags: blazor, popover
 ticketid: 1703828
 res_type: kb
+components: ["popover"]
 ---
-
 ## Environment
 
 <table>

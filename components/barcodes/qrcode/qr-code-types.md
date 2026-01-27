@@ -6,8 +6,8 @@ slug: qrcode-qr-code-types
 tags: telerik,blazor,barcode,qrcode,types,overview
 published: True
 position: 5
+components: ["qrcode"]
 ---
-
 # QRCode Types
 
 The component exposes the following QRCode types:

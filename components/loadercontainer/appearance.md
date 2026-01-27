@@ -6,8 +6,8 @@ slug: loadercontainer-appearance
 tags: telerik,blazor,loader,container,loadercontainer,appearance
 published: True
 position: 5
+components: ["loadercontainer"]
 ---
-
 # Appearance Settings
 
 This article explains how to control the LoaderContainer look and feel.

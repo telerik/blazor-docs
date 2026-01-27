@@ -8,8 +8,8 @@ position:
 tags: grid, custom, cell, format, radspreadprocessing
 ticketid: 1559794
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
     <tbody>

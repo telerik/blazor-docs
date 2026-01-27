@@ -6,8 +6,8 @@ slug: wizard-layout
 tags: telerik,blazor,wizard,layout
 published: True
 position: 10
+components: ["wizard"]
 ---
-
 # Wizard Layout
 
 The Wizard component allows you to control its layout. By default, the internal stepper is rendered on top of the Wizard [content](slug:wizard-structure-content). You can customize its position through the `StepperPosition` the `TelerikWizard` exposes. It takes a member if the `WizardStepperPosition` enum:

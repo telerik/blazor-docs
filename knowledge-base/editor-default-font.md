@@ -7,8 +7,8 @@ slug: editor-kb-default-font
 position:
 tags:
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 <table>
 	<tbody>

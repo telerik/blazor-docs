@@ -6,8 +6,8 @@ slug: drawer-modes
 tags: telerik,blazor,drawer,mode,modes,overlay,push
 published: True
 position: 5
+components: ["drawer"]
 ---
-
 # Drawer Modes
 
 The expanded Drawer component can **Push** the content (decrease its width) or **Overlay** it (be on top of it and show a modal background).

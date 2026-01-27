@@ -6,8 +6,8 @@ slug: form-validation
 tags: telerik,blazor,form,edit,form,validation
 published: True
 position: 5
+components: ["form"]
 ---
-
 # Form Validation
 
 To enable validation in the Form for Blazor you can use the `<FormValidation>` nested tag. The component works with the Microsoft `DataAnnotationsValidator` as well as any validator that is compatible with the `EditForm` and `EditContext` provided by the framework.

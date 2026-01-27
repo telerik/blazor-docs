@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,treeview,drag,drop,empty
 ticketid: 1525388
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 <table>
 	<tbody>

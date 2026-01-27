@@ -7,8 +7,8 @@ slug: predefined-dialog-beneath-modal-dialog-blazor
 tags: dialog, blazor, zindex, predefined-dialog, modal-dialog, visiblechanged, workaround
 res_type: kb
 ticketid: 1686792
+components: ["dialog"]
 ---
-
 ## Environment
 
 <table>

@@ -7,8 +7,8 @@ slug: chart-kb-localized-numeric-labels
 position:
 tags:
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: grid-templates-column-footer
 tags: telerik,blazor,grid,templates,column,footer,grand,total
 published: True
 position: 20
+components: ["grid"]
 ---
-
 # Column Footer Template
 
 You can display a grand total row at the bottom of the grid through the `FooterTemplate` of each [bound](slug:components/grid/columns/bound) column.

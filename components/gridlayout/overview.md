@@ -6,8 +6,8 @@ slug: gridlayout-overview
 tags: telerik,blazor,gridlayout,overview
 published: True
 position: 0
+components: ["gridlayout"]
 ---
-
 # GridLayout Overview
 
 The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazor GridLayout component</a> allows you to arrange the contents of the component in rows and columns in a grid structure. 

@@ -7,8 +7,8 @@ slug: gantt-kb-tooltip-access-model-fields
 tags: gantt, blazor, tooltip, tooltiptemplate, model, fields
 res_type: kb
 ticketid: 1653280
+components: ["gantt"]
 ---
-
 ## Environment
 <table>
 	<tbody>

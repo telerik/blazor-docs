@@ -7,8 +7,8 @@ slug: grid-kb-drag-drop-in-different-components
 tags: telerik, blazor, grid, treelist, treeview, drag and drop
 ticketid: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

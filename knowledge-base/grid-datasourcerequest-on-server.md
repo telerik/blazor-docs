@@ -7,8 +7,8 @@ slug: grid-kb-datasourcerequest-on-server
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

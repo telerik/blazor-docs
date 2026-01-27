@@ -6,9 +6,8 @@ slug: gantt-templates-popup-form
 tags: telerik,blazor,gantt,ganttchart,templates,popup,edit,create
 published: True
 position: 50
+components: ["gantt"]
 ---
-
-
 # Popup Form Template
 
 With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the Gantt. Declare the desired custom content inside the `<FormTemplate>` inner tag of the `<GanttPopupEditFormSettings>`.

@@ -7,8 +7,8 @@ slug: treeview-kb-change-expand-collapse-icons
 tags: blazor, treeview, icons, expand, collapse
 res_type: kb
 ticketid: 1656109
+components: ["treeview"]
 ---
-
 ## Environment
 
 <table>

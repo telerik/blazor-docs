@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, editor, mentions
 ticketid: 1545505
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 
 <table>

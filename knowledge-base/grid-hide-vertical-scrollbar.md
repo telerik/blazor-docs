@@ -8,8 +8,8 @@ position:
 tags: grid, treelist, scroll, scrollbar, scrolling
 ticketid: 1541813, 1541728
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -8,8 +8,8 @@ slug: scheduler-kb-add-hyperlinks-in-appointments
 tags: scheduler, templates, appointments, hyperlinks
 res_type: kb
 ticketid: 1697204
+components: ["scheduler"]
 ---
-
 ## Environment
 <table>
     <tbody>

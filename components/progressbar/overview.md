@@ -6,8 +6,8 @@ slug: progressbar-overview
 tags: telerik,blazor,progress,bar,progressbar,overview
 published: True
 position: 0
+components: ["progressbar"]
 ---
-
 # Blazor ProgressBar Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">Blazor ProgressBar component</a> tracks the execution of operations and displays what portion of it is completed. For very long tasks, you can also make it [indeterminate](slug:progressbar-indeterminate-state).

@@ -7,8 +7,8 @@ slug: grid-kb-row-select-incell-edit
 position:
 tags:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

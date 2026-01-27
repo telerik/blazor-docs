@@ -6,8 +6,8 @@ slug: treelist-data-binding-load-on-demand
 tags: telerik,blazor,treelist,data,bind,databind,databinding,load,demand
 published: True
 position: 3
+components: ["treelist"]
 ---
-
 # TreeList Load on Demand
 
 This article explains how to load nodes on demand the treelist for Blazor so you can improve the performance. 
