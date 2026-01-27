@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DropDownTree Overview
 
-The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntree) combines features of the [DropDownList](slug:components/dropdownlist/overview) and the [TreeView](slug:treeview-overview). The DropDownTree component allows users to select a single value from a dropdown list of items that are displayed as a hierachy.
+The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntree) allows users to select a single value from a dropdown list of items that are displayed as a hierachy. The DropDownTree combines features of the [DropDownList](slug:components/dropdownlist/overview) and the [TreeView](slug:treeview-overview) components. Familiarity with the API of the two originating components is highly recommended.
 
 ## Creating Blazor DropDownTree
 
@@ -21,7 +21,7 @@ The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntr
 1. (optional) Set the `Value` parameter to an initial default value.
 1. (optional) Set the [`ExpandedItems`](slug:dropdowntree-expanded-items) parameter to a non-null `IEnumerable<object>`. Use it to expand items in the dropdown programmatically.
 
->caption Basic DropDownTree
+>caption Basic Blazor DropDownTree
 
 ````RAZOR
 <TelerikDropDownTree Data="@DropDownTreeData"
@@ -82,7 +82,7 @@ The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntr
 
 ## Data Binding
 
-@[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
+The Blazor DropDownTree requires a data source to populate its dropdown with items. Set the `Data` parameter to a generic `IEnumerable`. The model class can have properties with predefined names or custom names. The data collection can be flat of hierarchical.
 
 ## Filtering
 
