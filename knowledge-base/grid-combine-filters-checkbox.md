@@ -8,6 +8,7 @@ slug: grid-kb-combine-filters-checkbox
 tags: grid, blazor, filter, menu, template, checkbox, list, excel
 res_type: kb
 ticketid: 1708346
+components: ["grid"]
 ---
 
 ## Environment
