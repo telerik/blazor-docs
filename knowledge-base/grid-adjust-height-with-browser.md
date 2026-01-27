@@ -51,6 +51,7 @@ The following sections demonstrate different ways to make a Grid resize vertical
 * [Use viewport units](#use-css-viewport-units)
 * [Use CSS `calc()`](#use-css-calc)
 * [Use Telerik layout components](#use-telerik-layout-components)
+* [Use flexbox](#use-flexbox)
 * [Use minimum or maximum height](#apply-minimum-or-maximum-height)
 * [Set `PageSize` depending on the Grig height]()
 
@@ -210,6 +211,69 @@ Using Telerik layout components can spare the need to use custom CSS and make a 
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+    }
+}
+````
+
+## Use Flexbox
+
+When using a Grid in a [flexbox layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), you may need to set an `overflow:hidden` style to the Grid container element. Otherwise the Grid may expand vertically more than expected.
+
+>caption Set Grid Height to 100% of resizable flexbox container
+
+````RAZOR
+<div style="display: flex; flex-direction: column; height: 100vh;">
+    <div style="flex: 0 0 60px; background: var(--kendo-color-warning-subtle);">Top Row</div>
+    <div style="flex: 1 1 auto; overflow: hidden;">
+        <TelerikGrid Data="@GridData"
+                     FilterMode="@GridFilterMode.FilterRow"
+                     Groupable="true"
+                     Height="100%"
+                     Sortable="true">
+            <GridColumns>
+                <GridColumn Field="@nameof(SampleModel.Name)" Locked="true" Width="22vw" />
+                <GridColumn Field="@nameof(SampleModel.Group)" Width="22vw" />
+                <GridColumn Field="@nameof(SampleModel.Price)" DisplayFormat="{0:c2}" Width="22vw" />
+                <GridColumn Field="@nameof(SampleModel.Quantity)" DisplayFormat="{0:n0}" Width="22vw" />
+                <GridColumn Field="@nameof(SampleModel.Released)" DisplayFormat="{0:d}" Width="22vw" />
+                <GridColumn Field="@nameof(SampleModel.Discontinued)" Width="22vw" />
+            </GridColumns>
+        </TelerikGrid>
+    </div>
+    <div style="flex: 0 0 60px; background: var(--kendo-color-success-subtle);">Bottom Row</div>
+</div>
+
+@code {
+    private List<SampleModel> GridData { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        var rnd = Random.Shared;
+
+        for (int i = 1; i <= 77; i++)
+        {
+            GridData.Add(new SampleModel()
+            {
+                Id = i,
+                Name = $"Name {i} {(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)}",
+                Group = $"Group {i % 3 + 1}",
+                Price = rnd.Next(1, 100) * 1.23m,
+                Quantity = rnd.Next(0, 10000),
+                Released = DateTime.Today.AddDays(-rnd.Next(60, 1000)),
+                Discontinued = i % 4 == 0
+            });
+        }
+    }
+
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Group { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Released { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 ````
