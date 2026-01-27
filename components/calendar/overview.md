@@ -6,8 +6,8 @@ slug: components/calendar/overview
 tags: telerik,blazor,calendar,overview
 published: True
 position: 0
+components: ["calendar"]
 ---
-
 # Blazor Calendar Overview
 
 The <a href="https://www.telerik.com/blazor-ui/calendar" target="_blank">Blazor Calendar component</a> allows the user to scroll through a Gregorian calendar and select one or more dates. You can control to what level the user can zoom the calendar (for example, up to months or years), what are the minimum and maximum date the user can navigate to, and whether they can select one or more dates.

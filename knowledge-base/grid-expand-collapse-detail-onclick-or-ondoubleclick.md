@@ -8,8 +8,8 @@ position:
 tags: grid, hierarchy, detail, expand, collapse, onclick, ondoubleclick
 ticketid: 1548965
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

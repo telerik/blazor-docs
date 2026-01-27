@@ -7,8 +7,8 @@ slug: common-kb-confirm-button-messagebox
 position: 
 tags: 
 res_type: kb
+components: ["dialog","window"]
 ---
-
 ## Environment
 
 <table>

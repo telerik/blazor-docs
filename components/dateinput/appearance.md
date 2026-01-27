@@ -6,8 +6,8 @@ slug: dateinput-appearance
 tags: telerik,blazor,dateinput,appearance
 published: True
 position: 35
+components: ["dateinput"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the DateInput by setting the following attribute:

@@ -5,8 +5,8 @@ description: Learn how to select cell in Blazor Grid component. Explore the sele
 slug: grid-selection-cell
 tags: telerik,blazor,grid,selection,cells
 position: 5
+components: ["grid"]
 ---
-
 # Cell Selection
 
 The Grid component supports [single or multiple cell selection](slug:grid-selection-overview#use-single-or-multiple-selection). You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can subscribe to selection events.

@@ -7,8 +7,8 @@ slug: grid-kb-load-cyrillic-fonts-in-pdf-export
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

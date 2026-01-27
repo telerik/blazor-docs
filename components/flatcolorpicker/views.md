@@ -6,8 +6,8 @@ slug: flatcolorpicker-views
 tags: telerik,blazor,flatcolorpicker,views,overview
 published: True
 position: 0
+components: ["flatcolorpicker"]
 ---
-
 # FlatColorPicker Views
 
 The FlatColorPicker can display different views. They allow users to select a color from an interface that matches their preferences. The supported views are:

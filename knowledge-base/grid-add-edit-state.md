@@ -8,8 +8,8 @@ position:
 tags: grid, state, editing
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

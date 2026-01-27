@@ -6,8 +6,8 @@ slug: multiselect-tag-mode
 tags: telerik,blazor,multiselect,tag,mode,single,multiple,summary
 published: True
 position: 17
+components: ["multiselect"]
 ---
-
 # MultiSelect Tag Mode
 
 The Tag Mode of the MultiSelect controls how the selected items (tags) will be visualized in the main (input) element of the component. 

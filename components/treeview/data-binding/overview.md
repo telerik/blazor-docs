@@ -6,8 +6,8 @@ slug: components/treeview/data-binding/overview
 tags: telerik,blazor,treeview,data,bind,databind,databinding,basics
 published: True
 position: 0
+components: ["treeview"]
 ---
-
 # Treeview Data Binding
 
 This article explains how to relate TreeView item features to properties of the data model. This is a prerequisite for successful data binding of the TreeView:

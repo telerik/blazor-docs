@@ -6,6 +6,7 @@ slug: sankey-nodes
 tags: telerik,blazor,sankey,diagram,chart,nodes
 published: True
 position: 0
+components: ["sankey"]
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

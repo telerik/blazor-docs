@@ -6,8 +6,8 @@ slug: grid-templates-column-header
 tags: telerik,blazor,grid,templates,column,header
 published: True
 position: 20
+components: ["grid"]
 ---
-
 # Column Header Template
 
 Bound columns render the name of the field or their `Title` in their header. Through the `HeaderTemplate`, you can define custom content there instead of the title text.

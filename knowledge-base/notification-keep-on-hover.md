@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, notification
 ticketid: 1630136
 res_type: kb
+components: ["notification"]
 ---
-
 ## Environment
 
 <table>

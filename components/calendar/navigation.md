@@ -6,8 +6,8 @@ slug: components/calendar/navigation
 tags: telerik,blazor,calendar,navigation,min,max
 published: True
 position: 2
+components: ["calendar"]
 ---
-
 # Calendar Navigation
 
 The user can navigate through several different views in a calendar - from a century, to a month. You can control in which view the user starts, the date which the calendar shows initially, how deep the user can go, and to also navigate to a desired date and view with code.

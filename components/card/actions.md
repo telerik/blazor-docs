@@ -6,9 +6,8 @@ slug: card-actions
 tags: telerik,blazor,card,actions
 published: True
 position: 9
+components: ["card"]
 ---
-
-
 # Card Actions
 
 Every Blazor Card can have a dedicated area for action buttons related to the content. The content of these action items, as well as their overall layout and orientation, is completely customizable through the available configuration options.

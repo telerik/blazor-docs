@@ -6,8 +6,8 @@ slug: scheduler-delete-confirmation-dialog
 tags: telerik,blazor,scheduler,appointment,appointments,edit,editing,delete,confirmation,dialog
 published: True
 position: 5
+components: ["scheduler"]
 ---
-
 # Delete Confirmation Dialog
 
 This article provides information on how to enable the built-in delete confirmation dialog and how you can create a custom dialog:

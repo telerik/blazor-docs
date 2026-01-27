@@ -6,8 +6,8 @@ slug: components/chart/multiple-axes
 tags: telerik,blazor,chart,multiple,axis,axes
 published: true
 position: 21
+components: ["charts"]
 ---
-
 # Multiple Axes
 
 You can have the chart render more than one axis for a given dimension. This lets you associate series with different axes, and position different axes to the left, right, top or bottom of the chart. This is often useful when you have data for some series that varies greatly in magnitude from other data, or is measured in a different unit. You can also associate series with different categories on the x-axis without having them side-by-side.

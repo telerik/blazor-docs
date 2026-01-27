@@ -6,8 +6,8 @@ slug: gantt-columns-resize
 tags: telerik,blazor,gantt,column,resize,drag
 published: True
 position: 3
+components: ["gantt"]
 ---
-
 # Resize Columns
 
 The Gantt Tree features two different column resizing mechanisms:

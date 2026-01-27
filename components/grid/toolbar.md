@@ -6,8 +6,8 @@ slug: components/grid/features/toolbar
 tags: telerik,blazor,grid,toolbar
 published: True
 position: 45
+components: ["grid"]
 ---
-
 # Grid Toolbar
 
 The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add [custom tools](#custom-tools) or create a [custom toolbar](#custom-toolbar-configuration).

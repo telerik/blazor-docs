@@ -7,8 +7,8 @@ slug: grid-kb-load-cached-data-after-crud-operations
 tags: blazor, grid, treelist, editing
 ticketid:
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

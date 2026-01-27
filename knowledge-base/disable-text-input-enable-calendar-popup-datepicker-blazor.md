@@ -7,8 +7,8 @@ slug: disable-text-input-enable-calendar-popup-datepicker-blazor
 tags: datepicker, blazor, input, calendar, disable, textbox, open, css
 res_type: kb
 ticketid: 1652620
+components: ["general"]
 ---
-
 ## Environment
 
 | Product |

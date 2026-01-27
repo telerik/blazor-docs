@@ -7,8 +7,8 @@ slug: diagram-kb-change-shape-color-onshapeclick
 tags: blazor, diagram
 ticketid: 1703700
 res_type: kb
+components: ["diagram"]
 ---
-
 ## Environment
 
 <table>

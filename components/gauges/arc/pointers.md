@@ -6,8 +6,8 @@ slug: arc-gauge-pointers
 tags: telerik,blazor,gauge,arc,overview
 published: True
 position: 10
+components: ["arcgauge"]
 ---
-
 # Arc Gauge Pointers
 
 The pointers are the values that will be marked on the scale. You can customize them through the parameters they expose:

@@ -6,8 +6,8 @@ slug: components/chart/types/scatter
 tags: telerik,blazor,chart,scatter
 published: True
 position: 0
+components: ["charts"]
 ---
-
 # Scatter Chart
 
 The <a href="https://www.telerik.com/blazor-ui/scatter-chart" target="_blank">Blazor Scatter chart</a> shows data as points defined by their items' values. Its x-axis is also numerical and does not require categorical items, but numerical values.

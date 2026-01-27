@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1489592
 res_type: kb
+components: ["numerictextbox"]
 ---
-
 ## Environment
 <table>
 	<tbody>

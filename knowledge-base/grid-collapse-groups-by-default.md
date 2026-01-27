@@ -8,8 +8,8 @@ position:
 tags: grid,grouping,collapse,paging
 ticketid: 1545745
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
     <tbody>

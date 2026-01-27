@@ -6,8 +6,8 @@ slug: treelist-filter-menu
 tags: telerik,blazor,TreeList,filtering,filter,menu
 published: True
 position: 10
+components: ["treelist"]
 ---
-
 # TreeList Filter Menu
 
 One of the [filter modes of the treelist](slug:treelist-filtering) is a popup menu with filter options that you can open from the column headers.

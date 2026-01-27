@@ -7,8 +7,8 @@ slug: chart-kb-print-chart-only
 position: 
 tags: 
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

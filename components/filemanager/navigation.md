@@ -6,8 +6,8 @@ slug: filemanager-navigation
 tags: telerik,blazor,filemanager,navigation
 published: True
 position: 7
+components: ["filemanager"]
 ---
-
 # FileManager Navigation
 
 The navigation within the file structure of the `FileManager` is achieved with the help of an inbuilt `TreeView` and `Breadcrumb` components.

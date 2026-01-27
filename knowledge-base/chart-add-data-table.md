@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,chart,data,table
 ticketid: 1520360
 res_type: kb
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

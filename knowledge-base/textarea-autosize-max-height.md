@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, textarea, autosize, css
 ticketid: 1636831
 res_type: kb
+components: ["textarea"]
 ---
-
 ## Environment
 
 <table>

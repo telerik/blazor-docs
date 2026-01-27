@@ -6,8 +6,8 @@ slug: multicolumncombobox-grouping
 tags: telerik,blazor,multicolumncombobox,combobox,group,grouping
 published: True
 position: 15
+components: ["multicolumncombobox"]
 ---
-
 # MultiColumnComboBox Grouping
 
 The MultiColumnComboBox component can display the listed items in groups. This can improve the user experience and make browsing the items faster.

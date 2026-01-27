@@ -7,8 +7,8 @@ slug: tabstrip-kb-add-remove-tabs
 tags: telerik,blazor,tabstrip,add tabs,remove tabs
 ticketid:
 res_type: kb
+components: ["tabstrip"]
 ---
-
 ## Environment
 
 <table>

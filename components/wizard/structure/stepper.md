@@ -6,8 +6,8 @@ slug: wizard-structure-stepper
 tags: telerik,blazor,wizard,stepper
 published: True
 position: 0
+components: ["wizard"]
 ---
-
 # Wizard Stepper
 
 One of the main elements of the Wizard component is the Stepper. The Wizard component utilizes the [Telerik UI for Blazor Stepper](slug:stepper-overview) internally.

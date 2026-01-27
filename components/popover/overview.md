@@ -6,8 +6,8 @@ slug: popover-overview
 tags: telerik,blazor,popover,pop,over
 published: True
 position: 0
+components: ["popover"]
 ---
-
 # Blazor Popover Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor Popover component</a> behaves much like a tooltip, as it helps you display additional information in a container that shows on top of the other page content. The major differences between the Popover and the [Tooltip](slug:tooltip-overview) components is that the Popover has built-in support for action buttons and provides more configuration options about its animation and placement on the screen. This article explains how to start using the component and describes its features.

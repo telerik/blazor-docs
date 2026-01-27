@@ -6,8 +6,8 @@ slug: components/chart/types/scatterline
 tags: telerik,blazor,chart,scatterline
 published: True
 position: 0
+components: ["charts"]
 ---
-
 # ScatterLine Chart
 
 The <a href="https://www.telerik.com/blazor-ui/scatter-line-chart" target="_blank">Blazor ScatterLine chart</a> is very similar to the [Scatter](slug:components/chart/types/scatter) chart—it shows data as points defined by their items' values, but the points are connected by lines and thus it can account for missing values in a series. Its x-axis is numerical and does not require items.

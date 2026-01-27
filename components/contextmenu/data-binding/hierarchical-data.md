@@ -6,8 +6,8 @@ slug: contextmenu-data-binding-hierarchical-data
 tags: telerik,blazor,context menu,data,bind,databind,databinding,hierarchical
 published: True
 position: 1
+components: ["contextmenu"]
 ---
-
 # Context Menu Data Binding to Hierarchical Data
 
 This article explains how to bind the Context Menu for Blazor to hierarchical data. 

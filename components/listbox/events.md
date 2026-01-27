@@ -6,8 +6,8 @@ slug: listbox-events
 tags: telerik,blazor,listbox
 published: True
 position: 60
+components: ["listbox"]
 ---
-
 # ListBox Events
 
 The Telerik Blazor ListBox fires events that are related to toolbar button clicks and drag and drop user actions. This article describes all events and event arguments.

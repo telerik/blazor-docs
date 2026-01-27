@@ -6,8 +6,8 @@ slug: autocomplete-databind
 tags: telerik,blazor,autocomplete,data,bind,binding,databind
 published: True
 position: 5
+components: ["autocomplete"]
 ---
-
 # AutoComplete Data Binding
 
 This article explains the different ways to provide data to an AutoComplete component, the properties related to data binding and their results. The key requirements is to have a string field for the suggestions.

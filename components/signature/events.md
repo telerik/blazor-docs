@@ -6,8 +6,8 @@ slug: signature-events
 tags: telerik,blazor,signature,events
 published: true
 position: 20
+components: ["signature"]
 ---
-
 # Events
 
 This article describes the Blazor Signature events and provides a runnable example with sample event handler implementations.

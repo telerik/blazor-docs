@@ -6,8 +6,8 @@ slug: multiselect-overview
 tags: telerik,blazor,multiselect,overview
 published: True
 position: 0
+components: ["multiselect"]
 ---
-
 # Blazor MultiSelect Overview
 
 The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blazor MultiSelect component</a> lets the user select several items from the available list. It is similar to a `<select multiple>` in this regard. The MultiSelect offers suggestions as you type and they can be [filtered](slug:multiselect-filter). You can control the list of suggestions through [data binding](slug:multiselect-databind), various appearance settings like [dimensions](slug:common-features/dimensions) and [templates](slug:multiselect-templates).

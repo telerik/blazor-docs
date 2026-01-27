@@ -6,8 +6,8 @@ slug: flatcolorpicker-events
 tags: telerik,blazor,flatcolorpicker,events
 published: true
 position: 20
+components: ["flatcolorpicker"]
 ---
-
 # FlatColorPicker Events
 
 This article describes the available events of the Telerik FlatColorPicker for Blazor.

@@ -6,8 +6,8 @@ slug: linear-gauge-pointers
 tags: telerik,blazor,linear,gauge,overview
 published: True
 position: 10
+components: ["lineargauge"]
 ---
-
 # Linear Gauge Pointers
 
 The pointers are the values that will be marked on the scale. You can customize them through the parameters they expose:

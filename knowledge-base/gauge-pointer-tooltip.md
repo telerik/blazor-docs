@@ -8,8 +8,8 @@ position:
 tags: gauge,tooltip,pointer,arc,circular,linear,radial
 ticketid: 1535827
 res_type: kb
+components: ["arcgauge","circulargauge","lineargaugee","radialgauge"]
 ---
-
 ## Environment
 <table>
     <tbody>

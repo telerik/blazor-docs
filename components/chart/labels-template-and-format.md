@@ -6,8 +6,8 @@ slug: components/chart/label-template-format
 tags: telerik,blazor,chart,label,template,format
 published: true
 position: 22
+components: ["charts"]
 ---
-
 # Label Template and Format
 
 The Chart for Blazor can render labels on the axes, series data points, and legend. You can control those labels through the values in the Chart `Data`, but also through [format strings](#format-strings) and [templates](#templates), including [accessible aria templates](#series-label-aria-template).

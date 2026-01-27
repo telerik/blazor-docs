@@ -7,8 +7,8 @@ slug: treeview-kb-disable-checkboxes
 tags: blazor, treeview, checkbox, disabled
 res_type: kb
 ticketid: 1681641
+components: ["treeview"]
 ---
-
 ## Environment
 
 <table>

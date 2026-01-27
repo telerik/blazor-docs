@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, treelist, paging, css
 ticketid: 1632919
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

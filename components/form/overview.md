@@ -6,8 +6,8 @@ slug: form-overview
 tags: telerik,blazor,form,edit,form
 published: True
 position: 0
+components: ["form"]
 ---
-
 # Blazor Form Overview
 
 The <a href = "https://demos.telerik.com/blazor-ui/form/overview" target="_blank">Form for Blazor</a> allows you to generate and customize a form based on your model. You can control the component through various [parameters](#form-parameters), use [default editors](#automatic-generation-of-fields) or [custom ones](slug:form-formitems), set the [orientation](slug:form-orientation) and organize the form fields in [groups](slug:form-formgroups) and [columns](slug:form-columns).

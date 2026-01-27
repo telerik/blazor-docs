@@ -6,8 +6,8 @@ slug: notification-open-close-hide
 tags: telerik,blazor,notification,open,close,hide
 published: True
 position: 20
+components: ["notification"]
 ---
-
 # Open, Close and Hide Notifications
 
 

@@ -7,8 +7,8 @@ slug: grid-footer-template-top-grid
 tags: grid, blazor, footer, template, css, styling, top
 res_type: kb
 ticketid: 1668460
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

@@ -5,8 +5,8 @@ description: Paste Cleanup of the content of the Editor for Blazor, such as from
 slug: editor-paste-cleanup
 tags: telerik,blazor,editor,paste,cleanup
 position: 70
+components: ["editor"]
 ---
-
 # Editor Paste Cleanup
 
 The Telerik Editor component for Blazor can improve the quality of pasted content by removing invalid or unwanted tags and attributes. The Editor can also fix issues such as non-semantic lists pasted from Microsoft Word.

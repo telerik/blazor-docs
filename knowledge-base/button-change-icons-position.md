@@ -7,8 +7,8 @@ slug: button-kb-changе-icons-position
 tags: telerik,blazor,icon,button,position
 ticketid: 1514832
 res_type: kb
+components: ["button"]
 ---
-
 ## Environment
 
 <table>

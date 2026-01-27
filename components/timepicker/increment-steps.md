@@ -6,8 +6,8 @@ slug: timepicker-steps
 tags: telerik,blazor,TimePicker,step
 published: true
 position: 5
+components: ["timepicker"]
 ---
-
 # Steps
 
 The TimePicker for Blazor can display intervals larger than one second or minute, or hour. You could make the step for incrementing or decrementing the values vary for each segment of the date.

@@ -6,8 +6,8 @@ slug: dockmanager-pane-types
 tags: telerik, blazor, dockmanager, panes
 published: true
 position: 5
+components: ["dockmanager"]
 ---
-
 # Pane Types
 
 The Blazor DockManager component exposes the ability to configure different pane types.

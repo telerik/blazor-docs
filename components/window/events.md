@@ -6,8 +6,8 @@ slug: window-events
 tags: telerik,blazor,window,events
 published: True
 position: 20
+components: ["window"]
 ---
-
 # Window Events
 
 This article explains the events available in the Telerik Window for Blazor:

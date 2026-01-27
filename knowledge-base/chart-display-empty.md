@@ -7,8 +7,8 @@ slug: chart-kb-display-empty-chart
 tags: charts, blazor, no data template, empty chart
 res_type: kb
 ticketid: 1675313
+components: ["charts"]
 ---
-
 ## Environment
 <table>
 	<tbody>

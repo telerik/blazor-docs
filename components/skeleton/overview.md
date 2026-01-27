@@ -6,8 +6,8 @@ slug: skeleton-overview
 tags: telerik,blazor,skeleton,overview
 published: True
 position: 0
+components: ["skeleton"]
 ---
-
 # Blazor Skeleton Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/skeleton" target="_blank">Blazor Skeleton</a> is a loading indicator. What separates it from conventional loaders is that it mimics the page layout by showing elements in a similar shape as the actual content that will appear after loading.

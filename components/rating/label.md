@@ -6,8 +6,8 @@ slug: rating-label
 tags: telerik,blazor,rating,label
 published: True
 position: 8
+components: ["rating"]
 ---
-
 # Label
 
 The Rating allows you to display a label that shows the current value out of the max value right next to the component.

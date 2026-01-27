@@ -6,8 +6,8 @@ slug: chip-overview
 tags: telerik,blazor,chip,overview
 published: True
 position: 0
+components: ["chip"]
 ---
-
 # Blazor Chip Overview
 
 The <a href="https://www.telerik.com/blazor-ui/chip" target="_blank">Blazor Chip component</a> shows a piece of information in a compact form. The chip can be selected, removed or disabled. You can respond to various user interactions through the exposed [events](slug:chip-events), and customize the [appearance](slug:chip-appearance) of the Telerik Chip for Blazor.

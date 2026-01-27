@@ -8,8 +8,8 @@ position:
 tags: blazor, grid, treelist, crud
 ticketid: 1433032
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

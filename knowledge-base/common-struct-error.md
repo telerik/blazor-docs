@@ -7,8 +7,8 @@ slug: common-kb-struct-error
 tags: telerik, blazor, autocomplete, breadcrumb, chart, chiplist, combobox, contextmenu, drawer, dropdownlist, filemanager, gantt, grid, listbox, listview, menu, multicolumncombobox, multiselect, panelbar, pivotgrid, radiogroup, sankey, scheduler, stock chart, treelist, treeview, struct, null exception
 ticketid: 1657421
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 <table>
 	<tbody>

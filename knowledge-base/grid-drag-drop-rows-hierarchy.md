@@ -7,8 +7,8 @@ slug: grid-kb-drag-drop-rows-hierarchy
 tags: blazor, grid, hierarchy, drag and drop
 ticketid: 1675157
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

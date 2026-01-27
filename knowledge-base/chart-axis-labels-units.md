@@ -8,8 +8,8 @@ slug: chart-kb-axis-labels-units
 tags: blazor, charts, axis, labels, template
 res_type: kb
 ticketid: 1690815
+components: ["charts"]
 ---
-
 ## Environment
 
 <table>

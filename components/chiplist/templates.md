@@ -6,8 +6,8 @@ slug: chiplist-templates
 tags: telerik,blazor,chiplist,templates
 published: True
 position: 25
+components: ["chiplist"]
 ---
-
 # ChipList Templates
 
 The ChipList component allows you to change what is rendered in the chip. This article explains the built-in templates in the Blazor ChipList.

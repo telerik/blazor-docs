@@ -6,8 +6,8 @@ slug: components/chart/pan
 tags: telerik, blazor, chart, event, pan, zoom
 published: true
 position: 0
+components: ["charts"]
 ---
-
 # Pan
 
 The `Pan` feature allows you to navigate through the Telerik Blazor Chart component. This functionality works with both `category` and `numeric` series.

@@ -6,8 +6,8 @@ slug: breadcrumb-icons
 tags: telerik,blazor,breadcrumb,icons
 published: True
 position: 10
+components: ["breadcrumb"]
 ---
-
 # Breadcrumb Icons
 
 You can add [Telerik Font or SVG icons](slug:common-features-icons) to the Breadcrumb items. The component also supports custom icons.

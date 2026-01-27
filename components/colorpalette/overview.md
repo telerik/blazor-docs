@@ -6,8 +6,8 @@ slug: colorpalette-overview
 tags: telerik,blazor,masked,Color,Palette,overview
 published: True
 position: 0
+components: ["colorpalette"]
 ---
-
 # Blazor Color Palette Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/colorpalette" target="_blank">Blazor Color Palette component</a> provides a list of color tiles for the user to pick a color by clicking or tapping. You can choose a [predefined list of colors](slug:colorpalette-presets), or [create your own](slug:colorpalette-custom-colors). Two-way binding and [events](slug:colorpalette-events) let you react to the user choice.

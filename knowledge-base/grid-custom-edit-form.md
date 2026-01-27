@@ -7,8 +7,8 @@ slug: grid-kb-custom-edit-form
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

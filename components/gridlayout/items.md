@@ -6,8 +6,8 @@ slug: gridlayout-items
 tags: telerik,blazor,gridlayout,items
 published: True
 position: 5
+components: ["gridlayout"]
 ---
-
 # Items
 
 You can control the items in the GridLayout with the parameters they expose:

@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1541425
 res_type: kb
+components: ["slider"]
 ---
-
 ## Environment
 <table>
 	<tbody>

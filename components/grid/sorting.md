@@ -6,8 +6,8 @@ slug: components/grid/features/sorting
 tags: telerik,blazor,grid,sorting
 published: True
 position: 21
+components: ["grid"]
 ---
-
 # Grid Sorting
 
 The Grid component offers support for sorting.

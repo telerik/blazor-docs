@@ -7,8 +7,8 @@ slug: combobox-kb-prevent-numeric
 tags: combobox, blazor, input, numeric
 res_type: kb
 ticketid: 1682510
+components: ["combobox"]
 ---
-
 ## Environment
 
 <table>

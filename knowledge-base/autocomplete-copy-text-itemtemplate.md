@@ -7,8 +7,8 @@ slug: autocomplete-kb-copy-text-itemtemplate
 tags: blazor, autocomplete, itemtemplate, clipboard, copy, paste
 res_type: kb
 ticketid: 1689288
+components: ["autocomplete","dropdownlist","combobox","multiselect"]
 ---
-
 ## Environment
 
 <table>

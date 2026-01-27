@@ -6,8 +6,8 @@ slug: notification-templates
 tags: telerik,blazor,notification,template,templates
 published: True
 position: 10
+components: ["notification"]
 ---
-
 # Notification Templates
 
 The Notification allows you to customize its rendering by using Templates. This article explains the available layout templates for the component.

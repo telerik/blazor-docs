@@ -6,8 +6,8 @@ slug: gantt-templates-column-chooser
 tags: telerik,blazor,gantt,templates,column,menu
 published: True
 position: 40
+components: ["gantt"]
 ---
-
 # Column Chooser Template
 
 The Column Chooser Template lets you control the rendering of the [ColumnChooser](slug:gantt-column-menu#column-chooser). It exposes a [`context`](slug:Telerik.Blazor.Components.ColumnMenuChooserTemplateContext) object that contains a list of all columns in the Gantt. 

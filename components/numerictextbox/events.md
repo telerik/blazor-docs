@@ -6,8 +6,8 @@ slug: components/numerictextbox/events
 tags: telerik,blazor,numeric,textbox,events
 published: true
 position: 20
+components: ["numerictextbox"]
 ---
-
 # Events
 
 This article explains the events available in the Telerik NumericTextbox for Blazor:

@@ -6,8 +6,8 @@ slug: dropdownlist-virtualization
 tags: telerik,blazor,dropdown,DropDownList,virtualization
 published: True
 position: 20
+components: ["dropdownlist"]
 ---
-
 # DropDownList Virtualization
 
 The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-proposition)

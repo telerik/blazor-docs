@@ -6,8 +6,8 @@ slug: datetimepicker-steps
 tags: telerik,blazor,DateTimePicker,step
 published: true
 position: 5
+components: ["datetimepicker"]
 ---
-
 # Steps
 
 The DateTimePicker for Blazor can display intervals larger than one second or minute, or hour. You could make the step for incrementing or decrementing the values vary for each segment of the date.

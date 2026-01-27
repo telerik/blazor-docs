@@ -7,8 +7,8 @@ slug: editor-kb-focus-event
 tags: telerik, blazor, editor, events
 ticketid: 1695979
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 
 <table>

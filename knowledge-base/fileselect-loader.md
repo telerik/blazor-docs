@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, fileselect, loader, progress
 ticketid: 1639447, 1639232
 res_type: kb
+components: ["fileselect"]
 ---
-
 ## Environment
 
 <table>

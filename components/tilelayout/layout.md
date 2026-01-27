@@ -6,8 +6,8 @@ slug: tilelayout-layout
 tags: telerik,blazor,tile,layout
 published: True
 position: 5
+components: ["tilelayout"]
 ---
-
 # TileLayout Appearance
 
 This article describes how the TileLayout constructs its layout, and what are the parameters that affect its appearance. To understand the component behavior in more depth, get familiar with the concept of [CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/) first. The TileLayout component is based on it as underlying implementation and core properties.

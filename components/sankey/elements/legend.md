@@ -6,6 +6,7 @@ slug: sankey-legend
 tags: telerik,blazor,sankey,diagram,chart,legend
 published: True
 position: 11
+components: ["sankey"]
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

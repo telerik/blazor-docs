@@ -6,8 +6,8 @@ slug: gantt-columns-displayformat
 tags: telerik,blazor,gantt,column,display,format
 published: True
 position: 2
+components: ["gantt"]
 ---
-
 # Column Display Format
 
 @[template](/_contentTemplates/grid/common-link.md#display-format-basics)

@@ -6,8 +6,8 @@ slug: listview-manual-operations
 tags: telerik,blazor,listview,manual,operadtions,onread
 published: True
 position: 5
+components: ["listview"]
 ---
-
 # Manual Data Source Operations
 
 The ListView lets you fetch the current page of data on demand through the [`OnRead` event](slug:common-features-data-binding-onread). This can let you optimize database queries and return only a small number of records.

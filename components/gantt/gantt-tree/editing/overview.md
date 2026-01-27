@@ -6,8 +6,8 @@ slug: gantt-tree-editing
 tags: telerik,blazor,gantt,tree,editing,overview
 published: True
 position: 5
+components: ["gantt"]
 ---
-
 # Edit Tasks
 
 The Blazor Gantt supports CRUD operations and validation. Use the CRUD events to transfer the changes to the underlying data source (for example, call a service to update the database, and not only with the view data).

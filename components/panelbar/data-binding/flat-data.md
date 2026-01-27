@@ -6,8 +6,8 @@ slug: panelbar-data-binding-flat
 tags: telerik,blazor,panelbar,data,bind,databind,databinding,flat
 published: True
 position: 1
+components: ["panelbar"]
 ---
-
 # PanelBar Data Binding to Flat Data
 
 This article explains how to bind the PanelBar for Blazor to flat data.

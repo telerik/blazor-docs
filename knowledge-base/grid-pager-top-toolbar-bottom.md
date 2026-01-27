@@ -8,8 +8,8 @@ position:
 tags: grid, pager, top, toolbar, bottom
 ticketid: 1561699
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
     <tbody>

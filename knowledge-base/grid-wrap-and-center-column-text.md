@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, column, header, wrap, center
 ticketid: 1507250
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

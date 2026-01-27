@@ -6,9 +6,8 @@ slug: editor-edit-modes-div
 tags: telerik,blazor,edit,mode,div
 published: True
 position: 3
+components: ["editor"]
 ---
-
-
 # Editor Div Edit Mode
 
 The Div [edit mode](slug:editor-edit-modes-overview) uses a `<div>` element for the editable area of the Editor.

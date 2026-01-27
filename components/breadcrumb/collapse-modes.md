@@ -6,9 +6,8 @@ slug: breadcrumb-collapse-modes
 tags: telerik,blazor,breadcrumb,collapse,modes
 published: True
 position: 20
+components: ["breadcrumb"]
 ---
-
-
 # Breadcrumb Collapse Modes
 
 You can specify how the Breadcrumb items are visualized when their total width exceeds the width of the component through the `CollapseMode` attribute of the Breadcrumb. It takes a member of the `BreadcrumbCollapseMode` enum and provides the following options:

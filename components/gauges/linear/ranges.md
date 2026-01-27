@@ -6,8 +6,8 @@ slug: linear-gauge-ranges
 tags: telerik,blazor,linear,gauge,ranges
 published: True
 position: 10
+components: ["lineargauge"]
 ---
-
 ## Linear Gauge Ranges
 
 You can highlight specific value ranges by providing one or more instances of the `<LinearGaugeScaleRange>` to the `<LinearGaugeScaleRanges>` collection, child tag of the `<LinearGaugeScale>`. You can customize them by using the parameters exposed on the `<LinearGaugeScaleRange>`:

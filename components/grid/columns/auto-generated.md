@@ -6,8 +6,8 @@ slug: grid-columns-automatically-generated
 tags: telerik,blazor,grid,column,automatic,automatically,generated,columns
 published: true
 position: 35
+components: ["grid"]
 ---
-
 # Automatically Generated Columns
 
 The Grid allows you to automatically generate a column for each public property of its model rather than defining each column manually.

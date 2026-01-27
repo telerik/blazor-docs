@@ -7,8 +7,8 @@ slug: common-kb-odata
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

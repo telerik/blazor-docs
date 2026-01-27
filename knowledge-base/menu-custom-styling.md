@@ -7,8 +7,8 @@ slug: menu-kb-custom-styling
 tags: menu, styling
 res_type: kb
 ticketid: 1657882, 1543208
+components: ["menu"]
 ---
-
 ## Environment
 
 <table>

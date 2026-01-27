@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1490309
 res_type: kb
+components: ["treelist"]
 ---
-
 ## Environment
 <table>
 	<tbody>

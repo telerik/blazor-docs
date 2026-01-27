@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1504648, 1557843, 1572315
 res_type: kb
+components: ["datepicker"]
 ---
-
 ## Environment
 
 <table>

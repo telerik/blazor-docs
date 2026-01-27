@@ -8,8 +8,8 @@ position:
 tags: scheduler,readonly,slot,prevent,edit,create
 ticketid: 1537704
 res_type: kb
+components: ["scheduler"]
 ---
-
 ## Environment
 <table>
 	<tbody>

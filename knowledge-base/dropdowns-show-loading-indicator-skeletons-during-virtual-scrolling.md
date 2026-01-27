@@ -7,8 +7,8 @@ slug: dropdowns-kb-show-loading-indicator-skeletons-during-virtual-scrolling
 tags: telerik, blazor, virtualization, autocomplete, combobox, dropdownlist, multicolumncombobox, multiselect
 ticketid: 1587267, 1699463
 res_type: kb
+components: ["autocomplete","combobox","dropdownlist","multicolumncombobox","multiselect"]
 ---
-
 ## Environment
 
 <table>

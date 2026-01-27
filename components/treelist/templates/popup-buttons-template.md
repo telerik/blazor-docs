@@ -6,9 +6,8 @@ slug: treelist-templates-popup-buttons
 tags: telerik,blazor,treelist,templates,popup,buttons
 published: True
 position: 50
+components: ["treelist"]
 ---
-
-
 # Popup Buttons Template
 
 With the `ButtonsTemplate`, you can personalize the appearance and behavior of the buttons in the create/edit Popup window of the TreeList component.

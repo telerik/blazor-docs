@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1450341
 res_type: kb
+components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownlist","maskedtextbox","numerictextbox","textbox","timepicker"]
 ---
-
 ## Environment
 
 <table>

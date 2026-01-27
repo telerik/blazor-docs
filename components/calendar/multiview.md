@@ -6,8 +6,8 @@ slug: components/calendar/multiview
 tags: telerik,blazor,calendar,multi,view,multiple
 published: True
 position: 3
+components: ["calendar"]
 ---
-
 # Multiple Views
 
 You can render several instances of the current calendar view next to each other so that the user needs to browse less. To do that, set the `Views` property to the desired count of views.

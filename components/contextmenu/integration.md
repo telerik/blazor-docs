@@ -6,8 +6,8 @@ slug: contextmenu-integration
 tags: telerik,blazor,menu,integration
 published: True
 position: 3
+components: ["contextmenu"]
 ---
-
 # Context Menu Integration
 
 In some cases, you may need to know which element the user clicked so you can use it in the command handling. You may also want to adjust the menu contents based on which element the user clicked (e.g., disable or entirely remove some items from the menu based on a condition).

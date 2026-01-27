@@ -6,8 +6,8 @@ slug: tabstrip-tabs-collection
 tags: telerik,blazor,tabstrip,dynamic tabs
 published: True
 position: 3
+components: ["tabstrip"]
 ---
-
 # Dynamic Tabs in TabStrip
 
 In some cases, you might need to declare tabs for objects in a collection. The Telerik TabStrip allows you to render its tabs by iterating that collection. 

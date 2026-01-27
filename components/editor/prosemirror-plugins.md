@@ -6,8 +6,8 @@ slug: editor-prosemirror-plugins
 tags: telerik,blazor,editor,prosemirror,plugins
 published: True
 position: 130
+components: ["editor"]
 ---
-
 # ProseMirror Plugins
 
 The Telerik UI for Blazor Editor component is based on the <a href="https://prosemirror.net/" target="_blank">ProseMirror library</a>. ProseMirror provides a set of tools and concepts for building rich text editors, using user interface inspired by what-you-see-is-what-you-get.

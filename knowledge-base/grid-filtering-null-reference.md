@@ -8,8 +8,8 @@ position:
 tags: telerik,blazor,grid,filtering,null,reference,exception
 ticketid: 1524399
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

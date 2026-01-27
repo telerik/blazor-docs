@@ -6,8 +6,8 @@ slug: treeview-expand-items
 tags: telerik,blazor,treeview,expand,items
 published: True
 position: 4
+components: ["treeview"]
 ---
-
 # TreeView Expanded Items
 
 TreeView lets the user expand multiple items. It also gives the option to pre-expand a specific item.

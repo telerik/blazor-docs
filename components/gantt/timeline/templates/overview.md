@@ -6,8 +6,8 @@ slug: gantt-timeline-templates
 tags: telerik,blazor,gantt,chart,templates
 published: True
 position: 0
+components: ["gantt"]
 ---
-
 # Templates for the Gantt Timeline
 
 Customize the appearance of the Gantt Timeline through its templates. They will enable you to add more details for the users and have full control over the rendering.

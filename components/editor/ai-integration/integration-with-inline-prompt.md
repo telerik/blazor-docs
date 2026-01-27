@@ -6,8 +6,8 @@ slug: editor-inline-prompt-integration
 tags: telerik,blazor,editor,ai,ai integration,Inline Prompt
 published: True
 position: 3
+components: ["editor"]
 ---
-
 # Editor Integration with Inline Prompt
 
 The Editor provides a built-in integration with an inline prompt component to help users add AI-driven suggestions and completions to their Editor.

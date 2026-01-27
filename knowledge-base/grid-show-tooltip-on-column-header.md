@@ -7,8 +7,8 @@ slug: grid-kb-show-tooltip-on-column-header
 tags: grid, blazor, tooltip, column header, template, ellipsis
 res_type: kb
 ticketid: 1677858
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

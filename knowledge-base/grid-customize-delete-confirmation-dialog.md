@@ -8,8 +8,8 @@ position:
 tags: grid, customize, delete, confirmation, dialog, message
 ticketid: 1553006, 1660439, 1625888
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

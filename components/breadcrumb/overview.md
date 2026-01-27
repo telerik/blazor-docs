@@ -6,8 +6,8 @@ slug: breadcrumb-overview
 tags: telerik,blazor,breadcrumb,overview
 published: True
 position: 0
+components: ["breadcrumb"]
 ---
-
 # Blazor Breadcrumb Overview
 
 The <a href="https://www.telerik.com/blazor-ui/breadcrumb" target="_blank">Blazor Breadcrumb component</a> allows navigation within a folder structure or web page. It provides an easy way to navigate backwards by one or multiple steps. In addition to built-in [navigation capabilities](slug:breadcrumb-navigation), you can browse through the items, define [templates](slug:breadcrumb-templates) for the individual nodes, render text and [icons](slug:breadcrumb-icons), and respond to [events](slug:breadcrumb-events).

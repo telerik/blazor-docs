@@ -7,8 +7,8 @@ slug: grid-kb-checkbox-column-prevent-click
 position: 
 tags: grid, checkbox, prevent, click, deselection 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

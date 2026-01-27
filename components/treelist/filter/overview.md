@@ -7,8 +7,8 @@ tags: telerik,blazor,TreeList,filtering,filter
 published: True
 previous_url: /components/treelist/filtering
 position: 0
+components: ["treelist"]
 ---
-
 # Blazor TreeList Filtering Overview
 
 The TreeList component offers built-in support for filtering.

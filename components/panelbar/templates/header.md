@@ -6,8 +6,8 @@ slug: panelbar-templates-header
 tags: telerik,blazor,panelbar,templates
 published: True
 position: 5
+components: ["panelbar"]
 ---
-
 # HeaderTemplate
 
 

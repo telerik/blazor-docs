@@ -8,8 +8,8 @@ position:
 tags: grid, selection, select all, checkbox, onread
 ticketid: 1562945, 1680863
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

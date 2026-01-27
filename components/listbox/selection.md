@@ -6,8 +6,8 @@ slug: listbox-selection
 tags: telerik,blazor,listbox
 published: True
 position: 20
+components: ["listbox"]
 ---
-
 # ListBox Selection
 
 This article describes the ListBox selection feature, including the available selection modes, and how to use the `SelectedItems` parameter.

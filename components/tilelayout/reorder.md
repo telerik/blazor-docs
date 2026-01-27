@@ -6,8 +6,8 @@ slug: tilelayout-reorder
 tags: telerik,blazor,tile,layout,dashboard,reorder
 published: True
 position: 20
+components: ["tilelayout"]
 ---
-
 # TileLayout Reorder
 
 You can rearrange the tiles in the tile layout by a simple drag-and-drop of their headers to adjust the dashboard positions to your liking.

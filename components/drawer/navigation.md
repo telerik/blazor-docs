@@ -6,8 +6,8 @@ slug: drawer-navigation
 tags: telerik,blazor,drawer,navigation
 published: True
 position: 3
+components: ["drawer"]
 ---
-
 # Drawer for Navigation
 
 The Drawer is a different kind of a [menu](slug:components/menu/overview) that is commonly used to navigate between pages in the app - it can generate the needed links for you through its `UrlField` when [data binding](slug:drawer-data-binding).

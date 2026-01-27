@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, null, value, parameter, format, localization
 ticketid: 1528567, 1570325
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 <table>
 	<tbody>

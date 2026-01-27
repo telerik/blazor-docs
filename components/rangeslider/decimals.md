@@ -6,8 +6,8 @@ slug: rangeslider-decimals
 tags: telerik,blazor,range,slider,decimals
 published: true
 position: 7
+components: ["rangeslider"]
 ---
-
 # Decimals
 
 The RangeSlider uses this property to determine how many decimals to take and set to the value when calculating the differences between the min and max, and the steps. You can see an [example of wrong setup and the issue it can cause](#decimals-and-rounding-errors) below. Here is a simple example of the mathematical operation and how you can see unexpected floating numbers that could, at least to an extent, be avoided if you use high-precision number types such as decimal:

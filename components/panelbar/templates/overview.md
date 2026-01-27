@@ -6,8 +6,8 @@ slug: panelbar-templates
 tags: telerik,blazor,panelbar,templates
 published: True
 position: 1
+components: ["panelbar"]
 ---
-
 # PanelBar Templates
 
 The PanelBar component allows you to define custom templates for both the parent and children items.

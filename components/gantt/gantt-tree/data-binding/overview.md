@@ -6,8 +6,8 @@ slug: gantt-data-binding-overview
 tags: telerik,blazor,gantt,data,bind,databind,databinding,basics
 published: True
 position: 0
+components: ["gantt"]
 ---
-
 # Gantt Tree Data Binding Basics
 
 This article explains the different ways to provide data to a Gantt Chart component and the properties related to data binding. Reviewing this article will explain the basics of how you can describe the hierarchy of items in your data source to the Gantt component so they can render.

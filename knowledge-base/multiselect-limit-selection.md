@@ -7,8 +7,8 @@ slug: multiselect-kb-limit-selection
 tags: multiselect, blazor, selection limit
 res_type: kb
 ticketid: 1670731
+components: ["multiselect"]
 ---
-
 ## Environment
 
 <table>

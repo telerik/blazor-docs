@@ -8,8 +8,8 @@ slug: datepicker-kb-select-all-content-on-focus
 tags: datepicker, focus, input, selection
 res_type: kb
 ticketid: 1704388
+components: ["datepicker"]
 ---
-
 ## Environment
 
 <table>

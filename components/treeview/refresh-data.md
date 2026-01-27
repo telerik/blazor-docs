@@ -6,8 +6,8 @@ slug: treeview-refresh-data
 tags: telerik,blazor,treeview,observable,data,new,collection
 published: True
 position: 17
+components: ["treeview"]
 ---
-
 # TreeView - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

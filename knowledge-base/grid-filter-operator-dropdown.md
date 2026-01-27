@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, treelist, filter
 ticketid: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

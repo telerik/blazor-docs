@@ -6,8 +6,8 @@ slug: upload-overview
 tags: telerik,blazor,upload,async,overview
 published: True
 position: 0
+components: ["upload"]
 ---
-
 # Blazor Upload Overview
 
 The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets users upload files to a server endpoint asynchronously. Users can select one or multiple files. The upload process can start immediately after selection or after a button click. Users can also delete their uploaded files. The component can validate the selected files' extensions and size.

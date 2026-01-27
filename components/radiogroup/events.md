@@ -6,8 +6,8 @@ slug: radiogroup-events
 tags: telerik,blazor,radio button group,list,dropdownlist,events
 published: true
 position: 25
+components: ["radiogroup"]
 ---
-
 # Events
 
 This article explains the events available in the Telerik RadioGroup for Blazor:

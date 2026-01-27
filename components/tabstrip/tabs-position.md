@@ -6,8 +6,8 @@ slug: tabstrip-tabs-position
 tags: telerik,blazor,tab,strip,tabstrip,position
 published: True
 position: 10
+components: ["tabstrip"]
 ---
-
 # TabStrip Tabs Position
 
 By default, the tab titles display on top of the tab content.

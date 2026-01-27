@@ -7,8 +7,8 @@ slug: datepicker-kb-change-starting-day-of-week
 tags: datepicker, blazor, cultureinfo, firstdayofweek
 res_type: kb
 ticketid: 1665695
+components: ["datepicker"]
 ---
-
 ## Environment
 <table>
 	<tbody>

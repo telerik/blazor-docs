@@ -7,8 +7,8 @@ slug: grid-kb-filter-edit-enum
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

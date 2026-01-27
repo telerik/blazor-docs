@@ -6,8 +6,8 @@ page_title: Get the user selection in the Editor
 slug: editor-kb-get-selection
 tags: blazor, editor, selection
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 <table>
 	<tbody>

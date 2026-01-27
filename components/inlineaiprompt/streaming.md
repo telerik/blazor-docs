@@ -6,8 +6,8 @@ slug: inlineaiprompt-streaming
 tags: telerik,blazor,inlineaiprompt,streaming
 published: True
 position: 5
+components: ["inlineaiprompt"]
 ---
-
 # Streaming AI Responses with InlineAIPrompt
 
 The Blazor InlineAIPrompt component supports streaming responses, allowing users to see AI-generated content as it is being produced. This feature improves the user experience by providing immediate feedback and a more interactive interface.

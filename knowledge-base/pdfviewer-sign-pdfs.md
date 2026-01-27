@@ -6,8 +6,8 @@ page_title: How to Sign PDFs in Telerik PDF Viewer
 slug: pdfviewer-sign-pdfs
 tags: telerik, pdf, viewer, sign, digital signature
 res_type: kb
+components: ["pdfviewer"]
 ---
-
 ## Environment
 
 <table>

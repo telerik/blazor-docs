@@ -6,8 +6,8 @@ slug: aiprompt-views-prompt
 tags: telerik,blazor,aiprompt,prompt
 published: True
 position: 10
+components: ["aiprompt"]
 ---
-
 # AIPrompt Prompt View
 
 The Prompt view features the prompt input, where users can type their query. It also contains a button to trigger a response request.

@@ -7,8 +7,8 @@ slug: fileselect-kb-blazor-initial-files
 tags: fileselect, blazor, initial, files
 res_type: kb
 ticketid: 1683091
+components: ["fileselect"]
 ---
-
 ## Environment
 
 <table>

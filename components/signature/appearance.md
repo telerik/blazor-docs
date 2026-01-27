@@ -6,8 +6,8 @@ slug: signature-appearance
 tags: telerik,blazor,signature,appearance
 published: True
 position: 5
+components: ["signature"]
 ---
-
 # Signature Settings
 
 You can control the appearance of the Signature component by using the following parameters:

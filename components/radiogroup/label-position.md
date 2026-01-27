@@ -6,8 +6,8 @@ slug: radiogroup-label-position
 tags: telerik,blazor,radiobuttongroup,radio,list,label,position
 published: True
 position: 15
+components: ["radiogroup"]
 ---
-
 # RadioGroup Label Position
 
 The Blazor Radio Button Group component lets you render the labels of the radio buttons before or after the buttons themselves.

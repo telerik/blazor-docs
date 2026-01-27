@@ -6,8 +6,8 @@ slug: stockchart-labels-format-template
 tags: telerik,blazor,stock,stockchart,chart,label,template,format,customize
 published: true
 position: 23
+components: ["stockchart"]
 ---
-
 # Label Template and Format
 
 The StockChart for Blazor can render labels on the axes and the navigator. You can control these texts not only through the values you bind to data but also through [format strings](#format-strings) or [templates](#templates).

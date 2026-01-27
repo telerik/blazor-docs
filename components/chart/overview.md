@@ -7,8 +7,8 @@ tags: telerik,blazor,chart,overview, graph
 published: True
 hideCta: True
 position: 0
+components: ["charts"]
 ---
-
 # Blazor Chart Overview
 
 The <a href="https://demos.telerik.com/blazor-ui/chart/overview" target="_blank">Blazor Charts</a> components enables you to present data in a visually meaningful way, helping users draw insights effectively. It offers a wide range of graph types and provides full control over its appearance, including colors, fonts, paddings, margins, and templates.

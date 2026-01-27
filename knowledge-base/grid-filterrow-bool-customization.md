@@ -6,8 +6,8 @@ page_title: How to Change the Boolean Filtering Options in a FilterRow Dropdown
 slug: grid-kb-filterrow-bool-customization
 ticketid: 1575619, 1603347, 1646267, 1654640
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, theme
 ticketid: 1442823
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 
 <table>

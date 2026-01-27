@@ -8,8 +8,8 @@ position:
 tags: grid, search, filter, gridsearchbox
 ticketid: 1565940
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

@@ -8,8 +8,8 @@ position:
 tags: telerik, treeview, tree, edit, template
 ticketid: 1525532, 1540469, 1629878, 1602035
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 <table>
 	<tbody>

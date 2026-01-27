@@ -7,8 +7,8 @@ slug: grid-convert-descriptors-to-sql
 tags: grid, blazor, filter descriptors , sort descriptors, SQL query
 res_type: kb
 ticketid: 1666625, 1653361
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

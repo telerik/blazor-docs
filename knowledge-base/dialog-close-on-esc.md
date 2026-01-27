@@ -6,8 +6,8 @@ page_title: How to Close the Dialog on ESC When its Content is Focused
 slug: dialog-kb-close-on-esc
 tags: blazor, dialog, keyboard
 res_type: kb
+components: ["dialog"]
 ---
-
 ## Description
 
 This knowledge base article answers to the following questions: 

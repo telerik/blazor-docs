@@ -6,8 +6,8 @@ slug: fileselect-overview
 tags: telerik,blazor,fileselect,async,overview
 published: True
 position: 0
+components: ["fileselect"]
 ---
-
 # Blazor FileSelect Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/fileselect" target="_blank">Telerik UI for Blazor FileSelect component</a> helps users select one or more files from their local file system.

@@ -7,8 +7,8 @@ slug: grid-kb-row-selection-in-column-template
 tags: grid, selection, templates
 ticketid: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

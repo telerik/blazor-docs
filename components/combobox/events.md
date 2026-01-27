@@ -6,8 +6,8 @@ slug: components/combobox/events
 tags: telerik,blazor,combobox,combo,events
 published: true
 position: 40
+components: ["combobox"]
 ---
-
 # ComboBox Events
 
 This article explains the events available in the Telerik ComboBox for Blazor:

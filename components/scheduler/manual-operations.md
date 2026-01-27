@@ -6,8 +6,8 @@ slug: scheduler-manual-operations
 tags: telerik,blazor,scheduler,read,navigate,manual,data,data source
 published: false
 position: 15
+components: ["scheduler"]
 ---
-
 # Manual Data Source Operations
 
 By default, the scheduler will receive the entire collection of appointments, and it will perform the necessary operations (like determining which ones to go into the current view) internally to it. You can perform these operations yourself by handling the `OnRead` event of the scheduler as shown in the example below. The data source will be read after each [navigation](slug:scheduler-navigation) as well, to ensure fresh data.

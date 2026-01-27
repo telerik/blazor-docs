@@ -8,8 +8,8 @@ position:
 tags: listview, edit, popup
 ticketid: 1617531
 res_type: kb
+components: ["listview"]
 ---
-
 ## Environment
 
 <table>

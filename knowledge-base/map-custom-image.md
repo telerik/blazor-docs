@@ -7,8 +7,8 @@ slug: map-kb-custom-image
 tags: blazor, map, markers
 res_type: kb
 ticketid: 1652767
+components: ["map"]
 ---
-
 ## Environment
 
 <table>

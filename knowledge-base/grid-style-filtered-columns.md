@@ -7,8 +7,8 @@ slug: grid-kb-style-filtered-columns
 tags: grid, blazor, styling, filtering, css, oncellrender, onstatechanged
 res_type: kb
 ticketid: 1672604
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

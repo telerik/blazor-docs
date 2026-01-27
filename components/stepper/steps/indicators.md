@@ -6,9 +6,8 @@ slug: stepper-indicators
 tags: telerik,blazor,stepper,indicators
 published: True
 position: 1
+components: ["stepper"]
 ---
-
-
 # Stepper Indicators
 
 This article explains the configuration of the content that will be rendered in the step indicators. Each step could contain text or icon.

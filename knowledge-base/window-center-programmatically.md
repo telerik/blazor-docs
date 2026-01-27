@@ -7,8 +7,8 @@ slug: window-kb-center-programmatically
 tags: window, center, position, blazor,
 res_type: kb
 ticketid:
+components: ["window"]
 ---
-
 ## Environment
 <table>
 	<tbody>

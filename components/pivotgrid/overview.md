@@ -6,8 +6,8 @@ slug: pivotgrid-overview
 tags: telerik,blazor,pivotgrid
 published: True
 position: 0
+components: ["pivotgrid"]
 ---
-
 # Blazor PivotGrid Overview
 
 The <a href="https://www.telerik.com/blazor-ui/pivotgrid" target="_blank">Blazor PivotGrid component</a>, also known as a pivot table, is a powerful data visualization, statistics and reporting tool that allows you to perform operations and analysis over multi-dimensional pivot data. It can work with local data or a remote XMLA data such as an OLAP cube. The PivotGrid also supports filtering and sorting for the values of the row and column fields.

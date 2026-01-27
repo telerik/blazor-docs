@@ -6,8 +6,8 @@ slug: components/treeview/templates
 tags: telerik,blazor,treeview,templates
 published: True
 position: 10
+components: ["treeview"]
 ---
-
 # Treeview Templates
 
 The Treeview component allows you to define a custom template for its nodes. This article explains how you can use it.

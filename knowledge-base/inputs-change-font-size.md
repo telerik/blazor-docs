@@ -8,8 +8,9 @@ position:
 tags: styling
 ticketid: 1564495
 res_type: kb
----
+components: ["autocomplete","button","combobox","textbox","dropdownlist"]
 
+---
 ## Environment
 
 <table>

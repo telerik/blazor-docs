@@ -9,8 +9,8 @@ previous_url: /knowledge-base/ddl-onchange-fires-twices
 tags: 
 ticketid: 1471167
 res_type: kb
+components: ["general"]
 ---
-
 ## Environment
 <table>
 	<tbody>

@@ -7,8 +7,8 @@ slug: grid-kb-editing-in-hierarchy
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

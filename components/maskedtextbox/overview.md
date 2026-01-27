@@ -6,8 +6,8 @@ slug: maskedtextbox-overview
 tags: telerik,blazor,masked,maskedtextbox,overview
 published: True
 position: 0
+components: ["maskedtextbox"]
 ---
-
 # Blazor MaskedTextbox Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor MaskedTextbox component</a> provides a mask and prompts the user to enter the data in the required format. The component prevents input that does not match the mask. Use it to show the user the required format for values like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values, and so on.

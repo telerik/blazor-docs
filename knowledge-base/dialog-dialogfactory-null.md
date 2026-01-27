@@ -7,8 +7,8 @@ slug: dialog-kb-dialogfactory-null
 tags: telerik, blazor, dialog, dialogfactory
 ticketid: 1674088, 1673922, 1661511
 res_type: kb
+components: ["dialog"]
 ---
-
 ## Environment
 
 <table>

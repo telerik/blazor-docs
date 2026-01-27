@@ -6,9 +6,8 @@ slug: multiselect-pre-select-items
 tags: telerik,blazor,multiselect,pre-select
 published: True
 position: 8
+components: ["multiselect"]
 ---
-
-
 # Pre-Select MultiSelect Items
 
 This article provides an example that shows how to pre-select MultiSelect items for the user. The approach allows you to pre-select a single item or a set of items if they exist in the data source.

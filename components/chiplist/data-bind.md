@@ -6,8 +6,8 @@ slug: chiplist-bound
 tags: telerik,blazor,chiplist,data,bind,binding,databind
 published: True
 position: 5
+components: ["chiplist"]
 ---
-
 # ChipList Data Binding
 
 This article explains how to provide data to a ChipList component, and the properties related to data binding.

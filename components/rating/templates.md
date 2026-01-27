@@ -6,8 +6,8 @@ slug: rating-templates
 tags: telerik,blazor,rating,templates
 published: True
 position: 11
+components: ["rating"]
 ---
-
 # Templates
 
 The Rating features templates that allow you to customize the component rendering and styling. This article describes all available templates and explains how to use them.

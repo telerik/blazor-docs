@@ -8,8 +8,8 @@ position:
 tags: grid, edit, cancel, confirm, dialog
 ticketid: 1552190
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

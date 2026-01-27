@@ -6,8 +6,8 @@ slug: treelist-data-binding-hierarchical-data
 tags: telerik,blazor,treelist,data,bind,databind,databinding,hierarchical
 published: True
 position: 1
+components: ["treelist"]
 ---
-
 # TreeList Data Binding to Hierarchical Data
 
 This article explains how to bind the treelist for Blazor to hierarchical data. 

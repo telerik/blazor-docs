@@ -6,9 +6,8 @@ slug: editor-edit-modes-iframe
 tags: telerik,blazor,edit,mode,iframe
 published: True
 position: 5
+components: ["editor"]
 ---
-
-
 # Editor Iframe Edit Mode
 
 The Iframe mode is the default [edit mode](slug:editor-edit-modes-overview) of the editor. It creates a separate `document` for editing, because the editable area is an `<iframe>` HTML element.

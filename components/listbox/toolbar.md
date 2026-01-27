@@ -6,8 +6,8 @@ slug: listbox-toolbar
 tags: telerik,blazor,listbox
 published: True
 position: 10
+components: ["listbox"]
 ---
-
 # ListBox Toolbar
 
 The ListBox toolbar can render built-in and custom tools. The built-in tools are buttons that reorder and remove items or transfer items from and to another ListBox component. This article describes the built-in tools and shows how to add custom tools or customize the toolbar.

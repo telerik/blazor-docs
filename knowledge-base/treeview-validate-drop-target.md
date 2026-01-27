@@ -7,8 +7,8 @@ slug: treeview-kb-validate-drop-target
 tags: treeview, item, node, drop target, draggable, validate, invalid, prevent drop
 ticketid: 1592132
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 
 <table>

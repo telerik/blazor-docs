@@ -8,8 +8,8 @@ slug: grid-kb-access-gridsearchbox-value
 tags: toolbar, searchbox, datasource, filters, grid
 res_type: kb
 ticketid: 1693363
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

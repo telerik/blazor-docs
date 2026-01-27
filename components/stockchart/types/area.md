@@ -6,8 +6,8 @@ slug: stockchart-area
 tags: telerik,blazor,stock,chart,area
 published: True
 position: 0
+components: ["stockchart"]
 ---
-
 # Area Chart
 
 An **Area** chart shows the data as continuous lines that pass through points defined by their items' values. The portion of the graph beneath the lines is filled with a particular color for every series. Colors in an Area chart can be useful for emphasizing changes in values from several sets of similar data. A colored background will clearly visualize the differences.

@@ -6,8 +6,8 @@ slug: grid-export-events
 tags: telerik,blazor,grid,export,events
 published: True
 position: 15
+components: ["grid"]
 ---
-
 # Export Events
 
 You can customize the files exported to Excel and CSV by using the [OnBeforeExport](#onbeforeexport) and the [OnAfterExport](#onafterexport) events exposed to the `GridExcelExport` and `GridCsvExport` tags. 

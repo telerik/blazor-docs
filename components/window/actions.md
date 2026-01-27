@@ -6,8 +6,8 @@ slug: components/window/actions
 tags: telerik,blazor,window,actions
 published: True
 position: 3
+components: ["window"]
 ---
-
 # Window Actions
 
 The Window offers action buttons in its titlebar:

@@ -6,8 +6,8 @@ slug: colorpicker-views
 tags: telerik,blazor,colorpicker,views,overview
 published: True
 position: 0
+components: ["colorpicker"]
 ---
-
 # ColorPicker Views
 
 The ColorPicker popup can display different views. They allow users to select a color from an interface that matches their preferences. The supported views are:

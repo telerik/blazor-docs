@@ -6,8 +6,8 @@ slug: components/combobox/custom-value
 tags: telerik,blazor,combo,combobox,custom,value,input
 published: True
 position: 20
+components: ["combobox"]
 ---
-
 # ComboBox Custom Values
 
 The ComboBox component allows the user to type in their own value that is not a part of the predefined set of options that the developer provided.

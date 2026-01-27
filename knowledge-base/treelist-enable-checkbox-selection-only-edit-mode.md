@@ -7,8 +7,8 @@ slug: treelist-kb-enable-checkbox-selection-only-edit-mode
 tags: treelist, blazor, checkbox, selection, edit mode, visibility, checkboxcolumn
 res_type: kb
 ticketid: 1657252
+components: ["treelist"]
 ---
-
 ## Environment
 
 <table>

@@ -6,8 +6,8 @@ slug: treelist-refresh-data
 tags: telerik,blazor,treelist,observable,data,new,collection
 published: True
 position: 60
+components: ["treelist"]
 ---
-
 # TreeList - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

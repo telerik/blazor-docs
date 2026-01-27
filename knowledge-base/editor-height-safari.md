@@ -7,8 +7,8 @@ slug: editor-kb-height-safari
 position:
 tags:
 res_type: kb
+components: ["editor"]
 ---
-
 ## Environment
 <table>
 	<tbody>

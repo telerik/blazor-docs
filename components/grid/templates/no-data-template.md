@@ -6,9 +6,8 @@ slug: grid-templates-no-data
 tags: telerik, blazor, grid, templates
 published: True
 position: 38
+components: ["grid"]
 ---
-
-
 # No Data Template
 
 The `NoDataTemplate` allows you to define custom content when the Grid has no data to show. It lets you change the default **No records available** localizable text.

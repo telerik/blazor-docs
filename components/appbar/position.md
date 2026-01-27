@@ -6,8 +6,8 @@ slug: appbar-position
 tags: telerik,blazor,appbar,navbar,position
 published: True
 position: 35
+components: ["appbar"]
 ---
-
 # Position Settings
 
 This article outlines the available AppBar parameters, which control its position.

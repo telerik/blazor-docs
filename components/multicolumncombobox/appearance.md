@@ -6,8 +6,8 @@ slug: multicolumncombobox-appearance
 tags: telerik,blazor,multicolumncombobox,combobox,appearance
 published: True
 position: 40
+components: ["multicolumncombobox"]
 ---
-
 # Appearance Settings
 
 You can control the appearance of the MultiColumnComboBox by setting the following attributes:

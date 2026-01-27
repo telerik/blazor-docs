@@ -6,8 +6,8 @@ slug: barcode-overview
 tags: telerik,blazor,barcode,overview
 published: True
 position: 0
+components: ["barcode"]
 ---
-
 # Blazor Barcode Overview
 
 The <a href="https://www.telerik.com/blazor-ui/barcode" target="_blank">Blazor Barcode component</a> represents data in a machine-readable format. It supports several different encoding standards.

@@ -7,8 +7,8 @@ slug: calendar-kb-allowed-dates
 position: 
 tags: telerik, blazor, calendar
 res_type: kb
+components: ["calendar"]
 ---
-
 ## Environment
 
 <table>

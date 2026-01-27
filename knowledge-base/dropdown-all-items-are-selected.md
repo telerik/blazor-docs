@@ -8,8 +8,8 @@ position:
 tags: autocomplete,combobox,dropdownlist
 ticketid: 1574582
 res_type: kb
+components: ["dropdownlist","combobox"]
 ---
-
 ## Environment
 
 <table>

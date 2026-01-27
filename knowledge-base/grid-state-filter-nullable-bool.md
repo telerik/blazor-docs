@@ -7,8 +7,8 @@ slug: grid-kb-filter-nullable-bool
 tags: telerik, blazor, grid, filter, state
 res_type: kb
 ticketid: 1658561
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

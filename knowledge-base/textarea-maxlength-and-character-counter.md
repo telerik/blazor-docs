@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, textarea, maxlength, counter
 ticketid:
 res_type: kb
+components: ["textarea"]
 ---
-
 ## Environment
 <table>
 	<tbody>

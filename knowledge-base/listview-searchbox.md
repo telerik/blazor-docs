@@ -8,8 +8,8 @@ position:
 tags: listview,search,searchbox,filter,filtering
 ticketid: 1536554
 res_type: kb
+components: ["listview"]
 ---
-
 ## Environment
 
 <table>

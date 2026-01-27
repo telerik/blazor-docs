@@ -6,8 +6,8 @@ slug: splitter-orientation
 tags: telerik,blazor,splitter,orientation,horizontal,vertical
 published: True
 position: 8
+components: ["splitter"]
 ---
-
 # Splitter Orientation
 
 You can customize the Splitter orientation through the its `Orientation` parameter. It takes a member of the `SplitterOrientation` enum:

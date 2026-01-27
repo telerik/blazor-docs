@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1592132
 res_type: kb
+components: ["treeview"]
 ---
-
 ## Environment
 
 <table>

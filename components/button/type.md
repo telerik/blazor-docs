@@ -6,8 +6,8 @@ slug: button-type
 tags: telerik,blazor,button,type
 published: True
 position: 3
+components: ["button"]
 ---
-
 # Button Type
 
 The Button renders a `<button type="submit">` element by default, as this is the default behavior of a button. This article explains how to change it, and how to link forms to external submit buttons.

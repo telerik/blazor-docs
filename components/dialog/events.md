@@ -6,8 +6,8 @@ slug: dialog-events
 tags: telerik,blazor,dialog,events
 published: True
 position: 10
+components: ["dialog"]
 ---
-
 # Dialog Events
 
 This article explains the events available in the Telerik Dialog for Blazor:

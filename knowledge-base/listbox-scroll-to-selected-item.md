@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, listbox, selection, scrolling
 ticketid: 1628516
 res_type: kb
+components: ["listbox"]
 ---
-
 ## Environment
 
 <table>

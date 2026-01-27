@@ -8,8 +8,8 @@ position:
 tags: telerik, blazor, grid, filtermenu, template, combobox
 ticketid: 1522512
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

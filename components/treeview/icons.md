@@ -6,8 +6,8 @@ slug: treeview-icons
 tags: telerik,blazor,treeview,icon,iconclass,image
 published: True
 position: 15
+components: ["treeview"]
 ---
-
 # TreeView Icons
 
 You can add [Telerik Font or SVG icons](slug:common-features-icons) to the TreeView items. The component also supports custom icons.

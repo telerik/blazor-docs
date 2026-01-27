@@ -6,8 +6,8 @@ slug: components/grid/features/hierarchy
 tags: telerik,blazor,grid,hierarchy,detail,detail template
 published: True
 position: 40
+components: ["grid"]
 ---
-
 # Grid Hierarchy
 
 The Grid component provides options for visualizing the relations between parent and child records by displaying data in a hierarchical manner through a detail template.

@@ -8,8 +8,8 @@ position:
 tags: 
 ticketid: 1503103
 res_type: kb
+components: ["listview"]
 ---
-
 ## Environment
 <table>
 	<tbody>

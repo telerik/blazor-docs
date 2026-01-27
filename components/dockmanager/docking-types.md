@@ -6,8 +6,8 @@ slug: dockmanager-dock-types
 tags: telerik, blazor, dockmanager, docking
 published: true
 position: 10
+components: ["dockmanager"]
 ---
-
 # Docking Panes
 
 The Blazor DockManager component exposes the ability to dock globally or within other panes.

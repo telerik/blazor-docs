@@ -6,8 +6,8 @@ slug: treelist-templates-column
 tags: telerik,blazor,treelist,templates,column,cell
 published: True
 position: 5
+components: ["treelist"]
 ---
-
 # Column Template
 
 By default, the TreeList renders the value of the field in the column, as it is provided from the data source. You can change this behavior by using the `Template` of the column and add your own content and/or logic to make a string out of the object.

@@ -7,8 +7,8 @@ slug: grid-kb-sticky-headers
 tags: telerik, blazor, grid, treelist, css, styling
 ticketid: 1687016, 1592949, 1522505
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 
 <table>

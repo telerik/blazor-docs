@@ -7,8 +7,8 @@ slug: grid-kb-index-of-a-grid-row
 position: 
 tags: 
 res_type: kb
+components: ["grid"]
 ---
-
 ## Environment
 <table>
 	<tbody>

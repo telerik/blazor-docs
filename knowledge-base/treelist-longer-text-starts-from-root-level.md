@@ -8,8 +8,8 @@ position:
 tags: treelist, long, text, not, align
 ticketid: 1498752
 res_type: kb
+components: ["treelist"]
 ---
-
 ## Environment
 <table>
 	<tbody>
