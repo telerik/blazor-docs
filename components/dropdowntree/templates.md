@@ -8,260 +8,262 @@ published: True
 position: 40
 ---
 
-# Treeview Templates
+# DropDownTree Templates
 
-The Treeview component allows you to define a custom template for its nodes. This article explains how you can use it.
+The DropDownTree allows you to define templates to customize the component styling and appearance. This article lists all available templates and shows how to use them.
 
-In this article:
-* [Basics](#basics)
-* [Examples](#examples)
-    * [Handle DOM events in a template - e.g., click on a node](#handle-dom-events-in-a-template-e-g-click-on-a-node)
-    * [Use templates to implement navigation between views without the usage of the UrlField feature](#use-templates-to-implement-navigation-between-views-without-the-usage-of-the-urlfield-feature)
-    * [Different templates for different node levels](#different-templates-for-different-node-levels)
+* [Footer template](#footertemplate)
+* [Header template](#headertemplate)
+* [Item template](#itemtemplate)
+* [No data template](#nodatatemplate)
+* [Value template](#valuetemplate)
+* [Complete runnable example](#example)
 
-## Basics
+## FooterTemplate
 
-The `ItemTemplate` of a node is defined under the `TreeViewBinding` tag.
+The DropDownTree `FooterTemplate` renders optional custom content below the data items in the popup.
 
-The template receives the model to which the item is bound as its `context`. You can use it to render the desired content.
+>caption Using DropDownTree FooterTemplate
 
-You can also define different templates for the different levels in each `TreeViewBinding` tag.
+````RAZOR.skip-repl
+<TelerikDropDownTree>
+    <FooterTemplate>
+        <div style="text-align: center;">
+            <strong>DropDownTree Footer</strong>
+        </div>
+    </FooterTemplate>
+</TelerikDropDownTree>
+````
 
-You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, double click, mouseover if you need to respond to them.
+See the [runnable example below](#example).
 
-## Examples
+## HeaderTemplate
 
-### Handle DOM events in a template - e.g., click on a node
+The DropDownTree `HeaderTemplate` renders optional custom content above the data items in the popup. When filtering is enabled, the header template displays between the filtering textbox and the data items.
 
->tip You can respond to the user click on a node by using the [`OnItemClick`](slug:treeview-events#onitemclick) event.
+>caption Using DropDownTree HeaderTemplate
+
+````RAZOR.skip-repl
+<TelerikDropDownTree>
+    <HeaderTemplate>
+        <div style="text-align: center;">
+            <strong>DropDownTree Header</strong>
+        </div>
+    </HeaderTemplate>
+</TelerikDropDownTree>
+````
+
+See the [runnable example below](#example).
+
+## ItemTemplate
+
+The DropDownTree `ItemTemplate` customizes the content and appearance of the TreeView items in the popup. The template receives a `context` of type `object` that you need to cast to your model type.
+
+Unlike the other DropDownTree templates, the `<ItemTemplate>` tag is a child of the `<DropDownTreeBinding>` tag. This allows you to have different item templates for different TreeView levels.
+
+>caption Using the same DropDownTree ItemTemplate for all levels
+
+````RAZOR.skip-repl
+<TelerikDropDownTree>
+    <DropDownTreeBindings>
+        <DropDownTreeBinding>
+            <ItemTemplate>
+                @{ TreeItem dataItem = (TreeItem)context; }
+                @dataItem.Text
+            </ItemTemplate>
+        </DropDownTreeBinding>
+    </DropDownTreeBindings>
+</TelerikDropDownTree>
+````
+
+>caption Using DropDownTree ItemTemplate per level
+
+````RAZOR.skip-repl
+<TelerikDropDownTree>
+    <DropDownTreeBindings>
+        <DropDownTreeBinding Level="0">
+            <ItemTemplate>
+                @{ TreeItem dataItem = (TreeItem)context; }
+                @dataItem.Text (root level)
+            </ItemTemplate>
+        </DropDownTreeBinding>
+        <DropDownTreeBinding>
+            <ItemTemplate>
+                @{ TreeItem dataItem = (TreeItem)context; }
+                @dataItem.Text
+            </ItemTemplate>
+        </DropDownTreeBinding>
+    </DropDownTreeBindings>
+</TelerikDropDownTree>
+````
+
+See the [runnable example below](#example).
+
+## NoDataTemplate
+
+The DropDownTree `NoDataTemplate` allows you to customize the data area of the dropdown when the `Data` parameter is `null` or contains no items.
+
+>caption Using DropDownTree NoDataTemplate
+
+````RAZOR.skip-repl
+<TelerikDropDownTree Data="@DropDownTreeData">
+    <NoDataTemplate>
+        No Data
+    </NoDataTemplate>
+</TelerikDropDownTree>
+````
+
+See the [runnable example below](#example).
+
+## ValueTemplate
+
+The DropDownTree `ValueTemplate` controls the display of the current `Value` when the component is closed. The template receives a `context` of type `TItem`.
+
+>caption Using DropDownTree ValueTemplate
+
+````RAZOR.skip-repl
+<TelerikDropDownTree>
+    <ValueTemplate>
+        @context.Text
+    </ValueTemplate>
+</TelerikDropDownTree>
+````
+
+## Example
 
 ````RAZOR
-@result
-
-<TelerikTreeView Data="@TreeData">
-    <TreeViewBindings>
-        <TreeViewBinding>
+<TelerikDropDownTree @ref="@DropDownTreeRef"
+                     Data="@DropDownTreeData"
+                     @bind-Value="@DropDownTreeValue"
+                     @bind-ExpandedItems="@DropDownTreeExpandedItems"
+                     TextField="@nameof(TreeItem.Text)"
+                     ValueField="@nameof(TreeItem.Id)"
+                     Width="300px">
+    <DropDownTreeBindings>
+        <DropDownTreeBinding Level="0">
             <ItemTemplate>
-                @{
-                    TreeItem itm = context as TreeItem;
-                    <span @onclick="@( _ => NodeClick(itm) )">
-                        Node:
-                        <strong>@itm.Text</strong>
-                    </span>
-                }
+                @{ TreeItem dataItem = (TreeItem)context; }
+                <strong style="color: var(--kendo-color-secondary)">@dataItem.Text</strong>
             </ItemTemplate>
-        </TreeViewBinding>
-    </TreeViewBindings>
-</TelerikTreeView>
+        </DropDownTreeBinding>
+        <DropDownTreeBinding>
+            <ItemTemplate>
+                @{ TreeItem dataItem = (TreeItem)context; }
+                <span>@dataItem.Text (<strong>@dataItem.ItemCode</strong>)</span>
+            </ItemTemplate>
+        </DropDownTreeBinding>
+    </DropDownTreeBindings>
+    <FooterTemplate>
+        @if (DropDownTreeData is not null && DropDownTreeData.Count > 0)
+        {
+            <div class="header-footer">
+                Showing @DropDownTreeData.Count() Items
+            </div>
+        }
+    </FooterTemplate>
+    <HeaderTemplate>
+        <div class="header-footer">
+            <strong>DropDownTree Header</strong>
+        </div>
+    </HeaderTemplate>
+    <NoDataTemplate>
+        <TelerikButton OnClick="@OnLoadItemsClick">Load Items</TelerikButton>
+    </NoDataTemplate>
+    <ValueTemplate>
+        <TelerikSvgIcon Icon="@SvgIcon.Unlock" />
+        <strong style="color: var(--kendo-color-primary)">@context.Text</strong>
+    </ValueTemplate>
+</TelerikDropDownTree>
+
+<TelerikButton OnClick="@OnRemoveItemsClick">Remove Data</TelerikButton>
+<TelerikButton OnClick="@OnLoadItemsClick">Load Data</TelerikButton>
+
+<style>
+    .header-footer {
+        text-align: center;
+        padding: var(--kendo-spacing-1) var(--kendo-spacing-2);
+        background: var(--kendo-color-base-subtle);
+    }
+</style>
 
 @code {
-    string result { get; set; }
-    async Task NodeClick(TreeItem clickeNode)
+    private TelerikDropDownTree<TreeItem, int>? DropDownTreeRef;
+    private List<TreeItem>? DropDownTreeData { get; set; }
+    private List<TreeItem> RawData { get; set; } = new();
+
+    private IEnumerable<object> DropDownTreeExpandedItems { get; set; } = new List<object>();
+
+    private int DropDownTreeValue { get; set; }
+
+    private int LastId { get; set; }
+
+    private async Task OnRemoveItemsClick()
     {
-        result = $"Last clicked node Id: {clickeNode.Id}";
+        DropDownTreeData?.Clear();
+        DropDownTreeExpandedItems = new List<TreeItem>();
+
+        await Task.Delay(300);
+
+        DropDownTreeRef?.Open();
     }
 
-    // sample data
+    private async Task OnLoadItemsClick()
+    {
+        DropDownTreeData = new List<TreeItem>(RawData);
+        DropDownTreeExpandedItems = DropDownTreeData.Where(x => x.ParentId is null).ToList();
 
-    public IEnumerable<TreeItem> TreeData { get; set; }
+        await Task.Delay(300);
+
+        DropDownTreeRef?.Open();
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            RawData.Add(new TreeItem()
+            {
+                Id = ++LastId,
+                Text = $"Root Item {i}",
+                HasChildren = true
+            });
+
+            int parentId = LastId;
+
+            for (int j = 1; j <= 2; j++)
+            {
+                RawData.Add(new TreeItem()
+                {
+                    Id = ++LastId,
+                    ParentId = parentId,
+                    Text = $"Item {i}-{j}",
+                    ItemCode = GetRandomCode()
+                });
+            }
+        }
+
+        DropDownTreeData = new List<TreeItem>(RawData);
+        DropDownTreeExpandedItems = DropDownTreeData.Where(x => x.ParentId is null).ToList();
+    }
+
+    private string GetRandomCode()
+    {
+        return string.Concat((char)Random.Shared.Next(65, 91),
+            (char)Random.Shared.Next(65, 91),
+            (char)Random.Shared.Next(65, 91));
+    }
 
     public class TreeItem
     {
-        public string Text { get; set; }
         public int Id { get; set; }
-        public List<TreeItem> Items { get; set; } = new List<TreeItem>();
+        public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        LoadHierarchical();
-    }
-
-    private void LoadHierarchical()
-    {
-        List<TreeItem> roots = new List<TreeItem>() {
-            new TreeItem { Text = "Item 1", Id = 1, HasChildren = true },
-            new TreeItem { Text = "Item 2", Id = 2, HasChildren = true }
-        };
-
-        roots[0].Items.Add(new TreeItem
-        {
-            Text = "Item 1 first child",
-            Id = 3
-
-        });
-
-        roots[0].Items.Add(new TreeItem
-        {
-            Text = "Item 1 second child",
-            Id = 4
-
-        });
-
-        roots[1].Items.Add(new TreeItem
-        {
-            Text = "Item 2 first child",
-            Id = 5
-
-        });
-
-        roots[1].Items.Add(new TreeItem
-        {
-            Text = "Item 2 second child",
-            Id = 6
-
-        });
-
-        TreeData = roots;
+        public string Text { get; set; } = string.Empty;
+        public string ItemCode { get; set; } = string.Empty;
     }
 }
 ````
-
-### Use templates to implement navigation between views without the usage of the UrlField feature
-
->tip You can read more information on how to use the Treeview to switch between pages from the [Navigation](slug:treeview-navigation) article
-
-````RAZOR
-Implement your own navigation through NavLink elements, instead of using the built-in feature
-
-<TelerikTreeView Data="@TreeData">
-    <TreeViewBindings>
-        <TreeViewBinding IdField="Id" ParentIdField="ParentIdValue" HasChildrenField="HasChildren">
-            <ItemTemplate>
-                <NavLink Match="NavLinkMatch.All" href="@((context as TreeItem).Page)">
-                    @((context as TreeItem).Text)
-                </NavLink>
-            </ItemTemplate>
-        </TreeViewBinding>
-    </TreeViewBindings>
-</TelerikTreeView>
-
-@code {
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public int? ParentIdValue { get; set; }
-        public bool HasChildren { get; set; }
-        public string Page { get; set; }
-    }
-
-    public IEnumerable<TreeItem> TreeData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        LoadTreeData();
-    }
-
-    private void LoadTreeData()
-    {
-        List<TreeItem> items = new List<TreeItem>();
-
-        items.Add(new TreeItem()
-        {
-            Id = 1,
-            Text = "Project",
-            ParentIdValue = null,
-            HasChildren = true,
-            Page = "one"
-        });
-
-        items.Add(new TreeItem()
-        {
-            Id = 2,
-            Text = "Design",
-            ParentIdValue = 1,
-            HasChildren = false,
-            Page = "two"
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 3,
-            Text = "Implementation",
-            ParentIdValue = 1,
-            HasChildren = false,
-            Page = "three"
-        });
-
-        TreeData = items;
-    }
-}
-````
-
-### Different templates for different node levels
-
-````RAZOR
-Multiple templates usage.
-
-<TelerikTreeView Data="@HierarchicalData">
-    <TreeViewBindings>
-        <TreeViewBinding TextField="Category" ItemsField="Products">
-            <ItemTemplate>
-                Section: <strong>@((context as ProductCategoryItem).Category)</strong>
-            </ItemTemplate>
-        </TreeViewBinding>
-        <TreeViewBinding Level="1" TextField="ProductName">
-            <ItemTemplate>
-                @{
-                    ProductItem currProduct = context as ProductItem;
-                    <img src="/images/products/@( currProduct.ProductId )" alt="@(currProduct.ProductName)" /> @(currProduct.ProductName)
-                }
-            </ItemTemplate>
-        </TreeViewBinding>
-    </TreeViewBindings>
-</TelerikTreeView>
-
-@code {
-    public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
-
-    public class ProductCategoryItem
-    {
-        public string Category { get; set; }
-        public List<ProductItem> Products { get; set; }
-        public bool HasChildren { get; set; }
-    }
-
-    public class ProductItem
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        LoadHierarchical();
-    }
-
-    private void LoadHierarchical()
-    {
-        List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
-
-        List<ProductItem> firstCategoryProducts = new List<ProductItem>() {
-            new ProductItem { ProductName= "Product 1", ProductId = 1 },
-            new ProductItem { ProductName= "Product 2", ProductId = 2 }
-        };
-
-        roots.Add(new ProductCategoryItem
-        {
-            Category = "Category 1",
-            Products = firstCategoryProducts,
-            HasChildren = firstCategoryProducts?.Count > 0,
-
-        });
-
-        roots.Add(new ProductCategoryItem
-        {
-            Category = "Category 2"
-        });
-
-        HierarchicalData = roots;
-    }
-}
-````
-
 
 ## See Also
 
-  * [Data Binding a TreeView](slug:components/treeview/data-binding/overview)
-  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/overview)
+* [Live Demo: DropDownTree](https://demos.telerik.com/blazor-ui/dropdowntree/overview)
