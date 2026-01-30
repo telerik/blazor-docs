@@ -385,7 +385,7 @@ This approach is suitable for scenarios where the application positions each For
 
 `FormItemsTemplateContext.Items` is a generic `List<IFormItemBase>`, so there are [multiple different ways to get each form item (or group) via standard methods](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1). The example below shows a few alternatives - `First()`, `Skip()`, and index.
 
-The sample also demonstrates how to display Form items conditionally (in this case, `DriversLicense`), depending on the value of another Form field (`BirthDate`). Note the usage of a [Form item `Template`](slug:form-formitems-template) for `BirthDate`, which enables the Form to re-render and toggle the `DriversLicense` checkbox. See [UI rendering and performance optimization inside the Form](slug:form-formitems#ui-rendering-inside-the-form) for more ways to refresh the Form component.
+The sample also demonstrates how to display Form items and groups conditionally, depending on the value of another Form field (`BirthDate`). Note the usage of a [Form item `Template`](slug:form-formitems-template) for `BirthDate`, which enables the Form to re-render and toggle the `DriversLicense`, `Team`, and `Salary` fields. See [UI rendering and performance optimization inside the Form](slug:form-formitems#ui-rendering-inside-the-form) for more ways to refresh the Form component.
 
 >caption Render defined Form items inside a FormItemsTemplate
 
