@@ -444,7 +444,7 @@ The sample also demonstrates how to display Form items conditionally (in this ca
             <TelerikFormItemRenderer Item="@( formItems.Skip(3).First() )" />
         </div>
 
-        @* Render Form item conditionally *@
+        @* Render Form item and group conditionally *@
         @if (Employee.BirthDate < DateTime.Today.AddYears(-18))
         {
             <div class="form-item-wrapper">
