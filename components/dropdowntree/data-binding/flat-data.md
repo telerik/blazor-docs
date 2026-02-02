@@ -1,123 +1,97 @@
 ---
 title: Flat Data
-page_title: Treeview - Data Binding to Flat Data
-description: Data Bind the DropDownTree for Blazor to flat data
+page_title: DropDownTree - Data Binding to Flat Data
+description: Learn how to bind the Telerik DropDownTree for Blazor to flat self-referencing data collections.
 slug: dropdowntree-data-binding-flat-data
 tags: telerik,blazor,dropdowntree,databinding
 published: True
 position: 5
 ---
 
-# DropDownTree Data Binding to Flat Data
+# DropDownTree Binding to Flat Data
 
-This article explains how to bind the TreeView for Blazor to flat data. 
-@[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
+This article explains how to bind the DropDownTree for Blazor to flat self-referencing data.
+@[template](/_contentTemplates/dropdowntree/general.md#data-binding-basics-link)
 
+Flat data means that all DropDownTree items are available at one level in a single collection, for example, `List<MyTreeItem>`. The parent-child relationships are defined through properties in the model. For example, the `ParentId` property value of one item points to the `Id` property value of another parent item. The root level items have `null` values for `ParentId`. There must be at least one node with a `null` value so that the TreeView in the DropDownTree popup renders.
 
-Flat data means that the entire collection of treeview items is available at one level, for example `List<MyTreeItemModel>`.
+You must also provide the correct value for the `HasChildren` property of each item, so that expand arrows display where needed.
 
-The parent-child relationships are created through internal data in the model - the `Parent` field which points to the `Id` of the item that will contain the current item. The root level has `null` for `Parent`. There must be at least one node with a `null` value so that the TreeView renders anything.
+When using [multiple level bindings](slug:dropdowntree-data-binding-overview#multiple-level-bindings), define the same `ParentIdField` for all levels for better performance.
 
-You must also provide the correct value for the `HasChildren` field - for items that have children, you must set it to `true` so that the expand arrow is rendered.
-
->caption Example for flat data in a Treeview, using non-default ParentIdField
+>caption Bind DropDownTree to flat data
 
 ````RAZOR
-Using self-referencing flat data
-
-<TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">
-	<TreeViewBindings>
-		<TreeViewBinding ParentIdField="Parent" />
-	</TreeViewBindings>
-</TelerikTreeView>
+<TelerikDropDownTree Data="@DropDownTreeData"
+                     @bind-Value="@DropDownTreeValue"
+                     @bind-ExpandedItems="@DropDownTreeExpandedItems"
+                     Width="300px">
+</TelerikDropDownTree>
 
 @code {
-	public IEnumerable<TreeItem> FlatData { get; set; }
-	public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    private List<TreeItem> DropDownTreeData { get; set; } = new();
 
-	public class TreeItem //most fields use the default names and will bind automatically in this example
-	{
-		public int Id { get; set; }
-		public string Text { get; set; }
-		public int? Parent { get; set; } //this is a non-default field name
-		public bool HasChildren { get; set; }
-	}
+    private int DropDownTreeValue { get; set; } = 3;
 
-	protected override void OnInitialized()
-	{
-		FlatData = LoadFlat();
-		ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
-	}
+    private IEnumerable<object> DropDownTreeExpandedItems { get; set; } = new List<TreeItem>();
 
-	private List<TreeItem> LoadFlat()
-	{
-		List<TreeItem> items = new List<TreeItem>();
+    protected override void OnInitialized()
+    {
+        DropDownTreeData = LoadFlatData();
 
-		items.Add(new TreeItem()
-		{
-			Id = 1,
-			Text = "Parent 1",
-			Parent = null, // indicates a root (zero-level) item
-			HasChildren = true // informs the treeview there are children so it renders the expand option
-		});
+        DropDownTreeExpandedItems = DropDownTreeData.Where(x => x.ParentId is null && x.HasChildren);
+    }
 
-		items.Add(new TreeItem()
-		{
-			Id = 2,
-			Text = "Parent 2",
-			Parent = null, //  indicates a root item
-			HasChildren = true
-		});
+    private int TreeLevels { get; set; } = 3;
+    private int RootItems { get; set; } = 2;
+    private int ItemsPerLevel { get; set; } = 2;
+    private int IdCounter { get; set; }
 
-			items.Add(new TreeItem()
-		{
-			Id = 3,
-			Text = "Parent 3",
-			Parent = null, // indicates a root item
-			HasChildren = false //there will be no children in this item
-		});
+    private List<TreeItem> LoadFlatData()
+    {
+        List<TreeItem> items = new List<TreeItem>();
 
-		items.Add(new TreeItem()
-		{
-			Id = 4,
-			Text = "Child 1 of Parent 1",
-			Parent = 1, // the parent will be the first item
-			HasChildren = false
-		});
+        PopulateChildren(items, null, 1);
 
-		items.Add(new TreeItem()
-		{
-			Id = 5,
-			Text = "Child 2 of Parent 1",
-			Parent = 1, // the parent will be the first item
-			HasChildren = true
-		});
+        return items;
+    }
 
-		items.Add(new TreeItem()
-		{
-			Id = 6,
-			Text = "Child 1 of Child 2",
-			Parent = 5, // the parent will be the first child of the first root item
-			HasChildren = false
-		});
+    private void PopulateChildren(List<TreeItem> items, int? parentId, int level)
+    {
+        var itemCount = level == 1 ? RootItems : ItemsPerLevel;
+        for (int i = 1; i <= itemCount; i++)
+        {
+            var itemId = ++IdCounter;
+            items.Add(new TreeItem()
+            {
+                Id = itemId,
+                ParentId = parentId,
+                HasChildren = level < TreeLevels,
+                Text = $"Level {level} Item {i}",
+                Value = itemId
+            });
 
-		items.Add(new TreeItem()
-		{
-			Id = 7,
-			Text = "Child 1 of Parent 2",
-			Parent = 2, // the parent will be the second root item
-			HasChildren = false
-		});
+            if (level < TreeLevels)
+            {
+                PopulateChildren(items, itemId, level + 1);
+            }
+        }
+    }
 
-		return items;
-	}
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public int Value { get; set; }
+    }
 }
 ````
 
-
 ## See Also
 
-  * [TreeView Data Binding Basics](slug:components/treeview/data-binding/overview)
-  * [Live Demo: TreeView Flat Data](https://demos.telerik.com/blazor-ui/treeview/flat-data)
-  * [Binding to Hierarchical Data](slug:components/treeview/data-binding/hierarchical-data)
-  * [Load on Demand](slug:components/treeview/data-binding/load-on-demand)
+* [DropDownTree Data Binding Basics](slug:dropdowntree-data-binding-overview)
+* [Live Demo: DropDownTree Flat Data](https://demos.telerik.com/blazor-ui/dropdowntree/flat-data)
+* [DropDownTree Binding to Hierarchical Data](slug:dropdowntree-data-binding-hierarchical-data)
+* [Loading DropDownTree Items on Demand](slug:dropdowntree-data-binding-load-on-demand)

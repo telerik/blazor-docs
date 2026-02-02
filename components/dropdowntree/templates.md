@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: DropDownTree - Templates
-description: Templates in the DropDownTree for Blazor.
+description: Use templates in the Telerik DropDownTree for Blazor to customize the component and items' rendering and appearance.
 slug: dropdowntree-templates
 tags: telerik,blazor,dropdowntree,templates
 published: True
@@ -131,6 +131,8 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
 
 ## Example
 
+>caption Using DropDownTree templates
+
 ````RAZOR
 <TelerikDropDownTree @ref="@DropDownTreeRef"
                      Data="@DropDownTreeData"
@@ -195,7 +197,7 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
 
     private int DropDownTreeValue { get; set; }
 
-    private int LastId { get; set; }
+    private int IdCounter { get; set; }
 
     private async Task OnRemoveItemsClick()
     {
@@ -223,20 +225,20 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
         {
             RawData.Add(new TreeItem()
             {
-                Id = ++LastId,
-                Text = $"Root Item {i}",
+                Id = ++IdCounter,
+                Text = $"Tree Item {i}",
                 HasChildren = true
             });
 
-            int parentId = LastId;
+            int parentId = IdCounter;
 
             for (int j = 1; j <= 2; j++)
             {
                 RawData.Add(new TreeItem()
                 {
-                    Id = ++LastId,
+                    Id = ++IdCounter,
                     ParentId = parentId,
-                    Text = $"Item {i}-{j}",
+                    Text = $"Tree Item {i}-{j}",
                     ItemCode = GetRandomCode()
                 });
             }

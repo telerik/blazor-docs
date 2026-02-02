@@ -31,6 +31,7 @@ The adaptive rendering functionality is supported by the following components:
 * [DateRangePicker](slug:daterangepicker-overview)
 * [DateTimePicker](slug:components/datetimepicker/overview)
 * [DropDownList](slug:components/dropdownlist/overview)
+* [DropDownTree](slug:dropdowntree-overview)
 * [MultiColumnComboBox](slug:multicolumncombobox-overview)
 * [MultiSelect](slug:multiselect-overview)
 * [TimePicker](slug:components/timepicker/overview)
@@ -46,8 +47,7 @@ Optionally, you may set the `Title` and `Subtitle` parameters to provide custom 
 
 >caption Enable the adaptive rendering
 
-<div class="skip-repl"></div>
-````RAZOR
+````RAZOR.skip-repl
 // NOTE: The configurations below includes only the DropDownList, but it is applicable to all of the above listed components
 
 // Adapts to the screen size to use the appropriate rendering.
@@ -84,8 +84,7 @@ You can customize the [above-listed default adaptive breakpoints](#rendering-spe
 
 >caption Customize the default adaptive breakpoints
 
-<div class="skip-repl"></div>
-````RAZOR
+````RAZOR.skip-repl
 @* The below configuration sets the following thresholds:
 - Small: 0 to 400px
 - Medium: 401px to 900px
@@ -114,6 +113,7 @@ Some of the [supported components](#supported-components) allow custom values, f
 * [Live Demo: DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/adaptive)
 * [Live Demo: DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/adaptive)
 * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/adaptive)
+* [Live Demo: DropDownTree](https://demos.telerik.com/blazor-ui/dropdowntree/overview)
 * [Live Demo: MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/adaptive)
 * [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/adaptive)
 * [Live Demo: TimePicker](https://demos.telerik.com/blazor-ui/timepicker/adaptive)

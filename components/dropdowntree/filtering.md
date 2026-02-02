@@ -1,7 +1,7 @@
 ---
 title: Filtering
 page_title: DropDownList - Filtering
-description: Filtering in the DropDownList for Blazor.
+description: Enable user searching (filtering) in the Telerik DropDownTree for Blazor.
 slug: dropdowntree-filtering
 tags: telerik,blazor,drop,down,list,dropdownlist,filter
 published: True
@@ -47,7 +47,7 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 
     private int DropDownTreeValue { get; set; } = 3;
 
-    private int LastId { get; set; }
+    private int IdCounter { get; set; }
 
     protected override void OnInitialized()
     {
@@ -55,20 +55,20 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
         {
             DropDownTreeData.Add(new TreeItem()
             {
-                Id = ++LastId,
-                Text = $"{LastId} Root Item {i}",
+                Id = ++IdCounter,
+                Text = $"Tree Item {i}",
                 HasChildren = true
             });
 
-            int parentId = LastId;
+            int parentId = IdCounter;
 
             for (int j = 1; j <= 3; j++)
             {
                 DropDownTreeData.Add(new TreeItem()
                 {
-                    Id = ++LastId,
+                    Id = ++IdCounter,
                     ParentId = parentId,
-                    Text = $"{LastId} Child Item {i}-{j}"
+                    Text = $"Tree Item {i}-{j}"
                 });
             }
         }
