@@ -3,7 +3,7 @@ title: AI Components & Features
 page_title: AI Components and Features in Telerik UI for Blazor by Progress
 description: "Discover the AI-powered components in Telerik UI for Blazor designed to enhance functionality and user experience."
 slug: ai-components-blazor
-position: 8
+position: 7
 tag: new
 ---
 
