@@ -385,7 +385,7 @@ This approach is suitable for scenarios where the application positions each For
 
 `FormItemsTemplateContext.Items` is a generic `List<IFormItemBase>`, so there are [multiple different ways to get each form item (or group) via standard methods](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1). The example below shows a few alternatives - `First()`, `Skip()`, and index.
 
-The sample also demonstrates how to display Form items conditionally (in this case, `DriversLicense`), depending on the value of another Form field (`BirthDate`). Note the usage of a [Form item `Template`](slug:form-formitems-template) for `BirthDate`, which enables the Form to re-render and toggle the `DriversLicense` checkbox. See [UI rendering and performance optimization inside the Form](slug:form-formitems#ui-rendering-inside-the-form) for more ways to refresh the Form component.
+The sample also demonstrates how to display Form items and groups conditionally, depending on the value of another Form field (`BirthDate`). Note the usage of a [Form item `Template`](slug:form-formitems-template) for `BirthDate`, which enables the Form to re-render and toggle the `DriversLicense`, `Team`, and `Salary` fields. See [UI rendering and performance optimization inside the Form](slug:form-formitems#ui-rendering-inside-the-form) for more ways to refresh the Form component.
 
 >caption Render defined Form items inside a FormItemsTemplate
 
@@ -399,14 +399,14 @@ The sample also demonstrates how to display Form items conditionally (in this ca
         <TelerikValidationSummary />
     </FormValidation>
     <FormItems>
-        <FormItem Field="@nameof(Person.Id)" Enabled="false" Id="IdItem"></FormItem>
+        <FormItem Field="@nameof(Person.Id)" Enabled="false"></FormItem>
         <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name"></FormItem>
         <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" Id="last-name-item"></FormItem>
         <FormItem Field="@nameof(Person.BirthDate)">
             <Template>
                 <label for="birth-date" class="k-label k-form-label">
                     Date of Birth
-                    (Age toggles the Drivers License checkbox)
+                    (Age toggles other Form items)
                 </label>
                 <div class="k-form-field-wrap">
                     <TelerikDatePicker @bind-Value="@Employee.BirthDate"
@@ -416,10 +416,15 @@ The sample also demonstrates how to display Form items conditionally (in this ca
             </Template>
         </FormItem>
         <FormItem Field="@nameof(Person.DriversLicense)" LabelText="Driver's License"></FormItem>
+        <FormGroup LabelText="Job Information" Id="job-info-group">
+            <FormItem Field="@nameof(Person.Team)"></FormItem>
+            <FormItem Field="@nameof(Person.Salary)"></FormItem>
+        </FormGroup>
     </FormItems>
     <FormItemsTemplate Context="formContext">
         @{
-            var formItems = formContext.Items.Cast<IFormItem>().ToList();
+            var formItems = formContext.Items.OfType<IFormItem>().ToList();
+            var formGroups = formContext.Items.OfType<IFormGroup>().ToList();
         }
 
         <p>Text before all form items.</p>
@@ -439,11 +444,23 @@ The sample also demonstrates how to display Form items conditionally (in this ca
             <TelerikFormItemRenderer Item="@( formItems.Skip(3).First() )" />
         </div>
 
-        @* Render Form item conditionally *@
+        @* Render Form item and group conditionally *@
         @if (Employee.BirthDate < DateTime.Today.AddYears(-18))
         {
             <div class="form-item-wrapper">
                 <TelerikFormItemRenderer Item="@( formItems.First(x => x.Field == nameof(Person.DriversLicense)) )" />
+            </div>
+
+            <div class="form-item-wrapper">
+                <TelerikFormGroupRenderer Group="@( formGroups.First(x => x.Id == "job-info-group") )">
+                    <Template Context="groupContext">
+                        @{
+                            var groupItems = groupContext.Items.OfType<IFormItem>().ToList();
+                        }
+                        <TelerikFormItemRenderer Item="@( groupItems.First(x => x.Field == nameof(Person.Team)) )" />
+                        <TelerikFormItemRenderer Item="@( groupItems.First(x => x.Field == nameof(Person.Salary)) )" />
+                    </Template>
+                </TelerikFormGroupRenderer>
             </div>
         }
     </FormItemsTemplate>
@@ -502,6 +519,10 @@ The sample also demonstrates how to display Form items conditionally (in this ca
         public DateTime BirthDate { get; set; } = DateTime.Today;
 
         public bool DriversLicense { get; set; }
+
+        public string Team { get; set; } = string.Empty;
+
+        public decimal Salary { get; set; }
     }
 }
 ````
