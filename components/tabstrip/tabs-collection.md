@@ -51,7 +51,7 @@ To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
 </TelerikTabStrip>
 
 @code {
-    private string ActiveTabId { get; set; }
+    private string ActiveTabId { get; set; } = string.Empty;
 
     private List<Tab> Tabs { get; set; } = new List<Tab>
     {
