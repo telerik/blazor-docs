@@ -1,7 +1,7 @@
 ---
 title: Data Binding
 page_title: Diagram - Data Binding
-description: Data Binding in the Diagram for Blazor.
+description: Learn how to bind the Blazor Diagram to data using descriptor classes for shapes and connections.
 slug: diagram-data-binding
 tags: telerik,blazor,diagram,data,binding
 published: True
@@ -36,7 +36,7 @@ Nested properties (such as `Fill`, `Stroke`, and `Content`) also have their own 
 * `DiagramConnectionContentDescriptor`—defines the text and text color displayed on a connection.
 
 
-## Data Binding from Custom Models
+## Binding Data from Custom Models
 
 You can map data from your existing model classes to the descriptor classes. This approach provides flexibility and allows you to integrate the Diagram with your application data.
 
@@ -46,7 +46,7 @@ The example below demonstrates:
 * Mapping the model data to `DiagramShapeDescriptor` and `DiagramConnectionDescriptor`.
 * Configuring shape and connection properties such as color, text, and position.
 
->caption Data binding the Diagram to custom models
+>caption Binding the Diagram to data from custom models
 
 ````RAZOR
 <TelerikDiagram ShapesData="@ShapesData"
