@@ -85,7 +85,7 @@ To create the Telerik Diagram for Blazor declaratively:
 
 ### Bind the Diagram to Data
 
-See the [Diagram Data Binding](slug:diagram-data-binding) article, which explains how you can bind the Diagram component to a data source using descriptor classes.
+See the [Diagram Data Binding](slug:diagram-data-binding) article, which explains how you can bind the Diagram component to a data source.
 
 ### Define Shapes and Connections in JSON
 
@@ -315,7 +315,7 @@ See a full example in section [Create Diagram from JSON](#define-shapes-and-conn
 
 ## Next Steps
 
-* [Diagram Data Binding](slug:diagram-data-binding)
+* [Bind the Diagram to data](slug:diagram-data-binding)
 * [Define Diagram layouts](slug:diagram-layouts)
 * [Configure Diagram shapes](slug:diagram-shapes)
 * [Customize Diagram connections](slug:diagram-connections)

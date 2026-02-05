@@ -25,37 +25,34 @@ The descriptor classes mirror the properties of the declarative tags [`<DiagramS
 
 The data binding mechanism uses descriptor classes that correspond to the declarative component tags. For each tag, there is a descriptor class with the same properties:
 
-* `DiagramShapeDescriptor`—corresponds to `<DiagramShape>` and contains properties like `Id`, `X`, `Y`, `Width`, `Height`, `Fill`, `Content`, and more.
-* `DiagramConnectionDescriptor`—corresponds to `<DiagramConnection>` and contains properties like `FromId`, `ToId`, `Stroke`, `Content`, and more.
+* [`DiagramShapeDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeDescriptor)—corresponds to `<DiagramShape>` and contains properties like `Id`, `X`, `Y`, `Width`, `Height`, `Fill`, `Content`, and more.
+* [`DiagramConnectionDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionDescriptor)—corresponds to `<DiagramConnection>` and contains properties like `FromId`, `ToId`, `Stroke`, `Content`, and more.
 
 Nested properties (such as `Fill`, `Stroke`, and `Content`) also have their own descriptor classes:
 
-* `DiagramShapeFillDescriptor`—defines the fill color and gradient of a shape.
-* `DiagramShapeContentDescriptor`—defines the text and text color displayed inside a shape.
-* `DiagramConnectionStrokeDescriptor`—defines the stroke color and width of a connection.
-* `DiagramConnectionContentDescriptor`—defines the text and text color displayed on a connection.
-
+* [`DiagramShapeFillDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeFillDescriptor)—defines the fill color and gradient of a shape.
+* [`DiagramShapeContentDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeContentDescriptor)—defines the text and text color displayed inside a shape.
+* [`DiagramConnectionStrokeDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionStrokeDescriptor)—defines the stroke color and width of a connection.
+* [`DiagramConnectionContentDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionContentDescriptor)—defines the text and text color displayed on a connection.
 
 ## Binding Data from Custom Models
 
 You can map data from your existing model classes to the descriptor classes. This approach provides flexibility and allows you to integrate the Diagram with your application data.
 
-The example below demonstrates:
+The example below demonstrates how to:
 
-* Creating custom model classes (`OrganizationNode` and `OrganizationConnection`).
-* Mapping the model data to `DiagramShapeDescriptor` and `DiagramConnectionDescriptor`.
-* Configuring shape and connection properties such as color, text, and position.
+* Create custom model classes (`OrganizationNode` and `OrganizationConnection`).
+* Map the model data to `DiagramShapeDescriptor` and `DiagramConnectionDescriptor`.
+* Set shape and connection properties such as color, text, and position.
 
 >caption Binding the Diagram to data from custom models
 
 ````RAZOR
 <TelerikDiagram ShapesData="@ShapesData"
                 ConnectionsData="@ConnectionsData"
-                Width="100%"
                 Height="600px">
-    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle" />
-    <DiagramLayout Type="@DiagramLayoutType.Tree"
-                   HorizontalSeparation="140"
+    <DiagramShapeDefaults />
+    <DiagramLayout HorizontalSeparation="140"
                    VerticalSeparation="80" />
 </TelerikDiagram>
 
@@ -72,8 +69,6 @@ The example below demonstrates:
             ShapesData.Add(new DiagramShapeDescriptor()
             {
                 Id = node.Id,
-                X = node.X,
-                Y = node.Y,
                 Width = node.Width,
                 Height = node.Height,
                 Fill = new DiagramShapeFillDescriptor()
@@ -117,8 +112,6 @@ The example below demonstrates:
             {
                 Id = "ceo",
                 Label = "CEO",
-                X = 250,
-                Y = 50,
                 Width = 150,
                 Height = 70,
                 BackgroundColor = "#0078D4",
@@ -128,8 +121,6 @@ The example below demonstrates:
             {
                 Id = "cto",
                 Label = "CTO",
-                X = 100,
-                Y = 200,
                 Width = 150,
                 Height = 70,
                 BackgroundColor = "#00BCF2",
@@ -139,8 +130,6 @@ The example below demonstrates:
             {
                 Id = "cfo",
                 Label = "CFO",
-                X = 400,
-                Y = 200,
                 Width = 150,
                 Height = 70,
                 BackgroundColor = "#00BCF2",
@@ -150,8 +139,6 @@ The example below demonstrates:
             {
                 Id = "dev-manager",
                 Label = "Dev Manager",
-                X = 50,
-                Y = 350,
                 Width = 150,
                 Height = 70,
                 BackgroundColor = "#8661C5",
@@ -161,8 +148,6 @@ The example below demonstrates:
             {
                 Id = "qa-manager",
                 Label = "QA Manager",
-                X = 250,
-                Y = 350,
                 Width = 150,
                 Height = 70,
                 BackgroundColor = "#8661C5",
@@ -172,8 +157,6 @@ The example below demonstrates:
             {
                 Id = "finance-manager",
                 Label = "Finance Manager",
-                X = 450,
-                Y = 350,
                 Width = 150,
                 Height = 70,
                 BackgroundColor = "#8661C5",
@@ -233,8 +216,6 @@ The example below demonstrates:
     {
         public string Id { get; set; }
         public string Label { get; set; }
-        public double? X { get; set; }
-        public double? Y { get; set; }
         public double? Width { get; set; }
         public double? Height { get; set; }
         public string BackgroundColor { get; set; }
@@ -263,7 +244,6 @@ You can also create the descriptor objects directly without mapping from custom 
 <TelerikDiagram @ref="@DiagramRef"
                 ShapesData="@ShapesData"
                 ConnectionsData="@ConnectionsData"
-                Width="100%"
                 Height="500px">
     <DiagramShapeDefaults Type="@DiagramShapeType.Circle" />
 </TelerikDiagram>
