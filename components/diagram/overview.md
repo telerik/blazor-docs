@@ -27,9 +27,10 @@ Note that difference between caps, connectors, and selection handles. Although t
 
 ## Creating Blazor Diagram
 
-There are two ways to define and display a Diagram:
+There are three ways to define and display a Diagram:
 
 * [Define the shapes and connections in the Diagram component declaration](#define-shapes-and-connections-declaratively).
+* [Bind the Diagram to collections of shapes and connections](#bind-the-diagram).
 * [Define the shapes and connections in a JSON](#define-shapes-and-connections-in-json).
 
 ### Define Shapes and Connections Declaratively
@@ -81,6 +82,10 @@ To create the Telerik Diagram for Blazor declaratively:
     </DiagramConnections>
 </TelerikDiagram>
 ````
+
+### Bind the Diagram
+
+See the [Diagram Data Binding](slug:diagram-data-binding) article, which explains how you can bind the Diagram component to a data source using descriptor classes.
 
 ### Define Shapes and Connections in JSON
 
@@ -310,6 +315,7 @@ See a full example in section [Create Diagram from JSON](#define-shapes-and-conn
 
 ## Next Steps
 
+* [Diagram Data Binding](slug:diagram-data-binding)
 * [Define Diagram layouts](slug:diagram-layouts)
 * [Configure Diagram shapes](slug:diagram-shapes)
 * [Customize Diagram connections](slug:diagram-connections)
