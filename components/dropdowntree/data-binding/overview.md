@@ -10,7 +10,7 @@ position: 0
 
 # DropDownTree Data Binding
 
-This article explains how bind the DropDownTree to data and how to relate component features to properties of the model class. This is a prerequisite for successful data binding of the DropDownTree:
+This article explains how to bind the DropDownTree to data and how to relate component features to properties of the model class. This is a prerequisite for successful data binding of the DropDownTree:
 
 * What are the [default property names](#default-property-names) that the DropDownTree expects.
 * How to match model properties to [DropDownTree item text and component `Value`](#text-and-value-fields).
