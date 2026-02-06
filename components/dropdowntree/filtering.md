@@ -20,7 +20,7 @@ The default filter operator is "starts with". You can choose a different operato
 
 ## Performance
 
-By default, the filtering is debounced with 150ms. To balance between performance and efficiency, set the `FilterDebounceDelay` parameter of the component to an `int` value.
+By default, the filtering is debounced with 150 ms. To balance between performance and efficiency, set the `FilterDebounceDelay` parameter of the component to an `int` value.
 
 ## Placeholder
 
