@@ -147,7 +147,7 @@ See [Load DropDownTree Data on Demand](slug:dropdowntree-data-binding-load-on-de
 
 ## OnFocus
 
-The DropDownTree `OnFocus` event fires when the component gains focus as a result of tabbing of clicking.
+The DropDownTree `OnFocus` event fires when the component gains focus as a result of tabbing or clicking.
 
 When the user clicks on a non-focused DropDownTree, `OnFocus` fires before `OnOpen`.
 
