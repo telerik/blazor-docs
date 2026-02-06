@@ -105,7 +105,7 @@ The following example uses [default property names in the model](slug:dropdowntr
 
 ## Different Type at Each Level
 
-The following example below uses two levels of hierarchy, but the same idea applies to any number of levels. You will likely need a separate `TreeViewBinding` tag for each level with its own field name configuration.
+The example below uses two levels of hierarchy, but the same idea applies to any number of levels. You will likely need a separate `TreeViewBinding` tag for each level with its own field name configuration.
 
 >caption Bind DropDownTree to hierarchical data with a different model type at each levels
 
