@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DropDownTree Overview
 
-The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntree) allows users to select a single value from a hierachical list of dropdown items. The DropDownTree combines features of the [DropDownList](slug:components/dropdownlist/overview) and the [TreeView](slug:treeview-overview) components. Familiarity with the API of the two originating components is recommended.
+The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntree) allows users to select a single value from a hierarchical list of dropdown items. The DropDownTree combines features of the [DropDownList](slug:components/dropdownlist/overview) and the [TreeView](slug:treeview-overview) components. Familiarity with the API of the two originating components is recommended.
 
 ## Creating Blazor DropDownTree
 
