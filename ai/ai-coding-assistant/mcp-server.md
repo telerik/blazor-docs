@@ -14,6 +14,22 @@ tag: updated
 
 The Telerik Blazor AI Coding Assistant improves your developer experience and increases your productivity when implementing Blazor apps that include Telerik UI for Blazor. The coding assistant is an AI code generator that provides proprietary context to AI models in order to produce higher quality code samples with the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui) and API.
 
+>warning **Кnown Issue: Hanging tool calls in Visual Studio**
+>
+> When using Telerik AI tools in Visual Studio, GitHub Copilot may:
+> * **hang** during tool invocation;
+> * show UI for a successful tool response, but actually **fail silently**;
+> * continue generation without waiting for **parallel tool calls**.
+>
+> In these cases, the response may be generated but not provided to the Copilot Agent UI.
+>
+> This is a known issue in Visual Studio Copilot, not related to Telerik MCP servers or AI tools, and does not reproduce in VS Code.
+>
+> For more details, see the related Visual Studio Developer Community issue:  
+https://developercommunity.visualstudio.com/t/Copilot-stopped-working-after-latest-upd/10936456
+>
+> Microsoft has acknowledged the issue and marked it as **Fixed - Pending Release**. A future Visual Studio update is expected to resolve it.
+
 ## Quick Start
 
 > If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to **step 3** to start using the AI Coding Assistant.
