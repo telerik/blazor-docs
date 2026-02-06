@@ -101,7 +101,7 @@ public class TreeItem
 </TelerikDropDownTree>
 ````
 
-> Do not use `ParentId` with hierarhical data. This will confuse the DropDownTree that it is bound to flat data and the component may not render any items. If the model must have a `ParentId` property, set `ParentIdField` in the `DropDownTreeBinding` to a non-existent property.
+> Do not use `ParentId` with hierarchical data. This will confuse the DropDownTree that it is bound to flat data and the component may not render any items. If the model must have a `ParentId` property, set `ParentIdField` in the `DropDownTreeBinding` to a non-existent property.
 
 ## Multiple Level Bindings
 
