@@ -5,6 +5,7 @@ description: Use templates in the Telerik DropDownTree for Blazor to customize t
 slug: dropdowntree-templates
 tags: telerik,blazor,dropdowntree,templates
 published: True
+components: ["dropdowntree"]
 position: 40
 ---
 

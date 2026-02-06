@@ -4,6 +4,7 @@ page_title: DropDownTree - Data Binding to Flat Data
 description: Learn how to bind the Telerik DropDownTree for Blazor to flat self-referencing data collections.
 slug: dropdowntree-data-binding-flat-data
 tags: telerik,blazor,dropdowntree,databinding
+components: ["dropdowntree"]
 published: True
 position: 5
 ---

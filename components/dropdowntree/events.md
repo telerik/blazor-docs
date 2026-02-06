@@ -4,6 +4,7 @@ page_title: DropDownTree Events
 description: The article describes the Telerik Blazor DropDownTree component events and event arguments.
 slug: dropdowntree-events
 tags: blazor,dropdowntree,events
+components: ["dropdowntree"]
 published: True
 position: 200
 ---

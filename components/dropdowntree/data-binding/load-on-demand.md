@@ -4,6 +4,7 @@ page_title: DropDownTree - Data Binding on Demand
 description: Lazy load child items on demand with the Telerik DropDownTree for Blazor.
 slug: dropdowntree-data-binding-load-on-demand
 tags: telerik,blazor,dropdowntree,databinding
+components: ["dropdowntree"]
 published: True
 position: 15
 ---

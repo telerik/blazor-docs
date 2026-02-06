@@ -4,6 +4,7 @@ page_title: DropDownTree Data Binding Overview
 description: Learn the fundamentals of Telerik Blazor DropDownTree data binding and model class properties.
 slug: dropdowntree-data-binding-overview
 tags: blazor,dropdowntree,dropdown
+components: ["dropdowntree"]
 published: True
 position: 0
 ---

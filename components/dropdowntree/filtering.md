@@ -5,6 +5,7 @@ description: Enable user searching (filtering) in the Telerik DropDownTree for B
 slug: dropdowntree-filtering
 tags: telerik,blazor,drop,down,list,dropdownlist,filter
 published: True
+components: ["dropdowntree"]
 position: 10
 ---
 

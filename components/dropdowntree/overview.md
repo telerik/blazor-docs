@@ -4,6 +4,7 @@ page_title: DropDownTree Overview
 description: The Telerik DropDownTree component for Blazor enables you to select an item from a TreeView in a dropdown. Learn about the major DropDownTree features and functionality.
 slug: dropdowntree-overview
 tags: blazor,dropdowntree,dropdown
+components: ["dropdowntree"]
 published: True
 position: 0
 ---

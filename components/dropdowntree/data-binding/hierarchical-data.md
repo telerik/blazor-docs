@@ -4,6 +4,7 @@ page_title: DropDownTree - Data Binding to Hierarchical Data
 description: Learn how to bind the Telerik DropDownTree for Blazor to hierarchical data of nested collections.
 slug: dropdowntree-data-binding-hierarchical-data
 tags: telerik,blazor,dropdowntree,databinding
+components: ["dropdowntree"]
 published: True
 position: 10
 ---
