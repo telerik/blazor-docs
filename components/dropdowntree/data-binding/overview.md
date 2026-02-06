@@ -18,7 +18,7 @@ This article explains how to bind the DropDownTree to data and how to relate com
 
 ## Default Property Names
 
-The DropDownTree have features that map to properties in the model. The following class uses property names that will [work automatically, with no additional DropDownTree configuration](slug:dropdowntree-overview#creating-blazor-dropdowntree):
+The DropDownTree has features that map to properties in the model. The following class uses property names that will [work automatically, with no additional DropDownTree configuration](slug:dropdowntree-overview#creating-blazor-dropdowntree):
 
 ````C#.skip-repl
 public class TreeItem
