@@ -35,8 +35,6 @@ The following example uses [default property names in the model](slug:dropdowntr
                      Width="300px">
 </TelerikDropDownTree>
 
-@DropDownTreeValue
-
 @code {
     private List<TreeItem> DropDownTreeData { get; set; } = new();
 
@@ -72,7 +70,7 @@ The following example uses [default property names in the model](slug:dropdowntr
             TreeItem newItem = new()
             {
                 Id = ++IdCounter,
-                Text = $"Level {level} Item {i}",
+                Text = $"Level {level} Item {i} Id {IdCounter}",
                 Value = IdCounter
             };
 
@@ -118,20 +116,18 @@ The following example below uses two levels of hierarchy, but the same idea appl
                      Width="300px">
     <DropDownTreeBindings>
         <DropDownTreeBinding Level="0" ItemsField="@nameof(Category.Products)" />
-        <DropDownTreeBinding Level="1" IdField="@nameof(Product.ProductId)" />
+        <DropDownTreeBinding Level="1" ItemsField="@nameof(Product.Parts)" />
+        <DropDownTreeBinding Level="2" />
     </DropDownTreeBindings>
 </TelerikDropDownTree>
-
-@DropDownTreeValue
 
 @code {
     private List<Category> DropDownTreeData { get; set; } = new();
 
-    private int DropDownTreeValue { get; set; } = 3;
-
+    private int DropDownTreeValue { get; set; } = 1;
     private IEnumerable<object> DropDownTreeExpandedItems { get; set; } = new List<object>();
 
-    private int IdCounter { get; set; } = 1;
+    private int IdCounter { get; set; }
 
     protected override void OnInitialized()
     {
@@ -140,21 +136,35 @@ The following example below uses two levels of hierarchy, but the same idea appl
             Category newCategory = new()
             {
                 Id = ++IdCounter,
-                Text = $"Category {i}",
+                Text = $"Category {i} Id {IdCounter}",
                 Value = IdCounter,
-                Products = new List<Product>() 
+                Products = new List<Product>()
             };
 
             DropDownTreeData.Add(newCategory);
 
             for (int j = 1; j <= 2; j++)
             {
-                newCategory.Products.Add(new Product()
+
+                Product newProduct = new ()
                 {
-                    ProductId = ++IdCounter,
-                    Text = $"Product {i}-{j}",
-                    Value = IdCounter
-                });
+                    Id = ++IdCounter,
+                    Text = $"Product {i}-{j} Id {IdCounter}",
+                    Value = IdCounter,
+                    Parts = new List<Part>()
+                };
+
+                newCategory.Products.Add(newProduct);
+
+                for (int k = 1; k <= 3; k++)
+                {
+                    newProduct.Parts.Add(new Part()
+                    {
+                        Id = ++IdCounter,
+                        Text = $"Part {i}-{j}-{k} Id {IdCounter}",
+                        Value = IdCounter
+                    });
+                }
             }
         }
 
@@ -171,7 +181,15 @@ The following example below uses two levels of hierarchy, but the same idea appl
 
     public class Product
     {
-        public int ProductId { get; set; }
+        public int Id { get; set; }
+        public List<Part>? Parts { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public int Value { get; set; }
+    }
+
+    public class Part
+    {
+        public int Id { get; set; }
         public string Text { get; set; } = string.Empty;
         public int Value { get; set; }
     }

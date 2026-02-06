@@ -67,7 +67,7 @@ When using [multiple level bindings](slug:dropdowntree-data-binding-overview#mul
                 Id = itemId,
                 ParentId = parentId,
                 HasChildren = level < TreeLevels,
-                Text = $"Level {level} Item {i}",
+                Text = $"Level {level} Item {i} Id {itemId}",
                 Value = itemId
             });
 

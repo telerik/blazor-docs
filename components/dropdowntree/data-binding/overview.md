@@ -130,8 +130,6 @@ For better performance, define the same `ParentIdField` for all levels when usin
     </DropDownTreeBindings>
 </TelerikDropDownTree>
 
-@DropDownTreeValue
-
 @code {
     private List<TreeItem> DropDownTreeData { get; set; } = new();
 
@@ -181,7 +179,7 @@ For better performance, define the same `ParentIdField` for all levels when usin
             }
         }
 
-        DropDownTreeExpandedItems = DropDownTreeData.Where(x => x.Parent is null).ToList();
+        DropDownTreeExpandedItems = DropDownTreeData.Where(x => x.Id == 1 || x.ChildId == 2);
     }
 
     public class TreeItem

@@ -168,7 +168,7 @@ Also see the [runnable example below](#example).
 
 ## OnItemClick
 
-The `OnItemClick` event fires when the user clicks or taps an item in the DropDownTree popup. The event handler receives a [`DropDownListItemClickEventArgs<TItem>`](slug:Telerik.Blazor.Components.DropDownListItemClickEventArgs-1) argument that exposes the clicked item.
+The `OnItemClick` event fires when the user clicks or taps an item in the DropDownTree popup. The event handler receives a [`DropDownListItemClickEventArgs`](slug:Telerik.Blazor.Components.DropDownListItemClickEventArgs) argument that exposes the clicked item as an `object`. Cast it to your model type to access the properties.
 
 Also see the [runnable example below](#example).
 
@@ -178,16 +178,16 @@ Also see the [runnable example below](#example).
 <TelerikDropDownTree OnItemClick="@OnDropDownTreeItemClick" />
 
 @code {
-    private void OnDropDownTreeItemClick(DropDownTreeItemClickEventArgs<TreeItem> args)
+    private void OnDropDownTreeItemClick(DropDownTreeItemClickEventArgs args)
     {
-        TreeItem clickedItem = args.Item;
+        TreeItem clickedItem = (TreeItem)args.Item;
     }
 }
 ````
 
 ## OnItemRender
 
-The `OnItemRender` event fires once for each item in the DropDownTree popup on each open. The event handler receives a [`DropDownListItemRenderEventArgs<TItem>`](slug:Telerik.Blazor.Components.DropDownListItemRenderEventArgs-1) argument that exposes the currently rendered item and allows you to set a custom CSS class to it.
+The `OnItemRender` event fires once for each item in the DropDownTree popup on each open. The event handler receives a [`DropDownListItemRenderEventArgs`](slug:Telerik.Blazor.Components.DropDownListItemRenderEventArgs) argument that exposes the currently rendered item as an `object`. Cast it to your model type to access the properties. The event allows you to set a custom CSS class to the rendered item.
 
 Also see the [runnable example below](#example).
 
@@ -197,9 +197,11 @@ Also see the [runnable example below](#example).
 <TelerikDropDownTree OnItemRender="@OnDropDownTreeItemRender" />
 
 @code {
-    private void OnDropDownTreeItemRender(DropDownTreeItemRenderEventArgs<TreeItem> args)
+    private void OnDropDownTreeItemRender(DropDownTreeItemRenderEventArgs args)
     {
-        if (args.Item.ParentId is null)
+        TreeItem renderedItem = (TreeItem)args.Item;
+
+        if (renderedItem.ParentId is null)
         {
             args.Class = "root-class";
         }
@@ -282,6 +284,7 @@ The DropDownTree is a generic component. As a result, you either need to specify
         </TelerikDropDownTree>
     </div>
     <div style="max-height: 90vh; overflow: auto; flex: 0 0 50%;">
+        <p><label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ShowOnItemRender"/> Show OnItemRender events</label></p>
         <TelerikButton OnClick="@(() => DropDownTreeEventLog.Clear())">Clear Log</TelerikButton>
         <ul>
             @foreach (string ev in DropDownTreeEventLog)
@@ -308,6 +311,7 @@ The DropDownTree is a generic component. As a result, you either need to specify
     private int IdCounter { get; set; }
 
     private List<string> DropDownTreeEventLog { get; set; } = new();
+    private bool ShowOnItemRender { get; set; }
 
     private void DropDownTreeExpandedItemsChanged(IEnumerable<object> newExpandedItems)
     {
@@ -352,19 +356,27 @@ The DropDownTree is a generic component. As a result, you either need to specify
         DropDownTreeEventLog.Add($"OnFocus fired at {DateTime.Now.ToString("HH:mm:ss.fff")}");
     }
 
-    private void OnDropDownTreeItemClick(DropDownTreeItemClickEventArgs<TreeItem> args)
+    private void OnDropDownTreeItemClick(DropDownTreeItemClickEventArgs args)
     {
-        DropDownTreeEventLog.Add($"OnItemClick fired for item {args.Item.Text} with ID {args.Item.Id} at {DateTime.Now.ToString("HH:mm:ss.fff")}");
+        var clickedItem = (TreeItem)args.Item;
+
+        DropDownTreeEventLog.Add($"OnItemClick fired for item {clickedItem.Text} with ID {clickedItem.Id} at {DateTime.Now.ToString("HH:mm:ss.fff")}");
     }
 
-    private void OnDropDownTreeItemRender(DropDownTreeItemRenderEventArgs<TreeItem> args)
+    private void OnDropDownTreeItemRender(DropDownTreeItemRenderEventArgs args)
     {
-        if (args.Item.ParentId is null)
+        var renderedItem = (TreeItem)args.Item;
+
+        if (renderedItem.ParentId is null)
         {
             args.Class = "root-class";
         }
 
-        DropDownTreeEventLog.Add($"OnItemRender fired for item {args.Item.Text} with ID {args.Item.Id}");
+        if (ShowOnItemRender)
+        {
+            DropDownTreeEventLog.Add($"OnItemRender fired for item {renderedItem.Text} with ID {renderedItem.Id}");
+            StateHasChanged();
+        }
     }
 
     private void OnDropDownTreeOpen(DropDownTreeOpenEventArgs args)

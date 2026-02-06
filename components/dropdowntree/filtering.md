@@ -38,7 +38,7 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
                      Filterable="true"
                      FilterOperator="@StringFilterOperator.Contains"
                      FilterDebounceDelay="100"
-                     FilterPlaceholder="Type digits..."
+                     FilterPlaceholder="Type a number..."
                      Width="300px">
 </TelerikDropDownTree>
 
@@ -47,7 +47,7 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 
     private int DropDownTreeValue { get; set; } = 3;
 
-    private int IdCounter { get; set; }
+    private int IdCounter { get; set; } = 100;
 
     protected override void OnInitialized()
     {
@@ -56,19 +56,19 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
             DropDownTreeData.Add(new TreeItem()
             {
                 Id = ++IdCounter,
-                Text = $"Tree Item {i}",
+                Text = $"Tree Item {IdCounter}",
                 HasChildren = true
             });
 
             int parentId = IdCounter;
 
-            for (int j = 1; j <= 3; j++)
+            for (int j = 1; j <= 5; j++)
             {
                 DropDownTreeData.Add(new TreeItem()
                 {
                     Id = ++IdCounter,
                     ParentId = parentId,
-                    Text = $"Tree Item {i}-{j}"
+                    Text = $"Tree Item {IdCounter}"
                 });
             }
         }

@@ -83,14 +83,14 @@ Unlike the other DropDownTree templates, the `<ItemTemplate>` tag is a child of 
     <DropDownTreeBindings>
         <DropDownTreeBinding Level="0">
             <ItemTemplate>
-                @{ TreeItem dataItem = (TreeItem)context; }
-                @dataItem.Text (root level)
+                @{ Category category = (Category)context; }
+                @category.Text
             </ItemTemplate>
         </DropDownTreeBinding>
-        <DropDownTreeBinding>
+        <DropDownTreeBinding Level="1">
             <ItemTemplate>
-                @{ TreeItem dataItem = (TreeItem)context; }
-                @dataItem.Text
+                @{ Product product = (Product)context; }
+                @product.Text
             </ItemTemplate>
         </DropDownTreeBinding>
     </DropDownTreeBindings>
@@ -117,14 +117,15 @@ See the [runnable example below](#example).
 
 ## ValueTemplate
 
-The DropDownTree `ValueTemplate` controls the display of the current `Value` when the component is closed. The template receives a `context` of type `TItem`.
+The DropDownTree `ValueTemplate` controls the display of the current `Value` when the component is closed. The template receives a `context` of type `object` that you need to cast to the actual model type. Note the type can vary when using [hierarchical data with multiple data item types](slug:dropdowntree-data-binding-hierarchical-data#different-type-at-each-level).
 
 >caption Using DropDownTree ValueTemplate
 
 ````RAZOR.skip-repl
 <TelerikDropDownTree>
     <ValueTemplate>
-        @context.Text
+        @{ TreeItem dataItem = (TreeItem)context; }
+        @dataItem.Text
     </ValueTemplate>
 </TelerikDropDownTree>
 ````
@@ -172,8 +173,10 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
         <TelerikButton OnClick="@OnLoadItemsClick">Load Items</TelerikButton>
     </NoDataTemplate>
     <ValueTemplate>
+        @{ var dataItem = (TreeItem)context; }
+
         <TelerikSvgIcon Icon="@SvgIcon.Unlock" />
-        <strong style="color: var(--kendo-color-primary)">@context.Text</strong>
+        <strong style="color: var(--kendo-color-primary)">@dataItem.Text</strong>
     </ValueTemplate>
 </TelerikDropDownTree>
 
@@ -204,7 +207,7 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
         DropDownTreeData?.Clear();
         DropDownTreeExpandedItems = new List<TreeItem>();
 
-        await Task.Delay(300);
+        await Task.Delay(350);
 
         DropDownTreeRef?.Open();
     }
@@ -214,7 +217,7 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
         DropDownTreeData = new List<TreeItem>(RawData);
         DropDownTreeExpandedItems = DropDownTreeData.Where(x => x.ParentId is null).ToList();
 
-        await Task.Delay(300);
+        await Task.Delay(350);
 
         DropDownTreeRef?.Open();
     }
