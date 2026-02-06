@@ -14,7 +14,7 @@ This article explains how to bind the DropDownTree to data and how to relate com
 
 * What are the [default property names](#default-property-names) that the DropDownTree expects.
 * How to match model properties to [DropDownTree item text and component `Value`](#text-and-value-fields).
-* How to match model properties to [DropDownTree parent-child relation-ships](#treeview-bindings).
+* How to match model properties to [DropDownTree parent-child relationships](#treeview-bindings).
 
 ## Default Property Names
 
