@@ -193,7 +193,7 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
 </style>
 
 @code {
-    private TelerikDropDownTree<TreeItem, int>? DropDownTreeRef;
+    private TelerikDropDownTree<int>? DropDownTreeRef;
     private List<TreeItem>? DropDownTreeData { get; set; }
     private List<TreeItem> RawData { get; set; } = new();
 

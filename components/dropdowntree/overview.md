@@ -122,13 +122,13 @@ The TelerikDropDownTree exposes [settings for its dropdown (popup)](slug:Telerik
 
 ## DropDownTree Reference and Methods
 
-Add a reference to the component instance to use the [DropDownTree's methods](slug:Telerik.Blazor.Components.TelerikDropDownTree-2). Note that the [DropDownTree is a generic component](slug:common-features-data-binding-overview#component-type). Its model type and value type must be part of the component reference definition.
+Add a reference to the component instance to use the [DropDownTree's methods](slug:Telerik.Blazor.Components.TelerikDropDownTree-1). Note that the [DropDownTree is a generic component](slug:common-features-data-binding-overview#component-type). Its model type and value type must be part of the component reference definition.
 
 ````RAZOR.skip-repl
 <TelerikDropDownTree @ref="@DropDownTreeRef" />
 
 @code {
-    private TelerikDropDownTree<TreeItem, int>? DropDownTreeRef;
+    private TelerikDropDownTree<int>? DropDownTreeRef;
 
     private void OpenDropDownTree()
     {
@@ -143,5 +143,5 @@ Add a reference to the component instance to use the [DropDownTree's methods](sl
 
 ## See Also
 
-* [DropDownTree API Reference](slug:telerik.blazor.components.telerikdropdowntree-2)
+* [DropDownTree API Reference](slug:telerik.blazor.components.telerikdropdowntree-1)
 * [Live Demo: DropDownTree](https://demos.telerik.com/blazor-ui/dropdowntree/overview)
