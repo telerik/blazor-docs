@@ -121,7 +121,7 @@ john.doe@example.com
         };
 
         var response = await HttpClient.PostAsJsonAsync(
-            "https://sitdemos.telerik.com/service/v2/ai/smartpaste/smartpaste",
+            "https://demos.telerik.com/service/v2/ai/smartpaste/smartpaste",
             payload
         );
 

@@ -191,6 +191,8 @@ meta:
     title: Splitter
   "*splitbutton":
     title: SplitButton
+  "*smartpastebutton":
+    title: SmartPasteButton
   "*sortable":
     title: Sortable
   "*skeleton":

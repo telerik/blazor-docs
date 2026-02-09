@@ -37,14 +37,6 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         description="The Telerik UI for Blazor Inline AIPrompt component delivers contextual AI suggestions within the UI.">
     </article-card>
     <article-card
-        href="/components/smartpastebutton/overview"
-        src="./images/aicomponents/SmartPasteButton_Light_Large.svg"
-        title="SmartPasteButton"
-        subTitle="UI Component"
-        darkSrc="./images/aicomponents/SmartPasteButton_Dark_Large.svg"
-        description="The Telerik UI for Blazor SmartPasteButton component uses AI to parse unstructured text and automatically populate form fields.">
-    </article-card>
-    <article-card
         href="/components/grid/smart-ai-features/overview"
         src="./images/aicomponents/AI_Data_Operations_Light_Large.svg"
         title="AI Data Operations"
