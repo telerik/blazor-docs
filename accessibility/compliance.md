@@ -66,6 +66,7 @@ Also check the [notes below the table](#accessibility-compliance-notes).
 | Drawer | AA | [Enhanced](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation) | [Documentation](slug:drawer-wai-aria-support) |
 | DropDownButton | AA | [Enhanced](https://demos.telerik.com/blazor-ui/dropdownbutton/keyboard-navigation) | [Documentation](slug:dropdownbutton-wai-aria-support) |
 | DropDownList | AA | [Enhanced](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation) | [Documentation](slug:dropdownlist-wai-aria-support) |
+| DropDownTree | AA | [Enhanced](https://demos.telerik.com/blazor-ui/dropdowntree/keyboard-navigation) | [Documentation](slug:dropdowntree-wai-aria-support) |
 | DropZone | N/A | N/A | N/A |
 | Editor | AA | [Enhanced](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation) | [Documentation](slug:editor-wai-aria-support) |
 | FileManager | AA |[Enhanced](https://demos.telerik.com/blazor-ui/filemanager/overview) <br /> Also see [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation), [ListView](https://demos.telerik.com/blazor-ui/listview/keyboard-navigation), [Splitter](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation), [ToolBar](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation), [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation) | [Documentation](slug:filemanager-wai-aria-support) |
