@@ -113,6 +113,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="DateTime Picker" href="slug:components/datetimepicker/overview"></IntroTableAnchor>
       <IntroTableAnchor title="DateRange Picker" href="slug:daterangepicker-overview"></IntroTableAnchor>
       <IntroTableAnchor title="DropDownList" href="slug:components/dropdownlist/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="DropDownTree" href="slug:dropdowntree-overview"></IntroTableAnchor>
       <IntroTableAnchor title="HTML Editor" href="slug:editor-overview"></IntroTableAnchor>
       <IntroTableAnchor title="ListBox" href="slug:listbox-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Masked Textbox" href="slug:maskedtextbox-overview"></IntroTableAnchor>

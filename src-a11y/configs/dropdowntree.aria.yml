@@ -1,0 +1,14 @@
+title: Wai-Aria Support
+component: DropDownTree
+from: /aria/dropdowntree_aria.md
+dest: ../components/dropdowntree/accessibility/wai-aria-support.md
+slug: dropdowntree-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the DropDownTree keyboard navigation works, refer to the [Blazor DropDownTree Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/dropdowntree/keyboard-navigation).
+
+    ## See Also
+
+    * [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

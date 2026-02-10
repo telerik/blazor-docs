@@ -465,6 +465,9 @@ meta:
   "*components/treeview/data-binding":
     title: Data Binding
     position: 2
+  "*components/dropdowntree/data-binding":
+    title: Data Binding
+    position: 2
   "*components/document-processing":
     title: Document Processing
     position: 2200000
