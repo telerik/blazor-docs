@@ -28,7 +28,7 @@ You must implement the semantic search logic yourself, for example, by integrati
 * Control costs and performance based on your requirements
 * Implement caching and optimization strategies
 
-## Implementation Steps
+## Setup Steps
 
 1. Add GridToolBarSmartBoxTool
 

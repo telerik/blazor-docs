@@ -3,7 +3,7 @@ title: AI Assistant Tools Setup
 page_title: Grid - AI Assistant Tools Setup
 description: Learn how to set up AI assistant tools for the Blazor Grid.
 slug: grid-ai-assistant-tools-setup
-tags: telerik,blazor,grid,ai,assistant,tools,setup
+tags: telerik,blazor,grid,ai
 published: True
 position: 5
 components: ["grid"]

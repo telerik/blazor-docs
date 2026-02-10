@@ -10,7 +10,7 @@ components: ["grid"]
 ---
 # Grid AI Features
 
-This article describes the built-in AI-enabled features of the Telerik Grid for Blazor. You can allow users to type prompts, which are sent to an AI service that suggests the appropriate data operations for the Grid to perform. The currently supported data operations include filtering, grouping, sorting, and highlighting of items.
+This article describes the built-in AI-enabled features of the Telerik Grid for Blazor. You can allow users to type prompts, which are sent to an AI service that suggests the appropriate operations for the Grid to perform. The currently supported operations include those managed through the Grid state (such as filtering and sorting) and those triggered through Grid methods, for example, export.
 
 ## Supported Operations
 
@@ -24,6 +24,13 @@ The Prompt-Controlled DataGrid currently supports the following data operations 
 * **Pagination** – Navigate between pages and adjust page sizes.
 * **Selection** – Select or deselect rows based on criteria, or select/deselect all.
 * **Export** – Export grid data to Excel, PDF, or CSV formats.
+
+## AI Tools
+
+The Grid provides multiple AI-powered tools that you can add to the Grid toolbar:
+
+* **[Grid Toolbar AI Assistant](slug:grid-ai-toolbar-assistant)**&mdash;A built-in toolbar component that integrates an AI prompt interface for natural language Grid operations.
+* **[Grid Smart Box](slug:grid-ai-smart-box)**&mdash;A comprehensive toolbar component that combines standard search, semantic search, and AI assistant features. Note that semantic search and AI assistant features provide only UI and event handling—you must implement the AI integration yourself.
 
 ## API Reference
 
@@ -50,16 +57,9 @@ The following Grid methods work with the above types.
 | `GetAIRequest()` | `string` | Returns a `GridAIRequestDescriptor` that includes the user prompt if you pass it as a method argument. When using the `GridToolBarAIAssistantTool`, the app can receive the `GridAIRequestDescriptor` automatically from the `Request` property of the `OnPromptRequest` event argument, which is an `AIPromptPromptRequestEventArgs` object. |
 | `ProcessAIResponseAsync()` | `string` | Processes a serialized `GridAIResponse` object that is received as a string method argument. Then, the Grid applies all defined data operations from the `GridAIResponse` to its state, for example, filtering, grouping, highlighting, and sorting. When using the `GridToolBarAIAssistantTool`, you can set the serialized `GridAIResponse` object from the endpoint directly to `Response` property of the `OnPromptRequest` event argument, which is an `AIPromptPromptRequestEventArgs` object. |
 
-## AI Tools
+### Semantic Search
 
-The Grid provides multiple AI-powered tools that you can add to the Grid toolbar:
-
-* **[Grid Toolbar AI Assistant](slug:grid-ai-toolbar-assistant)**&mdash;A built-in toolbar component that integrates an AI prompt interface for natural language Grid operations.
-* **[Grid Smart Box](slug:grid-ai-smart-box)**&mdash;A comprehensive toolbar component that combines standard search, semantic search, and AI assistant features. Note that semantic search and AI assistant features provide only UI and event handling—you must implement the AI integration yourself.
-
-### Semantic Search Implementation
-
-The semantic search functionality available through the `GridToolBarSmartBoxTool` is **not a built-in feature**. Telerik UI for Blazor provides only the user interface and event handlers. You must implement the actual semantic search logic by integrating with an AI service of your choice. This approach gives you flexibility in choosing your AI provider and customizing the search logic to fit your data model.
+The semantic search functionality available through the `GridToolBarSmartBoxTool` is not a built-in feature. Telerik UI for Blazor provides only the user interface and event handlers. You must implement the actual semantic search logic by integrating with an AI service of your choice. This approach gives you flexibility in choosing your AI provider and customizing the search logic to fit your data model.
 
 For detailed information on implementing semantic search, see the [Grid AI Semantic Search article](slug:grid-ai-semantic-search).
 

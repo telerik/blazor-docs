@@ -13,9 +13,9 @@ components: ["grid"]
 
 The `GridToolBarAIAssistantTool` is a built-in toolbar tool that integrates an AI prompt interface directly into the Grid toolbar. It allows users to type natural language prompts that can be sent to an AI service, which then suggests appropriate data operations for the Grid to perform.
 
-## Tutorial
+## Setup Steps
 
-Use the following steps to implement a scenario with built-in Grid AI integration using the `GridToolBarAIAssistantTool`.
+Use the following steps to implement Grid AI integration using the `GridToolBarAIAssistantTool`.
 
 ### Install NuGet Package
 

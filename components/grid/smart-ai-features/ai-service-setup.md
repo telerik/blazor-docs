@@ -539,17 +539,6 @@ if (request.Contents == null || !request.Contents.Any())
 }
 ````
 
-## Testing
-
-The library includes comprehensive test coverage. You can run tests to verify functionality:
-
-````bash.skip-repl
-cd tests
-dotnet test
-````
-
-For integration testing with your specific data model, create test cases that verify AI responses match expected Grid operations.
-
 ## Troubleshooting
 
 ### Connection Errors

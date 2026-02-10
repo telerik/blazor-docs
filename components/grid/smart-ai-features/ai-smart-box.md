@@ -14,98 +14,49 @@ components: ["grid"]
 The `GridToolBarSmartBoxTool` is a comprehensive toolbar component that combines three powerful features in a single interface:
 
 * **Search**&mdash;Provides standard text-based search functionality across Grid data, similar to the `GridSearchBox`.
-* **Semantic Search**&mdash;Offers a UI for semantic search with an event handler where you can implement custom semantic search logic by integrating with an AI service.
-* **AI Assistant**&mdash;Provides a prompt interface for natural language interactions with the Grid, where you can implement AI-powered operations through the exposed `OnPromptRequest` event.
+* **Semantic Search**&mdash;Offers a UI for semantic search with an event handler for implementing custom semantic search logic by integrating with an AI service.
+* **AI Assistant**&mdash;Provides a prompt interface for natural language interactions with the Grid and exposes an `OnPromptRequest` event that allows you to implement AI-powered operations.
 
-## Parameters
+## Using the Smart Box
 
-### GridToolBarSmartBoxTool
+To use the `GridToolBarSmartBoxTool`, add it inside the `GridToolBar` tag. The Smart Box provides three nested settings components for configuring each feature:
 
-The `GridToolBarSmartBoxTool` is added as a tool in the Grid toolbar. It contains nested settings components for each of its three sections.
+* `GridToolBarSmartBoxToolSearchSettings`&mdash;Configure standard search functionality and history.
+* `GridToolBarSmartBoxToolSemanticSearchSettings`&mdash;Configure semantic search UI and handle the `OnSearch` event to implement your custom semantic search logic.
+* `GridToolBarSmartBoxToolAIAssistantSettings`&mdash;Configure the AI prompt interface and handle the `OnPromptRequest` event for your AI integration.
 
-### GridToolBarSmartBoxToolSearchSettings
+Each settings component can be enabled or disabled individually through its `Enabled` parameter (default is `true`). Each feature also supports history tracking through its respective history settings component.
 
-Configures the standard search functionality of the Smart Box.
+For detailed information on all available parameters, see the [GridToolBarSmartBoxTool API reference]({%slug Telerik.Blazor.Components.GridToolBarSmartBoxTool%}).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+## Standard Search
 
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `Placeholder` | `string` | `null` | Specifies the placeholder text for the search input. |
-| `DebounceDelay` | `int` | `300` | Specifies the interval in milliseconds to wait before triggering the search. |
-| `Enabled` | `bool` | `true` | Toggles the search functionality on or off. |
-| `Fields` | `List<string>` | `null` | Specifies a list of column fields to search in. Similar to the `GridSearchBox` component. |
+The standard search feature works similarly to the [`GridSearchBox` component](slug:grid-searchbox). Use the `Fields` parameter to specify which Grid columns to search in. The `DebounceDelay` parameter (default `300` milliseconds) controls how long to wait before triggering the search after the user stops typing.
 
-#### GridToolBarSmartBoxToolSearchHistorySettings
+Configure search history through the `GridToolBarSmartBoxToolSearchHistorySettings` nested tag. The `Size` parameter determines how many recent searches to display in the history dropdown.
 
-Configures the search history display.
+## Semantic Search
 
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `Size` | `int` | `5` | Specifies the maximum number of history queries that will be displayed. |
-| `TimestampFormat` | `string` | `null` | Specifies the date format used to display the history query timestamps. |
-| `ItemTemplate` | `RenderFragment<GridSmartBoxHistoryItemTemplate>` | `null` | Specifies a custom template for rendering history items. |
+Semantic search is not a built-in feature. The `GridToolBarSmartBoxTool` provides only the UI elements and event handling mechanism. To implement semantic search:
 
-#### OnSearch Event
+1. Subscribe to the `OnSearch` event of the `GridToolBarSmartBoxToolSemanticSearchSettings`.
+1. In the event handler, integrate with your chosen AI service to perform semantic search operations.
+1. Update the Grid data based on the semantic search results from your AI service.
 
-The `OnSearch` event is triggered when a search is performed. It provides the search value through the event arguments.
+For detailed implementation guidance, see the [Grid AI Semantic Search article](slug:grid-ai-semantic-search).
 
-### GridToolBarSmartBoxToolSemanticSearchSettings
+## AI Assistant
 
-Configures the semantic search functionality. 
+The AI assistant feature provides only the UI and event handling. You must implement the actual AI integration:
 
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `Placeholder` | `string` | `null` | Specifies the placeholder text for the semantic search input. |
-| `DebounceDelay` | `int` | `300` | Specifies the interval in milliseconds to wait before triggering the search. |
-| `Enabled` | `bool` | `true` | Toggles the semantic search functionality on or off. |
+1. Subscribe to the `OnPromptRequest` event to handle user prompts.
+1. Send the prompt to your AI service.
+1. Process the AI response and apply the appropriate Grid operations (filtering, sorting, grouping, etc.).
+1. Optionally, subscribe to `OnPromptRequestStop` to handle cancellation of ongoing AI operations.
 
-#### GridToolBarSmartBoxToolSemanticSearchHistorySettings
+Use the `PromptSuggestions` parameter to provide a list of predefined prompts that users can select. The AI Assistant also supports speech-to-text input through the nested `AIPromptSpeechToTextButtonSettings` component, which has the same configuration options as the [AIPrompt component](slug:aiprompt-overview).
 
-Configures the semantic search history display.
-
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `Size` | `int` | `5` | Specifies the maximum number of history queries that will be displayed. |
-| `TimestampFormat` | `string` | `null` | Specifies the date format used to display the history query timestamps. |
-| `ItemTemplate` | `RenderFragment<GridSmartBoxHistoryItemTemplate>` | `null` | Specifies a custom template for rendering history items. |
-
-#### OnSearch Event
-
-The `OnSearch` event is triggered when a semantic search is performed. You must implement your semantic search logic in this event handler. For example, you can connect to an AI service and update the Grid data accordingly.
-
-### GridToolBarSmartBoxToolAIAssistantSettings
-
-Configures the AI assistant functionality. The AI Assistant provides a prompt interface for natural language interactions. You must implement the AI integration logic yourself in the `OnPromptRequest` event exposed for the AI Assistant.
-
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `Placeholder` | `string` | `null` | Specifies the placeholder text for the AI assistant input. |
-| `PromptSuggestions` | `List<string>` | `null` | Specifies a list of predefined prompt suggestions to display to users. |
-| `PromptSuggestionTemplate` | `RenderFragment<GridSmartBoxPromptSuggestionTemplate>` | `null` | Specifies a custom template for rendering prompt suggestion items. |
-| `Enabled` | `bool` | `true` | Toggles the AI assistant functionality on or off. |
-
-#### GridToolBarSmartBoxToolAIAssistantHistorySettings
-
-Configures the AI assistant history display.
-
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `Size` | `int` | `5` | Specifies the maximum number of history queries that will be displayed. |
-| `TimestampFormat` | `string` | `null` | Specifies the date format used to display the history query timestamps. |
-| `ItemTemplate` | `RenderFragment<GridSmartBoxHistoryItemTemplate>` | `null` | Specifies a custom template for rendering history items. |
-
-#### AIPromptSpeechToTextButtonSettings
-
-Configures the settings for the speech-to-text button in the AI assistant. The settings are the same as in the [AIPrompt component](slug:aiprompt-overview).
-
-#### OnPromptRequest Event
-
-The `OnPromptRequest` event is triggered when a user submits an AI request. The `Text` property of the event arguments provides the prompt text. You must implement your AI integration logic in this event handler by sending the prompt to an AI service and updating the Grid accordingly.
-
-#### OnPromptRequestStop Event
-
-The `OnPromptRequestStop` event is triggered when a user clicks the "stop" button in the AI input after submitting a prompt request. The `Text` property provides the prompt text that was being processed.
+Configure AI assistant history through the `GridToolBarSmartBoxToolAIAssistantHistorySettings` nested tag.
 
 ## Example
 
@@ -201,30 +152,7 @@ The following example demonstrates how to configure the `GridToolBarSmartBoxTool
 }
 ````
 
-## Key Concepts
-
-### Standard Search
-
-The standard search feature works similarly to the `GridSearchBox` component. It provides text-based filtering across specified Grid columns and maintains a search history.
-
-### Semantic Search
-
-Semantic search is not a built-in feature. The `GridToolBarSmartBoxTool` provides only the UI elements and event handling mechanism. To implement semantic search:
-
-1. Subscribe to the `OnSearch` event of the `GridToolBarSmartBoxToolSemanticSearchSettings`.
-1. In the event handler, integrate with your chosen AI service to perform semantic search operations.
-1. Update the Grid data based on the semantic search results from your AI service.
-
-For more information, see the [Semantic Search article](slug:grid-ai-semantic-search).
-
-### AI Assistant
-
-The AI assistant feature provides only the UI and event handling. You must implement the actual AI integration:
-
-1. Subscribe to the `OnPromptRequest` event to handle user prompts.
-1. Send the prompt to your AI service.
-1. Process the AI response and apply the appropriate Grid operations (filtering, sorting, grouping, etc.).
-1. Optionally, subscribe to `OnPromptRequestStop` to handle cancellation of ongoing AI operations.
+View the [complete live demo](https://demos.telerik.com/blazor-ui/grid/ai-chat-assistant).
 
 ## See Also
 
