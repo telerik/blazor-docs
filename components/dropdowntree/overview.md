@@ -22,63 +22,7 @@ The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntr
 
 >caption Basic Blazor DropDownTree
 
-````C#
-<TelerikDropDownTree Data="@DropDownTreeData"
-                     @bind-Value="@DropDownTreeValue"
-                     @bind-ExpandedItems="@DropDownTreeExpandedItems"
-                     Width="300px">
-</TelerikDropDownTree>
-
-@code {
-    private List<TreeItem> DropDownTreeData { get; set; } = new();
-
-    private int DropDownTreeValue { get; set; } = 3;
-
-    private IEnumerable<object> DropDownTreeExpandedItems { get; set; } = new List<TreeItem>();
-
-    private int IdCounter { get; set; }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 5; i++)
-        {
-            DropDownTreeData.Add(new TreeItem()
-            {
-                Id = ++IdCounter,
-                Text = $"Root Item {i}",
-                Value = IdCounter,
-                HasChildren = true
-            });
-
-            int parentId = IdCounter;
-
-            for (int j = 1; j <= 3; j++)
-            {
-                DropDownTreeData.Add(new TreeItem()
-                {
-                    Id = ++IdCounter,
-                    ParentId = parentId,
-                    Value = IdCounter,
-                    Text = $"Child Item {i}-{j}"
-                });
-            }
-        }
-
-        DropDownTreeExpandedItems = DropDownTreeData.Where(x => x.ParentId is null).ToList();
-    }
-
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public bool HasChildren { get; set; }
-        public string Text { get; set; } = string.Empty;
-        public int Value { get; set; }
-    }
-}
-````
-
-<!-- <demo metaUrl="client/dropdowntree/overview/" height="380"></demo> -->
+<demo metaUrl="client/dropdowntree/overview/" height="300"></demo>
 
 ## Data Binding
 
