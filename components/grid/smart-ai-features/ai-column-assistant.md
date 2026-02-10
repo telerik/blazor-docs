@@ -12,7 +12,9 @@ components: ["grid"]
 
 The Grid AI Column Assistant is an integration between the Telerik Inline AI Prompt and Grid components. This article shows how to display an Inline AI Prompt from a Grid column template to allow users to use AI for a specific Grid data item. Depending on the business requirements, the AI model can analyze the Grid data item and suggest additions or modifications.
 
-The suggested algorithm for implementation is the following:
+## Setup Steps
+
+The suggested approach for implementation is the following:
 
 1. [Configure an InlineAIPrompt component that receives and provides the user prompt](#define-inlineaiprompt-component).
 1. [Add a Grid column with a button that displays the InlineAIPrompt component](#add-grid-column-with-button).
@@ -127,13 +129,11 @@ private async Task OnAIResponseActionClick(InlineAIPromptOutputActionClickEventA
 }
 ````
 
-## Example
-
-See the [Grid AI Column Assistant live demo](https://demos.telerik.com/blazor-ui/grid/ai-data-operations) for a complete runnable example. The demo uses a Telerik-hosted AI service for demonstration purposes only. See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration) for more information on how you can implement your own server-side AI service to be compatible with the Telerik Grid.
+See the [Grid AI Column Assistant live demo](https://demos.telerik.com/blazor-ui/grid/ai-column) for a complete runnable example.
 
 ## See Also
 
 * [InlineAIPrompt Overview](slug:inlineaiprompt-overview)
-* [Grid Live Demo](https://demos.telerik.com/blazor-ui/grid/ai-data-operations)
+* [Grid AI Column Assistant Live Demo](https://demos.telerik.com/blazor-ui/grid/ai-column)
 * [Grid API](slug:Telerik.Blazor.Components.TelerikGrid-1)
-* [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration)
+* [Integration with Telerik.AI.SmartComponents.Extensions](slug:grid-ai-service-setup)
