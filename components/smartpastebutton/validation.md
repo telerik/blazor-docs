@@ -9,7 +9,7 @@ position: 10
 components: ["smartpastebutton"]
 ---
 
-## Validation
+## SmartPasteButton Validation
 
 While the SmartPasteButton handles most AI service errors internally, you can use the [`OnRequestStart`](smartpastebutton-events#onrequeststart) event to validate the input content and the [`OnRequestStop`](smartpastebutton-events#onrequeststop) event to handle cancellation scenarios.
 

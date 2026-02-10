@@ -11,21 +11,16 @@ components: ["smartpastebutton"]
 
 # SmartPasteButton Events
 
-This article explains the events available in the Telerik SmartPasteButton for Blazor:
+This article describes the events available in the Telerik SmartPasteButton for Blazor:
 
 * [OnRequestStart](#onrequeststart)
 * [OnRequestStop](#onrequeststop)
 
 ## OnRequestStart
 
-The `OnRequestStart` event fires before sending the Smart Paste request to the AI service. This event allows you to inspect and modify the content and form fields that will be processed by the AI.
+The `OnRequestStart` event fires before sending the Smart Paste request to the AI service. This event allows you to inspect and modify the content and form fields that will be processed by AI.
 
-The event handler receives an argument of type `SmartPasteButtonRequestStartEventArgs` with the following properties:
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `Content` | `string` | The content to be processed by the Smart Paste Button. Contains the clipboard content of the user. |
-| `FormFields` | `SmartPasteFormField[]` | Array of form fields that should be populated with the AI response using the content provided. |
+The event handler receives an argument of type [`SmartPasteButtonRequestStartEventArgs`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.SmartPasteButtonRequestStartEventArgs).
 
 >caption Handle the OnRequestStart event to customize AI processing
 
@@ -44,29 +39,10 @@ The event handler receives an argument of type `SmartPasteButtonRequestStartEven
 
     <TelerikForm Model="@Model" OnSubmit="@HandleSubmit">
         <FormItems>
-            <FormItem Field="@nameof(BookModel.Title)" LabelText="Title">
-                <Template>
-                    <TelerikTextBox Id="title" @bind-Value="Model.Title" />
-                </Template>
-            </FormItem>
-
-            <FormItem Field="@nameof(BookModel.Author)" LabelText="Author">
-                <Template>
-                    <TelerikTextBox Id="author" @bind-Value="Model.Author" />
-                </Template>
-            </FormItem>
-
-            <FormItem Field="@nameof(BookModel.ISBN)" LabelText="ISBN">
-                <Template>
-                    <TelerikTextBox Id="isbn" @bind-Value="Model.ISBN" />
-                </Template>
-            </FormItem>
-
-            <FormItem Field="@nameof(BookModel.Publisher)" LabelText="Publisher">
-                <Template>
-                    <TelerikTextBox Id="publisher" @bind-Value="Model.Publisher" />
-                </Template>
-            </FormItem>
+            <FormItem Field="@nameof(BookModel.Title)" LabelText="Title" />
+            <FormItem Field="@nameof(BookModel.Author)" LabelText="Author" />
+            <FormItem Field="@nameof(BookModel.ISBN)" LabelText="ISBN" />
+            <FormItem Field="@nameof(BookModel.Publisher)" LabelText="Publisher" />
         </FormItems>
 
         <FormButtons>
@@ -81,7 +57,7 @@ The event handler receives an argument of type `SmartPasteButtonRequestStartEven
 </div>
 
 @code {
-    private TelerikSmartPasteButton SmartPasteButtonRef { get; set; }
+    private TelerikSmartPasteButton? SmartPasteButtonRef { get; set; }
     private BookModel Model { get; set; } = new();
     private bool Pasting { get; set; }
 
@@ -135,10 +111,10 @@ Scribner";
 
     public class BookModel
     {
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string ISBN { get; set; }
-        public string Publisher { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Author { get; set; } = string.Empty;
+        public string ISBN { get; set; } = string.Empty;
+        public string Publisher { get; set; } = string.Empty;
     }
 }
 ````
@@ -148,6 +124,28 @@ Scribner";
 The `OnRequestStop` event fires when the `IChatClient` is enabled and the stop state of the button is triggered. This event is only fired when `EnableChatClient` is set to `true`.
 
 This event allows you to handle scenarios where the AI processing needs to be interrupted or when the user cancels the operation.
+
+>caption Handle the OnRequestStop event to customize AI processing
+
+<div class="skip-repl"></div>
+
+````RAZOR Home.razor
+<TelerikSmartPasteButton ChatClientKey="gpt-4o-mini"
+                         OnRequestStop="@HandleRequestStop" />
+
+@code {
+    private async Task HandleRequestStop()
+    {
+        //handle the event when the user clicks the stop button
+    }
+}
+````
+````C# Program.cs
+IChatClient gptChatClient = new AzureOpenAIClient(new Uri("https://blazor-models-ai-foundry.cognitiveservices.azure.com/"),
+                            new AzureKeyCredential("your API key here")).GetChatClient("gpt-4.1");
+
+services.AddKeyedChatClient("gpt-4.1", gptChatClient);
+````
 
 ## See Also
 
