@@ -19,17 +19,11 @@ You can control the input mode through the `Mode` parameter using the `PromptBox
 
 The PromptBox supports the following input modes:
 
-### SingleLine Mode
+* Auto Mode (Default): Starts as a single-line input and automatically expands into a multi-line textarea when the content overflows.
 
-SingleLine mode provides a fixed single-line input with horizontal scrolling capabilities. This mode maintains a consistent height regardless of content length.
+* SingleLine Mode: A fixed single-line input with horizontal scrolling. The height remains constant regardless of content length.
 
-### MultiLine Mode
-
-MultiLine mode provides a traditional textarea experience with vertical growth and scrolling. This mode is ideal for longer content that requires multiple lines from the start.
-
-### Auto Mode (Default)
-
-Auto mode provides intelligent behavior that combines the benefits of both SingleLine and MultiLine modes. It starts as a single-line input and automatically expands to multi-line when content overflows.
+* MultiLine Mode: A traditional textarea that grows vertically and supports scrolling. Best suited for longer content entered across multiple lines from the start.
 
 ## Example
 

@@ -13,7 +13,7 @@ components: ["promptbox"]
 
 The Blazor PromptBox component provides integrated file attachment functionality that allows users to select and attach files directly within the input interface. This feature is essential for AI communication scenarios where users need to provide documents, images, or other files as context for their prompts.
 
-File attachment functionality is controlled through the `EnableFileSelect` parameter and configured using the `PromptBoxFileSelectButtonSettings` within the `PromptBoxSettings` section.
+File attachment functionality is controlled through the `EnableFileSelect` parameter and configured using the [`PromptBoxFileSelectButtonSettings`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.PromptBoxFileSelectButtonSettings) within the `PromptBoxSettings` section.
 
 To enable file attachment functionality, set the `EnableFileSelect` parameter to `true`:
 
@@ -46,7 +46,7 @@ To enable file attachment functionality, set the `EnableFileSelect` parameter to
 
 ## File Selection Parameters and Events
 
-To review all available parameters and events for the PromptBox file select settings, see the [PromptBoxFileSelectButtonSettings API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikPromptBox.ButtonSettings.PromptBoxFileSelectButtonSettings).
+To review all available parameters and events for the PromptBox file select settings, see the [PromptBoxFileSelectButtonSettings API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.PromptBoxFileSelectButtonSettings).
 
 ## See Also
 

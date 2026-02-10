@@ -21,7 +21,7 @@ The component also offers advanced functionality like automatic mode switching, 
 1. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
 1. (optional) Set the `Mode` parameter to control input behavior: `SingleLine`, `MultiLine`, or `Auto` (default).
 1. (optional) Configure built-in features like `EnableSpeechToText` and `EnableFileSelect`.
-1. (optional) Handle the `OnActionButtonClick` event to respond to user submissions.
+1. (optional) Handle the `OnPromptAction` event to respond to user submissions.
 
 >caption Basic PromptBox with auto-expanding mode
 
@@ -29,19 +29,19 @@ The component also offers advanced functionality like automatic mode switching, 
 <TelerikPromptBox @bind-Value="@Prompt"
                   Mode="PromptBoxMode.Auto"
                   Placeholder="Type, speak, or attach files…"
-                  OnActionButtonClick="OnActionButtonClick" />
+                  OnPromptAction="@OnActionButtonClick" />
 <p>Current prompt: @Prompt</p>
 
 @code {
     private string Prompt = string.Empty;
 
-    private async Task OnActionButtonClick(ActionButtonEventArgs args)
+    private async Task OnActionButtonClick(PromptBoxActionButtonEventArgs args)
     {
-        if (args.Action == ActionType.Send)
+        if (args.Action == PromptBoxActionType.Send)
         {
             // Process the user input
             Console.WriteLine($"User submitted: {args.Text}");
-            
+
             // Clear the prompt after processing
             Prompt = string.Empty;
         }
@@ -65,13 +65,13 @@ The PromptBox supports customizable adornments that adapt to the current input m
 
 The PromptBox fires events to respond to user interactions and state changes. [Read more about PromptBox events...](slug:promptbox-events).
 
-## PromptBox Parameters
+## PromptBox API
 
 To review all available parameters for the PromptBox component, see the [PromptBox API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikPromptBox#parameters).
 
 ## Next Steps
 
-* [Explore PromptBox Modes](slug:promptbox-modes)
 * [Configure File Attachments](slug:promptbox-attachments)
 * [Customize Adornments](slug:promptbox-adornments)
+* [Explore PromptBox Modes](slug:promptbox-modes)
 * [Handle Events](slug:promptbox-events)

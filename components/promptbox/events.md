@@ -23,7 +23,7 @@ The `OnPromptAction` event represents the primary user action for submitting con
 * The user presses **Enter** (when content is available and not loading)
 * The button state changes between Send and Stop modes
 
-The event provides `PromptBoxActionButtonEventArgs` containing the current text and action type.
+The event provides [`PromptBoxActionButtonEventArgs`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.PromptBoxActionButtonEventArgs) containing the current text and action type.
 
 >caption Handle action button interactions
 
@@ -115,7 +115,7 @@ The `ValueChanged` event fires upon every change in the text input (such as each
 
 ### OnChange
 
-The `OnChange` event represents a user confirmation of the current value. It fires when the input loses focus and the value has changed since it gained focus.
+The `OnChange` event represents a user confirmation of the current value. It is triggered when the input loses focus after the value has been changed during that focus session.
 
 >caption Handle OnChange event
 
@@ -169,23 +169,15 @@ The `OnBlur` event fires when the PromptBox loses focus, regardless of whether t
 
 ## Speech-to-Text Events
 
-When speech-to-text functionality is enabled, the PromptBox provides events through the [`PromptBoxSpeechToTextButtonSettings`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikPromptBox.ButtonSettings.PromptBoxSpeechToTextButtonSettings):
+When speech-to-text functionality is enabled, the PromptBox provides events through the [`PromptBoxSpeechToTextButtonSettings`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.PromptBoxSpeechToTextButtonSettings):
 
-### OnStart
+* OnStart: Fires when speech recognition begins.
 
-Fires when speech recognition begins.
+* OnResult: Fires when speech recognition returns results. Provides `SpeechToTextButtonResultEventArgs` with recognition data.
 
-### OnResult
+* OnEnd: Fires when speech recognition ends or disconnects.
 
-Fires when speech recognition returns results. Provides `SpeechToTextButtonResultEventArgs` with recognition data.
-
-### OnEnd
-
-Fires when speech recognition ends or disconnects.
-
-### OnError
-
-Fires when a speech recognition error occurs.
+* OnError: Fires when a speech recognition error occurs.
 
 >caption Speech-to-text event handling
 
@@ -264,7 +256,7 @@ Fires when a speech recognition error occurs.
 
 ## File Selection Events
 
-File selection events are handled through the [`PromptBoxFileSelectButtonSettings`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikPromptBox.ButtonSettings.PromptBoxFileSelectButtonSettings):
+File selection events are handled through the [`PromptBoxFileSelectButtonSettings`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.PromptBoxFileSelectButtonSettings).
 
 ### OnSelect
 
