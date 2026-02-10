@@ -47,6 +47,66 @@ After the event handler executes, the Chat automatically scrolls down to the las
 }
 ````
 
+## OnResendMessage
+
+The `OnResendMessage` event fires when a user clicks the resend button of a failed message. Use this event to handle error message retry.
+
+>caption Handle the Chat OnResendMessage event
+
+````Razor
+<TelerikChat Data="@ChatData"
+             @ref="@ChatRef"
+             AuthorId="@CurrentUserId"
+             IsFailedField="@nameof(ChatMessage.IsFailed)"
+             OnResendMessage="@OnChatResendMessage"
+             TextField="@nameof(ChatMessage.Content)">
+</TelerikChat>
+
+@code {
+    private TelerikChat<ChatMessage> ChatRef { get; set; }
+    private List<ChatMessage> ChatData { get; set; } = new();
+    private string CurrentUserId { get; set; } = "support";
+
+    private void OnChatResendMessage(ChatResendMessageEventArgs args)
+    {
+        var failedMessage = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
+
+        if (failedMessage != null)
+        {
+            failedMessage.IsFailed = false;
+
+            ChatData.Remove(failedMessage);
+            ChatData.Add(failedMessage);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        var failedMessage = new ChatMessage
+        {
+            Id = Guid.NewGuid().ToString(),
+            Content = "How can I help you?",
+            AuthorId = "support",
+            AuthorName = "Support Agent",
+            Timestamp = DateTime.Now,
+            IsFailed = true
+        };
+
+        ChatData.Add(failedMessage);
+    }
+
+    public class ChatMessage
+    {
+        public string Id { get; set; }
+        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
+        public string Content { get; set; }
+        public bool IsFailed { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+}
+````
+
 ## OnSuggestionClick
 
 The `OnSuggestionClick` event fires when a user clicks on a quick reply suggestion. You can use this event to customize suggestion handling.
@@ -183,6 +243,7 @@ The Chat events provide specific argument types with relevant data:
 | Event | Arguments Type | Key Properties |
 |-------|----------------|----------------|
 | `OnSendMessage` | `ChatSendMessageEventArgs` | `Message`, `Files`, `ReplyMessageId` |
+| `OnResendMessage` | `ChatResendMessageEventArgs` | `MessageId` |
 | `OnSuggestionClick` | `ChatSuggestionClickEventArgs` | `Suggestion`, `IsCancelled` |
 | `OnDownload` | `ChatDownloadEventArgs` | `Files`, `MessageId` |
 | `OnMessageUnpin` | `ChatMessageUnpinEventArgs` | `MessageId` |
