@@ -76,6 +76,7 @@ The Chat component provides field mapping parameters to work with different data
 | `FilesField` | File attachments | `"Files"` |
 | `StatusField` | Message status | `"Status"` |
 | `IsDeletedField` | Indicates if the message is deleted | `"IsDeleted"` |
+| `IsFailedField` | Indicates if the message has failed | `"IsFailed"` |
 | `IsPinnedField` | Indicaties if the message is pinned | `"IsPinned"` |
 | `IsTypingField` | Indicaties if the message author is currently typing | `"IsTyping"` |
 | `ReplyToIdField` | The ID of replied message | `"ReplyToId"` |

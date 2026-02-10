@@ -77,6 +77,18 @@ First, set the `IsTypingField` parameter to specify which field in your data mod
 }
 ````
 
+## Retry Failed Message
+
+The Chat component supports retrying failed messages. When a message has its `IsFailed` field set to `true`, the component displays a resend button that triggers the [`OnResendMessage`](slug:chat-events#onresendmessage) event, allowing you to handle the retry logic.
+
+To enable this behavior:
+
+1. Set the `IsFailedField` parameter to indicate which field in your data model marks a message as failed.
+
+2. Set that field to `true` for a message to show the resend button.
+
+For a complete implementation example, see the [`OnResendMessage` event article](slug:chat-events#onresendmessage).
+
 ## Context Menu Message Actions
 
 Configure context menu actions that appear when users right-click on messages. These actions provide quick access to common message operations.
