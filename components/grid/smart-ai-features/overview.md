@@ -67,7 +67,7 @@ For detailed information on implementing semantic search, see the [Grid AI Seman
 
 The following online demos show complete implementations of the Grid AI smart functionality. These examples use a Telerik-hosted AI service for demonstration purposes only. See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration) for more information on how you can implement your own server-side AI service to be compatible with the Telerik Grid.
 
-* [Grid AI Data Operations](https://demos.telerik.com/blazor-ui/grid/ai-data-operations)
+* [Grid AI Toolbar Assistant](https://demos.telerik.com/blazor-ui/grid/ai-toolbar-assistant)
 * [Grid AI Data Highlight](https://demos.telerik.com/blazor-ui/grid/ai-highlight)
 
 ## Next Steps
@@ -84,7 +84,7 @@ The following online demos show complete implementations of the Grid AI smart fu
 * [Grid AI Semantic Search](slug:grid-ai-semantic-search)
 
 * [InlineAIPrompt Overview](slug:inlineaiprompt-overview)
-* [Live Demo: Grid AI Data Operations](https://demos.telerik.com/blazor-ui/grid/ai-data-operations)
+* [Live Demo: Grid AI Toolbar Assistant](https://demos.telerik.com/blazor-ui/grid/ai-toolbar-assistant)
 * [Live Demo: Grid AI Data Highlight](https://demos.telerik.com/blazor-ui/grid/ai-highlight)
 * [Grid API](slug:Telerik.Blazor.Components.TelerikGrid-1)
 * [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration)

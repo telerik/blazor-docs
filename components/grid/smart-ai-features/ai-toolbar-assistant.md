@@ -86,7 +86,7 @@ private async Task OnAIPromptRequest(AIPromptPromptRequestEventArgs args)
 
 The following online demos show complete implementations of the Grid AI smart functionality with the `GridToolBarAIAssistantTool`. These examples use a Telerik-hosted AI service for demonstration purposes only. See [Integration with Telerik.AI.SmartComponents.Extensions](slug:grid-ai-service-setup) for more information on how you can implement your own server-side AI service to be compatible with the Telerik Grid.
 
-* [Grid AI Data Operations](https://demos.telerik.com/blazor-ui/grid/ai-data-operations)
+* [Grid AI Toolbar Assistant](https://demos.telerik.com/blazor-ui/grid/ai-toolbar-assistant)
 * [Grid AI Data Highlight](https://demos.telerik.com/blazor-ui/grid/ai-highlight)
 
 ## See Also
