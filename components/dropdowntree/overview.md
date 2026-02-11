@@ -16,7 +16,7 @@ The [Blazor DropDownTree component](https://www.telerik.com/blazor-ui/dropdowntr
 ## Creating Blazor DropDownTree
 
 1. Add the `<TelerikDropDownTree>` tag to your Razor page.
-1. Populate its `Data` parameter with an `IEnumerable<T>` of items that you want to appear in the dropdown list. The DropDownTree [automatically recognizes property names](slug:dropdowntree-data-binding-overview#default-property-names) like `Id`, `Text`, `Value`, and a few others. To use custom property names, set the [`TextField` and `ValueField`](slug:dropdowntree-data-binding-overview#text-and-value-fields) parameters, and [define bindings for the parent-child relationships](slug:dropdowntree-data-binding-overview#dropdowntree-bindings).
+1. Populate its `Data` parameter with an `IEnumerable<T>` of items that you want to appear in the dropdown list. The DropDownTree [automatically recognizes property names](slug:dropdowntree-data-binding-overview#default-property-names) like `Id`, `Text`, `Value`, and a few others. To use custom property names, set the [`ValueField` parameter](slug:dropdowntree-data-binding-overview#value-field), and [define bindings for the parent-child relationships](slug:dropdowntree-data-binding-overview#dropdowntree-bindings).
 1. [Bind the `Value` parameter](slug:get-started-value-vs-data-binding#value-binding) to a variable of the same type as the `ValueField` property.
 1. (optional) Set the `ExpandedItems` parameter to a non-null `IEnumerable<object>`. Use it to get the expanded items in the dropdown or set them programmatically.
 

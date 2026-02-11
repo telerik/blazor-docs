@@ -14,8 +14,8 @@ position: 0
 This article explains how to bind the DropDownTree to data and how to relate component features to properties of the model class. This is a prerequisite for successful data binding of the DropDownTree:
 
 * What are the [default property names](#default-property-names) that the DropDownTree expects.
-* How to match model properties to [DropDownTree item text and component `Value`](#text-and-value-fields).
-* How to match model properties to [DropDownTree parent-child relationships](#treeview-bindings).
+* How to match model properties to the [DropDownTree component `Value`](#value-field).
+* How to match model properties to [DropDownTree parent-child relationships](#dropdowntree-bindings).
 
 ## Default Property Names
 
@@ -57,18 +57,13 @@ The above model properties have the following meaning for the DropDownTree:
 | `Text` | Sets the TreeView item content and the visible component value as plain text. For rich content and nested components, use an [item template](slug:dropdowntree-templates#itemtemplate) or a [value template](slug:dropdowntree-templates#valuetemplate). The DropDownTree also uses the `Text` contents for [filtering](slug:dropdowntree-filtering). |
 | `Value` | Sets the underlying component value when the user selects the respective data item. |
 
-## Text and Value Fields
+## Value Field
 
-Use the `TextField` and `ValueField` parameters of the DropDownTree component to define which model properties hold the data item text and value. You can skip setting these parameters if your model class uses the [default expected property names](#default-property-names):
-
-| DropDownTree Parameter | Default Value |
-| --- | --- |
-| `TextField` | `"Text"` |
-| `ValueField` | `"Value"` |
+Use the `ValueField` parameter of the DropDownTree component to define which model property holds the data item value. You can skip setting this parameter if your model class uses the [default expected property name](#default-property-names), namely, `Value`.
 
 ## DropDownTree Bindings
 
-The parent-child relationships between the DropDownTree items depend on `DropDownTreeBinding` tags. Each tag exposes the following parameters that refer to model property names:
+The DropDownTree item text and the parent-child relationships depend on `DropDownTreeBinding` tags. Each tag exposes the following parameters that refer to model property names:
 
 | DropDownTreeBinding Parameter | Default Value |
 | --- | --- |
@@ -76,6 +71,7 @@ The parent-child relationships between the DropDownTree items depend on `DropDow
 | `ParentIdField` (flat data) | `"ParentId"` |
 | `ItemsField` (hierarchical data) | `"Items"` |
 | `HasChildrenField` | `"HasChildren"` |
+| `TextField` | `"Text"` |
 
 It is possible to [configure different bindings for different item levels](#multiple-level-bindings) with the `Level` parameter of `DropDownTreeBinding`. Usually one binding configuration is enough. For example, the following model class requires the binding configuration below:
 
@@ -94,10 +90,11 @@ public class TreeItem
 >caption DropDownTreeBinding Configuration
 
 ````RAZOR.skip-repl
-<TelerikDropDownTree TextField="@nameof(TreeItem.Description)">
+<TelerikDropDownTree>
     <DropDownTreeBindings>
         <DropDownTreeBinding IdField="@nameof(TreeItem.UniqueID)"
-                             ItemsField="@nameof(TreeItem.Children)" />
+                             ItemsField="@nameof(TreeItem.Children)"
+                             TextField="@nameof(TreeItem.Description)" />
     </DropDownTreeBindings>
 </TelerikDropDownTree>
 ````

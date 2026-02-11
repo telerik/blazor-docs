@@ -140,7 +140,6 @@ The DropDownTree `ValueTemplate` controls the display of the current `Value` whe
                      Data="@DropDownTreeData"
                      @bind-Value="@DropDownTreeValue"
                      @bind-ExpandedItems="@DropDownTreeExpandedItems"
-                     TextField="@nameof(TreeItem.Text)"
                      ValueField="@nameof(TreeItem.Id)"
                      Width="300px">
     <DropDownTreeBindings>

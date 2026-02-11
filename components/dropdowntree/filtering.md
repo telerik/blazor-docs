@@ -11,7 +11,7 @@ position: 10
 
 # DropDownTree Filtering
 
-The DropDownTree can render a filter textbox in its popup. The textbox allows users to filter the available TreeView items by their `TextField` value and find the one they need faster.
+The DropDownTree can render a filter textbox in its popup. The textbox allows users to filter the available TreeView items by the [`TextField` value](slug:dropdowntree-data-binding-overview#dropdowntree-bindings) and find the one they need faster.
 
 To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive and resets when the dropdown closes.
 
@@ -34,7 +34,6 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 ````RAZOR
 <TelerikDropDownTree Data="@DropDownTreeData"
                      @bind-Value="@DropDownTreeValue"
-                     TextField="@nameof(TreeItem.Text)"
                      ValueField="@nameof(TreeItem.Id)"
                      Filterable="true"
                      FilterOperator="@StringFilterOperator.Contains"
