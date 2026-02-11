@@ -169,7 +169,7 @@ Also see the [runnable example below](#example).
 
 ## OnItemClick
 
-The `OnItemClick` event fires when the user clicks or taps an item in the DropDownTree popup. The event handler receives a [`DropDownListItemClickEventArgs`](slug:Telerik.Blazor.Components.DropDownListItemClickEventArgs) argument that exposes the clicked item as an `object`. Cast it to your model type to access the properties.
+The `OnItemClick` event fires when the user clicks or taps an item in the DropDownTree popup. The event handler receives a [`DropDownTreeItemClickEventArgs`](slug:Telerik.Blazor.Components.DropDownTreeItemClickEventArgs) argument that exposes the clicked item as an `object`. Cast it to your model type to access the properties.
 
 Also see the [runnable example below](#example).
 
@@ -188,7 +188,7 @@ Also see the [runnable example below](#example).
 
 ## OnItemRender
 
-The `OnItemRender` event fires once for each item in the DropDownTree popup on each open. The event handler receives a [`DropDownListItemRenderEventArgs`](slug:Telerik.Blazor.Components.DropDownListItemRenderEventArgs) argument that exposes the currently rendered item as an `object`. Cast it to your model type to access the properties. The event allows you to set a custom CSS class to the rendered item.
+The `OnItemRender` event fires once for each item in the DropDownTree popup on each open. The event handler receives a [`DropDownTreeItemRenderEventArgs`](slug:Telerik.Blazor.Components.DropDownTreeItemRenderEventArgs) argument that exposes the currently rendered item as an `object`. Cast it to your model type to access the properties. The event allows you to set a custom CSS class to the rendered item.
 
 Also see the [runnable example below](#example).
 
