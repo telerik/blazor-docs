@@ -53,9 +53,9 @@ This KB answers the following questions:
         <GridRowDraggableSettings DragClueField="@nameof(GridModel.Text)" />
     </GridSettings>
     <GridToolBarTemplate>
-        <label class="grid-label"><TelerikCheckBox @bind-Value="@MasterGridDrag" /> Allow Dragging</label>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@MasterGridDrag" /> Allow Dragging</label>
         <span class="k-separator"></span>
-        <label class="grid-label"><TelerikCheckBox @bind-Value="@MasterGridDrop" /> Allow Dropping</label>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@MasterGridDrop" /> Allow Dropping</label>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(GridModel.Id))" Width="120px" />
@@ -103,35 +103,30 @@ This KB answers the following questions:
 </TelerikGrid>
 
 <style>
-    .grid-label {
-        display: inline-flex;
-        gap: .3em;
-    }
-
-    /* master header area */
-    .no-drag-column > div > .k-grid-header .k-drag-col {
+    /* header area */
+    .no-drag-column > .k-grid-aria-root > .k-grid-header .k-drag-col {
         width: 0;
     }
 
-    .no-drag-column > div > .k-grid-header .k-drag-cell + th {
+    .no-drag-column > .k-grid-aria-root > .k-grid-header .k-drag-cell + th {
         border-left-width: 0;
     }
 
-    .no-drag-column > div > .k-grid-header .k-drag-cell * {
+    .no-drag-column > .k-grid-aria-root > .k-grid-header .k-drag-cell * {
         display: none;
     }
 
-    /* detail data area */
-    .no-drag-column > div > .k-grid-container > .k-grid-content > div > div > table > colgroup > .k-drag-col {
+    /* data area */
+    .no-drag-column > .k-grid-aria-root > .k-grid-container > .k-grid-content > table > colgroup > .k-drag-col {
         width: 0;
     }
 
-    .no-drag-column > div > .k-grid-container > .k-grid-content > div > div > table > tbody > tr > .k-drag-cell + td,
-    .no-drag-column > div > .k-grid-container > .k-grid-content > div > div > table > tbody > tr > .k-hierarchy-cell {
+    .no-drag-column > .k-grid-aria-root > .k-grid-container > .k-grid-content > table > tbody > tr > .k-drag-cell + td,
+    .no-drag-column > .k-grid-aria-root > .k-grid-container > .k-grid-content > table > tbody > tr > .k-hierarchy-cell {
         border-left-width: 0;
     }
 
-    .no-drag-column > div > .k-grid-container > .k-grid-content > div > div > table > tbody > tr > .k-drag-cell * {
+    .no-drag-column > .k-grid-aria-root > .k-grid-container > .k-grid-content > table > tbody > tr > .k-drag-cell * {
         display: none;
     }
 </style>
@@ -227,14 +222,14 @@ This KB answers the following questions:
     {
         Id = x,
         ParentId = null,
-        Text = "Text " + (x)
+        Text = $"Text {x}"
     }).ToList();
 
     private List<GridModel> DetailGridData { get; set; } = Enumerable.Range(1, 9).Select(x => new GridModel
     {
         Id = 100 + x,
         ParentId = x % 3 + 1,
-        Text = "Text  " + (100 + x)
+        Text = $"Text {100 + x}"
     }).ToList();
 
     public class GridModel
