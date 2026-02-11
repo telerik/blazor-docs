@@ -353,4 +353,4 @@ The following example demonstrates a complete implementation of the AI Smart Box
 * [Grid AI Row Highlight](slug:grid-ai-row-highlight)
 * [Grid AI Semantic Search](slug:grid-ai-semantic-search)
 * [Integration with Telerik.AI.SmartComponents.Extensions](slug:grid-ai-service-setup)
-* [Grid Toolbar](slug:grid-toolbar)
+* [Grid Toolbar](slug:components/grid/features/toolbar)

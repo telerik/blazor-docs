@@ -175,6 +175,6 @@ View the [complete live demo](https://demos.telerik.com/blazor-ui/grid/ai-highli
 
 ## See Also
 
-* [Grid Smart AI Features Overview]({%slug grid-ai-overview%})
-* [Grid AI Prompt Component]({%slug grid-ai-prompt%})
-* [Grid Toolbar]({%slug grid-toolbar%})
+* [Grid Smart AI Features Overview](slug:grid-ai-overview)
+* [Grid AI Smart Box](slug:grid-ai-smart-box)
+* [Grid Toolbar](slug:grid-ai-prompt)
