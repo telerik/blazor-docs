@@ -46,7 +46,7 @@ The Telerik DropDownTree fires events that enable the app to detect and react to
 
 ## DropDownTree API
 
-Get familiar with all DropDownTree parameters, methods, events, and nested tags in the [DropDownTree API Reference](slug:Telerik.Blazor.Components.TelerikDropDownTree-2).
+Get familiar with all DropDownTree parameters, methods, events, and nested tags in the [DropDownTree API Reference](slug:Telerik.Blazor.Components.TelerikDropDownTree-1).
 
 ## Popup Settings
 
