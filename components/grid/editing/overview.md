@@ -97,7 +97,7 @@ The Grid provides the following built-in commands, which enable users to add, de
 Users execute commands in the following ways:
 
 * By clicking on [command buttons](slug:components/grid/columns/command#the-gridcommandbutton-tag).
-* By clicking on editable cells in [in-cell edit mode](slug:grid-editing-incell) and then anywhere else on the page.
+* By clicking on [editable](slug:components/grid/columns/bound#data-operations) cells in [in-cell edit mode](slug:grid-editing-incell) and then anywhere else on the page.
 * By using the [Grid keyboard navigation](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation).
 
 Command buttons can only reside in a [Grid Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). Each command button in the command column is visible only in display mode or only in edit mode, depending on the button's `ShowInEdit` boolean parameter value.

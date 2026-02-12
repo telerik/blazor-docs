@@ -177,7 +177,7 @@ Without using the above command buttons, the application can:
 * Reload the Grid `Data` after making changes to the data source. When [using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically](#basic).
 * Apply the user changes to the Grid `Data` parameter to spare one read request to the database.
 * Use `DataAnnotations` validation for the `Name` and `ReleaseDate` properties.
-* Define the `Id` column as non-editable.
+* Define the `Id` column as readonly with `Editable="false"`.
 * Customize the `Description` and `Discontinued` column editors without using an `EditorTemplate`.
 * Render the **Delete** command button conditionally if `Discontinued` is `true`.
 * Confirm **Delete** commands with the built-in Grid Dialog. You can also [intercept item deletion with a separate Dialog or a custom popup](slug:grid-kb-customize-delete-confirmation-dialog).
