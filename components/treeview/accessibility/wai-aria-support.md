@@ -38,7 +38,7 @@ If the tree supports the load-more functionality, the **Load More** button is re
 |  | `aria-setsize` | Announces the total count of the items at this level. Enables the user to understand the position of the navigation, for example, item 3 of 14. Must be added only when the load-more functionality of the tree is enabled and there are still nodes belonging to the group that are not loaded (rendered) yet. |
 |  | `aria-expanded=true/false` | Announces the expanded state of the node. The value is `true` when expanded, and `false` when collapsed. |
 |  | `aria-checked=true/false` | Rendered only when checkboxes are enabled. Announces the checked state of the node. If the checkbox is indeterminate, the value is `mixed`. |
-| `.k-treeview-item:has(> span > .k-selected, > div > .k-selected) ` | `aria-selected=true` | Rendered only when selection is enabled. Announces the selected state of the node. |
+| `.k-treeview-item:has(>.k-selected)` | `aria-selected=true` | Rendered only when selection is enabled. Announces the selected state of the node. |
 | `.k-checkbox` | `role=none/presentation` | Added to the wrapper element of the checkbox to prevent duplicated information announced to the user. The checked state is controlled by `aria-checked`. |
 
 ## Resources

@@ -34,7 +34,7 @@ The following table summarizes the selectors and attributes supported by the Dro
 |  | `label for` or `aria-label` or `aria-labelledby` | The input requires an accessible name that will be assigned to it. |
 |  | `aria-haspopup=listbox` | Indicates the presence of a listbox popup. |
 |  | `aria-expanded=true/false` | Announces the visibility state of the popup. |
-|  | `aria-controls=.k-list-ul id` | Points to the listbox element. Signifies that the `combobox` controls the `listbox` element. |
+|  | `aria-controls=[role='listbox'] id` | Points to the listbox element. Signifies that the `combobox` controls the `listbox` element. |
 |  | `aria-describedby=.k-input-inner id` | Announces the selected value of the drop-down. |
 |  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item in the popup. The focused item is changed through keyboard navigation. If the popup is not visible, the attribute must not point to any element or must be removed. |
 |  | `aria-readonly=true` | The attribute is rendered only when the DropDownList is read-only. |
@@ -57,7 +57,7 @@ The following table summarizes the selectors and attributes supported by the Dro
 |  | `aria-label` | Points to the search label. |
 |  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item or to an item from the popup. |
 |  | `aria-autocomplete=list` | Indicates the list-filtering capabilities of the selected items. |
-|  | `aria-controls=.k-list-ul id` | Points to the popup element. Builds the relationship between the input and the popup. |
+|  | `aria-controls=[role='listbox'] id` | Points to the popup element. Builds the relationship between the input and the popup. |
 |  | `aria-haspopup=listbox` | Indicates the presence of a listbox popup. |
 | `.k-list-ul` | `aria-live=polite/off` | Assures the live updates on the selected value of the popup. |
 
@@ -71,15 +71,17 @@ The listbox placed in the popup element of the DropDownList has to implement the
 | `.k-animation-container` | `role=region` | When the component container is appended to the `<body>` element of the document, it requires you to assing a `landmark` role to it. Otherwise, append it to an element with an appropriate `landmark` role. |
 |  | `aria-label` or `aria-labelledby` | When the container has a `region` role assigned, povides a label. |
 | `.k-list .k-no-data` | `aria-live=polite` | Identifies the element as a live region in the `polite` state, meaning assistive technology users are informed about changes to the region at the next available opportunity. |
-| `.k-list-ul` | `role=listbox` | Identifies the `ul` element as a listbox. |
-|  | `aria-label` or `aria-labelledby` | Provides a label for the listbox of the ComboBox. |
-| `.k-list-item` | `role=option` | Identifies the `li` element as a listbox option. |
-|  | `id` | When grouped, the list items must have an `id` attribute specified, so that the "aria-owns" attribute of their group header elements (with `role=group`) point to that ids. |
-|  | `aria-describedby` | When grouped, the list items must have an "aria-describedby" attribute pointing to the id of the `k-list-item-text` element in their `k-list-group-item`. |
+| `.k-list-item-icon-wrapper` | `role=presentation` | Indicates that the icon wrapper is decorative and should be ignored by assistive technologies. |
+| `.k-list-item-icon` | `aria-hidden=true` | Ensures that the icon itself is hidden from assistive technologies since it is decorative. |
 | `.k-list-item.k-selected` | `aria-selected=true` | Indicates the selected state of the item. |
-| `.k-list-group-item` | `role=group` | The group elements in the popup list must be have `role=group`. |
-|  | `aria-owns` | The group elements in the popup list must own the list items belonging to their group. |
-| `.k-list-group-item>.k-list-item-text` | `id` | The `k-list-item-text` elements of the `k-list-group-item` must have an id specified. The `aria-labelledby` attribute of the list items in the group must point to that id. |
+| `.k-list-content` | `role=listbox` | When data is grouped, role is listbox. |
+|  | `aria-multiselectable=true` | Signifies that the grouped list allows multiple selection. |
+| `.k-list-ul` | `role=listbox/group` | When data is grouped, role is group, otherwise - listbox. |
+|  | `aria-multiselectable=true` | Signifies that the list allows multiple selection. |
+|  | `aria-labelledby=id of group header` | References the id of the group header element that labels this group. |
+| `.k-list-group-item` | `role=presentation` | The group header has role='presentation' since the grouping semantics are provided by the ul[role=group]. |
+|  | `id` | Provides an id for the group header that is referenced by the group's aria-labelledby attribute. |
+| `.k-list-ul .k-list-item` | `role=option` | Items within a group maintain the option role. |
 
 ### Adaptive Mode
 
