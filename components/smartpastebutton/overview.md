@@ -142,7 +142,7 @@ john.doe@example.com
 <div class="skip-repl"></div>
 
 ````C# Program.cs
-IChatClient gptChatClient = new AzureOpenAIClient(new Uri("https://blazor-models-ai-foundry.cognitiveservices.azure.com/"),
+IChatClient gptChatClient = new AzureOpenAIClient(new Uri("your API endpoint here"),
                             new AzureKeyCredential("your API key here")).GetChatClient("gpt-4.1");
 
 services.AddKeyedChatClient("gpt-4.1", gptChatClient);
