@@ -27,7 +27,7 @@ To use in-cell Grid editing, [set the Grid `EditMode` parameter to `GridEditMode
 * Click outside the Grid to confirm the current value and exit edit mode.
 * Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
 
-Command columns and non-editable columns are skipped while tabbing.
+Command columns and read-only columns are skipped while tabbing.
 
 ## Commands
 
