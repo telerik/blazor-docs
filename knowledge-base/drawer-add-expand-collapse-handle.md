@@ -38,67 +38,66 @@ To achieve the desired result you can try the following:
 ![Add Expand/Collapse Handle](images/drawer-expand-collapse-handle-example.gif)
 
 
-
 ````RAZOR
-@* Add Expand/Collapse handle to toggle the Drawer *@
+<TelerikButton Class="@($"toggle-button {(DrawerExpanded ? "expanded" : "collapsed")}")"
+               Icon="@(DrawerExpanded ? "chevron-left" : "chevron-right")"
+               OnClick="@(async () => await DrawerRef!.ToggleAsync())" />
 
-<style>
-    .my-toggle-button {
-        border-radius: 50%;
-        transform: translateY(50%);
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        z-index: 1;
-        background-color: #fff;
-        transition: all 300ms ease-in-out; /* match the Drawer's animation */
-    }
-    
-    .my-toggle-button.collapsed {
-            top: 20px;
-            left: 34px;
-    }
-    
-    .my-toggle-button.expanded {
-            top: 20px;
-            left: 225px;
-    }
-</style>
-
-<TelerikButton Class="@(ExpandedDrawer ? "my-toggle-button expanded" : "my-toggle-button collapsed")" Icon="@(ExpandedDrawer ? "chevron-left" : "chevron-right")" OnClick="@(() => DrawerRef.ToggleAsync())"></TelerikButton>
-
-<TelerikDrawer Data="@Data"
-               Class="my-drawer"
+<TelerikDrawer @ref="@DrawerRef"
+               Data="@DrawerData"
+               @bind-Expanded="@DrawerExpanded"
                MiniMode="true"
                Mode="DrawerMode.Push"
-               @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem"
-               @bind-Expanded="@ExpandedDrawer">
+               Width="@DrawerWidth">
     <DrawerContent>
-        @* Place your contents here - it can be as simple as text, it can be conditional components or components that take the selected item as a parameter, or even the @Body tag for navigation if you place the drawer high enough in the project layout hierarchy *@
-        <div class="m-5">
+        <div style="padding: var(--kendo-spacing-6);">
             Selected Item: @SelectedItem?.Text
         </div>
     </DrawerContent>
 </TelerikDrawer>
 
+<style>
+    .toggle-button {
+        transform: translateY(50%);
+        z-index: 1;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 50%;
+        background-color: #fff;
+        transition: all 300ms ease-in-out; /* Match the Drawer animation. */
+    }
+    
+    .toggle-button.collapsed {
+            top: 20px;
+            left: calc(var(--kendo-spacing-4) * 2); /* Match the Drawer width in Mini mode. */
+    }
+    
+    .toggle-button.expanded {
+            top: 20px;
+            left: calc(@DrawerWidth - 15px); /* Match the Drawer Width. */
+    }
+</style>
 
 @code {
-    public bool ExpandedDrawer { get; set; }
+    private TelerikDrawer<DrawerItem>? DrawerRef;
 
-    TelerikDrawer<DrawerItem> DrawerRef { get; set; }
+    private bool DrawerExpanded { get; set; }
 
-    DrawerItem SelectedItem { get; set; }
+    private DrawerItem? SelectedItem { get; set; }
+
+    private string DrawerWidth { get; set; } = "240px";
     
-    IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
+    private IEnumerable<DrawerItem> DrawerData { get; set; } =
+        new List<DrawerItem>()
         {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus},
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout}
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout }
         };
 
     public class DrawerItem
     {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
+        public ISvgIcon? Icon { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
