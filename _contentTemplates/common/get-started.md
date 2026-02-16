@@ -33,6 +33,9 @@ As the Telerik NuGet server requires authentication, the first step is to obtain
 1. Store the generated NuGet API key as you will need it in the next steps.
 
 Whenever you need to authenticate your system with the Telerik NuGet server, use `api-key` as the username and your generated API key as the password.
+
+> Telerik API keys expire in two years. Make sure to generate and use a new one in time.
+
 #end
 
 #add-nuget-feed
@@ -54,7 +57,7 @@ Next, add the Telerik NuGet feed to your local development environment:
 * [Visual Studio on Windows](#visual-studio)
 * [All IDEs and operating systems](#all-ides-and-operating-systems)
 
->tip For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:getting-started/what-you-need#nuget-packages).
+> Telerik API keys expire in two years. Make sure to generate and use a new one in time. For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:getting-started/what-you-need#nuget-packages).
 
 ### Visual Studio
 
