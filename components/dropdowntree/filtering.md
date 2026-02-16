@@ -86,4 +86,4 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 
 ## See Also
 
-* [Live Demo: DropDownTree Filtering](https://demos.telerik.com/blazor-ui/dropdowntree/filtering)
+* [Live Demos: DropDownTree](https://demos.telerik.com/blazor-ui/dropdowntree/overview)
