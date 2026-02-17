@@ -19,6 +19,10 @@ This article describes how to install, configure, and use the Telerik UI for Bla
 
 ## Quick Start
 
+The next video guides you through the steps needed for setting up and using the Telerik UI for Blazor Agentic UI Generator.
+
+<iframe width="560" height="315" src="https://youtu.be/0UC79VbbyQI?si=2DCbYHTykuO7X6qe" title="Getting started with Blazor Agentic UI Generator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 > If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to **step 3** to start using the Agentic UI Generator.
 
 Follow these steps to set up the Agentic UI Generator:
