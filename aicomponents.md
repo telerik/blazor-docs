@@ -4,7 +4,7 @@ page_title: AI Components and Features in Telerik UI for Blazor by Progress
 description: "Discover the AI-powered components in Telerik UI for Blazor designed to enhance functionality and user experience."
 slug: ai-components-blazor
 position: 7
-tag: new
+tag: updated
 ---
 
 # Telerik UI for Blazor AI Components & Features
@@ -18,23 +18,23 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="AI Chat"
         subTitle="Chat Feature"
         darkSrc="./images/aicomponents/Chat_Dark_Large.svg"
-        description="The Telerik UI for Blazor Chat component provides interactive AI conversation capabilities for your application.">
+        description="Create interactive AI chatbots using the Telerik UI for Blazor Chat component with messaging, notifications, and smart replies.">
     </article-card>
     <article-card
-        href="/components/aiprompt/overview"
-        src="./images/aicomponents/AIPrompt_Light_Large.svg"
-        title="AI Prompt"
-        subTitle="UI Component"
-        darkSrc="./images/aicomponents/AIPrompt_Dark_Large.svg"
-        description="The Telerik UI for Blazor AIPrompt component creates intelligent, AI-driven prompts that guide users through task completion and workflow processes.">
+        href="/components/grid/smart-ai-features/ai-semantic-search"
+        src="./images/aicomponents/Semantic_Search_Light_Large.svg"
+        title="Semantic Search"
+        subTitle="Smart Data Grid Feature"
+        darkSrc="./images/aicomponents/Semantic_Search_Dark_Large.svg"
+        description="Enhance data discovery using the Telerik UI for Blazor Grid Semantic Search - intelligent meaning-based search capabilities.">
     </article-card>
     <article-card
-        href="/components/inlineaiprompt/overview"
-        src="./images/aicomponents/InlineAIPrompt_Light_Large.svg"
-        title="Inline AI Prompt"
+        href="/components/smartpastebutton/overview"
+        src="./images/aicomponents/SmartPaste_Light_Large.svg"
+        title="SmartPaste"
         subTitle="UI Component"
-        darkSrc="./images/aicomponents/InlineAIPrompt_Dark_Large.svg"
-        description="The Telerik UI for Blazor Inline AIPrompt component delivers contextual AI suggestions within the UI.">
+        darkSrc="./images/aicomponents/SmartPaste_Dark_Large.svg"
+        description="Streamline data entry with the Telerik UI for Blazor SmartPaste component - map and insert clipboard content into input fields with a single click.">
     </article-card>
     <article-card
         href="/components/grid/smart-ai-features/overview"
@@ -42,7 +42,7 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="AI Data Operations"
         subTitle="Smart Data Grid Feature"
         darkSrc="./images/aicomponents/AI_Data_Operations_Dark_Large.svg"
-        description="The Telerik UI for Blazor Grid component offers smart AI features for advanced data manipulation and processing.">
+        description="Streamline data workflows with the Telerik UI for Blazor Grid AI Data Operations—advanced automation and smart tools.">
     </article-card>
     <article-card
         href="/components/grid/highlighting"
@@ -50,7 +50,7 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="AI Data Highlight"
         subTitle="Smart Data Grid Feature"
         darkSrc="./images/aicomponents/AI_Data_Highlight_Dark_Large.svg"
-        description="The Telerik UI for Blazor Grid component provides smart AI functionality to automatically highlight important data points.">
+        description="Boost data analysis using the Telerik UI for Blazor Grid AI Data Highlights—smart detection and visualization features.">
     </article-card>
     <article-card
         href="/components/grid/smart-ai-features/ai-column-assistant"
@@ -58,7 +58,23 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="AI Column Assistant"
         subTitle="Smart Data Grid Feature"
         darkSrc="./images/aicomponents/AI_Column_Assistant_Dark_Large.svg"
-        description="The Telerik UI for Blazor Grid component offers smart AI features for managing column-level data operations.">
+        description="Enhance Grid efficiency using the Telerik UI for Blazor Grid AI Column Assistant—intelligent configuration and management.">
+    </article-card>
+    <article-card
+        href="/components/promptbox/overview"
+        src="./images/aicomponents/PromptBox_Light_Large.svg"
+        title="PromptBox"
+        subTitle="UI Component"
+        darkSrc="./images/aicomponents/PromptBox_Dark_Large.svg"
+        description="Improve AI prompting with the Telerik UI for Blazor PromptBox component - smart input for conversational apps.">
+    </article-card>
+    <article-card
+        href="/components/grid/smart-ai-features/ai-chat-assistant"
+        src="./images/aicomponents/Grid_AI_Chat_Integration_Light_Large.svg"
+        title="AI Chat Integration"
+        subTitle="Chat Feature"
+        darkSrc="./images/aicomponents/Grid_AI_Chat_Integration_Dark_Large.svg"
+        description="Transform Grid workflows using the Telerik UI for Blazor Grid AI Chat Integration - contextual assistance and advanced AI experience.">
     </article-card>
     <article-card
         href="/components/editor/ai-integration/overview"
@@ -66,6 +82,22 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="Editor AI Integration"
         subTitle="Editor Feature"
         darkSrc="./images/aicomponents/Editor_AI_Integration_Dark_Large.svg"
-        description="The Telerik UI for Blazor Editor delivers AI integration capabilities for smarter content creation.">
+        description="Transform content development with Telerik UI for Blazor Editor AI Integration - AI-powered writing and optimization.">
+    </article-card>
+    <article-card
+        href="/components/inlineaiprompt/overview"
+        src="./images/aicomponents/InlineAIPrompt_Light_Large.svg"
+        title="Inline AI Prompt"
+        subTitle="UI Component"
+        darkSrc="./images/aicomponents/InlineAIPrompt_Dark_Large.svg"
+        description="Boost efficiency using the Blazor Inline AIPrompt with smart contextual hints and AI-powered content recommendations.">
+    </article-card>
+    <article-card
+        href="/components/aiprompt/overview"
+        src="./images/aicomponents/AIPrompt_Light_Large.svg"
+        title="AI Prompt"
+        subTitle="UI Component"
+        darkSrc="./images/aicomponents/AIPrompt_Dark_Large.svg"
+        description="Enhance user input with the Blazor AIPrompt component featuring intelligent suggestions and workflow optimization.">
     </article-card>
 </article-card-container>
