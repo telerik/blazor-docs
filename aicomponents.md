@@ -26,7 +26,7 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="Semantic Search"
         subTitle="Smart Data Grid Feature"
         darkSrc="./images/aicomponents/Semantic_Search_Dark_Large.svg"
-        description="The Telerik UI for Blazor Grid component provides a smart AI feature that performs semantic, meaning-based searches.">
+        description="Enhance data discovery using the Telerik UI for Blazor Grid Semantic Search - intelligent meaning-based search capabilities.">
     </article-card>
     <article-card
         href="/components/smartpastebutton/overview"
@@ -34,7 +34,7 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="SmartPaste"
         subTitle="UI Component"
         darkSrc="./images/aicomponents/SmartPaste_Dark_Large.svg"
-        description="The Telerik UI for Blazor SmartPaste component maps and inserts clipboard content into input fields using a single-action button.">
+        description="Streamline data entry with the Telerik UI for Blazor SmartPaste component - map and insert clipboard content into input fields with a single click.">
     </article-card>
     <article-card
         href="/components/grid/smart-ai-features/overview"
@@ -66,7 +66,7 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="PromptBox"
         subTitle="UI Component"
         darkSrc="./images/aicomponents/PromptBox_Dark_Large.svg"
-        description="The Telerik UI for Blazor PromptBox component is an enhanced input optimized for AI prompting and supports additional conversational interactions.">
+        description="Improve AI prompting with the Telerik UI for Blazor PromptBox component - smart input for conversational apps.">
     </article-card>
     <article-card
         href="/components/grid/smart-ai-features/ai-chat-assistant"
@@ -74,7 +74,7 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
         title="AI Chat Integration"
         subTitle="Chat Feature"
         darkSrc="./images/aicomponents/Grid_AI_Chat_Integration_Dark_Large.svg"
-        description="The Telerik UI for Blazor Grid component provides AI Chat integration, enabling an advanced AI experience with contextual assistance.">
+        description="Transform Grid workflows using the Telerik UI for Blazor Grid AI Chat Integration - contextual assistance and advanced AI experience.">
     </article-card>
     <article-card
         href="/components/editor/ai-integration/overview"
