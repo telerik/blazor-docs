@@ -81,6 +81,11 @@ For tool-specific usage guidance, visit the [Agentic UI Generator Getting Starte
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 <tr>
+<td><strong>Accessibility Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No</td>
+</tr>
+<tr>
 <td><strong>Scope</strong></td>
 <td>Complete pages, dashboards with layout, styling, components, and responsivenes.</td>
 <td>Individual components with proper data binding and configuration.</td>
@@ -155,6 +160,14 @@ Access to the Telerik AI Tools depends on your [Telerik license type](https://ww
 <td>No</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
+<tr>
+<td><strong>Accessibility Tool</strong></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td>No</td>
+<td>No</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+</tr>
+<tr>
 </tbody>
 </table>
 
