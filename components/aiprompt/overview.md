@@ -93,7 +93,10 @@ For a complete list of available parameters and methods, refer to the [AIPrompt 
 To use component methods, define a reference to the AIPrompt instance with the `@ref` directive. For example:
 
 ````RAZOR
-<TelerikAIPrompt @ref="@AIPromptRef" OnPromptRequest="@HandlePromptRequest"></TelerikAIPrompt>
+<TelerikAIPrompt @ref="@AIPromptRef" 
+                 OnPromptRequest="@HandlePromptRequest"
+                 PromptSuggestions="@Suggestions">
+</TelerikAIPrompt>
 <div style="margin-top: 2em;">
     <TelerikTextBox @bind-Value="@CustomPrompt"></TelerikTextBox>
     <TelerikButton OnClick="@ExternalGenerateHandler">Generate</TelerikButton>
@@ -102,6 +105,11 @@ To use component methods, define a reference to the AIPrompt instance with the `
 @code {
     private string CustomPrompt { get; set; }
     private TelerikAIPrompt AIPromptRef { get; set; }
+    private List<string> Suggestions { get; set; } = new List<string>()
+    {
+        "Explain quantum physics in simple terms.",
+        "What are the three laws of thermodynamics?"
+    };
 
     private void ExternalGenerateHandler()
     {
