@@ -94,7 +94,8 @@ To use component methods, define a reference to the AIPrompt instance with the `
 
 ````RAZOR
 <TelerikAIPrompt @ref="@AIPromptRef" 
-                 OnPromptRequest="@HandlePromptRequest" PromptSuggestions="@Suggestions">
+                 OnPromptRequest="@HandlePromptRequest"
+                 PromptSuggestions="@Suggestions">
 </TelerikAIPrompt>
 <div style="margin-top: 2em;">
     <TelerikTextBox @bind-Value="@CustomPrompt"></TelerikTextBox>
