@@ -138,6 +138,6 @@ While the SmartPasteButton handles most AI service errors internally, you can us
 
 ## See Also
 
-* [SmartPasteButton Live Error Handling Demo](https://demos.telerik.com/blazor-ui/smartpastebutton/error-handling)
+* [SmartPasteButton Live Validation Demo](https://demos.telerik.com/blazor-ui/smartpastebutton/validation)
 * [SmartPasteButton Overview](slug:smartpastebutton-overview)
 * [SmartPasteButton Events](slug:smartpastebutton-events)
