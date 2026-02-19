@@ -19,7 +19,7 @@ To use a Telerik [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfview
 
 1. Add the `TelerikPdfViewer` tag.
 2. Set the `Data` parameter to a byte array (`byte[]`) that holds the PDF file contents.
-3. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
+3. If you are developing a [Blazor **Server**](slug:getting-started/web-app) app, [increase the maximum SignalR message size](#large-file-support).
 4. (optional) Subscribe to the [PDF Viewer's events](slug:pdfviewer-events). For example, use the `OnDownload` event to set the name of the downloaded file.
 5. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
@@ -45,7 +45,7 @@ The PdfViewer supports interactive form filling in PDF documents. You can displa
 
 ## Large File Support
 
-In Blazor **Server** apps, the PDF Viewer uses the **SignalR WebSocket** to:
+In [Blazor **Server**](slug:getting-started/web-app) apps, the PDF Viewer uses the **SignalR WebSocket** to:
 
 * Open PDF files from the server and send them to the browser.
 * Read the PDF file `Stream` from the user device in the [`OnOpen` event handler](slug:pdfviewer-events#onopen). The PDF Viewer uses internally a [FileSelect component](slug:fileselect-overview) to get the user file.
