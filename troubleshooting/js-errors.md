@@ -77,15 +77,17 @@ By default, TypeScript results in compiled code that needs the `exports` object,
 
 ## init[Component] was undefined
 
-The error message may mention a component or feature initialization method, for example:
+The error message may mention a client-side component method or a method in the `TelerikBlazor` JavaScript namespace, for example:
 
 * `Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor.initCard' ('initCard' was undefined)`.
-* `Error: Microsoft.JSInterop.JSException: Could not find 'initGrid' in 'window.TelerikBlazor'.`
-* `Error: Could not find 'TelerikBlazorPopup' in 'window'.`
-* `Error: Could not find 'TelerikBlazor.columnResizableSetColumns' ('columnResizableSetColumns' was undefined).`
+* `Microsoft.JSInterop.JSException: Could not find 'initGrid' in 'window.TelerikBlazor'.`
+* `Could not find 'TelerikBlazorPopup' in 'window'.`
+* `Could not find 'TelerikBlazor.columnResizableSetColumns' ('columnResizableSetColumns' was undefined).`
+* `Could not find 'TelerikBlazor.destroyComponentLoaderContainer' ('destroyComponentLoaderContainer' was undefined).`
+* `Error: The value 'TelerikBlazor.destroyComponentLoaderContainer' is not a function.`
 * Any error referring to a Telerik component or feature that cannot be found in the JS code.
 
-Such an error means that the `telerik-blazor.js` script file version does not match the NuGet package version. As a result, the script does not include all components, features or correct method names.
+Such an error means that the `telerik-blazor.js` script file is outdated or its version does not match the NuGet package version. As a result, the script does not include all components, features or correct method names.
 
 If you use our CDN to load the script file, make sure the file URL matches the package version. If you load the script as a local file from the `wwwroot` folder, then replace the file. See the [Upgrade Process](slug:upgrade-tutorial#upgrade-process) article for details.
 
