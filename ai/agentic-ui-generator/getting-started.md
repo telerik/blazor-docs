@@ -15,8 +15,6 @@ The Agentic UI Generator is an intelligent, prompt-driven AI development assista
 
 This article describes how to install, configure, and use the Telerik UI for Blazor Agentic UI Generator in Visual Studio and Visual Studio Code.
 
->warning **Кnown Issue: Hanging tool calls in Visual Studio**, see [Troubleshooting](slug:ai-troubleshooting#troubleshooting).
-
 ## Quick Start
 
 The next video guides you through the steps needed for setting up and using the Telerik UI for Blazor Agentic UI Generator.
