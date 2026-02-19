@@ -46,11 +46,11 @@ If the Telerik MCP server tools are not available or recognized by GitHub Copilo
 ## Hanging Tool Calls in Visual Studio
 
 When using Telerik AI tools in Visual Studio, GitHub Copilot may:
-* **hang** during tool invocation;
-* show UI for a successful tool response, but actually **fail silently**;
-* continue generation without waiting for **parallel tool calls**.
+* **Hang** during tool invocation.
+* Show UI for a successful tool response, but actually **fail silently**.
+* Continue generation without waiting for **parallel tool calls**.
 
-This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-stopped-working-after-latest-upd/10936456) in older Visual Studio versions that has been fixed in Visual Studio 18.3.0 Insiders (11426.168).
+This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-stopped-working-after-latest-upd/10936456) in older Visual Studio versions that has been fixed in Visual Studio 2026 Insiders 18.3.0 (11426.168).
 
 ## See Also
 
