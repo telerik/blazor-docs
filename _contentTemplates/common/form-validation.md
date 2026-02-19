@@ -1,5 +1,5 @@
 #note-validation
-The Telerik Blazor validation tools let you match the style of your validation messages to all other Telerik Blazor components in your app. The validation tools do not expose API or settings for specific validation logic. You need to handle the validation logic separately and then use the Telerik Blazor UI components to display messages to the end user.
+The Telerik Blazor validation tools let you match the style of your validation messages to all other Telerik Blazor components in your app. The validation tools do not expose API or settings for specific validation logic. You need to handle the validation logic separately and then use the [Telerik Blazor UI](https://www.telerik.com/blazor-ui) components to display messages to the end user.
 #end
 
 #note-telerik-role-in-validation

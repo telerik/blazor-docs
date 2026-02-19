@@ -27,7 +27,7 @@ This article contains the following sections, which map to blog posts from the s
 
 This blog post provides some fundamentals about the Telerik Blazor component suite and the third-party cloud services that are used later. Notable sections include:
 
-* [Introduction to Telerik UI Components for Blazor](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-1-series-introduction#blazor-and-telerik-ui-components-for-blazor), together with some history of the Blazor framework and the Telerik Blazor component suite.
+* [Introduction to Telerik UI Components for Blazor](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-1-series-introduction#blazor-and-telerik-ui-components-for-blazor), together with some history of the [Blazor framework](https://www.telerik.com/faqs/asp-net-core/asp-net-core-vs-blazor-what-are-the-differences) and the Telerik Blazor component suite.
 * [What is Serverless Computing](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-1-series-introduction#serverless-computing) - describes the characteristics and benefits of using backend data APIs via a cloud service.
 * [Comparison between Azure, Google Cloud and AWS Lambda](https://www.telerik.com/blogs/building-serverless-web-apps-blazor-chart-1-series-introduction#comparing-the-different-cloud-providers) - discusses each cloud service in terms of documentation, examples and usage experience.
 
