@@ -107,7 +107,7 @@ Once the Telerik MCP server is added, make sure that all of its tools are enable
 </TabStripTab>
 <TabStripTab title="Visual Studio Code">
 
-Refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/copilot-mcp-architecture).
+Refer to [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
 
 To enable the Telerik MCP Server in a specific workspace or Blazor app, add a `.vscode` folder with an `mcp.json` file at the root of the workspace:
 
