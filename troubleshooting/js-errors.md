@@ -77,7 +77,7 @@ By default, TypeScript results in compiled code that needs the `exports` object,
 
 ## init[Component] was undefined
 
-The error message may mention a client-side component initialization method or a method in the `TelerikBlazor` JavaScript namespace, for example:
+The error message may mention a client-side component method or a method in the `TelerikBlazor` JavaScript namespace, for example:
 
 * `Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor.initCard' ('initCard' was undefined)`.
 * `Microsoft.JSInterop.JSException: Could not find 'initGrid' in 'window.TelerikBlazor'.`
