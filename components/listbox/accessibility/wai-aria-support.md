@@ -45,7 +45,7 @@ The ListBox toolbar follows the specification of the ToolBar component.
 | -------- | --------- | ----- |
 | `.k-listbox-actions` | `role=toolbar` | The toolbar is a collection of command buttons. |
 |  | `aria-label` | Clarifies the purpose of the toolbar. |
-|  | `aria-controls=.k-list-ul id` | Points to the ids of the `role=listbox` elements that are being controlled by the ToolBar. |
+|  | `aria-controls=[role='listbox'] id` | Points to the ids of the `role=listbox` elements that are being controlled by the ToolBar. |
 | `.k-listbox-actions .k-button` | `aria-label` or `title` | All buttons in the ToolBar must have lables, so that their purpose is clear. |
 
 ## Resources
