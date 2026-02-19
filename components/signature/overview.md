@@ -36,7 +36,7 @@ The Blazor Signature component provides an area where users can draw their signa
 
 The Signature produces a `Value`, which is a Base64-encoded PNG image. To display the image without saving it as a physical file, use the `Value` directly as a data URI. To save the `Value` and use it as a physical image, remove the data URI prefix `data:image/png;base64,` from the beginning of the `Value` string.
 
-To test with physical PNG files, uncomment the code below and run the example in a Blazor Server app.
+To test with physical PNG files, uncomment the code below and run the example in a [Blazor Server](slug:getting-started/web-app) app.
 
 >caption Using the Signature Value with images
 

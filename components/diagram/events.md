@@ -10,7 +10,7 @@ components: ["diagram"]
 ---
 # Blazor Diagram Events
 
-The Telerik Blazor Diagram fires events that are related to different user actions. This article describes all these events and their event arguments:
+The Telerik [Blazor Diagram](slug:diagram-overview) fires events that are related to different user actions. This article describes all these events and their event arguments:
 
 * [`OnConnectionClick`](#onconnectionclick)
 * [`OnShapeClick`](#onshapeclick)

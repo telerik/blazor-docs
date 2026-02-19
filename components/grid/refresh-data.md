@@ -10,7 +10,7 @@ components: ["grid"]
 ---
 # Grid - Refresh Data
 
-One of the key features of Telerik UI for Blazor Grid component is its ability to refresh the displayed data. This ensures that the Grid always presents the most up-to-date information, no matter if you are working with large datasets or frequently changing data sources. Understanding how to efficiently refresh the data in the Grid is crucial for maintaining both optimal performance and user experience. This guide covers various methods and best practices for refreshing data in the Telerik UI for Blazor Grid, helping you choose the right approach for your specific application needs related to Blazor DataGrid live update.
+One of the key features of Telerik UI for Blazor Grid component is its ability to refresh the displayed data. This ensures that the Grid always presents the most up-to-date information, no matter if you are working with large datasets or frequently changing data sources. Understanding how to efficiently refresh the data in the Grid is crucial for maintaining both optimal performance and user experience. This guide covers various methods and best practices for refreshing data in the Telerik UI for Blazor Grid, helping you choose the right approach for your specific application needs related to [Blazor DataGrid](https://demos.telerik.com/blazor-ui/grid/overview) live update.
 
 In this article:
 
