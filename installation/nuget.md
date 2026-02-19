@@ -69,28 +69,28 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. The command shown below creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nugetconfig-file):
 
 * The command adds the Telerik NuGet source, uses your [NuGet API key](#generate-a-nuget-api-key) for authentication, and stores the API key in plain text in the [global config file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses).
-* The backslashes `\` enable multi-line commands for better readability in terminals that support them.
+* The backtick ` ` ` enables multi-line commands for better readability. If your terminal doesn't support backtick or backslash linebreaks, combine the parameters into a single line command instead.
 
->caption Use the .NET CLI to add the Telerik NuGet source
+>caption Use the .NET CLI to **add** the Telerik NuGet source
 
 ````SH.skip-repl
-dotnet nuget add source https://nuget.telerik.com/v3/index.json \
---name TelerikOnlineFeed \
---username api-key \
---password <YOUR-NUGET-API-KEY> \
---store-password-in-clear-text
+dotnet nuget add source "https://nuget.telerik.com/v3/index.json" `
+  -n "TelerikOnlineFeed" `
+  -u "api-key" `
+  -p "<YOUR-NUGET-API-KEY>" `
+  --store-password-in-clear-text
 ````
 
 If you have already stored the Telerik package source, you can update the configuration with the command below.
 
->caption Use the .NET CLI to update the Telerik NuGet source
+>caption Use the .NET CLI to **update** the Telerik NuGet source
 
 ````SH.skip-repl
-dotnet nuget update source "TelerikOnlineFeed" \
---source "https://nuget.telerik.com/v3/index.json" \
---username api-key \
---password <YOUR-NUGET-API-KEY> \
---store-password-in-clear-text
+dotnet nuget update source "TelerikOnlineFeed" `
+  -s "https://nuget.telerik.com/v3/index.json" `
+  -u "api-key" `
+  -p "<YOUR-NUGET-API-KEY>" `
+  --store-password-in-clear-text
 ````
 
 ## Edit the NuGet.Config File
