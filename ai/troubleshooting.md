@@ -12,22 +12,6 @@ tag: new
 
 This article provides solutions to common issues you may encounter when working with the Telerik UI for Blazor AI Tools.
 
->warning **Кnown Issue: Hanging tool calls in Visual Studio**
->
-> When using Telerik AI tools in Visual Studio, GitHub Copilot may:
-> * **hang** during tool invocation;
-> * show UI for a successful tool response, but actually **fail silently**;
-> * continue generation without waiting for **parallel tool calls**.
->
-> In these cases, the response may be generated but not provided to the Copilot Agent UI.
->
-> This is a known issue in Visual Studio Copilot, not related to Telerik MCP servers or AI tools, and does not reproduce in VS Code.
->
-> For more details, see the related Visual Studio Developer Community issue:  
-https://developercommunity.visualstudio.com/t/Copilot-stopped-working-after-latest-upd/10936456
->
-> Microsoft has acknowledged the issue and marked it as **Fixed - Pending Release**. A future Visual Studio update is expected to resolve it.
-
 ## AI Coding Assistant Stopped Working
 
 Starting in January 2026, we restructured the Telerik UI for Blazor AI Tools to better serve different user needs. Both the AI Coding Assistant and the Agentic UI Generator are now delivered through a single Telerik MCP server. The AI Coding Assistant is a streamlined version of the Agentic UI Generator, providing access to Component, Icon and Validator tools with a component-focused orchestrator.
@@ -58,6 +42,15 @@ If the Telerik MCP server tools are not available or recognized by GitHub Copilo
 1. In the popup that opens, check the **telerik-blazor-mcp** from the list to enable it.
 
 <img alt="Enable MCP Server tools in Visual Studio" src="images/mcp-server-enable-tools.png" style="width: 80%"/>
+
+## Hanging Tool Calls in Visual Studio
+
+When using Telerik AI tools in Visual Studio, GitHub Copilot may:
+* **hang** during tool invocation;
+* show UI for a successful tool response, but actually **fail silently**;
+* continue generation without waiting for **parallel tool calls**.
+
+This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-stopped-working-after-latest-upd/10936456) in older Visual Studio versions that has been fixed in Visual Studio 18.3.0 Insiders (11426.168).
 
 ## See Also
 

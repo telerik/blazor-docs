@@ -14,8 +14,6 @@ tag: updated
 
 The Telerik Blazor AI Coding Assistant improves your developer experience and increases your productivity when implementing Blazor apps that include Telerik UI for Blazor. The coding assistant is an AI code generator that provides proprietary context to AI models in order to produce higher quality code samples with the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui) and API.
 
->warning **Кnown Issue: Hanging tool calls in Visual Studio**, see [Troubleshooting](slug:ai-troubleshooting#troubleshooting).
-
 ## Quick Start
 
 > If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to **step 3** to start using the AI Coding Assistant.
