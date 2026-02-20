@@ -69,22 +69,29 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. The command shown below creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nugetconfig-file):
 
 * The command adds the Telerik NuGet source, uses your [NuGet API key](#generate-a-nuget-api-key) for authentication, and stores the API key in plain text in the [global config file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses).
-* The linebreak character (`\`) enables multi-line commands for better readability. If it doesn't work in your terminal, combine the parameters into a single line instead.
+* The linebreak character used below enables multi-line commands for better readability. If it doesn't work in your terminal, combine the parameters into a single line instead.
 
 >caption Use the .NET CLI to **add** the Telerik NuGet source
 
-````BASH.skip-repl
+````POWERSHELL.skip-repl PowerShell
+dotnet nuget add source "https://nuget.telerik.com/v3/index.json" `
+  --name "TelerikOnlineFeed" `
+  --username "api-key" `
+  --password "<YOUR-NUGET-API-KEY>" `
+  --store-password-in-clear-text
+````
+````BASH.skip-repl Bash
 dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
   --name "TelerikOnlineFeed" \
   --username "api-key" \
   --password "<YOUR-NUGET-API-KEY>" \
   --store-password-in-clear-text
 ````
-````POWERSHELL.skip-repl
-dotnet nuget add source "https://nuget.telerik.com/v3/index.json" `
-  --name "TelerikOnlineFeed" `
-  --username "api-key" `
-  --password "<YOUR-NUGET-API-KEY>" `
+````ZSH.skip-repl Zsh
+dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
+  --name "TelerikOnlineFeed" \
+  --username "api-key" \
+  --password "<YOUR-NUGET-API-KEY>" \
   --store-password-in-clear-text
 ````
 
@@ -92,18 +99,25 @@ If you have already stored the Telerik package source, you can update the config
 
 >caption Use the .NET CLI to **update** the Telerik NuGet source
 
-````BASH.skip-repl
+````POWERSHELL.skip-repl PowerShell
+dotnet nuget update source "TelerikOnlineFeed" `
+  --source "https://nuget.telerik.com/v3/index.json" `
+  --username "api-key" `
+  --password "<YOUR-NUGET-API-KEY>" `
+  --store-password-in-clear-text
+````
+````BASH.skip-repl Bash
 dotnet nuget update source "TelerikOnlineFeed" \
   --source "https://nuget.telerik.com/v3/index.json" \
   --username "api-key" \
   --password "<YOUR-NUGET-API-KEY>" \
   --store-password-in-clear-text
 ````
-````POWERSHELL.skip-repl
-dotnet nuget update source "TelerikOnlineFeed" `
-  --source "https://nuget.telerik.com/v3/index.json" `
-  --username "api-key" `
-  --password "<YOUR-NUGET-API-KEY>" `
+````ZSH.skip-repl Zsh
+dotnet nuget update source "TelerikOnlineFeed" \
+  --source "https://nuget.telerik.com/v3/index.json" \
+  --username "api-key" \
+  --password "<YOUR-NUGET-API-KEY>" \
   --store-password-in-clear-text
 ````
 
