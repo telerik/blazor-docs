@@ -27,7 +27,7 @@ Follow these steps to set up the AI Coding Assistant:
        "telerik-blazor-mcp": {
          "type": "stdio",
          "command": "dnx",
-         "args": ["Telerik.Blazor.MCP", "--yes"]
+         "args": ["Telerik.Blazor.MCP", "--yes"],
          // set any of the arguments in the 'env' configuration below, if you haven't set up your license file globally 
          //"env": {
          //  "TELERIK_LICENSE_PATH": "THE_PATH_TO_YOUR_LICENSE_FILE",
