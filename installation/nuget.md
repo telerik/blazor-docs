@@ -97,7 +97,7 @@ dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
 
 If you have already stored the Telerik package source, you can update the configuration with the command below.
 
->caption Use the .NET CLI to **update** the Telerik NuGet source
+>caption Updating the Telerik NuGet source through the .NET CLI
 
 ````POWERSHELL PowerShell
 dotnet nuget update source "TelerikOnlineFeed" `
