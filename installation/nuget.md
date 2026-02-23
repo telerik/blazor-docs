@@ -71,7 +71,7 @@ To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuge
 * The command adds the Telerik NuGet source, uses your [NuGet API key](#generate-a-nuget-api-key) for authentication, and stores the API key in plain text in the [global config file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses).
 * The linebreak character used below enables multi-line commands for better readability. If it doesn't work in your terminal, combine the parameters into a single line instead.
 
->caption Use the .NET CLI to **add** the Telerik NuGet source
+>caption Use the .NET CLI to add the Telerik NuGet source
 
 ````POWERSHELL PowerShell
 dotnet nuget add source "https://nuget.telerik.com/v3/index.json" `
