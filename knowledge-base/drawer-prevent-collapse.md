@@ -86,7 +86,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
     {
         SelectedItem = item;
 
-        navManager.NavigateTo(SelectedItem.Text);
+        //navManager.NavigateTo(SelectedItem.Text);
     }
 
     public string GetSelectedItemClass(DrawerItem item)
