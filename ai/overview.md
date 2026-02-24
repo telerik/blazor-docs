@@ -12,28 +12,23 @@ position: 1
 
 # Telerik Blazor MCP Server Overview
 
-The Telerik Blazor MCP Server improves your developer experience and increases your productivity when implementing Blazor apps that leverage Telerik UI for Blazor. The MCP server provides proprietary context to AI-powered IDEs, apps, and tools, enabling you to generate tailored code and prompt complex questions and tasks that include [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components and API. The MCP server can help you with a wide range of tasks, from creating responsive dashboards and landing pages to answering questions about component features, properties, events, or general usage. 
+The Telerik Blazor MCP Server is a local MCP server that is distributed through the [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP) NuGet package. It improves your developer experience and increases your productivity when implementing Blazor apps that leverage [Telerik UI for Blazor](https://www.telerik.com/blazor-ui).
 
-## What Is the Telerik MCP Server
+## Basics
 
-The Telerik Blazor MCP Server is a local MCP server that operates in two modes based on your Telerik license: **Agentic UI Generator** (for DevCraft Complete or Ultimate subscription licenses) and **AI Coding Assistant** (for Telerik UI for Blazor or DevCraft UI subscription licenses). 
+The Telerik Blazor MCP Server:
 
-The server is distributed via the ([Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP)) NuGet package, which provides robust package management, streamlined authentication with your Telerik license key, and seamless integration with .NET development workflows.
+* Provides proprietary context to AI-powered IDEs, apps, and tools.
+* Enables you to generate tailored code and prompt complex questions and tasks that include Telerik Blazor components and API.
+* Can help you with a wide range of tasks, from creating responsive dashboards and landing pages to answering questions about component features, properties, events, or general usage.
+* Provides seamless integration with .NET development workflows.
 
-## General Workflow
+## AI Modes and Tools
 
-To get started with the Telerik MCP server, complete the following steps:
+The MCP Server operates in [two modes based on your Telerik Subscription license](#license-requirements):
 
-1. [Configure the MCP server]({% slug ai-installation#mcp-server-configuration %}).
-2. (Optional) If you have not installed your license key, follow the [License Key Guidelines]({% slug installation-license-key#manual-installation %}).
-3. Start using the tools—Open a chat session in your AI-powered IDE and begin prompting for component assistance or UI generation
-
-For tool-specific usage guidance, visit the [Agentic UI Generator Getting Started]({% slug agentic-ui-generator-getting-started %}) or [AI Coding Assistant Getting Started]({% slug ai-mcp-server %}) articles.
-
-## AI Tools Overview and Comparison
-
-* Agentic UI Generator&mdash;This tool provides advanced capabilities for building complete user interfaces with responsive layouts and custom theming.
-* AI Coding Assistant&mdash;A tool designed for streamlined component integration and configuration tasks.
+* AI Coding Assistant&mdash;This mode provides access to documentation, code generation, component configuration, and troubleshooting tools.
+* Agentic UI Generator&mdash;This modes provides advanced generation capabilities for building complete user interfaces with responsive layouts and custom theming. The mode includes all AI Coding Assistant capabilities.
 
 <table>
 <colgroup>
@@ -43,7 +38,7 @@ For tool-specific usage guidance, visit the [Agentic UI Generator Getting Starte
 </colgroup>
 <thead>
 <tr>
-<th></th>
+<th>&nbsp;</th>
 <th>Agentic UI Generator</th>
 <th>AI Coding Assistant</th>
 </tr>
@@ -93,20 +88,30 @@ For tool-specific usage guidance, visit the [Agentic UI Generator Getting Starte
 </tbody>
 </table>
 
-
+For tool-specific usage guidance, visit the [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started) and [AI Coding Assistant Getting Started](slug:ai-mcp-server) articles.
 
 ## License Requirements
 
-Access to the Telerik AI Tools depends on your [Telerik license type](https://www.telerik.com/purchase.aspx?filter=web). The table below summarizes which level of functionality you can access with each license type:
+Access to the Telerik AI Tools depends on your [Telerik license type](https://www.telerik.com/purchase.aspx?filter=web). The table below summarizes which level of functionality are available with each license type:
 
 <table>
+<colgroup>
+<col style="width:25%" />
+<col />
+<col />
+<col />
+<col />
+</colgroup>
 <thead>
 <tr>
-<th width="25%"></th>
-<th width="15%">DevCraft Complete or Ultimate Subscription</th>
-<th width="15%">Other Subscriptions</th>
-<th width="15%">Perpetual License</th>
-<th width="15%">Trial License**</th>
+<th rowspan="2"></th>
+<th colspan="2" style="text-align:center;">Subscription Licenses</th>
+<th rowspan="2">Perpetual Licenses</th>
+<th rowspan="2">Trial License**</th>
+</tr>
+<tr>
+<th>DevCraft&nbsp;Ultimate and DevCraft&nbsp;Complete</th>
+<th>DevCraft&nbsp;UI and Telerik&nbsp;UI&nbsp;for&nbsp;Blazor</th>
 </tr>
 </thead>
 <tbody>
@@ -171,25 +176,19 @@ Access to the Telerik AI Tools depends on your [Telerik license type](https://ww
 </tbody>
 </table>
 
-*The Coding Assistant Orchestrator Tool is available only when you have a subscription license that enables the limited set of tools (Component and Icon Tool). When you have access to the full set of tools (DevCraft Complete/Ultimate subscription or Trial), the UI Generator Orchestrator Tool is in charge of coordinating all tools.
+*The Coding Assistant Orchestrator Tool is available only when you have a license that enables a limited set of tools. When you have access to the full set of tools, the UI Generator Orchestrator Tool coordinates all of them.
 
-**Tools available with a [30-day AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) or [a Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
+**The tools are available with a 30-day [AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) or [a Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
+
+@[template](/_contentTemplates/common/general-info.md#license-names)
 
 ## Usage Limits
 
-Usage limits for the Telerik MCP Server and its modes of operation:
-
-* DevCraft Complete and Ultimate Subscription
-  * These are the licenses that grant full access to the Agentic UI Generator mode of operation.
-  * The number of requests is virtually unlimited, with fair use policy applied.
-* Telerik UI for Blazor or DevCraft UI Subscription
-  * Grants access to the AI Coding Assistant mode of operation.
-  * Includes a virtually unlimited number of requests, with fair usage applied
-* Trial License
-  * An [AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) automatically starts a 30-day trial for the AI tools.
-  * Includes a virtually unlimited number of requests, with fair usage applied.
-  * Reactivating the same trial for a new release does not grant additional requests.
-  * Designed for evaluating the feature before purchasing.
+* [Subscription licenses](#license-requirements) grant a virtually unlimited number of requests. Fair use policy applies.
+* Perpetual licenses do not grant access to the Telerik AI tools.
+* [AI tools trials](https://www.telerik.com/mcp-servers-blazor/thank-you) :
+    * Grant a virtually unlimited number of requests for a 30-day evaluation. Fair use policy applies.
+    * Do not grant additional requests when reactivating the same trial for a new release.
 
 > All Telerik AI tools share the same fair usage quota for your Telerik account.
 > When using the AI tools, one prompt may trigger several requests, depending on the prompt complexity.
@@ -206,11 +205,11 @@ The Telerik MCP server operates under the following conditions:
 
 ## Next Steps
 
-* [Install the Telerik MCP server]({% slug ai-installation %})
-* [Agentic UI Generator Getting Started]({% slug agentic-ui-generator-getting-started %}) 
-* [AI Coding Assistant Getting Started]({% slug ai-mcp-server %})
+* [Install the Telerik MCP server](slug:ai-installation)
+* [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started) 
+* [AI Coding Assistant Getting Started](slug:ai-mcp-server)
 
 ## See Also
 
-* [Agentic UI Generator Prompt Library]({% slug agentic-ui-generator-prompt-library %})
-* [AI Coding Assistant Prompt Library]({% slug ai-prompt-library %})
+* [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library)
+* [AI Coding Assistant Prompt Library](slug:ai-prompt-library)

@@ -21,7 +21,7 @@ The next video guides you through the steps needed for setting up and using the 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0UC79VbbyQI?si=vddUFoq-sKwhNezv" title="Getting started with Blazor Agentic UI Generator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-> If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to **step 3** to start using the Agentic UI Generator.
+> If you have already completed the [Installation Guide](slug:ai-installation) and configured your license key, skip directly to **step 3** to start using the Agentic UI Generator.
 
 Follow these steps to set up the Agentic UI Generator:
 
@@ -48,7 +48,7 @@ Follow these steps to set up the Agentic UI Generator:
 
    > For IDE-specific setup instructions and advanced configuration options, see [MCP Server Configuration](slug:ai-installation#mcp-clients-configuration).
 
-1. Ensure you have a [supported license]({% slug ai-overview#license-requirements %}) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates [the appropriate tools]({% slug ai-overview#ai-tools-overview-and-comparison %}).
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates [the appropriate tools](slug:ai-overview#ai-modes-and-tools).
 
      > Refer to the [Telerik License Key Setup](slug:installation-license-key#manual-installation) section for detailed instructions.
 

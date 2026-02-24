@@ -40,5 +40,6 @@ The **Install Telerik Blazor Copilot Extension** @[template](/_contentTemplates/
 
 ## See Also
 
-@[template](/_contentTemplates/common/ai-coding-assistant.md#see-also)
+* [Telerik AI Tooling Overview](slug:ai-overview)
+* [Telerik Blazor MCP Server](slug:ai-mcp-server)
 * [Visual Studio Integration Overview](slug:getting-started-vs-integration-overview)

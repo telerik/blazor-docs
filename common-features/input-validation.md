@@ -105,7 +105,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
     </p>
     <p class="subscribe-mail">
         <label>
-            Newsletter subscription
+            Newsletter
             <TelerikSwitch @bind-Value="@person.SubscribeToNewsletter"></TelerikSwitch>
         </label>
         <ValidationMessage For="@(() => person.SubscribeToNewsletter)"></ValidationMessage>

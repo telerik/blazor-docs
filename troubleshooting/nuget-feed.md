@@ -127,7 +127,7 @@ or
 
 This error means one of the following:
 
-* Version `5.1.1` was released outside the subscription period of your license.
+* Version `5.1.1` was released outside the active period of your license.
 * Version `5.1.1` is not available in your custom (local) NuGet feed.
 
 Choose one of the following options to solve the issue:
