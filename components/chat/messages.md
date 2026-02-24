@@ -474,4 +474,4 @@ Set the `InputValue` property to define the message box content and handle the `
 ## See Also
 
 * [Live Demo: Chat Overview](https://demos.telerik.com/blazor-ui/chat/overview)
-* [Chat Overview]({%slug chat-overview%})
+* [Chat Overview](slug:chat-overview)

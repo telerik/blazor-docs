@@ -278,7 +278,7 @@ Use the `#telerik_icon_assistant` handle for finding and implementing suitable i
 
 ## See Also 
 
-* [Telerik Blazor MCP Server](slug:ai-mcp-server)
+* [Getting Started with the Telerik UI for Blazor AI Coding Assistant](slug:ai-mcp-server)
 
 <style>
 .d-print-none button:nth-child(2) {

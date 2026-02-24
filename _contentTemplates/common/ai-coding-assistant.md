@@ -1,7 +1,3 @@
-#number-of-requests
-A Telerik [Subscription license](https://www.telerik.com/purchase/faq/licensing-purchasing) is recommended in order to use the Telerik Blazor AI Coding Assistant without restrictions. Perpetual license holders and trial users can make a [limited number of requests per year](slug:ai-overview#usage-limits).
-#end
-
 #vs-intro
 provides automated configuration commands for the Telerik AI-powered development tools. These commands help you quickly set up the [Telerik MCP server](slug:ai-mcp-server) for enhanced developer productivity with Telerik UI for Blazor components.
 #end
@@ -24,9 +20,4 @@ command generates a `copilot-instructions.md` file in the `.github` folder under
 * Guidance to use the Telerik MCP Server whenever applicable
 * Guidance to prioritize the usage of Telerik UI components
 * Guidance to use best coding practices related to Telerik UI for Blazor
-#end
-
-#see-also
-* [Telerik AI Tooling Overview](slug:ai-overview)
-* [Telerik Blazor MCP Server](slug:ai-mcp-server)
 #end

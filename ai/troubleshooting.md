@@ -16,14 +16,13 @@ This article provides solutions to common issues you may encounter when working 
 
 Starting in January 2026, we restructured the Telerik UI for Blazor AI Tools to better serve different user needs. Both the AI Coding Assistant and the Agentic UI Generator are now delivered through a single Telerik MCP server. The AI Coding Assistant is a streamlined version of the Agentic UI Generator, providing access to Component, Icon and Validator tools with a component-focused orchestrator.
 
-License requirements have changed as follows:
+[License requirements](slug:ai-overview#license-requirements) changed as follows:
 
-* **DevCraft Complete Subscription or DevCraft Ultimate Subscription**&mdash;Provides full access to the Agentic UI Generator, including the Component, Layout, Styling, Icon, and Validator tools with comprehensive orchestration capabilities.
-* **DevCraft UI Subscription, Telerik UI for Blazor Subscription**&mdash;Provide access to the AI Coding Assistant with Component, Icon, and Validator tools.
+* **DevCraft Complete Subscription and DevCraft Ultimate Subscription**&mdash;Provides full access to the Agentic UI Generator, including the Component, Layout, Styling, Icon, and Validator tools with comprehensive orchestration capabilities.
+* **DevCraft UI Subscription and Telerik UI for Blazor Subscription**&mdash;Provide access to the AI Coding Assistant with Component, Icon, and Validator tools.
 * **Perpetual licenses**&mdash;Do not grant access to any of the AI tools. You must have an active Subscription or trial license to use the Telerik MCP server.
 
 For detailed information about license requirements and tool capabilities, see [License Requirements](slug:ai-overview#license-requirements).
-
 
 ## I Started a Trial License but Cannot Activate the MCP Server
 
@@ -54,6 +53,6 @@ This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-st
 
 ## See Also
 
-* [Telerik UI for Blazor AI Tools Overview]({% slug ai-overview %})
-* [Telerik MCP Server Installation]({% slug ai-installation %})
-* [Licensing]({% slug installation-license-key %})
+* [Telerik UI for Blazor AI Tools Overview](slug:ai-overview)
+* [Telerik MCP Server Installation](slug:ai-installation)
+* [Licensing](slug:installation-license-key)

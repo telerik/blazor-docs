@@ -98,7 +98,7 @@ While the slider is a numeric input, you can use its values to match against ind
 <table>
     <thead>
         <tr>
-            <th></th>
+            <th>&nbsp;</th>
             <th>Start</th>
             <th>End</th>
         </tr>

@@ -11,24 +11,19 @@ position: 2
 
 # Installing the Telerik Blazor MCP Server
 
-The Telerik AI Tools are delivered through a single MCP (Model Context Protocol) server that automatically provides access to the appropriate level of functionality based on your Telerik license:
-
-* **Agentic UI Generator**&mdash;Available exclusively with [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses (or [Trial](https://www.telerik.com/try/ui-for-blazor)). This mode includes all AI Coding Assistant capabilities plus advanced UI generation, responsive layout creation, and custom theming tools.
-
-* **AI Coding Assistant**&mdash;Available with a [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription or [DevCraft UI](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses. This mode provides access to component documentation, code generation, configuration assistance, and troubleshooting tools.
-
-This article provides detailed installation instructions for popular AI-powered IDEs.
+This article explains how to install the Telerik Blazor MCP (Model Context Protocol) Server. The installation instructions include examples for some popular AI-powered IDEs.
 
 ## Prerequisites
 
 To use the Telerik Blazor MCP server, you need:
 
-* A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP tools
-* A [Telerik User Account](https://www.telerik.com/account/)
-* An active [Telerik license]({% slug installation-license-key %}). Your license type determines which [MCP server operation mode]({% slug ai-overview %}) you can access:
-  * [DevCraft Complete or DevCraft Ultimate](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription (or [Trial](https://www.telerik.com/try/ui-for-blazor)) licenses&mdash;Grant access to the **Agentic UI Generator** mode
-  * [Telerik UI for Blazor](https://www.telerik.com/purchase.aspx?filter=dotnet#individual-products) subscription or [DevCraft UI](https://www.telerik.com/purchase.aspx?filter=dotnet#product-bundles) subscription licenses&mdash;Grant access to the **AI Coding Assistant** mode
+* A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP tools.
 * [.NET 8 or newer](https://dotnet.microsoft.com/en-us/download).
+* Enabled HTTP/2 protocol support on the client device and any firewalls and proxies that may manage the network requests.
+* A [Telerik user account](https://www.telerik.com/account/).
+* An active Telerik Subscription license and a [license key](slug:installation-license-key). Your license type determines which [MCP server operation mode](slug:ai-overview#ai-modes-and-tools) you can use.
+
+@[template](/_contentTemplates/common/general-info.md#license-names)
 
 ## MCP Server Configuration
 
@@ -44,11 +39,11 @@ Use the documentation of your AI-powered MCP client to enable the Telerik MCP Se
 
 ### License Key Setup
 
-The Telerik MCP server requires an [active Subscription or trial license](slug:ai-overview#license-requirements) and a valid key for authentication. You can configure your license key either globally *(recommended)* on your machine or locally in the `env` configuration of the `.mcp.json` file.
+The Telerik MCP server requires an [active Subscription or trial license](slug:ai-overview#license-requirements) and a valid key for authentication. You can configure your license key either globally on your machine (recommended) or locally in the `env` configuration of the `.mcp.json` file.
 
-> When you start a new trial, you must update your license key. Follow the steps in the [License Key Updates](slug:installation-license-key#license-key-updates) section.
+> When you start a new trial, you must [update your license key](slug:installation-license-key#license-key-updates).
 
-If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to [MCP Clients Configuration](#mcp-clients-configuration).
+If you have already completed the [Installation Guide](slug:ai-installation) and configured your license key, skip directly to [MCP Clients Configuration](#mcp-clients-configuration).
 
 #### Global License Key Configuration
 
@@ -210,6 +205,6 @@ MCP Configuration for VS Code `.vscode/mcp.json` using local tools:
 
 ## See Also
 
-* [Overview]({% slug ai-overview %})
-* [Agentic UI Generator Getting Started]({% slug agentic-ui-generator-getting-started %})
-* [AI Coding Assistant Getting Started]({% slug ai-mcp-server %})
+* [Telerik AI Tools Overview](slug:ai-overview)
+* [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started)
+* [AI Coding Assistant Getting Started](slug:ai-mcp-server)

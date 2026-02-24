@@ -265,7 +265,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
     
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridPdfExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.  
     
-* `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to PDF, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
+* `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to PDF, [for example only the selected items in the Grid](slug:grid-kb-export-selected-rows).
 
 * `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
 
