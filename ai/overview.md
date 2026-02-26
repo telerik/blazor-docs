@@ -28,7 +28,7 @@ The Telerik Blazor MCP Server:
 The MCP Server operates in [two modes based on your Telerik Subscription license](#license-requirements):
 
 * AI Coding Assistant&mdash;This mode provides access to documentation, code generation, component configuration, and troubleshooting tools.
-* Agentic UI Generator&mdash;This modes provides advanced generation capabilities for building complete user interfaces with responsive layouts and custom theming. The mode includes all AI Coding Assistant capabilities.
+* Agentic UI Generator&mdash;This mode provides advanced generation capabilities for building complete user interfaces with responsive layouts and custom theming. The mode includes all AI Coding Assistant capabilities.
 
 <table>
 <colgroup>
