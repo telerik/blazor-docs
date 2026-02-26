@@ -32,7 +32,7 @@ When using a Form item template, the following `FormItem` parameters are ignored
 
 ## Validation Messages and Styling
 
-The `FormItem` `Template` replaces all the Form item's built-in rendering, which includes [validation messages](https://www.telerik.com/blazor-ui/validation-message) and form item labels. You can use the [Telerik validation tools](slug:validation-tools-overview) to display the desired validation UI, or even use the standard Blazor `ValidationMessage` component.
+The `FormItem` `Template` replaces all the Form item's built-in rendering, which includes validation messages and form item labels. You can use the [Telerik validation tools](slug:validation-tools-overview) to display the desired validation UI, or even use the standard Blazor `ValidationMessage` component.
 
 The Telerik [Blazor Form](slug:form-overview) applies red color to the labels of invalid Form items. To preserve this behavior in Form item templates:
 
