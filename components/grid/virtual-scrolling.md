@@ -18,7 +18,7 @@ You can also use the [Blazor Grid virtualization for the Grid columns](slug:grid
 
 ## Using Virtual Scrolling
 
-To enable Blazor Grid row virtualization:
+To enable [Blazor Grid](slug:grid-overview) row virtualization:
 
 1. Set the `ScrollMode` parameter to `GridScrollMode.Virtual` (the default value is `Scrollable`).
 1. [Set the `Height` parameter](#height) to a `string` CSS value.
@@ -72,7 +72,7 @@ If necessary, you can also use the `RowHeight` parameter without virtual row scr
 
 ## Limitations
 
-The Blazor Grid virtualization enhances client-side rendering performance and improves the user experience by providing quicker access to all data items. However, this comes with the trade-offs:
+The [Blazor Grid](slug:grid-overview) virtualization enhances client-side rendering performance and improves the user experience by providing quicker access to all data items. However, this comes with the trade-offs:
 
 * [Hierarchy](slug:components/grid/features/hierarchy) is not supported. If the Grid hierarchy is self-referencing, use a [TreeList with virtual scrolling](slug:treelist-virtual-scrolling) instead.
 * [Grouping](slug:components/grid/features/grouping) is supported only when [loading groups on demand](slug:grid-group-lod).

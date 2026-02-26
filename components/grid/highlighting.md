@@ -10,7 +10,7 @@ components: ["grid"]
 ---
 # Blazor Grid Highlighting
 
-The Telerik Blazor Grid enables you to highlight rows and cells programmatically. Use highlighting to draw attention to important data, indicate status, or visually group related records. Highlighting does not require user interaction and is fully controlled by the application logic.
+The Telerik [Blazor Grid](slug:grid-overview) enables you to highlight rows and cells programmatically. Use highlighting to draw attention to important data, indicate status, or visually group related records. Highlighting does not require user interaction and is fully controlled by the application logic.
 
 ## Key Features
 

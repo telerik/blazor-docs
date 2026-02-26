@@ -23,7 +23,7 @@ The Blazor FileSelect provides a [Stream](https://docs.microsoft.com/en-us/dotne
 1. Add the `TelerikFileSelect` tag.
 1. Set `AllowedExtensions` to a `List<string>`.
 1. Set `MaxFileSize` in bytes.
-1. If you are using a Blazor **Server** app and `MaxFileSize` is greater than **32 KB**, [increase the maximum SignalR message size](#large-file-support).
+1. If you are using a [Blazor **Server**](slug:getting-started/web-app) app and `MaxFileSize` is greater than **32 KB**, [increase the maximum SignalR message size](#large-file-support).
 1. Implement an [`OnSelect` event handler](slug:fileselect-events#onselect).
 
 Steps 2 and 3 are optional, but strongly recommended.
@@ -53,9 +53,9 @@ Steps 2 and 3 are optional, but strongly recommended.
 
 ## Large File Support
 
-This section applies only to Blazor **Server** apps. Blazor **WebAssembly** apps do not require additional configuration for the FileSelect to work with large files.
+This section applies only to [Blazor **Server**](slug:getting-started/web-app) apps. Blazor **WebAssembly** apps do not require additional configuration for the FileSelect to work with large files.
 
-In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket** to send files from the browser to the server .NET runtime. The default SignalR maximum message size is **32 KB**. To work with larger files, [increase the max WebSocket message size for the Blazor application](slug:common-kb-increase-signalr-max-message-size).
+In [Blazor **Server**](slug:getting-started/web-app) apps, the FileSelect uses the **SignalR WebSocket** to send files from the browser to the server .NET runtime. The default SignalR maximum message size is **32 KB**. To work with larger files, [increase the max WebSocket message size for the Blazor application](slug:common-kb-increase-signalr-max-message-size).
 
 ## Drag-and-Drop File Support
 

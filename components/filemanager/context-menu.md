@@ -12,7 +12,7 @@ components: ["filemanager"]
 
 The ContextMenu of the FileManager enables you to easily execute commands on the selected file or folder.
 
-The component uses the Telerik UI for Blazor ContextMenu and provides the following commands:
+The component uses the Telerik UI for [Blazor ContextMenu](slug:contextmenu-overview) and provides the following commands:
 
 * [Rename](#rename)
 * [Download](#download)
