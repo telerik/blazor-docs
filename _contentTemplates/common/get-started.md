@@ -256,6 +256,6 @@ The [Telerik License Key](slug:installation-license-key) article provides additi
 
 #ai-coding-assistant-ad
 
-Use the [Telerik AI Coding Assistant](slug:ai-overview) through the [Telerik Blazor MCP server](slug:ai-mcp-server). This tool helps you receive tips and generate code snippets that include Telerik UI for Blazor components and APIs.
+You can accelerate your development with the [Telerik UI for Blazor Agentic UI Generator](slug:agentic-ui-generator-getting-started).
 
 #end
