@@ -133,3 +133,19 @@ Visit [status.telerik.com](https://status.telerik.com) to check the status of th
 #ci-cd-support
 > The deployment articles in this documentation provide general guidance and fundamentals. Telerik does not provide technical support for setting up CI/CD environments or application publishing infrastructure, except for questions about [using Telerik license keys](slug:deployment-license-key).
 #end
+
+#license-names
+
+> Telerik Subscription licenses were introduced in 2025 and they explicitly contain the word "Subscription" in their name, for example:
+>
+> * DevCraft Ultimate Subscription
+> * DevCraft Complete Subscription
+> * DevCraft UI Subscription
+> * Telerik UI for Blazor Subscription
+>
+> An automatically renewing license is not necessarily a Subscription license. The following licenses are Perpetual and they use a legacy naming scheme. These are not Subscription licenses:
+> * DevCraft Ultimate with Subscription and Ultimate Support
+> * DevCraft Complete with Subscription and Priority Support
+> * DevCraft UI with Subscription and Lite Support
+
+#end

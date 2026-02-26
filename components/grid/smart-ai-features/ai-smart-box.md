@@ -27,7 +27,7 @@ To use the `GridToolBarSmartBoxTool`, add it inside the `GridToolBar` tag. The S
 
 Each settings component can be enabled or disabled individually through its `Enabled` parameter (default is `true`). Each feature also supports history tracking through its respective history settings component.
 
-For detailed information on all available parameters, see the [GridToolBarSmartBoxTool API reference]({%slug Telerik.Blazor.Components.GridToolBarSmartBoxTool%}).
+For detailed information on all available parameters, see the [GridToolBarSmartBoxTool API reference](slug:Telerik.Blazor.Components.GridToolBarSmartBoxTool).
 
 ## Standard Search
 
