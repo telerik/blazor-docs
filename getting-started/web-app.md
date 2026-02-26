@@ -108,11 +108,13 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
-## Step 7: Install the Telerik AI Coding Assistant
+## Utilizing the KendoReact AI Tools
 
-@[template](/_contentTemplates/common/get-started.md#ai-coding-assistant-ad)
+Telerik UI for Blazor provides AI-powered development assistance through a unified [MCP (Model Context Protocol) server](slug:ai-overview) that delivers intelligent, context-aware help directly in your IDE. The MCP server automatically recognizes your Telerik license and activates the available tools:
 
-@[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
+* [Agentic UI Generator](slug:agentic-ui-generator-getting-started)&mdash;Build complete, production-ready UIs using natural language prompts. Describe your desired page, layout, or component configuration, and the AI-powered generator will create responsive, styled React code with proper Telerik UI for Blazor component integration.
+
+This unified MCP server integrates seamlessly with your IDE to provide contextual help and automate repetitive tasks, making it easier to explore the library and build feature-rich applications faster. Give the AI tools a try as you follow this guide or build your next project!
 
 ## See Also
 
