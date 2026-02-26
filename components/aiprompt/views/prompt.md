@@ -23,7 +23,7 @@ Additionally, the Prompt view can display prompt suggestions related to the prom
     private List<string> PromptSuggestions { get; set; } = new List<string>()
     {
         "Act as a marketing specialist and content writer and write a compelling [type of text] that speaks directly to my [ideal customer persona] and encourages them to take [desired action] on my [website/product].",
-        "I'm looking for a [type of text] that will convince [ideal customer persona] to sign up for my [program/subscription] by explaining the value it brings and the benefits they'll receive.",
+        "I'm looking for a [type of text] that will convince [ideal customer persona] to sign up for my [program/newsletter] by explaining the value it brings and the benefits they'll receive.",
         "Write a Twitter thread idea that will both go viral and attract high-quality leads for my [product/service] with a strong call-to-action and compelling visuals."
     };
 

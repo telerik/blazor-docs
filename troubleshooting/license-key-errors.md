@@ -64,11 +64,11 @@ Your license key does not include Telerik UI for Blazor.
 This error applies to perpetual licenses. It means that you are using a product version released outside the validity period of your license. To remove the error message, do either of the following:
 
 * [Renew your license](https://www.telerik.com/account/your-licenses) and then, [update your license key](slug:installation-license-key#license-key-updates).
-* Use a Telerik UI for Blazor version that was released within the subscription period of your perpetual license.
+* Use a Telerik UI for Blazor version that was released within the active period of your perpetual license.
 
 ### Your subscription has expired (TKL103, TKL104)
 
-This error applies to subscription licenses. [Renew your subscription](https://www.telerik.com/account/your-licenses) and then, [update your license key](slug:installation-license-key#license-key-updates).
+This error applies to Subscription licenses. [Renew your subscription](https://www.telerik.com/account/your-licenses) and then, [update your license key](slug:installation-license-key#license-key-updates).
 
 ### Your trial expired (TKL105)
 

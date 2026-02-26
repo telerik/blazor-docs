@@ -29,12 +29,12 @@ Is there a way to bind the data source for a Blazor UI RadioGroup to an enum?
 To achieve this, prepare a list of items that correspond to the enum values that can be shown to the user. Here is an example:
 
 ````RAZOR
-<TelerikRadioGroup @bind-Value="@Value" Data="@Subscriptions"></TelerikRadioGroup>
+<TelerikRadioGroup @bind-Value="@Value" Data="@Periods"></TelerikRadioGroup>
 
 @code {
-    private Subscription Value { get; set; }
+    private Period Value { get; set; }
 
-    public enum Subscription
+    public enum Period
     {
         Day = 0,
         Week = 1,
@@ -42,14 +42,14 @@ To achieve this, prepare a list of items that correspond to the enum values that
         Year = 3
     }
 
-    public List<Subscription> Subscriptions
+    public List<Period> Periods
     {
         get
         {
-            var subscriptionsAsArray = (Subscription[])Enum.GetValues(typeof(Subscription));
-            List<Subscription> subscriptions = new List<Subscription>(subscriptionsAsArray);
+            var periodsAsArray = (Period[])Enum.GetValues(typeof(Period));
+            List<Period> periods = new List<Period>(periodsAsArray);
 
-            return subscriptions;
+            return periods;
         }
     }
 }

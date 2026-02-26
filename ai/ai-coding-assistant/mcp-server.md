@@ -16,7 +16,7 @@ The Telerik Blazor AI Coding Assistant improves your developer experience and in
 
 ## Quick Start
 
-> If you have already completed the [Installation Guide]({% slug ai-installation %}) and configured your license key, skip directly to **step 3** to start using the AI Coding Assistant.
+> If you have already completed the [Installation Guide](slug:ai-installation) and configured your license key, skip directly to **step 3** to start using the AI Coding Assistant.
 
 Follow these steps to set up the AI Coding Assistant:
 
@@ -42,7 +42,7 @@ Follow these steps to set up the AI Coding Assistant:
 
    > For IDE-specific setup instructions and advanced configuration options, see [MCP Server Configuration](slug:ai-installation#mcp-clients-configuration).
 
-1. Ensure you have a [supported license]({% slug ai-overview#license-requirements %}) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates [the appropriate tools]({% slug ai-overview#ai-tools-overview-and-comparison %}).
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates [the appropriate tools](slug:ai-overview#ai-modes-and-tools).
 
      > Refer to the [Telerik License Key Setup](slug:installation-license-key#manual-installation) section for detailed instructions.
 
