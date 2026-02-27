@@ -28,14 +28,14 @@ To access the automated commands:
 
 ## Configure MCP Server
 
-The **Telerik UI for Blazor: Configure MCP Server** command provides two configuration scopes to set up the [Telerik Blazor MCP Server](slug:ai-mcp-server#vs-code):
+The **Telerik UI for Blazor: Configure MCP Server** command provides two configuration scopes to set up the [Telerik Blazor MCP Server](slug:ai-installation):
 
 * **Workspace**&mdash;Creates an `mcp.json` file in a `.vscode` folder in your current workspace. This configuration applies only to the current workspace.
 * **Global**&mdash;Creates an `mcp.json` file in your operating system user folder (for example, `C:\Users\___\AppData\Roaming\Code\User\.mcp.json` on Windows or `/Users/___/Library/Application Support/Code/User/mcp.json` on macOS). This configuration applies to all VS Code workspaces.
 
 > Make sure to open the generated `mcp.json` @[template](/_contentTemplates/common/ai-coding-assistant.md#verify-license-key)
 
-Finally, check for any [usage notes about the Telerik Blazor MCP Server](slug:ai-mcp-server#vs-code).
+Finally, check for any [usage notes about the Telerik Blazor MCP Server](slug:ai-overview).
 
 ## Add GitHub Copilot Custom Instructions
 
@@ -48,5 +48,4 @@ The **Telerik UI for Blazor: Install Telerik Blazor Copilot Extension** @[templa
 ## See Also
 
 * [Telerik AI Tooling Overview](slug:ai-overview)
-* [Telerik Blazor MCP Server](slug:ai-mcp-server)
 * [VS Code Integration Overview](slug:getting-started-vs-code-integration-overview)
