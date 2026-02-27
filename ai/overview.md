@@ -5,211 +5,206 @@ description: Learn about the Telerik Blazor MCP Server, its modes of operation, 
 slug: ai-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
-tag: new
+tag: updated
 previous_url: /ai/agentic-ui-generator/overview, /ai/ai-coding-assistant/overview
 position: 1
 ---
 
-# Telerik Blazor MCP Server Overview
+# Telerik UI for Blazor AI Tools Overview
 
-The Telerik Blazor MCP Server is a local MCP server that is distributed through the [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP) NuGet package. It improves your developer experience and increases your productivity when implementing Blazor apps that leverage [Telerik UI for Blazor](https://www.telerik.com/blazor-ui).
+The Telerik UI for Blazor AI Tools are delivered through a single [Model Context Protocol (MCP) server](https://modelcontextprotocol.io/docs/getting-started/intro) that connects your AI client to UI-generation capabilities and knowledge specific to Telerik UI for Blazor.
 
-## Basics
+From idea to implementation, you can use the MCP server to generate complete pages, configure components correctly, align with the Progress Design System, and reduce repetitive setup work.
 
-The Telerik Blazor MCP Server:
+## What Are the Telerik UI for Blazor AI Tools
 
-* Provides proprietary context to AI-powered IDEs, apps, and tools.
-* Enables you to generate tailored code and prompt complex questions and tasks that include Telerik Blazor components and API.
-* Can help you with a wide range of tasks, from creating responsive dashboards and landing pages to answering questions about component features, properties, events, or general usage.
-* Provides seamless integration with .NET development workflows.
+The Telerik Blazor MCP Server is a local MCP server that is distributed through the [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP) NuGet package.
 
-## AI Modes and Tools
+The Telerik Blazor MCP server uses an orchestration-first model, centered on the Agentic UI Generator tool. It contains a core set of specialized assistants. Click the cards below for more details on each assistant:
 
-The MCP Server operates in [two modes based on your Telerik Subscription license](#license-requirements):
+<Row>
+    <Column count={[24,12,8]}>
+        <Component className="tile card-icon" href="#how-the-agentic-flow-works">
+            <ComponentTitle>UI Generator (Orchestrator)</ComponentTitle>
+        </Component>
+     </Column>
+    <Column count={[24,12,8]}>
+        <Component className="tile card-icon" href="#component-assistant">
+            <ComponentTitle>Component Assistant</ComponentTitle>
+        </Component>
+    </Column>
+    <Column count={[24,12,8]}>
+        <Component className="tile card-icon" href="#icon-assistant">
+            <ComponentTitle>Icon Assistant</ComponentTitle>
+        </Component>
+    </Column>
+    <Column count={[24,12,6]}>
+        <Component className="tile card-icon" href="#layout-assistant">
+        <ComponentTitle>Layout Assistant</ComponentTitle>
+        </Component>
+    </Column>
+    <Column count={[24,12,6]}>
+        <Component className="tile card-icon" href="#styling-assistant">
+        <ComponentTitle>Styling Assistant</ComponentTitle>
+    </Column>
+    <Column count={[24,12,6]}>
+      <Component className="tile card-icon" href="#accessibility-assistant">
+        <ComponentTitle>Accessibility Assistant</ComponentTitle>
+        </Component>
+    </Column>
+    <Column count={[24,12,6]}>
+      <Component className="tile card-icon" href="#validator-assistant">
+        <ComponentTitle>Validator Assistant</ComponentTitle>
+        </Component>
+    </Column>
+</Row>
 
-* AI Coding Assistant&mdash;This mode provides access to documentation, code generation, component configuration, and troubleshooting tools.
-* Agentic UI Generator&mdash;This mode provides advanced generation capabilities for building complete user interfaces with responsive layouts and custom theming. The mode includes all AI Coding Assistant capabilities.
+The Agentic UI Generator orchestrates all assistants so you can build pages and components, apply styling and theming, and stay aligned with the design system in one seamless process. You can use the full end-to-end flow when you need complete page generation, or call a specific assistant directly when you need a focused change.
 
-<table>
-<colgroup>
-<col width="20%" />
-<col width="30%" />
-<col width="35%" />
-</colgroup>
-<thead>
-<tr>
-<th>&nbsp;</th>
-<th>Agentic UI Generator</th>
-<th>AI Coding Assistant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Orchestrator Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<tr>
-<td><strong>Component Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<td><strong>Icon Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<td><strong>Layout Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>Styling Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>Accessibility Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>Validator Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<td><strong>Scope</strong></td>
-<td>Complete pages, dashboards with layout, styling, components, and responsivenes.</td>
-<td>Individual components with proper data binding and configuration.</td>
-</tr>
-</tbody>
-</table>
+![MCP Server Assistants Diagram](images/ai-assistants.png)
 
-For tool-specific usage guidance, visit the [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started) and [AI Coding Assistant Getting Started](slug:ai-mcp-server) articles.
+## How the Agentic Flow Works
+
+The Agentic UI Generator takes one prompt and manages the flow for you. It decides which assistants to use and combines their output into a single result. Use it when you want to generate a full page quickly, or call a specific assistant when you need a focused update to the layout, components, styling, theme, or icons in your project.
+
+![Full Pages](images/ui-templates.png)
+
+### Layout Assistant
+
+Use the Layout Assistant to set up or refine the page structure. It helps with section order, spacing, and responsive behavior so the UI stays clear across desktop, tablet, and mobile.
+
+Typical tasks include adding a new dashboard section, cleaning up visual hierarchy, and converting desktop-first screens into responsive layouts.
+
+![Layout Assistant](images/layout-assistant.png)
+
+### Component Assistant
+
+Use the Component Assistant when you need help configuring Telerik UI for Blazor components. It helps you pick the right component and wire it correctly with real API patterns.
+
+Common tasks include enabling Grid features (sorting, paging, filtering, grouping), building validated forms, setting up virtual scrolling or export, and using sample data for safe prototyping.
+
+![Component Assistant](images/component-assistant.png)
+
+### Styling Assistant
+
+Use the Styling Assistant when you want consistent visuals across the app. It helps define reusable tokens and CSS variables for scalable theming.
+
+Typical tasks include applying brand colors, adding dark mode or high-contrast variants, and keeping styling behavior consistent as new pages are added.
+
+![Styling Assistant](images/style-assistant.png)
+
+### Icon Assistant
+
+Use the Icon Assistant to choose icons that match user actions and UI context. This assistant helps you achieve visually consistent navigation, status indicators, and action buttons.
+
+It is useful for toolbars, navigation menus, cards, and any new section where icon consistency matters.
+
+![Icon Assistant](images/icon-assistant.png)
+
+### Accessibility Assistant
+
+Use the Accessibility Assistant to apply WCAG 2.2 Level AA guidance during implementation, not after it. It helps with ARIA usage, keyboard navigation, and semantic markup.
+It is especially useful for interactive templates, complex component flows, and final semantic checks before release.
+
+![Accessibility Assistant](images/accessibility-assistant.png)
+
+### Validator Assistant
+
+Not designed to be invoked manually. It is called automatically by the UI Generator Orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards.
+
+### When to Use Orchestrated vs Targeted Mode
+
+Use `#telerik_ui_generator` for a complete orchestration-first workflow from a single prompt. When you need finer control or want to adjust just one aspect (such as layout, theme, or a component), you can call a specialized assistant directly by its dedicated handle. For details, see [Target the Assistants (Advanced)](slug:agentic-ui-generator-getting-started#target-the-assistants-advanced).
+
+## Start Building in Minutes
+
+To get started with the Telerik Blazor MCP server, complete the following steps:
+
+1. [Configure the MCP server](slug:ai-installation#mcp-server-configuration)
+1. _(Optional)_ [Set up your Telerik license key](slug:ai-installation#license-key-setup) if not already configured globally
+1. Start prompting in your IDE's chat interface:
+    - `#telerik_ui_generator` for full, orchestrated UI generation
+    - `#telerik_component_assistant`, `#telerik_layout_assistant`, `#telerik_style_assistant`, `#telerik_icon_assistant`, or `#telerik_accessibility_assistant` for targeted workflows
+
+For detailed setup instructions, see the [Installation](slug:ai-installation) article. For guided usage, continue with [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started).
+
+### Example Prompts and Expected Results
+
+The following examples show how natural-language prompts can map to practical, editable output in your project.
+
+```prompt Sales Dashboard
+#telerik_ui_generator Build a sales operations dashboard with a pageable and sortable Grid, a monthly revenue Chart, and a KPI summary row.`
+```
+```Razor
+```
+
+**Expected result:** A page scaffold with responsive sections, configured Telerik UI for Blazor Grid and Chart, both wired to sample data, and KPI cards arranged for desktop and mobile.
+
+```prompt Dark Theme
+#telerik_ui_generator Apply a dark theme and define reusable CSS variables for brand, surface, and semantic colors.`
+```
+```Razor
+```
+
+**Expected result:** A token-driven theme setup with color variables and a dark-mode-ready styling baseline that you can refine for your brand.
 
 ## License Requirements
 
-Access to the Telerik AI Tools depends on your [Telerik license type](https://www.telerik.com/purchase.aspx?filter=web). The table below summarizes which level of functionality are available with each license type:
+The Telerik UI for Blazor MCP server and its tools are offered as a single experience through the **Agentic UI Generator** (`#telerik_ui_generator`) in [all active Telerik subscription licenses](https://www.telerik.com/purchase.aspx?filter=web).
 
 <table>
 <colgroup>
-<col style="width:25%" />
-<col />
-<col />
-<col />
-<col />
+<col style="width: 40%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr>
-<th rowspan="2"></th>
-<th colspan="2" style="text-align:center;">Subscription Licenses</th>
-<th rowspan="2">Perpetual Licenses</th>
-<th rowspan="2">Trial License**</th>
-</tr>
-<tr>
-<th>DevCraft&nbsp;Ultimate and DevCraft&nbsp;Complete</th>
-<th>DevCraft&nbsp;UI and Telerik&nbsp;UI&nbsp;for&nbsp;Blazor</th>
+<th>License Type</th>
+<th>Agentic UI Generator</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>UI Generator Orchestrator Tool</strong></td>
+<td><strong>Subscription License</strong>
+</td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-<td>No</td>
+</tr><tr>
+<td><strong>Trial License</strong></td>
 <td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 <tr>
-<td><strong>Coding Assistant Orchestrator Tool</strong></td>
-<td>No*</td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
+<td><strong>Perpetual License</strong></td>
 <td>No*</td>
 </tr>
-<tr>
-<td><strong>Component Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<td><strong>Icon Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<td><strong>Layout Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-<td>No</td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<td><strong>Styling Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-<td>No</td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-</tr>
-<tr>
-<td><strong>Accessibility Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-<td>No</td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
-<td><strong>Validator Tool</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-<td>No</td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
-</tr>
-<tr>
+
 </tbody>
 </table>
 
-*The Coding Assistant Orchestrator Tool is available only when you have a license that enables a limited set of tools. When you have access to the full set of tools, the UI Generator Orchestrator Tool coordinates all of them.
+<p style="font-size: 18px; font-style: italic; color: #666; margin-top: 12px; line-height: 1.5;">
+<em>
+*  All AI tools are available with a <a href="https://www.telerik.com/mcp-servers-blazor/thank-you">30-day AI Tools trial</a> or <a href="https://www.telerik.com/try/ui-for-blazor">a Telerik UI for Blazor trial</a>.
+</em> <br/>
 
-**The tools are available with a 30-day [AI Tools trial](https://www.telerik.com/mcp-servers-blazor/thank-you) or [a Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor).
-
-@[template](/_contentTemplates/common/general-info.md#license-names)
-
-## Usage Limits
-
-* [Subscription licenses](#license-requirements) grant a virtually unlimited number of requests. Fair use policy applies.
-* Perpetual licenses do not grant access to the Telerik AI tools.
-* [AI tools trials](https://www.telerik.com/mcp-servers-blazor/thank-you) :
-    * Grant a virtually unlimited number of requests for a 30-day evaluation. Fair use policy applies.
-    * Do not grant additional requests when reactivating the same trial for a new release.
-
-> All Telerik AI tools share the same fair usage quota for your Telerik account.
-> When using the AI tools, one prompt may trigger several requests, depending on the prompt complexity.
-
-## Privacy
-
-The Telerik MCP server operates under the following conditions:
-
-* The MCP server does not have access to your workspace and application code. Note that when using the Telerik MCP server (or any other MCP server), the LLM generates parameters for the MCP server request, which may include parts of your application code.
-* The MCP server does not use your prompts to train Telerik AI models.
-* The MCP server does not generate the actual responses and has no access to these responses. The MCP server only provides a better context that helps your selected model (for example, GPT, Gemini, Claude) provide better responses.
-* The MCP server does not associate your prompts to your Telerik user account. Your prompts and generated context are anonymized and stored for statistical and troubleshooting purposes.
-* The MCP server stores metrics about how often and how much you use it in order to ensure compliance with the [allowed number of requests that correspond to your current license](#usage-limits).
+</p>
 
 ## Next Steps
 
-* [Install the Telerik MCP server](slug:ai-installation)
-* [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started) 
-* [AI Coding Assistant Getting Started](slug:ai-mcp-server)
+* [Installing the Telerik MCP server](slug:ai-installation)
+* [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started)
+* [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library)
 
 ## See Also
 
-* [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library)
-* [AI Coding Assistant Prompt Library](slug:ai-prompt-library)
+* [MCP Clients](https://modelcontextprotocol.io/clients)
+* [Changelog](slug:ai-changelog)
+
+
+<style>
+div .card-icon {
+    padding: 10px 0;
+}
+
+.d-print-none button:nth-child(2) {
+  display: none !important;
+}
+</style>

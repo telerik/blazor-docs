@@ -4,23 +4,23 @@ meta_title: Telerik Blazor AI Tools Troubleshooting
 description: Common issues and their solutions when using the Telerik MCP Server for AI-powered development tools.
 slug: ai-troubleshooting
 tags: AI, troubleshooting, issue
-position: 7
-tag: new
+position: 6
+tag: updated
 ---
 
 # Troubleshooting
 
 This article provides solutions to common issues you may encounter when working with the Telerik UI for Blazor AI Tools.
 
-## AI Coding Assistant Stopped Working
+## No Access to the AI Coding Assistant
 
-Starting in January 2026, we restructured the Telerik UI for Blazor AI Tools to better serve different user needs. Both the AI Coding Assistant and the Agentic UI Generator are now delivered through a single Telerik MCP server. The AI Coding Assistant is a streamlined version of the Agentic UI Generator, providing access to Component, Icon and Validator tools with a component-focused orchestrator.
+Starting in February 2026, we restructured the Telerik UI for Blazor AI Tools to better serve different user needs by deprecating the AI Coding Assistant. The Telerik Blazor MCP server now provides a single workflow centered around the Agentic UI Generator tool and its specialized MCP assistants.
 
-[License requirements](slug:ai-overview#license-requirements) changed as follows:
+As part of this restructuring, license requirements have also changed.:
 
-* **DevCraft Complete Subscription and DevCraft Ultimate Subscription**&mdash;Provides full access to the Agentic UI Generator, including the Component, Layout, Styling, Icon, and Validator tools with comprehensive orchestration capabilities.
-* **DevCraft UI Subscription and Telerik UI for Blazor Subscription**&mdash;Provide access to the AI Coding Assistant with Component, Icon, and Validator tools.
-* **Perpetual licenses**&mdash;Do not grant access to any of the AI tools. You must have an active Subscription or trial license to use the Telerik MCP server.
+* **All active Telerik Subscription models**&mdash;Provide access to the Agentic UI Generator.
+* **Trial licenses**&mdash;Provide access to the Agentic UI Generator during the active trial period.
+* **Perpetual licenses**&mdash;Do not grant access to the AI tools. You must have an active Subscription or a trial license to use the Telerik Blazor MCP server.
 
 For detailed information about license requirements and tool capabilities, see [License Requirements](slug:ai-overview#license-requirements).
 
@@ -33,14 +33,14 @@ When you activate a trial license, you must download and install the updated lic
 
 The MCP server validates your license during initialization. Without a properly activated license key, the server cannot authenticate your access to the AI Tools.
 
-## The MCP Server Tools Are Not Recognized by Visual Studio
+## MCP Assistants Not Recognized by Visual Studio
 
-If the Telerik MCP server tools are not available or recognized by GitHub Copilot in Visual Studio, you may need to manually enable them:
+If the Telerik MCP server assistants are not available or recognized by GitHub Copilot in Visual Studio, you may need to manually enable them:
 
 1. Click on the *Select Tools* button on the bottom right part of the Copilot chat window.
-1. In the popup that opens, check the **telerik-blazor-mcp** from the list to enable it.
+1. In the popup that opens, check **telerik-blazor-mcp** from the list to enable it.
 
-<img alt="Enable MCP Server tools in Visual Studio" src="images/mcp-server-enable-tools.png" style="width: 80%"/>
+<img alt="Enable MCP Server assistants in Visual Studio" src="images/mcp-server-enable-tools.png" style="width: 80%"/>
 
 ## Hanging Tool Calls in Visual Studio
 
