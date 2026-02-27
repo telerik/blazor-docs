@@ -671,11 +671,3 @@ redirects:
 -   
     from: ^/ai/ai-coding-assistant$
     to: /ai
-
--   
-    from: ^/ai/ai-coding-assistant/mcp-server$
-    to: /ai/agentic-ui-generator/getting-started
-
--   
-    from: ^/ai/ai-coding-assistant/prompt-library$
-    to: /ai/agentic-ui-generator/prompt-library
