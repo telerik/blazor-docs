@@ -126,6 +126,8 @@ Add your desired Telerik Blazor components in the app as in a native Blazor app.
 
 ### 8. Install the Telerik AI Tools
 
+## Utilizing the Telerik AI Tools
+
 @[template](/_contentTemplates/common/get-started.md#ai-coding-assistant-ad)
 
 ## Running the Blazor Hybrid App

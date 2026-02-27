@@ -12,7 +12,7 @@ tag: updated
 
 This article provides solutions to common issues you may encounter when working with the Telerik UI for Blazor AI Tools.
 
-## AI Coding Assistant Stopped Working
+## No Access to the AI Coding Assistant
 
 Starting in February 2026, we restructured the Telerik UI for Blazor AI Tools to better serve different user needs by deprecating the AI Coding Assistant. The Telerik Blazor MCP server now provides a single workflow centered around the Agentic UI Generator tool and its specialized MCP assistants.
 
@@ -33,7 +33,7 @@ When you activate a trial license, you must download and install the updated lic
 
 The MCP server validates your license during initialization. Without a properly activated license key, the server cannot authenticate your access to the AI Tools.
 
-## The MCP Server Assistants Are Not Recognized by Visual Studio
+## MCP Assistants Not Recognized by Visual Studio
 
 If the Telerik MCP server assistants are not available or recognized by GitHub Copilot in Visual Studio, you may need to manually enable them:
 

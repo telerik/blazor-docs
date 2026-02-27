@@ -20,7 +20,6 @@ This article provides detailed installation instructions for popular AI-powered 
 To use the Telerik Blazor MCP server, you need:
 
 * A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP server integrations.
-* An [active Telerik license](slug:ai-overview#license-requirements) that provides access to the Telerik Blazor MCP server.
 * [.NET 8 or newer](https://dotnet.microsoft.com/en-us/download).
 * Enabled HTTP/2 protocol support on the client device and any firewalls and proxies that may manage the network requests.
 * A [Telerik user account](https://www.telerik.com/account/).

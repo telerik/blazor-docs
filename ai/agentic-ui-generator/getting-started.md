@@ -124,7 +124,7 @@ To get the best results from the Agentic UI Generator:
 * Specify responsive behavior for desktop, tablet, and mobile.
 * Keep your Blazor project structure and naming conventions consistent.
 * Review, test, and validate generated code before using it in production.
-* Use a capable model and keep your IDE/model versions up to date.
+* While the Agentic UI Generator performs close to parity with Copilot when paired with powerful models like **Claude Sonnet 4.5**, **GPT-5.2**, or **Gemini 3 Pro**, it also excels with smaller models such as **Haiku** and **GPT 5.1 mini**.
 
 ## See Also
 
