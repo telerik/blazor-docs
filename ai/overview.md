@@ -61,13 +61,13 @@ The Telerik Blazor MCP server uses an orchestration-first model, centered on the
 
 The Agentic UI Generator orchestrates all assistants so you can build pages and components, apply styling and theming, and stay aligned with the design system in one seamless process. You can use the full end-to-end flow when you need complete page generation, or call a specific assistant directly when you need a focused change.
 
- <img alt="MCP Server Assistants Diagram" src="images/ai-assistants.png"/>
+![MCP Server Assistants Diagram](images/ai-assistants.png)
 
 ## How the Agentic Flow Works
 
 The Agentic UI Generator takes one prompt and manages the flow for you. It decides which assistants to use and combines their output into a single result. Use it when you want to generate a full page quickly, or call a specific assistant when you need a focused update to the layout, components, styling, theme, or icons in your project.
 
-<img alt="Icon Assistant" src="images/ui-templates.png" style="width: 50%"/>
+![Full Pages](images/ui-templates.png)
 
 ### Layout Assistant
 
@@ -75,15 +75,15 @@ Use the Layout Assistant to set up or refine the page structure. It helps with s
 
 Typical tasks include adding a new dashboard section, cleaning up visual hierarchy, and converting desktop-first screens into responsive layouts.
 
-<img alt="Layout Assistant" src="images/layout-assistant.png" style="width: 100%%"/>
+![Layout Assistant](images/layout-assistant.png)
 
 ### Component Assistant
 
-Use the Component Assistant when you need help implementing or configuring Telerik UI for Blazor components. It helps you pick the right component and wire it correctly with real API patterns.
+Use the Component Assistant when you need help configuring Telerik UI for Blazor components. It helps you pick the right component and wire it correctly with real API patterns.
 
 Common tasks include enabling Grid features (sorting, paging, filtering, grouping), building validated forms, setting up virtual scrolling or export, and using sample data for safe prototyping.
 
-<img alt="Component Assistant" src="images/component-assistant.png" style="width: 650px"/>
+![Component Assistant](images/component-assistant.png)
 
 ### Styling Assistant
 
@@ -91,22 +91,22 @@ Use the Styling Assistant when you want consistent visuals across the app. It he
 
 Typical tasks include applying brand colors, adding dark mode or high-contrast variants, and keeping styling behavior consistent as new pages are added.
 
-<img alt="Styling Assistant" src="images/style-assistant.png" style="width: 90%"/>
+![Styling Assistant](images/style-assistant.png)
 
 ### Icon Assistant
 
-Use the Icon Assistant to choose icons that match user actions and UI context. It helps keep navigation, status indicators, and action buttons visually consistent.
+Use the Icon Assistant to choose icons that match user actions and UI context. This assistant helps you achieve visually consistent navigation, status indicators, and action buttons.
 
 It is useful for toolbars, navigation menus, cards, and any new section where icon consistency matters.
 
-<img alt="Icon Assistant" src="images/icon-assistant.png" style="width: 50%"/>
+![Icon Assistant](images/icon-assistant.png)
 
 ### Accessibility Assistant
 
 Use the Accessibility Assistant to apply WCAG 2.2 Level AA guidance during implementation, not after it. It helps with ARIA usage, keyboard navigation, and semantic markup.
 It is especially useful for interactive templates, complex component flows, and final semantic checks before release.
 
-<img alt="Icon Assistant" src="images/accessibility-assistant.png" style="width: 50%"/>
+![Accessibility Assistant](images/accessibility-assistant.png)
 
 ### Validator Assistant
 
@@ -148,25 +148,19 @@ The following examples show how natural-language prompts can map to practical, e
 
 **Expected result:** A token-driven theme setup with color variables and a dark-mode-ready styling baseline that you can refine for your brand.
 
-```prompt Sign-in Form
-#telerik_ui_generator Create a sign-in page with validation, accessible labels, keyboard-friendly form flow, and clear action buttons.`
-```
-```Razor
-```
-
-**Expected result:** A clean authentication layout with Telerik UI for Blazor form inputs, validation patterns, accessible markup, and consistent button/icon treatment.
-
-You can start with these as-is, then iterate by asking for focused updates to layout, component behavior, theme tokens, icons, or accessibility details.
-
 ## License Requirements
 
-The Telerik UI for Blazor MCP server and its tools are offered as a single experience through the **Agentic UI Generator** (`#telerik_ui_generator`) in [all active Telerik subscription models](https://www.telerik.com/purchase.aspx?filter=web).
+The Telerik UI for Blazor MCP server and its tools are offered as a single experience through the **Agentic UI Generator** (`#telerik_ui_generator`) in [all active Telerik subscription licenses](https://www.telerik.com/purchase.aspx?filter=web).
 
 <table>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr>
-<th width="40%">License Type</th>
-<th width="30%">Agentic UI Generator</th>
+<th>License Type</th>
+<th>Agentic UI Generator</th>
 </tr>
 </thead>
 <tbody>
