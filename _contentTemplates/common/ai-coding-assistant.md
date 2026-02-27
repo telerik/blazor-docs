@@ -1,9 +1,9 @@
 #vs-intro
-provides automated configuration commands for the Telerik AI-powered development tools. These commands help you quickly set up the [Telerik MCP server](slug:ai-mcp-server) for enhanced developer productivity with Telerik UI for Blazor components.
+provides automated configuration commands for the Telerik AI-powered development tools. These commands help you quickly set up the [Telerik MCP server](slug:ai-overview) for enhanced developer productivity with Telerik UI for Blazor components.
 #end
 
 #prerequisites
-* Check the tool-specific prerequisites for the [Telerik Blazor MCP Server](slug:ai-mcp-server#prerequisites).
+* Check the tool-specific prerequisites for the [Telerik Blazor MCP Server](slug:ai-installation#prerequisites).
 #end
 
 #verify-license-key
