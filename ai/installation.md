@@ -5,23 +5,25 @@ description: Learn how to install and configure the Telerik Blazor MCP Server fo
 slug: ai-installation
 tags: ai, mcp, installation, setup
 published: True
-tag: new
+tag: updated
 position: 2
 ---
 
 # Installing the Telerik Blazor MCP Server
 
-This article explains how to install the Telerik Blazor MCP (Model Context Protocol) Server. The installation instructions include examples for some popular AI-powered IDEs.
+The Telerik UI for Blazor AI Tools are delivered through a single MCP (Model Context Protocol) server. Once configured and authenticated, you can use the Agentic UI Generator tool (`#telerik_ui_generator`) together with the available specialized MCP assistants.
+
+This article provides detailed installation instructions for popular AI-powered IDEs.
 
 ## Prerequisites
 
 To use the Telerik Blazor MCP server, you need:
 
-* A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP tools.
+* A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP server integrations.
 * [.NET 8 or newer](https://dotnet.microsoft.com/en-us/download).
 * Enabled HTTP/2 protocol support on the client device and any firewalls and proxies that may manage the network requests.
 * A [Telerik user account](https://www.telerik.com/account/).
-* An active Telerik Subscription license and a [license key](slug:installation-license-key). Your license type determines which [MCP server operation mode](slug:ai-overview#ai-modes-and-tools) you can use.
+* An [active Telerik license](slug:ai-overview#license-requirements) that provides access to the Telerik Blazor MCP server.
 
 @[template](/_contentTemplates/common/general-info.md#license-names)
 
@@ -203,8 +205,13 @@ MCP Configuration for VS Code `.vscode/mcp.json` using local tools:
 
 > The `command` argument value must be `dotnet`, when you configure the MCP Server for .NET 8 or 9. 
 
+## Next Steps
+
+Now that the MCP server is installed, continue with the Agentic UI Generator and assistant-specific usage guidance:
+
+* Begin with the [Getting Started](slug:agentic-ui-generator-getting-started) guide and explore the [Prompt Library](slug:agentic-ui-generator-prompt-library).
+
 ## See Also
 
 * [Telerik AI Tools Overview](slug:ai-overview)
 * [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started)
-* [AI Coding Assistant Getting Started](slug:ai-mcp-server)

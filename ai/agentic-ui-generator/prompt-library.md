@@ -5,26 +5,27 @@ description: Explore example prompts that demonstrate the capabilities of the Te
 slug: agentic-ui-generator-prompt-library
 position: 20
 tags: telerik,blazor,ai,agentic,ui,generator,prompts
-published: True
+previous_url: /ai/ai-coding-assistant/prompt-library
 tag: updated
+published: True
 ---
 
 # Agentic UI Generator Prompt Library
 
-This article provides example prompts that demonstrate the capabilities of the Telerik UI for Blazor Agentic UI Generator. Use these as inspiration for building modern web applications with speed and precision.
+The prompts provided here are intended and optimized for use with the Telerik Blazor MCP Server tools, including the [Agentic UI Generator](slug:agentic-ui-generator-getting-started) and the specialized assistants. They can help you accelerate the creation and styling of modern web applications, from individual components to complete responsive pages and custom themes.
 
 >tip [Go straight to the prompts ⬇️](#general-prompts)
 
 ## How to Use the Prompts
 
-All prompts in this library target the Agentic UI Generator. The `#telerik_ui_generator` handle explicitly calls the generator, but you can also use natural language descriptions and let your AI assistant automatically recognize when to use the UI Generator or one of the other specialized tools.
+The prompts in this library target the [Agentic UI Generator](slug:agentic-ui-generator-getting-started) using the main `#telerik_ui_generator` handle, individual assistant handles, or natural language descriptions. Make sure that you have [installed and enabled](slug:agentic-ui-generator-getting-started#quick-start) the Agentic UI Generator before attempting to run the prompts.
 
 1. Browse the [prompt library](#general-prompts) to find a prompt that suits your needs.
 2. Copy the prompt text (including the `#telerik_ui_generator` handle if present).
 3. (optional) Customize the prompt as needed for your specific use case. Make sure the changes comply with the [intended use](slug:agentic-ui-generator-getting-started#using-the-agentic-ui-generator)  for the Agentic UI Generator.
 4. Run the prompt against your AI-powered IDE.
 
->warning Always double-check the code and solutions proposed by any AI-powered tool before applying them to your project.
+> warning Always double-check the code and solutions proposed by any AI-powered tool before applying them to your project.
 
 ## General Prompts
 
@@ -90,13 +91,13 @@ Create an employee onboarding wizard (using the Telerik Wizard) with step icons:
 ```Razor
 ```
 
-## Advanced Tool-Specific Prompts
+## Assistant-Specific Prompts
 
-This section provides prompt examples for directly calling individual specialized tools for more granular control.
+This section provides prompt examples for directly calling individual specialized assistants for more granular control.
 
 ### Layout Assistant Prompts
 
-The Layout Assistant tool applies suitable CSS utility classes from the [Progress Design System](https://www.telerik.com/design-system/docs/) for styling and positioning elements. You can use it, when you need help with spacing, typography, colors, layout structure, or transforms.
+The Layout Assistant applies suitable CSS utility classes from the [Progress Design System](https://www.telerik.com/design-system/docs/) for styling and positioning elements. You can use it, when you need help with spacing, typography, colors, layout structure, or transforms.
 
 ```prompt Responsive Layout
 #telerik_layout_assistant Update the existing page layout by adding a new section in the middle of the page. In that added section, a Dashboard Card displays summary KPIs (revenue, active users, growth rate), next to a Compact Card showing a recent alert or message. Make the page responsive with proper spacing and typography.
@@ -106,7 +107,7 @@ The Layout Assistant tool applies suitable CSS utility classes from the [Progres
 
 ### Component Assistant Prompts
 
-The Component Assistant tool answers questions and generates code related to Telerik UI for Blazor components. Use this tool when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc.
+The Component Assistant answers questions and generates code related to Telerik UI for Blazor components. Use this tool when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc.
 
 ```prompt Interactive Data Page
 #telerik_component_assistant Create a Grid component with paging, sorting, and filtering. Include column configuration for a product catalog with name, price, category, and actions. Ensure the Grid is properly integrated into a card layout with responsive design and consistent spacing.
@@ -122,7 +123,7 @@ The Component Assistant tool answers questions and generates code related to Tel
 
 ### Style Assistant Prompts
 
-The Style Assistant tool generates custom styles and theme configurations for your application. Use this tool when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI.
+The Style Assistant generates custom styles and theme configurations for your application. Use this assistant when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI.
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
@@ -142,7 +143,7 @@ The Style Assistant tool generates custom styles and theme configurations for yo
 
 ### Icon Assistant Prompts
 
-The Icon Assistant tool searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this tool when you need to find and add specific icons for your UI components or design elements.
+The Icon Assistant assistant searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this assistant when you need to find and add specific icons for your UI components or design elements.
 
 <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
 
