@@ -172,6 +172,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
     <packageSourceMapping>
         <packageSource key="nuget.org">
             <package pattern="*" />
+            <package pattern="Telerik.AI.SmartComponents.Extensions" />
             <package pattern="Telerik.Licensing" />
             <package pattern="Telerik.FontIcons" />
             <package pattern="Telerik.SvgIcons" />
