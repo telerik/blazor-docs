@@ -5,22 +5,35 @@ description: Telerik REPL for Blazor is integrated with other Telerik resources 
 slug: blazor-repl-integration
 tags: telerik,blazor,repl,integration
 published: True
+tag: updated
 position: 10
 ---
 
 # Telerik REPL for Blazor Integration
 
-Telerik REPL for Blazor is integrated in the UI for Blazor resources (documentation and demos), as well as Visual Studio and Visual Studio Code.
+Telerik REPL for Blazor is integrated in the UI for Blazor resources (documentation and demos), as well as Visual Studio and Visual Studio Code. It also includes an experimental integration of the [Agentic UI Generator](slug:agentic-ui-generator-getting-started), which is built into the REPL sidebar.
 
 In this article:
 
 - [Telerik REPL for Blazor Integration](#telerik-repl-for-blazor-integration)
+  - [Agentic UI Generator Integration in REPL](#agentic-ui-generator-integration-in-repl-experimental)
   - [Documentation Integration](#documentation-integration)
   - [Demos Integration](#demos-integration)
   - [Visual Studio and Visual Studio Code Integration](#visual-studio-and-visual-studio-code-integration)
     - [Sharing to REPL in Visual Studio](#sharing-to-repl-in-visual-studio)
     - [Sharing to REPL Visual Studio Code](#sharing-to-repl-visual-studio-code)
   - [See Also](#see-also)
+
+## Agentic UI Generator Integration in REPL (Experimental)
+
+Speed up your prototyping with the Agentic UI Generator. Click the sparkle icon ✨ in the sidebar to open a chat interface where you can:
+
+* Describe components in plain language.
+* Get working Telerik Blazor code.
+* Include realistic sample data and proper styling.
+* Iterate on generated code with follow-up requests.
+
+> This integration is experimental. As such, it requires login to your [Telerik Account](https://www.telerik.com/account/) and is limited to **10 requests per month per user**.
 
 ## Documentation Integration
 
@@ -81,5 +94,6 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 ## See Also
 
+* [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started)
 * [User Snippets in Telerik REPL for Blazor](slug:blazor-repl-user-snippets)
 * [Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazor](slug:blazor-repl-snippets-scaffolders)

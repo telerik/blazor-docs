@@ -5,6 +5,7 @@ description: Telerik REPL for Blazor allows you to write, compile, execute, and 
 slug: blazor-repl
 tags: telerik,blazor,repl
 published: True
+tag: updated
 position: 1
 previous_url: /getting-started/repl
 ---
@@ -26,6 +27,8 @@ The <a href = "https://blazorrepl.telerik.com/" target = "_blank">Telerik REPL f
 
 <!-- ![Overview](images/repl-overview.png) -->
 
+> Telerik REPL for Blazor now includes the AI-powered [Agentic UI Generator](slug:agentic-ui-generator-getting-started) development tool to help you create pages and UI for Blazor components through natural language. Simply describe your UI requirements, and the Generator will produce code that follows component best practices, uses realistic sample data, and applies [Progress Design System](https://www.telerik.com/design-system/docs/) styling. Login to your [Telerik Account](https://www.telerik.com/account/) is required.
+
 ## Toolbar
 
 The Toolbar of Telerik REPL for Blazor provides access to the operations that you can perform:
@@ -45,6 +48,8 @@ The Toolbar of Telerik REPL for Blazor provides access to the operations that yo
 ## Sidebar
 
 The Sidebar provides the following functionalities:
+
+* **Agentic UI Generator**&mdash;a new experimental integration of the Telerik REPL for Blazor with the [Agentic UI Generator](slug:agentic-ui-generator-getting-started). The Generator is an intelligent development tool that enables UI generation from natural language prompts. Look for the sparkle icon ✨ in the left sidebar.
 
 * **NuGet Package Manager**&mdash;it allows you to install third party NuGet packages that are stored in the public `nuget.org` repository. If the published NuGet requires accepting a license agreement, you will see a confirmation prompt. The latest `Telerik UI for Blazor` package is already installed by default.
 
