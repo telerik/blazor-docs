@@ -92,6 +92,10 @@ For examples of how to use each specialized assistant, see the [Assistant-Specif
 
 > Using assistant handles to target specific tools in Visual Studio currently is not available. To increase the probability that a tool will be called, either explicitly mention the tool in your prompt, or specify that in your Copilot instructions. 
 
+## Agentic UI Generator in Telerik REPL for Blazor
+
+The Telerik REPL for Blazor includes an experimental integration with the Agentic UI Generator, allowing you to prototype and generate UI directly in the browser. For details, see [Agentic UI Generator Integration in Telerik REPL for Blazor](slug:blazor-repl-integration#agentic-ui-generator-integration-in-repl-experimental).
+
 ## Usage Limits
 
 * [Subscription licenses](#license-requirements) grant a virtually unlimited number of requests. Fair use policy applies.
