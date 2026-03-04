@@ -197,9 +197,6 @@ For better performance, define the same `ParentIdField` for all levels when usin
         public bool HasChildren { get; set; }
         public string Text { get; set; } = string.Empty;
         public int Value { get; set; }
-
-        public string Url { get; set; } = "/counter";
-
         public object? Icon { get; set; }
     }
 }
