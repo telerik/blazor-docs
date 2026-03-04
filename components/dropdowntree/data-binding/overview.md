@@ -195,9 +195,9 @@ For better performance, define the same `ParentIdField` for all levels when usin
         public int? ChildId { get; set; }
         public int? Parent { get; set; }
         public bool HasChildren { get; set; }
+        public object? Icon { get; set; }
         public string Text { get; set; } = string.Empty;
         public int Value { get; set; }
-        public object? Icon { get; set; }
     }
 }
 ````
