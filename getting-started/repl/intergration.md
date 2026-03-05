@@ -24,7 +24,7 @@ In this article:
     - [Sharing to REPL Visual Studio Code](#sharing-to-repl-visual-studio-code)
   - [See Also](#see-also)
 
-## Agentic UI Generator Integration in REPL (Experimental)
+## Agentic UI Generator Integration in REPL
 
 Speed up your prototyping with the Agentic UI Generator. Click the sparkle icon ✨ in the sidebar to open a chat interface where you can:
 
@@ -33,7 +33,7 @@ Speed up your prototyping with the Agentic UI Generator. Click the sparkle icon 
 * Include realistic sample data and proper styling.
 * Iterate on generated code with follow-up requests.
 
-> This integration is experimental. As such, it requires login to your [Telerik Account](https://www.telerik.com/account/) and is limited to **10 requests per month per user**.
+> This integration is experimental. As such, it requires login to your [Telerik Account](https://www.telerik.com/account/) and is limited to 10 requests per month per user.
 
 ## Documentation Integration
 
