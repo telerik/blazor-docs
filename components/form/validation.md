@@ -63,8 +63,11 @@ To enable validation in the Telerik Form for Blazor add the `<FormValidation>` t
 @[template](/_contentTemplates/common/form-validation.md#note-validation)
 
 When you provide an `EditContext` to the form, you can use its [`EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontextdataannotationsextensions.enabledataannotationsvalidation?view=aspnetcore-8.0#microsoft-aspnetcore-components-forms-editcontextdataannotationsextensions-enabledataannotationsvalidation(microsoft-aspnetcore-components-forms-editcontext-system-iserviceprovider)) method to add the data annotation validation instead of using the markup. This is useful in the following cases:
+
 * When the model the form is bound to changes at runtime. For example, when you [have a reset button](slug:form-formitems-buttons#how-to-add-a-reset-clear-button-to-the-form).
 * When you need to re-attach the validation after changing the `Model`. In this case you need to use the [reference to the Form component](slug:form-overview#form-reference-and-methods)&mdash;`TheFormReference.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`.
+
+Telerik Blazor input components automatically display an invalid state when their value does not match the Form validation rules. This behavior depends on the input's `ValueExpression`. See how to [set the `ValueExpression` correctly when the input is nested in a child component of the Form](slug:inputs-kb-validate-child-component).
 
 @[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
 
@@ -116,7 +119,11 @@ This section provides the following examples:
 * [Validate a Complex Model](#validate-a-complex-model)
 * [Fluent Validation](#fluent-validation)
 
-It is also possible to [trigger Form validation programmatically](slug:form-overview#form-reference-and-methods) or [use custom DataAnnotations validation](slug:validation-kb-custom-dataannotations-validator).
+Also check the following pages for information on how to:
+
+* [Trigger Form validation programmatically](slug:form-overview#form-reference-and-methods)
+* [Use custom DataAnnotations validation](slug:validation-kb-custom-dataannotations-validator)
+* [Apply invalid state to an editor that is inside a child component](slug:inputs-kb-validate-child-component)
 
 ### Validate a Model
 
@@ -351,3 +358,4 @@ The example below:
 
 * [Custom Form `DataAnnotations` Validation](slug:validation-kb-custom-dataannotations-validator)
 * [Conditional Form Validation Options](slug:form-kb-conditional-validation)
+* [Display Invalid State in Child Component](slug:inputs-kb-validate-child-component)
