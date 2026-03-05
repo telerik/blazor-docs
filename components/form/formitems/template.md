@@ -39,6 +39,8 @@ The Telerik [Blazor Form](slug:form-overview) applies red color to the labels of
 1. Set the `FormItem` [`Field` parameter](slug:form-formitems#formitem-parameters), which is otherwise not required when using a `Template`.
 1. Use a `<label class="k-label k-form-label">` element inside the `<Template>`.
 
+Also see how to [set `ValueExpression` correctly when nesting inputs in child components inside the Form item `Template`](slug:inputs-kb-validate-child-component). This is crucial for the input component to display its invalid state.
+
 ## Example
 
 The sample below shows how to:
@@ -149,4 +151,4 @@ The sample below shows how to:
 * [Live Demo: Form Item Templates](https://demos.telerik.com/blazor-ui/form/templates)
 * [Form Items](slug:form-formitems)
 * [Form Groups](slug:form-formgroups)
-* [Form Events](slug:form-events)
+* [Display Invalid State in Child Component](slug:inputs-kb-validate-child-component)
