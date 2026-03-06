@@ -97,9 +97,11 @@ There are a few other optional namespaces that may be needed often. You can impo
 
 ````RAZOR.skip-repl
 @* required *@
-@using Telerik.Blazor // set component parameters
-@using Telerik.Blazor.Components // recognize components tags
+@using Telerik.Blazor // recognize event arguments and component parameter values
+@using Telerik.Blazor.Components // recognize component tags and instance types
+
 @using Telerik.SvgIcons // use SVG icons
+@* or *@
 @using Telerik.FontIcons // use font icons
 
 @* optional *@
@@ -113,16 +115,17 @@ To avoid the need to register Telerik namespaces in `.cs` files, use [`global us
 
 ````C#.skip-repl
 // required
-global using Telerik.Blazor; // use component parameter values
-global using Telerik.Blazor.Components; // use component types and instances
+global using Telerik.Blazor; // recognize event arguments and component parameter values
+global using Telerik.Blazor.Components; // recognize component tags and instance types
+
 global using Telerik.SvgIcons; // use SVG icons
+@* or *@
 global using Telerik.FontIcons; // use font icons
 
 // optional
 global using Telerik.DataSource; // implement data-related programmatic customizations
 global using Telerik.DataSource.Extensions; // use OnRead events and ToDataSourceResult()
 ````
-
 
 ## Service
 

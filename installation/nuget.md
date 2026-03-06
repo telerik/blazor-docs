@@ -73,47 +73,27 @@ To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuge
 
 >caption Adding the Telerik NuGet source through the .NET CLI
 
-````POWERSHELL PowerShell
-dotnet nuget add source "https://nuget.telerik.com/v3/index.json" `
-  --name "TelerikOnlineFeed" `
-  --username "api-key" `
-  --password "<YOUR-NUGET-API-KEY>" `
-  --store-password-in-clear-text
-````
-````BASH Bash
-dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
-  --name "TelerikOnlineFeed" \
-  --username "api-key" \
-  --password "<YOUR-NUGET-API-KEY>" \
-  --store-password-in-clear-text
-````
-````ZSH Zsh
-dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
-  --name "TelerikOnlineFeed" \
-  --username "api-key" \
-  --password "<YOUR-NUGET-API-KEY>" \
-  --store-password-in-clear-text
-````
+@[template](/_contentTemplates/common/get-started.md#nuget-cli-add-command)
 
 If you have already stored the Telerik package source, you can update the configuration with the command below.
 
 >caption Updating the Telerik NuGet source through the .NET CLI
 
-````POWERSHELL PowerShell
+````SHELL PowerShell
 dotnet nuget update source "TelerikOnlineFeed" `
   --source "https://nuget.telerik.com/v3/index.json" `
   --username "api-key" `
   --password "<YOUR-NUGET-API-KEY>" `
   --store-password-in-clear-text
 ````
-````BASH Bash
+````SHELL Bash
 dotnet nuget update source "TelerikOnlineFeed" \
   --source "https://nuget.telerik.com/v3/index.json" \
   --username "api-key" \
   --password "<YOUR-NUGET-API-KEY>" \
   --store-password-in-clear-text
 ````
-````ZSH Zsh
+````SHELL Zsh
 dotnet nuget update source "TelerikOnlineFeed" \
   --source "https://nuget.telerik.com/v3/index.json" \
   --username "api-key" \
