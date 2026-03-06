@@ -27,7 +27,7 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 
 When using the template, the built-in popup form is replaced by the declared content in the `FormTemplate` tag. This introduces the following specifics:
 
-* The default **Update** and **Cancel** buttons are removed. This means that the [`OnUpdate` and `OnCancel`](slug:grid-editing-overview#events) events do not fire. To modify or cancel the update of a record, you need to include custom components or events to manage these actions.
+* The default **Update** and **Cancel** buttons are removed. This means that the [`OnUpdate` and `OnCancel`](slug:grid-editing-overview#events) events do not fire. The only exception is that `OnCancel` fires when the user presses `ESC` or clicks the Close button in the popup Window header. To detect or cancel the update of a record, you need to include custom events to manage these actions.
 * There are [two ways to define custom Form buttons](slug:grid-kb-handle-empty-popup-footer):
     * Use the [Form `<FormButtons>` template](slug:form-formitems-buttons).
     * Use the [Grid `<ButtonsTemplate>`](slug:grid-templates-popup-buttons), which is empty by default when using a `<FormTemplate>`. Remove the duplicate [built-in Form Submit button with an empty `<FormButtons>` template](slug:form-formitems-buttons).
@@ -71,6 +71,9 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
                                  Columns="2"
                                  ButtonsLayout="@FormButtonsLayout.Stretch"
                                  OnValidSubmit="@OnFormValidSubmit">
+                        <FormValidation>
+                            <DataAnnotationsValidator />
+                        </FormValidation>
                         <FormItems>
                             <FormItem Field="@nameof(Product.Id)" Enabled="false" />
                             <FormItem Field="@nameof(Product.Name)" />
