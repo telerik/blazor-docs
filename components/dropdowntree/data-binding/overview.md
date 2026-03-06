@@ -33,7 +33,9 @@ public class TreeItem
 
     public bool HasChildren { get; set; }
 
+    public object? Icon { get; set; }
     public string Text { get; set; }
+    public string Url { get; set; } = string.Empty;
     public int Value { get; set; }
 }
 ````
@@ -54,7 +56,9 @@ The above model properties have the following meaning for the DropDownTree:
 | `ParentId` | Identifies the item's parent. Required for [binding to flat data](slug:dropdowntree-data-binding-flat-data). Set to `null` for root items. Do not use `ParentId` with hierarchical data. |
 | `Items` | Defines the item's children. Required for [binding to hierarchical data](slug:components/treeview/data-binding/hierarchical-data). The children's type can be different from the parent item type. The DropDownTree will render an expand arrow on the parent node if its child `Items` collection is not `null`. Also see `HasChildren`. |
 | `HasChildren` | Determines whether the item has children, no matter if they are loaded or not. Required for binding to flat data and for [loading on demand](slug:dropdowntree-data-binding-load-on-demand). If `true`, the item will show an expand arrow. With hierarchical data, the DropDownTree renders expand icons based on `Items`, but `HasChildren` takes precedence. |
+| `Icon` | Defines an optional TreeView item icon. |
 | `Text` | Sets the TreeView item content and the visible component value as plain text. For rich content and nested components, use an [item template](slug:dropdowntree-templates#itemtemplate) or a [value template](slug:dropdowntree-templates#valuetemplate). The DropDownTree also uses the `Text` contents for [filtering](slug:dropdowntree-filtering). |
+| `Url` | Sets the URL to which the DropDownTree will navigate if the item is clicked. The DropDownTree nevigation works in the same way as the [TreeView navigation](slug:treeview-navigation). To prevent automatic navigation, use a different property name or set [`UrlField`](#dropdowntree-bindings) to a non-existent property name. |
 | `Value` | Sets the underlying component value when the user selects the respective data item. |
 
 ## Value Field
@@ -63,7 +67,7 @@ Use the `ValueField` parameter of the DropDownTree component to define which mod
 
 ## DropDownTree Bindings
 
-The DropDownTree item text and the parent-child relationships depend on `DropDownTreeBinding` tags. Each tag exposes the following parameters that refer to model property names:
+The DropDownTree item content and the parent-child relationships depend on `DropDownTreeBinding` tags. Each tag exposes the following parameters that refer to model property names:
 
 | DropDownTreeBinding Parameter | Default Value |
 | --- | --- |
@@ -71,7 +75,9 @@ The DropDownTree item text and the parent-child relationships depend on `DropDow
 | `ParentIdField` (flat data) | `"ParentId"` |
 | `ItemsField` (hierarchical data) | `"Items"` |
 | `HasChildrenField` | `"HasChildren"` |
+| `IconField` | `"Icon"` |
 | `TextField` | `"Text"` |
+| `UrlField` | `"Url"` |
 
 It is possible to [configure different bindings for different item levels](#multiple-level-bindings) with the `Level` parameter of `DropDownTreeBinding`. Usually one binding configuration is enough. For example, the following model class requires the binding configuration below:
 
@@ -144,6 +150,7 @@ For better performance, define the same `ParentIdField` for all levels when usin
             DropDownTreeData.Add(new TreeItem()
             {
                 Id = ++IdCounter,
+                Icon = SvgIcon.Image,
                 Text = $"Root Item {i}",
                 Value = IdCounter,
                 HasChildren = true
@@ -158,6 +165,7 @@ For better performance, define the same `ParentIdField` for all levels when usin
                     ChildId = ++IdCounter,
                     Parent = parentId,
                     Value = IdCounter,
+                    Icon = SvgIcon.Brush,
                     Text = $"Child Item {i}-{j}",
                     HasChildren = true
                 });
@@ -171,6 +179,7 @@ For better performance, define the same `ParentIdField` for all levels when usin
                         Id = ++IdCounter,
                         Parent = level1ParentId,
                         Value = IdCounter,
+                        Icon = SvgIcon.Camera,
                         Text = $"Grandchild Item {i}-{j}-{k}"
                     });
                 }
@@ -186,6 +195,7 @@ For better performance, define the same `ParentIdField` for all levels when usin
         public int? ChildId { get; set; }
         public int? Parent { get; set; }
         public bool HasChildren { get; set; }
+        public object? Icon { get; set; }
         public string Text { get; set; } = string.Empty;
         public int Value { get; set; }
     }
