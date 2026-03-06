@@ -185,7 +185,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
 ## Adaptive Behavior
 
-The Grid Toolbar can show its tools in a dropdown if the available horizontal space is too little. The following requirements apply:
+The Grid Toolbar can show its tools in a dropdown if the available horizontal space is limited. The following requirements apply:
 
 * The Grid must use a `<GridToolBar>` tag. [Custom toolbar configurations](#custom-toolbar-configuration) with `<GridToolBarTemplate>` do not support built-in adaptive behaviors.
 * The Grid must use [built-in](#built-in-tools) ToolBar tools. [Custom tools](#custom-tools) do not support built-in adaptive behaviors and may disappear if there is not enough space.
