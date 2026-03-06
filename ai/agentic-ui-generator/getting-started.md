@@ -94,7 +94,7 @@ For examples of how to use each specialized assistant, see the [Assistant-Specif
 
 ## Agentic UI Generator in Telerik REPL for Blazor
 
-Telerik REPL for Blazor integrates with the Agentic UI Generator and allows you to prototype and generate UI directly in the browser. For details, see [Agentic UI Generator Integration in Telerik REPL for Blazor](slug:blazor-repl-integration#agentic-ui-generator-integration-in-repl).
+Telerik REPL for Blazor now includes a Preview integration with the Agentic UI Generator. Through this integration, developers can generate complete UI pages, layouts, and UI for Blazor components directly in the browser and evaluate them in real time&mdash;making it easy to experiment with different configurations without setting up a local project. For more details, see [Agentic UI Generator Integration in Blazor REPL](slug:blazor-repl-integration#agentic-ui-generator-integration-with-blazor-repl-preview).
 
 ## Usage Limits
 
