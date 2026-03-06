@@ -15,8 +15,7 @@ Telerik REPL for Blazor is integrated in the UI for Blazor resources (documentat
 
 In this article:
 
-- [Telerik REPL for Blazor Integration](#telerik-repl-for-blazor-integration)
-  - [Agentic UI Generator Integration in REPL](#agentic-ui-generator-integration-in-repl-experimental)
+  - [Agentic UI Generator Integration in REPL](#agentic-ui-generator-integration-with-blazor-repl-preview)
   - [Documentation Integration](#documentation-integration)
   - [Demos Integration](#demos-integration)
   - [Visual Studio and Visual Studio Code Integration](#visual-studio-and-visual-studio-code-integration)
@@ -24,16 +23,17 @@ In this article:
     - [Sharing to REPL Visual Studio Code](#sharing-to-repl-visual-studio-code)
   - [See Also](#see-also)
 
-## Agentic UI Generator Integration in REPL
+## Agentic UI Generator Integration with Blazor REPL  (Preview)
+ 
+An AI‑powered prototyping experience for Blazor, available in Preview through the Blazor REPL online tool, now integrated with the [Agentic UI Generator](slug:agentic-ui-generator-getting-started).
+This integration enables rapid generation of complete UI pages, layouts, and Blazor components directly in the browser, allowing developers to quickly generate, run, and evaluate Telerik UI for Blazor components in real time. It supports fast experimentation across different configurations, while enabling AI‑driven generation of both individual components and entire pages without requiring a local development setup.
 
-Speed up your prototyping with the Agentic UI Generator. Click the sparkle icon ✨ in the sidebar to open a chat interface where you can:
+To access the Agentic UI Generator, click the sparkle icon ✨ in the sidebar to open a chat interface where you can:
 
-* Describe components in plain language.
-* Get working Telerik Blazor code.
-* Include realistic sample data and proper styling.
-* Iterate on generated code with follow-up requests.
+* Describe your UI requirements using natural language.
+* Iterate on generated code with follow-up prompts.
 
-> This integration is experimental. As such, it requires login to your [Telerik Account](https://www.telerik.com/account/) and is limited to 10 requests per month per user.
+> Sign in with you your [Telerik Account](https://www.telerik.com/account/) to activate the UI Generator in the REPL and get 10 monthly requests to explore its capabilities without leaving the browser.
 
 ## Documentation Integration
 
