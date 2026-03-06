@@ -25,15 +25,15 @@ In this article:
 
 ## Agentic UI Generator Integration with Blazor REPL  (Preview)
  
-An AI‑powered prototyping experience for Blazor, available in Preview through the Blazor REPL online tool and integrated with the [Agentic UI Generator](slug:agentic-ui-generator-getting-started).
-This integration enables rapid generation of complete UI pages, layouts, and Blazor components directly in the browser, allowing developers to quickly generate, run, and evaluate Blazor UI components in real time. It supports fast experimentation across different configurations, while enabling AI‑driven generation of both individual components and entire pages without requiring a local development setup.
+An AI‑powered prototyping experience for Blazor, available in Preview through the Blazor REPL online tool, now integrated with the [Agentic UI Generator](slug:agentic-ui-generator-getting-started).
+This integration enables rapid generation of complete UI pages, layouts, and Blazor components directly in the browser, allowing developers to quickly generate, run, and evaluate Telerik UI for Blazor components in real time. It supports fast experimentation across different configurations, while enabling AI‑driven generation of both individual components and entire pages without requiring a local development setup.
 
 To access the Agentic UI Generator, click the sparkle icon ✨ in the sidebar to open a chat interface where you can:
 
 * Describe your UI requirements using natural language.
 * Iterate on generated code with follow-up prompts.
 
-> Sign in with you your [Telerik Account](https://www.telerik.com/account/) to activate the Generator in the REPL—you get 10 requests per month to explore its capabilities, quickly prototype pages, experiment with layouts, and evaluate the generated components, all without leaving the browser.
+> Sign in with you your [Telerik Account](https://www.telerik.com/account/) to activate the UI Generator in the REPL and get 10 monthly requests to explore its capabilities without leaving the browser.
 
 ## Documentation Integration
 
