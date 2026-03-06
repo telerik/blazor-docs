@@ -38,6 +38,32 @@ Whenever you need to authenticate your system with the Telerik NuGet server, use
 
 #end
 
+#nuget-cli-add-command
+
+````SHELL PowerShell
+dotnet nuget add source "https://nuget.telerik.com/v3/index.json" `
+  --name "TelerikOnlineFeed" `
+  --username "api-key" `
+  --password "<YOUR-NUGET-API-KEY>" `
+  --store-password-in-clear-text
+````
+````SHELL Bash
+dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
+  --name "TelerikOnlineFeed" \
+  --username "api-key" \
+  --password "<YOUR-NUGET-API-KEY>" \
+  --store-password-in-clear-text
+````
+````SHELL Zsh
+dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
+  --name "TelerikOnlineFeed" \
+  --username "api-key" \
+  --password "<YOUR-NUGET-API-KEY>" \
+  --store-password-in-clear-text
+````
+
+#end
+
 #add-nuget-feed
 ## Step 3: Add the Telerik NuGet Feed
 
@@ -75,15 +101,11 @@ Run [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/to
 
 Replace `<YOUR-NUGET-API-KEY>` with the API key that you [generated previously](#generate-nuget-api-key).
 
+The linebreak characters used below enable multi-line commands for better readability. If they don't work in your terminal, combine the parameters into a single line instead.
+
 >caption Use the .NET CLI to add the Telerik NuGet source
 
-````SH.skip-repl
-dotnet nuget add source https://nuget.telerik.com/v3/index.json \
---name TelerikOnlineFeed \
---username api-key \
---password <YOUR-NUGET-API-KEY> \
---store-password-in-clear-text
-````
+@[template](/_contentTemplates/common/get-started.md#nuget-cli-add-command)
 
 #end
 
