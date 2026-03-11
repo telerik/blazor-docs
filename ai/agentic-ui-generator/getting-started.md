@@ -42,12 +42,17 @@ Follow these steps:
    telerik nuget config
    ````
 
-1. Activate (update) your Telerik license and setup the MCP configuration:
+1. Activate (update) your Telerik license:
    ````SH.skip-repl
    telerik license get-key
-
-   telerik mcp config
    ````
+
+1. Configure the Telerik MCP server:
+   ````SH.skip-repl
+   telerik mcp config visualstudio blazor
+   ````
+
+   The example above shows how to call the `telerik mcp config` command for Visual Studio. Instead of `visualstudio`, you can pass a different IDE argument value: `vscode`, `cursor`, or `all`.
 
 1. Open your IDE (Visual Studio Code or another supported AI-enabled IDE). In the AI chat interface, invoke the Getting Started Assistant:
    ````TEXT.skip-repl
