@@ -22,7 +22,7 @@ The prompts in this library target the [Agentic UI Generator](slug:agentic-ui-ge
 
 1. Browse the [prompt library](#general-prompts) to find a prompt that suits your needs.
 2. Copy the prompt text (including the `#telerik_ui_generator` handle if present).
-3. (optional) Customize the prompt as needed for your specific use case. Make sure the changes comply with the [intended use](slug:agentic-ui-generator-getting-started#using-the-agentic-ui-generator)  for the Agentic UI Generator.
+3. (optional) Customize the prompt as needed for your specific use case.
 4. Run the prompt against your AI-powered IDE.
 
 ### General Prompts
