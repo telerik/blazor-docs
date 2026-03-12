@@ -5,7 +5,7 @@ description: This article explains what the Zip Archive for Telerik UI for Blazo
 slug: installation-zip
 tags: get,started,installation,zip,archive
 published: True
-position: 30
+position: 100
 ---
 
 # ZIP Archive

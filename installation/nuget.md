@@ -5,7 +5,7 @@ description: Explore the different ways to add the Telerik private NuGet feed to
 slug: installation/nuget
 tags: get,started,installation,nuget,feed
 published: True
-position: 5
+position: 60
 ---
 
 # Telerik Private NuGet Source
@@ -17,6 +17,7 @@ The benefit of using an online NuGet source is that you will receive notificatio
 You can set up the remote Telerik NuGet feed in the following ways:
 
 * [Use Visual Studio](#use-visual-studio)
+* [Use the Telerik CLI](#use-the-telerik-cli)
 * [Use the .NET CLI](#use-the-net-cli)
 * [Edit the Nuget.Config file](#edit-the-nuget-config-file)
 
@@ -63,6 +64,16 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 1. Your project should now build and restore all packages—including those from nuget.org and from Telerik.
 
 > If you experience issues, see the [NuGet Feed Troubleshooting](slug:troubleshooting-nuget) article.
+
+## Use the Telerik CLI
+
+The [Telerik CLI](slug:installation-cli) is a .NET tool that helps you quickly set up your Telerik development environment. After you [install the tool](slug:installation-cli#installation) and [log in](slug:installation-cli#log-in), you can [set up the Telerik NuGet feed](slug:installation-cli#set-up-nuget-feed) with a CLI command:
+
+>caption Adding the Telerik NuGet source through the Telerik CLI
+
+````SH.skip-repl
+telerik nuget config
+````
 
 ## Use the .NET CLI
 
@@ -153,8 +164,9 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
         <packageSource key="nuget.org">
             <package pattern="*" />
             <package pattern="Telerik.AI.SmartComponents.Extensions" />
-            <package pattern="Telerik.Licensing" />
+            <package pattern="Telerik.CLI" />
             <package pattern="Telerik.FontIcons" />
+            <package pattern="Telerik.Licensing" />
             <package pattern="Telerik.SvgIcons" />
         </packageSource>
         <packageSource key="TelerikOnlineFeed">
