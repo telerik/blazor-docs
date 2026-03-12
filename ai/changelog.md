@@ -30,12 +30,12 @@ Learn about the latest changes, improvements and bug fixes in the Telerik UI for
 
 ## January, 2026
 
-* **AI Tools Unified Under Single MCP Server**&mdash;The AI Coding Assistant and Agentic UI Generator are now delivered through a single [Telerik MCP server](slug:ai-installation). The MCP server automatically recognizes your Telerik license and grants access to the appropriate tools based on your license type.
+* **AI Tools Unified Under Single MCP Server**&mdash;The AI Coding Assistant and Agentic UI Generator are now delivered through a single [Telerik MCP server](slug:ai-overview). The MCP server automatically recognizes your Telerik license and grants access to the appropriate tools based on your license type.
 * **NuGet distribution**&mdash;The MCP server is now distributed via NuGet instead of npm.
 * **AI Coding Assistant Now Includes Orchestrator**&mdash;Introduced an intelligent orchestrator that coordinates two specialized tools: the Component Tool for component implementation and configuration, and the Icon Tool for icon search and recommendations from the Progress Design System.
 * **Automatic License Recognition**&mdash;The MCP server automatically detects your Telerik license when configured globally, simplifying the setup process.
-* **Simplified Installation**&mdash;Unified installation process for both AI tools through a single MCP server configuration. See the [Installation Guide](slug:ai-installation) for details.
-* **Updated Documentation Structure**&mdash;Reorganized documentation with dedicated [Overview](slug:ai-overview), [Installation](slug:ai-installation), and tool-specific Getting Started guides for clearer navigation and better self-sufficiency.
+* **Simplified Installation**&mdash;Unified installation process for both AI tools through a single MCP server configuration.
+* **Updated Documentation Structure**&mdash;Reorganized documentation with dedicated [Overview](slug:ai-overview), and tool-specific Getting Started guides for clearer navigation and better self-sufficiency.
 
 ## December, 2025
 
