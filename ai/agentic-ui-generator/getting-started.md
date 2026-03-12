@@ -46,13 +46,33 @@ Follow these steps to set up the Agentic UI Generator:
    ````
 
 1. Configure the Telerik MCP server:
+
+   <TabStrip>
+   <TabStripTab title=".NET 10">
+
    ````SH.skip-repl
    telerik mcp config visualstudio blazor
    ````
 
    The example above shows how to call the `telerik mcp config` command for Visual Studio. Instead of `visualstudio`, you can pass a different IDE argument value: `vscode`, `cursor`, or `all`.
 
-1. Open your IDE (Visual Studio Code or another supported AI-enabled IDE). In the AI chat interface, invoke the Getting Started Assistant:
+   </TabStripTab>
+   <TabStripTab title=".NET 8 or 9">
+
+   ````SH.skip-repl
+   dotnet tool install Telerik.Blazor.MCP
+   ````
+
+   ````SH.skip-repl
+   telerik mcp config visualstudio blazor
+   ````
+
+   The example above shows how to call the `telerik mcp config` command for Visual Studio. Instead of `visualstudio`, you can pass a different IDE argument value: `vscode`, `cursor`, or `all`.
+
+   </TabStripTab>
+   </TabStrip>
+  
+1. Create a Blank Solution in Visual Studio, or an empty folder in Visual Studio Code, and open it in your IDE. In the AI chat interface, invoke the Getting Started Assistant:
    ````TEXT.skip-repl
    #telerik_getting_started_assistant create a new blazor web app
    ````
@@ -81,7 +101,7 @@ The Agentic UI Generator is designed to help with various development scenarios:
    * Create new responsive pages and sections.
    * Convert existing pages to be responsive for mobile and tablet views.
 
->  While the Agentic UI Generator performs close to parity with Copilot when paired with powerful models like **Claude Sonnet 4.6**, **GPT-5.2**, or **Gemini 3 Pro**, it also excels with smaller models as well (such as **Haiku** and **GPT 5.1 mini**).
+>  While the Agentic UI Generator performs great with powerful models like **Claude Sonnet 4.6**, **GPT-5.2**, or **Gemini 3 Pro**, it also excels with smaller models as well (such as **Haiku** and **GPT 5.1 mini**).
 
 ## Agentic UI Generator in Telerik REPL for Blazor
 
