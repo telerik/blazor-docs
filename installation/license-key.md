@@ -5,7 +5,7 @@ description: Learn how to create and install a Telerik license key file, which i
 slug: installation-license-key
 tags: installation, license
 published: True
-position: 1
+position: 40
 ---
 
 # Telerik License Key
@@ -37,6 +37,7 @@ To download and install your Telerik license key automatically, use either of th
 
 * [Telerik Control Panel](https://docs.telerik.com/controlpanel/introduction)&mdash;this tool downloads and installs different Telerik products on your machine.
 * [Telerik UI for Blazor Visual Studio extension](slug:getting-started-vs-integration-overview)&mdash;this tool adds or upgrades Telerik UI for Blazor in new or existing apps.
+* [Telerik CLI](slug:installation-cli)&mdash;this tool also allows you to quickly set up the [Telerik NuGet feed](slug:installation/nuget) and install the [Telerik Blazor MCP server](slug:ai-overview).
 
 The above tools download and install a license key for you and make it available for all projects that you develop on your local machine. The license key file and location is specified in the [Manual Installation](#manual-installation) section below.
 
