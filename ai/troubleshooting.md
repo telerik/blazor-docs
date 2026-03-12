@@ -56,5 +56,5 @@ This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-st
 ## See Also
 
 * [Telerik UI for Blazor AI Tools Overview](slug:ai-overview)
-* [Telerik MCP Server Installation](slug:ai-installation)
+* [Agentic UI Generator Getting Started ](slug:agentic-ui-generator-getting-started)
 * [Licensing](slug:installation-license-key)
