@@ -3,7 +3,7 @@ provides automated configuration commands for the Telerik AI-powered development
 #end
 
 #prerequisites
-* Check the tool-specific prerequisites for the [Telerik Blazor MCP Server](slug:ai-installation#prerequisites).
+* Check the tool-specific prerequisites for the [Telerik Blazor MCP Server](slug:agentic-ui-generator-getting-started).
 #end
 
 #verify-license-key
