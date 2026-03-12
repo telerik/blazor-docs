@@ -19,7 +19,7 @@ The Telerik CLI is a [.NET tool](https://learn.microsoft.com/en-us/dotnet/core/t
 
 ## Installation
 
-To install the Telerik CLI .NET tool globally on your computer, run the following command in your preferred command shell:
+The [Telerik CLI NuGet package](https://www.nuget.org/packages/Telerik.CLI) is hosted on `nuget.org`. To install the Telerik CLI .NET tool globally on your computer, run the following command in your preferred command shell:
 
 >caption Install Telerik CLI
 
