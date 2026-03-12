@@ -13,6 +13,12 @@ tag: updated
 
 Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Tools and the Agentic UI Generator. The updates are structured in a chronological order with the newest ones appearing first.
 
+## March, 2026
+
+### Highlights
+
+* Added the new Getting Started Assistant to help you scaffold a Blazor webapp/wasm project, configure the Telerik MCP server, and activate your license through a guided flow.
+
 ## Febuary, 2026
 
 ### Highlights

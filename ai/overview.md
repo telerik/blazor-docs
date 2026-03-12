@@ -27,7 +27,12 @@ The Telerik Blazor MCP server uses an orchestration-first model, centered on the
         <Component className="tile card-icon" href="#how-the-agentic-flow-works">
             <ComponentTitle>UI Generator (Orchestrator)</ComponentTitle>
         </Component>
-     </Column>
+    </Column>
+    <Column count={[24,12,8]}>
+        <Component className="tile card-icon" href="#getting-started-assistant">
+            <ComponentTitle>Getting Started Assistant</ComponentTitle>
+        </Component>
+    </Column>
     <Column count={[24,12,8]}>
         <Component className="tile card-icon" href="#component-assistant">
             <ComponentTitle>Component Assistant</ComponentTitle>
@@ -38,21 +43,21 @@ The Telerik Blazor MCP server uses an orchestration-first model, centered on the
             <ComponentTitle>Icon Assistant</ComponentTitle>
         </Component>
     </Column>
-    <Column count={[24,12,6]}>
+    <Column count={[24,12,8]}>
         <Component className="tile card-icon" href="#layout-assistant">
         <ComponentTitle>Layout Assistant</ComponentTitle>
         </Component>
     </Column>
-    <Column count={[24,12,6]}>
+    <Column count={[24,12,8]}>
         <Component className="tile card-icon" href="#styling-assistant">
         <ComponentTitle>Styling Assistant</ComponentTitle>
     </Column>
-    <Column count={[24,12,6]}>
+    <Column count={[24,12,8]}>
       <Component className="tile card-icon" href="#accessibility-assistant">
         <ComponentTitle>Accessibility Assistant</ComponentTitle>
         </Component>
     </Column>
-    <Column count={[24,12,6]}>
+    <Column count={[24,12,8]}>
       <Component className="tile card-icon" href="#validator-assistant">
         <ComponentTitle>Validator Assistant</ComponentTitle>
         </Component>
@@ -68,6 +73,12 @@ The Agentic UI Generator orchestrates all assistants so you can build pages and 
 The Agentic UI Generator takes one prompt and manages the flow for you. It decides which assistants to use and combines their output into a single result. Use it when you want to generate a full page quickly, or call a specific assistant when you need a focused update to the layout, components, styling, theme, or icons in your project.
 
 ![Full Pages](images/ui-templates.png)
+
+### Getting Started Assistant
+
+Use the Getting Started Assistant when you want a guided onboarding flow for first-time setup. Call it to scaffold a Blazor project, configure the Telerik MCP server, set up Telerik UI for Blazor in the project, and complete license activation with minimal manual steps.
+
+It is useful when setting up a new environment, validating your initial MCP integration, or preparing a clean proof of concept quickly.
 
 ### Layout Assistant
 
@@ -114,39 +125,13 @@ Not designed to be invoked manually. It is called automatically by the UI Genera
 
 ### When to Use Orchestrated vs Targeted Mode
 
-Use `#telerik_ui_generator` for a complete orchestration-first workflow from a single prompt. When you need finer control or want to adjust just one aspect (such as layout, theme, or a component), you can call a specialized assistant directly by its dedicated handle. For details, see [Target the Assistants (Advanced)](slug:agentic-ui-generator-getting-started#target-the-assistants-advanced).
+Use `#telerik_ui_generator` for a complete orchestration-first workflow from a single prompt. When you need finer control or want to adjust just one aspect (such as layout, theme, or a component), you can call a specialized assistant directly by its dedicated handle. For details, see [Target the Assistants (Advanced)](slug:agentic-ui-generator-prompt-library#assistant-specific-prompts).
 
 ## Start Building in Minutes
 
-To get started with the Telerik Blazor MCP server, complete the following steps:
+Go from zero setup to your first generated UI quickly with the smart Getting Started assistant. Start with [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started) for a simple, guided flow through Telerik CLI installation, MCP setup, license activation, and your first prompt.
 
-1. [Configure the MCP server](slug:ai-installation#mcp-server-configuration)
-1. _(Optional)_ [Set up your Telerik license key](slug:ai-installation#license-key-setup) if not already configured globally
-1. Start prompting in your IDE's chat interface:
-    - `#telerik_ui_generator` for full, orchestrated UI generation
-    - `#telerik_component_assistant`, `#telerik_layout_assistant`, `#telerik_style_assistant`, `#telerik_icon_assistant`, or `#telerik_accessibility_assistant` for targeted workflows
-
-For detailed setup instructions, see the [Installation](slug:ai-installation) article. For guided usage, continue with [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started).
-
-### Example Prompts and Expected Results
-
-The following examples show how natural-language prompts can map to practical, editable output in your project.
-
-```prompt Sales Dashboard
-#telerik_ui_generator Build a sales operations dashboard with a pageable and sortable Grid, a monthly revenue Chart, and a KPI summary row.`
-```
-```Razor
-```
-
-**Expected result:** A page scaffold with responsive sections, configured Telerik UI for Blazor Grid and Chart, both wired to sample data, and KPI cards arranged for desktop and mobile.
-
-```prompt Dark Theme
-#telerik_ui_generator Apply a dark theme and define reusable CSS variables for brand, surface, and semantic colors.`
-```
-```Razor
-```
-
-**Expected result:** A token-driven theme setup with color variables and a dark-mode-ready styling baseline that you can refine for your brand.
+Explore the [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library) for ready-to-use prompts covering common UI scenarios.
 
 ## License Requirements
 
@@ -187,9 +172,27 @@ The Telerik UI for Blazor MCP server and its tools are offered as a single exper
 
 </p>
 
+## Usage Limits
+
+* [Subscription licenses](#license-requirements) grant a virtually unlimited number of requests. Fair use policy applies.
+* Perpetual licenses do not grant access to the Telerik AI tools.
+* [AI tools trials](https://www.telerik.com/mcp-servers-blazor/thank-you) :
+    * Grant a virtually unlimited number of requests for a 30-day evaluation. Fair use policy applies.
+    * Do not grant additional requests when reactivating the same trial for a new release.
+* One prompt may trigger multiple requests depending on complexity.
+
+## Privacy
+
+The Telerik MCP server operates under the following conditions:
+
+* The MCP server does not have access to your workspace and application code. Note that when using the Telerik MCP server (or any other MCP server), the LLM generates parameters for the MCP server request, which may include parts of your application code.
+* The MCP server does not use your prompts to train Telerik AI models.
+* The MCP server does not generate the actual responses and has no access to these responses. The MCP server only provides a better context that helps your selected model (for example, GPT, Gemini, Claude) produce better responses.
+* The MCP server does not associate your prompts with your Telerik user account. Your prompts and generated context are anonymized and stored for statistical and troubleshooting purposes.
+* The MCP server stores metrics about how often and how much you use it in order to ensure compliance with the [allowed number of requests that correspond to your current license](#usage-limits).
+
 ## Next Steps
 
-* [Installing the Telerik MCP server](slug:ai-installation)
 * [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started)
 * [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library)
 
