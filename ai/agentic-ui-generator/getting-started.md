@@ -22,11 +22,11 @@ To use the Telerik Blazor MCP server, you need:
 
 * [.NET 8 or newer](https://dotnet.microsoft.com/en-us/download).
 * A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP server integrations.
-* An [active Telerik license](slug:ai-overview#license-requirements)&mdash;trial or subscription.
+* An [active Telerik license](slug:ai-overview#license-requirements) - trial or subscription.
 
 ## Quick Start
 
-Instead of manually creating configuration files, you can use the [Telerik CLI](https://www.nuget.org/packages/Telerik.CLI) and the built-in Getting Started Assistant to handle the entire setup automatically—whether you are starting a new project or adding Telerik UI for Blazor to an existing one.
+Instead of manually creating configuration files, you can use the [Telerik CLI](slug:installation-cli) and the built-in Getting Started Assistant to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one.
 
 Follow these steps to set up the Agentic UI Generator:
 
@@ -51,10 +51,8 @@ Follow these steps to set up the Agentic UI Generator:
    <TabStripTab title=".NET 10">
 
    ````SH.skip-repl
-   telerik mcp config visualstudio blazor
+   telerik mcp config all blazor
    ````
-
-   The example above shows how to call the `telerik mcp config` command for Visual Studio. Instead of `visualstudio`, you can pass a different IDE argument value: `vscode`, `cursor`, or `all`.
 
    </TabStripTab>
    <TabStripTab title=".NET 8 or 9">
@@ -64,10 +62,8 @@ Follow these steps to set up the Agentic UI Generator:
    ````
 
    ````SH.skip-repl
-   telerik mcp config visualstudio blazor
+   telerik mcp config all blazor
    ````
-
-   The example above shows how to call the `telerik mcp config` command for Visual Studio. Instead of `visualstudio`, you can pass a different IDE argument value: `vscode`, `cursor`, or `all`.
 
    </TabStripTab>
    </TabStrip>
@@ -102,10 +98,6 @@ The Agentic UI Generator is designed to help with various development scenarios:
    * Convert existing pages to be responsive for mobile and tablet views.
 
 >  While the Agentic UI Generator performs great with powerful models like **Claude Sonnet 4.6**, **GPT-5.2**, or **Gemini 3 Pro**, it also excels with smaller models as well (such as **Haiku** and **GPT 5.1 mini**).
-
-## Agentic UI Generator in Telerik REPL for Blazor
-
-Telerik REPL for Blazor now includes a Preview integration with the Agentic UI Generator. Through this integration, developers can generate complete UI pages, layouts, and UI for Blazor components directly in the browser and evaluate them in real time&mdash;making it easy to experiment with different configurations without setting up a local project. For more details, see [Agentic UI Generator Integration in Blazor REPL](slug:blazor-repl-integration#agentic-ui-generator-integration-with-blazor-repl-preview).
 
 ## See Also
 
