@@ -27,7 +27,7 @@ The <a href = "https://blazorrepl.telerik.com/" target = "_blank">Telerik REPL f
 
 <!-- ![Overview](images/repl-overview.png) -->
 
-> Telerik REPL for Blazor now includes a Preview of the AI-powered [Agentic UI Generator](slug:agentic-ui-generator-getting-started) development tool to help you create pages and UI for Blazor components through natural language. Simply describe your UI requirements, and the Generator will produce code that follows component best practices, uses realistic sample data, and applies [Progress Design System](https://www.telerik.com/design-system/docs/) styling. To learn more, see [Agentic UI Generator Integration in Blazor REPL](#blazor-repl-integration-with-agentic-ui-generator-preview).
+> Telerik REPL for Blazor now includes a Preview of the AI-powered [Agentic UI Generator](slug:agentic-ui-generator-getting-started) development tool to help you create pages and UI for Blazor components through natural language. Simply describe your UI requirements, and the Generator will produce code that follows component best practices, uses realistic sample data, and applies [Progress Design System](https://www.telerik.com/design-system/docs/) styling. To learn more, see [Agentic UI Generator Integration in Blazor REPL](slug:ai-overview#agentic-ui-generator-integration-with-blazor-repl-preview).
 
 ## Toolbar
 

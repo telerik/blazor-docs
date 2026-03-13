@@ -114,7 +114,7 @@ It is useful for toolbars, navigation menus, cards, and any new section where ic
 
 ### Accessibility Assistant
 
-Use the Accessibility Assistant to apply WCAG 2.2 Level AA guidance during implementation, not after it. It helps with ARIA usage, keyboard navigation, and semantic markup.
+Use the Accessibility Assistant to apply WCAG 2.2 Level AA guidance during implementation, not after it. It helps with ARIA usage, keyboard navigation, semantic markup, and color contrast validation for text and UI controls.
 It is especially useful for interactive templates, complex component flows, and final semantic checks before release.
 
 ![Accessibility Assistant](images/accessibility-assistant.png)
@@ -172,14 +172,17 @@ The Telerik UI for Blazor MCP server and its tools are offered as a single exper
 
 </p>
 
-## Usage Limits
+## Agentic UI Generator Integration with Blazor REPL (Preview)
+ 
+An AI‑powered prototyping experience for Blazor, available in Preview through the Blazor REPL online tool, now integrated with the Agentic UI Generator.
+This integration enables rapid generation of complete UI pages, layouts, and Blazor components directly in the browser, allowing developers to quickly generate, run, and evaluate Telerik UI for Blazor components in real time. It supports fast experimentation across different configurations, while enabling AI‑driven generation of both individual components and entire pages without requiring a local development setup.
 
-* [Subscription licenses](#license-requirements) grant a virtually unlimited number of requests. Fair use policy applies.
-* Perpetual licenses do not grant access to the Telerik AI tools.
-* [AI tools trials](https://www.telerik.com/mcp-servers-blazor/thank-you) :
-    * Grant a virtually unlimited number of requests for a 30-day evaluation. Fair use policy applies.
-    * Do not grant additional requests when reactivating the same trial for a new release.
-* One prompt may trigger multiple requests depending on complexity.
+To access the Agentic UI Generator, click the sparkle icon ✨ in the sidebar to open a chat interface where you can:
+
+* Describe your UI requirements using natural language.
+* Iterate on generated code with follow-up prompts.
+
+> Sign in with your [Telerik Account](https://www.telerik.com/account/) to activate the UI Generator in the REPL and get 10 monthly requests to explore its capabilities without leaving the browser.
 
 ## Privacy
 
@@ -189,7 +192,6 @@ The Telerik MCP server operates under the following conditions:
 * The MCP server does not use your prompts to train Telerik AI models.
 * The MCP server does not generate the actual responses and has no access to these responses. The MCP server only provides a better context that helps your selected model (for example, GPT, Gemini, Claude) produce better responses.
 * The MCP server does not associate your prompts with your Telerik user account. Your prompts and generated context are anonymized and stored for statistical and troubleshooting purposes.
-* The MCP server stores metrics about how often and how much you use it in order to ensure compliance with the [allowed number of requests that correspond to your current license](#usage-limits).
 
 ## Next Steps
 
