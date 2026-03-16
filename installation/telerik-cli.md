@@ -89,6 +89,8 @@ telerik license get-key --manual
 
 In manual mode, the CLI outputs a link to `https://identity.telerik.com` for you to open in a browser. On successful authentication, the browser redirects to `https://login.telerik.com`. Copy this URL, paste it in the CLI, and press `Enter`.
 
+The Telerik CLI can fall back to manual authentication even if the `--manual` option is not set. This happens if the automatic authentication takes longer than three minutes.
+
 ### Command Output
 
 Each Telerik CLI command has two output formats:
@@ -125,12 +127,14 @@ telerik login
 
 The `login` command opens `https://identity.telerik.com` in a browser window where you need to provide your Telerik account credentials. Then the browser makes of couple of redirects. If this process does not succeed, see [Manual Authentication](#manual-authentication) above.
 
-The Telerik CLI stores credentials and session data in:
+The Telerik CLI stores a session token in:
 
 | Operating System | Path |
 | --- | --- |
 | Windows | `%AppData%\Telerik` |
 | macOS / Linux | `~/.telerik` |
+
+The session token is valid for one month.
 
 ## Check Login State
 
