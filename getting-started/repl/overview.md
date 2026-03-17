@@ -49,7 +49,7 @@ The Toolbar of Telerik REPL for Blazor provides access to the operations that yo
 
 The Sidebar provides the following functionalities:
 
-* **Agentic UI Generator**&mdash;a new Preview integration of the Telerik REPL for Blazor with the [Agentic UI Generator](slug:agentic-ui-generator-getting-started). The Generator is an intelligent development tool that enables UI generation from natural language prompts. Look for the sparkle icon ✨ in the left sidebar.
+* **Agentic UI Generator**&mdash;a new Preview integration of the Telerik REPL for Blazor with the [Agentic UI Generator](slug:agentic-ui-generator-getting-started). The Generator is an intelligent development tool that enables UI generation from natural language prompts. Look for the sparkle icon ✨ in the left sidebar, which allows you to turn on/off the Agentic UI Generator.
 
 * **NuGet Package Manager**&mdash;it allows you to install third party NuGet packages that are stored in the public `nuget.org` repository. If the published NuGet requires accepting a license agreement, you will see a confirmation prompt. The latest `Telerik UI for Blazor` package is already installed by default.
 
