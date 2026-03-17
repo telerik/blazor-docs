@@ -61,7 +61,7 @@ Follow these steps to set up the Agentic UI Generator:
    </TabStripTab>
    </TabStrip>
   
-   Follow the instructions in the CLI output. 
+   You are now ready to generate components and pages, and the Telerik CLI will guide you step by step in using the Telerik MCP server. 
 
 ## Use Cases
 
