@@ -188,7 +188,7 @@ telerik nuget config --scope project --path . --force
 
 ## Install MCP Server
 
-To [install the Telerik Blazor MCP server](slug:ai-installation), use the `mcp config` command:
+To [install the Telerik Blazor MCP server](slug:ai-overview), use the `mcp config` command:
 
 ````SH.skip-repl
 telerik mcp config
