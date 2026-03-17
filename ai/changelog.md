@@ -18,6 +18,7 @@ Learn about the latest changes, improvements and bug fixes in the Telerik UI for
 ### Highlights
 
 * Added the new Getting Started Assistant to help you scaffold a Blazor webapp/wasm project, configure the Telerik MCP server, and activate your license through a guided flow.
+* Expanded the Accessibility Assistant with contrast support to help validate color combinations against WCAG 2.2 Level AA requirements.
 
 ## Febuary, 2026
 

@@ -14,7 +14,10 @@ tag: updated
 
 The Agentic UI Generator is an intelligent development tool delivered through the [Telerik Blazor MCP Server](https://www.nuget.org/packages/Telerik.Blazor.MCP) that enables UI generation from natural language prompts. Once configured and authenticated, you can use the Agentic UI Generator tool (`#telerik_ui_generator`) together with the available specialized MCP assistants.
 
-This article describes a streamlined approach to setting up the Agentic UI Generator using the Telerik CLI, which automates license configuration, Telerik MCP server and Telerik NuGet setup, and project scaffolding.
+You can get started in two ways:
+
+* **Try it in the browser (no setup required)** - the [Blazor REPL](https://blazorrepl.telerik.com/) includes a built-in Agentic UI Generator integration, allowing you to generate, run, and evaluate Telerik UI for Blazor components directly in the browser. To use it, click the sparkle icon ✨ in the REPL sidebar to open the chat interface, describe your UI requirements using natural language, and iterate with follow-up prompts. Sign in and get 10 monthly requests to evaluate the Agentic UI Generator without leaving the browser.
+* **Set up locally** - use the [Telerik CLI](slug:installation-cli) to configure your local environment. It automates license configuration, Telerik MCP server and Telerik NuGet setup, and project scaffolding. Get started in minutes—follow the [Quick Start](#quick-start) guide to configure your local environment.
 
 ## Prerequisites
 
@@ -22,11 +25,11 @@ To use the Telerik Blazor MCP server, you need:
 
 * [.NET 8 or newer](https://dotnet.microsoft.com/en-us/download).
 * A [compatible MCP client (IDE, code editor, or app)](https://modelcontextprotocol.io/clients) that supports MCP server integrations.
-* An [active Telerik license](slug:ai-overview#license-requirements)&mdash;trial or subscription.
+* An [active Telerik license](slug:ai-overview#license-requirements) - trial or subscription.
 
 ## Quick Start
 
-Instead of manually creating configuration files, you can use the [Telerik CLI](https://www.nuget.org/packages/Telerik.CLI) and the built-in Getting Started Assistant to handle the entire setup automatically—whether you are starting a new project or adding Telerik UI for Blazor to an existing one.
+Instead of manually creating configuration files, you can use the [Telerik CLI](slug:installation-cli) and the built-in Getting Started Assistant to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one.
 
 Follow these steps to set up the Agentic UI Generator:
 
@@ -35,26 +38,14 @@ Follow these steps to set up the Agentic UI Generator:
    dotnet tool install -g Telerik.CLI
    ````
 
-1. Set up the Telerik NuGet feed so that the CLI and your IDE can restore Telerik NuGet packages:
-   ````SH.skip-repl
-   telerik nuget config
-   ````
-
-1. Activate (update) your Telerik license:
-   ````SH.skip-repl
-   telerik license get-key
-   ````
-
-1. Configure the Telerik MCP server:
+1. Configure the Telerik Nuget feed, activate (update) your Telerik license, and set up the Telerik MCP server with the Telerik CLI:
 
    <TabStrip>
    <TabStripTab title=".NET 10">
 
    ````SH.skip-repl
-   telerik mcp config visualstudio blazor
+   telerik setup
    ````
-
-   The example above shows how to call the `telerik mcp config` command for Visual Studio. Instead of `visualstudio`, you can pass a different IDE argument value: `vscode`, `cursor`, or `all`.
 
    </TabStripTab>
    <TabStripTab title=".NET 8 or 9">
@@ -64,26 +55,13 @@ Follow these steps to set up the Agentic UI Generator:
    ````
 
    ````SH.skip-repl
-   telerik mcp config visualstudio blazor
+   telerik setup
    ````
-
-   The example above shows how to call the `telerik mcp config` command for Visual Studio. Instead of `visualstudio`, you can pass a different IDE argument value: `vscode`, `cursor`, or `all`.
 
    </TabStripTab>
    </TabStrip>
   
-1. Create a Blank Solution in Visual Studio, or an empty folder in Visual Studio Code, and open it in your IDE. In the AI chat interface, invoke the Getting Started Assistant:
-   ````TEXT.skip-repl
-   #telerik_getting_started_assistant create a new blazor web app
-   ````
-
-1. Now you can start using the Agentic Ul Generator by prompting in your IDE's chat interface.
-
-   ````TEXT.skip-repl
-   #telerik_ui_generator Build a sales operations dashboard with a pageable and sortable Grid
-   ````
-
-   For a comprehensive collection of sample prompts covering general UI tasks, layout organization, component implementation, styling, accessibility, and icon selection, see the [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library).
+   Follow the instructions in the CLI output. 
 
 ## Use Cases
 
@@ -101,11 +79,9 @@ The Agentic UI Generator is designed to help with various development scenarios:
    * Create new responsive pages and sections.
    * Convert existing pages to be responsive for mobile and tablet views.
 
+For a comprehensive collection of sample prompts covering general UI tasks, layout organization, component implementation, styling, accessibility, and icon selection, see the [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prompt-library).
+
 >  While the Agentic UI Generator performs great with powerful models like **Claude Sonnet 4.6**, **GPT-5.2**, or **Gemini 3 Pro**, it also excels with smaller models as well (such as **Haiku** and **GPT 5.1 mini**).
-
-## Agentic UI Generator in Telerik REPL for Blazor
-
-Telerik REPL for Blazor now includes a Preview integration with the Agentic UI Generator. Through this integration, developers can generate complete UI pages, layouts, and UI for Blazor components directly in the browser and evaluate them in real time&mdash;making it easy to experiment with different configurations without setting up a local project. For more details, see [Agentic UI Generator Integration in Blazor REPL](slug:blazor-repl-integration#agentic-ui-generator-integration-with-blazor-repl-preview).
 
 ## See Also
 
