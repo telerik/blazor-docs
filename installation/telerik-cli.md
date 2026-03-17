@@ -216,4 +216,4 @@ telerik mcp config blazor --ide visualstudio
 
 ## See Also
 
-* [Workflow Details](slug:what-you-need)
+* [Workflow Details](slug:getting-started/what-you-need)
