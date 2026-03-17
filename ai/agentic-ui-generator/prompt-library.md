@@ -100,7 +100,7 @@ For more precise control over the generation process, you can invoke the special
 | Component Assistant | `#telerik_component_assistant` | Answers questions and generates code related to Telerik UI for Blazor components. Use this assistant when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc. |
 | Style Assistant | `#telerik_style_assistant` | Generates custom styles and theme configurations for your application. Use this assistant when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI. |
 | Icon Assistant | `#telerik_icon_assistant` | Searches and retrieves icons from the [Progress Design System Iconography](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) by name, category, or keywords. Use this assistant when you need to find and add specific icons for your UI components or design elements. |
-| Accessibility Assistant | `#telerik_accessibility_assistant` | Provides WCAG 2.2 Level AA guidance and component-specific accessibility implementation details. Use this assistant to ensure your UI meets compliance standards, implements correct ARIA roles, and retrieves accessibility API references for Telerik UI for Blazor components. |
+| Accessibility Assistant | `#telerik_accessibility_assistant` | Provides WCAG 2.2 Level AA guidance and component-specific accessibility implementation details. Use this assistant to ensure your UI meets compliance standards, implement correct ARIA roles, validate color contrast, and retrieve accessibility API references for Telerik UI for Blazor components. |
 | Validator Assistant | n/a | Not designed to be invoked manually. It is called automatically by the UI Generator Orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards. |
 
 #### Layout Assistant Prompts
@@ -168,6 +168,22 @@ The Icon Assistant assistant searches and retrieves icons from the Progress Desi
 ```
 
 </div>
+
+#### Accessibility Assistant
+
+Use the `#telerik_accessibility_assistant` handle to verify WCAG 2.2 Level AA compliance, including color contrast verification, and implement proper accessibility features:
+
+```prompt Grid Cell Template Navigation
+#telerik_accessibility_assistant I have a Grid with a custom cell template that has multiple buttons like view report, download PDF, and send email. When I try to navigate with the keyboard, I can't get to these buttons properly. How can I make the keyboard navigation work for focusable elements inside the cell?
+```
+```Razor
+```
+
+```prompt Grid Row Headers
+#telerik_accessibility_assistant I have a Grid that displays employee data where the first column contains employee names, followed by columns for department, salary, and hire date. How can I improve accessibility for screen reader users navigating this table?
+```
+```Razor
+```
 
 ## See Also
 
