@@ -21,14 +21,14 @@ To access the automated commands, open **Extensions** > **Telerik** > **Telerik 
 
 ## Configure Telerik MCP Server
 
-The Telerik UI for Blazor extension provides two menu options to [set up the Telerik Blazor MCP server](slug:ai-installation):
+The Telerik UI for Blazor extension provides two menu options to [set up the Telerik Blazor MCP server](slug:ai-overview):
 
 * **Configure MCP Server for Solution**&mdash;this command creates an `.mcp.json` file in the solution folder. The configuration applies only to the projects in that application.
 * **Configure MCP Server Globally**&mdash;this command creates an `.mcp.json` file in your operating system user folder (`%USERPROFILE%`, for example, `C:\Users\___\.mcp.json`). This configuration applies to all Visual Studio solutions and projects.
 
 > Make sure to open the generated `.mcp.json` @[template](/_contentTemplates/common/ai-coding-assistant.md#verify-license-key)
 
-Finally, check for any [usage notes about the Telerik Blazor MCP Server](slug:ai-installation).
+Finally, check for any [usage notes about the Telerik Blazor MCP Server](slug:ai-overview).
 
 ## Add/Update Copilot Instructions
 

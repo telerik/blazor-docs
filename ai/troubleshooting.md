@@ -22,6 +22,8 @@ As part of this restructuring, license requirements have also changed.:
 * **Trial licenses**&mdash;Provide access to the Agentic UI Generator during the active trial period.
 * **Perpetual licenses**&mdash;Do not grant access to the AI tools. You must have an active Subscription or a trial license to use the Telerik Blazor MCP server.
 
+@[template](/_contentTemplates/common/general-info.md#license-names)
+
 For detailed information about license requirements and tool capabilities, see [License Requirements](slug:ai-overview#license-requirements).
 
 ## I Started a Trial License but Cannot Activate the MCP Server
@@ -54,5 +56,5 @@ This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-st
 ## See Also
 
 * [Telerik UI for Blazor AI Tools Overview](slug:ai-overview)
-* [Telerik MCP Server Installation](slug:ai-installation)
+* [Agentic UI Generator Getting Started ](slug:agentic-ui-generator-getting-started)
 * [Licensing](slug:installation-license-key)

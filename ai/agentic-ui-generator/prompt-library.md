@@ -12,7 +12,7 @@ published: True
 
 # Agentic UI Generator Prompt Library
 
-The prompts provided here are intended and optimized for use with the Telerik Blazor MCP Server tools, including the [Agentic UI Generator](slug:agentic-ui-generator-getting-started) and the specialized assistants. They can help you accelerate the creation and styling of modern web applications, from individual components to complete responsive pages and custom themes.
+The prompts provided here are intended and optimized for use with the Telerik Blazor MCP Server tools, including the Agentic UI Generator and the [specialized assistants](#assistant-specific-prompts). They can help you accelerate the creation and styling of modern web applications, from individual components to complete responsive pages and custom themes.
 
 >tip [Go straight to the prompts ⬇️](#general-prompts)
 
@@ -22,12 +22,10 @@ The prompts in this library target the [Agentic UI Generator](slug:agentic-ui-ge
 
 1. Browse the [prompt library](#general-prompts) to find a prompt that suits your needs.
 2. Copy the prompt text (including the `#telerik_ui_generator` handle if present).
-3. (optional) Customize the prompt as needed for your specific use case. Make sure the changes comply with the [intended use](slug:agentic-ui-generator-getting-started#using-the-agentic-ui-generator)  for the Agentic UI Generator.
+3. (optional) Customize the prompt as needed for your specific use case.
 4. Run the prompt against your AI-powered IDE.
 
-> warning Always double-check the code and solutions proposed by any AI-powered tool before applying them to your project.
-
-## General Prompts
+### General Prompts
 
 This section provides examples of common UI creation tasks that demonstrate the capabilities of the Agentic UI Generator. The UI generator is the main tool for building full UI flows, which coordinates all other tools to deliver complete solutions.
 
@@ -91,11 +89,21 @@ Create an employee onboarding wizard (using the Telerik Wizard) with step icons:
 ```Razor
 ```
 
-## Assistant-Specific Prompts
+### Assistant-Specific Prompts
 
-This section provides prompt examples for directly calling individual specialized assistants for more granular control.
+For more precise control over the generation process, you can invoke the specialized assistants individually using their dedicated handles.
 
-### Layout Assistant Prompts
+| Assistant | Handle | Purpose |
+|------------|-------------|-------------|
+| Getting Started Assistant| `#telerik_getting_started_assistant` | Performs the initial Telerik UI for Blazor setup workflow, including project scaffolding, Telerik NuGet setup, Telerik MCP server configuration, and license activation. You can specify the project name, project type, and Kendo theme for the scaffolded app. Use this assistant when you want to get from zero setup to your first working prompt quickly. |
+| Layout Assistant | `#telerik_layout_assistant` | Applies suitable CSS utility classes from the [Progress Design System](https://www.telerik.com/design-system/docs/) for styling and positioning elements. Use this assistant when you need help with spacing, typography, colors, layout structure, or transforms. |
+| Component Assistant | `#telerik_component_assistant` | Answers questions and generates code related to Telerik UI for Blazor components. Use this assistant when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc. |
+| Style Assistant | `#telerik_style_assistant` | Generates custom styles and theme configurations for your application. Use this assistant when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI. |
+| Icon Assistant | `#telerik_icon_assistant` | Searches and retrieves icons from the [Progress Design System Iconography](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) by name, category, or keywords. Use this assistant when you need to find and add specific icons for your UI components or design elements. |
+| Accessibility Assistant | `#telerik_accessibility_assistant` | Provides WCAG 2.2 Level AA guidance and component-specific accessibility implementation details. Use this assistant to ensure your UI meets compliance standards, implement correct ARIA roles, validate color contrast, and retrieve accessibility API references for Telerik UI for Blazor components. |
+| Validator Assistant | n/a | Not designed to be invoked manually. It is called automatically by the UI Generator Orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards. |
+
+#### Layout Assistant Prompts
 
 The Layout Assistant applies suitable CSS utility classes from the [Progress Design System](https://www.telerik.com/design-system/docs/) for styling and positioning elements. You can use it, when you need help with spacing, typography, colors, layout structure, or transforms.
 
@@ -105,7 +113,7 @@ The Layout Assistant applies suitable CSS utility classes from the [Progress Des
 ```Razor
 ```
 
-### Component Assistant Prompts
+#### Component Assistant Prompts
 
 The Component Assistant answers questions and generates code related to Telerik UI for Blazor components. Use this tool when you need to implement or configure specific UI for Blazor components like Grid, Charts, Forms, etc.
 
@@ -121,7 +129,7 @@ The Component Assistant answers questions and generates code related to Telerik 
 ```Razor
 ```
 
-### Style Assistant Prompts
+#### Style Assistant Prompts
 
 The Style Assistant generates custom styles and theme configurations for your application. Use this assistant when you need to apply brand-specific colors, create custom themes, or modify the overall visual design of your UI.
 
@@ -141,7 +149,7 @@ The Style Assistant generates custom styles and theme configurations for your ap
 
 </div>
 
-### Icon Assistant Prompts
+#### Icon Assistant Prompts
 
 The Icon Assistant assistant searches and retrieves icons from the Progress Design System iconography by name, category, or keywords. Use this assistant when you need to find and add specific icons for your UI components or design elements.
 
@@ -160,6 +168,22 @@ The Icon Assistant assistant searches and retrieves icons from the Progress Desi
 ```
 
 </div>
+
+#### Accessibility Assistant
+
+Use the `#telerik_accessibility_assistant` handle to verify WCAG 2.2 Level AA compliance, including color contrast verification, and implement proper accessibility features:
+
+```prompt Grid Cell Template Navigation
+#telerik_accessibility_assistant I have a Grid with a custom cell template that has multiple buttons like view report, download PDF, and send email. When I try to navigate with the keyboard, I can't get to these buttons properly. How can I make the keyboard navigation work for focusable elements inside the cell?
+```
+```Razor
+```
+
+```prompt Grid Row Headers
+#telerik_accessibility_assistant I have a Grid that displays employee data where the first column contains employee names, followed by columns for department, salary, and hire date. How can I improve accessibility for screen reader users navigating this table?
+```
+```Razor
+```
 
 ## See Also
 

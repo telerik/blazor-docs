@@ -6,7 +6,7 @@ slug: installation-msi
 previous_url: /installation/msi
 tags: get,started,installation,msi,p,wizard
 published: True
-position: 20
+position: 80
 ---
 
 # Automated Wizard Installer
