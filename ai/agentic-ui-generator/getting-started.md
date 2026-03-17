@@ -31,7 +31,7 @@ To use the Telerik Blazor MCP server, you need:
 
 Instead of manually creating configuration files, you can use the [Telerik CLI](slug:installation-cli) and the built-in Getting Started Assistant to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one.
 
-Follow these steps to set up the Agentic UI Generator:
+Follow these steps to set up the Agentic UI Generator and use it in your IDE:
 
 1. Install the Telerik CLI globally by executing the following command in any standard command-line interface (CLI) or terminal on your operating system:
    ````SH.skip-repl
@@ -44,7 +44,7 @@ Follow these steps to set up the Agentic UI Generator:
    <TabStripTab title=".NET 10">
 
    ````SH.skip-repl
-   telerik setup
+   telerik setup blazor
    ````
 
    </TabStripTab>
@@ -55,13 +55,19 @@ Follow these steps to set up the Agentic UI Generator:
    ````
 
    ````SH.skip-repl
-   telerik setup
+   telerik setup blazor
    ````
 
    </TabStripTab>
    </TabStrip>
   
-   You are now ready to generate components and pages, and the Telerik CLI will guide you step by step in using the Telerik MCP server. 
+   You are now ready to generate components and pages using the Agentic UI Generator in your IDE.
+
+1. Create a Blank Solution in Visual Studio, or an empty folder in Visual Studio Code, and open it in your IDE. In the AI chat interface, invoke the Getting Started Assistant:
+
+   ````text.skip-repl
+   #telerik_getting_started_assistant create a new blazor web app
+   ````
 
 ## Use Cases
 
