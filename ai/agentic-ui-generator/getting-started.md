@@ -60,8 +60,6 @@ Follow these steps to set up the Agentic UI Generator and use it in your IDE:
 
    </TabStripTab>
    </TabStrip>
-  
-   You are now ready to generate components and pages using the Agentic UI Generator in your IDE.
 
 1. Create a Blank Solution in Visual Studio, or an empty folder in Visual Studio Code, and open it in your IDE. In the AI chat interface, invoke the Getting Started Assistant:
 
