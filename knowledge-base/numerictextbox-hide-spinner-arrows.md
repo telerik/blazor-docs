@@ -7,6 +7,7 @@ slug: numerictextbox-kb-hide-spinner-arrows
 tags: blazor, numerictextbox, grid, css
 ticketid: 1711765
 res_type: kb
+components: ["numerictextbox"]
 ---
 
 ## Environment
