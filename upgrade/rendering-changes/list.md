@@ -22,6 +22,8 @@ As the Telerik UI for Blazor matures we will continuously optimize the HTML rend
 * [3.6.0](slug:rendering-changes-in-3-6-0)
 * [3.4.0](slug:rendering-changes-in-3-4-0)
 
+@[template](/_contentTemplates/common/general-info.md#compatible-theme)
+
 ## Good Styling Practices
 
 To minimize the risk of breaking changes related to rendering changes, [use custom CSS classes to override the styling of the Telerik UI for Blazor components](slug:themes-override#best-practices).
