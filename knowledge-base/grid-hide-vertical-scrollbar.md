@@ -46,9 +46,10 @@ There are three required CSS styles to disable vertical scrolling and ensure pro
 
 <TelerikGrid Data="@GridData" Class="grid-no-scroll">
     <GridColumns>
-        <GridColumn Field=@nameof(Product.Name) Title="Product Name">
+        <GridColumn Field="@nameof(Product.Id)" />
+        <GridColumn Field="@nameof(Product.Name)">
             <FooterTemplate>
-                footer
+                Name Footer
             </FooterTemplate>
         </GridColumn>
     </GridColumns>
@@ -83,7 +84,7 @@ There are three required CSS styles to disable vertical scrolling and ensure pro
             GridData.Add(new Product()
             {
                 ID = i,
-                Name = "Product " + i.ToString()
+                Name = $"Product {i}"
             });
         }
     }
