@@ -149,3 +149,9 @@ Visit [status.telerik.com](https://status.telerik.com) to check the status of th
 > * DevCraft UI with Subscription and Lite Support
 
 #end
+
+#compatible-theme
+
+> Make sure that you are using a [compatible Telerik CSS theme](slug:themes-overview#compatibility-and-maintenance) every time you [upgrade Telerik UI for Blazor](slug:upgrade-tutorial).
+
+#end
