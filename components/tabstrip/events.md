@@ -14,6 +14,9 @@ This article explains the events available in the Telerik TabStrip for Blazor:
 
 * [ActiveTabIdChanged](#activetabidchanged)
 * [ActiveTabIndexChanged](#activetabindexchanged)
+* [OnTabReorder](#ontabreorder)
+* [OnStateInit](#onstateinit)
+* [OnStateChanged](#onstatechanged)
 
 ## ActiveTabIdChanged
 
@@ -118,7 +121,126 @@ If you do not update the `ActiveTabIndex` parameter value in the `ActiveTabIndex
 }
 ````
 
+## OnTabReorder
+
+The `OnTabReorder` event fires when the user completes a drag-and-drop tab reorder. To enable tab reordering, set the `EnableTabReorder` parameter on the TabStrip to `true`. The event handler receives a `TabStripTabReorderEventArgs` argument.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `OldIndex` | `int` | The zero-based index of the tab before the reorder. |
+| `NewIndex` | `int` | The zero-based index of the tab after the reorder. |
+
+>caption Handle the TabStrip OnTabReorder event
+
+````RAZOR
+<TelerikTabStrip EnableTabReorder="true"
+                 OnTabReorder="@OnTabReorder">
+    <TabStripTab Title="First" Id="1">
+        First tab content.
+    </TabStripTab>
+    <TabStripTab Title="Second" Id="2">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Title="Third" Id="3">
+        Third tab content.
+    </TabStripTab>
+    <TabStripTab Title="Fourth" Id="4">
+        Fourth tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+<p>Last reorder: @ReorderLog</p>
+
+@code {
+    private string ReorderLog { get; set; } = string.Empty;
+
+    private void OnTabReorder(TabStripTabReorderEventArgs args)
+    {
+        ReorderLog = $"Tab{args.Id} moved.";
+    }
+}
+````
+
+> The `OnStateChanged` event also fires after a tab reorder. Read more in the [State Management](slug:tabstrip-state) article.
+
+## OnStateInit
+
+The `OnStateInit` event fires once when the TabStrip initializes, before it starts raising regular state change notifications. Use this event to inspect, customize, or restore the initial state of the TabStrip—for example, from a persistence storage.
+
+The event handler receives a `TabStripStateEventArgs` argument with a `TabStripState` property. Read more details in the [State Management](slug:tabstrip-state) article.
+
+>caption Handle the TabStrip OnStateInit event
+
+````RAZOR
+<TelerikTabStrip OnStateInit="@OnTabStripStateInit">
+    <TabStripTab Title="First" Id="tab1">
+        First tab content.
+    </TabStripTab>
+    <TabStripTab Title="Second" Id="tab2">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Title="Third" Id="tab3">
+        Third tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+@code {
+    private void OnTabStripStateInit(TabStripStateEventArgs args)
+    {
+        args.TabStripState.ActiveTabId = "tab2";
+    }
+}
+````
+
+## OnStateChanged
+
+The `OnStateChanged` event fires after initialization whenever the TabStrip state changes. This includes changes to the active tab, tab visibility, tab pinned state, and tab order after a reorder.
+
+The event handler receives a `TabStripStateEventArgs` argument with a `TabStripState` property. Read more details in the [State Management](slug:tabstrip-state) article.
+
+>caption Handle the TabStrip OnStateChanged event
+
+````RAZOR
+<TelerikTabStrip OnStateChanged="@OnTabStripStateChanged">
+    <TabStripTab Title="First" Id="tab1">
+        First tab content.
+    </TabStripTab>
+    <TabStripTab Title="Second" Id="tab2">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Title="Third" Id="tab3">
+        Third tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+<p><strong>Active tab ID:</strong> @ActiveTabId</p>
+
+<h4>Tab change history:</h4>
+<ul>
+    @foreach (var item in TabHistory)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+@code {
+    private string ActiveTabId { get; set; } = string.Empty;
+    private List<string> TabHistory { get; set; } = new();
+
+    private void OnTabStripStateChanged(TabStripStateEventArgs args)
+    {
+        ActiveTabId = args.TabStripState.ActiveTabId;
+
+        TabHistory.Insert(0, $"{DateTime.Now:HH:mm:ss} → {ActiveTabId}");
+    }
+}
+````
+
 ## See Also
 
 * [TabStrip Overview](slug:components/tabstrip/overview)
 * [Dynamic Tabs](slug:tabstrip-tabs-collection)
+* [Tab Reordering](slug:tabstrip-tab-reorder)
+* [State Management](slug:tabstrip-state)

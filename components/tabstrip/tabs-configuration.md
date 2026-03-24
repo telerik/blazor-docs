@@ -15,6 +15,8 @@ You can configure the `TabStripTab` instances in a TabStrip through the followin
 * [Title](#title)
 * [Visible](#visible)
 * [Disabled](#disabled)
+* [Closeable](#closeable)
+* [Pinnable and Pinned](#pinnable-and-pinned)
 
 
 ## Title
@@ -99,7 +101,83 @@ The `Disabled` parameter allows you to mark a tab as disabled, so the user canno
 }
 ````
 
+## Closeable
+
+Set the `Closeable` parameter to `true` to render a close button on the tab. Users can also close the tab through a context menu action. Closing a tab sets its `Visible` parameter to `false`, which hides it from the tab list.
+
+The `VisibleChanged` event fires when the tab is closed. Use this event to update your data or to intercept the close action—for example, to show a confirmation dialog before the tab is hidden.
+
+>caption TabStrip with closeable tabs
+
+````RAZOR
+<TelerikTabStrip>
+    <TabStripTab Title="First" Id="tab1"
+                 Closeable="true"
+                 Visible="@FirstTabVisible"
+                 VisibleChanged="@( (bool newVisible) => OnTabVisibleChanged("tab1", newVisible) )">
+        First tab content.
+    </TabStripTab>
+    <TabStripTab Title="Second" Id="tab2"
+                 Closeable="true"
+                 Visible="@SecondTabVisible"
+                 VisibleChanged="@( (bool newVisible) => OnTabVisibleChanged("tab2", newVisible) )">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Title="Third">
+        Third tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+@code {
+    private bool FirstTabVisible { get; set; } = true;
+    private bool SecondTabVisible { get; set; } = true;
+
+    private void OnTabVisibleChanged(string tabId, bool newVisible)
+    {
+        if (tabId == "tab1") FirstTabVisible = newVisible;
+        if (tabId == "tab2") SecondTabVisible = newVisible;
+    }
+}
+````
+
+> To show a confirmation dialog before closing a tab, use `VisibleChanged` to intercept the close request. Update the `Visible` parameter only if the user confirms the action.
+
+## Pinnable and Pinned
+
+The `Pinnable` parameter specifies whether users can pin a tab. Pinned tabs are fixed to the start of the tab list and cannot be mixed with unpinned tabs during drag-and-drop [reordering](slug:tabstrip-tab-reorder).
+
+Use the `Pinned` parameter to set the initial pinned state of a tab. Pair it with the `PinnedChanged` event to keep your data in sync when users toggle the pin state through the context menu.
+
+>caption TabStrip with pinnable tabs
+
+````RAZOR
+<TelerikTabStrip EnableTabReorder="true">
+    <TabStripTab Title="Alpha"
+                 Pinnable="true"
+                 Pinned="@AlphaPinned"
+                 PinnedChanged="@( (bool newPinned) => AlphaPinned = newPinned )">
+        Alpha tab content.
+    </TabStripTab>
+    <TabStripTab Title="Beta"
+                 Pinnable="true"
+                 Pinned="@BetaPinned"
+                 PinnedChanged="@( (bool newPinned) => BetaPinned = newPinned )">
+        Beta tab content.
+    </TabStripTab>
+    <TabStripTab Title="Gamma">
+        Gamma tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+@code {
+    private bool AlphaPinned { get; set; } = true;
+    private bool BetaPinned { get; set; }
+}
+````
+
 ## See Also
 
   * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
   * [Live Demo: TabStrip - Tab Visibility](https://demos.telerik.com/blazor-ui/tabstrip/tab-visibility)
+  * [Tab Reordering](slug:tabstrip-tab-reorder)
+  * [TabStrip Events](slug:tabstrip-events)
