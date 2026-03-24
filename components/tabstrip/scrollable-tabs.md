@@ -10,13 +10,13 @@ components: ["tabstrip"]
 ---
 # TabStrip Tab Overflow
 
-When there are more tabs than the available space allows, the Blazor TabStrip can handle the overflow automatically. Use the `OverflowMode` parameter to control this behavior.
+When more tabs exceed the available space, the Blazor TabStrip can handle the overflow automatically. Use the `OverflowMode` parameter to control this behavior.
 
 The `OverflowMode` parameter accepts a value of type `TabStripOverflowMode`:
 
-* `None` (default) — No overflow handling. All tabs are always visible and will wrap or overflow outside the container if they exceed the available width.
-* `Scroll` — When tabs exceed the available space, scroll buttons appear so users can scroll through the tab list. This mode replaces the now-deprecated `Scrollable` parameter.
-* `Menu` — When tabs exceed the available space, the overflowing tabs are collected into a dropdown menu. Users can open the menu to access and activate any hidden tab.
+* `None` (default)&mdash;No overflow handling. All tabs are always visible and will wrap or overflow outside the container if they exceed the available width.
+* `Scroll`&mdash;When tabs exceed the available space, scroll buttons appear so users can scroll through the tab list. This mode replaces the now-deprecated `Scrollable` parameter.
+* `Menu`&mdash;When tabs exceed the available space, the overflowing tabs are collected into a dropdown menu. Users can open the menu to access and activate any hidden tab.
 
 > The `Scrollable` parameter is obsolete. Use `OverflowMode="@TabStripOverflowMode.Scroll"` instead.
 
@@ -45,9 +45,9 @@ Set `OverflowMode` to `TabStripOverflowMode.Scroll` to enable scrolling of the t
 
 You can configure the TabStrip to show scroll buttons on both ends of the tab list. To customize this behavior, use the `ScrollButtonsVisibility` parameter of the TabStrip. This option accepts the following values of type `TabStripScrollButtonsVisibility`:
 
-* `Visible` (default) — The scroll buttons are always visible. If the tabs fit inside the TabStrip boundaries, the buttons are disabled.
-* `Auto` — The scroll buttons appear only when the tabs do not fit inside the TabStrip boundaries.
-* `Hidden` — The scroll buttons are not displayed.
+* `Visible` (default)&mdash;The scroll buttons are always visible. If the tabs fit inside the TabStrip boundaries, the buttons are disabled.
+* `Auto`&mdash;The scroll buttons appear only when the tabs do not fit inside the TabStrip boundaries.
+* `Hidden`&mdash;The scroll buttons are not displayed.
 
 ````RAZOR
 <TelerikTabStrip OverflowMode="@TabStripOverflowMode.Scroll"
@@ -75,9 +75,9 @@ You can configure the TabStrip to show scroll buttons on both ends of the tab li
 
 By default, the TabStrip renders its scroll buttons on both ends of the tab list. The `ScrollButtonsPosition` parameter accepts the following values of type `TabStripScrollButtonsPosition`:
 
-* `Split` (default) — The scroll buttons are rendered on both sides of the tab list.
-* `Start` — The scroll buttons are rendered before the tab list.
-* `End` — The scroll buttons are rendered after the tab list.
+* `Split` (default)&mdash;The scroll buttons are rendered on both sides of the tab list.
+* `Start`&mdash;The scroll buttons are rendered before the tab list.
+* `End`&mdash;The scroll buttons are rendered after the tab list.
 
 ````RAZOR
 <TelerikTabStrip OverflowMode="@TabStripOverflowMode.Scroll"

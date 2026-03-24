@@ -13,7 +13,7 @@ components: ["tabstrip"]
 
 The Telerik TabStrip for Blazor allows users to reorder tabs by dragging and dropping them to new positions.
 
-## Enabling Tab Reordering
+## Enable Tab Reordering
 
 To let users reorder tabs, set the `EnableTabReorder` parameter to `true`.
 
@@ -52,13 +52,13 @@ To let users reorder tabs, set the `EnableTabReorder` parameter to `true`.
 
 Observe the following rules when using tab reordering:
 
-* [Pinned](#pinned-tabs) tabs can only be reordered among other pinned tabs.
+* [Pinned tabs](#pinned-tabs) can only be reordered among other pinned tabs.
 * Unpinned tabs can only be reordered among other unpinned tabs. A pinned tab cannot be dropped into the unpinned tab area.
-* [Disabled](slug:tabstrip-tabs-configuration#disabled) tabs cannot be reordered.
+* [Disabled tabs](slug:tabstrip-tabs-configuration#disabled) cannot be reordered.
 
 ## Pinned Tabs
 
-When [tab pinning](slug:tabstrip-tabs-configuration#pinnable-and-pinned) is enabled, pinned tabs are grouped at the start of the tab list. The reorder constraints prevent mixing of pinned and unpinned tabs.
+When [tab pinning](slug:tabstrip-tabs-configuration#pinnable-and-pinned) is enabled, pinned tabs are grouped at the start of the tab list. The [reorder constraints](#reorder-rules) prevent mixing of pinned and unpinned tabs.
 
 ## See Also
 

@@ -50,7 +50,7 @@ The Blazor TabStrip component can persist the content of the tabs. When the user
 
 ## Tab Overflow
 
-When more tabs are defined than the available space allows, the Blazor TabStrip can handle the overflow with scroll buttons or a dropdown menu. [Read more about the Tab Overflow...](slug:tabstrip-scroll-tabs)
+When you define more tabs than the available space allows, the Blazor TabStrip can handle the overflow with scroll buttons or a dropdown menu. [Read more about the Tab Overflow...](slug:tabstrip-scroll-tabs)
 
 ## Closeable Tabs
 
@@ -60,7 +60,7 @@ The Blazor TabStrip allows tabs to render a close button so users can hide indiv
 
 The Blazor TabStrip supports pinning tabs to the start of the tab list. Pinned tabs stay fixed and cannot be mixed with unpinned tabs during reordering. [Read more about Pinnable and Pinned tabs...](slug:tabstrip-tabs-configuration#pinnable-and-pinned)
 
-## Tab Reordering
+## Tab Reorder
 
 The Blazor TabStrip allows users to reorder tabs by dragging and dropping them to new positions. [Read more about Tab Reordering...](slug:tabstrip-tab-reorder)
 
@@ -84,7 +84,7 @@ The TabStrip provides the following features to allow further customization of i
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `ActiveTabIndex` | `int` | The index of the currently shown tab. Supports two-way binding. This parameter is obsolete. Do not use it together with `ActiveTabId`. |
+| `ActiveTabIndex` **(Obsolete)** | `int` | The index of the currently shown tab. Supports two-way binding. **Obsolete** — use `ActiveTabId` instead. Do not use it together with `ActiveTabId`. |
 | `ActiveTabId` | `string` | The ID of the currently active tab. If not set, the first tab is active. Do not use it together with `ActiveTabIndex`. Supports two-way binding. |
 | `EnableTabReorder` | `bool` | Whether users can reorder tabs via drag-and-drop. See [Tab Reordering](slug:tabstrip-tab-reorder). |
 | `OnStateInit` | `EventCallback<TabStripStateEventArgs>` | Fires when the TabStrip initializes its state. Use this to inspect or restore the initial state. See [State Management](slug:tabstrip-state). |
@@ -114,7 +114,7 @@ The following parameters enable you to customize the appearance of the Blazor Ta
 
 | Template | Description |
 | --- | --- |
-| `TabStripSuffixTemplate` | A `RenderFragment` rendered after the tab list, inside the TabStrip container. Use this to add custom content such as action buttons or navigation elements. When using `OverflowMode.Menu`, include the `TabStripOverflowMenu` component inside this template to preserve overflow menu functionality. |
+| `TabStripSuffixTemplate` | A `RenderFragment` rendered after the tab list, inside the TabStrip container. Use this to add custom content such as action buttons or navigation elements. When you use `OverflowMode.Menu`, include the `TabStripOverflowMenu` component inside this template to preserve overflow menu functionality. |
 
 ## TabStrip Reference and Methods
 
@@ -167,8 +167,8 @@ The `TabStrip` methods are accessible through its reference.
 
 * [Configure the Tabs](slug:tabstrip-tabs-configuration)
 * Explore the supported Tab [positions](slug:tabstrip-tabs-position) and [alignments](slug:tabstrip-tabs-alignment)
-* [Handle the TabStrip events](slug:tabstrip-events)
 * [Manage the TabStrip state](slug:tabstrip-state)
+* [Handle the TabStrip events](slug:tabstrip-events)
 
 ## See Also
 

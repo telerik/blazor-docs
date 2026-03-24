@@ -34,79 +34,8 @@ Each `TabStripTabState` object represents the state of a single tab:
 
 ## Events
 
-### OnStateInit
-
-The `OnStateInit` event fires once when the TabStrip initializes its state, before it starts raising regular state change notifications. Use this event to inspect, customize, or restore the initial state—for example, from browser storage or a database.
-
-The event handler receives a `TabStripStateEventArgs` argument with a `TabStripState` property.
-
->caption Restore the TabStrip state on initialization
-
-````RAZOR
-<TelerikTabStrip OnStateInit="@OnTabStripStateInit">
-    <TabStripTab Title="First" Id="tab1">
-        First tab content.
-    </TabStripTab>
-    <TabStripTab Title="Second" Id="tab2">
-        Second tab content.
-    </TabStripTab>
-    <TabStripTab Title="Third" Id="tab3">
-        Third tab content.
-    </TabStripTab>
-</TelerikTabStrip>
-
-@code {
-    private void OnTabStripStateInit(TabStripStateEventArgs args)
-    {
-        // Restore a saved state, for example from local storage or a service.
-        args.TabStripState.ActiveTabId = "tab2";
-    }
-}
-````
-
-### OnStateChanged
-
-The `OnStateChanged` event fires after initialization whenever the TabStrip state changes. This includes changes to the active tab, tab visibility, tab pinned state, and tab order (after a reorder operation).
-
-The event handler receives a `TabStripStateEventArgs` argument with a `TabStripState` property.
-
->caption Save the TabStrip state when it changes
-
-````RAZOR
-<TelerikTabStrip OnStateChanged="@OnTabStripStateChanged">
-    <TabStripTab Title="First" Id="tab1">
-        <p>First tab content.</p>
-    </TabStripTab>
-    <TabStripTab Title="Second" Id="tab2">
-        <p>Second tab content.</p>
-    </TabStripTab>
-    <TabStripTab Title="Third" Id="tab3">
-        <p>Third tab content.</p>
-    </TabStripTab>
-</TelerikTabStrip>
-
-<div class="mt-3">
-    <strong>Active tab ID:</strong> @ActiveTabId
-</div>
-
-<div class="mt-2">
-    <strong>Last state change:</strong> @LastStateChange
-</div>
-
-@code {
-    private string? ActiveTabId { get; set; }
-    private string? LastStateChange { get; set; }
-
-    private void OnTabStripStateChanged(TabStripStateEventArgs args)
-    {
-        ActiveTabId = args.TabStripState.ActiveTabId;
-        LastStateChange = DateTime.Now.ToString("HH:mm:ss");
-
-        Console.WriteLine($"Active tab changed to: {ActiveTabId}");
-        // Save the state, for example to local storage or a service.
-    }
-}
-````
+* [OnStateChanged](slug:tabstrip-events#onstatechanged)
+* [OnStateInit](slug:tabstrip-events#onstateinit)
 
 ## Methods
 
@@ -117,7 +46,7 @@ Access the TabStrip state at any time through its reference and methods:
 | `GetState` | `TabStripState` | Returns the current state of the TabStrip. |
 | `SetState` | `void` | Accepts a `TabStripState` object and applies it to the TabStrip. |
 
->caption Get and set the TabStrip state programmatically
+>tip To reorder tabs programmatically, get the current state, reorder the items in the `TabStates` collection, and pass the modified state back with `SetState`.
 
 ````RAZOR
 <TelerikButton OnClick="@SetActiveTab">Activate Second Tab</TelerikButton>
@@ -135,18 +64,16 @@ Access the TabStrip state at any time through its reference and methods:
 </TelerikTabStrip>
 
 @code {
-    private TelerikTabStrip TabStripRef { get; set; }
+    private TelerikTabStrip? TabStripRef;
 
-    private void SetActiveTab()
+    private async Task SetActiveTab()
     {
-        var state = TabStripRef.GetState();
+        var state = TabStripRef!.GetState();
         state.ActiveTabId = "tab2";
-        TabStripRef.SetState(state);
+        await TabStripRef.SetState(state);
     }
 }
 ````
-
->tip To reorder tabs programmatically, get the current state, reorder the items in the `TabStates` collection, and pass the modified state back with `SetState`.
 
 ## See Also
 

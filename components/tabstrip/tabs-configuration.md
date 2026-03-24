@@ -103,11 +103,11 @@ The `Disabled` parameter allows you to mark a tab as disabled, so the user canno
 
 ## Closeable
 
-Set the `Closeable` parameter to `true` to render a close button on the tab. Users can also close the tab through a context menu action. Closing a tab sets its `Visible` parameter to `false`, which hides it from the tab list.
+Set the `Closeable` parameter to `true` to render a close button in the tab. Users can also close the tab through a context menu action. Closing a tab sets its `Visible` parameter to `false`, which hides it from the tab list.
 
 The `VisibleChanged` event fires when the tab is closed. Use this event to update your data or to intercept the close action—for example, to show a confirmation dialog before the tab is hidden.
 
->caption TabStrip with closeable tabs
+> To show a confirmation dialog before closing a tab, use `VisibleChanged` to intercept the close request. Update the `Visible` parameter only if the user confirms the action.
 
 ````RAZOR
 <TelerikTabStrip>
@@ -140,8 +140,6 @@ The `VisibleChanged` event fires when the tab is closed. Use this event to updat
 }
 ````
 
-> To show a confirmation dialog before closing a tab, use `VisibleChanged` to intercept the close request. Update the `Visible` parameter only if the user confirms the action.
-
 ## Pinnable and Pinned
 
 The `Pinnable` parameter specifies whether users can pin a tab. Pinned tabs are fixed to the start of the tab list and cannot be mixed with unpinned tabs during drag-and-drop [reordering](slug:tabstrip-tab-reorder).
@@ -154,14 +152,12 @@ Use the `Pinned` parameter to set the initial pinned state of a tab. Pair it wit
 <TelerikTabStrip EnableTabReorder="true">
     <TabStripTab Title="Alpha"
                  Pinnable="true"
-                 Pinned="@AlphaPinned"
-                 PinnedChanged="@( (bool newPinned) => AlphaPinned = newPinned )">
+                 @bind-Pinned="@AlphaPinned">
         Alpha tab content.
     </TabStripTab>
     <TabStripTab Title="Beta"
                  Pinnable="true"
-                 Pinned="@BetaPinned"
-                 PinnedChanged="@( (bool newPinned) => BetaPinned = newPinned )">
+                 @bind-Pinned="@BetaPinned">
         Beta tab content.
     </TabStripTab>
     <TabStripTab Title="Gamma">
