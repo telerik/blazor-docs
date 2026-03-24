@@ -14,7 +14,7 @@ components: ["numerictextbox"]
 
 To display a currency value without decimal places in the NumericTextBox, set the Format parameter to "C0" instead of "C".
 
-## Description
+## Why Decimals Are Ignored?
 
 When using the [NumericTextBox](slug:components/numerictextbox/overview) with a currency format, setting the `Decimals` parameter to 0 does not prevent decimal places from being displayed. This occurs because the `Format="C"` parameter, which specifies currency formatting, overrides the `Decimals` parameter by adding two decimal places by default, according to the local currency settings (e.g., £).
 
@@ -23,7 +23,7 @@ This KB article also answers the following questions:
 - How to use the Format parameter to control decimal places in NumericTextBox?
 - What is the effect of the Decimals parameter in NumericTextBox when using currency format?
 
-## Solution
+## Use C0 Format
 
 To display a currency value without decimal places in the NumericTextBox while using the currency format (`C`), set the `Format` parameter to `"C0"`. This explicitly sets the number of decimal places to zero in the formatted currency value.
 
