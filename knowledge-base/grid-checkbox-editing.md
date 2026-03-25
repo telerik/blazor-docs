@@ -178,7 +178,12 @@ This KB article answers the following questions:
 
 ## Notes
 
-The [built-in Grid editing](slug:grid-editing-overview) creates a [copy of the original data item](slug:grid-editing-overview#item-instances) while a row is in edit mode. As a result, CheckBox value changes in the non-templated column above are applied to the template columns *after* the `OnUpdate` handler executes.
+The above custom editing mechanism can be used for all data types like `string`, `int`, `double`, `decimal`, `DateTime`, `enum`, and so on. However, it also avoids the standard Grid editing feature, which causes the following side effects and limitations:
+
+* The [Grid `OnEdit` and `OnUpdate` events](slug:grid-editing-overview#events) does not fire when editing in a Grid column `<Template>`.
+* The [Grid `OnCancel` event](slug:grid-editing-overview#events) does not fire either. The Grid does not create a [copy of the original data item](slug:grid-editing-overview#item-instances), so users cannot revert their changes.
+* If the Grid displays custom edit cells next to standard edit cells, then the built-in [Grid keyboard navigation (tabbing)](slug:grid-keyboard-navigation) across these two cell types does not work.
+* Value changes in standard edit cells are applied to template columns that are bound to the same model property *after* the `OnUpdate` handler executes. This is because the [built-in Grid editing](slug:grid-editing-overview) creates a [copy of the original data item](slug:grid-editing-overview#item-instances) while a row is in edit mode.
 
 ## See Also
 
