@@ -22,7 +22,7 @@ ticketid: 1708525
 
 ## Description
 
-I want to make the [ListBox](listbox-overview) read-only. I am looking for a solution that doesn't allow users to modify the selected items or interact with the toolbar.
+I want to make the [ListBox](slug:listbox-overview) read-only. I am looking for a solution that doesn't allow users to modify the selected items or interact with the toolbar.
 
 ## Solution
 
@@ -34,7 +34,7 @@ To achieve a read-only effect in the TelerikListBox, follow these steps:
 
 Here is an example:
 
-````Razor
+````RAZOR
 <TelerikListBox Data="@ListBoxStrings"
                 SelectedItems="@ListBoxSelectedStrings"
                 SelectedItemsChanged="@((IEnumerable<string> list) => ListBoxSelectedStringsHandler(list))"
@@ -50,7 +50,8 @@ Here is an example:
 
     private void ListBoxSelectedStringsHandler(IEnumerable<string> list)
     {
-        //keep it empty
+        // You can execute custom logic here, but do not update ListBoxSelectedStrings
+        // to prevent the user from changing the selection.
     }
 
     protected override void OnInitialized()
@@ -59,6 +60,8 @@ Here is an example:
         {
             ListBoxStrings.Add($"String {i}");
         }
+
+        ListBoxSelectedStrings = new List<string> { "String 2", "String 5" };
     }
 }
 ````
