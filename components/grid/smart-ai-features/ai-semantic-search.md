@@ -34,7 +34,7 @@ You must implement the semantic search logic yourself, for example, by integrati
 
     Add the `GridToolBarSmartBoxTool` to your Grid toolbar and configure the semantic search settings:
 
-    ````RAZOR
+    ````RAZOR.skip-repl
     <TelerikGrid Data="@GridData">
         <GridToolBar>
             <GridToolBarSmartBoxTool>
@@ -77,7 +77,7 @@ You must implement the semantic search logic yourself, for example, by integrati
     1. Process the AI service response
     1. Update the Grid data with the search results
 
-    ````C#
+    ````C#.skip-repl
     private async Task OnSemanticSearch(GridSmartBoxSemanticSearchEventArgs args)
     {
         string searchQuery = args.Text;
