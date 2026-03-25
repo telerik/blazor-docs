@@ -6,6 +6,7 @@ slug: tabstrip-tabs-configuration
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 7
+tag: updated
 components: ["tabstrip"]
 ---
 # TabStrip Tabs Configuration

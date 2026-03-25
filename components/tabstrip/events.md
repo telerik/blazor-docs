@@ -6,6 +6,7 @@ slug: tabstrip-events
 tags: telerik, blazor, tabstrip, events
 published: True
 position: 20
+tag: updated
 components: ["tabstrip"]
 ---
 # TabStrip Events
