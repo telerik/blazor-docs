@@ -6,10 +6,11 @@ page_title: Search Grid Programmatically on Button Click
 slug: grid-kb-search-button-click
 position: 
 tags: grid, search, gridsearchbox
-ticketid: 1558540
+ticketid: 1707870, 1558540
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,19 +22,19 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 I am using the Grid SearchBox, but I don't want it to search for every typed letter. I would like a button next to the search textbox set the search filter after the button is clicked.
 
-
 ## Solution
 
 1. [Bind the Grid with an OnRead event handler](slug:components/grid/manual-operations).
-1. Replace the [**GridSearchBox**](slug:grid-searchbox) with a [TextBox](slug:components/textbox/overview) and a [Button](slug:components/button/overview) with an [OnClick event handler](slug:button-events).
-1. Optionally, handle the [TextBox `OnChange` event](slug:components/textbox/events) too. This will allow searching on textbox blur and Enter keypress.
+1. Replace the [**GridSearchBox**](slug:grid-searchbox) with a [TextBox](slug:components/textbox/overview) and a [Button](slug:components/button/overview) with an [`OnClick` event handler](slug:button-events).
 1. In the click/change handler, build a [`CompositeFilterDescriptor`](slug:Telerik.DataSource.CompositeFilterDescriptor) with a `LogicalOperator` of `Or`. Populate its `FilterDescriptors` collection with filters for all searchable Grid model fields.
 1. [Add the composite filter descriptor to the Grid State to search programmatically](slug:grid-state#setstateasync-examples).
+1. (optional) Handle the [TextBox `OnChange` event](slug:components/textbox/events) too. This will allow searching on textbox blur and Enter keypress.
+1. (optional) Wrap the search textbox in a `<div class="k-toolbar-item">` to enable the built-in Grid ToolBar keyboard navigation and achieve the same behavior as with the Telerik `GridSearchBox`.
+1. (optional) Handle the `@onkeyup` event of the textbox wrapper `div` to clear the search value, similar to the Telerik `GridSearchBox`.
 
 Note the [difference between searching and filtering in the Grid state](slug:grid-state#information-in-the-grid-state). Filtering affects the Grid's filtering UI (row or menu), while searching does not.
 
@@ -46,12 +47,21 @@ Also see the [Filter Descriptors documentation](slug:components/grid/filtering#f
 @using Telerik.DataSource.Extensions
 
 <TelerikGrid TItem="@GridItem"
-             OnRead="@GridReadHandler"
+             OnRead="@OnGridRead"
              Pageable="true"
              PageSize="5"
              @ref="@GridRef">
     <GridToolBarTemplate>
-        <TelerikTextBox @bind-Value="@SearchValue" Width="200px" OnChange="@SearchGrid" />
+        <div class="k-toolbar-item" @onkeyup="@OnTextBoxKeyUp">
+            <TelerikTextBox @bind-Value="@SearchValue"
+                            Class="k-searchbox"
+                            OnChange="@SearchGrid"
+                            Width="180px">
+                <TextBoxPrefixTemplate>
+                    <TelerikSvgIcon Icon="@SvgIcon.Search" />
+                </TextBoxPrefixTemplate>
+            </TelerikTextBox>
+        </div>
         <TelerikButton OnClick="@SearchGrid" Icon="@SvgIcon.Search">Search Grid</TelerikButton>
         <TelerikButton OnClick="@ClearSearch" Icon="@SvgIcon.Cancel">Clear Search</TelerikButton>
     </GridToolBarTemplate>
@@ -62,20 +72,39 @@ Also see the [Filter Descriptors documentation](slug:components/grid/filtering#f
 </TelerikGrid>
 
 @code {
-    List<GridItem> GridData { get; set; } = new List<GridItem>();
-    TelerikGrid<GridItem> GridRef { get; set; }
+    private List<GridItem> GridData { get; set; } = new List<GridItem>();
+    private TelerikGrid<GridItem>? GridRef;
 
-    string SearchValue { get; set; }
+    private string SearchValue { get; set; } = string.Empty;
 
-    async Task SearchGrid()
+    private async Task SearchGrid()
     {
-        var state = GridRef.GetState();
+        if (SearchValue == string.Empty)
+        {
+            await ClearSearch();
+            return;
+        }
 
-        var cfd = new CompositeFilterDescriptor();
-        cfd.LogicalOperator = FilterCompositionLogicalOperator.Or;
-        cfd.FilterDescriptors = new FilterDescriptorCollection();
+        GridState<GridItem> state = GridRef!.GetState();
 
-        // add one FilterDescriptor for each string column to search in
+        CompositeFilterDescriptor? oldCfd = state.SearchFilter as CompositeFilterDescriptor;
+        if (oldCfd is not null)
+        {
+            FilterDescriptor? oldFd = oldCfd.FilterDescriptors.FirstOrDefault() as FilterDescriptor;
+            if (oldFd?.Value?.ToString() == SearchValue)
+            {
+                // Avoid duplicate data requests for the same search value.
+                return;
+            }
+        }
+
+        CompositeFilterDescriptor cfd = new()
+        {
+            LogicalOperator = FilterCompositionLogicalOperator.Or,
+            FilterDescriptors = new FilterDescriptorCollection()
+        };
+
+        // Add one FilterDescriptor for each string column to search in.
 
         cfd.FilterDescriptors.Add(new FilterDescriptor()
         {
@@ -92,21 +121,35 @@ Also see the [Filter Descriptors documentation](slug:components/grid/filtering#f
         });
 
         state.SearchFilter = cfd;
+
         await GridRef.SetStateAsync(state);
     }
 
-    async Task ClearSearch()
+    private async Task ClearSearch()
     {
-        var state = GridRef.GetState();
-        state.SearchFilter = null;
-        await GridRef.SetStateAsync(state);
+        SearchValue = string.Empty;
 
-        SearchValue = String.Empty;
+        GridState<GridItem> state = GridRef!.GetState();
+
+        if (state.SearchFilter is not null)
+        {
+            state.SearchFilter = null;
+            await GridRef.SetStateAsync(state);
+        }
     }
 
-    private async Task GridReadHandler(GridReadEventArgs args)
+    private void OnTextBoxKeyUp(KeyboardEventArgs args)
     {
-        var result = GridData.ToDataSourceResult(args.Request);
+        // Simulate GridSearchBox behavior - clear the textbox on Escape key press.
+        if (args.Key == "Escape")
+        {
+            SearchValue = string.Empty;
+        }
+    }
+
+    private async Task OnGridRead(GridReadEventArgs args)
+    {
+        DataSourceResult result = await GridData.ToDataSourceResultAsync(args.Request);
         args.Data = result.Data;
         args.Total = result.Total;
     }
@@ -128,8 +171,8 @@ Also see the [Filter Descriptors documentation](slug:components/grid/filtering#f
     public class GridItem
     {
         public int ID { get; set; }
-        public string Name1 { get; set; }
-        public string Name2 { get; set; }
+        public string Name1 { get; set; } = string.Empty;
+        public string Name2 { get; set; } = string.Empty;
     }
 }
 ````
