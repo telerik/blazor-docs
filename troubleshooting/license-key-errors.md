@@ -20,7 +20,7 @@ The build-time Telerik license validation executes as an MSBuild task. It output
 
 >caption Telerik licensing build-time default log
 
-````TXT.skip-repl
+````TEXT.skip-repl
   [Telerik and Kendo UI Licensing]
         Your Telerik UI for Blazor subscription is active. Expiration in 68 days.
   [Telerik and Kendo UI Licensing]
@@ -68,7 +68,7 @@ The diagnostic log starts and ends with the phrase `"Resolve Telerik Products"`.
 
 >caption Telerik licensing build-time diagnostic log
 
-````TXT.skip-repl
+````TEXT.skip-repl
   Resolve Telerik Products.
 
     MSBuildProjectName=MyProjectName
