@@ -507,6 +507,56 @@ You can also use the `ColorField` property to define a field with the segments' 
 }
 ````
 
+The following example shows how to use the Chart `Height`, Series `Size`, and Legend `Height` to arrange a layout with a larger number of donut segments.
+
+>caption Customize Donut Chart element dimensions
+
+````RAZOR
+<TelerikChart Height="360px">
+    <ChartSeriesItems>
+        <ChartSeries Data="@ChartData"
+                     Type="@ChartSeriesType.Donut"
+                     Field="@nameof(ChartModel.Value)"
+                     CategoryField="@nameof(ChartModel.Name)"
+                     Size="40">
+            <ChartSeriesLabels Visible="true"
+                               Position="@ChartSeriesLabelsPosition.OutsideEnd"
+                               Template="chartSeriesLabelTemplate">
+            </ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartTitle Text="Donut Chart"></ChartTitle>
+
+    <ChartLegend Orientation="@ChartLegendOrientation.Vertical"
+                 Position="@ChartLegendPosition.Bottom"
+                 Height="60" />
+</TelerikChart>
+
+<script suppress-error="BL9992">
+    function chartSeriesLabelTemplate(context) {
+        return context.category + " - " + context.value;
+    }
+</script>
+
+@code {
+    public class ChartModel
+    {
+        public string Name { get; set; } = string.Empty;
+        public double Value { get; set; }
+        public bool ShowInLegend { get; set; } = true;
+    }
+
+    private List<ChartModel> ChartData { get; set; } = Enumerable.Range(1, 9).Select(x =>
+        new ChartModel
+        {
+            Name = $"Name {x}",
+            Value = Random.Shared.Next(1, 100)
+        }
+    ).ToList();
+}
+````
+
 ## See Also
 
   * [Live Demo: Donut Chart](https://demos.telerik.com/blazor-ui/chart/donut-chart)
