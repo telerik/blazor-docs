@@ -57,7 +57,7 @@ This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-st
 
 The Telerik AI Assistant depends on gRPC, which requires HTTP/2. If the client device does not support HTTP/2 or the protocol is disabled, the following exception occurs:
 
-````TXT.skip-repl
+````TEXT.skip-repl
 HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionExact while unable to establish HTTP/2 connection.
 ````
 
