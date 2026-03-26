@@ -73,7 +73,7 @@ telerik nuget config -h
 
 ### Manual Authentication
 
-Most Telerik CLI commands rely on authentication. If you are not [logged in the CLI](#log-in) before command execution, the web browser opens `https://identity.telerik.com` where you need to provide your Telerik account credentials. On successful authentication, the browser redirects to `https://login.telerik.com` and then to `localhost`. If this browser integration fails due to security or network settings, you can also authenticate manually. In this case, use the `--manual` option, which is available for the following Telerik CLI commands:
+Most Telerik CLI commands rely on authentication. If you are not [logged in the CLI](#log-in) before command execution, the web browser opens `https://identity.telerik.com` where you need to provide your Telerik account credentials. On successful authentication, the browser redirects to `https://login.telerik.com` and then to `localhost`. If this browser integration fails due to security or network settings, you can also authenticate manually. In this case, use the `--no-browser` option, which is available for the following Telerik CLI commands:
 
 * `login`
 * `license get-key`
@@ -82,14 +82,14 @@ Most Telerik CLI commands rely on authentication. If you are not [logged in the 
 >caption Using Telerik CLI commands with manual authentication
 
 ````SH.skip-repl
-telerik login --manual
+telerik login --no-browser
 
-telerik license get-key --manual
+telerik license get-key --no-browser
 ````
 
 In manual mode, the CLI outputs a link to `https://identity.telerik.com` for you to open in a browser. On successful authentication, the browser redirects to `https://login.telerik.com`. Copy this URL, paste it in the CLI, and press `Enter`.
 
-The Telerik CLI can fall back to manual authentication even if the `--manual` option is not set. This happens if the automatic authentication takes longer than three minutes.
+The Telerik CLI can fall back to manual authentication even if the `--no-browser` option is not set. This happens if the automatic authentication takes longer than three minutes.
 
 ### Command Output
 
@@ -178,7 +178,7 @@ By default, the `nuget config` command updates your [global `NuGet.Config` file]
 
 You can use the `nuget config` command with the following options:
 
-* `--scope project` and `--path` that points to the folder that contains the `NuGet.Config` file to modify.
+* `--scope project` and `--path` that points to the folder that contains the `NuGet.Config` file to modify. The default `--scope` value is `user`.
 * `--api-key` to provide an existing Telerik NuGet API key inline, otherwise the CLI generates a new one.
 * `--force` to overwrite any existing Telerik credentials in the `NuGet.Config` file.
 
@@ -212,6 +212,30 @@ You can also fine-tune the process with the following options:
 
 ````SH.skip-repl
 telerik mcp config blazor --ide visualstudio
+````
+
+## Set Up Telerik Environment
+
+The `setup` command performs multiple actions at once to configure your Telerik development environment:
+
+* [Log in](#log-in)
+* [Download license key](#get-license-key)
+* [Configure NuGet package source](#set-up-nuget-feed)
+* [Install MCP server(s)](#install-mcp-server)
+
+````SH.skip-repl
+telerik setup
+````
+
+You can use the `setup` command with the following options:
+
+* `--scope` and `--nuget-path` that determine if the Telerik NuGet feed is added to the global `NuGet.Config` file or to a project-specific file.
+* `--force` to overwrite any existing Telerik credentials in the `NuGet.Config` file.
+* `--interactive` to prompt the user at every step. Each prompt shows the default value in brackets and `Enter` accepts it. This option is enabled by default when the standard input is a CLI terminal and [`Console.IsInputRedirected` is `false`](https://learn.microsoft.com/en-us/dotnet/api/system.console.isinputredirected).
+* `--no-interactive` to run without prompting the user and rely on explicit inline options or defaults. This option is enabled by default when the standard input is redirected and [`Console.IsInputRedirected` is `true`](https://learn.microsoft.com/en-us/dotnet/api/system.console.isinputredirected). The option is recommended for automation and CI use.
+
+````SH.skip-repl
+telerik setup --nuget-path . --force --no-interactive
 ````
 
 ## See Also
