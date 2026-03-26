@@ -53,6 +53,16 @@ When using Telerik AI tools in Visual Studio, GitHub Copilot may:
 
 This is a [known issue](https://developercommunity.visualstudio.com/t/Copilot-stopped-working-after-latest-upd/10936456) in older Visual Studio versions that has been fixed in Visual Studio 2026 Insiders 18.3.0 (11426.168).
 
+## Unable to Establish HTTP/2 Connection
+
+The Telerik AI Assistant depends on gRPC, which requires HTTP/2. If the client device does not support HTTP/2 or the protocol is disabled, the following exception occurs:
+
+````TEXT.skip-repl
+HttpRequestException: Requesting HTTP version 2.0 with version policy RequestVersionExact while unable to establish HTTP/2 connection.
+````
+
+In this case, enable HTTP/2 on the client device and any related firewalls or proxy servers in the network.
+
 ## See Also
 
 * [Telerik UI for Blazor AI Tools Overview](slug:ai-overview)
