@@ -16,17 +16,124 @@ This page provides solutions for license key errors that you may encounter while
 
 ## Basics
 
-A Telerik license key error may occur in the following scenarios:
+The build-time Telerik license validation executes as an MSBuild task. It outputs information in the application build log that starts with `[Telerik and Kendo UI Licensing]` and looks like this:
+
+>caption Telerik licensing build-time default log
+
+````TXT.skip-repl
+  [Telerik and Kendo UI Licensing]
+        Your Telerik UI for Blazor subscription is active. Expiration in 68 days.
+  [Telerik and Kendo UI Licensing]
+        Your Telerik Document Processing Libraries subscription is active. Expiration in 68 days.
+````
+
+The Telerik license key validation can fail in the following scenarios:
 
 * The license key is missing or not set up correctly.
 * The license key is outdated or does not include the product version that you are using.
 * Your subscription license or trial has expired.
-* You have different conflicting license keys in the same environment. For example, using one global license key and one in the app. Or, using a license key file together with an environment variable in CI/CD environment.
-* Telerik UI for Blazor is used in the **Client** project of a WebAssembly app that uses pre-rendering. In such cases, you can briefly see a yellow banner in the browser, which says "[We couldn't verify your license key for Telerik UI for Blazor. Please see the build log for details and resolution steps](#we-couldn-t-verify-your-license-key-for-telerik-ui-for-blazor-yellow-banner)".
+* There are several different conflicting license keys in the same environment. For example, there is one global license key and one in the app. Or, there is a license key file together with an environment variable in CI/CD environment.
 
-Refer to the specific error messages and tips below.
+In the above cases, the application build log contains [error messages about the problem](#error-messages) that suggest how to proceed. It is also possible to [generate a more detailed log](#build-time-diagnostics) with additional diagnostic and troubleshooting information.
+
+The build-time Telerik license validation creates meta data that is later checked at runtime. If the runtime license verification fails, the application UI displays a banner with a message similar to "No license found" or "We couldn't verify your license key".
+
+If the build-time license validation succeeds, but the runtime validation fails, this suggests that Telerik UI for Blazor is used in a [Razor Class Library project (RCL) or in a project, which is not the main (startup) project](slug:installation-license-key#using-telerik-packages-in-referenced-projects) of the app. This includes cases when the Telerik components are used in the **Client** project of a Blazor Web App with **Auto** or **WebAssembly** render mode that uses pre-rendering.
+
+## Build-Time Diagnostics
+
+Add the optional `<TelerikLicensingVerbosity>` tag to your project file(s) for advanced diagnostic information about the build-time Telerik license validation process.
+
+>caption Enable diagnostic logging for the build-time Telerik license key validation
+
+````XML.skip-repl
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TelerikLicensingVerbosity>diagnostic</TelerikLicensingVerbosity>
+  </PropertyGroup>
+
+</Project>
+````
+
+When in diagnostic mode, the Telerik licensing MSBuild task outputs a more comprehensive log that includes:
+
+* All Telerik assemblies that are used in the project and their versions.
+* All folder locations and environment variables that were checked for a valid license key.
+* The licenses that are included in the license key.
+* The license verification result.
+* The total duration of the Telerik licensing MSBuild task.
+
+The diagnostic log starts and ends with the phrase `"Resolve Telerik Products"`. The log structure and content is similar to the one below.
+
+>caption Telerik licensing build-time diagnostic log
+
+````TXT.skip-repl
+  Resolve Telerik Products.
+
+    MSBuildProjectName=MyProjectName
+    ...
+  
+    PackageReferences
+    - Telerik.UI.for.Blazor *
+    - Telerik.Licensing *
+    ...
+    
+    ...
+  
+    Looking for Telerik product metadata in referenced assemblies
+        ...
+
+        Unique Products:
+        - "Telerik UI for Blazor" ...
+        - "Telerik Document Processing Libraries" ...
+        Found a total of 2 referenced Telerik products for net8.0
+  
+    Provision Licensing
+          Looking up license file...
+          - EnvironmentVariablePath: TELERIK_LICENSE_PATH (NotAvailable)
+          - EnvironmentVariable: TELERIK_LICENSE (NotAvailable)
+          - EnvironmentVariable: KENDO_UI_LICENSE (NotAvailable)
+          - RecursiveFilePath: /Users/MyUserName/MyProjectName/telerik-license.txt (NotAvailable)
+          - RecursiveFilePath: /Users/MyUserName/MyProjectName/kendo-ui-license.txt (NotAvailable)
+          ...
+          - RecursiveFilePath: /telerik-license.txt (NotAvailable)
+          - RecursiveFilePath: /kendo-ui-license.txt (NotAvailable)
+          - UserDirectory: /Users/MyUserName/.telerik/telerik-license.txt (LicenseFound)
+          - UserDirectory: /Users/MyUserName/.telerik/kendo-ui-license.txt (Skip)
+
+          LicenseKey
+          - AUD: a***.b****@c*******.com
+          - UsedId: ...
+          - LicenseId: ...
+          - IssuedAt: ...
+          - Licenses
+            0) Perpetual BLAZOR, expiration ..., type: 'perpetual'
+            1) Subscription BLAZOR, expiration ..., type: 'subscription'
+            2) Usage UserId: ..., LicenseId: ..., type: 'usage'
+
+    License Resolution
+          Messages
+            - License OK for "Telerik UI for Blazor" ...
+            - License OK for "Telerik Document Processing Libraries" ...
+
+          Licenses
+            - License OK for "Telerik UI for Blazor" ...
+            - License OK for "Telerik Document Processing Libraries" ...
+  
+  [Telerik and Kendo UI Licensing]
+        Telerik and Kendo UI License Key found at: /Users/MyUserName/.telerik/telerik-license.txt (UserDirectory)
+        License issued at 2026-03-12 to a*******@b*******.com.
+  [Telerik and Kendo UI Licensing]
+        Your Telerik UI for Blazor subscription is active. Expiration in 68 days.
+  [Telerik and Kendo UI Licensing]
+        Your Telerik Document Processing Libraries subscription is active. Expiration in 68 days.
+  Resolve Telerik Products. Done (00:00:00.1695430) for net8.0
+````
 
 ## Error Messages
+
+The following warnings may appear in the [default](#basics) or [diagnostic](#build-time-diagnostics) application build log.
 
 ### No Telerik or Kendo UI product references detected in project (TKL001)
 
@@ -74,11 +181,11 @@ This error applies to Subscription licenses. [Renew your subscription](https://w
 
 [Purchase a commercial license to continue using Telerik UI for Blazor](https://www.telerik.com/purchase/blazor-ui).
 
-### We couldn't verify your license key for Telerik UI for Blazor (yellow banner)
+### No license found for Telerik UI for Blazor (banner)
 
-This section assumes an existing valid license key, so that the problem is not any of the above.
+This section assumes an existing valid license key and a successful [build-time license validation](#basics), so that the problem is not any of the above.
 
-If you see a yellow warning banner in the web browser that says "**We couldn't verify your license key**", then refer to [Using Telerik Packages in Referenced Projects](slug:installation-license-key#using-telerik-packages-in-referenced-projects).
+If you see a warning Telerik license banner in the web browser, then refer to [Using Telerik Packages in Referenced Projects](slug:installation-license-key#using-telerik-packages-in-referenced-projects).
 
 ## See Also
 
