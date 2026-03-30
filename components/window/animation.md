@@ -47,28 +47,6 @@ The `WindowAnimationType` enumeration includes the following options:
 ## Example
 
 ````RAZOR
-<div class="k-d-flex k-align-items-stretch k-gap-5">
-    <div class="k-d-flex k-flex-col">
-        <label for="animation">Animation Type</label>
-        <TelerikDropDownList Data="@AnimationTypes"
-                             Value="@Animation"
-                             ValueChanged="@((WindowAnimationType animation) => ChangeAnimation(animation))"
-                             Width="130px"
-                             Id="animation" />
-    </div>
-
-    <div class="k-d-flex k-flex-col">
-        <label for="duration">Animation Duration</label>
-        <TelerikNumericTextBox @bind-Value="@Duration"
-                               Width="130px"
-                               Id="duration" />
-    </div>
-
-    <div class="k-align-self-flex-end">
-        <TelerikButton OnClick="@(() => Visible = !Visible)">@(Visible ? "Hide Window" : "Show Window")</TelerikButton>
-    </div>
-</div>
-
 <TelerikWindow @bind-Visible="@Visible"
                Height="300px"
                Width="300px"
@@ -76,19 +54,29 @@ The `WindowAnimationType` enumeration includes the following options:
                @bind-Left="@Left"
                AnimationType="@Animation"
                AnimationDuration="@Duration">
-    <WindowTitle>
-        Animations
-    </WindowTitle>
-    <WindowContent>
-        Current animation type: <strong>@Animation</strong>
-    </WindowContent>
+    <WindowTitle>Window Animations</WindowTitle>
+    <WindowContent>Animation type: <code>@Animation</code></WindowContent>
 </TelerikWindow>
+
+<p>Select animation type and duration:</p>
+
+<TelerikDropDownList Data="@AnimationTypes"
+                     Value="@Animation"
+                     ValueChanged="@((WindowAnimationType animation) => ChangeAnimation(animation))"
+                     Width="160px" />
+
+<TelerikNumericTextBox @bind-Value="@Duration"
+                       Width="120px" />
+
+<TelerikButton OnClick="@(() => Visible = !Visible)">Toggle Window</TelerikButton>
 
 @code {
     private bool Visible { get; set; }
     private int Duration { get; set; } = 300;
-    private string Top { get; set; } = "50%";
-    private string Left { get; set; } = "50%";
+
+     // Center the Window based on initial dimensions
+    private string Top { get; set; } = "calc(50% - 150px)";
+    private string Left { get; set; } = "calc(50% - 150px)";
 
     private List<WindowAnimationType>? AnimationTypes { get; set; }
     private WindowAnimationType Animation { get; set; } = WindowAnimationType.ZoomOut;

@@ -20,23 +20,23 @@ It is possible for users to close a modal Window by clicking on the modal backgr
 
 ````RAZOR
 <TelerikWindow Modal="true"
-               @bind-Visible="@isModalVisible"
-               CloseOnOverlayClick="true">
+               CloseOnOverlayClick="true"
+               @bind-Visible="@WindowVisible">
     <WindowTitle>
         Window Title
     </WindowTitle>
-    <WindowContent>
-        I am modal, so the page content behind me is not accessible to the user.
-    </WindowContent>
     <WindowActions>
         <WindowAction Name="Close" />
     </WindowActions>
+    <WindowContent>
+        I am modal, so the page content behind me is not accessible to the user.
+    </WindowContent>
 </TelerikWindow>
 
-<TelerikButton OnClick="@( _ => isModalVisible = true )">Open the window</TelerikButton>
+<TelerikButton OnClick="@(() => WindowVisible = true)">Open Window</TelerikButton>
 
 @code{
-    bool isModalVisible { get; set; } = true;
+    private bool WindowVisible { get; set; } = true;
 }
 ````
 
