@@ -24,7 +24,7 @@ This article explains the events available in the Telerik Window for Blazor:
 
 You can use the `WidthChanged` and `HeightChanged` events to get notifications when the user tries to resize the window. The events require the `Resizable` parameter of the Window to be `true`, which is by default.
 
->caption React to the user actions to resizing the window
+>caption Respond to the user actions when resizing the window
 
 ````RAZOR
 <TelerikWindow Height="@WindowHeight"
