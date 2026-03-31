@@ -1,50 +1,60 @@
 ---
 title: Templates
 page_title: SegmentedControl - Templates
-description: Templates in the SegmentedControl for Blazor.
+description: Use the ItemTemplate of the Blazor SegmentedControl to customize how each segment renders its content, including custom icons and text labels.
 slug: segmentedcontrol-templates
 tags: telerik,blazor,segmented,control,templates
 published: True
 position: 20
 components: ["segmentedcontrol"]
-tag: new
 ---
 
 # SegmentedControl Templates
 
-The SegmentedControl lets you customize the rendering of each item using an  `ItemTemplate`.
-
-* [Item Template](#item-template)
+The SegmentedControl lets you customize the rendering of each item using an [Item Template](#item-template).
 
 ## Item Template
 
-`<ItemTemplate>` allows you to control what is rendered inside each item button. The template receives a `context` argument that represents the current item from the `Data` collection.
+`<ItemTemplate>` allows you to control what is rendered inside each item button. The custom template content replaces the default item rendering (icon and text). The item remains a `<button>` HTML element regardless of the template content.
 
-The custom template content replaces the default item rendering (icon and text). The item remains a `<button>` HTML element regardless of the template content.
+The template receives a `context` argument that represents the current item from the `Data` collection.
 
->caption Use ItemTemplate to render a different icon per item
+>caption Use ItemTemplate to render item text with a conditional notification count badge
 
 ````RAZOR
-<TelerikSegmentedControl TItem="ViewModeItem"
-                         TValue="string"
-                         Data="@Items">
+<TelerikSegmentedControl Data="@Items"
+                         @bind-Value="@SelectedValue"
+                         TItem="SegmentItem"
+                         TValue="string">
     <ItemTemplate>
-        <TelerikSvgIcon Icon="@(context.Value == "gallery" ? SvgIcon.GridLayout : SvgIcon.ListUnordered)"></TelerikSvgIcon>
         <span>@context.Text</span>
+        @if (context.Count > 0)
+        {
+            <span style="margin-left: 0.4em; padding: 0 0.4em;
+                         background: var(--kendo-color-primary);
+                         color: var(--kendo-color-on-primary);
+                         border-radius: 9999px; font-size: 0.75em;">@context.Count</span>
+        }
     </ItemTemplate>
 </TelerikSegmentedControl>
 
+<p>Selected: @SelectedValue</p>
+
 @code {
-    private List<ViewModeItem> Items { get; set; } = new List<ViewModeItem>()
+    private string SelectedValue { get; set; } = "inbox";
+
+    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
     {
-        new ViewModeItem() { Text = "Gallery", Value = "gallery" },
-        new ViewModeItem() { Text = "List", Value = "list" },
+        new SegmentItem() { Text = "Inbox", Value = "inbox", Count = 4 },
+        new SegmentItem() { Text = "Drafts", Value = "drafts", Count = 1 },
+        new SegmentItem() { Text = "Sent", Value = "sent", Count = 0 },
     };
 
-    public class ViewModeItem
+    public class SegmentItem
     {
-        public string Text { get; set; }
-        public string Value { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+        public int Count { get; set; }
     }
 }
 ````

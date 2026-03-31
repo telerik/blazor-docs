@@ -1,18 +1,17 @@
 ---
 title: Appearance
 page_title: SegmentedControl Appearance
-description: Appearance and layout settings of the SegmentedControl for Blazor.
+description: Control the layout and size of the Blazor SegmentedControl using the LayoutMode and Size parameters to fit compact or full-width designs.
 slug: segmentedcontrol-appearance
 tags: telerik,blazor,segmented,control,appearance
 published: True
 position: 25
 components: ["segmentedcontrol"]
-tag: new
 ---
 
 # SegmentedControl Appearance
 
-You can control the appearance of the SegmentedControl by setting the following parameters:
+To control the appearance of the SegmentedControl, set the following parameters:
 
 * [LayoutMode](#layoutmode)
 * [Size](#size)
@@ -41,7 +40,6 @@ In `Stretch` mode:
 
 * The component fills the full width of its container.
 * All segments share the available width equally, regardless of their label length.
-* Each segment's width equals the container width divided by the number of segments.
 
 >caption Compact and Stretch layout modes
 
@@ -49,7 +47,7 @@ In `Stretch` mode:
 @using Telerik.Blazor.Components.SegmentedControl
 
 <h4>Compact (default)</h4>
-<TelerikSegmentedControl TItem="SegmentedItem"
+<TelerikSegmentedControl TItem="SegmentItem"
                          TValue="string"
                          Data="@Items"
                          @bind-Value="@SelectedCompact"
@@ -57,7 +55,7 @@ In `Stretch` mode:
 </TelerikSegmentedControl>
 
 <h4>Stretch</h4>
-<TelerikSegmentedControl TItem="SegmentedItem"
+<TelerikSegmentedControl TItem="SegmentItem"
                          TValue="string"
                          Data="@Items"
                          @bind-Value="@SelectedStretch"
@@ -68,14 +66,14 @@ In `Stretch` mode:
     private string SelectedCompact { get; set; }
     private string SelectedStretch { get; set; }
 
-    private List<SegmentedItem> Items { get; set; } = new List<SegmentedItem>()
+    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
     {
-        new SegmentedItem() { Text = "Search",  Value = "search" },
-        new SegmentedItem() { Text = "Filter",  Value = "filter" },
-        new SegmentedItem() { Text = "Sort",    Value = "sort" },
+        new SegmentItem() { Text = "Search",  Value = "search" },
+        new SegmentItem() { Text = "Filter",  Value = "filter" },
+        new SegmentItem() { Text = "Sort",    Value = "sort" },
     };
 
-    public class SegmentedItem
+    public class SegmentItem
     {
         public string Text { get; set; }
         public string Value { get; set; }
@@ -100,7 +98,7 @@ The `Size` parameter controls the padding of the Segmented Control items. Use th
 {
     <div style="margin-bottom: 1rem;">
         <span>Size: <strong>@size</strong></span>
-        <TelerikSegmentedControl TItem="SegmentedItem"
+        <TelerikSegmentedControl TItem="SegmentItem"
                                  TValue="string"
                                  Data="@Items"
                                  Size="@size">
@@ -116,14 +114,14 @@ The `Size` parameter controls the padding of the Segmented Control items. Use th
         Telerik.Blazor.ThemeConstants.Button.Size.Large,
     };
 
-    private List<SegmentedItem> Items { get; set; } = new List<SegmentedItem>()
+    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
     {
-        new SegmentedItem() { Text = "Search",  Value = "search" },
-        new SegmentedItem() { Text = "Filter",  Value = "filter" },
-        new SegmentedItem() { Text = "Sort",    Value = "sort" },
+        new SegmentItem() { Text = "Search",  Value = "search" },
+        new SegmentItem() { Text = "Filter",  Value = "filter" },
+        new SegmentItem() { Text = "Sort",    Value = "sort" },
     };
 
-    public class SegmentedItem
+    public class SegmentItem
     {
         public string Text { get; set; }
         public string Value { get; set; }

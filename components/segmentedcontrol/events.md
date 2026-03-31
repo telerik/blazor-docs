@@ -1,35 +1,30 @@
 ---
 title: Events
 page_title: SegmentedControl - Events
-description: Events of the SegmentedControl for Blazor.
+description: Explore the ValueChanged event of the Telerik Blazor SegmentedControl component, which fires when the user selects a different item.
 slug: segmentedcontrol-events
 tags: telerik,blazor,segmented,control,events
 published: True
 position: 30
 components: ["segmentedcontrol"]
-tag: new
 ---
 
 # SegmentedControl Events
 
-This article describes the events of the Telerik SegmentedControl for Blazor:
-
-* [ValueChanged](#valuechanged)
+This article describes the ValueChanged event of the Telerik SegmentedControl for Blazor.
 
 ## ValueChanged
 
-The `ValueChanged` event fires when the user clicks an item and the selection changes. The event handler receives the new value as its argument.
+The `ValueChanged` event fires when the user clicks an item and the selection changes. The event handler receives the new value as its argument. The application must update the Value parameter in the handler.
 
 Use `ValueChanged` together with `Value` for one-way binding, or use `@bind-Value` for two-way binding.
 
 >caption Handle the SegmentedControl ValueChanged event
 
 ````RAZOR
-<TelerikSegmentedControl TItem="SegmentedItem"
-                         TValue="string"
-                         Data="@Items"
+<TelerikSegmentedControl Data="@Items"
                          Value="@SelectedValue"
-                         ValueChanged="@OnValueChanged">
+                         ValueChanged="@( (string newValue) => OnValueChanged(newValue) )">
 </TelerikSegmentedControl>
 
 <p>Selected value: @SelectedValue</p>
@@ -39,22 +34,23 @@ Use `ValueChanged` together with `Value` for one-way binding, or use `@bind-Valu
 
     private void OnValueChanged(string newValue)
     {
+        // update the value
         SelectedValue = newValue;
 
         Console.WriteLine($"Selected: {newValue}");
     }
 
-    private List<SegmentedItem> Items { get; set; } = new List<SegmentedItem>()
+    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
     {
-        new SegmentedItem() { Text = "Search", Value = "search" },
-        new SegmentedItem() { Text = "Filter", Value = "filter" },
-        new SegmentedItem() { Text = "Sort",   Value = "sort" },
+        new SegmentItem() { Text = "Search", Value = "search" },
+        new SegmentItem() { Text = "Filter", Value = "filter" },
+        new SegmentItem() { Text = "Sort", Value = "sort" },
     };
 
-    public class SegmentedItem
+    public class SegmentItem
     {
-        public string Text { get; set; }
-        public string Value { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
     }
 }
 ````

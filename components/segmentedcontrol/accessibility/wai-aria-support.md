@@ -5,7 +5,6 @@ description: "Get started with the Telerik UI for Blazor SegmentedControl and le
 tags: telerik,blazor,accessibility,wai-aria,wcag
 slug: segmentedcontrol-wai-aria-support 
 position: 50 
-tag: new
 ---
 
 # Blazor SegmentedControl Accessibility

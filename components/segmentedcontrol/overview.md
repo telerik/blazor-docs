@@ -1,25 +1,26 @@
 ---
 title: Overview
 page_title: SegmentedControl Overview
-description: Overview of the SegmentedControl for Blazor and its major features.
+description: Explore the Blazor SegmentedControl and its key features — data binding, icons, templates, layout modes, and keyboard navigation.
 slug: segmentedcontrol-overview
 tags: telerik,blazor,segmented,control,overview
 published: True
 position: 0
 components: ["segmentedcontrol"]
-tag: new
 ---
 
 # Blazor SegmentedControl Overview
 
 The <a href="https://www.telerik.com/blazor-ui/segmented-control" target="_blank">Blazor SegmentedControl component</a> displays a group of mutually exclusive options as a set of styled buttons. The user can select one option at a time. The component supports icons, disabled items, custom item templates, and two layout modes.
 
+>tip Compared to the ButtonGroup, the SegmentedControl is a data-bound component — it renders items from a `Data` collection and allows only single selection. The [ButtonGroup](slug:buttongroup-overview) is markup-based — you declare each button explicitly as a child component and can configure the component for single or multiple selection.
+
 ## Creating Blazor SegmentedControl
 
 1. Use the `<TelerikSegmentedControl>` tag.
 1. Set the `Data` parameter to a collection of model instances.
 1. Bind the selected value by using `@bind-Value` or a combination of `Value` and [`ValueChanged`](slug:segmentedcontrol-events#valuechanged).
-1. (Optional) Configure the `TextField`, `ValueField`, and `IconField` parameters to match your model property names.
+1. (Optional) Configure the `TextField`, `ValueField`, and `IconField` parameters to [match your model property names](#data-binding).
 
 >caption Basic SegmentedControl for Blazor
 
@@ -33,27 +34,58 @@ The <a href="https://www.telerik.com/blazor-ui/segmented-control" target="_blank
 @code {
     private string SelectedValue { get; set; } = "edit";
 
-    private List<SegmentedItem> Items { get; set; } = new List<SegmentedItem>()
+    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
     {
-        new SegmentedItem() { Text = "Edit",    Value = "edit",    Icon = nameof(SvgIcon.Pencil) },
-        new SegmentedItem() { Text = "Preview", Value = "preview", Icon = nameof(SvgIcon.Eye) },
-        new SegmentedItem() { Text = "Split",   Value = "split",   Icon = nameof(SvgIcon.Columns) },
+        new SegmentItem() { Text = "Edit", Value = "edit", Icon = SvgIcon.Pencil },
+        new SegmentItem() { Text = "Preview", Value = "preview", Icon = SvgIcon.Eye },
+        new SegmentItem() { Text = "Split", Value = "split", Icon = SvgIcon.Columns },
     };
 
-    public class SegmentedItem
+    public class SegmentItem
     {
-        public string Text { get; set; }
-        public string Value { get; set; }
-        public string Icon { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+        public object? Icon { get; set; }
     }
 }
 ````
 
 ## Data Binding
 
-The SegmentedControl requires a data source. Provide it through the `Data` parameter. Use the `TextField`, `ValueField`, `IconField`, `DisabledField`, `VisibleField`, `IconClassField`, and `TitleField` parameters to map the corresponding properties in your model.
+The SegmentedControl requires a data source. Provide it through the `Data` parameter. The component has features that map to properties in the model. The following class uses property names that will work automatically, with no additional SegmentedControl configuration:
 
-The default field names match common model conventions so that minimal configuration is required when your model uses the default names (`Text`, `Value`, `Icon`, `Disabled`, `Visible`, `IconClass`, `Title`).
+````C#.skip-repl
+public class SegmentItem
+{
+    public string Text { get; set; } = string.Empty;
+    public string Value { get; set; } = string.Empty;
+    public object? Icon { get; set; }
+    public string IconClass { get; set; } = string.Empty;
+    public string Title { get; set; } = string.Empty;
+    public bool Disabled { get; set; } = false;
+    public bool Visible { get; set; } = true;
+}
+````
+
+The above model properties have the following meaning for the SegmentedControl:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+<style>
+    style + table td {
+        vertical-align: top;
+    }
+</style>
+
+| Property | Description |
+| --- | --- |
+| `Text` | Sets the display label for the item. Controlled by the `TextField` parameter (default: `"Text"`). |
+| `Value` | Sets the value that `@bind-Value` uses when the item is selected. Controlled by the `ValueField` parameter (default: `"Value"`). |
+| `Icon` | Sets an optional icon for the item using an `ISvgIcon` or a font icon ligature. Controlled by the `IconField` parameter (default: `"Icon"`). |
+| `IconClass` | Sets a CSS class for a font icon to display in the item. Controlled by the `IconClassField` parameter (default: `"IconClass"`). |
+| `Title` | Sets the tooltip text shown on hover. Controlled by the `TitleField` parameter (default: `"Title"`). |
+| `Disabled` | When `true`, the item is rendered but cannot be selected or focused. Controlled by the `DisabledField` parameter (default: `"Disabled"`). |
+| `Visible` | When `false`, the item is not rendered. Controlled by the `VisibleField` parameter (default: `"Visible"`). |
 
 ## Templates
 
@@ -81,33 +113,15 @@ The following table lists the keyboard actions supported by the SegmentedControl
 
 Disabled items are skipped during keyboard navigation and cannot be activated. All interactive items have proper focus indicators for keyboard users.
 
-## SegmentedControl Parameters
+## SegmentedControl API
 
-The following table lists SegmentedControl parameters. Check the [SegmentedControl API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl) for a full list of properties, methods, and events.
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default&nbsp;Value | Description |
-|---|---|---|
-| `Data` | `IEnumerable<TItem>` | The collection of items rendered in the Segmented Control. |
-| `Value` | `TValue` | The currently selected value. Use with `ValueChanged` or `@bind-Value`. |
-| `ValueChanged` | `EventCallback<TValue>` | Fires when the user selects a different item. See [events](slug:segmentedcontrol-events). |
-| `LayoutMode` | `SegmentedControlLayoutMode` <br /> (`Compact`) | Controls how items are sized. `Compact` sizes items based on their content. `Stretch` makes items fill the available horizontal space. See [appearance](slug:segmentedcontrol-appearance). |
-| `Size` | `string` | Sets the padding of the control. Accepts values from the `ThemeConstants` size constants. |
-| `TextField` | `string` <br /> (`"Text"`) | The name of the model property that contains the display text for each item. |
-| `ValueField` | `string` <br /> (`"Value"`) | The name of the model property that contains the value for each item. |
-| `IconField` | `string` <br /> (`"Icon"`) | The name of the model property that contains the icon identifier for each item. |
-| `IconClassField` | `string` <br /> (`"IconClass"`) | The name of the model property that contains the CSS icon class for each item. |
-| `TitleField` | `string` <br /> (`"Title"`) | The name of the model property that contains the tooltip title for each item. |
-| `DisabledField` | `string` <br /> (`"Disabled"`) | The name of the model property that determines whether an item is disabled. |
-| `VisibleField` | `string` <br /> (`"Visible"`) | The name of the model property that determines whether an item is visible. |
-| `ItemTemplate` | `RenderFragment<TItem>` | A template for rendering custom content inside each item. See [templates](slug:segmentedcontrol-templates). |
+Get familiar with all SegmentedControl parameters, methods, events, and nested tags in the [DropDownTree API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl).
 
 ## Next Steps
 
-* [Handle SegmentedControl Events](slug:segmentedcontrol-events)
 * [Customize Item Rendering with Templates](slug:segmentedcontrol-templates)
 * [Configure the SegmentedControl Appearance](slug:segmentedcontrol-appearance)
+* [Handle SegmentedControl Events](slug:segmentedcontrol-events)
 
 ## See Also
 
