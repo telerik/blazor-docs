@@ -121,7 +121,7 @@ If you use the `OnClick` event on a built-in action, it will act as a custom act
 
 ## StateChanged
 
-You can use the `StateChanged` event to get notifications when the user tries to minimize, maximize or restore the window. You can effectively cancel the event by *not* propagating the new state to the variable the `State` property is bound to.
+Handle the `StateChanged` event to detect when the user tries to minimize, maximize or restore the window. You can effectively cancel the event by *not* updating the `State` parameter value in the handler.
 
 >caption React to the user actions to minimize, restore or maximize the window
 
