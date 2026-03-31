@@ -116,7 +116,7 @@ Window actions expose the `OnClick` event. You can use it to implement custom bu
 
 If you use the `OnClick` event on a built-in action, it will act as a custom action, and it will no longer perform the built-in feature (for example, close the window). If you want to invoke both a built-in action and custom logic from the same button, you have two options:
 
-* Use the [VisibleChanged](#visiblechanged) and/or the [StateChanged](#statechanged) events to execute the custom logic on the user actions.
+* Use the [`VisibleChanged`](#visiblechanged) and/or the [`StateChanged`](#statechanged) events to execute the custom logic on the user actions.
 * Or, use two-way binding for the corresponding Window parameter (e.g., `@bind-Visible`, or `@bind-State`) and toggle its variable from the custom `OnClick` handler.
 
 ## StateChanged
