@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["window"]
 ---
+
 # Window Size
 
 The Window offers different features to control its size:
@@ -15,7 +16,6 @@ The Window offers different features to control its size:
 * [Width and Height](#width-and-height), together with min/max parameters
 * [Maximize and Minimize](#maximize-and-minimize)
 * [User resizing](#resizing)
-
 
 ## Width and Height
 
@@ -37,16 +37,14 @@ If you set dimensions and the Window content does not fit, scrollbars will show.
 >caption Configure Window Width and Height, and min/max dimensions
 
 ````RAZOR
-<TelerikWindow @bind-Visible="@WindowIsVisible"
-               MinHeight="200px"
-               Height="300px"
+<TelerikWindow @bind-Height="@WindowHeight"
                MaxHeight="400px"
+               MinHeight="200px"
+               @bind-Width="@WindowWidth"
+               MaxWidth="800px"
                MinWidth="400px"
-               Width="600px"
-               MaxWidth="800px">
-    <WindowTitle>
-        Window Title
-    </WindowTitle>
+               @bind-Visible="@WindowVisible">
+    <WindowTitle>Window Title</WindowTitle>
     <WindowContent>
         <p>The default width is 600px. The user can resize from 400px to 800px.</p>
         <p>The default height is 300px. The user can resize from 200px to 400px.</p>
@@ -54,7 +52,10 @@ If you set dimensions and the Window content does not fit, scrollbars will show.
 </TelerikWindow>
 
 @code {
-    bool WindowIsVisible { get; set; } = true;
+    private bool WindowVisible { get; set; } = true;
+
+    private string WindowHeight { get; set; } = "300px";
+    private string WindowWidth { get; set; } = "600px";
 }
 ````
 
@@ -75,35 +76,33 @@ You can invoke those actions by setting the `State` parameter. It takes a member
 >caption Maximize, Minimize and Restore the Window programmatically
 
 ````RAZOR
-@* The user actions also change the state when two-way binding is used *@
-
-<select @bind=@State>
-    <option value=@WindowState.Default>Default</option>
-    <option value=@WindowState.Minimized>Minimized</option>
-    <option value=@WindowState.Maximized>Maximized</option>
-</select>
-
-<TelerikWindow @bind-State="@State" Width="500px" Height="300px" Visible="true"
-               Top="500px" Left="600px">
-    <WindowTitle>
-        <strong>Lorem ipsum</strong>
-    </WindowTitle>
+<TelerikWindow @bind-State="@WindowState"
+               Height="200px"
+               Width="400px"
+               Resizable="false"
+               Visible="true">
+    <WindowTitle>Window Title</WindowTitle>
     <WindowActions>
         <WindowAction Name="Minimize"></WindowAction>
         <WindowAction Name="Maximize"></WindowAction>
-        <WindowAction Name="Close"></WindowAction>
     </WindowActions>
     <WindowContent>
-        <select @bind=@State>
-            <option value=@WindowState.Default>Default</option>
-            <option value=@WindowState.Minimized>Minimized</option>
-            <option value=@WindowState.Maximized>Maximized</option>
+        <select @bind=@WindowState>
+            <option value="@WindowState.Default">Default</option>
+            <option value="@WindowState.Maximized">Maximized</option>
+            <option value="@WindowState.Minimized">Minimized</option>
         </select>
     </WindowContent>
 </TelerikWindow>
 
+<select @bind="@WindowState">
+    <option value="@WindowState.Default">Default</option>
+    <option value="@WindowState.Maximized">Maximized</option>
+    <option value="@WindowState.Minimized">Minimized</option>
+</select>
+
 @code {
-    public WindowState State { get; set; } = WindowState.Default;
+    private WindowState WindowState { get; set; } = WindowState.Default;
 }
 ````
 
@@ -119,31 +118,30 @@ To disable resizing, set the `Resizable` parameter to `false`.
 >caption Window Resizing
 
 ````RAZOR
-@* Toggle the resizable parameter through a button *@
-
-<TelerikButton OnClick="@(() => WindowResizable = !WindowResizable)">Toggle Resizable</TelerikButton>
-
 <TelerikWindow @bind-Visible="@WindowVisible"
+               @bind-Height="@WindowHeight"
+               @bind-Width="@WindowWidth"
                Resizable="@WindowResizable">
-    <WindowTitle>
-        <strong>Lorem ipsum</strong>
-    </WindowTitle>
+    <WindowTitle>Window Title</WindowTitle>
     <WindowActions>
         <WindowAction Name="Minimize"></WindowAction>
         <WindowAction Name="Maximize"></WindowAction>
         <WindowAction Name="Close"></WindowAction>
     </WindowActions>
     <WindowContent>
-        This is my window <strong>popup</strong> content.
+        <TelerikButton OnClick="@(() => WindowResizable = !WindowResizable)">Toggle Resizable</TelerikButton>
     </WindowContent>
 </TelerikWindow>
 
+<TelerikButton OnClick="@(() => WindowVisible = !WindowVisible)">Toggle Visible</TelerikButton>
+
 @code {
-    public bool WindowResizable { get; set; } = true;
-    public bool WindowVisible { get; set; } = true;
+    private string WindowHeight { get; set; } = "200px";
+    private string WindowWidth { get; set; } = "400px";
+    private bool WindowResizable { get; set; } = true;
+    private bool WindowVisible { get; set; } = true;
 }
 ````
-
 
 ## See Also
 
