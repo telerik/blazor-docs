@@ -68,7 +68,7 @@ These two events fire when the user finishes [moving the window](slug:window-dra
 
 The values will be in pixels, in a `string` format, rounded to one decimal place.
 
-These events will also fire when the user maximizes the window because then its top and left coordinates become `0px`. You can capture this event through the [StateChanged](#statechanged) event that will fire afterwards.
+These events will also fire when the user maximizes the window because then its top and left coordinates become `0px`. You can capture this event through the [`StateChanged`](#statechanged) event that will fire afterwards.
 
 The `LeftChanged` event fires second, so if you intend to store locations in an application state, and you want to do this only once, you can do that in `LeftChanged`.
 
