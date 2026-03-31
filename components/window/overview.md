@@ -100,38 +100,27 @@ The Window methods are accessible through its reference.
 >caption Get a reference to the Window and use its Refresh method.
 
 ````RAZOR
-<TelerikButton OnClick="@OpenWindow">Open Window</TelerikButton>
+<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+               OnClick="@RefreshWindow">Refresh Window</TelerikButton>
 
-<TelerikWindow @ref="WindowRef" @bind-Visible="@WindowVisible">
+<TelerikWindow @ref="WindowRef"
+               Visible="true">
     <WindowTitle>
         Window Title
     </WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Close" />
-    </WindowActions>
     <WindowContent>
-        <p role="status">Current count: @CurrentCount</p>
-        <TelerikButton OnClick="IncrementCount">Increment Count</TelerikButton>
+        <p>The time is @DateTime.Now.ToString("HH:mm:ss.fff")</p>
     </WindowContent>
 </TelerikWindow>
 
 @code {
-    private TelerikWindow? WindowRef { get; set; }
+    private TelerikWindow? WindowRef;
 
-    private bool WindowVisible { get; set; }
+    private bool WindowVisible { get; set; } = true;
 
-    private int CurrentCount { get; set; }
-
-    private void IncrementCount()
+    private void RefreshWindow()
     {
-        CurrentCount++;
-
         WindowRef?.Refresh();
-    }
-
-    private void OpenWindow()
-    {
-        WindowVisible = true;
     }
 }
 ````

@@ -34,8 +34,6 @@ In this case, the Window will render inside the specified container and not as a
 <div id="window-container"
      style="position: relative; border: 1px solid red; margin: 20vh; height: 50vh; width: 50vw;">
 
-    <TelerikButton OnClick="@( () => WindowVisible = !WindowVisible )">Toggle Window</TelerikButton>
-
     <TelerikWindow ContainmentSelector="#window-container"
                    @bind-Width="@WindowWidth"
                    @bind-Visible="@WindowVisible">
@@ -49,6 +47,7 @@ In this case, the Window will render inside the specified container and not as a
         </WindowContent>
     </TelerikWindow>
 
+    <TelerikButton OnClick="@( () => WindowVisible = !WindowVisible )">Toggle Window</TelerikButton>
 </div>
 
 @code {
@@ -71,7 +70,7 @@ If the application is using special CSS positioning, margins, or other offsets o
 
  The Telerik Window is automatically centered when the `Top` and `Left` parameters are not set or are explicitly set to `string.Empty`. To see this behavior in action, refer to the [example](#example) below.
 
-## Example
+### Example
 
 >caption Use Top and Left to manage the Window position
 
@@ -97,9 +96,9 @@ If the application is using special CSS positioning, margins, or other offsets o
 </TelerikWindow>
 
 @code {
-    private TelerikWindow? WindowRef { get; set; }
+    private TelerikWindow? WindowRef;
     private string WindowLeft { get; set; } = "50px";
-    private string WindowTop { get; set; } = "50px";
+    private string WindowTop { get; set; } = "80px";
 
     private void CenterWindow()
     {

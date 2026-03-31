@@ -12,205 +12,55 @@ components: ["window"]
 
 This article explains the events available in the Telerik Window for Blazor:
 
-
-* [VisibleChanged](#visiblechanged)
-* [StateChanged](#statechanged)
-* [WidthChanged and HeightChanged](#widthchanged-and-heightchanged)
-* [Action Click](#action-click)
+* [HeightChanged and WidthChanged](#heightchanged-and-widthchanged)
 * [LeftChanged and TopChanged](#leftchanged-and-topchanged)
+* [Action OnClick](#action-onclick)
+* [StateChanged](#statechanged)
+* [VisibleChanged](#visiblechanged)
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async) 
 
+## HeightChanged and WidthChanged
 
-## VisibleChanged
+You can use the `WidthChanged` and `HeightChanged` events to get notifications when the user tries to resize the window. The events require the `Resizable` parameter of the Window to be `true`, which is by default.
 
-You can use the `VisibleChanged` event to get notifications when the user tries to close the window. You can effectively cancel the event by *not* propagating the new visibility state to the variable the `Visible` property is bound to. This is the way to cancel the event and keep the window open.
-
->caption React to the user closing the window
-
-````RAZOR
-@result
-
-<TelerikButton OnClick="@ToggleWindow">Toggle the Window</TelerikButton>
-
-<TelerikWindow Visible="@isVisible" VisibleChanged="@VisibleChangedHandler">
-    <WindowTitle>
-        <strong>The Title</strong>
-    </WindowTitle>
-    <WindowContent>
-        This is my window <strong>popup</strong> content.
-    </WindowContent>
-    <WindowActions>
-        <WindowAction Name="Close" />
-    </WindowActions>
-</TelerikWindow>
-
-@code {
-    bool isVisible { get; set; }
-    string result { get; set; }
-
-    void VisibleChangedHandler(bool currVisible)
-    {
-        isVisible = currVisible; // if you don't do this, the window won't close because of the user action
-
-        result = $"the window is now visible: {isVisible}";
-
-        Console.WriteLine("The user closed the window with the [x] button on its toolbar");
-    }
-
-    public void ToggleWindow()
-    {
-        isVisible = !isVisible;
-
-        result = $"the window is now visible: {isVisible}";
-    }
-}
-````
-
->caption Prevent the user from closing the window based on a condition
+>caption Respond to the user actions when resizing the window
 
 ````RAZOR
-@* Not propagating the visible value from the handler to the model can prevent the user from closing the window
-    Using the application code to explicitly set the visibility of the window will still close it as it will not fire the event*@
-
-<TelerikButton OnClick="@( _ => isVisible = !isVisible )">Toggle the Window</TelerikButton>
-
-<TelerikWindow Visible="@isVisible" VisibleChanged="@VisibleChangedHandler">
-    <WindowTitle>
-        <strong>The Title</strong>
-    </WindowTitle>
+<TelerikWindow Height="@WindowHeight"
+               HeightChanged="@WindowHeightChanged"
+               Width="@WindowWidth"
+               WidthChanged="@WindowWidthChanged"
+               Visible="true">
+    <WindowTitle>Window Title</WindowTitle>
     <WindowContent>
-        Try closing the window with the [x] button on its toolbar, then toggle the checkbox and try again.
-        <br />
-        <label>
-            The user can close the window with the [x] button:
-            <TelerikCheckBox @bind-Value="@isClosable" />
-        </label>
-    </WindowContent>
-    <WindowActions>
-        <WindowAction Name="Close" />
-    </WindowActions>
-</TelerikWindow>
-
-@code {
-    bool isVisible { get; set; } = true;
-    bool isClosable { get; set; }
-
-    void VisibleChangedHandler(bool currVisible)
-    {
-        if (isClosable)
-        {
-            isVisible = currVisible; // if you don't do this, the window won't close because of the user action
-        }
-        else
-        {
-            Console.WriteLine("The user tried to close the window but the code didn't let them");
-        }
-
-    }
-}
-````
-
-## StateChanged
-
-You can use the `StateChanged` event to get notifications when the user tries to minimize, maximize or restore the window. You can effectively cancel the event by *not* propagating the new state to the variable the `State` property is bound to.
-
->caption React to the user actions to minimize, restore or maximize the window
-
-````RAZOR
-@lastUserAction
-
-<select @bind=@State>
-    <option value=@WindowState.Default>Default</option>
-    <option value=@WindowState.Minimized>Minimized</option>
-    <option value=@WindowState.Maximized>Maximized</option>
-</select>
-
-<TelerikWindow State="@State" StateChanged="@StateChangedHandler" Width="500px" Height="300px" Visible="true"
-               Top="500px" Left="600px">
-    <WindowTitle>
-        <strong>Lorem ipsum</strong>
-    </WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-        <WindowAction Name="Close"></WindowAction>
-    </WindowActions>
-    <WindowContent>
-        <select @bind=@State>
-            <option value=@WindowState.Default>Default</option>
-            <option value=@WindowState.Minimized>Minimized</option>
-            <option value=@WindowState.Maximized>Maximized</option>
-        </select>
+        Window Content
     </WindowContent>
 </TelerikWindow>
 
+@WindowResizeLog
+
 @code {
-    public WindowState State { get; set; } = WindowState.Default;
+    private bool WindowVisible { get; set; } = true;
 
-    string lastUserAction;
+    private string WindowHeight { get; set; } = "200px";
+    private string WindowWidth { get; set; } = "400px";
 
-    private void StateChangedHandler(WindowState windowState)
+    private string WindowResizeLog { get; set; } = string.Empty;
+
+    private void WindowWidthChanged(string newWidth)
     {
-        State = windowState; // if you don't do this, the window won't change because of the user action
+        WindowWidth = newWidth;
+        WindowResizeLog = $"New Width {WindowWidth} and Height {WindowHeight} at {DateTime.Now.ToString("HH:mm:ss")}";
+    }
 
-        lastUserAction = $"last user action was: {windowState}";
+    private void WindowHeightChanged(string newHeight)
+    {
+        WindowHeight = newHeight;
+        WindowResizeLog = $"New Width {WindowWidth} and Height {WindowHeight} at {DateTime.Now.ToString("HH:mm:ss")}";
     }
 }
 ````
-
-## WidthChanged and HeightChanged
-
-You can use the `WidthChanged` and `HeightChanged` events to get notifications when the user tries to resize the window. The events requires the `Resizable` parameter of the Window to be `true`.
-
->caption React to the user actions to resizing the window
-
-````RAZOR
-<TelerikWindow Visible="true"
-               Resizable="true"
-               WidthChanged="@WidthChangedHandler"
-               HeightChanged="@HeightChangedHandler">
-    <WindowTitle>
-        <strong>Lorem ipsum</strong>
-    </WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-        <WindowAction Name="Close"></WindowAction>
-    </WindowActions>
-    <WindowContent>
-        <strong>Resize Me!</strong>        
-    </WindowContent>
-</TelerikWindow>
-
-<br />
-
-@EventLog
-
-@code {
-    public string EventLog { get; set; }
-
-    public void WidthChangedHandler()
-    {
-        EventLog = "WidthChanged event fired at: " + DateTime.Now.ToString();
-    }
-
-    public void HeightChangedHandler()
-    {
-        EventLog = "HeightChanged event fired at: " + DateTime.Now.ToString();
-    }
-}
-````
-
-## Action Click
-
-Window actions expose the `OnClick` event. You can use it to implement custom buttons that invoke application logic from the Window's titlebar. See the [Window Actions](slug:components/window/actions) article for examples.
-
-If you use the `OnClick` event on a built-in action, it will act as a custom action and it will no longer perform the built-in feature (for example, close the window). If you want the invoke both a built-in action and custom logic from the same button, you have two options:
-
-* Use the [VisibleChanged](#visiblechanged) and/or the [StateChanged](#statechanged) events to execute the custom logic on the user actions.
-* Or, use two-way binding for the corresponding Window parameter (e.g., `@bind-Visible`, or `@bind-State`) and toggle its variable from the custom `OnClick` handler.
-
 
 ## LeftChanged and TopChanged
 
@@ -218,51 +68,130 @@ These two events fire when the user finishes [moving the window](slug:window-dra
 
 The values will be in pixels, in a `string` format, rounded to one decimal place.
 
-These events will also fire when the user maximizes the window because then its top and left coordinates become `0px`. You can capture this event through the [StateChanged](#statechanged) event that will fire afterwards.
+These events will also fire when the user maximizes the window because then its top and left coordinates become `0px`. You can capture this event through the [`StateChanged`](#statechanged) event that will fire afterwards.
 
 The `LeftChanged` event fires second, so if you intend to store locations in an application state, and you want to do this only once, you can do that in `LeftChanged`.
 
 >caption Handle LeftChanged and TopChanged
 
 ````RAZOR
-@* If you need to react to the user dragging the window you can handle the events. Otherwise you can simply use two-way binding *@
-
-<TelerikWindow Left="@TheLeft" Top="@TheTop" Draggable="true"
-               LeftChanged="@LeftChangedHandler" TopChanged="@TopChangedHandler"
+<TelerikWindow Top="@WindowTop"
+               TopChanged="@WindowTopChanged"
+               Left="@WindowLeft"
+               LeftChanged="@WindowLeftChanged"
                Visible="true">
-    <WindowTitle>Drag me!</WindowTitle>
-    <WindowContent>When using Left and Top, make sure to update them in the view-model.</WindowContent>
+    <WindowTitle>Window Title</WindowTitle>
+    <WindowContent>
+        Window Content
+    </WindowContent>
+</TelerikWindow>
+
+@WindowDragLog
+
+@code {
+    private bool WindowVisible { get; set; } = true;
+
+    private string WindowTop { get; set; } = string.Empty;
+    private string WindowLeft { get; set; } = string.Empty;
+
+    private string WindowDragLog { get; set; } = string.Empty;
+
+    private void WindowLeftChanged(string newLeft)
+    {
+        WindowLeft = newLeft;
+        WindowDragLog = $"New Left {WindowLeft} and Top {WindowTop} at {DateTime.Now.ToString("HH:mm:ss")}";
+    }
+
+    private void WindowTopChanged(string newTop)
+    {
+        WindowTop = newTop;
+        WindowDragLog = $"New Left {WindowLeft} and Top {WindowTop} at {DateTime.Now.ToString("HH:mm:ss")}";
+    }
+}
+````
+
+## Action OnClick
+
+Window actions expose the `OnClick` event. You can use it to implement custom buttons that invoke application logic from the Window's titlebar. See the [Window Actions](slug:components/window/actions) article for examples.
+
+If you use the `OnClick` event on a built-in action, it will act as a custom action, and it will no longer perform the built-in feature (for example, close the window). If you want to invoke both a built-in action and custom logic from the same button, you have two options:
+
+* Use the [`VisibleChanged`](#visiblechanged) and/or the [`StateChanged`](#statechanged) events to execute the custom logic on the user actions.
+* Or, use two-way binding for the corresponding Window parameter (e.g., `@bind-Visible`, or `@bind-State`) and toggle its variable from the custom `OnClick` handler.
+
+## StateChanged
+
+Handle the `StateChanged` event to detect when the user tries to minimize, maximize or restore the window. You can effectively cancel the event by *not* updating the `State` parameter value in the handler.
+
+>caption React to the user actions to minimize, restore or maximize the window
+
+````RAZOR
+<TelerikWindow State="@WindowState"
+               StateChanged="@WindowStateChanged"
+               Height="200px"
+               Width="400px"
+               Resizable="false"
+               Visible="true">
+    <WindowTitle>Window Title</WindowTitle>
     <WindowActions>
         <WindowAction Name="Minimize"></WindowAction>
         <WindowAction Name="Maximize"></WindowAction>
     </WindowActions>
+    <WindowContent>
+        Window State: <code>@WindowState</code>
+    </WindowContent>
 </TelerikWindow>
 
-@code{
-    string TheLeft { get; set; } = "50px";
-    string TheTop { get; set; } = "50px";
+@code {
+    private WindowState WindowState { get; set; } = WindowState.Default;
 
-    async Task LeftChangedHandler(string currLeft)
+    private void WindowStateChanged(WindowState newState)
     {
-        // if you don't do this, the event will be "cancelled" and the position will revert
-        TheLeft = currLeft;
-
-        Console.WriteLine("LEFT position changed to: " + TheLeft);
-
-        if(TheLeft == "0px" || TheTop == "0px")
-        {
-            Console.WriteLine("Maximized. You should use the StateChanged event to capture this");
-        }
-
-        // you could store left and top in the application state here if you wish to preserve it for the user
+        WindowState = newState;
     }
+}
+````
 
-    async Task TopChangedHandler(string currTop)
+## VisibleChanged
+
+You can use the `VisibleChanged` event to get notifications when the user tries to close the window. You can effectively cancel the event by *not* propagating the new visibility state to the variable the `Visible` property is bound to. This is the way to cancel the event and keep the window open.
+
+>caption Handle the Window VisibleChanged event
+
+````RAZOR
+<TelerikWindow Visible="@WindowVisible"
+               VisibleChanged="@WindowVisibleChanged">
+    <WindowTitle>
+        Window Title
+    </WindowTitle>
+    <WindowActions>
+        <WindowAction Name="Close" />
+    </WindowActions>
+    <WindowContent>
+        <p>Window Content</p>
+        <label>
+            <TelerikCheckBox @bind-Value="@WindowIsClosable" />
+            Users can close the Window with the [x] button:
+        </label>
+
+    </WindowContent>
+</TelerikWindow>
+
+<TelerikButton OnClick="@(() => WindowVisible = !WindowVisible)">Toggle Window</TelerikButton>
+
+<p>Window Visible: @WindowVisible</p>
+
+@code {
+    private bool WindowVisible { get; set; }
+
+    private bool WindowIsClosable { get; set; } = true;
+
+    private void WindowVisibleChanged(bool newVisible)
     {
-        // if you don't do this, the event will be "cancelled" and the position will revert
-        TheTop = currTop;
-
-        Console.WriteLine("TOP position changed to: " + TheTop);
+        if (WindowIsClosable)
+        {
+            WindowVisible = newVisible;
+        }
     }
 }
 ````

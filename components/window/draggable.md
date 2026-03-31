@@ -8,7 +8,8 @@ published: True
 position: 5
 components: ["window"]
 ---
-# Draggable Window
+
+# Window Dragging
 
 You can move the Window for Blazor by dragging its titlebar with the mouse or with a touch and hold gesture, then dragging on a touch screen.
 
@@ -17,31 +18,32 @@ You can move the Window for Blazor by dragging its titlebar with the mouse or wi
 >important If you set the `Left` and `Top` parameters, you must use two-way binding for them (or update their values in the corresponding [events](slug:window-events)), otherwise the old information in the view-model will reset the position of the window.
 
 ````RAZOR
-@* Movable windows *@
-
-<TelerikWindow Visible="true">
-    <WindowTitle><strong>Drag me!</strong></WindowTitle>
-    <WindowContent>You can drag me around easily.</WindowContent>
+<TelerikWindow Visible="true"
+               @bind-Left="@WindowLeft"
+               @bind-Top="@WindowTop">
+    <WindowTitle>Dragging <strong>Enabled</strong></WindowTitle>
+    <WindowContent>
+        Window Content
+    </WindowContent>
 </TelerikWindow>
 
-<TelerikWindow Visible="true" @bind-Left="@TheLeft" @bind-Top="@TheTop">
-    <WindowTitle>Drag me too!</WindowTitle>
-    <WindowContent>When using Left and Top, make sure to update them in the view-model.</WindowContent>
-</TelerikWindow>
-
-<TelerikWindow Visible="true" Draggable="false" Left="400px" Top="200px">
-    <WindowTitle><strong>Non-</strong> movable</WindowTitle>
-    <WindowContent>You are not allowed to drag me so you do not have to update my Top and Left.</WindowContent>
+<TelerikWindow Visible="true"
+               Draggable="false"
+               Left="100px"
+               Top="100px">
+    <WindowTitle>Dragging <strong>Disabled</strong></WindowTitle>
+    <WindowContent>
+        Window Content
+    </WindowContent>
 </TelerikWindow>
 
 @code{
-    string TheLeft { get; set; } = "50px";
-    string TheTop { get; set; } = "50px";
+    private string WindowLeft { get; set; }
+
+    private string WindowTop { get; set; }
 }
 ````
 
-
-
 ## See Also
 
-  * [Live Demo: Draggable Window](https://demos.telerik.com/blazor-ui/window/draggable)
+* [Live Demo: Draggable Window](https://demos.telerik.com/blazor-ui/window/draggable)
