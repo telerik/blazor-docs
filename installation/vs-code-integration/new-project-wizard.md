@@ -3,6 +3,7 @@ title: Create New Project
 page_title: Create New Project - Visual Studio Code Integration
 description: Learn how to create a new Telerik UI for Blazor project with our Visual Studio Code Templates.
 slug: getting-started-vs-code-integration-new-project
+previous_url: /getting-started/vs-code-integration/new-project-wizard
 position: 2
 ---
 
@@ -27,7 +28,7 @@ To create a Telerik-enabled Blazor project:
 
 ## Using the Wizard
 
-The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`](slug:getting-started/what-you-need).
+The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`](slug:installation-workflow-details).
 
 > Earlier versions of the wizard provided the **Admin**, **Dashboard**, **CRUD**, **Form**, and **Chart** templates which are now deprecated. You can find their source code in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
 
@@ -43,7 +44,7 @@ If necessary, the Telerik Visual Studio Code extension will notify you about a m
 
 #### Section 3: Select UI for Blazor Version
 
-Select the preferred UI for Blazor version. Make sure that your system has access to the specified version of the UI components. You can achieve this with the [Telerik NuGet feed](slug:installation/nuget).
+Select the preferred UI for Blazor version. Make sure that your system has access to the specified version of the UI components. You can achieve this with the [Telerik NuGet feed](slug:installation-nuget).
 
 #### Section 4: Select Hosting Model
 
@@ -53,7 +54,7 @@ The available target framework options are updated upon selecting the hosting mo
 
 #### Section 5: Choose How to Distribute the Client Assets
 
-Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) or load them from the [Telerik CDN](slug:common-features-cdn).
+Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets](slug:installation-workflow-details#css-theme-and-javascript-files) or load them from the [Telerik CDN](slug:common-features-cdn).
 
 #### Section 6: Configure Localization
 
@@ -82,4 +83,4 @@ After configuring the preferred settings, click the **Create Project** button. T
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug:getting-started/client-side)
 * [Getting Started with Web Apps](slug:getting-started/web-app)
-* [Workflow for Using the UI Components for Blazor](slug:getting-started/what-you-need)
+* [Workflow for Using the UI Components for Blazor](slug:installation-workflow-details)

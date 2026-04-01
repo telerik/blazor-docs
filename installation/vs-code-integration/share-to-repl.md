@@ -3,6 +3,7 @@ title:  Share to Telerik REPL for Blazor
 page_title: Visual Studio Code Share to Telerik REPL
 description: Learn how to share your Blazor code snippets in Telerik REPL for Blazor.
 slug: getting-started-vs-code-share-to-repl
+previous_url: /getting-started/vs-code-integration/share-to-repl
 position: 25
 ---
 

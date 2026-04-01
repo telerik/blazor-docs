@@ -6,14 +6,14 @@ slug: installation-msi
 previous_url: /installation/msi
 tags: get,started,installation,msi,p,wizard
 published: True
-position: 80
+position: 50
 ---
 
 # Automated Wizard Installer
 
 This article explains what the automated install wizard does for Telerik UI for Blazor components, and how to get it.
 
-The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed](slug:installation/nuget). However, you can also use a wizard installer, or a [ZIP archive](slug:installation-zip).
+The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed](slug:installation-nuget). However, you can also use a wizard installer, or a [ZIP archive](slug:installation-zip).
 
 There is an automated installer for:
 
@@ -23,7 +23,7 @@ There is an automated installer for:
 
 The automated installer provides the following:
 
-* The [necessary `.nupkg` files](slug:getting-started/what-you-need) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder under the installation folder.
+* The [necessary `.nupkg` files](slug:installation-workflow-details) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder under the installation folder.
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
 * The [document processing](slug:dpl-in-blazor) `.nupkg` files (in the `dpl` folder).
 * A shortcut to our [online demos](https://demos.telerik.com/blazor-ui).
@@ -75,6 +75,6 @@ There are several approaches you can try:
 
 ## See Also
 
-* [What You Need To Install](slug:getting-started/what-you-need)
+* [What You Need To Install](slug:installation-workflow-details)
 * [Getting Started with Client-side Blazor](slug:getting-started/client-side)
 * [Getting Started with Web Apps](slug:getting-started/web-app)

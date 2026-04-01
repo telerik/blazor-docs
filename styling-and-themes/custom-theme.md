@@ -91,7 +91,7 @@ Each <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/def
 
 ## Loading Custom Themes
 
-Custom themes are used in a [similar way as the built-in themes](slug:getting-started/what-you-need#css-theme). The notable differences are:
+Custom themes are used in a [similar way as the built-in themes](slug:installation-workflow-details#css-theme). The notable differences are:
 
 * The custom theme must reside in the `wwwroot` folder of the Blazor app or on a CDN provider.
 * You must recreate custom themes every time you [update the Telerik UI for Blazor version](slug:upgrade-tutorial).

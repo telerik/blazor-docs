@@ -182,4 +182,4 @@ To avoid accidental [license watermarks and notifications on your live site](slu
 ## See Also
 
 * [CI, CD, Build Server](slug:deployment-ci-cd-build-pc)
-* [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)
+* [Workflow Details for Telerik UI for Blazor](slug:installation-workflow-details)

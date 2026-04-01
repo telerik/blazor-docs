@@ -3,6 +3,7 @@ title: Creating New Projects
 page_title: Creating New Project - Visual Studio Integration
 description: Learn how to create a new Telerik UI for Blazor project with the supported Visual Studio templates.
 slug: getting-started-vs-integration-new-project
+previous_url: /getting-started/vs-integration/new-project-wizard
 position: 2
 ---
 
@@ -17,13 +18,13 @@ To create a new Telerik UI for Blazor application, use the **Create New Project*
 The **Create New Project** wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
-* [Telerik stylesheet](slug:getting-started/what-you-need#css-theme).
-* [JS Interop file](slug:getting-started/what-you-need#javascript-file).
+* [Telerik stylesheet](slug:installation-workflow-details#css-theme).
+* [JS Interop file](slug:installation-workflow-details#javascript-file).
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
-* [Required `@using` directives](slug:getting-started/what-you-need#namespaces) to the `~/_Imports.razor` file.
-* `TelerikLayout.razor` component containing the [`TelerikRootComponent`](slug:getting-started/what-you-need#telerikrootcomponent).
-* Registration of the [Telerik services](slug:getting-started/what-you-need#service).
+* [Required `@using` directives](slug:installation-workflow-details#namespaces) to the `~/_Imports.razor` file.
+* `TelerikLayout.razor` component containing the [`TelerikRootComponent`](slug:installation-workflow-details#telerikrootcomponent).
+* Registration of the [Telerik services](slug:installation-workflow-details#service).
 
 ## Getting the Wizard
 
@@ -69,15 +70,15 @@ In this screen, you can choose:
 * Target .NET framework
 * Hosting model&mdash;the options vary depending on the selected target framework.
 * Configure additional project settings like:
-   * Load the required Telerik UI stylesheet and JS Interop file as [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) or from the [Telerik CDN](slug:common-features-cdn). Note that this can affect the future [upgrade process of the theme](slug:upgrade-tutorial#upgrade-process).
+   * Load the required Telerik UI stylesheet and JS Interop file as [static assets](slug:installation-workflow-details#css-theme-and-javascript-files) or from the [Telerik CDN](slug:common-features-cdn). Note that this can affect the future [upgrade process of the theme](slug:upgrade-tutorial#upgrade-process).
    * Enable [localization](slug:globalization-localization).
    * Use [font icons](slug:common-features-icons) instead of the default SVG icons.
-* Location from where the application will get the Telerik UI for Blazor package&mdash;[remote NuGet feed](slug:installation/nuget) or local files.
+* Location from where the application will get the Telerik UI for Blazor package&mdash;[remote NuGet feed](slug:installation-nuget) or local files.
 * Telerik UI for Blazor version.
 
 ### Step 2: Select Project Template
 
-The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`](slug:getting-started/what-you-need).
+The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`](slug:installation-workflow-details).
 
 > The **Admin**, **Dashboard**, **CRUD**, **Form**, and **Chart** templates were deprecated. Their source code is available in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
 
@@ -95,4 +96,4 @@ If necessary, the Telerik Visual Studio extension will notify you about a missin
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug:getting-started/client-side)
 * [Getting Started with Web Apps](slug:getting-started/web-app)
-* [Workflow for Using the UI Components for Blazor](slug:getting-started/what-you-need)
+* [Workflow for Using the UI Components for Blazor](slug:installation-workflow-details)

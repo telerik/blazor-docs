@@ -5,7 +5,7 @@ description: Explore the different ways to add the Telerik private NuGet feed to
 slug: installation/nuget
 tags: get,started,installation,nuget,feed
 published: True
-position: 60
+position: 40
 ---
 
 # Telerik Private NuGet Source

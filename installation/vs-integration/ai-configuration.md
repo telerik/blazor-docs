@@ -3,6 +3,7 @@ title: AI Tools Configuration
 page_title: AI Tools Configuration in Visual Studio
 description: Learn how to configure Telerik AI-powered tools like the MCP server and GitHub Copilot extension for Telerik UI for Blazor development in Visual Studio.
 slug: getting-started-vs-integration-ai-configuration
+previous_url: /getting-started/vs-integration/ai-configuration
 position: 8
 ---
 

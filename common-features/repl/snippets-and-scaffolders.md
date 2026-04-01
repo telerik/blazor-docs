@@ -4,6 +4,7 @@ page_title: Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazo
 description: Explore how to use the available predefined editor Snippets and Scaffolders in Telerik REPL for Blazor
 slug: blazor-repl-snippets-scaffolders
 tags: telerik,blazor,repl,snippets,scaffolders
+previous_url: /getting-started/repl/snippets-and-scaffolders
 published: True
 position: 5
 ---

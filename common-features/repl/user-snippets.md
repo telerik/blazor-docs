@@ -5,6 +5,7 @@ description: Telerik REPL for Blazor allows you to login with your Telerik accou
 slug: blazor-repl-user-snippets
 tags: telerik,blazor,repl,login,user,account,save,snippet
 published: True
+previous_url: /getting-started/repl/user-snippets
 position: 3
 ---
 

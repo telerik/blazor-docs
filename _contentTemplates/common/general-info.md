@@ -3,7 +3,7 @@
 #end
 
 #ensure-nuget-packge-for-upgrade
-Make sure that you have a NuGet feed source with the version you want to upgrade to. This is usually the [Telerik NuGet Feed](slug:installation/nuget), but you can also use a local feed from [our MSI installer](slug:installation-msi) or [ZIP archive](slug:installation-zip).
+Make sure that you have a NuGet feed source with the version you want to upgrade to. This is usually the [Telerik NuGet Feed](slug:installation-nuget), but you can also use a local feed from [our MSI installer](slug:installation-msi) or [ZIP archive](slug:installation-zip).
 #end
 
 #date-format-per-culture

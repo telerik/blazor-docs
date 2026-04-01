@@ -3,6 +3,7 @@ title: Using the Code Scaffolders
 page_title: Quickly Adding Components with Code Scaffolders - Visual Studio Integration
 description: Learn how to add a new component page in Visual Studio (VS) with the available code scaffolder templates supported by Telerik UI for Blazor.
 slug: getting-started-vs-integration-scaffolders
+previous_url: /getting-started/vs-integration/scaffolders
 position: 10
 ---
 

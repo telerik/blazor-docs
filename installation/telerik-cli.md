@@ -6,7 +6,7 @@ slug: installation-cli
 tags: cli
 published: True
 tag: new
-position: 1
+position: 20
 ---
 
 # Telerik CLI
@@ -166,7 +166,7 @@ The `license get-key` command downloads your up-to-date Telerik license key and 
 
 ## Set Up NuGet Feed
 
-To [add the Telerik NuGet server to your package sources](slug:installation/nuget), use the `nuget config` command:
+To [add the Telerik NuGet server to your package sources](slug:installation-nuget), use the `nuget config` command:
 
 ````SH.skip-repl
 telerik nuget config
@@ -240,4 +240,4 @@ telerik setup --nuget-path . --force --no-interactive
 
 ## See Also
 
-* [Workflow Details](slug:getting-started/what-you-need)
+* [Workflow Details](slug:installation-workflow-details)

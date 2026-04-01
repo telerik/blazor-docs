@@ -4,6 +4,7 @@ page_title: Telerik REPL for Blazor Integration
 description: Telerik REPL for Blazor is integrated with other Telerik resources like demos and documentation as well as Visual Studio and Visual Studio Code.
 slug: blazor-repl-integration
 tags: telerik,blazor,repl,integration
+previous_url: /getting-started/repl/integration
 published: True
 position: 10
 ---

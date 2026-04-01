@@ -3,6 +3,7 @@ title: Converting to Telerik Projects
 page_title: Converting Existing Apps to Telerik Projects - Visual Studio Integration
 description: Learn how to convert your existing Blazor application and use Telerik UI for Blazor components in your project with a few clicks through the supported Visual Studio templates.
 slug: getting-started-vs-integration-convert-project
+previous_url: /getting-started/vs-integration/convert-project-wizard
 position: 3
 ---
 
@@ -15,13 +16,13 @@ To add the Telerik UI components to your existing Blazor application, use the Co
 The Convert Project Wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
-* [Telerik stylesheet](slug:getting-started/what-you-need#css-theme-and-javascript-files)
-* [JS Interop file](slug:getting-started/what-you-need#css-theme-and-javascript-files)
+* [Telerik stylesheet](slug:installation-workflow-details#css-theme-and-javascript-files)
+* [JS Interop file](slug:installation-workflow-details#css-theme-and-javascript-files)
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
-* [Required `@using` directives](slug:getting-started/what-you-need#namespaces) to the `~/_Imports.razor` file.
-* [`TelerikLayout.razor` component](slug:getting-started/what-you-need#telerikrootcomponent) at the root level of the DOM.
-* Registration of the [Telerik services](slug:getting-started/what-you-need#service).
+* [Required `@using` directives](slug:installation-workflow-details#namespaces) to the `~/_Imports.razor` file.
+* [`TelerikLayout.razor` component](slug:installation-workflow-details#telerikrootcomponent) at the root level of the DOM.
+* Registration of the [Telerik services](slug:installation-workflow-details#service).
 
 ## Getting the Wizard
 
@@ -72,7 +73,7 @@ This screen provides the ability to:
 * Download the latest available version.
 * Choose a particular version to add to the project.
 * Configure additional project settings like:
-    * Load the required Telerik UI stylesheet and JS Interop file as [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) or from the [Telerik CDN](slug:common-features-cdn).
+    * Load the required Telerik UI stylesheet and JS Interop file as [static assets](slug:installation-workflow-details#css-theme-and-javascript-files) or from the [Telerik CDN](slug:common-features-cdn).
     * Enable [localization](slug:globalization-localization).
     * Use [font icons](slug:common-features-icons) instead of the default SVG icons.
 
@@ -100,7 +101,7 @@ When converting a project, you may encounter the following most common issues:
 
 If you see an error screen in the wizard, make sure that you have selected the UI project in the Solution Explorer. For example, the Issue can occur in WebAssembly apps as they can include a Server and Shared projects, and only the Client project is the actual Blazor UI app that needs the Telerik components.
 
-Some specific project settings can also cause an exception during conversion. The fastest solution is to [manually configure the project for the Telerik components](slug:getting-started/what-you-need).
+Some specific project settings can also cause an exception during conversion. The fastest solution is to [manually configure the project for the Telerik components](slug:installation-workflow-details).
 
 ### Components Fail
 
@@ -131,4 +132,4 @@ The fix is to move the `TelerikLayout.razor` file to the original `Shared` folde
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug:getting-started/client-side)
 * [Getting Started with Web Apps](slug:getting-started/web-app)
-* [Workflow for Using the UI Components for Blazor](slug:getting-started/what-you-need)
+* [Workflow for Using the UI Components for Blazor](slug:installation-workflow-details)
