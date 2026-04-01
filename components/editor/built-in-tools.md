@@ -246,18 +246,19 @@ The [`FontFamily`](slug:Telerik.Blazor.Components.Editor.FontFamily) and [`FontS
 </TelerikEditor>
 
 @code {
-    private string EditorValue { get; set; }
+    private string EditorValue { get; set; } = string.Empty;
 
     private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
     {
         new EditorNS.FontFamily()
         {
-            DefaultText = "Font Family",
+            DefaultText = "Font",
             Data = new List<EditorDropDownListItem>()
             {
                 new EditorDropDownListItem("Georgia", "georgia"),
                 new EditorDropDownListItem("Lucida Console", "'lucida console'")
-            }
+            },
+            Width = "6em"
         },
         new EditorNS.FontSize()
         {
@@ -267,7 +268,9 @@ The [`FontFamily`](slug:Telerik.Blazor.Components.Editor.FontFamily) and [`FontS
                 new EditorDropDownListItem("Small", "12px"),
                 new EditorDropDownListItem("Medium", "16px"),
                 new EditorDropDownListItem("Large", "24px")
-            }
+            },
+            Width = "8em"
+
         }
     };
 }
