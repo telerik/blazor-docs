@@ -2,11 +2,11 @@
 title: Workflow Details
 page_title: Workflow Details for Using the Telerik UI for Blazor Components
 description: Learn about the packages and assets that you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
-slug: getting-started/what-you-need
-previous_url: /installation/what-you-need
-tags: get,started,installation,what,need,list
+slug: installation-workflow-details
+previous_url: /getting-started/what-you-need
+tags: installation
 published: True
-position: 25
+position: 10
 ---
 
 # Workflow Details for Using the Telerik UI for Blazor Components
@@ -77,7 +77,7 @@ Other Telerik packages that are hosted on `nuget.org` and are not required by Te
 
 You can get the private Telerik UI for Blazor packages in four ways:
 
-* [Telerik NuGet package source](slug:installation/nuget). This is usually the most convenient option, and your NuGet client will notify you about new component versions. The other options below can be useful as an emergency alternative, or in environments with restricted Internet connection.
+* [Telerik NuGet package source](slug:installation-nuget). This is usually the most convenient option, and your NuGet client will notify you about new component versions. The other options below can be useful as an emergency alternative, or in environments with restricted Internet connection.
 * [Automated installer](slug:installation-msi)
 * [ZIP archive](slug:installation-zip)
 * As standalone `.nupkg` files. To use them, follow the instructions at [ZIP archive](slug:installation-zip), but download the `.nupkg` files instead.

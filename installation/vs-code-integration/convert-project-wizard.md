@@ -3,6 +3,7 @@ title: Convert to Telerik Project
 page_title: Convert to Telerik Project - Visual Studio Code Integration
 description: Learn how to convert your existing Blazor app to use Telerik components in it with a few clicks through our Visual Studio Code Templates.
 slug: getting-started-vs-code-integration-convert-project
+previous_url: /getting-started/vs-code-integration/convert-project-wizard
 position: 3
 ---
 

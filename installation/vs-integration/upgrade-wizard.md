@@ -3,6 +3,7 @@ title: Upgrading Projects
 page_title: Upgrade Project - Visual Studio Integration
 description: Learn how to upgrade a Telerik UI for Blazor project with our Visual Studio Extension.
 slug: getting-started-vs-integration-upgrade-project
+previous_url: /getting-started/vs-integration/upgrade-wizard
 position: 7
 ---
 
@@ -61,4 +62,4 @@ The **Finish** button will display a tooltip, indicating a page error when:
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug:getting-started/client-side)
 * [Getting Started with Web Apps](slug:getting-started/web-app)
-* [Workflow for Using the UI Components for Blazor](slug:getting-started/what-you-need)
+* [Workflow for Using the UI Components for Blazor](slug:installation-workflow-details)

@@ -12,7 +12,7 @@ position: 15
 
 This page provides information for common issues you may encounter while deploying applications with the Telerik UI for Blazor components.
 
->important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](slug:installation/nuget) or a [local feed](slug:installation-zip). See the [CI, CD, Build Server](slug:deployment-ci-cd-build-pc) article for more details on setting automation up.
+>important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](slug:installation-nuget) or a [local feed](slug:installation-zip). See the [CI, CD, Build Server](slug:deployment-ci-cd-build-pc) article for more details on setting automation up.
 
 @[template](/_contentTemplates/common/general-info.md#status-telerik-com)
 
@@ -70,7 +70,7 @@ namespace MyBlazorAppName
 }
 ````
 
-* On Linux (and often Docker), paths are case-sensitive. Make sure you have the correct casing when registering the styles and scripts. See the [CSS Theme and JavaScript Files](slug:getting-started/what-you-need#css-theme-and-javascript-files) section of the documentation.
+* On Linux (and often Docker), paths are case-sensitive. Make sure you have the correct casing when registering the styles and scripts. See the [CSS Theme and JavaScript Files](slug:installation-workflow-details#css-theme-and-javascript-files) section of the documentation.
 
     * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN](slug:common-features-cdn). This may be related to the static asset configurations from the previous points, however.
 
@@ -109,7 +109,7 @@ or
 
 `The remote certificate is invalid because of errors in the certificate chain: PartialChain`
 
-Such errors are related to the local networking security settings and you may need the assistance of your network or system administrators to resolve it. As a first step, make sure the [required Telerik NuGet domains are accessible](slug:installation/nuget#access-nuget-packages-behind-firewall).
+Such errors are related to the local networking security settings and you may need the assistance of your network or system administrators to resolve it. As a first step, make sure the [required Telerik NuGet domains are accessible](slug:installation-nuget#access-nuget-packages-behind-firewall).
 
 
 ## See Also

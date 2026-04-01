@@ -39,7 +39,7 @@ If you get such errors, the reason may be:
 
 You can verify if `telerik-blazor.js` is loaded successfully by inspecting the **Network** tab of your browser developer tools. The following list reveals some common causes for a missing JS Interop file. Most of the mentioned issues result in failing requests for non-Telerik static assets as well.
 
-* The application is missing references to the [required assets](slug:getting-started/what-you-need#css-theme-and-javascript-files).
+* The application is missing references to the [required assets](slug:installation-workflow-details#css-theme-and-javascript-files).
 * The request for `telerik-blazor.js` fails due to incorrect or incompatible values in:
     * `<base href="..." />` in `App.razor`
     * `launchUrl` and `applicationUrl` in `launchSettings.json`
@@ -47,14 +47,14 @@ You can verify if `telerik-blazor.js` is loaded successfully by inspecting the *
 * Static assests are enabled, but the `ASPNETCORE_ENVIRONMENT` variable is not set to `Development` in `launchSettings.json`. In such cases, you can load [assets from CDN](slug:common-features-cdn) or enable [static assets for non-`Development` environments](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files#static-files-in-non-development-environments).
 * The network setup blocks access to remote URLs like a CDN. In such cases, you have two options:
     * Ask your network administrators to allow the remote host.
-    * Load [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) from the NuGet package or from the `wwwroot` app folder.
+    * Load [static assets](slug:installation-workflow-details#css-theme-and-javascript-files) from the NuGet package or from the `wwwroot` app folder.
 * A problem occurs during deployment. See the [Deployment Troubleshooting](slug:deployment-troubleshooting) article for more details.
 
 ### Defer Attribute
 
 Sometimes, the JS Interop file is referenced correctly and returns successfully, but occasionally you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed.
 
-One solution is to remove the `defer` attribute of the `<script>` tag that registers `telerik-blazor.js`. On the other hand, `defer` improves the performance of your app by loading the script asynchronously. That's why a better option is to [keep the `defer` attribute and start the client-side Blazor framework manually](slug:getting-started/what-you-need#javascript-file).
+One solution is to remove the `defer` attribute of the `<script>` tag that registers `telerik-blazor.js`. On the other hand, `defer` improves the performance of your app by loading the script asynchronously. That's why a better option is to [keep the `defer` attribute and start the client-side Blazor framework manually](slug:installation-workflow-details#javascript-file).
 
 ### HTML Tags Order
 

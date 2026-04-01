@@ -3,6 +3,7 @@ title: Telerik UI for Blazor Code Scaffolders
 page_title: Telerik UI for Blazor Code Scaffolders - Visual Studio Code Integration
 description: Learn how to add a new component page in Visual Studio Code via code scaffolder templates.
 slug: getting-started-vs-code-integration-scaffolders
+previous_url: /getting-started/vs-code-integration/scaffolders
 position: 20
 ---
 

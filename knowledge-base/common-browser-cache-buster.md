@@ -64,7 +64,7 @@ You can use reflection to get the Telerik UI for Blazor version at runtime.
 
 1. Pick a type (class) from the Telerik UI for Blazor product. A good candidate is a component that exists in both old and new product versions, such as the [`TelerikRootComponent`](slug:rootcomponent-overview).
 1. Get the component type with `typeof(TelerikRootComponent)`. You may need to use `typeof(Telerik.Blazor.Components.TelerikRootComponent)` if:
-    * The [`Telerik.Blazor.Components` namespace is not registered in `_Imports.razor` as it should](slug:getting-started/what-you-need#namespaces).
+    * The [`Telerik.Blazor.Components` namespace is not registered in `_Imports.razor` as it should](slug:installation-workflow-details#namespaces).
     * The Telerik CSS and JS assets are placed in a `.cshtml` file instead of `App.razor`, for example, in legacy Blazor apps.
 1. Use the [`Assembly.GetName()` method](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.assembly.getname?view=net-8.0) and the [`AssemblyName.Version` property](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.assemblyname?view=net-8.0#properties) to extract the Telerik UI for Blazor version.
 
@@ -96,8 +96,8 @@ If the Telerik CSS theme and JavaScript file reside in the `index.html` file, yo
 
 ## Notes
 
-You can also [use a `defer` attribute to load the `telerik-blazor.js` file asynchronously](slug:getting-started/what-you-need#javascript-file) and improve the client-side app performance.
+You can also [use a `defer` attribute to load the `telerik-blazor.js` file asynchronously](slug:installation-workflow-details#javascript-file) and improve the client-side app performance.
 
 ## See Also
 
-* [Adding the Telerik CSS and JavaScript files to a Blazor app](slug:getting-started/what-you-need#css-theme-and-javascript-files)
+* [Adding the Telerik CSS and JavaScript files to a Blazor app](slug:installation-workflow-details#css-theme-and-javascript-files)

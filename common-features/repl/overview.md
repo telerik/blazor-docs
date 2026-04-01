@@ -7,7 +7,7 @@ tags: telerik,blazor,repl
 published: True
 tag: updated
 position: 1
-previous_url: /getting-started/repl
+previous_url: /getting-started/repl, /getting-started/repl/overview
 ---
 
 # Telerik REPL for Blazor Overview

@@ -5,7 +5,7 @@ description: Learn how to create and install a Telerik license key file, which i
 slug: installation-license-key
 tags: installation, license
 published: True
-position: 40
+position: 30
 ---
 
 # Telerik License Key
@@ -23,7 +23,7 @@ To install a license key, you must have a commercial or trial license for:
 
 If you are new to Telerik UI for Blazor, [sign up for a free trial](https://www.telerik.com/blazor-ui).
 
-The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:getting-started/what-you-need#nuget-packages). During project build, test and publish, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
+The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:installation-workflow-details#nuget-packages). During project build, test and publish, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
 
 Follow the steps below for [automatic](#automatic-installation) or [manual](#manual-installation) license key installation in your local development environment. Then, find out [how to use a Telerik license key during application deployment](slug:deployment-license-key).
 
@@ -37,7 +37,7 @@ To download and install your Telerik license key automatically, use either of th
 
 * [Telerik Control Panel](https://docs.telerik.com/controlpanel/introduction)&mdash;this tool downloads and installs different Telerik products on your machine.
 * [Telerik UI for Blazor Visual Studio extension](slug:getting-started-vs-integration-overview)&mdash;this tool adds or upgrades Telerik UI for Blazor in new or existing apps.
-* [Telerik CLI](slug:installation-cli)&mdash;this tool also allows you to quickly set up the [Telerik NuGet feed](slug:installation/nuget) and install the [Telerik Blazor MCP server](slug:ai-overview).
+* [Telerik CLI](slug:installation-cli)&mdash;this tool also allows you to quickly set up the [Telerik NuGet feed](slug:installation-nuget) and install the [Telerik Blazor MCP server](slug:ai-overview).
 
 The above tools download and install a license key for you and make it available for all projects that you develop on your local machine. The license key file and location is specified in the [Manual Installation](#manual-installation) section below.
 
@@ -174,10 +174,10 @@ No, versions up to **7.1.0** released prior to February 2025 do not require a li
 ## Next Steps
 
 * [Install License Key in CI/CD Environment](slug:deployment-license-key)
-* [Set Up the Telerik NuGet Feed](slug:installation/nuget)
+* [Set Up the Telerik NuGet Feed](slug:installation-nuget)
 
 ## See Also
 
 * [Troubleshoot License Key Errors](slug:troubleshooting-license-key-errors)
 * [Get Started with a Blazor Web App](slug:getting-started/web-app)
-* [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)
+* [Workflow Details for Telerik UI for Blazor](slug:installation-workflow-details)

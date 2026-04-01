@@ -3,6 +3,7 @@ title: Telerik Document Processing Libraries
 page_title: Telerik Document Processing Libraries
 description: Learn how to add a reference to the Telerik Document Processing packages to an existing Telerik UI for Blazor application using the Document Processing Libraries Wizard.
 slug: getting-started-vs-code-integration-dpl
+previous_url: /getting-started/vs-code-integration/document-processing-wizard
 position: 23
 ---
 

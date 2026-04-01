@@ -3,6 +3,7 @@ title: AI Tools Configuration
 page_title: AI Tools Configuration in VS Code
 description: Learn how to configure Telerik AI-powered tools like the MCP server and GitHub Copilot extension for Telerik UI for Blazor development in Visual Studio Code (VS Code).
 slug: getting-started-vs-code-integration-ai-configuration
+previous_url: /getting-started/vs-code-integration/ai-configuration
 position: 4
 ---
 

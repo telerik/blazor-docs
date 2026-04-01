@@ -3,6 +3,7 @@ title: Configuring Existing Telerik Projects
 page_title: Setting Up Existing Telerik Projects - Visual Studio Integration
 description: Learn how to configure your existing Telerik UI for Blazor application with a few clicks by using the Project Configuration Wizard supporting the Visual Studio (VS) extensions.
 slug: getting-started-vs-integration-configure-project
+previous_url: /getting-started/vs-integration/configure-project-wizard
 position: 4
 ---
 

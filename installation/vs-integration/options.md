@@ -3,6 +3,7 @@ title: Configuring the VS Extensions
 page_title: Configuring the VS Extensions - Visual Studio Integration
 description: Learn more about the available configurations that the Visual Studio Extension provides.
 slug: getting-started-vs-integration-configure-extension
+previous_url: /getting-started/vs-integration/options
 position: 8
 ---
 

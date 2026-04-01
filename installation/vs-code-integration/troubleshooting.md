@@ -3,6 +3,7 @@ title: Тroubleshooting
 page_title: Visual Studio Code Integration Overview
 description: Learn how to enhance your experience in developing web applications with Progress Telerik UI for Blazor.
 slug: getting-started-vs-code-integration-troubleshooting
+previous_url: /getting-started/vs-code-integration/troubleshooting
 position: 10
 ---
 

@@ -10,7 +10,7 @@ position: 10
 
 This article describes how to use token-based authentication for the Telerik NuGet feed. You will learn how to create and use NuGet API keys to restore Telerik NuGet packages in your Continuous Integration (CI) workflow.
 
-When you need to restore the [Telerik NuGet packages](slug:getting-started/what-you-need#nuget-packages) as part of your CI, using API Keys provides a secure way to authenticate. This method does not require you to provide your Telerik credentials anywhere in the CI workflow. An API key has a limited scope and can be used only with the Telerik NuGet server. If any of your API Keys is compromised, you can quickly delete it and create a new one.
+When you need to restore the [Telerik NuGet packages](slug:installation-workflow-details#nuget-packages) as part of your CI, using API Keys provides a secure way to authenticate. This method does not require you to provide your Telerik credentials anywhere in the CI workflow. An API key has a limited scope and can be used only with the Telerik NuGet server. If any of your API Keys is compromised, you can quickly delete it and create a new one.
 
 ## Generating API Keys
 
@@ -84,7 +84,7 @@ You can use the .NET CLI `add source` or `update source` commands to set the cre
 
 ## See Also
 
-* [Telerik NuGet Feed](slug:installation/nuget)
+* [Telerik NuGet Feed](slug:installation-nuget)
 * [CI, CD, Build Server Setup](slug:deployment-ci-cd-build-pc)
 * [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
 * [Announcing NuGet Keys](https://www.telerik.com/blogs/announcing-nuget-keys)
