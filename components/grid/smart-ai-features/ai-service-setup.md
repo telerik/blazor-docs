@@ -61,6 +61,7 @@ Install your AI provider package. For Azure OpenAI:
 
 ```bash.skip-repl
 dotnet add package Azure.AI.OpenAI
+dotnet add package Microsoft.Extensions.AI.OpenAI
 ```
 
 ### Configure the AI Client
@@ -98,7 +99,7 @@ builder.Services.AddSingleton<IChatClient>(serviceProvider =>
     string modelId = configuration["AI:AzureOpenAI:Chat:ModelId"];
 
     var client = new AzureOpenAIClient(new Uri(endpoint), new Azure.AzureKeyCredential(apiKey));
-    return client.AsChatClient(modelId);
+    return client.GetChatClient(modelId).AsIChatClient();
 });
 
 builder.Services.AddControllers();
