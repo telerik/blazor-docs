@@ -22,14 +22,17 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
-## Step 1: Run the Telerik Setup Command
+## Step 0: Set Up Telerik Development Environment
 
-The Telerik CLI `setup` command performs multiple actions at once to configure your Telerik development environment:
+The fastest way to set up your Telerik development environment is to use the [Telerik CLI](slug:installation-cli) .NET tool. To install the tool, run the following command in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other):
 
-* Log in to your [Telerik account](https://www.telerik.com/account).
-* [Download a Telerik license key](slug:installation-license-key) that includes all your licenses and trials.
-* [Configure a Telerik NuGet package source](slug:installation-nuget).
-* [Install MCP servers](slug:ai-overview).
+>caption Install Telerik CLI
+
+````SH.skip-repl
+dotnet tool install -g Telerik.CLI
+````
+
+Then, run the Telerik CLI `setup` command:
 
 >caption Run Telerik CLI Setup
 
@@ -37,33 +40,42 @@ The Telerik CLI `setup` command performs multiple actions at once to configure y
 telerik setup
 ````
 
-## Step 2: Create a New Project
+The `setup` command performs multiple actions at once to configure your Telerik development environment:
 
-* To create a new Blazor app, open your preferred IDE or [run the `dotnet new` .NET CLI command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
-* Use the [**Blazor WebAssembly Standalone App**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure) project template.
+* Log in to your [Telerik account](https://www.telerik.com/account).
+* [Download a Telerik license key](slug:installation-license-key) that includes all your licenses and trials.
+* [Configure a Telerik NuGet package source](slug:installation-nuget).
+* [Install MCP servers](slug:ai-overview).
 
-## Step 3: Install the Telerik UI for Blazor Components
+## Step 1: Create a New Project
 
-Add the `Telerik.UI.for.Blazor` NuGet package from the package source that you [added earlier](#step-1-run-the-telerik-setup-command) to every project that will use the Telerik Blazor components. When prompted, authenticate using `api-key` as the username and [your NuGet API key](#generate-nuget-api-key) as the password.
+To create a new Blazor app:
 
-## Step 4: Enable the Blazor UI Components
+1. Оpen your preferred IDE or [run the `dotnet new` .NET CLI command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
+1. Use the [**Blazor WebAssembly Standalone App**](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure) project template.
+
+## Step 2: Install the Telerik UI for Blazor Components
+
+Add the `Telerik.UI.for.Blazor` NuGet package to every project that will use the Telerik Blazor components.
+
+## Step 3: Enable the Blazor UI Components
 
 To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application, include the required `@using` statements, add the `TelerikRootComponent` component, and register the Telerik Blazor service.
 
-### 4.1. Add the Telerik UI for Blazor Client Assets
+### 3.1. Add the Telerik UI for Blazor Client Assets
 
-1\. Add the `telerik-blazor.js` file to your main index file&mdash;`wwwroot/index.html`.
+1. Add the `telerik-blazor.js` file to the `wwwroot/index.html` file as a [static asset](slug:installation-workflow-details#css-theme-and-javascript-files).
+    >caption index.html
+    @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
+1. Add a [theme stylesheet as a static asset](slug:themes-overview#using-a-theme) in the `index.html` file.
+    >caption App.razor
+    @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-**HTML**
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
-2\. In the `~/wwwroot/index.html` file of the client web application, add the [theme stylesheet as a static asset](slug:themes-overview#using-a-theme). The theme allows you to select the appearance and color scheme for the Telerik Blazor components.
-
-@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
-
-### 4.2. Include @using Statements
+### 3.2. Include @using Statements
 
 In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using](slug:common-features-icons).
+
+>caption _Imports.razor
 
 ````RAZOR.skip-repl
 @using Telerik.Blazor
@@ -72,13 +84,13 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 @using Telerik.FontIcons
 ````
 
-### 4.3. Add the TelerikRootComponent
+### 3.3. Add the TelerikRootComponent
 
 Use a single `TelerikRootComponent` component as a top-level component in the Blazor client-side app.
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
-### 4.4. Register the Telerik Blazor Service
+### 3.4. Register the Telerik Blazor Service
 
 In the `~/Program.cs` file of the client web application, register the Telerik Blazor service.
 
@@ -86,7 +98,7 @@ In the `~/Program.cs` file of the client web application, register the Telerik B
     
 Now your project can use the Telerik UI for Blazor components.
 
-## Step 5: Add a Component to a View
+## Step 4: Add a Component to a View
 
 The final step in this tutorial is to use a Telerik UI for Blazor component in a view and run it in the browser.
 

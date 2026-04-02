@@ -11,16 +11,6 @@ To successfully complete the steps in this tutorial:
 1. Create a [Telerik user account](https://www.telerik.com/account) if you haven't one.
 1. Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have a commercial license.
 
-## Step 0: Install the Telerik CLI
-
-The Telerik CLI is a .NET tool that can set up your Telerik development environment. To install the [`Telerik.CLI` NuGet package](https://www.nuget.org/packages/Telerik.CLI), run the following command in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other):
-
->caption Install Telerik CLI
-
-````SH.skip-repl
-dotnet tool install -g Telerik.CLI
-````
-
 #end
 
 #generate-nuget-api-key
@@ -114,29 +104,21 @@ The linebreak characters used below enable multi-line commands for better readab
 
 #add-component-sample
 
-   ````RAZOR.skip-repl
-   <TelerikButton>Say Hello</TelerikButton>
-   ````
-
-1. Optionally, hook up a click handler that will show a message. The resulting view will look like this:
+    >caption Home.razor
 
    ````RAZOR.skip-repl
-   @page "/"
-           
    <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                  OnClick="@SayHelloHandler">Say Hello</TelerikButton>
+                  OnClick="@OnButtonClick">Say Hello</TelerikButton>
    
    <p>@HelloString</p>
    
    @code {
        private MarkupString HelloString { get; set; }
    
-       private void SayHelloHandler()
+       private void OnButtonClick()
        {
-           string msg = $"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
-               "<br /> Now you can use C# to write front-end!";
-   
-           HelloString = new MarkupString(msg);
+           HelloString = new MarkupString($"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
+               "<br /> Now you can use C# to write front-end!");
        }
    }
    ````

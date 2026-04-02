@@ -93,6 +93,17 @@ You can get the private Telerik UI for Blazor packages in four ways:
 
 @[template](/_contentTemplates/common/get-started.md#license-key-know-more-link)
 
+
+## Interactive Render Mode
+
+This section applies to Blazor Web Apps. It is not relevant to Blazor WebAssembly Standalone apps or Blazor Hybrid apps.
+
+Telerik UI for Blazor requires interactive render mode. Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended, as it ensures easier setup and usage of the Telerik components.
+
+The Telerik Blazor components will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
+
+The `Account` section in the Blazor Web App template with identity is static by design. Most Telerik Blazor components cannot work in this section.
+
 ## Namespaces
 
 The .NET compiler requires several Telerik namespaces to recognize the Telerik Blazor components and set some of the component parameters.

@@ -24,14 +24,17 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
-## Step 1: Run the Telerik Setup Command
+## Step 0: Set Up Telerik Development Environment
 
-The Telerik CLI `setup` command performs multiple actions at once to configure your Telerik development environment:
+The fastest way to set up your Telerik development environment is to use the [Telerik CLI](slug:installation-cli) .NET tool. To install the tool, run the following command in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other):
 
-* Log in to your [Telerik account](https://www.telerik.com/account).
-* [Download a Telerik license key](slug:installation-license-key) that includes all your licenses and trials.
-* [Configure a Telerik NuGet package source](slug:installation-nuget).
-* [Install MCP servers](slug:ai-overview).
+>caption Install Telerik CLI
+
+````SH.skip-repl
+dotnet tool install -g Telerik.CLI
+````
+
+Then, run the Telerik CLI `setup` command:
 
 >caption Run Telerik CLI Setup
 
@@ -39,7 +42,14 @@ The Telerik CLI `setup` command performs multiple actions at once to configure y
 telerik setup
 ````
 
-## Step 2: Create a New Project
+The `setup` command performs multiple actions at once to configure your Telerik development environment:
+
+* Log in to your [Telerik account](https://www.telerik.com/account).
+* [Download a Telerik license key](slug:installation-license-key) that includes all your licenses and trials.
+* [Configure a Telerik NuGet package source](slug:installation-nuget).
+* [Install MCP servers](slug:ai-overview).
+
+## Step 1: Create a New Project
 
 To create a new Blazor app:
 
@@ -48,45 +58,39 @@ To create a new Blazor app:
 1. Select the desired [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes).
 1. Enable **Global** Interactivity location.
 
-> Telerik UI for Blazor requires interactive render mode. Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended, as it ensures easier setup and usage of the Telerik components.
-> The Telerik Blazor components will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
->
-> The `Account` section in the Blazor Web App template with identity is static by design. Most Telerik Blazor components cannot work in this section.
+> Telerik UI for Blazor [requires interactive render mode](slug:installation-workflow-details#interactive-render-mode). Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended.
 
-## Step 3: Install the Telerik UI for Blazor Components
+## Step 2: Install the Telerik UI for Blazor Components
 
-Add the `Telerik.UI.for.Blazor` NuGet package to every project that will use the Telerik Blazor components. Apps with global interactive **Auto** or **WebAssembly** render mode need the Telerik NuGet package in the `Client` project.
+Add the `Telerik.UI.for.Blazor` NuGet package to every project that will use the Telerik Blazor UI components. Apps with global interactive **Auto** or **WebAssembly** render mode need the Telerik NuGet package in the `Client` project.
 
-## Step 4: Enable the Blazor UI Components
+## Step 3: Enable the Blazor UI Components
 
 To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application, include the required `@using` statements, add the `TelerikRootComponent` component, and register the Telerik Blazor service.
 
-### 4.1. Add the Telerik UI for Blazor Client Assets
+### 3.1. Add the Telerik UI for Blazor Client Assets
 
-1\. Add the `telerik-blazor.js` file to your `App.razor` file as a [static asset](slug:installation-workflow-details#css-theme-and-javascript-files).
+1. Add the `telerik-blazor.js` file to the `App.razor` file as a [static asset](slug:installation-workflow-details#css-theme-and-javascript-files).
+    >caption App.razor
+    @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
+1. Add a [theme stylesheet as a static asset](slug:themes-overview#using-a-theme) in the `App.razor` file.
+    >caption App.razor
+    @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-**HTML**
-
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
-2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet as a static asset](slug:themes-overview#using-a-theme) in your `App.razor` file.
-
-**HTML**
-
-@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
-
-### 4.2. Include @using Statements
+### 3.2. Include @using Statements
 
 Add the `@using` directives below in the `~/_Imports.razor` file in all projects in which you installed the Telerik UI for Blazor NuGet package. This configures the projects to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use](slug:common-features-icons).
 
-````RAZOR.skip-repl _Imports.razor
+>caption _Imports.razor
+
+````RAZOR.skip-repl
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
 @using Telerik.SvgIcons
 @using Telerik.FontIcons
 ````
 
-### 4.3. Add the TelerikRootComponent
+### 3.3. Add the TelerikRootComponent
 
 Use a single [`TelerikRootComponent`](slug:rootcomponent-overview) component as a top-level component in the app.
 
@@ -94,18 +98,17 @@ Use a single [`TelerikRootComponent`](slug:rootcomponent-overview) component as 
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
-### 4.4. Register the Telerik Blazor Service
+### 3.4. Register the Telerik Blazor Service
 
 In a Blazor Web App project with interactive render mode Server, you register services in the `Program.cs` file of your project.
 
 For interactive render modes WebAssembly and Auto, register the service in the `Program.cs` file of both the server and client project.
 
-**C#**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
 
 Now your Blazor Server project can use the Telerik UI for Blazor components.
 
-## Step 5: Add a Component to a View
+## Step 4: Add a Component to a View
 
 The final step in this tutorial is to use a Telerik UI for Blazor component in a view and run it in the browser.
 
@@ -118,6 +121,27 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 @[template](/_contentTemplates/common/get-started.md#ai-coding-assistant-ad)
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
+
+<!-- <article-card-container>
+    <article-card
+        href="/components/chat/overview"
+        title="AI Chat"
+        subTitle="Chat Feature"
+        description="Create interactive AI chatbots using the Telerik UI for Blazor Chat component with messaging, notifications, and smart replies.">
+    </article-card>
+    <article-card
+        href="/components/grid/smart-ai-features/ai-semantic-search"
+        title="Semantic Search"
+        subTitle="Smart Data Grid Feature"
+        description="Enhance data discovery using the Telerik UI for Blazor Grid Semantic Search - intelligent meaning-based search capabilities.">
+    </article-card>
+    <article-card
+        href="/components/smartpastebutton/overview"
+        title="SmartPaste"
+        subTitle="UI Component"
+        description="Streamline data entry with the Telerik UI for Blazor SmartPaste component - map and insert clipboard content into input fields with a single click.">
+    </article-card>
+</article-card-container> -->
 
 ## See Also
 
