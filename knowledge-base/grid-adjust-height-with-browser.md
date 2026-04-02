@@ -32,7 +32,7 @@ components: ["grid"]
 
 This KB article answers the following questions:
 
-* How to autosize the Telerik Blazor Grid to match the browser window height?
+* How to autosize the [Telerik Blazor Grid](slug:grid-overview) to match the browser window height?
 * How to change Grid page size, according to the available height? How make the Grid `PageSize` dynamic based on screen size?
 * How to configure a resizeable Grid?
 * How to use several Grids that expand and fill the height of the browser?

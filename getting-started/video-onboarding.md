@@ -48,3 +48,6 @@ The Telerik UI for Blazor technical online training has an approximate duration 
 
 If you wish to learn more and continue with the video onboarding, [enroll in the training](https://www.youtube.com/playlist?list=PLvmaC-XMqeBYOAIwNousFCG2rib4fcdvz).
   
+## See Also
+
+* [First Steps with Blazor Web App](slug:getting-started/web-app)

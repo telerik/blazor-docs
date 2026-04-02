@@ -88,3 +88,4 @@ Make sure that `AddServerSideBlazor()` is called **only once**. All configuratio
 * [Connection Closed Error in Blazor Server Apps](slug:common-kb-connection-closed)
 * [ASP.NET Core SignalR configuration](https://learn.microsoft.com/en-us/aspnet/core/signalr/configuration)
 * [SignalR Buffer management](https://learn.microsoft.com/en-us/aspnet/core/signalr/security?view=aspnetcore-7.0#buffer-management)
+* [First Steps with Blazor Web App](slug:getting-started/web-app)
