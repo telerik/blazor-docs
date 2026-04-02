@@ -150,3 +150,4 @@ Refer to the following articles for more information on each technology stack:
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
 * [First Steps with Blazor Web App](slug:getting-started/web-app)
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
+* [Blazor Hybrid](https://www.telerik.com/blazor-ui/blazor-hybrid)

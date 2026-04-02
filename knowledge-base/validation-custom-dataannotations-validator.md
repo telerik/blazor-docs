@@ -217,3 +217,4 @@ This KB answers the following questions:
 * [Form Validation](slug:form-validation)
 * [Grid Validation](slug:grid-editing-validation)
 * [Validation Tools Overview](slug:validation-tools-overview)
+* [Advanced Blazor Form Validation](https://www.telerik.com/blogs/blazor-basics-advanced-blazor-form-validation)

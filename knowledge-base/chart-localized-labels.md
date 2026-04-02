@@ -108,4 +108,5 @@ If you want to render more information in the label, you can utilize the [`Templ
 
 ## See Also
 
+* [Chart Overview](slug:components/chart/overview)
 * [Knowledge Base article: How to format the percent in a label for a Pie or Donut Chart](slug:chart-format-percent)

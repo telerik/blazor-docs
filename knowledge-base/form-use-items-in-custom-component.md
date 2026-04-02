@@ -26,7 +26,7 @@ components: ["form"]
 
 This KB article answers the following questions:
 
-* How to add Form items in another component, wnich is inside the Telerik Blazor form?
+* How to add Form items in another component, which is inside the [Telerik Blazor Form](slug:form-overview)?
 * How to wrap Form items in a reusable custom component?
 * How to implement a `FormGroup` that contains a nested shared component with `FormItem` instances inside?
 * How to put a `<FormItem>` in another component (control)?
