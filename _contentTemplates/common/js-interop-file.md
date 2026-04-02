@@ -8,12 +8,14 @@
 #end
 
 #js-interop-file-snippet
-````HTML
-<head>
-    . . .
-    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
-</head>
-````
+
+    ````HTML.skip-repl
+    <head>
+        . . .
+        <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
+    </head>
+    ````
+
 #end
 
 #theme-static-asset-snippet
@@ -26,8 +28,10 @@
 #end
 
 #register-telerik-service-server
-<div class="skip-repl"></div>
-````C#
+
+>caption Program.cs
+
+````C#.skip-repl
 // ...
 
 var builder = WebApplication.CreateBuilder(args);
