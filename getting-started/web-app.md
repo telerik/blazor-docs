@@ -55,7 +55,7 @@ To create a new Blazor app:
 
 ## Step 3: Install the Telerik UI for Blazor Components
 
-Add the `Telerik.UI.for.Blazor` package from the NuGet source that you [added earlier](#step-1-run-the-telerik-setup-command) to every project that will use the Telerik Blazor components. Apps with global interactive **Auto** or **WebAssembly** render mode need the Telerik NuGet package in the `Client` project.
+Add the `Telerik.UI.for.Blazor` NuGet package to every project that will use the Telerik Blazor components. Apps with global interactive **Auto** or **WebAssembly** render mode need the Telerik NuGet package in the `Client` project.
 
 ## Step 4: Enable the Blazor UI Components
 
