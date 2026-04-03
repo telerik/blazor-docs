@@ -20,13 +20,13 @@ You can get and set the state object through the `GetState()` and `SetState(newS
 
 ## Tile Item State Properties
 
-The `TileLayoutItemState` object has the following fields:
+The `TileLayoutItemState` object has the following properties:
 
-* `Order` - the sequential order of the tile in the layout
-* `ColSpan` - the number of columns the width of the tile takes
-* `RowSpan` - the number of rows the height of the tile takes
+* `Order`&mdash;the sequential order of the tile in the layout
+* `ColSpan`&mdash;the number of columns the width of the tile takes
+* `RowSpan`&mdash;the number of rows the height of the tile takes
 
-The TileLayout component reads the state collection and applies the information from it to each tile that is declared in the markup sequentially. Thus, changing the tiles collection between a save and a load of the state might alter the results.
+The TileLayout component reads the state collection and applies the information from it to each tile that is declared in the markup sequentially. Thus, the tile order in the state must match the tile order in the TileLayout component declaration. Changing the tiles collection between a save and a load of the state may alter the results.
 
 You can consider saving the current state of the component in events that it exposes (such as [OnReorder and OnResize](slug:tilelayout-events)) or on an event specific to your app (such as a button click or the `Dispose` method from `IDisposable` from its parent component). You can consider loading the state in events like `OnAfterRender` of its parent component, or events specific to your app such as button click.
 
