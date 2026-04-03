@@ -39,6 +39,8 @@ To see what CSS styles are applied on an HTML element, use the browser's develop
    * Using isolated styles with a component `Class`.
    * Using isolated styles for popups (Window, Dialog).
 
+For more details on using CSS isolation, see our [Styling Blazor Components](https://www.telerik.com/blogs/blazor-basics-styling-blazor-components-css) blog post.
+
 ## Best Practices
 
 When implementing CSS overrides, it's usually best to set custom CSS classes through the exposed component parameters and event arguments. This brings the following benefits:

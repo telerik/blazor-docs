@@ -66,6 +66,7 @@ The following table provides another point of view for easier comparison.
 
 ## See Also
 
+* [Popup Overview](slug:popup-overview)
 * [AnimationContainer demos](https://demos.telerik.com/blazor-ui/animationcontainer/overview)
 * [Dialog demos](https://demos.telerik.com/blazor-ui/dialog/overview)
 * [Popover demos](https://demos.telerik.com/blazor-ui/popover/overview)

@@ -23,7 +23,7 @@ components: ["contextmenu"]
 
 ## Description
 
-I would like to add the ContextMenu component to every item (node) in the TreeView.
+I would like to add the ContextMenu component to every item (node) in the [TreeView](slug:treeview-overview).
 
 ## Solution
 

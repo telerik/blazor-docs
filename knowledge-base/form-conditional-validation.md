@@ -34,7 +34,7 @@ How to set dynamic validation for Blazor form fields? I want to update the valid
 
 ## Solution
 
-The **TelerikForm** supports any [validator that is compatible with the Blazor EditForm and EditContext](slug:form-validation). There are several options to validate form values conditionally:
+The [TelerikForm](slug:form-overview) supports any [validator that is compatible with the Blazor EditForm and EditContext](slug:form-validation). There are several options to validate form values conditionally:
 
 * Use a [third-party validator that allows conditional validation](slug:form-validation#fluent-validation).
 * Perform custom validation in the [Form's `OnSubmit` event](slug:form-events#onsubmit).

@@ -130,5 +130,6 @@ To rearrange the text labels and images in the Blazor Diagram Shapes, use the [`
 
 ## See Also
 
+* [Diagram Overview](slug:diagram-overview)
 * [Diagram Shapes](slug:diagram-shapes)
 * [Diagram Demo with Shape Visual](https://demos.telerik.com/blazor-ui/diagram/overview)
