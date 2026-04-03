@@ -142,3 +142,5 @@ To change the CSV value delimiter:
 * [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
 * [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
 * [Configure Document Processing Libraries](slug:getting-started-vs-integration-dpl)
+* [Grid Overview](slug:grid-overview)
+

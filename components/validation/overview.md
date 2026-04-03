@@ -24,7 +24,7 @@ Telerik UI for Blazor provides the following validation tools to help you style 
 
 These components add default styling and customization options on top of the standard Blazor validation tools `ValidationSummary` and `ValidationMessage`.
 
-The validation components must receive an `EditContext` instance as a cascading parameter, so they can reside in a [Telerik Form](slug:form-overview) or a standard Blazor `EditForm`.
+The validation components must receive an [EditContext](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext) instance as a cascading parameter, so they can reside in a [Telerik Form](slug:form-overview) or a standard Blazor `EditForm`.
 
 @[template](/_contentTemplates/common/form-validation.md#note-editcontext-formitem-template)
 

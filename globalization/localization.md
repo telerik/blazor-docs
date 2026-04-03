@@ -18,6 +18,7 @@ The localization of the Telerik components builds on top of the standard .NET me
 
 * [ASP.NET Core Blazor Globalization and Localization](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization)
 * [Globalization and Localization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization)
+* [Localization Using Resource Files](https://www.telerik.com/blogs/blazor-basics-localization-using-resource-files)
 
 The Telerik UI for Blazor components use a [`ITelerikStringLocalizer`](slug:Telerik.Blazor.Services.ITelerikStringLocalizer) service to resolve localization keys to strings that will render in the UI. The key format is `<ComponentName>_<Key>`.
 
