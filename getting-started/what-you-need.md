@@ -71,7 +71,7 @@ To get the public Telerik icon and licensing packages, you only need the default
 
 Other Telerik packages that are hosted on `nuget.org` and are not required by Telerik UI for Blazor by default are:
 
-* [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP)&mdash;see [how to install and use the Telerik UI Generator for Blazor](slug:ai-overview).
+* [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP)&mdash;see [how to install and use the Telerik UI for Blazor AI Tools](slug:ai-overview).
 * [Telerik.CLI](https://www.nuget.org/packages/Telerik.CLI)&mdash;see [what is the Telerik CLI and how to use it](slug:installation-cli).
 * [Telerik.AI.SmartComponents.Extensions](https://www.nuget.org/packages/Telerik.CLI)&mdash;see how to [integrate Telerik UI for Blazor with this AI extensions package](slug:common-features-telerik-ai-smartcomponents-extensions-integration).
 
