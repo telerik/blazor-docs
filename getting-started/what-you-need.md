@@ -65,14 +65,15 @@ Telerik UI for Blazor is distributed through several private and public NuGet pa
 
 To get the public Telerik icon and licensing packages, you only need the default NuGet package source `nuget.org`. To [use a local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds), download the packages from:
 
-* [Telerik.Licensing](https://www.nuget.org/packages/Telerik.Licensing)
-* [Telerik.SvgIcons](https://www.nuget.org/packages/Telerik.SvgIcons)
-* [Telerik.FontIcons](https://www.nuget.org/packages/Telerik.FontIcons)
+* [`Telerik.Licensing`](https://www.nuget.org/packages/Telerik.Licensing)
+* [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons)
+* [`Telerik.FontIcons`](https://www.nuget.org/packages/Telerik.FontIcons)
 
 Other Telerik packages that are hosted on `nuget.org` and are not required by Telerik UI for Blazor by default are:
 
-* [Telerik.CLI](https://www.nuget.org/packages/Telerik.CLI)&mdash;see [what is the Telerik CLI and how to use it](slug:installation-cli).
-* [Telerik.AI.SmartComponents.Extensions](https://www.nuget.org/packages/Telerik.CLI)&mdash;see how to [integrate Telerik UI for Blazor with this AI extensions package](slug:common-features-telerik-ai-smartcomponents-extensions-integration).
+* [`Telerik.Blazor.MCP`](https://www.nuget.org/packages/Telerik.Blazor.MCP)&mdash;see [how to install and use the Telerik UI for Blazor AI Tools](slug:ai-overview).
+* [`Telerik.CLI`](https://www.nuget.org/packages/Telerik.CLI)&mdash;see [what is the Telerik CLI and how to use it](slug:installation-cli).
+* [`Telerik.AI.SmartComponents.Extensions`](https://www.nuget.org/packages/Telerik.CLI)&mdash;see how to [integrate Telerik UI for Blazor with this AI extensions package](slug:common-features-telerik-ai-smartcomponents-extensions-integration).
 
 You can get the private Telerik UI for Blazor packages in four ways:
 
