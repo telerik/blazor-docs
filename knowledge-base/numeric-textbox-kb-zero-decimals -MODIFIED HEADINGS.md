@@ -1,5 +1,5 @@
 ---
-title: How to Display Currency Format Without Decimals
+title: How to Display Currency Format Without Decimals?
 description: Learn how to display a currency value without decimal places in a Blazor NumericTextBox by adjusting the Format and Decimals parameters.
 type: how-to
 page_title: How to Display Currency Format Without Decimals
