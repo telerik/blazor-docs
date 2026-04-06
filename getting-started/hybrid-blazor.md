@@ -129,10 +129,6 @@ Refer to the following articles for more information on each technology stack:
 * [WinForms](https://docs.microsoft.com/en-us/visualstudio/ide/create-csharp-winform-visual-studio?view=vs-2022#run-the-application)
 * [WPF](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/get-started/create-app-visual-studio?view=netdesktop-6.0#run-the-app)
 
-## Using the Telerik AI Tools
-
-@[template](/_contentTemplates/common/get-started.md#ai-coding-assistant-ad)
-
 ## Next Steps
 
 * [Explore the specifics of Telerik UI for Blazor in native MAUI](slug:hybrid-blazor-apps)

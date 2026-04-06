@@ -134,12 +134,51 @@ Well done! Now you have your first Telerik UI for Blazor component running in yo
 #next-steps-after-getting-started
 ## Next Steps
 
-* [Check the list of available components](slug:blazor-overview#list-of-components).
-* [Explore the live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui).
-* [Learn the data binding fundamentals for Telerik UI for Blazor components](slug:common-features-data-binding-overview).
-* [Get started with the data Grid](slug:grid-overview).
-* [Review the built-in themes or create custom ones](slug:themes-overview).
-* Use the [Telerik Blazor MCP server](slug:ai-overview) to generate code snippets that include Telerik UI for Blazor components and API.
+<article-card-container>
+    <article-card
+        href="/ai/overview"
+        src="../images/aicomponents/Chat_Light_Large.svg"
+        title="Use Telerik AI Tools"
+        subTitle="Chat Feature"
+        darkSrc="../images/aicomponents/Chat_Dark_Large.svg"
+        description="Telerik UI for Blazor provides AI-powered development assistance through a unified MCP server that delivers intelligent, context-aware help directly in your IDE.">
+    </article-card>
+    <article-card
+        href="/introduction#list-of-components"
+        src="../images/aicomponents/Editor_AI_Integration_Light_Large.svg"
+        title="Use Components"
+        darkSrc="../images/aicomponents/Editor_AI_Integration_Dark_Large.svg"
+        description="Check the list of available Telerik Blazor components.">
+    </article-card>
+    <article-card
+        href="https://demos.telerik.com/blazor-ui"
+        src="../images/aicomponents/Grid_AI_Chat_Integration_Light_Large.svg"
+        title="Browse Online Demos"
+        darkSrc="../images/aicomponents/Grid_AI_Chat_Integration_Dark_Large.svg"
+        description="Explore the live Telerik UI for Blazor examples.">
+    </article-card>
+    <article-card
+        href="/common-features/data-binding/overview"
+        src="../images/aicomponents/AI_Column_Assistant_Light_Large.svg"
+        title="Learn Telerik Data Binding"
+        darkSrc="../images/aicomponents/AI_Column_Assistant_Dark_Large.svg"
+        description="Learn the data binding fundamentals for Telerik UI for Blazor components.">
+    </article-card>
+    <article-card
+        href="/components/grid/overview"
+        src="../images/aicomponents/AI_Data_Highlight_Light_Large.svg"
+        title="Get Started with Data Grid"
+        darkSrc="../images/aicomponents/AI_Data_Highlight_Dark_Large.svg"
+        description="Bind the Telerik Blazor Grid to data and choose from the large variety of built-in features.">
+    </article-card>
+    <article-card
+        href="/styling-and-themes/overview"
+        src="../images/aicomponents/AIPrompt_Light_Large.svg"
+        title="Create Themes"
+        darkSrc="../images/aicomponents/AIPrompt_Dark_Large.svg"
+        description="Review the built-in themes, customize them, or create your own.">
+    </article-card>
+</article-card-container>
 
 #end
 

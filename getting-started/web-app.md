@@ -12,7 +12,7 @@ previous_url: /getting-started/server-blazor
 
 # First Steps with Blazor Web App and Telerik UI
 
-This article explains how to use the Telerik UI for Blazor components in a Blazor Web App project template that exists for .NET 8 and 9. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+This article explains how to use the Telerik UI for Blazor components in a Blazor Web App project template that exists for .NET 8 and later. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
@@ -116,32 +116,7 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
-## Using the Telerik AI Tools
-
-@[template](/_contentTemplates/common/get-started.md#ai-coding-assistant-ad)
-
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
-
-<!-- <article-card-container>
-    <article-card
-        href="/components/chat/overview"
-        title="AI Chat"
-        subTitle="Chat Feature"
-        description="Create interactive AI chatbots using the Telerik UI for Blazor Chat component with messaging, notifications, and smart replies.">
-    </article-card>
-    <article-card
-        href="/components/grid/smart-ai-features/ai-semantic-search"
-        title="Semantic Search"
-        subTitle="Smart Data Grid Feature"
-        description="Enhance data discovery using the Telerik UI for Blazor Grid Semantic Search - intelligent meaning-based search capabilities.">
-    </article-card>
-    <article-card
-        href="/components/smartpastebutton/overview"
-        title="SmartPaste"
-        subTitle="UI Component"
-        description="Streamline data entry with the Telerik UI for Blazor SmartPaste component - map and insert clipboard content into input fields with a single click.">
-    </article-card>
-</article-card-container> -->
 
 ## See Also
 

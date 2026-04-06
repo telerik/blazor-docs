@@ -106,10 +106,6 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
-## Using the Telerik AI Tools
-
-@[template](/_contentTemplates/common/get-started.md#ai-coding-assistant-ad)
-
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 
 ## See Also
