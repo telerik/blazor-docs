@@ -26,7 +26,7 @@ This KB shows how to change the TextBox `tabindex` in Telerik TileLayout tiles w
 
 ## Solution
 
-1. Use the [TileLayout state](slug:tilelayout-state) to obtain the current tile order. You can use the [TileLayout `OnReorder` event](slug:tilelayout-reorder#onreorder) or the [TileLayout instance](slug:tilelayout-overview#tilelayout-reference) `GetState()` method at any time.
+1. Use the [TileLayout state](slug:tilelayout-state) to obtain the current tile order. You can use the [TileLayout `OnReorder` event](slug:tilelayout-events#onreorder) or the [TileLayout instance](slug:tilelayout-overview#tilelayout-reference) `GetState()` method at any time.
 1. Set the `tabindex` attribute of all input elements accordingly.
 
 >caption Set textbox tabindex dynamically in Telerik TileLayout for Blazor

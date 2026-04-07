@@ -25,7 +25,7 @@ Hierarchical data binding allows you to have [different model types at each Drop
 
 ## Same Model Type on All Levels
 
-The following example uses [default property names in the model](slug:dropdowntree-data-binding-overview#item-features), so there is no need to set field parameters in the DropDownTree configuration.
+The following example uses [default property names in the model](slug:dropdowntree-data-binding-overview#default-property-names), so there is no need to set field parameters in the DropDownTree configuration.
 
 >caption Bind DropDownTree to hierarchical data with the same model type on all levels
 
