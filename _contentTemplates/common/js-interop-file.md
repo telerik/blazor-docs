@@ -8,26 +8,32 @@
 #end
 
 #js-interop-file-snippet
-````HTML
-<head>
-    . . .
-    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
-</head>
-````
+
+    ````HTML.skip-repl
+    <head>
+        . . .
+        <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
+    </head>
+    ````
+
 #end
 
 #theme-static-asset-snippet
-````HTML
-<head>
-    . . .
-    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-</head>
-````
+
+    ````HTML
+    <head>
+        . . .
+        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+    </head>
+    ````
+
 #end
 
 #register-telerik-service-server
-<div class="skip-repl"></div>
-````C#
+
+>caption Program.cs
+
+````C#.skip-repl
 // ...
 
 var builder = WebApplication.CreateBuilder(args);

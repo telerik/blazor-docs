@@ -1,29 +1,21 @@
 #prerequisites-tip
->tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details](slug:getting-started/what-you-need) article. It provides more setup options and suggests possible enhancements.
+>tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik license key, NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details](slug:installation-workflow-details) article. It provides more setup options and suggests possible enhancements.
 
 #end
 
 #prerequisites-download
 
-* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the [supported .NET version](slug:system-requirements#supported-net-versions) of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial](slug:getting-started/what-you-need).
+To successfully complete the steps in this tutorial:
 
-* To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements](slug:system-requirements).
-
-* This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation](slug:blazor-overview#learning-resources) for the required older product version.
-
-## Step 0: Download Telerik UI for Blazor
-
-* If you have already purchased a commercial Telerik UI for Blazor license, continue with the [next step and install a license key](#step-1-install-a-license-key).
-
-* If you are new to UI for Blazor and haven’t purchased a license yet, you can <a href="https://www.telerik.com/try/ui-for-blazor" target="_blank">Start a Free Trial</a> by downloading and installing the UI for Blazor components. This process activates your free trial and enables you to use the components. During the installation, select the **Set up Telerik NuGet package source** checkbox so the installer can automatically configure the Telerik [online NuGet feed](slug:installation/nuget), which you will use later in the tutorial. 
-
-* Just starting a free trial on telerik.com is not enough. Trial users must also complete the local installation of the components. Otherwise, the trial license does not activate and the tutorial cannot be completed successfully.
+1. Install a [supported .NET version](slug:system-requirements#supported-net-versions).
+1. Create a [Telerik user account](https://www.telerik.com/account) if you haven't one.
+1. Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have a commercial license.
 
 #end
 
 #generate-nuget-api-key
 
-As the Telerik NuGet server requires authentication, the first step is to obtain an API key that you will use instead of a password. Using an API key instead of a password is a more secure approach, especially when working with the [.NET CLI](#use-the-net-cli) or a [`NuGet.Config` file](#edit-the-nugetconfig-file).
+As the Telerik NuGet server requires authentication, the first step is to obtain an API key that you will use instead of a password. Using an API key instead of a password is a more secure approach, especially when working with the [.NET CLI](slug:installation-nuget#use-the-net-cli) or a [`NuGet.Config` file](slug:installation-nuget#edit-the-nuget-config-file).
 
 1. Go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account.
 1. Click **Generate New Key +**.
@@ -67,7 +59,7 @@ dotnet nuget add source "https://nuget.telerik.com/v3/index.json" \
 #add-nuget-feed
 ## Step 3: Add the Telerik NuGet Feed
 
-In this tutorial, you will use the [Telerik NuGet server](slug:installation/nuget) to download the UI for Blazor components. The NuGet feed is private and requires you to authenticate with a NuGet API key.
+In this tutorial, you will use the [Telerik NuGet server](slug:installation-nuget) to download the UI for Blazor components. The NuGet feed is private and requires you to authenticate with a NuGet API key.
 
 ### Generate NuGet API Key
 
@@ -83,7 +75,7 @@ Next, add the Telerik NuGet feed to your local development environment:
 * [Visual Studio on Windows](#visual-studio)
 * [All IDEs and operating systems](#all-ides-and-operating-systems)
 
-> Telerik API keys expire in two years. Make sure to generate and use a new one in time. For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:getting-started/what-you-need#nuget-packages).
+> Telerik API keys expire in two years. Make sure to generate and use a new one in time. For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:installation-workflow-details#nuget-packages).
 
 ### Visual Studio
 
@@ -112,29 +104,21 @@ The linebreak characters used below enable multi-line commands for better readab
 
 #add-component-sample
 
-   ````RAZOR.skip-repl
-   <TelerikButton>Say Hello</TelerikButton>
-   ````
-
-1. Optionally, hook up a click handler that will show a message. The resulting view will look like this:
+    >caption Home.razor
 
    ````RAZOR.skip-repl
-   @page "/"
-           
    <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                  OnClick="@SayHelloHandler">Say Hello</TelerikButton>
+                  OnClick="@OnButtonClick">Say Hello</TelerikButton>
    
    <p>@HelloString</p>
    
    @code {
        private MarkupString HelloString { get; set; }
    
-       private void SayHelloHandler()
+       private void OnButtonClick()
        {
-           string msg = $"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
-               "<br /> Now you can use C# to write front-end!";
-   
-           HelloString = new MarkupString(msg);
+           HelloString = new MarkupString($"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
+               "<br /> Now you can use C# to write front-end!");
        }
    }
    ````
@@ -150,11 +134,51 @@ Well done! Now you have your first Telerik UI for Blazor component running in yo
 #next-steps-after-getting-started
 ## Next Steps
 
-* [Check the list of available components](slug:blazor-overview#list-of-components).
-* [Explore the live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui).
-* [Learn the data binding fundamentals for Telerik UI for Blazor components](slug:common-features-data-binding-overview).
-* [Get started with the data Grid](slug:grid-overview).
-* [Review the built-in themes or create custom ones](slug:themes-overview).
+<article-card-container>
+    <article-card
+        href="/ai/overview"
+        src="../images/aicomponents/Chat_Light_Large.svg"
+        title="Use Telerik AI Tools"
+        subTitle="Chat Feature"
+        darkSrc="../images/aicomponents/Chat_Dark_Large.svg"
+        description="Telerik UI for Blazor provides AI-powered development assistance through a unified MCP server that delivers intelligent, context-aware help directly in your IDE.">
+    </article-card>
+    <article-card
+        href="/introduction#list-of-components"
+        src="../images/aicomponents/Editor_AI_Integration_Light_Large.svg"
+        title="Use Components"
+        darkSrc="../images/aicomponents/Editor_AI_Integration_Dark_Large.svg"
+        description="Check the list of available Telerik Blazor components.">
+    </article-card>
+    <article-card
+        href="https://demos.telerik.com/blazor-ui"
+        src="../images/aicomponents/Grid_AI_Chat_Integration_Light_Large.svg"
+        title="Browse Online Demos"
+        darkSrc="../images/aicomponents/Grid_AI_Chat_Integration_Dark_Large.svg"
+        description="Explore the live Telerik UI for Blazor examples.">
+    </article-card>
+    <article-card
+        href="/common-features/data-binding/overview"
+        src="../images/aicomponents/AI_Column_Assistant_Light_Large.svg"
+        title="Learn Telerik Data Binding"
+        darkSrc="../images/aicomponents/AI_Column_Assistant_Dark_Large.svg"
+        description="Learn the data binding fundamentals for Telerik UI for Blazor components.">
+    </article-card>
+    <article-card
+        href="/components/grid/overview"
+        src="../images/aicomponents/AI_Data_Highlight_Light_Large.svg"
+        title="Get Started with Data Grid"
+        darkSrc="../images/aicomponents/AI_Data_Highlight_Dark_Large.svg"
+        description="Bind the Telerik Blazor Grid to data and choose from the large variety of built-in features.">
+    </article-card>
+    <article-card
+        href="/styling-and-themes/overview"
+        src="../images/aicomponents/AIPrompt_Light_Large.svg"
+        title="Create Themes"
+        darkSrc="../images/aicomponents/AIPrompt_Dark_Large.svg"
+        description="Review the built-in themes, customize them, or create your own.">
+    </article-card>
+</article-card-container>
 
 #end
 

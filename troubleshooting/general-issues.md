@@ -29,7 +29,7 @@ This page provides solutions for common issues you may encounter while working w
 ## Popups Do Not Work
 
 There are three common reasons for this
-* Missing [`<TelerikRootComponent>`](slug:getting-started/what-you-need#telerikrootcomponent) from the app.
+* Missing [`<TelerikRootComponent>`](slug:installation-workflow-details#telerikrootcomponent) from the app.
 * [Missing `telerik-blazor.js` file](slug:troubleshooting-js-errors#telerikblazor-was-undefined)
 * Special positioning on the `<app>` element or any other parent of the `TelerikRootComponent`.
 
@@ -77,7 +77,7 @@ The most common reasons and solutions for seeing this error (being unable to res
 
 * An offline package source is being used that does not contain it. Make sure that you add the packages from both the `packages` and `dpl` folders to such a custom local feed.
 
-* There is an issue with connecting to our online feed. For example, a firewall, network downtime or wrong credentials are used. Check the [Troubleshooting NuGet Feed Issues](slug:installation/nuget#troubleshooting) section of the documentation to see how to handle that.
+* There is an issue with connecting to our online feed. For example, a firewall, network downtime or wrong credentials are used. Check the [Troubleshooting NuGet Feed Issues](slug:installation-nuget#troubleshooting) section of the documentation to see how to handle that.
 
 * There is a mismatch between the versions available for restore and the referenced versions, while the Visual Studio "treat warnings as errors" setting is turned on. This can happen if one version is referenced, but another is available (for example, only certain versions are available in a custom local feed for the [Document Processing](slug:dpl-in-blazor) packages, but the main package references an older version). In such cases, the tooling would usually resolve the newest version, but it will show a warning and VS can treat it as an error and not let you build. The solution is to check the version that is referenced by `Telerik.UI.for.Blazor` and ensure you can access that. Cleaning the solution, manually restoring the packages and re-building can also help.
  
@@ -91,7 +91,7 @@ If you get an error similar to this one:
 
 There can be two common causes for the problem:
 
-* The [Telerik services are not registered](slug:getting-started/what-you-need#service) in the app, a line similar to `builder.Services.AddTelerikBlazor();` is missing.
+* The [Telerik services are not registered](slug:installation-workflow-details#service) in the app, a line similar to `builder.Services.AddTelerikBlazor();` is missing.
 
 * The application uses localization, or there is a code snippet that does (e.g., a grid with custom buttons that are localized, copied over from another place), but the current app does not provide the necessary project-specific service. You can read more about implementing one in the [Localization](slug:globalization-localization) article.
 

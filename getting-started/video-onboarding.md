@@ -6,7 +6,7 @@ slug: getting-started/video-onboarding
 previous_url: /online-technical-training
 tags: get,started,video,onboarding,classroom,course,learning
 published: true
-position: 30
+position: 20
 ---
 
 # Video Onboarding

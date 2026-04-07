@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 1. [Bind the `Data` parameter to the collection of objects or strings](slug:multiselect-databind) that you want to appear in the dropdown.
 1. Set the `TextField` parameter to point to the object property that holds the user-readable value.
 1. Set the `ValueField` parameter to point to the object property that holds the data item value.
-1. [Bind the `Value` of the component](slug:get-started-value-vs-data-binding#value-binding) to a collection of the same type as the type defined by the `ValueField` parameter.
+1. [Bind the `Value` of the component](slug:common-features-data-binding-overview#data-binding-vs-value-binding) to a collection of the same type as the type defined by the `ValueField` parameter.
 1. (optional) Configure additional features like `AutoClose`, `Placeholder`, or `ShowClearButton`.
 
 >caption Basic Blazor MultiSelect two-way value binding, main features, and simple [data binding](slug:multiselect-databind)

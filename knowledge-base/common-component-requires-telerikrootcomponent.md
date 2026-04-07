@@ -45,7 +45,7 @@ More specifically, the exception implies the following issues with the applicati
 
 To fix and avoid the `TelerikRootComponent` exception:
 
-* [Add a `TelerikRootComponent` to one or more layout files](slug:getting-started/what-you-need#telerikrootcomponent), depending on the application's layout structure.
+* [Add a `TelerikRootComponent` to one or more layout files](slug:installation-workflow-details#telerikrootcomponent), depending on the application's layout structure.
 * When using the Blazor Web App project template, [create the app with a **Global** interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app).
 * If your scenario requires a **Per page/component** interactivity location, place the `TelerikRootComponent` in an interactive Razor component. Refer to [Using `TelerikRootComponent` with Per Component Interactivity](slug:rootcomponent-percomponent).
 
@@ -57,5 +57,5 @@ To fix and avoid the `TelerikRootComponent` exception:
 ## See Also
 
 * [`TelerikRootComponent` Purpose and Overview](slug:rootcomponent-overview)
-* [Typical Usage of the `TelerikRootComponent`](slug:getting-started/what-you-need#telerikrootcomponent)
+* [Typical Usage of the `TelerikRootComponent`](slug:installation-workflow-details#telerikrootcomponent)
 * [Using `TelerikRootComponent` with Per Component Interactivity](slug:rootcomponent-percomponent)
