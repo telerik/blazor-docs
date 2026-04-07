@@ -139,7 +139,6 @@ Well done! Now you have your first Telerik UI for Blazor component running in yo
         href="/ai/overview"
         src="../images/aicomponents/Chat_Light_Large.svg"
         title="Use Telerik AI Tools"
-        subTitle="Chat Feature"
         darkSrc="../images/aicomponents/Chat_Dark_Large.svg"
         description="Telerik UI for Blazor provides AI-powered development assistance through a unified MCP server that delivers intelligent, context-aware help directly in your IDE.">
     </article-card>
