@@ -24,21 +24,17 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 ## Step 0: Set Up Telerik Development Environment
 
-The fastest way to set up your Telerik development environment is to use the [Telerik CLI](slug:installation-cli) .NET tool. To install the tool, run the following command in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other):
+The fastest way to set up your Telerik development environment is to use the [Telerik CLI](slug:installation-cli) .NET tool. Run the following commands in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other):
 
->caption Install Telerik CLI
+1. Install Telerik CLI
+    ````SH.skip-repl
+    dotnet tool install -g Telerik.CLI
+    ````
 
-````SH.skip-repl
-dotnet tool install -g Telerik.CLI
-````
-
-Then, run the Telerik CLI `setup` command:
-
->caption Run Telerik CLI Setup
-
-````SH.skip-repl
-telerik setup
-````
+1. Run the Telerik CLI `setup` command:
+    ````SH.skip-repl
+    telerik setup
+    ````
 
 The `setup` command performs multiple actions at once to configure your Telerik development environment:
 
@@ -65,10 +61,8 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 ### 3.1. Add the Telerik UI for Blazor Client Assets
 
 1. Add the `telerik-blazor.js` file to the `wwwroot/index.html` file as a [static asset](slug:installation-workflow-details#css-theme-and-javascript-files).
-    >caption index.html
     @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 1. Add a [theme stylesheet as a static asset](slug:themes-overview#using-a-theme) in the `index.html` file.
-    >caption App.razor
     @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
 ### 3.2. Include @using Statements
