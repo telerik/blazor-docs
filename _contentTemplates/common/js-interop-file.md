@@ -19,12 +19,14 @@
 #end
 
 #theme-static-asset-snippet
-````HTML
-<head>
-    . . .
-    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-</head>
-````
+
+    ````HTML
+    <head>
+        . . .
+        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+    </head>
+    ````
+
 #end
 
 #register-telerik-service-server
