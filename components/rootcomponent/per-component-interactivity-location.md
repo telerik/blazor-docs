@@ -143,6 +143,6 @@ This code duplication requires more effort to maintain, but avoids [possible iss
 ## See Also
 
 * [Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer)
-* [Setting up Telerik Blazor apps](slug:getting-started/what-you-need)
+* [Setting up Telerik Blazor apps](slug:installation-workflow-details)
 * [ASP.NET Core Blazor render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes)
 * [Video: Intro to Blazor in .NET 8 - SSR, Stream Rendering, Auto](https://www.youtube.com/watch?v=walv3nLTJ5g)

@@ -32,7 +32,7 @@ If you are new to Telerik UI for Blazor, visit the Getting Started tutorials tha
 
 >tip This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
 
-Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details](slug:getting-started/what-you-need) article. This is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
+Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details](slug:installation-workflow-details) article. This is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
 
 <!--
 If you are not familiar with Blazor yet, you may find our Blazor Quick Start Guide video series useful:
@@ -260,7 +260,7 @@ For questions and issues related to Telerik UI for Blazor, use any of the availa
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
 * [First Steps with Blazor Web App](slug:getting-started/web-app)
 * [First Steps with Blazor Hybrid](slug:getting-started/hybrid-blazor)
-* [Workflow Details for using the Telerik UI for Blazor components](slug:getting-started/what-you-need) (a concise version of the tutorials above)
+* [Workflow Details for using the Telerik UI for Blazor components](slug:installation-workflow-details) (a concise version of the tutorials above)
 * Use guided wizards to generate new Telerik Projects in [Visual Studio](slug:getting-started-vs-integration-new-project) and [Visual Studio Code](slug:getting-started-vs-code-integration-overview).
 * [Convert an existing project to a Telerik-enabled project](slug:getting-started-vs-integration-convert-project)
 * [Style the Telerik Blazor Components](slug:themes-overview)

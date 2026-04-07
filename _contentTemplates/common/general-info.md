@@ -3,7 +3,7 @@
 #end
 
 #ensure-nuget-packge-for-upgrade
-Make sure that you have a NuGet feed source with the version you want to upgrade to. This is usually the [Telerik NuGet Feed](slug:installation/nuget), but you can also use a local feed from [our MSI installer](slug:installation-msi) or [ZIP archive](slug:installation-zip).
+Make sure that you have a NuGet feed source with the version you want to upgrade to. This is usually the [Telerik NuGet Feed](slug:installation-nuget), but you can also use a local feed from [our MSI installer](slug:installation-msi) or [ZIP archive](slug:installation-zip).
 #end
 
 #date-format-per-culture
@@ -33,7 +33,7 @@ You can get the extension from:
 
 
 #valuebind-vs-databind-link
-For details on Value Binding and Data Binding, and the differences between them, see the [Value Binding vs Data Binding](slug:get-started-value-vs-data-binding) article.
+For details on Value Binding and Data Binding, and the differences between them, see the [Data Binding vs Value Binding](slug:common-features-data-binding-overview#data-binding-vs-value-binding) section.
 #end
 
 

@@ -5,18 +5,28 @@ description: Learn the fundamentals and features of Telerik Blazor component dat
 slug: common-features-data-binding-overview
 tags: telerik,blazor,binding,databinding
 published: True
+previous_url: /getting-started/value-vs-data-binding
 position: 0
 ---
 
 # Data Binding Overview
 
-This article describes the fundamentals of data binding the Telerik Blazor components. For the sake of clarity, also check article [Value Binding vs Data Binding](slug:get-started-value-vs-data-binding).
+This article describes the fundamentals of data binding the Telerik Blazor components.
 
+* [Value Binding vs Data Binding](#data-binding-vs-value-binding)
 * [Data binding options](#how-to-provide-data)
 * [Supported data types](#data-type)
 * [Model property names can matter](#model-property-names)
 * [How to refresh the component data](#refresh-data)
 
+## Data Binding vs Value Binding
+
+This documentation site uses the terms *data binding* and *value binding* with the following meaning:
+
+* Data binding is the process of providing a databound component with a collection of data (models) that it will display. Databound components include the Grid, DropDownList, Menu, and others.
+* Value binding is the process of setting a component parameter, for example `<ComponentName ParameterName="@VariableName" />`. This includes both one-way binding and two-way binding with the `@bind-ParameterName="@VariableName"` syntax.
+
+In other words, the Telerik UI for Blazor documentation uses the term *data binding* differently from the Microsoft documentation. The latter uses *data binding* to signify setting of parameters, for example `@bind="..."` or `@bind-Value="..."`.
 
 ## How to Provide Data
 

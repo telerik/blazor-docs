@@ -8,15 +8,16 @@ published: True
 position: 40
 components: ["aiprompt"]
 ---
+
 # AIPrompt Events
 
 This article explains the events available in the Telerik AIPrompt for Blazor:
 
 * [`OnOutputActionClick`](#onoutputactionclick)
 * [`OnPromptRequest`](#onpromptrequest)
-* [`OnPromptRequestStop`](#onpromptrequeststo)
+* [`OnPromptRequestStop`](#onpromptrequeststop)
 * [`OnCommandExecute`](#oncommandexecute)
-* [`PromptTextChanged`](#prompttextchanged)
+* [`PromptChanged`](#promptchanged)
 
 ## OnOutputActionClick
 
