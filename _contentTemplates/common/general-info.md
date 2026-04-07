@@ -33,7 +33,7 @@ You can get the extension from:
 
 
 #valuebind-vs-databind-link
-For details on Value Binding and Data Binding, and the differences between them, see the [Value Binding vs Data Binding](slug:get-started-value-vs-data-binding) article.
+For details on Value Binding and Data Binding, and the differences between them, see the [Data Binding vs Value Binding](slug:common-features-data-binding-overview#data-binding-vs-value-binding) section.
 #end
 
 
