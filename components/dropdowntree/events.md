@@ -67,6 +67,28 @@ Also see the [runnable example below](#example).
 }
 ````
 
+## OnChange
+
+The `OnChange` event represents a user confirmation of the current value. It fires when the user selects an item from the dropdown.
+
+`OnChange` is a custom event that allows you to use two-way binding for the `Value` parameter.
+
+>caption Handle the OnChange event and use two-way binding
+
+````RAZOR.skip-repl
+<TelerikDropDownTree @bind-Value="@DropDownTreeValue"
+                     OnChange="@OnDropDownTreeChange" />
+
+@code {
+    private int DropDownTreeValue { get; set; }
+
+    private void OnDropDownTreeChange(object currentValue)
+    {
+
+    }
+}
+````
+
 ## OnClose
 
 The DropDownTree `OnClose` event fires when the component popup closes. The event is cancellable and in this case the popup remains open.
@@ -268,20 +290,20 @@ The DropDownTree is a generic component. As a result, you either need to specify
 <div style="display: flex; gap: 2em; justify-content: space-between;">
     <div>
         <TelerikDropDownTree Data="@DropDownTreeData"
-                            TItem="@TreeItem"
-                            TValue="@int"
-                            Value="@DropDownTreeValue"
-                            ValueChanged="@DropDownTreeValueChanged"
-                            ExpandedItems="@DropDownTreeExpandedItems"
-                            ExpandedItemsChanged="@DropDownTreeExpandedItemsChanged"
-                            OnBlur="@OnDropDownTreeBlur"
-                            OnClose="@OnDropDownTreeClose"
-                            OnExpand="@OnDropDownTreeExpand"
-                            OnFocus="@OnDropDownTreeFocus"
-                            OnItemClick="@OnDropDownTreeItemClick"
-                            OnItemRender="@OnDropDownTreeItemRender"
-                            OnOpen="@OnDropDownTreeOpen"
-                            Width="240px">
+                             TValue="@int"
+                             Value="@DropDownTreeValue"
+                             ValueChanged="@DropDownTreeValueChanged"
+                             ExpandedItems="@DropDownTreeExpandedItems"
+                             ExpandedItemsChanged="@DropDownTreeExpandedItemsChanged"
+                             OnBlur="@OnDropDownTreeBlur"
+                             OnChange="@OnDropDownTreeChange"
+                             OnClose="@OnDropDownTreeClose"
+                             OnExpand="@OnDropDownTreeExpand"
+                             OnFocus="@OnDropDownTreeFocus"
+                             OnItemClick="@OnDropDownTreeItemClick"
+                             OnItemRender="@OnDropDownTreeItemRender"
+                             OnOpen="@OnDropDownTreeOpen"
+                             Width="240px">
         </TelerikDropDownTree>
     </div>
     <div style="max-height: 90vh; overflow: auto; flex: 0 0 50%;">
@@ -324,6 +346,11 @@ The DropDownTree is a generic component. As a result, you either need to specify
     private void OnDropDownTreeBlur()
     {
         DropDownTreeEventLog.Add($"OnBlur fired at {DateTime.Now.ToString("HH:mm:ss.fff")}");
+    }
+
+    private void OnDropDownTreeChange(object currentValue)
+    {
+        DropDownTreeEventLog.Add($"OnChange fired with current value {currentValue} at {DateTime.Now.ToString("HH:mm:ss.fff")}");
     }
 
     private void OnDropDownTreeClose(DropDownTreeCloseEventArgs args)

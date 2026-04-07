@@ -15,7 +15,7 @@ To successfully complete the steps in this tutorial:
 
 #generate-nuget-api-key
 
-As the Telerik NuGet server requires authentication, the first step is to obtain an API key that you will use instead of a password. Using an API key instead of a password is a more secure approach, especially when working with the [.NET CLI](#use-the-net-cli) or a [`NuGet.Config` file](#edit-the-nugetconfig-file).
+As the Telerik NuGet server requires authentication, the first step is to obtain an API key that you will use instead of a password. Using an API key instead of a password is a more secure approach, especially when working with the [.NET CLI](slug:installation-nuget#use-the-net-cli) or a [`NuGet.Config` file](slug:installation-nuget#edit-the-nugetconfig-file).
 
 1. Go to the [API Keys](https://www.telerik.com/account/downloads/api-keys) page in your Telerik account.
 1. Click **Generate New Key +**.

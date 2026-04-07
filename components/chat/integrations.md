@@ -9,13 +9,14 @@ position: 7
 tag: updated
 components: ["chat"]
 ---
+
 # Chat Integrations
 
 The Chat integrates seamlessly with various AI services, Large Language Models (LLMs), chatbot frameworks, and other messaging platforms to create intelligent conversational experiences. You can use it with popular providers like OpenAI, Azure OpenAI, or custom AI services. 
 
 This article describes the following integration scenarios:
 
-* [Microsoft.Extensions.AI](#microsoftextensionsai)
+* [Microsoft.Extensions.AI](#microsoft-extensions-ai)
 * [`IChatClient`](#ichatclient)
 * [Chatbot](#chatbot) with [suggested actions](#suggested-actions)
 

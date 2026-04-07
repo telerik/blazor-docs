@@ -64,7 +64,7 @@ If you suspect that your saved credentials are wrong, use the following steps to
 * No provided credentials
 * Incorrect password
 * [Correct password with unescaped special characters](#special-characters-in-the-password)
-* Using an expired or invalidated (removed) [Telerik NuGet API key](slug:installation-nuget#use-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/api-keys" target="_blank">your Telerik account</a>.
+* Using an expired or invalidated (removed) [Telerik NuGet API key](slug:installation-nuget#generate-a-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/api-keys" target="_blank">your Telerik account</a>.
 * Using a valid Telerik NuGet API key with the wrong username. It must be `api-key`.
 
 An easy way to verify your credentials is to [access the Telerik NuGet server directly in the web browser](#tips-for-handling-common-nuget-issues). Then, depending on your setup, check or update your credentials in:
@@ -147,7 +147,7 @@ The solution is to check the **Package Source Mapping** settings in Visual Studi
 
 ## Failed to Retrieve Information from Remote Source
 
-An attempt to use the [obsolete Telerik NuGet v2 feed](slug:installation-nuget#obsolete-telerik-nuget-url) after November 2024 will result in an error:
+An attempt to use the obsolete Telerik NuGet v2 feed after November 2024 will result in an error:
 
 `Failed to retrieve information about 'Telerik.UI.for.Blazor' from remote source 'https://nuget.telerik.com/nuget/FindPackagesById()?id='Telerik.UI.for.Blazor'&semVerLevel=2.0.0'.`
 

@@ -77,7 +77,7 @@ telerik nuget config
 
 ## Use the .NET CLI
 
-To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. The command shown below creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nugetconfig-file):
+To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. The command shown below creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nuget-config-file):
 
 * The command adds the Telerik NuGet source, uses your [NuGet API key](#generate-a-nuget-api-key) for authentication, and stores the API key in plain text in the [global config file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses).
 * The linebreak character used below enables multi-line commands for better readability. If it doesn't work in your terminal, combine the parameters into a single line instead.
