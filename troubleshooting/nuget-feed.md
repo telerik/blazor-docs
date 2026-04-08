@@ -64,8 +64,11 @@ If you suspect that your saved credentials are wrong, use the following steps to
 * No provided credentials
 * Incorrect password
 * [Correct password with unescaped special characters](#special-characters-in-the-password)
-* Using an expired or invalidated (removed) [Telerik NuGet API key](slug:installation-nuget#generate-a-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/api-keys" target="_blank">your Telerik account</a>.
-* Using a valid Telerik NuGet API key with the wrong username. It must be `api-key`.
+* Using an expired or invalidated (removed) [Telerik NuGet API key](slug:installation-nuget#generate-a-nuget-api-key), which no longer exists in [your Telerik account](https://www.telerik.com/account/downloads/api-keys).
+* Using a valid Telerik NuGet API key with a Telerik account email as the username. When using an API key, the username must be `api-key`.
+* Saving a valid Telerik NuGet API key through Visual Studio. In such cases, the Windows Credential Manager saves the username as `nuget.telerik.com\api-key` instead of just `api-key`. You have two options:
+    * [Edit the saved username in the Windows Credential Manager](#removing-saved-credentials) and remove the `nuget.telerik.com\` part.
+    * [Remove the saved credentials from the Credential Manager](#removing-saved-credentials) and then [add the Telerik API key to your global NuGet.Config file](slug:installation-nuget#edit-the-nuget-config-file).
 
 An easy way to verify your credentials is to [access the Telerik NuGet server directly in the web browser](#tips-for-handling-common-nuget-issues). Then, depending on your setup, check or update your credentials in:
 
