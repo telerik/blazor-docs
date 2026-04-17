@@ -18,6 +18,7 @@ This article explains the events available in the Telerik TabStrip for Blazor:
 * [OnStateChanged](#onstatechanged)
 * [OnStateInit](#onstateinit)
 * [OnTabReorder](#ontabreorder)
+* [PInnedChanged](#pinnedchanged)
 
 ## ActiveTabIdChanged
 
@@ -263,6 +264,59 @@ The `OnTabReorder` event fires when the user completes a drag-and-drop tab reord
 ````
 
 > The `OnStateChanged` event also fires after a tab reorder. Read more in the [State Management](slug:tabstrip-state) article.
+
+## PinnedChanged
+
+The `PinnedChanged` event fires when the user [pins or unpins a tab](slug:tabstrip-tabs-configuration#pinnable-and-pinned). The event handler receives a boolean value with the new tab pinned state.
+
+>caption Handle the TabStripTab PinnedChanged event
+
+````RAZOR
+<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
+                 EnableTabReorder="true">
+    <TabStripTab Id="alpha"
+                 Pinnable="true"
+                 Pinned="@AlphaPinned"
+                 PinnedChanged="@AlphaPinnedChanged"
+                 Title="Alpha">
+        Alpha tab content.
+    </TabStripTab>
+    <TabStripTab Id="beta"
+                 Pinnable="true"
+                 Pinned="@BetaPinned"
+                 PinnedChanged="@BetaPinnedChanged"
+                 Title="Beta">
+        Beta tab content.
+    </TabStripTab>
+    <TabStripTab Id="gamma"
+                 Title="Gamma">
+        Gamma tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+<p>Last <code>PinnedChanged</code> event: @PinnedChangedEventLog</p>
+
+@code {
+    private string TabStripActiveTabId { get; set; } = "alpha";
+
+    private bool AlphaPinned { get; set; }
+    private bool BetaPinned { get; set; } = true;
+
+    private string PinnedChangedEventLog { get; set; } = string.Empty;
+
+    private void AlphaPinnedChanged(bool newPinned)
+    {
+        AlphaPinned = newPinned;
+        PinnedChangedEventLog = $"Alpha tab pinned state changed to {newPinned}";
+    }
+
+    private void BetaPinnedChanged(bool newPinned)
+    {
+        BetaPinned = newPinned;
+        PinnedChangedEventLog = $"Beta tab pinned state changed to {newPinned}";
+    }
+}
+````
 
 ## See Also
 
