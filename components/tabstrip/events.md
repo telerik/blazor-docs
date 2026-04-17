@@ -18,7 +18,7 @@ This article explains the events available in the Telerik TabStrip for Blazor:
 * [OnStateChanged](#onstatechanged)
 * [OnStateInit](#onstateinit)
 * [OnTabReorder](#ontabreorder)
-* [PInnedChanged](#pinnedchanged)
+* [PinnedChanged](#pinnedchanged)
 
 ## ActiveTabIdChanged
 
