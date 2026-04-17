@@ -143,32 +143,38 @@ The `VisibleChanged` event fires when the tab is closed. Use this event to updat
 
 ## Pinnable and Pinned
 
-The `Pinnable` parameter specifies whether users can pin a tab. Pinned tabs are fixed to the start of the tab list and cannot be mixed with unpinned tabs during drag-and-drop [reordering](slug:tabstrip-tab-reorder).
+The `TabStripTab` `Pinnable` parameter specifies whether users can pin a tab. Pinned tabs are fixed to the start of the tab list and cannot be mixed with unpinned tabs during [reordering](slug:tabstrip-tab-reorder).
 
-Use the `Pinned` parameter to set the initial pinned state of a tab. Pair it with the `PinnedChanged` event to keep your data in sync when users toggle the pin state through the context menu.
+Use the tab's `Pinned` parameter to set the initial or runtime pinned state of a tab. Use two-way binding or the [`PinnedChanged` event](slug:tabstrip-events#pinnedchanged) to keep the `Pinned` value in sync when users toggle the pin state through the context menu.
 
 >caption TabStrip with pinnable tabs
 
 ````RAZOR
-<TelerikTabStrip EnableTabReorder="true">
-    <TabStripTab Title="Alpha"
+<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
+                 EnableTabReorder="true">
+    <TabStripTab Id="alpha"
                  Pinnable="true"
-                 @bind-Pinned="@AlphaPinned">
+                 @bind-Pinned="@AlphaPinned"
+                 Title="Alpha">
         Alpha tab content.
     </TabStripTab>
-    <TabStripTab Title="Beta"
+    <TabStripTab Id="beta"
                  Pinnable="true"
-                 @bind-Pinned="@BetaPinned">
+                 @bind-Pinned="@BetaPinned"
+                 Title="Beta">
         Beta tab content.
     </TabStripTab>
-    <TabStripTab Title="Gamma">
+    <TabStripTab Id="gamma"
+                 Title="Gamma">
         Gamma tab content.
     </TabStripTab>
 </TelerikTabStrip>
 
 @code {
-    private bool AlphaPinned { get; set; } = true;
-    private bool BetaPinned { get; set; }
+    private string TabStripActiveTabId { get; set; } = "alpha";
+
+    private bool AlphaPinned { get; set; }
+    private bool BetaPinned { get; set; } = true;
 }
 ````
 
