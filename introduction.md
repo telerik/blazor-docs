@@ -139,6 +139,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Calendar" href="slug:components/calendar/overview"></IntroTableAnchor>
       <IntroTableAnchor title="Gantt" href="slug:gantt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Scheduler" href="slug:scheduler-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="TaskBoard" href="slug:taskboard-overview"></IntroTableAnchor>
     </IntroTableSection>
     <IntroTableSection title="Charts">
       <IntroTableAnchor title="Charts Overview" href="slug:components/chart/overview"></IntroTableAnchor>
