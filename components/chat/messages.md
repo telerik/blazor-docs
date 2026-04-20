@@ -6,6 +6,7 @@ slug: chat-messages
 tags: telerik,blazor,chat,messages,actions,styling
 published: True
 position: 5
+tag: updated
 components: ["chat"]
 ---
 # Chat Messages
@@ -239,6 +240,60 @@ Configure toolbar actions that appear when messages are selected or hovered. The
 </TelerikChat>
 ````
 
+## Auto-Scroll Threshold
+
+The `AutoScrollThreshold` parameter controls where the Chat positions a new receiver message during auto-scroll. By default, the component scrolls to the absolute bottom when a new message arrives. This can push the beginning of a long or streaming response out of the visible area. Setting `AutoScrollThreshold` keeps the top of the new message visible with a configurable amount of space above it.
+
+>caption Chat with a percentage-based auto-scroll threshold
+
+````RAZOR.skip-repl
+<TelerikChat Data="@ChatData"
+             AuthorId="@CurrentUserId"
+             AutoScrollThreshold="30%"
+             Height="500px">
+</TelerikChat>
+````
+
+>caption Chat with a pixel-based auto-scroll threshold
+
+````RAZOR.skip-repl
+<TelerikChat Data="@ChatData"
+             AuthorId="@CurrentUserId"
+             AutoScrollThreshold="100px"
+             Height="500px">
+</TelerikChat>
+````
+
+### Behavior
+
+`AutoScrollThreshold` works differently depending on the context:
+
+* Receiver messages&mdash;When a new receiver message arrives and the user is within 100px of the bottom, the component scrolls so that the top of the new message is offset from the top of the visible area by the configured threshold. If the user has scrolled up beyond the 100px buffer, auto-scroll is suppressed.
+* Author messages&mdash;Always scroll to the absolute bottom, regardless of the threshold value.
+* Scroll-to-bottom button&mdash;Always scrolls to the absolute bottom, ignoring the threshold.
+* `Refresh()` method&mdash;Evaluates the last message: applies the threshold for receiver messages and scrolls to the bottom for author messages.
+* Short messages&mdash;When the message is short enough that the calculated scroll position exceeds the maximum scrollable distance, the component scrolls to the bottom. This is the expected behavior.
+
+### Auto-Scroll Threshold Parameter
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `AutoScrollThreshold` | `string` <br /> (`null`) | The minimum offset between the top of the latest receiver message and the top edge of the visible message area during auto-scroll. Accepts a percentage relative to the visible area height (for example, `"30%"`) or an absolute pixel value (for example, `"100px"` or `"100"`). When `null` or empty, the component scrolls to the absolute bottom. Has no effect on author messages. |
+
+### Value Format
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Format | Example | Resolved value (500px container) |
+| --- | --- | --- |
+| Percentage | `"30%"` | 150px offset from top |
+| Pixels with unit | `"100px"` | 100px offset from top |
+| Plain number | `"100"` | 100px offset from top |
+
+The resolved offset is constrained between `0` and the visible area height. Values that exceed 100% are capped at the container height.
+
 ## Messages Styling
 
 The Chat component provides several styling options for messages, allowing you to customize their appearance, behavior, and layout to match your application's design.
@@ -253,8 +308,8 @@ Set `EnableMessageCollapse="true"` to allow users to collapse and expand message
 
 Control the width behavior of chat messages using the `MessageWidthMode` parameter:
 
-* `MessageWidthMode.Standard` - Messages take up a portion of the available space for better readability (default behavior)
-* `MessageWidthMode.Full` - Messages span the full width of the chat container
+* `MessageWidthMode.Standard`&mdash;Messages take up a portion of the available space for better readability (default behavior)
+* `MessageWidthMode.Full`&mdash;Messages span the full width of the chat container
 
 ## Author and Receiver Message Settings
 
