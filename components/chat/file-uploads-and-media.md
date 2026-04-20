@@ -44,6 +44,9 @@ Configure file upload behavior using the `ChatFileSelectSettings` component:
 | `MaxFileSize` | `long` | `null` | Maximum file size in bytes |
 | `Multiple` | `bool` | `true` | Allow multiple file selection |
 | `OnSelect` | `EventCallback` | - | Event fired when files are selected |
+| `OnRemove` | `EventCallback` | - | Event fired when a user removes a file from the selection before sending |
+
+To customize the appearance of the file select button, `ChatFileSelectSettings` exposes the same appearance parameters as the standard [TelerikButton](slug:button-appearance).
 
 >caption An exemplary Chat file upload configuration
 
@@ -334,6 +337,7 @@ Configure speech recognition behavior using `ChatSpeechToTextButtonSettings`:
 | `MaxAlternatives` | `int` | `1` | Maximum number of recognition alternatives |
 | `InterimResults` | `bool` | `false` | Return interim recognition results |
 | `OnResult` | `EventCallback` | - | Event fired when speech is recognized |
+| `Title` | `string` | - | The accessible title (tooltip text) of the speech-to-text button |
 
 ## See Also
 
