@@ -10,8 +10,6 @@ ticketid: 1661907
 components: ["numerictextbox"]
 ---
 
-# How to Display Currency Format Without Decimals?
-
 To display a currency value without decimal places in the NumericTextBox, set the Format parameter to "C0" instead of "C".
 
 ## Description
@@ -27,7 +25,7 @@ This KB article also answers the following questions:
 
 To display a currency value without decimal places in the NumericTextBox while using the currency format (`C`), set the `Format` parameter to `"C0"`. This explicitly sets the number of decimal places to zero in the formatted currency value.
 
-````RAZOR
+````RAZOR.skip-repl
 
 <TelerikNumericTextBox @bind-Value="@BoundAmountTo" Decimals="0" Format="C0" Step="1m" />
 
