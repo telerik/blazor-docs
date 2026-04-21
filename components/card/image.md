@@ -23,7 +23,7 @@ Every Blazor Card can have a dedicated area to render a card image that will fil
         <CardSubTitle>Bulgaria, Europe</CardSubTitle>
     </CardHeader>
 
-    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/bg/rila_lakes.jpg"></CardImage>
+    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/bg/rila_lakes.jpg" Alt="Rila Lakes"></CardImage>
 
     <CardActions Layout="CardActionsLayout.Stretch">
         <TelerikButton Class="k-flat" Icon="@SvgIcon.HeartOutline" Title="Like"></TelerikButton>
@@ -44,6 +44,8 @@ The CardImage provides the following features:
 * `Width` - `string` - defines width of the image.
 
 * `Height` - `string` - defines the height of the image.
+
+* `Alt` - `string` - defines the `alt` attribute of the image tag.
 
 ## See Also
 
