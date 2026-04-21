@@ -29,58 +29,10 @@ With multiple group levels (for example, Team and then Active Projects), all anc
 
 >caption Enable sticky group headers
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             Groupable="true"
-             Pageable="true"
-             Height="400px"
-             OnStateInit="@OnGridStateInit">
-    <GridSettings>
-        <GridGroupableSettings StickyHeaders="true" />
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@nameof(Employee.Name)" Groupable="false" />
-        <GridColumn Field="@nameof(Employee.Team)" Title="Team" />
-        <GridColumn Field="@nameof(Employee.Salary)" Title="Salary" DisplayFormat="{0:C0}" Groupable="false" />
-        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private void OnGridStateInit(GridStateEventArgs<Employee> args)
-    {
-        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
-        {
-            Member = nameof(Employee.Team)
-        });
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 30; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = $"Employee {i}",
-                Team = $"Team {i % 4}",
-                Salary = Random.Shared.Next(1000, 5000),
-                IsOnLeave = i % 3 == 0
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-        public decimal Salary { get; set; }
-        public bool IsOnLeave { get; set; }
-    }
-}
+````RAZOR.skip-repl
+<GridSettings>
+    <GridGroupableSettings StickyHeaders="true" />
+</GridSettings>
 ````
 
 ## Enabling Sticky Group Footers
@@ -96,6 +48,18 @@ The footer overlay appears at the bottom of the scrollable area while the group 
 
 >caption Enable sticky group footers with aggregates
 
+````RAZOR.skip-repl
+<GridSettings>
+    <GridGroupableSettings StickyFooters="true" />
+</GridSettings>
+````
+
+## Example
+
+The following example enables both sticky group headers and sticky group footers. Scroll the Grid to observe how the group header remains pinned at the top and the group footer remains pinned at the bottom of the scrollable area.
+
+>caption Grid with sticky group headers and footers
+
 ````RAZOR
 @using Telerik.DataSource
 
@@ -105,7 +69,7 @@ The footer overlay appears at the bottom of the scrollable area while the group 
              Height="400px"
              OnStateInit="@OnGridStateInit">
     <GridSettings>
-        <GridGroupableSettings StickyFooters="true" />
+        <GridGroupableSettings StickyHeaders="true" StickyFooters="true" />
     </GridSettings>
     <GridAggregates>
         <GridAggregate Field="@nameof(Employee.Name)" Aggregate="@GridAggregateType.Count" />
@@ -170,6 +134,7 @@ The footer overlay appears at the bottom of the scrollable area while the group 
 ## Limitations
 
 * The feature is not available when the Grid uses [virtual scrolling]({%slug components/grid/virtual-scrolling%}), because grouping is not supported with virtualization.
+* Sticky group headers and footers do not work with [`LoadGroupsOnDemand`](slug:grid-group-lod), because load-on-demand mode does not support [aggregates](slug:grid-aggregates).
 
 ## See Also
 

@@ -88,7 +88,7 @@ The grid lets you define and use aggregates that it can calculate for you. You c
 
 ## Sticky Group Headers and Footers
 
-The Grid can keep group header and footer rows pinned while the user scrolls through the grouped data. Sticky headers remain fixed at the top of the scrollable area and sticky footers remain fixed at the bottom. Read more in the [Sticky Group Headers and Footers](slug:sticky-groups) article.
+The Grid can pin group headers and footers while the user scrolls through the grouped data. Sticky headers remain fixed at the top of the scrollable area and sticky footers remain fixed at the bottom. Read more in the [Sticky Group Headers and Footers](slug:sticky-groups) article.
 
 ## Load On Demand
 
