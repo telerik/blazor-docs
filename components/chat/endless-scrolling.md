@@ -1,7 +1,7 @@
 ---
 title: Endless Scrolling
 page_title: Chat Endless Scrolling
-description: Learn how to enable and configure endless scrolling in the Telerik UI for Blazor Chat component. Covers client-side and server-side (on-demand) loading modes.
+description: Learn how to enable and configure endless scrolling in the Telerik Chat component for Blazor to load messages on demand.
 slug: chat-endless-scrolling
 tags: telerik,blazor,chat,endless,scrolling,paging,virtual,load-more
 published: True
@@ -12,16 +12,14 @@ components: ["chat"]
 
 # Chat Endless Scrolling
 
-The Telerik UI for Blazor Chat component supports endless scrolling, which loads messages in pages as the user scrolls. The component renders a window of messages instead of the full dataset. Endless scrolling supports two modes: client-side, where the component pages the `Data` collection automatically, and server-side, where the application supplies pages through the `OnLoadMoreMessages` event.
-
-## Enabling Endless Scrolling
+The Telerik UI for Blazor Chat component supports endless scrolling, which loads messages in pages as the user scrolls. The component renders a chunk of messages instead of the full dataset and then uses load on demand during scrolling. Endless scrolling supports two modes: client-side, where the component pages the `Data` collection automatically, and server-side, where the application supplies pages through the `OnLoadMoreMessages` event.
 
 To enable endless scrolling:
 
 1. Set `ScrollMode` to `ChatScrollMode.Endless`.
-1. Set `PageSize` to the number of messages to load per page.
+1. Optionally, set `PageSize` to the desired number of messages to load on demand. The default value is `20`.
 
-The component starts scrolled to the bottom (latest messages) and loads older pages as the user scrolls up.
+On initialization, the Chat scrolls to the bottom and shows the latest messages. If the user scrolls up, the component loads older messages.
 
 ## Client-Side Endless Scrolling
 
@@ -31,10 +29,12 @@ In client-side mode, the component pages the `Data` collection automatically. No
 
 ````RAZOR
 <TelerikChat Data="@ChatMessages"
+             AuthorId="1"
              ScrollMode="@ChatScrollMode.Endless"
              PageSize="20"
              OnSendMessage="@OnChatSendMessage"
-             AuthorId="1" />
+             Height="90vh"
+             Width="400px" />
 
 @code {
     private List<ChatMessage> ChatMessages { get; set; } = new();
@@ -45,9 +45,8 @@ In client-side mode, the component pages the `Data` collection automatically. No
         {
             ChatMessages.Add(new ChatMessage
             {
-                Id = i.ToString(),
                 AuthorId = i % 2 == 0 ? "1" : "2",
-                Content = $"Message {i}",
+                Text = $"Message {i}",
                 Timestamp = DateTime.Now.AddMinutes(-100 + i)
             });
         }
@@ -57,10 +56,8 @@ In client-side mode, the component pages the `Data` collection automatically. No
     {
         ChatMessages.Add(new ChatMessage
         {
-            Id = Guid.NewGuid().ToString(),
             AuthorId = "1",
-            Content = args.Message,
-            Timestamp = DateTime.Now
+            Text = args.Message
         });
     }
 
@@ -68,7 +65,7 @@ In client-side mode, the component pages the `Data` collection automatically. No
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string AuthorId { get; set; } = string.Empty;
-        public string Content { get; set; } = string.Empty;
+        public string Text { get; set; } = string.Empty;
         public DateTime Timestamp { get; set; } = DateTime.Now;
     }
 }
@@ -76,39 +73,78 @@ In client-side mode, the component pages the `Data` collection automatically. No
 
 ## Server-Side Endless Scrolling
 
-In server-side mode, the application controls which page of messages is loaded. This mode is required when the full dataset is large and must not be loaded into memory at once, for example, when loading messages from a database.
+In server-side mode, the Chat requests messages page by page. Use this mode when the full dataset is too large to be loaded into memory at once.
 
-To use server-side endless scrolling, in addition to `ScrollMode` and `PageSize`:
+To use server-side endless scrolling, set the following parameters in addition to `ScrollMode`:
 
-1. Set `Total` to the total number of messages in the full dataset.
-1. Set `StartIndex` to the index of the first message currently in `Data`.
-1. Set `EndIndex` to the index past the last message currently in `Data`.
-1. Subscribe to `OnLoadMoreMessages` and update `Data`, `StartIndex`, and `EndIndex` in the handler.
+1. Set `Total` to the total number of messages in the full dataset. Update this value when users send new messages.
+1. Set `StartIndex` to the index of the first message in the current `Data` collection.
+1. Set `EndIndex` to the index of the last message in the current `Data`.
+1. Subscribe to [`OnLoadMoreMessages`](#loading-more-messages) and update `Data`, `StartIndex`, and `EndIndex` in the handler.
 
 >note The `StartIndex` and `EndIndex` parameters reflect the slice of the full dataset that is currently in `Data`. The component uses them to determine whether more pages exist and in which direction to load.
+
+### Loading More Messages
+
+The `OnLoadMoreMessages` event fires when the component needs a new page of messages. The event args expose `StartIndex` and `EndIndex`, which define the requested range in the full dataset.
+
+The handler determines the merge action by comparing the event args to the current `StartIndex` and `EndIndex` values:
+
+* If `args.EndIndex == StartIndex`, the user scrolled up and older messages must be added to the top.
+* If `args.StartIndex == EndIndex`, the user scrolled down and newer messages must be added to the bottom.
+* In any other case — replace `Data` with the new page and reset both `StartIndex` and `EndIndex`. This covers the initial load, a scroll-to-bottom action, or sending a message while a non-last page is displayed.
+
+After updating `Data`, `StartIndex`, and `EndIndex`, also update `RepliedToMessages` to include any reply-to source messages that are not in the current page.
+
+### Navigating to Referenced Messages
+
+The `OnReferencedMessageClick` event fires when the user clicks a pinned message banner or a reply-to reference. Use the `Id` property of the event args to locate the target message in the full dataset, then replace `Data`, `StartIndex`, and `EndIndex` to load the page that contains the target.
+
+The component scrolls to the target message after `Data` is updated.
+
+### Sending and Receiving Messages
+
+When the user sends a message or the application receives one externally, add the message to both the full dataset and the current `Data` collection. Update `EndIndex` and `Total` to reflect the new count.
+
+The component skips `OnLoadMoreMessages` when the last page is already displayed and scrolls to the new message automatically.
+
+To trigger the same behavior for an externally received message, call `ChatRef.Refresh()` after updating `Data`.
+
+>caption Receiving an external message during server-side endless scrolling
+
+````RAZOR.skip-repl
+private void ReceiveExternalMessage(ChatMessage newMessage)
+{
+    AllMessages.Add(newMessage);
+    ChatMessages.Add(newMessage);
+    ChatEndIndex = ChatStartIndex + ChatMessages.Count;
+    TotalCount++; // if not a calculated property
+
+    ChatRef?.Refresh();
+}
+````
+
+### Example
 
 >caption Chat with server-side endless scrolling
 
 ````RAZOR
-<TelerikChat @ref="@ChatRef"
-                Data="@ChatMessages"
-                ScrollMode="@ChatScrollMode.Endless"
-                PageSize="@ChatPageSize"
-                Total="@TotalCount"
-                StartIndex="@ChatStartIndex"
-                EndIndex="@ChatEndIndex"
-                PinnedMessages="@ChatPinnedMessages"
-                RepliedToMessages="@ChatRepliedToMessages"
-                OnLoadMoreMessages="@OnChatLoadMoreMessages"
-                OnReferencedMessageClick="@OnChatReferencedMessageClick"
-                OnSendMessage="@OnChatSendMessage"
-                AuthorId="1"
-                Height="600px"
-                Width="400px" />
+<TelerikChat Data="@ChatMessages"
+             AuthorId="1"
+             ScrollMode="@ChatScrollMode.Endless"
+             PageSize="@ChatPageSize"
+             Total="@TotalCount"
+             StartIndex="@ChatStartIndex"
+             EndIndex="@ChatEndIndex"
+             PinnedMessages="@ChatPinnedMessages"
+             RepliedToMessages="@ChatRepliedToMessages"
+             OnLoadMoreMessages="@OnChatLoadMoreMessages"
+             OnReferencedMessageClick="@OnChatReferencedMessageClick"
+             OnSendMessage="@OnChatSendMessage"
+             Height="90vh"
+             Width="400px" />
 
 @code {
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
-
     private List<ChatMessage> AllMessages { get; set; } = new();
     private List<ChatMessage> ChatMessages { get; set; } = new();
     private List<ChatMessage> ChatPinnedMessages { get; set; } = new();
@@ -125,9 +161,8 @@ To use server-side endless scrolling, in addition to `ScrollMode` and `PageSize`
         {
             AllMessages.Add(new ChatMessage
             {
-                Id = i.ToString(),
                 AuthorId = i % 2 == 0 ? "1" : "2",
-                Content = $"Message {i}",
+                Text = $"Message {i}",
                 Timestamp = DateTime.Now.AddMinutes(-200 + i)
             });
         }
@@ -185,10 +220,8 @@ To use server-side endless scrolling, in addition to `ScrollMode` and `PageSize`
     {
         var newMessage = new ChatMessage
         {
-            Id = Guid.NewGuid().ToString(),
             AuthorId = "1",
-            Content = args.Message,
-            Timestamp = DateTime.Now
+            Text = args.Message
         };
 
         AllMessages.Add(newMessage);
@@ -217,49 +250,10 @@ To use server-side endless scrolling, in addition to `ScrollMode` and `PageSize`
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string AuthorId { get; set; } = string.Empty;
-        public string Content { get; set; } = string.Empty;
+        public string Text { get; set; } = string.Empty;
         public string ReplyToId { get; set; } = string.Empty;
         public DateTime Timestamp { get; set; } = DateTime.Now;
     }
-}
-````
-
-### Loading More Messages
-
-The `OnLoadMoreMessages` event fires when the component needs a new page of messages. The event args expose `StartIndex` and `EndIndex`, which define the requested range in the full dataset.
-
-The handler determines the merge action by comparing the event args to the current `StartIndex` and `EndIndex` values:
-
-* If `args.EndIndex == StartIndex` — the user scrolled up and older messages must be added to the top.
-* If `args.StartIndex == EndIndex` — the user scrolled down and newer messages must be added to the bottom.
-* In any other case — replace `Data` with the new page and reset both `StartIndex` and `EndIndex`. This covers the initial load, a scroll-to-bottom action, or sending a message while a non-last page is displayed.
-
-After updating `Data`, `StartIndex`, and `EndIndex`, also update `RepliedToMessages` to include any reply-to source messages that are not in the current page.
-
-### Navigating to Referenced Messages
-
-The `OnReferencedMessageClick` event fires when the user clicks a pinned message banner or a reply-to reference. Use the `Id` property of the event args to locate the target message in the full dataset, then replace `Data`, `StartIndex`, and `EndIndex` to load the page that contains the target.
-
-The component scrolls to the target message after `Data` is updated.
-
-### Sending and Receiving Messages
-
-When the user sends a message or the application receives one externally, add the message to both the full dataset and the current `Data` collection. Update `EndIndex` to reflect the new count.
-
-The component skips `OnLoadMoreMessages` when the last page is already displayed and scrolls to the new message automatically.
-
-To trigger the same behavior for an externally received message, call `ChatRef.Refresh()` after updating `Data`.
-
->caption Receiving an external message during server-side endless scrolling
-
-````RAZOR.skip-repl
-private void ReceiveExternalMessage(ChatMessage newMessage)
-{
-    AllMessages.Add(newMessage);
-    ChatMessages.Add(newMessage);
-    ChatEndIndex = ChatStartIndex + ChatMessages.Count;
-
-    ChatRef?.Refresh();
 }
 ````
 

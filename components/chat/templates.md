@@ -193,11 +193,11 @@ This allows you to define context menu actions that can be performed on Chat mes
 
 ## Text Area Affix Templates
 
-The `ChatTextAreaSettings` component provides three template parameters that add custom content to the Chat input area. These templates are additive — they render alongside the built-in buttons, without replacing them. Use them as a light-weight alternative to `MessageBoxTemplate`, when you need to extend the input area while retaining the built-in send, file upload, and speech-to-text functionality.
+The `ChatTextAreaSettings` component provides three template parameters that add custom content to the Chat input area. These templates are additive and render alongside the built-in buttons, without replacing them. Use them as a lightweight alternative to `MessageBoxTemplate` when you need to extend the input area while retaining the built-in send, file upload, and speech-to-text functionality.
 
 ### Adding Custom Content
 
-Set one or more affix templates on `ChatTextAreaSettings` to place custom content at the start, end, or top of the input area.
+Set one or more affix templates in `ChatTextAreaSettings` to place custom content at the start, end, or top of the input area.
 
 >caption Chat with custom content in all three affix positions
 
@@ -233,7 +233,7 @@ The ordering rules for each template position are:
 
 ### Repositioning Built-in Buttons
 
-You can disable a built-in button and re-add it inside an affix template to reposition it. Use `EnableSpeechToText="false"`, `EnableFileUpload="false"`, or `EnableActionButton="false"` to remove a button from its default position. Then place the corresponding `PromptBoxSpeechToTextButton`, `PromptBoxFileSelectButton`, or `PromptBoxActionButton` component inside any affix template.
+To reposition a built-in button, disable it and add it inside an affix template. Set `EnableSpeechToText="false"`, `EnableFileUpload="false"`, or `EnableActionButton="false"` to remove a button from its default position. Then place the corresponding `PromptBoxSpeechToTextButton`, `PromptBoxFileSelectButton`, or `PromptBoxActionButton` component inside any affix template.
 
 >caption Move the speech-to-text and file select buttons to the start affix
 
