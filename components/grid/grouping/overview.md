@@ -16,6 +16,7 @@ The Grid component offers support for grouping.
 
 * [Basics](#basics)
 * [Aggregates](#aggregates)
+* [Sticky Group Headers and Footers](#sticky-group-headers-and-footers)
 * [Load On Demand](#load-on-demand)
 * [Group From Code](#group-from-code)
 * [Grouping Settings](#grouping-settings)
@@ -84,6 +85,10 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 ## Aggregates
 
 The grid lets you define and use aggregates that it can calculate for you. You can read more about using them in the [Aggregates](slug:grid-aggregates) article.
+
+## Sticky Group Headers and Footers
+
+The Grid can pin group headers and footers while the user scrolls through the grouped data. Sticky headers remain fixed at the top of the scrollable area and sticky footers remain fixed at the bottom. Read more in the [Sticky Group Headers and Footers](slug:sticky-groups) article.
 
 ## Load On Demand
 
