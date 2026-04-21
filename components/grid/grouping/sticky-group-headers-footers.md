@@ -30,9 +30,11 @@ With multiple group levels (for example, Team and then Active Projects), all anc
 >caption Enable sticky group headers
 
 ````RAZOR.skip-repl
-<GridSettings>
-    <GridGroupableSettings StickyHeaders="true" />
-</GridSettings>
+<TelerikGrid>
+    <GridSettings>
+        <GridGroupableSettings StickyHeaders="true" />
+    </GridSettings>
+</TelerikGrid>
 ````
 
 ## Enabling Sticky Group Footers
