@@ -6,6 +6,7 @@ slug: chat-templates
 keywords: blazor, telerik, chat, templates, customization
 published: True
 position: 8
+tag: updated
 components: ["chat"]
 ---
 # Chat Templates
@@ -190,6 +191,93 @@ This allows you to define context menu actions that can be performed on Chat mes
 </ChatMessageContextMenuActions>
 ````
 
+## Text Area Affix Templates
+
+The `ChatTextAreaSettings` component provides three template parameters that add custom content to the Chat input area. These templates are additive and render alongside the built-in buttons, without replacing them. Use them as a lightweight alternative to `MessageBoxTemplate` when you need to extend the input area while retaining the built-in send, file upload, and speech-to-text functionality.
+
+### Adding Custom Content
+
+Set one or more affix templates in `ChatTextAreaSettings` to place custom content at the start, end, or top of the input area.
+
+>caption Chat with custom content in all three affix positions
+
+````RAZOR.skip-repl
+<TelerikChat Data="@Messages"
+             EnableSpeechToText="true"
+             EnableFileUpload="true"
+             OnSendMessage="@OnSendMessage"
+             AuthorId="1">
+    <ChatSettings>
+        <ChatTextAreaSettings Mode="@PromptBoxMode.MultiLine">
+            <ChatTextAreaStartAffixTemplate>
+                <TelerikSvgIcon Icon="@SvgIcon.Globe" />
+            </ChatTextAreaStartAffixTemplate>
+            <ChatTextAreaEndAffixTemplate>
+                <TelerikButton Icon="@SvgIcon.Heart"
+                               FillMode="@ThemeConstants.Button.FillMode.Flat"
+                               Size="@ThemeConstants.Button.Size.Small" />
+            </ChatTextAreaEndAffixTemplate>
+            <ChatTextAreaTopAffixTemplate>
+                <span>Tip: Be specific for better results</span>
+            </ChatTextAreaTopAffixTemplate>
+        </ChatTextAreaSettings>
+    </ChatSettings>
+</TelerikChat>
+````
+
+The ordering rules for each template position are:
+
+* `ChatTextAreaStartAffixTemplate`&mdash;The built-in file select button renders first (when `EnableFileUpload` is `true`), then the template content follows.
+* `ChatTextAreaEndAffixTemplate`&mdash;Template content renders first, then the built-in speech-to-text and send buttons follow.
+* `ChatTextAreaTopAffixTemplate`&mdash;Renders above the text input. Visible only in multi-line mode (`PromptBoxMode.MultiLine` or `PromptBoxMode.Auto` when expanded).
+
+### Repositioning Built-in Buttons
+
+To reposition a built-in button, disable it and add it inside an affix template. Set `EnableSpeechToText="false"`, `EnableFileUpload="false"`, or `EnableActionButton="false"` to remove a button from its default position. Then place the corresponding `PromptBoxSpeechToTextButton`, `PromptBoxFileSelectButton`, or `PromptBoxActionButton` component inside any affix template.
+
+>caption Move the speech-to-text and file select buttons to the start affix
+
+````RAZOR.skip-repl
+<TelerikChat Data="@Messages"
+             EnableSpeechToText="false"
+             EnableFileUpload="false"
+             OnSendMessage="@OnSendMessage"
+             AuthorId="1">
+    <ChatSettings>
+        <ChatTextAreaSettings Mode="@PromptBoxMode.Auto">
+            <ChatTextAreaStartAffixTemplate>
+                <PromptBoxSpeechToTextButton Lang="en-US"
+                                             FillMode="@ThemeConstants.Button.FillMode.Flat"
+                                             Size="@ThemeConstants.Button.Size.Small" />
+                <PromptBoxFileSelectButton Multiple="true"
+                                           FillMode="@ThemeConstants.Button.FillMode.Flat"
+                                           Size="@ThemeConstants.Button.Size.Small" />
+            </ChatTextAreaStartAffixTemplate>
+        </ChatTextAreaSettings>
+    </ChatSettings>
+</TelerikChat>
+````
+
+>caption Move the send button to the start affix
+
+````RAZOR.skip-repl
+<TelerikChat Data="@Messages"
+             EnableActionButton="false"
+             EnableSpeechToText="true"
+             OnSendMessage="@OnSendMessage"
+             AuthorId="1">
+    <ChatSettings>
+        <ChatTextAreaSettings Mode="@PromptBoxMode.Auto">
+            <ChatTextAreaStartAffixTemplate>
+                <PromptBoxActionButton FillMode="@ThemeConstants.Button.FillMode.Flat"
+                                       Rounded="@ThemeConstants.Button.Rounded.Full"
+                                       Size="@ThemeConstants.Button.Size.Small" />
+            </ChatTextAreaStartAffixTemplate>
+        </ChatTextAreaSettings>
+    </ChatSettings>
+</TelerikChat>
+````
+
 ## Complete Example
 
 >caption A complete example that integrates all templates into a Chat component
@@ -202,8 +290,8 @@ This allows you to define context menu actions that can be performed on Chat mes
              TextField="@nameof(ChatMessage.Content)"
              Suggestions="@ChatSuggestions"
              ReplyToIdField="@nameof(ChatMessage.MessageToReplyId)"
-             InputValue="@ChatInputValue"
              EnableSpeechToText="@ChatSpeechToTextEnabled"
+             OnSendMessage="@OnChatSendMessage"
              AuthorId="@CurrentUserId">
     <HeaderTemplate>
         <span style="padding: 1rem; font-weight: 500;">
@@ -239,10 +327,21 @@ This allows you to define context menu actions that can be performed on Chat mes
             @context.Suggestion
         </div>
     </SuggestionTemplate>
-    <MessageBoxTemplate>
-        <input type="text" class="k-textbox" placeholder="Type your message here..." @bind-value="@ChatInputValue" @bind-value:event="oninput" />
-        <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" @onclick="@( () => OnChatSendMessage(new ChatSendMessageEventArgs { Message = ChatInputValue }, CurrentUserId) )">Send</button>
-    </MessageBoxTemplate>
+    <ChatSettings>
+        <ChatTextAreaSettings>
+            <ChatTextAreaStartAffixTemplate>
+                <TelerikSvgIcon Icon="@SvgIcon.Globe" />
+            </ChatTextAreaStartAffixTemplate>
+            <ChatTextAreaEndAffixTemplate>
+                <TelerikButton Icon="@SvgIcon.Heart"
+                               FillMode="@ThemeConstants.Button.FillMode.Flat"
+                               Size="@ThemeConstants.Button.Size.Small" />
+            </ChatTextAreaEndAffixTemplate>
+            <ChatTextAreaTopAffixTemplate>
+                <span>Tip: Be specific for better results</span>
+            </ChatTextAreaTopAffixTemplate>
+        </ChatTextAreaSettings>
+    </ChatSettings>
     <TimestampTemplate>
         <span style="font-size: 12px; color: #888;">
             @context.Timestamp.ToString("dddd, MMMM d, yyyy")
@@ -268,7 +367,6 @@ This allows you to define context menu actions that can be performed on Chat mes
     private const string SecondUserImage = "images/user.webp";
     private List<ChatMessage> ChatData { get; set; } = new();
     private List<string> ChatSuggestions { get; set; }
-    private string ChatInputValue { get; set; }
     private string CurrentUserId { get; set; } = "1";
     private bool ChatSpeechToTextEnabled { get; set; } = true;
     
@@ -300,11 +398,6 @@ This allows you to define context menu actions that can be performed on Chat mes
         }
     }
 
-    private void OnChatInputValueChanged(string newValue)
-    {
-        ChatInputValue = newValue;
-    }
-
     private void OnPinMessageClick(ChatMessageActionClickEventArgs args)
     {
         var message = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
@@ -315,13 +408,13 @@ This allows you to define context menu actions that can be performed on Chat mes
         }
     }
 
-    private void OnChatSendMessage(ChatSendMessageEventArgs args, string authorId)
+    private void OnChatSendMessage(ChatSendMessageEventArgs args)
     {
         var newMessage = new ChatMessage
         {
             Id = Guid.NewGuid().ToString(),
-            AuthorName = authorId == "1" ? "John Smith" : "Jane Doe",
-            AuthorId = authorId,
+            AuthorName = "John Smith",
+            AuthorId = CurrentUserId,
             Content = args.Message,
             MessageToReplyId = args.ReplyMessageId,
             Status = "Sent",

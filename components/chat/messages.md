@@ -253,8 +253,8 @@ Set `EnableMessageCollapse="true"` to allow users to collapse and expand message
 
 Control the width behavior of chat messages using the `MessageWidthMode` parameter:
 
-* `MessageWidthMode.Standard` - Messages take up a portion of the available space for better readability (default behavior)
-* `MessageWidthMode.Full` - Messages span the full width of the chat container
+* `MessageWidthMode.Standard`&mdash;Messages take up a portion of the available space for better readability (default behavior)
+* `MessageWidthMode.Full`&mdash;Messages span the full width of the chat container
 
 ## Author and Receiver Message Settings
 
@@ -370,7 +370,7 @@ If no author or receiver-specific setting is provided, the component falls back 
 
 ## Send Message Button Customization
 
-Customize the appearance of the send message button using the `ChatSendMessageButtonSettings` component. The `Class` parameter allows you to apply custom CSS classes for styling.
+Customize the appearance of the send message button using the `ChatSendMessageButtonSettings` component. The `Class` parameter applies custom CSS classes for styling, and the `Title` parameter sets the button's accessible title (tooltip text).
 
 ````RAZOR
 <TelerikChat Data="@ChatData"
@@ -393,6 +393,19 @@ Customize the appearance of the send message button using the `ChatSendMessageBu
         background-color: #45a049;
     }
 </style>
+````
+
+## Message Input Configuration
+
+Use the `ChatTextAreaSettings` component inside `<ChatSettings>` to configure the message input area. The `Placeholder` parameter sets the hint text displayed in the input when it is empty.
+
+````RAZOR.skip-repl
+<TelerikChat Data="@ChatData"
+             AuthorId="@CurrentUserId">
+    <ChatSettings>
+        <ChatTextAreaSettings Placeholder="Type your message here..." />
+    </ChatSettings>
+</TelerikChat>
 ````
 
 ## Message Box Value Persistence
