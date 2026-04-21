@@ -49,9 +49,11 @@ The footer overlay appears at the bottom of the scrollable area while the group 
 >caption Enable sticky group footers with aggregates
 
 ````RAZOR.skip-repl
-<GridSettings>
-    <GridGroupableSettings StickyFooters="true" />
-</GridSettings>
+<TelerikGrid>
+    <GridSettings>
+        <GridGroupableSettings StickyFooters="true" />
+    </GridSettings>
+</TelerikGrid>
 ````
 
 ## Example
