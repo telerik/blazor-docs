@@ -35,11 +35,13 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 ````RAZOR
 <TelerikDrawer Expanded="@DrawerExpanded"
                ExpandedChanged="@DrawerExpandedChanged"
-               Data="Data" 
+               Data="Data"
                Mode="@DrawerMode.Push"
-               MiniMode="true">
+               MiniMode="true"
+               @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
         <TelerikButton OnClick="@ToggleDrawer" Icon="@SvgIcon.Menu" />
+        <p>@SelectedItem?.Text</p>
     </DrawerContent>
 </TelerikDrawer>
 
@@ -64,7 +66,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 
     private void DrawerExpandedChanged(bool newExpanded)
     {
-        // Do not modify the DrawerExpanded value here. 
+        // Do not modify the DrawerExpanded value here.
     }
 
     public class DrawerItem
