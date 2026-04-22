@@ -115,7 +115,7 @@ Disabled items are skipped during keyboard navigation and cannot be activated. A
 
 ## SegmentedControl API
 
-Get familiar with all SegmentedControl parameters, methods, events, and nested tags in the [DropDownTree API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl).
+Get familiar with all SegmentedControl parameters, methods, events, and nested tags in the [SegmentedControl API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl-2).
 
 ## Next Steps
 
@@ -126,5 +126,5 @@ Get familiar with all SegmentedControl parameters, methods, events, and nested t
 ## See Also
 
 * [Live Demo: SegmentedControl](https://demos.telerik.com/blazor-ui/segmentedcontrol/overview)
-* [SegmentedControl API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl)
+* [SegmentedControl API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl-2)
 * [Icons in Telerik UI for Blazor](slug:common-features-icons)
