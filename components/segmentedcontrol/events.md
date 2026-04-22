@@ -60,4 +60,4 @@ Use `ValueChanged` together with `Value` for one-way binding, or use `@bind-Valu
 ## See Also
 
 * [SegmentedControl Overview](slug:segmentedcontrol-overview)
-* [SegmentedControl API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl)
+* [SegmentedControl API Reference](slug:Telerik.Blazor.Components.TelerikSegmentedControl-2)
