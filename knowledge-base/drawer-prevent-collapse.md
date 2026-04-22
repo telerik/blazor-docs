@@ -27,79 +27,52 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 
 ## Solution
 
-1. Use the [Template](slug:drawer-templates#template) to take control over the rendering of the entire component. The Drawer renders as `ul` with `li` elements for the individual items.
-2. In order to stop the component from collapsing on item click you need to add the `@onclick:stopPropagation` to the `<li>` tag.
+1. Add a Button and update the value of the `Expanded` parameter in the Button's OnClick event handler. 
+2. Handle the `ExpandedChanged` event of the Drawer, but don't update the `Expanded` parameter value in the handler. This prevents the Drawer from collapsing on item selection. 
 
 >caption Stop the Drawer from collapsing on item click
 
 ````RAZOR
-@* Toggle the expanded or collapsed state only by a button click. Clicking on a Drawer item will navigate you to the value of the Text property of the DrawerItem class. See the SelectAndNavigate method for reference *@
-
-@inject NavigationManager navManager
-
-<TelerikDrawer @bind-Expanded="@DrawerExpanded"
-               Data="@Data"
-               MiniMode="true"
+<TelerikDrawer Expanded="@DrawerExpanded"
+               ExpandedChanged="@DrawerExpandedChanged"
+               Data="Data"
                Mode="@DrawerMode.Push"
-               @bind-SelectedItem="@SelectedItem"
-               @ref="@DrawerRef">
-    <Template>
-        <div class="k-drawer-items">
-            <ul>
-                @foreach (var item in Data)
-                {
-                    @* stop the propagation of the onclick event to prevent the drawer from collapsing *@
-                    @* Use onclick to handle manual item selection and toggle the selected class *@
-                    <li @onclick:stopPropagation
-                        @onclick="@(() => SelectAndNavigate(item))"
-                        class="k-drawer-item @GetSelectedItemClass(item)"
-                        style="white-space:nowrap">
-                        <TelerikSvgIcon Icon="@item.Icon" />
-                        @if (DrawerExpanded)
-                        {
-                            <span class="k-item-text">@item.Text</span>
-                        }
-                    </li>
-                }
-            </ul>
-        </div>
-    </Template>
+               MiniMode="true"
+               @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu" />
-        <div class="m-5">Content for @SelectedItem?.Text - @SelectedItem?.Description</div>
+        <TelerikButton OnClick="@ToggleDrawer" Icon="@SvgIcon.Menu" />
+        <p>@SelectedItem?.Text</p>
     </DrawerContent>
 </TelerikDrawer>
 
 @code {
-    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
     public DrawerItem SelectedItem { get; set; }
     public bool DrawerExpanded { get; set; } = true;
-    public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
+
+    public IEnumerable<DrawerItem> Data { get; set; } =
+    new List<DrawerItem>
     {
-        new DrawerItem {Text = "Shopping Cart", Icon = SvgIcon.Cart, Description = "Items in shopping cart"},
-        new DrawerItem {Text = "Settings", Icon = SvgIcon.Gear, Description = "My profile settings"},
-        new DrawerItem {Text = "Notifications", Icon = SvgIcon.Bell, Description = "My profile notifications"},
-        new DrawerItem {Text = "Calendar", Icon = SvgIcon.Calendar, Description = "My events"},
+        new DrawerItem { Text = "Inbox", Icon = SvgIcon.Inbox },
+        new DrawerItem { Text = "Notifications", Icon = SvgIcon.Bell },
+        new DrawerItem { Text = "Calendar", Icon = SvgIcon.Calendar },
+        new DrawerItem { Text = "Attachments", Icon = SvgIcon.EnvelopeLink },
+        new DrawerItem { Text = "Favourites", Icon = SvgIcon.StarOutline }
     };
 
-    private void SelectAndNavigate(DrawerItem item)
+    private void ToggleDrawer()
     {
-        SelectedItem = item;
-
-        navManager.NavigateTo(SelectedItem.Text);
+        DrawerExpanded = !DrawerExpanded;
     }
 
-    public string GetSelectedItemClass(DrawerItem item)
+    private void DrawerExpandedChanged(bool newExpanded)
     {
-        if (SelectedItem == null) return string.Empty;
-        return SelectedItem.Text.ToLowerInvariant().Equals(item.Text.ToLowerInvariant()) ? "k-selected" : "";
+        // Do not modify the DrawerExpanded value here.
     }
 
     public class DrawerItem
     {
         public string Text { get; set; }
         public ISvgIcon Icon { get; set; }
-        public string Description { get; set; }
     }
 }
 ````
