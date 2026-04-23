@@ -51,9 +51,9 @@ Set the `PageSize` value, so that the rendered table rows do fit in the [Grid he
 
 Set the `RowHeight` parameter to a `decimal` value. The Grid uses it to set an inline `height` style in pixels to all Grid table rows (`<tr>`).
 
-The `RowHeight` value must be large enough to accommodate the cell content in all rows, even if the content differs. In other words, the `RowHeight` setting must apply the same or greater table row height than what the browser would normally render. The effective row height depends on:
+The `RowHeight` value must be large enough to accommodate the cell content in all rows, even if the content differs or wraps. In other words, the `RowHeight` setting must apply the same or greater table row height than what the browser would normally render. The effective row height depends on:
 
-* The cell content and text wrapping.
+* The cell content and [text wrapping](slug:grid-kb-rows-text-ellipsis).
 * The [`Size` parameter value](slug:grid-sizing).
 * The CSS theme, including font size, line height, and cell paddings.
 
@@ -64,7 +64,7 @@ For example, the following list shows the minimum valid `RowHeight` values when 
 * `48` for the Material theme (`14px` font size, `28px` line height, and 2 * `10px` vertical paddings)
 * `44` for the Fluent theme (`14px` font size, `20px` font size and 2 * `12px` vertical paddings)
 
-> Browsers treat table row `height` styles as `min-height` styles. If the table row content cannot fit in the set `RowHeight`, the browser expands the table row. The Grid configuration must not allow this to happen. It is crucial that all Grid table rows display with the same effective height when using virtial scrolling, otherwise the virtual scrolling experience will break.
+> Browsers treat table row `height` styles as `min-height` styles. If the table row content cannot fit in the set `RowHeight`, the browser expands the table row. The Grid configuration must not allow this to happen. It is crucial that all Grid table rows display with the same effective height when using virtial scrolling, otherwise the virtual scrolling experience will break. You may need to [disable text wrapping in the Grid data cells to achieve this requirement](slug:grid-kb-rows-text-ellipsis).
 
 The `RowHeight` parameter value cannot change at runtime, unless the application recreates the whole Grid component by removing it from the web page temporarily.
 
@@ -79,6 +79,15 @@ The [Blazor Grid](slug:grid-overview) virtualization enhances client-side render
 * There is a [browser limitation, which affects the maximum number of data items in a virtual Grid](slug:grid-kb-virtualization-many-records). The problem occurs with millions of items and you can partially mitigate it by [changing the Grid styles to make the row height smaller](slug:grid-kb-reduce-row-height).
 
 In addition to virtual scrolling, another approach to optimize the app rendering and data request performance is to use [Grid paging](slug:components/grid/features/paging) and [`OnRead` event](slug:common-features-data-binding-onread).
+
+## Elastic Scrolling
+
+Virtual scrolling triggers data requests based on the scroll offset of the Grid data area. Some browsers allow users to scroll up or down beyond the limits of the scrollable content. This UX feature is called *elastic scrolling* and can cause undesired effects such as:
+
+* Data requests with a negative or too large `Skip` value.
+* Unexpected row placeholders at presumably unreachable scroll offsets.
+
+You can [disable elastic scrolling with CSS](slug:grid-kb-negative-skip-value-virtual-scrolling).
 
 ## Example
 
@@ -118,6 +127,12 @@ If you use the `OnRead` event without `ToDataSourceResultAsync()`, then [use the
         <GridColumn Field="@nameof(Product.Quantity)" />
     </GridColumns>
 </TelerikGrid>
+
+<style>
+    div.k-grid-content {
+        overscroll-behavior: none;
+    }
+</style>
 
 <p style="margin-top: 1em; font-size: 1.5em;">
     <code>DataSourceRequest.Skip</code> value
