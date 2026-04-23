@@ -57,6 +57,8 @@ Azure Pipelines provides built-in tools to store and use secret environment vari
 1. Map the secret variable to a new environment variable named `TELERIK_LICENSE`.
 1. Use the `TELERIK_LICENSE` environment variable in the tasks, steps, or scripts that build and publish the Blazor app. **Classic** pipelines may need to [set an output variable to share and consume the license key in multiple steps](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash#set-an-output-variable-for-use-in-future-jobs).
 
+In the following example, replace `Secret_Telerik_License_Key` with the actual pipeline variable name.
+
 >caption Using a TELERIK_LICENSE environment variable in Azure Pipeline YAML
 
 ````YAML.skip-repl
