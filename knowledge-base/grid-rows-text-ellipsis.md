@@ -10,16 +10,17 @@ ticketid: 1499434
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor, TreeList for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor, TreeList for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -27,20 +28,40 @@ I am using the TelerikGrid component for Blazor. One of my columns contains a lo
 
 ## Solution
 
-In order to prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. In order to make that easier you can take advantage of the [OnCellRender event](slug:grid-column-events#oncellrender) that the component exposes.
+To prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. You can disable text wrapping in:
 
->note You can achieve the same behavior if you use the [Template](slug:grid-templates-column) instead of the OnCellRender event. If you choose to go for the `Template` approach you should wrap the `(context as <YourModel>).FieldName` into a HTML element and add the CSS class to the `class` attribute of that element.
+* All data rows and cells. Use the Grid `Class` parameter.
+* Specific columns. Use the [`OnCellRender` event](slug:grid-column-events#oncellrender) of the Grid columns. In some scenarios you may prefer a column [Template](slug:grid-templates-column) instead.
+* Specific rows. Use the [`OnRowRender` event](slug:grid-events#onrowrender) of the Grid.
 
-You might still want to allow the user to see the whole content, so you can enable the `Resizable` parameter of the Grid. If, however, the content is too long, the user should resize a lot in order to see the cell content. To cover such scenario, you can display the full content in a separate container. One option would be to use a [Window component](slug:window-overview) and handle some of the Grid events to display it ([`OnRowClick`](slug:grid-events#onrowclick), [`OnRowDoubleClick`](slug:grid-events#onrowdoubleclick)). Another approach is to show a Tooltip on hover of the cell (similar example is available in [Tooltip in Grid](slug:tooltip-kb-in-grid) knowledge base article). The solution below showcases a sample implementation of the first mentioned approach - using a Window component and handling the `OnRowDoubleClick` event.
+You can still allow the user to see the whole cell content, for example:
 
+* Enable [column resizing](slug:components/grid/columns/resize).
+* Display the cell content in a separate container like a [Window component](slug:window-overview) that shows in the Grid [`OnRowClick`](slug:grid-events#onrowclick) or [`OnRowDoubleClick`](slug:grid-events#onrowdoubleclick) event.
+* [Show a Tooltip on Grid row hover](slug:tooltip-kb-in-grid).
+
+The example below shows how to display a Window component in the Grid `OnRowDoubleClick` event.
 
 ````RAZOR
-@*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column. Display the full content of the column in a separate Window component.
-Use the OnRowRender event to set a custom CSS class to Grid rows.*@
+<h4>Ellipsis for all data rows and cells with Grid <code>Class</code></h4>
 
-Both Grids have column resizing enabled. Double click a row to see the full Notes value.
-<br />
-Ellipsis for the Notes column via OnCellRender.
+<TelerikGrid Data="@MyData" Height="300px"
+             Class="grid-ellipsis"
+             Pageable="true" Sortable="true"
+             Resizable="true" Reorderable="true"
+             OnRowDoubleClick="@OnRowDoubleClickHandler">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Note))" Title="Notes" Width="200px" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Width="100px" />
+        <GridColumn Title="Empty Column" />
+    </GridColumns>
+</TelerikGrid>
+
+<h4>Ellipsis for the Notes columns with <code>Template</code> and <code>OnCellRender</code></h4>
+
 <TelerikGrid Data="@MyData" Height="300px"
              Pageable="true" Sortable="true"
              Resizable="true" Reorderable="true"
@@ -52,7 +73,7 @@ Ellipsis for the Notes column via OnCellRender.
         <GridColumn Field="@(nameof(SampleData.Note))" Title="Notes Template">
             <Template>
                 @{ var dataItem = (SampleData)context; }
-                <div class="custom-ellipsis">
+                <div class="template-ellipsis">
                     @dataItem.Note
                 </div>
             </Template>
@@ -62,7 +83,7 @@ Ellipsis for the Notes column via OnCellRender.
     </GridColumns>
 </TelerikGrid>
 
-Ellipsis for all columns via OnRowRender.
+<h4>Ellipsis for all rows with <code>OnRowRender</code></h4>
 
 <TelerikGrid Data="@MyData" Height="300px"
              Pageable="true" Sortable="true"
@@ -80,12 +101,14 @@ Ellipsis for all columns via OnRowRender.
 </TelerikGrid>
 
 <style>
+    /* Grid */
+    .grid-ellipsis td.k-table-td,
     /* template */
-    div.custom-ellipsis,
+    div.template-ellipsis,
     /* OnCellRender */
-    .k-grid td.custom-ellipsis,
+    .k-grid td.cell-ellipsis,
     /* OnRowRender */
-    .k-grid tr.custom-ellipsis .k-table-td {
+    tr.row-ellipsis td.k-table-td {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -113,7 +136,7 @@ Ellipsis for all columns via OnRowRender.
 
     private void OnRowDoubleClickHandler(GridRowClickEventArgs args)
     {
-        CurrEmployee = args.Item as SampleData;
+        CurrEmployee = (SampleData)args.Item;
 
         WindowIsVisible = !WindowIsVisible;
     }
@@ -121,30 +144,30 @@ Ellipsis for all columns via OnRowRender.
     // apply ellipsis to specific columns
     private void OnCellRenderHandler(GridCellRenderEventArgs args)
     {
-        args.Class = "custom-ellipsis";
+        args.Class = "cell-ellipsis";
     }
 
     // apply ellipsis to all columns
     private void OnRowRender(GridRowRenderEventArgs args)
     {
-        args.Class = "custom-ellipsis";
+        args.Class = "row-ellipsis";
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
-        Name = "Employee Name " + x,
-        Team = "Team Name " + x % 5,
+        Name = $"Employee Name {x}",
+        Team = $"Team Name {x % 5 + 1}",
         Note = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has... ",
-        HireDate = DateTime.Now.AddDays(-x).Date
+        HireDate = DateTime.Today.AddDays(-Random.Shared.Next(0, 3000))
     });
 
     public class SampleData
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public string Note { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
+        public string Note { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
     }
 }
