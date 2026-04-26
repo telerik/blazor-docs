@@ -122,13 +122,13 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
     <DockManagerPanes>
 
         <DockManagerSplitPane Orientation="@DockManagerPaneOrientation.Vertical"
-                              Size="40%"
+                              @bind-Size="@SplitPaneSize"
                               Id="SplitPane">
             <Panes>
 
                 <DockManagerContentPane HeaderText="Pane 1"
                                         Id="Pane1"
-                                        Size="50%"
+                                        @bind-Size="@Pane1Size"
                                         Unpinned="@Pane1Unpinned"
                                         UnpinnedChanged="@Pane1UnpinnedChanged"
                                         UnpinnedSize="@Pane1UnpinnedSize"
@@ -145,7 +145,7 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
 
                 <DockManagerContentPane HeaderText="Pane 2"
                                         Id="Pane2"
-                                        Size="50%"
+                                        @bind-Size="@Pane2Size"
                                         Closeable="false">
                     <Content>
                         Pane 2. Docking over it is allowed. Undocking is cancelled.
@@ -215,6 +215,9 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
 @code {
     private TelerikDockManager? DockManagerRef { get; set; }
 
+    private string SplitPaneSize { get; set; } = "40%";
+    private string Pane1Size { get; set; } = "50%";
+    private string Pane2Size { get; set; } = "50%";
     private bool Pane1Unpinned { get; set; }
     private string Pane1UnpinnedSize { get; set; } = "360px";
     private bool Pane4Visible { get; set; } = true;

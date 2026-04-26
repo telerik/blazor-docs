@@ -36,6 +36,95 @@ Organizes panes in a [Splitter-like](slug:splitter-overview) manner, allowing th
 * It can contain `<DockManagerTabGroupPane>`, `<DockManagerContentPane>`, and other `<DockManagerSplitPane>` tags as children. 
 * Only this pane type can be declared as a direct child of the `<DockManagerFloatingPanes>` tag.
 
+## Restore Closed Panes
+
+Restore closed panes by tracking their visibility state in a collection. Use two-way binding for the `Size` parameter, to persist the pane size.  
+
+The following example demonstrates how to use:
+
+* Two-way binding to maintain pane size.
+* The `Visible` parameter and the `VisibleChanged` event to track pane visibility.
+
+>caption Restore closed panes through `Visible` and `@bind-Size`
+
+````RAZOR
+<div style="margin-bottom: 10px;">
+    @foreach (var pane in HiddenPanes)
+    {
+        <TelerikButton OnClick="@(() => RestorePane(pane))">Restore @pane.HeaderText</TelerikButton>
+    }
+</div>
+
+<TelerikDockManager Height="90vh">
+    <DockManagerPanes>
+        <DockManagerSplitPane Orientation="@DockManagerPaneOrientation.Vertical" @bind-Size="@SplitPaneSize">
+            <Panes>
+                @foreach (var pane in SplitPanes)
+                {
+                    <DockManagerContentPane @bind-Size="@pane.Size"
+                                            Unpinnable="false"
+                                            HeaderText="@pane.HeaderText"
+                                            Visible="@pane.Visible"
+                                            VisibleChanged="@((bool v) => pane.Visible = v)">
+                        <Content>
+                            Content of @pane.HeaderText
+                        </Content>
+                    </DockManagerContentPane>
+                }
+            </Panes>
+        </DockManagerSplitPane>
+
+        <DockManagerTabGroupPane>
+            <Panes>
+                @foreach (var pane in TabPanes)
+                {
+                    <DockManagerContentPane HeaderText="@pane.HeaderText"
+                                            @bind-Size="@pane.Size"
+                                            Unpinnable="false"
+                                            Visible="@pane.Visible"
+                                            VisibleChanged="@((bool v) => pane.Visible = v)">
+                        <Content>
+                            Content of @pane.HeaderText
+                        </Content>
+                    </DockManagerContentPane>
+                }
+            </Panes>
+        </DockManagerTabGroupPane>
+    </DockManagerPanes>
+</TelerikDockManager>
+
+@code {
+    private string SplitPaneSize { get; set; } = "40%";
+
+    private List<PaneModel> SplitPanes { get; set; } = new()
+    {
+        new PaneModel { HeaderText = "Pane 1.1", Size = "55%", Visible = false },
+        new PaneModel { HeaderText = "Pane 1.2", Size = "", Visible = false }
+    };
+
+    private List<PaneModel> TabPanes { get; set; } = new()
+    {
+        new PaneModel { HeaderText = "Tab 2.1", Size = "", Visible = false },
+        new PaneModel { HeaderText = "Tab 2.2", Size = "", Visible = false }
+    };
+
+    private IEnumerable<PaneModel> HiddenPanes =>
+        SplitPanes.Concat(TabPanes).Where(p => !p.Visible);
+
+    private void RestorePane(PaneModel pane)
+    {
+        pane.Visible = true;
+    }
+
+    public class PaneModel
+    {
+        public string HeaderText { get; set; } = string.Empty;
+        public string Size { get; set; } = string.Empty;
+        public bool Visible { get; set; }
+    }
+}
+````
+
 ## Examples
 
 Check the [DockManager Overview](slug:dockmanager-overview) and [DockManager Events](slug:dockmanager-events) articles for examples that include all pane types.
