@@ -206,7 +206,8 @@ The event handler receives a generic [`TaskBoardColumnReorderEventArgs<TColumn>`
 >caption Using the TaskBoard OnColumnReorder event
 
 ````RAZOR.skip-repl
-<TelerikTaskBoard OnColumnReorder="@OnTaskBoardColumnReorder"
+<TelerikTaskBoard ColumnReorderable="true"
+                  OnColumnReorder="@OnTaskBoardColumnReorder"
                   TColumn="@TaskBoardColumn" />
 
 @code {
@@ -462,3 +463,4 @@ The event handler receives a `TItem` argument that is the newly selected Card da
 
 * [TaskBoard Data Binding](slug:taskboard-data-binding)
 * [TaskBoard Templates](slug:taskboard-templates)
+* [TaskBoard API Reference](slug:Telerik.Blazor.Components.TelerikTaskBoard-2)

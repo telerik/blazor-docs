@@ -27,7 +27,7 @@ asdfasd
 ````RAZOR
 <TelerikTaskBoard CardData="@TaskBoardCards"
                   ColumnData="@TaskBoardColumns"
-                  Height="480px"
+                  Height="96vh"
                   OnCardMove="@OnTaskBoardCardMove"
                   Priorities="@TaskBoardPriorities"
                   TColumn="@TaskBoardColumn"
@@ -42,12 +42,12 @@ asdfasd
     private List<TaskBoardCard> TaskBoardCards { get; set; } = new List<TaskBoardCard>();
     private List<TaskBoardColumn> TaskBoardColumns { get; set; } = new List<TaskBoardColumn>();
 
-    private List<TaskBoardCardPriority> TaskBoardPriorities { get; set; } = new List<TaskBoardCardPriority>()
+    private List<TaskBoardCardPriority> TaskBoardPriorities { get; set; } = new()
         {
-            new TaskBoardCardPriority() { Text = "Low", Value = "low", Color = "var(--kendo-color-success)" },
-            new TaskBoardCardPriority() { Text = "Normal", Value = "normal", Color = "var(--kendo-color-info)" },
-            new TaskBoardCardPriority() { Text = "Medium", Value = "medium", Color = "var(--kendo-color-warning)"},
-            new TaskBoardCardPriority() { Text = "High", Value = "high", Color = "var(--kendo-color-error)" }
+            new() { Text = "Low", Value = "low", Color = "var(--kendo-color-success)" },
+            new() { Text = "Normal", Value = "normal", Color = "var(--kendo-color-info)" },
+            new() { Text = "Medium", Value = "medium", Color = "var(--kendo-color-warning)"},
+            new() { Text = "High", Value = "high", Color = "var(--kendo-color-error)" }
         };
 
     private int LastId { get; set; }
@@ -142,4 +142,5 @@ The earliest possible time to use Blazor component references is in `OnAfterRend
 
 ## See Also
 
+* [TaskBoard API Reference](slug:Telerik.Blazor.Components.TelerikTaskBoard-2)
 * []()

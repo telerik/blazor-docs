@@ -15,7 +15,9 @@ This article explains how to bind the TaskBoard to card data and column data, an
 
 ## Default Property Names
 
-The TaskBoard has features that map to properties in the Card and Column models. The following classes use property names that will [work automatically, with no additional TaskBoard configuration](slug:taskboard-overview#creating-blazor-taskboard):
+The TaskBoard has features that map to properties in the Card and Column models. The following classes use property names that will [work automatically, with no additional TaskBoard configuration](slug:taskboard-overview#creating-blazor-taskboard).
+
+>caption TaskBoard Card and Column model classes with default property names
 
 ````C#.skip-repl
 public class TaskBoardCard
@@ -55,7 +57,7 @@ The Card model properties have the following meaning for the TaskBoard:
 | `Description` | The plain text that shows in the Cart content area. You can define rich Card content with a [`CardBodyTemplate`](slug:taskboard-templates#cardbodytemplate) |
 | `Id` | The unique Card identifier. |
 | `Index` | The number that determines the Card position in a column. The index is zero-based and the Card sort order is by ascending `Index` value. |
-| `Priority` | Custom text that can separate Cards into different categories. If set, the Card `Priority` must match the `Value` of a `TaskBoardCardPriority` member of the TaskBoard `Priorities` collection. |
+| `Priority` | Custom text that can [separate Cards into different categories](slug:taskboard-overview#creating-blazor-taskboard). If set, the Card `Priority` must match the `Value` of a [`TaskBoardCardPriority`](slug:Telerik.Blazor.Components.TaskBoardCardPriority) member of the TaskBoard `Priorities` collection. Users distinguish priorities by the Card border color. |
 | `Status` | Custom text that determines which TaskBoard Column displays the Card. |
 | `Title` | The plain text that shows in the Card header. |
 
@@ -75,14 +77,13 @@ See a runnable example with default model property names in [Creating Blazor Tas
 
 ## Custom Property Names
 
-To define custom model property names, set the respective `Field` parameter of the TaskBoard that matches the default model property, for example:
+To use custom model property names, set the respective `Card...Field` or `Column...Field` parameter of the TaskBoard that matches the [default model property](#default-property-names), for example:
 
 * `CardDescriptionField` to define a custom Card `Description` property
 * `CardTitleField` to define a custom Card `Title` property
-* `ColumnStatusField` to define a custom Column `Status` property
-* and so on
+* `ColumnStatusField` to define a custom Column `Status` property, and so on
 
->caption TaskBoard Card and Column Model Classes
+>caption TaskBoard Card and Column model classes with custom property names
 
 ````C#.skip-repl
 public class TaskBoardCard
@@ -101,7 +102,7 @@ public class TaskBoardColumn
 }
 ````
 
->caption TaskBoard Configuration
+>caption TaskBoard configuration that consumes custom property names
 
 ````RAZOR.skip-repl
 <TelerikTaskBoard CardDescriptionField="@nameof(TaskBoardCard.Text)"
@@ -113,8 +114,9 @@ public class TaskBoardColumn
 
 ## Next Steps
 
-* []()
+* [Learn about TaskBoard drag and drop](slug:taskboard-drag-and-drop)
+* [Handle TaskBoard events](slug:taskboard-events)
 
 ## See Also
 
-* []()
+* [TaskBoard API Reference](slug:Telerik.Blazor.Components.TelerikTaskBoard-2)

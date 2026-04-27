@@ -19,4 +19,5 @@ asdfasd
 
 ## See Also
 
+* [TaskBoard API Reference](slug:Telerik.Blazor.Components.TelerikTaskBoard-2)
 * []()
