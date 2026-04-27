@@ -72,7 +72,6 @@ You can customize the rendering of the Notification by using Templates. To learn
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
 | `Class`  | `string` | The CSS class that will be rendered on the main wrapping element of the Notification component - `<div class="k-notification-container">`. You could use that class to to control things like the size or the z-index of the component. You can find more infomation and examples in the [Appearance](slug:notification-appearance) article. |
-| `OnChange`  | `EventCallback<bool>` |  This event indicates whether the media query string provided to the `Media` parameter matches the current browser size. It fires when it matches, and when it stops matching. See the [Events](slug:mediaquery-events) article for more information.  |
 | `AnimationType`  | `AnimationType` enum <br /> `Fade` | Allows you to customize the animation of the Notifications. You can find more infomation and examples in the [Appearance](slug:notification-appearance) article.  |
 | `AnimationDuration`  | `int` <br /> `300` | Defines the duration of the animation in milliseconds.|
 | `VerticalPosition`  | `NotificationVerticalPosition` enum <br /> `Bottom` | Defines the vertical position of the Notification.|
