@@ -38,7 +38,7 @@ Organizes panes in a [Splitter-like](slug:splitter-overview) manner, allowing th
 
 ## Restore Closed Panes
 
-Restore closed panes by tracking their visibility state in a collection. Use two-way binding for the `Size` parameter, to persist the pane size.  
+To restore closed panes, track their visibility state in a collection. Use two-way binding for the `Size` parameter to persist the pane size.  
 
 The following example demonstrates how to use:
 
