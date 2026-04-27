@@ -33,10 +33,10 @@ The DockManager is best suited for desktop-like interfaces and applications desi
     <DockManagerPanes>
 
         <DockManagerSplitPane Orientation="@DockManagerPaneOrientation.Vertical"
-                              Size="40%">
+                              @bind-Size="@SplitPaneSize">
             <Panes>
 
-                <DockManagerContentPane Size="55%" HeaderText="Pane 1.1">
+                <DockManagerContentPane @bind-Size="@ContentPane1Size" HeaderText="Pane 1.1">
                     <Content>
                         First Content Pane in Split configuration
                     </Content>
@@ -84,6 +84,11 @@ The DockManager is best suited for desktop-like interfaces and applications desi
         </DockManagerSplitPane>
     </DockManagerFloatingPanes>
 </TelerikDockManager>
+
+@code {
+    private string SplitPaneSize { get; set; } = "40%";
+    private string ContentPane1Size { get; set; } = "55%";
+}
 ````
 
 ## State
