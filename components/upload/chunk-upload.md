@@ -48,6 +48,8 @@ Also see:
 <div class="skip-repl"></div>
 
 ````RAZOR
+@inject NavigationManager NavigationManager
+
 <TelerikUpload SaveUrl="@CustomSaveUrl"
                OnPause="@OnPause"
                OnResume="@OnResume"
@@ -64,9 +66,9 @@ Also see:
 </TelerikUpload>
 
 @code {
-    private string SaveUrl => NavigationManager.ToAbsoluteUrl("api/upload/chunksave");
-    private string RemoveUrl => NavigationManager.ToAbsoluteUrl("api/upload/remove");
-    private string CustomSaveUrl => NavigationManager.ToAbsoluteUrl("api/upload/chunksavecustom");
+    private string SaveUrl => NavigationManager.ToAbsoluteUri("api/upload/chunksave").ToString();
+    private string RemoveUrl => NavigationManager.ToAbsoluteUri("api/upload/remove").ToString();
+    private string CustomSaveUrl => NavigationManager.ToAbsoluteUri("api/upload/chunksavecustom").ToString();
 
     private void OnPause(UploadPauseEventArgs args)
     {
