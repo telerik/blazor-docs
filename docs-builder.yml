@@ -146,6 +146,11 @@ liquid:
   uiForBlazorLatestVersion: "13.3.0"
   themesVersion: "13.1.1"
 
+ai-chat-prompt-suggestions:
+  - "How to set up my Telerik license key?"
+  - "How to add Telerik UI for Blazor to an existing Blazor app?"
+  - "How to customize the Telerik theme colors?"
+
 meta:
   "*templates":
     title: Templates
