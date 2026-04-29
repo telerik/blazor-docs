@@ -4,7 +4,7 @@ description: Learn how to display readable date and time labels on the value axi
 type: how-to
 page_title: How to Format DateTime Labels on Value Axis in RangeBar Chart
 slug: chart-kb-rangebar-datetime-axis-labels
-tags: telerik, blazor, chart, rangebar, datetime, axis, labels, template, unix, timestamp
+tags: telerik, blazor, chart, rangebar, datetime, axis
 res_type: kb
 ticketid:
 components: ["charts"]
@@ -30,9 +30,9 @@ The RangeBar series requires numeric values for its `FromField` and `ToField` pr
 To display readable date and time labels on the value axis:
 
 1. Convert `DateTime` values to Unix timestamps (milliseconds) through computed properties in the model class.
-2. Use the [`Template` parameter of `ChartValueAxisLabels`]({%slug components/chart/label-template-format%}) to convert the numeric timestamp back to a human-readable format with JavaScript.
+2. Use the [`Template` parameter of `ChartValueAxisLabels`]({%slug components/chart/label-template-format%}) to convert the numeric timestamp back to a human-readable format with a JavaScript function.
 
-The chart rendering engine uses JavaScript for label templates, so the `Date` constructor and `toLocaleTimeString()` method are available for formatting.
+The chart rendering engine uses JavaScript for label templates, so the `Date` constructor and `toLocaleTimeString()` method are available for formatting. The `Template` parameter must point to the name of a JavaScript function that is defined in the global scope.
 
 >caption RangeBar chart with readable DateTime axis labels
 
@@ -40,7 +40,7 @@ The chart rendering engine uses JavaScript for label templates, so the `Date` co
 <TelerikChart Height="450px">
 
     <ChartSeriesItems>
-        @foreach (var group in Events.GroupBy(e => e.IndexWithThisName))
+        @foreach (var group in Events.GroupBy(e => e.Index))
         {
             <ChartSeries Type="ChartSeriesType.RangeBar"
                          Data="@group.ToList()"
@@ -56,8 +56,7 @@ The chart rendering engine uses JavaScript for label templates, so the `Date` co
     <ChartValueAxes>
         <ChartValueAxis Min="@AxisMin" Max="@AxisMax">
             <ChartValueAxisTitle Text="Time" />
-            <ChartValueAxisLabels
-                Template="#= new Date(value).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) #" />
+            <ChartValueAxisLabels Template="formatTimeLabel" />
         </ChartValueAxis>
     </ChartValueAxes>
 
@@ -74,18 +73,25 @@ The chart rendering engine uses JavaScript for label templates, so the `Date` co
             }
             @if (rec is not null)
             {
-                <div style="line-height: 1.7; min-width: 160px;">
-                    <strong>@rec.NameDisplay</strong><br />
-                    <span>Start:&nbsp;&nbsp;&nbsp;</span><b>@rec.Start.ToString("HH:mm:ss")</b><br />
-                    <span>End:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b>@rec.End.ToString("HH:mm:ss")</b><br />
-                    <span>Duration: </span><b>@((rec.End - rec.Start).TotalMinutes.ToString("F0")) min</b><br />
-                    <span>Openings: </span><b>@rec.OpeningsDuring</b>
+                <div style="display: grid; grid-template-columns: auto auto; column-gap: 8px; line-height: 1.7; min-width: 160px;">
+                    <strong style="grid-column: span 2;">@rec.NameDisplay</strong>
+                    <span>Start:</span><b>@rec.Start.ToString("HH:mm:ss")</b>
+                    <span>End:</span><b>@rec.End.ToString("HH:mm:ss")</b>
+                    <span>Duration:</span><b>@((rec.End - rec.Start).TotalMinutes.ToString("F0")) min</b>
+                    <span>Openings:</span><b>@rec.Openings</b>
                 </div>
             }
         </Template>
     </ChartTooltip>
 
 </TelerikChart>
+
+<!-- Move JavaScript code to a separate JS file in production -->
+<script suppress-error="BL9992">
+    function formatTimeLabel(context) {
+        return new Date(context.value).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    }
+</script>
 
 @code {
     private List<EventRecord> Events { get; set; } = new();
@@ -100,13 +106,13 @@ The chart rendering engine uses JavaScript for label templates, so the `Date` co
 
         Events = new List<EventRecord>
         {
-            new() { Name = "Deploy",  IndexWithThisName = 1, Start = baseDate.AddMinutes(0),   End = baseDate.AddMinutes(45),  OpeningsDuring = 3 },
-            new() { Name = "Deploy",  IndexWithThisName = 2, Start = baseDate.AddMinutes(60),  End = baseDate.AddMinutes(90),  OpeningsDuring = 1 },
-            new() { Name = "Build",   IndexWithThisName = 1, Start = baseDate.AddMinutes(10),  End = baseDate.AddMinutes(30),  OpeningsDuring = 5 },
-            new() { Name = "Build",   IndexWithThisName = 2, Start = baseDate.AddMinutes(50),  End = baseDate.AddMinutes(80),  OpeningsDuring = 2 },
-            new() { Name = "Test",    IndexWithThisName = 1, Start = baseDate.AddMinutes(35),  End = baseDate.AddMinutes(65),  OpeningsDuring = 4 },
-            new() { Name = "Test",    IndexWithThisName = 2, Start = baseDate.AddMinutes(100), End = baseDate.AddMinutes(130), OpeningsDuring = 0 },
-            new() { Name = "Release", IndexWithThisName = 1, Start = baseDate.AddMinutes(140), End = baseDate.AddMinutes(160), OpeningsDuring = 2 },
+            new() { Name = "Deploy",  Index = 1, Start = baseDate.AddMinutes(0),   End = baseDate.AddMinutes(45),  Openings = 3 },
+            new() { Name = "Deploy",  Index = 2, Start = baseDate.AddMinutes(60),  End = baseDate.AddMinutes(90),  Openings = 1 },
+            new() { Name = "Build",   Index = 1, Start = baseDate.AddMinutes(10),  End = baseDate.AddMinutes(30),  Openings = 5 },
+            new() { Name = "Build",   Index = 2, Start = baseDate.AddMinutes(50),  End = baseDate.AddMinutes(80),  Openings = 2 },
+            new() { Name = "Test",    Index = 1, Start = baseDate.AddMinutes(35),  End = baseDate.AddMinutes(65),  Openings = 4 },
+            new() { Name = "Test",    Index = 2, Start = baseDate.AddMinutes(100), End = baseDate.AddMinutes(130), Openings = 0 },
+            new() { Name = "Release", Index = 1, Start = baseDate.AddMinutes(140), End = baseDate.AddMinutes(160), Openings = 2 },
         };
 
         var paddingMs = TimeSpan.FromMinutes(5).TotalMilliseconds;
@@ -117,12 +123,12 @@ The chart rendering engine uses JavaScript for label templates, so the `Date` co
     public class EventRecord
     {
         public string Name { get; set; } = string.Empty;
-        public int IndexWithThisName { get; set; }
+        public int Index { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-        public int OpeningsDuring { get; set; }
+        public int Openings { get; set; }
 
-        public string NameDisplay => $"{Name} #{IndexWithThisName}";
+        public string NameDisplay => $"{Name} #{Index}";
 
         public long StartUnix =>
             new DateTimeOffset(DateTime.SpecifyKind(Start, DateTimeKind.Unspecified), TimeSpan.Zero)
