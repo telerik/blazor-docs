@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: TaskBoard Overview
-description: The Telerik TaskBoard
+description: Learn the basics of the Telerik TaskBoard component for Blazor, also known as a Kanban Board. See an overview of the component features and functionality.
 slug: taskboard-overview
 tags: blazor,taskboard,kanban
 components: ["taskboard"]
@@ -11,7 +11,7 @@ position: 0
 
 # Blazor TaskBoard Overview
 
-asdfasd
+The [Telerik TaskBoard component for Blazor](https://www.telerik.com/blazor-ui/taskboard), also known as a Kanban Board, displays task and progress information as cards in a column layout. Users can drag and drop Cards to update their status, or create, edit, and delete Cards and Columns. The TaskBoard component also supports flexible data binding, column reordering, templates, custom toolbar tools, and various events.
 
 ## Creating Blazor TaskBoard
 
@@ -39,8 +39,8 @@ asdfasd
 </TelerikTaskBoard>
 
 @code {
-    private List<TaskBoardCard> TaskBoardCards { get; set; } = new List<TaskBoardCard>();
-    private List<TaskBoardColumn> TaskBoardColumns { get; set; } = new List<TaskBoardColumn>();
+    private List<TaskBoardCard> TaskBoardCards { get; set; } = new();
+    private List<TaskBoardColumn> TaskBoardColumns { get; set; } = new();
 
     private List<TaskBoardCardPriority> TaskBoardPriorities { get; set; } = new()
         {
@@ -122,9 +122,31 @@ asdfasd
 
 The main UI elements in the Blazor TaskBoard are Cards and Columns.
 
-## TaskBoard Reference and Methods
+## Drag and Drop
 
-Add a reference to the component instance to use the [TaskBoard's methods](slug:Telerik.Blazor.Components.TelerikTaskBoard-2). Note that the [TaskBoard is a generic component](slug:common-features-data-binding-overview#component-type). Its Card and Column model types must be part of the component reference definition.
+The UX milestone of the TaskBoard component is the user ability to [drag Cards from one column to another](slug:taskboard-drag-and-drop#dragging-card). Users can also [reorder Columns](slug:taskboard-drag-and-drop#reordering-columns), which is less common and disabled by default.
+
+## ToolBar
+
+The [TaskBoard ToolBar](slug:taskboard-toolbar) allows you to add built-in and custom tools above the Columns. The built-in tools include the ability to add new Columns or search Cards by their title or description.
+
+## Editing
+
+Depending on the TaskBoard configuration, users can [create, update and delete Cards and Columns](slug:taskboard-editing).
+
+## Templates
+
+The TaskBoard templates allow you to [customize the content of Cards, Column headers, and Card edit form](slug:taskboard-templates).
+
+## Events
+
+The [TaskBoard exposes a variety of Card and Column related events](slug:taskboard-events) that enable the app to detect and react to user actions.
+
+## TaskBoard API
+
+Consult the [TaskBoard API Reference](slug:Telerik.Blazor.Components.TelerikTaskBoard-2) to see all available component parameters, methods, and events.
+
+Use `@ref` to add a reference to the component instance and use the TaskBoard methods. Note that the [TaskBoard is a generic component](slug:common-features-data-binding-overview#component-type). Its Card and Column model types must be part of the component reference definition.
 
 The earliest possible time to use Blazor component references is in `OnAfterRender` or `OnAfterRenderAsync`.
 
@@ -138,9 +160,10 @@ The earliest possible time to use Blazor component references is in `OnAfterRend
 
 ## Next Steps
 
-* []()
+* [Bind TaskBoard to Cards and Columns](slug:taskboard-data-binding)
+* [Learn about TaskBoard drag and drop](slug:taskboard-drag-and-drop)
 
 ## See Also
 
+* [TaskBoard Live Demos](https://demos.telerik.com/blazor-ui/taskboard/overview)
 * [TaskBoard API Reference](slug:Telerik.Blazor.Components.TelerikTaskBoard-2)
-* []()

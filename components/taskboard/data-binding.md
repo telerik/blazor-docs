@@ -1,7 +1,7 @@
 ---
 title: Data Binding
 page_title: TaskBoard Data Binding
-description: The Telerik TaskBoard
+description: Learn the data binding fundamentals of the Telerik Blazor TaskBoard component, also known as a Kanban Board. See the default model class property names and how to use custom ones.
 slug: taskboard-data-binding
 tags: blazor,taskboard,kanban
 components: ["taskboard"]
@@ -83,40 +83,116 @@ To use custom model property names, set the respective `Card...Field` or `Column
 * `CardTitleField` to define a custom Card `Title` property
 * `ColumnStatusField` to define a custom Column `Status` property, and so on
 
->caption TaskBoard Card and Column model classes with custom property names
+The following example is similar to the [basic TaskBoard sample](slug:taskboard-overview#creating-blazor-taskboard), but uses custom class property names.
 
-````C#.skip-repl
-public class TaskBoardCard
-{
-    // ...
-    public string Text { get; set; } = string.Empty; // Description
-    public string Severity { get; set; } = string.Empty; // Priority
-    public string ColumnId { get; set; } = string.Empty; // Status
-}
+>caption Using TaskBoard Card and Column model classes with custom property names
 
-public class TaskBoardColumn
-{
-    // ...
-    public string Id { get; set; } = string.Empty; // Status
-    public int? MaxCards { get; set; } // WipLimit
-}
-````
-
->caption TaskBoard configuration that consumes custom property names
-
-````RAZOR.skip-repl
-<TelerikTaskBoard CardDescriptionField="@nameof(TaskBoardCard.Text)"
+````RAZOR
+<TelerikTaskBoard CardData="@TaskBoardCards"
+                  CardDescriptionField="@nameof(TaskBoardCard.Text)"
                   CardPriorityField="@nameof(TaskBoardCard.Severity)"
                   CardStatusField="@nameof(TaskBoardCard.ColumnId)"
+                  ColumnData="@TaskBoardColumns"
                   ColumnStatusField="@nameof(TaskBoardColumn.Id)"
-                  ColumnWipLimitField="@nameof(TaskBoardColumn.MaxCards)" />
+                  ColumnWipLimitField="@nameof(TaskBoardColumn.MaxCards)"
+                  Height="96vh"
+                  OnCardMove="@OnTaskBoardCardMove"
+                  Priorities="@TaskBoardSeverities"
+                  TColumn="@TaskBoardColumn"
+                  TItem="@TaskBoardCard">
+    <TaskBoardSettings>
+        <TaskBoardCardSettings Buttons="@TaskBoardCardButtons.None" />
+        <TaskBoardColumnSettings Buttons="@TaskBoardColumnButtons.None" Width="240px" />
+    </TaskBoardSettings>
+</TelerikTaskBoard>
+
+@code {
+    private List<TaskBoardCard> TaskBoardCards { get; set; } = new();
+    private List<TaskBoardColumn> TaskBoardColumns { get; set; } = new();
+
+    private List<TaskBoardCardPriority> TaskBoardSeverities { get; set; } = new()
+        {
+            new() { Text = "Low", Value = "low", Color = "var(--kendo-color-success)" },
+            new() { Text = "Normal", Value = "normal", Color = "var(--kendo-color-info)" },
+            new() { Text = "Medium", Value = "medium", Color = "var(--kendo-color-warning)"},
+            new() { Text = "High", Value = "high", Color = "var(--kendo-color-error)" }
+        };
+
+    private int LastId { get; set; }
+
+    private void OnTaskBoardCardMove(TaskBoardCardMoveEventArgs<TaskBoardCard> args)
+    {
+        args.Item.Index = args.NewIndex;
+        args.Item.ColumnId = args.NewStatus;
+    }
+
+    protected override void OnInitialized()
+    {
+        int columnsCount = 3;
+        int cardsCount = 4;
+
+        for (int i = 1; i <= columnsCount; i++)
+        {
+            int columnId = ++LastId;
+
+            TaskBoardColumns.Add(new TaskBoardColumn()
+            {
+                Index = i - 1,
+                Id = $"column-{columnId}",
+                Title = $"Column {columnId}"
+            });
+        }
+
+        for (int i = 1; i <= cardsCount; i++)
+        {
+            int cardId = ++LastId;
+            string cardColumnId = $"column-{(i % columnsCount) + 1}";
+            int cardIndex = TaskBoardCards.Where(c => c.ColumnId == cardColumnId).Count();
+            
+            TaskBoardCards.Add(new TaskBoardCard()
+            {
+                Text = $"Description {i}",
+                Id = cardId,
+                Index = cardIndex,
+                Severity = TaskBoardSeverities[i % TaskBoardSeverities.Count].Value,
+                ColumnId = cardColumnId,
+                Title = $"Card {i}"
+            });
+        }
+
+        base.OnInitialized();
+    }
+
+    public class TaskBoardCard
+    {
+        public string Text { get; set; } = string.Empty; // Description
+        public int Id { get; set; }
+        public int Index { get; set; }
+        public string Severity { get; set; } = string.Empty; // Priority
+        public string ColumnId { get; set; } = string.Empty; // Status
+        public string Title { get; set; } = string.Empty;
+    }
+
+    public class TaskBoardColumn
+    {
+        public TaskBoardColumnButtons? Buttons { get; set; }
+        public bool Enabled { get; set; } = true;
+        public int Index { get; set; }
+        public string Id { get; set; } = string.Empty; // Status
+        public string Title { get; set; } = string.Empty;
+        public string Width { get; set; } = string.Empty;
+        public int? MaxCards { get; set; } // WipLimit
+    }
+}
 ````
 
 ## Next Steps
 
 * [Learn about TaskBoard drag and drop](slug:taskboard-drag-and-drop)
-* [Handle TaskBoard events](slug:taskboard-events)
+* [Define a TaskBoard toolbar](slug:taskboard-toolbar)
+* [Set up TaskBoard Card and Column editing](slug:taskboard-editing)
 
 ## See Also
 
+* [TaskBoard Live Demos](https://demos.telerik.com/blazor-ui/taskboard/overview)
 * [TaskBoard API Reference](slug:Telerik.Blazor.Components.TelerikTaskBoard-2)

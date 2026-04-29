@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: TaskBoard Templates
-description: The Telerik TaskBoard
+description: Learn how to use rich content templates in the Telerik TaskBoard component for Blazor, also known as a Kanban Board. See how to customize the card content, column headers, and edit form.
 slug: taskboard-templates
 tags: blazor,taskboard,kanban
 components: ["taskboard"]
@@ -21,7 +21,7 @@ The Telerik TaskBoard component for Blazor exposes templates for more powerful a
 
 ## CardBodyTemplate
 
-The `CardBodyTemplate` renders custom content instead of the default Card description. The template receives a `context` of type [`TaskBoardCardTemplateContext<TItem, TColumn>`](slug:Telerik.Blazor.Components.TaskBoardCardTemplateContext-2) that exposes the Card's data item and the [column state](slug:Telerik.Blazor.Components.TaskBoardColumnState-1).
+The `CardBodyTemplate` renders custom content instead of the default Card description. The template receives a `context` of type [`TaskBoardCardTemplateContext<TItem, TColumn>`](slug:Telerik.Blazor.Components.TaskBoardCardTemplateContext-2) that exposes the Card's data item, the [column state](slug:Telerik.Blazor.Components.TaskBoardColumnState-1), and methods to trigger Card editing and deletion.
 
 Do not use `CardBodyTemplate` and `CardTemplate` at the same time. If the app defines both, the TaskBoard will use the `CardTemplate`.
 
@@ -39,21 +39,30 @@ Also see the [runnable example below](#example).
 
 ## CardTemplate
 
-The `CardTemplate` renders custom content instead of the default Card title and description. The template receives a `context` of type [`TaskBoardCardTemplateContext<TItem, TColumn>`](slug:Telerik.Blazor.Components.TaskBoardCardTemplateContext-2) that exposes the Card's data item and the [column state](slug:Telerik.Blazor.Components.TaskBoardColumnState-1).
+The `CardTemplate` renders custom content instead of the default Card title and description. The template receives a `context` of type [`TaskBoardCardTemplateContext<TItem, TColumn>`](slug:Telerik.Blazor.Components.TaskBoardCardTemplateContext-2) that exposes the Card's data item, the [column state](slug:Telerik.Blazor.Components.TaskBoardColumnState-1), and methods to trigger Card editing and deletion.
 
-The `CardTemplate` disables the built-in rendering of the Card headers, including the `Edit` and `Delete` actions. Thus you need to define custom UI for both operations.
+The `CardTemplate` disables the built-in rendering of the Card header, including the `Edit` and `Delete` actions. Thus you need to define custom UI for both operations, but you can still use the built-in:
+
+* [Card edit form](slug:taskboard-editing)
+* Card delete confirmation dialog
+* [`OnCardDelete` event](slug:taskboard-events#oncarddelete)
+* [`OnCardUpdate` event](slug:taskboard-events#oncardupdate)
 
 Do not use `CardTemplate` and `CardBodyTemplate` at the same time. If the app defines both, the TaskBoard will use the `CardTemplate`.
 
 >caption Using TaskBoard CardTemplate
 
 ````RAZOR.skip-repl
-<TelerikTaskBoard CardData="@TaskBoardCards">
+<TelerikTaskBoard OnCardDelete="@OnTaskBoardCardDelete"
+                  OnCardUpdate="@OnTaskBoardCardUpdate">
     <CardTemplate>
         <div>
             <span>@context.Item.Title</span>
-            <TelerikButton Icon="@SvgIcon.X"
-                           OnClick="@(() => TaskBoardCards.Remove(context.Item))"
+            <TelerikButton Icon="@SvgIcon.Pencil"
+                           OnClick="@(async () => await context.EditCardAsync())"
+                           Title="Edit" />
+            <TelerikButton Icon="@SvgIcon.Trash"
+                           OnClick="@(async () => await context.DeleteCardAsync())"
                            Title="Delete" />
         </div>
         <div>
@@ -67,7 +76,7 @@ Also see the [runnable example below](#example).
 
 ## ColumnHeaderTemplate
 
-The `CardTemplate` renders custom content instead of the default Card title and description. The template receives a `context` of type [`TaskBoardCardTemplateContext<TItem, TColumn>`](slug:Telerik.Blazor.Components.TaskBoardCardTemplateContext-2) that exposes the Card's data item and the [column state](slug:Telerik.Blazor.Components.TaskBoardColumnState-1).
+The `ColumnHeaderTemplate` renders custom content instead of the default Column title and action buttons. The template receives a `context` of type [`TaskBoardColumnHeaderTemplateContext<TColumn>`](slug:Telerik.Blazor.Components.TaskBoardColumnHeaderTemplateContext-1) that exposes the Column's data item, the Buttons to render, and methods to trigger Column deletion and Card addition.
 
 The `ColumnHeaderTemplate` disables the built-in rendering of the actions in the Column header, so you need to define custom UI for these operations:
 
@@ -75,20 +84,27 @@ The `ColumnHeaderTemplate` disables the built-in rendering of the actions in the
 * Column delete
 * Card add
 
+You can still use the built-in Card edit form and `OnCardCreate` event.
+
 >caption Using TaskBoard ColumnHeaderTemplate
 
 ````RAZOR.skip-repl
-<TelerikTaskBoard CardData="@TaskBoardCards">
+<TelerikTaskBoard OnCardCreate="@OnTaskBoardCardCreate">
     <ColumnHeaderTemplate>
         <div class="taskboard-column-header">
             <span>@context.Column.Title</span>
             <span>
-                @if (context.Column.DataItem.Buttons?.HasFlag(TaskBoardColumnButtons.AddCard) == true)
+                @if (context.Buttons.HasFlag(TaskBoardColumnButtons.AddCard) == true)
                 {
-                    <TelerikButton FillMode="@ThemeConstants.Button.FillMode.Clear"
-                                   Icon="@SvgIcon.Plus"
-                                   OnClick="@(() => TaskBoardCards.Add(new TaskBoardCard() { Title = "New Card" }))"
+                    <TelerikButton Icon="@SvgIcon.Plus"
+                                   OnClick="@(async () => await context.AddCardAsync())"
                                    Title="Add Card" />
+                }
+                @if (context.Buttons.HasFlag(TaskBoardColumnButtons.DeleteColumn) == true)
+                {
+                    <TelerikButton Icon="@SvgIcon.Trash"
+                                   OnClick="@(async () => await context.DeleteColumnAsync())"
+                                   Title="Delete Column" />
                 }
             </span>
         </div>
@@ -100,14 +116,18 @@ Also see the [runnable example below](#example).
 
 ## EditPaneTemplate
 
-The `EditPaneTemplate` renders custom content instead of the default Form that adds and edits Cards. The template receives a `context` of type [`TItem`] that is the Card model type.
+The `EditPaneTemplate` renders custom content instead of the default Form that adds and edits Cards. The template receives a `context` of type [`TaskBoardEditPaneTemplateContext<TItem>`](slug:Telerik.Blazor.Components.TaskBoardEditPaneTemplateContext-1) that exposes the Card's data item, and methods to trigger Card edit completion or cancellation.
+
+`context.SaveAsync()` fires the TaskBoard `OnCardCreate` event for new Cards or `OnCardUpdate` for existing Cards.
 
 >caption Using TaskBoard EditPaneTemplate
 
 ````RAZOR.skip-repl
-<TelerikTaskBoard TItem="@TaskBoardCard">
+<TelerikTaskBoard OnCardCreate="@OnTaskBoardCardCreate"
+                  OnCardUpdate="@OnTaskBoardCardUpdate">
     <EditPaneTemplate>
-        <TelerikForm Model="@context" />
+        <TelerikForm Model="@context.Item"
+                     OnValidSubmit="@(async () => await context.SaveAsync())" />
     </EditPaneTemplate>
 </TelerikTaskBoard>
 ````
@@ -117,10 +137,16 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
 >caption Using TaskBoard templates
 
 ````RAZOR
+@using System.ComponentModel.DataAnnotations
+
 <TelerikTaskBoard CardData="@TaskBoardCards"
                   ColumnData="@TaskBoardColumns"
                   Height="96vh"
+                  OnCardCreate="@OnTaskBoardCardCreate"
+                  OnCardDelete="@OnTaskBoardCardDelete"
                   OnCardMove="@OnTaskBoardCardMove"
+                  OnCardUpdate="@OnTaskBoardCardUpdate"
+                  OnColumnDelete="@OnTaskBoardColumnDelete"
                   Priorities="@TaskBoardPriorities"
                   TColumn="@TaskBoardColumn"
                   TItem="@TaskBoardCard">
@@ -133,18 +159,22 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
             <dd>@context.Item.Description</dd>
             <dt>Priority</dt>
             <dd>@context.Item.Priority</dd>
-            <dt>Status</dt>
+            <dt>Status (Column)</dt>
             <dd>@context.Item.Status</dd>
         </dl>
     </CardBodyTemplate>
-    @* <CardTemplate>
+    <CardTemplate>
         <div class="k-hbox k-card-header">
             <span class="k-card-title k-link">@context.Item.Title</span>
             <span class="k-spacer"></span>
             <TelerikButton FillMode="@ThemeConstants.Button.FillMode.Flat"
-                        Icon="@SvgIcon.X"
-                        OnClick="@(() => OnDeleteCardClick(context.Item))"
-                        Title="Delete" />
+                           Icon="@SvgIcon.Pencil"
+                           OnClick="@(async () => await context.EditCardAsync())"
+                           Title="Edit" />
+            <TelerikButton FillMode="@ThemeConstants.Button.FillMode.Flat"
+                           Icon="@SvgIcon.Trash"
+                           OnClick="@(async () => await context.DeleteCardAsync())"
+                           Title="Delete" />
         </div>
         <div class="k-card-body">
             <dl>
@@ -152,27 +182,38 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
                 <dd>@context.Item.Description</dd>
                 <dt>Priority</dt>
                 <dd>@context.Item.Priority</dd>
-                <dt>Status</dt>
+                <dt>Status (Column)</dt>
                 <dd>@context.Item.Status</dd>
             </dl>
         </div>
-    </CardTemplate> *@
+    </CardTemplate>
     <ColumnHeaderTemplate>
         <div class="taskboard-column-header">
             <span>@context.Column.Title</span>
             <span>
-                @if (context.Column.DataItem.Buttons?.HasFlag(TaskBoardColumnButtons.AddCard) == true)
+                @if (context.Buttons.HasFlag(TaskBoardColumnButtons.AddCard) == true)
                 {
                     <TelerikButton FillMode="@ThemeConstants.Button.FillMode.Clear"
                                    Icon="@SvgIcon.Plus"
-                                   OnClick="@((MouseEventArgs args) => OnAddCardClick(args, context.Column.DataItem.Status))"
+                                   OnClick="@(async () => await context.AddCardAsync())"
                                    Title="Add Card" />
+                }
+                @if (context.Buttons.HasFlag(TaskBoardColumnButtons.DeleteColumn) == true)
+                {
+                    <TelerikButton FillMode="@ThemeConstants.Button.FillMode.Clear"
+                                   Icon="@SvgIcon.Trash"
+                                   OnClick="@(async () => await context.DeleteColumnAsync())"
+                                   Title="Delete Column" />
                 }
             </span>
         </div>
     </ColumnHeaderTemplate>
     <EditPaneTemplate>
-        <TelerikForm Model="@context" OnValidSubmit="@(() => OnEditCardFormSubmit(context))">
+        <TelerikForm Model="@context.Item"
+                     OnValidSubmit="@(async () => await context.SaveAsync())">
+            <FormValidation>
+                <DataAnnotationsValidator />
+            </FormValidation>
             <FormItems>
                 <FormItem Field="@nameof(TaskBoardCard.Title)" />
                 <FormItem Field="@nameof(TaskBoardCard.Description)" />
@@ -181,7 +222,7 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
                         <label class="k-label k-form-label" for="ddl-priority">Priority</label>
                         <div class="k-form-field-wrap">
                             <TelerikDropDownList Data="@TaskBoardPriorities"
-                                                 @bind-Value="@context.Priority"
+                                                 @bind-Value="@context.Item.Priority"
                                                  TextField="@nameof(TaskBoardCardPriority.Text)"
                                                  ValueField="@nameof(TaskBoardCardPriority.Value)"
                                                  Id="ddl-priority" />
@@ -189,6 +230,10 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
                     </Template>
                 </FormItem>
             </FormItems>
+            <FormButtons>
+                <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Save</TelerikButton>
+                <TelerikButton OnClick="@(async () => await context.CancelAsync())">Cancel</TelerikButton>
+            </FormButtons>
         </TelerikForm>
     </EditPaneTemplate>
 </TelerikTaskBoard>
@@ -203,8 +248,8 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
 </style>
 
 @code {
-    private List<TaskBoardCard> TaskBoardCards { get; set; } = new List<TaskBoardCard>();
-    private List<TaskBoardColumn> TaskBoardColumns { get; set; } = new List<TaskBoardColumn>();
+    private List<TaskBoardCard> TaskBoardCards { get; set; } = new();
+    private List<TaskBoardColumn> TaskBoardColumns { get; set; } = new();
 
     private List<TaskBoardCardPriority> TaskBoardPriorities { get; set; } = new()
         {
@@ -214,39 +259,38 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
             new() { Text = "High", Value = "high", Color = "var(--kendo-color-error)" }
         };
 
-    [CascadingParameter]
-    public DialogFactory? TelerikDialogs { get; set; }
-
     private int LastId { get; set; }
 
-    private void OnAddCardClick(MouseEventArgs args, string status)
+    private void OnTaskBoardCardCreate(TaskBoardCardCreateEventArgs<TaskBoardCard> args)
     {
-        TaskBoardCards.Add(new TaskBoardCard()
-        {
-            Id = ++LastId,
-            Title = $"New Card",
-            Priority = "normal",
-            Status = status
-        });
+        args.Item.Id = ++LastId;
+
+        TaskBoardCards.Add(args.Item);
     }
 
-    private async Task OnDeleteCardClick(TaskBoardCard deletedCard)
+    private async Task OnTaskBoardCardDelete(TaskBoardCardDeleteEventArgs<TaskBoardCard> args)
     {
-        if (await TelerikDialogs!.ConfirmAsync($"Do you want to delete {deletedCard.Title}?"))
-        {
-            TaskBoardCards.Remove(deletedCard);
-        }
-    }
-
-    private void OnEditCardFormSubmit(TaskBoardCard updatedCard)
-    {
-        // Update original data source here
+        TaskBoardCards.Remove(args.Item);
     }
 
     private void OnTaskBoardCardMove(TaskBoardCardMoveEventArgs<TaskBoardCard> args)
     {
         args.Item.Index = args.NewIndex;
         args.Item.Status = args.NewStatus;
+    }
+
+    private void OnTaskBoardCardUpdate(TaskBoardCardUpdateEventArgs<TaskBoardCard> args)
+    {
+        args.OriginalItem.Description = args.Item.Description;
+        args.OriginalItem.Priority = args.Item.Priority;
+        args.OriginalItem.Title = args.Item.Title;
+    }
+
+    private void OnTaskBoardColumnDelete(TaskBoardColumnDeleteEventArgs<TaskBoardColumn> args)
+    {
+        TaskBoardColumns.Remove(args.Item);
+
+        TaskBoardCards.RemoveAll(c => c.Status == args.Item.Status);
     }
 
     protected override void OnInitialized()
@@ -262,8 +306,7 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
             {
                 Index = i - 1,
                 Status = $"Status {columnId}",
-                Title = $"Column {columnId}",
-                Buttons = TaskBoardColumnButtons.EditColumn | TaskBoardColumnButtons.AddCard
+                Title = $"Column {columnId}"
             });
         }
 
@@ -289,11 +332,14 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
 
     public class TaskBoardCard
     {
+        [Required]
         public string Description { get; set; } = string.Empty;
         public int Id { get; set; }
         public int Index { get; set; }
+        [Required]
         public string Priority { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;
+        [Required]
         public string Title { get; set; } = string.Empty;
     }
 
@@ -312,7 +358,8 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
 
 ## Next Steps
 
-* [Subscribe to TaskBoard events](slug:taskboard-events)
+* [Manage TaskBoard state](slug:taskboard-state)
+* [Handle TaskBoard events](slug:taskboard-events)
 
 ## See Also
 
