@@ -217,6 +217,16 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
             <FormItems>
                 <FormItem Field="@nameof(TaskBoardCard.Title)" />
                 <FormItem Field="@nameof(TaskBoardCard.Description)" />
+                <FormItem Field="@nameof(TaskBoardCard.Status)">
+                    <Template>
+                        <label class="k-label k-form-label" for="ddl-status">Status</label>
+                        <div class="k-form-field-wrap">
+                            <TelerikDropDownList Data="@TaskBoardColumns.Select(x => x.Status)"
+                                                 @bind-Value="@context.Item.Status"
+                                                 Id="ddl-status" />
+                        </div>
+                    </Template>
+                </FormItem>
                 <FormItem Field="@nameof(TaskBoardCard.Priority)">
                     <Template>
                         <label class="k-label k-form-label" for="ddl-priority">Priority</label>
@@ -283,6 +293,7 @@ The `EditPaneTemplate` renders custom content instead of the default Form that a
     {
         args.OriginalItem.Description = args.Item.Description;
         args.OriginalItem.Priority = args.Item.Priority;
+        args.OriginalItem.Status = args.Item.Status;
         args.OriginalItem.Title = args.Item.Title;
     }
 
