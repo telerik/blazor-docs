@@ -22,7 +22,7 @@ components: ["grid"]
 
 ## Description
 
-When the filter input contains leading or trailing spaces, the Grid's filtering does not return any matches. How to ensure that the Grid returns matching records, for example, when I search for " Apple" or "Apple ", it should behave the same way as when I search for "Apple".
+When the filter input contains leading or trailing spaces, the Grid's filtering does not return any matches. How to ensure that the Grid returns matching records, for example, when I search for " Apple" or "Apple ", it should behave the same way as when I search for "Apple"?
 
 ## Solution
 
