@@ -5,6 +5,7 @@ type: how-to
 page_title: How to Trim Leading and Trailing Spaces in Grid FilterRow Values
 slug: grid-kb-filterrow-trim-filter-values
 tags: telerik, blazor, grid, filterrow, filtering
+ticketid: 1712682
 res_type: kb
 components: ["grid"]
 ---
@@ -21,11 +22,7 @@ components: ["grid"]
 
 ## Description
 
-This KB article answers the following questions:
-
-* How can you trim leading and trailing spaces from Grid FilterRow values?
-* How can the Grid treat ` Apple` and `Apple ` as `Apple` during filtering?
-* How can you customize FilterRow filtering logic with `FilterCellTemplate`?
+When users type leading or trailing spaces in Grid FilterRow inputs, the filter can return unexpected results. You can customize the filter UI with `FilterCellTemplate` and trim the input before applying the filter.
 
 ## Solution
 
