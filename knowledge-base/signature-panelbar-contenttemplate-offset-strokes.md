@@ -4,9 +4,8 @@ description: Learn how to render the Telerik Signature in a PanelBar ContentTemp
 type: troubleshooting
 page_title: Signature Strokes Are Offset in PanelBar ContentTemplate
 slug: signature-kb-panelbar-contenttemplate-offset-strokes
-position: 
-tags: telerik, blazor, signature, panelbar, contenttemplate, animation
-ticketid: 
+tags: telerik, blazor, signature, panelbar, contenttemplate
+ticketid: 1712712
 res_type: kb
 components: ["signature","panelbar"]
 ---
