@@ -22,7 +22,7 @@ components: ["grid"]
 
 ## Description
 
-When users type leading or trailing spaces in Grid FilterRow inputs, the filter can return unexpected results. You can customize the filter UI with `FilterCellTemplate` and trim the input before applying the filter.
+When the filter input contains leading or trailing spaces, the Grid's filtering does not return any matches. How to ensure that the Grid returns matching records, for example, when I search for " Apple" or "Apple ", it should behave the same way as when I search for "Apple".
 
 ## Solution
 
