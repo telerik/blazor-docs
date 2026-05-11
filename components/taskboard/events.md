@@ -159,7 +159,7 @@ Also see the [runnable example](#example) below.
 
 The TaskBoard `OnColumnCreate` event fires when the user clicks the [`TaskBoardToolBarAddColumnTool`](slug:taskboard-toolbar#built-in-tools) in the [TaskBoard ToolBar](slug:taskboard-toolbar). The event handler receives a generic [`TaskBoardColumnCreateEventArgs<TColumn>`](slug:Telerik.Blazor.Components.TaskBoardColumnCreateEventArgs-1) argument that allows you to set Column properties. The new Column automatically displays in edit mode, so that the user can fill in the `Title` property.
 
-If the new Column should not be added, the event can be cancelled. Otherwise, the app must add the new Column to `ColumnData`. Optionally, set a unqiue `Status` or the component will assign one automatically.
+If the new Column should not be added, the event can be cancelled. Otherwise, the app must add the new Column to `ColumnData`. Optionally, set a unique `Status` or the component will assign one automatically.
 
 >caption Using the TaskBoard OnColumnCreate event
 
