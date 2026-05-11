@@ -86,7 +86,7 @@ The nested `QRCodeOverlay` tag exposes parameters that allow you to choose from 
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Type` | `QRCodeOverlayType` `enum` | The available options are `Image` and `Swiss`. When set to image, you have to specify the URL source of the image. |
+| `Type` | `QRCodeOverlayType` `enum` | The available options are `Image` and `Swiss`. When set to `Image`, you must set the `ImageUrl` parameter too. |
 | `ImageUrl` | `string` | The URL of the displayed overlay image. |
 | `Width` | `double` | The width of the overlay in pixels. |
 | `Height` | `double` | The height of the overlay in pixels. |
