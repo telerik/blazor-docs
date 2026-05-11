@@ -132,7 +132,7 @@ The [TaskBoard ToolBar](slug:taskboard-toolbar) allows you to add built-in and c
 
 ## Editing
 
-Depending on the TaskBoard configuration, users can [create, update and delete Cards and Columns](slug:taskboard-editing).
+Depending on the TaskBoard configuration, users can [create, update, and delete Cards and Columns](slug:taskboard-editing).
 
 ## Templates
 
