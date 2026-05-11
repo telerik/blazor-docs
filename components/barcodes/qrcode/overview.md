@@ -86,7 +86,7 @@ The nested `QRCodeOverlay` tag exposes parameters that allow you to choose from 
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Type` | `QRCodeOverlayType` `enum` | Available options are `Image` and `Swiss`. When set to image, you have to specify the url source of the image. If set to swiss, a [Swiss QR Code](https://blog.xsuite.com/en/swiss-qr-code#:~:text=This%20QR%20code%20is%20called,(e.g.%20in%20PDF%20format).) is created. |
+| `Type` | `QRCodeOverlayType` `enum` | The available options are `Image` and `Swiss`. When set to image, you have to specify the URL source of the image. |
 | `ImageUrl` | `string` | The URL of the displayed overlay image. |
 | `Width` | `double` | The width of the overlay in pixels. |
 | `Height` | `double` | The height of the overlay in pixels. |
