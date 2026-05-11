@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: TaskBoard Events
-description: The Telerik TaskBoard
+description: Learn about the Telerik TaskBoard component events and event arguments.
 slug: taskboard-events
 tags: blazor,taskboard,kanban,events
 components: ["taskboard"]
