@@ -75,7 +75,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 | `Padding` | `double` | Defines the minimum distance in pixels that should be left between the border and the QR modules. |
 | `Encoding` | `QRCodeEncoding` `enum` | The encoding mode used to encode the value. |
 | `ErrorCorrection` | `QRCodeErrorCorrectionLevel` `enum` | The error correction level used to encode the value. |
-| `RenderAs` | `RenderingMode` enum <br /> `Svg` | Defines the preferred rendering mode - svg/canvas. |
+| `RenderAs` | `RenderingMode` enum <br /> `Svg` | Defines the preferred rendering mode&mdash;SVG or canvas. |
 | `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more about the dimension properties in the [Dimensions article](slug:common-features/dimensions). Setting both `Size` and `Width` or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. To set an optimal `Size`, consider the expected scanning distance and data capacity. |
 | `Value` | `string` | Defines the initial value of the QRCode. |
 | `Width` | `string` | Sets the width of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Width` should be set to `Height`. |
