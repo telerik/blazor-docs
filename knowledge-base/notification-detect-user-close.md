@@ -23,10 +23,7 @@ components: ["notification"]
 
 ## Description
 
-This KB article answers the following questions:
-
-* How can you detect when a user closes a Telerik Notification for Blazor?
-* Is there an `OnClose` event in the Notification component?
+How can I detect when a user closes a Telerik Notification for Blazor?
 
 ## Solution
 
