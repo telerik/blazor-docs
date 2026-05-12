@@ -35,7 +35,7 @@ The fastest way to set up your Telerik development environment is to use the [Te
 
 1. Run the Telerik CLI `setup` command:
     ````SH.skip-repl
-    telerik setup
+    telerik setup blazor
     ````
 
 The `setup` command performs multiple actions at once to configure your Telerik development environment:
