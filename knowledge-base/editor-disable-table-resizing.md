@@ -6,7 +6,7 @@ page_title: Disable Table Resizing in the Editor
 slug: editor-kb-disable-table-resizing
 published: true
 position:
-tags: telerik, blazor, editor, table, resize, css, div edit mode
+tags: telerik, blazor, editor, table, resize
 ticketid: 1710657
 res_type: kb
 components: ["editor"]
@@ -24,13 +24,11 @@ components: ["editor"]
 
 ## Description
 
-How can you disable table resizing in the Telerik UI for Blazor Editor?
-
-How can you hide the table resize handles?
+How can I disable table resizing in the Telerik UI for Blazor Editor?
 
 ## Solution
 
-To hide the table resize handles:
+Hide table resize handles, to prevent table resizing:
 
 1. Set the Editor `EditMode` to [`Div`](slug:editor-edit-modes-div).
 1. Use CSS to hide the table resize handles.
