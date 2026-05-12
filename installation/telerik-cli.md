@@ -224,7 +224,7 @@ The `setup` command performs multiple actions at once to configure your Telerik 
 * [Install MCP server(s)](#install-mcp-server)
 
 ````SH.skip-repl
-telerik setup
+telerik setup blazor
 ````
 
 You can use the `setup` command with the following options:
@@ -235,7 +235,7 @@ You can use the `setup` command with the following options:
 * `--no-interactive` to run without prompting the user and rely on explicit inline options or defaults. This option is enabled by default when the standard input is redirected and [`Console.IsInputRedirected` is `true`](https://learn.microsoft.com/en-us/dotnet/api/system.console.isinputredirected). The option is recommended for automation and CI use.
 
 ````SH.skip-repl
-telerik setup --nuget-path . --force --no-interactive
+telerik setup blazor --nuget-path . --force --no-interactive
 ````
 
 ## See Also
