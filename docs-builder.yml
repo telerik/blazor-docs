@@ -164,6 +164,8 @@ meta:
     title: Validation Tools
   "*upload":
     title: Upload
+  "*taskboard":
+    title: TaskBoard
   "*treemap":
     title: TreeMap
   "*treeview":
