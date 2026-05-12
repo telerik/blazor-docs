@@ -23,7 +23,7 @@
     ````HTML
     <head>
         . . .
-        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/all.css" />
     </head>
     ````
 

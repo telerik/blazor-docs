@@ -42,6 +42,9 @@ Here are a few examples:
 <div class="skip-repl"></div>
 
 ````RAZOR
+<!-- Main swatch of the Meridian theme -->
+<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-meridian@{{site.themesVersion}}/dist/meridian-main.css" />
+
 <!-- Ocean Blue swatch of the Default theme -->
 <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-ocean-blue.css" />
 

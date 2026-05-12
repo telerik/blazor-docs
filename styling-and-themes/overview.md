@@ -66,7 +66,7 @@ To register a theme:
 There are three ways to load a Telerik theme, in terms of physical CSS file location. Note that each option provides access to a different number of theme swatches.
 
 * [Load a CSS theme as a static asset from the `Telerik.UI.for.Blazor` NuGet package](#loading-themes-in-blazor-from-the-nuget-package). This is the easiest option and it doesn't require maintenance during [Telerik UI for Blazor version upgrades](slug:upgrade-tutorial). However, you can use only the *Main* swatch of each theme and the *Ocean Blue* swatch of the *Default* theme.
-* Load a CSS theme from a remote URL, for example, CDN. The dedicated <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/" target="_blank">documentation of each theme provides a list of swatches and their URLs</a>.
+* Load a CSS theme from a remote URL, for example, CDN. The dedicated <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/meridian/" target="_blank">documentation of each theme provides a list of swatches and their URLs</a>.
 * Load a CSS theme as a local file in the `wwwroot` folder in the Blazor app. This option is relevant to the following cases:
     * When using [custom themes](slug:themes-customize).
     * When [creating](slug:getting-started-vs-integration-new-project) or [converting](slug:getting-started-vs-integration-convert-project) Telerik Blazor apps with the [Telerik UI for Blazor Visual Studio extension](slug:getting-started-vs-integration-overview).
@@ -92,9 +92,10 @@ The `Telerik.UI.for.Blazor` NuGet package includes only the *Main* swatch of eac
 <head>
     <!-- Choose only one theme. -->
     
-    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/all.css" />
 
     <!-- 
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/meridian-main.css" rel="stylesheet" />
     <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/default-ocean-blue.css" rel="stylesheet" />
     <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
     <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-material/all.css" rel="stylesheet" />
