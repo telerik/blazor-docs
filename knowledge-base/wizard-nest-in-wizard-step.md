@@ -3,8 +3,7 @@ title: Place a Wizard in Another Wizard Step
 description: How can I place a Wizard inside another Wizard's step.
 type: how-to
 page_title: Place a Wizard in Another Wizard Step
-slug: wizard-kb-nest-wizard-in-step-old
-published: false
+slug: wizard-kb-nest-wizard-in-step
 tags: telerik, blazor, wizard, nested wizard
 ticketid: 1709608
 res_type: kb
