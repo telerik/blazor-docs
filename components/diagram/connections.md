@@ -251,7 +251,7 @@ To restrict operations for a specific Connection, use the parameters of the `<Di
 
 Connection dragging and removing requires the `Selectable` parameter of `<DiagramConnectionDefaults>` to be set to `true`, which is by default.
 
-To track dragging operations, handle the [`OnDrag` and `OnDragEnd` events](slug:diagram-events#ondrag).
+To track dragging operations, handle the [`OnConnectionDragStart` and `OnConnectionDragEnd` events](slug:diagram-events#onconnectiondragstart).
 
 >caption Setting global and Connection-specific editing options
 

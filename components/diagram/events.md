@@ -13,9 +13,11 @@ components: ["diagram"]
 The Telerik [Blazor Diagram](slug:diagram-overview) fires events that are related to different user actions. This article describes all these events and their event arguments:
 
 * [`OnConnectionClick`](#onconnectionclick)
-* [`OnDrag`](#ondrag)
-* [`OnDragEnd`](#ondragend)
+* [`OnConnectionDragStart`](#onconnectiondragstart)
+* [`OnConnectionDragEnd`](#onconnectiondragend)
 * [`OnShapeClick`](#onshapeclick)
+* [`OnShapeDragStart`](#onshapedragstart)
+* [`OnShapeDragEnd`](#onshapedragend)
 
 ## OnConnectionClick
 
@@ -55,67 +57,88 @@ The `OnShapeClick` event fires when the user clicks on a shape. The event argume
 
 Use the [Diagram JSON state](slug:diagram-overview#define-shapes-and-connections-in-json) if you need to [change the Diagram configuration](slug:diagram-kb-change-shape-color-onshapeclick) while persisting other user changes that are not part of the component declaration.
 
-## OnDrag
+## OnConnectionDragStart
 
-The `OnDrag` event fires continuously while the user drags shapes or connections in the Diagram. The event argument is of type [`DiagramDragEventArgs`](slug:Telerik.Blazor.Components.DiagramDragEventArgs) and provides information about the shapes and connections being dragged.
+The `OnConnectionDragStart` event fires when the user starts dragging a connection in the Diagram. The event argument is of type [`DiagramConnectionDragStartEventArgs`](slug:Telerik.Blazor.Components.DiagramConnectionDragStartEventArgs) and provides information about the connection being dragged.
 
-The `DiagramDragEventArgs` exposes the following properties:
+The `DiagramConnectionDragStartEventArgs` exposes the following properties:
 
-* `Shapes` (`DiagramDragShapeInfo[]`)&mdash;the shapes being dragged. Each `DiagramDragShapeInfo` contains the shape `Id`.
-* `Connections` (`DiagramDragConnectionInfo[]`)&mdash;the connections being dragged. Each `DiagramDragConnectionInfo` contains:
+* `Connections` (`List<DiagramConnectionDragDescriptor>`)&mdash;the connections being dragged. Each `DiagramConnectionDragDescriptor` contains:
     * `FromId` and `ToId`&mdash;the source and target shape identifiers
     * `FromX`, `FromY`, `ToX`, `ToY`&mdash;the source and target point coordinates
-* `ConnectionHandle` (string)&mdash;the handle name (`"source"` or `"target"`) when dragging a connection endpoint. This property is `null` when dragging the entire connection body or when dragging shapes.
+* `ConnectionHandle` (string)&mdash;the handle name (`"source"` or `"target"`) when dragging a connection endpoint. This property is `null` when dragging the entire connection body.
 
->caption Using the Diagram OnDrag event
+>caption Using the Diagram OnConnectionDragStart event
 
 ````RAZOR.skip-repl
-<TelerikDiagram OnDrag="@OnDiagramDrag" />
+<TelerikDiagram OnConnectionDragStart="@OnDiagramConnectionDragStart" />
 
 @code {
-    private void OnDiagramDrag(DiagramDragEventArgs args)
+    private void OnDiagramConnectionDragStart(DiagramConnectionDragStartEventArgs args)
     {
-        if (args.Shapes?.Length > 0)
-        {
-            // Handle shape dragging
-        }
-
-        if (args.Connections?.Length > 0)
-        {
-            // Handle connection dragging
-        }
-
-        if (!string.IsNullOrEmpty(args.ConnectionHandle))
-        {
-            // Handle connection endpoint dragging
-        }
+        // args.Connections contains the dragged connections
+        // args.ConnectionHandle is "source" or "target" when dragging an endpoint
     }
 }
 ````
 
 Also see the [example](#example) below.
 
-## OnDragEnd
+## OnConnectionDragEnd
 
-The `OnDragEnd` event fires once when the user finishes dragging shapes or connections in the Diagram. The event argument is of type [`DiagramDragEventArgs`](slug:Telerik.Blazor.Components.DiagramDragEventArgs) and provides the same information as the `OnDrag` event.
+The `OnConnectionDragEnd` event fires when the user finishes dragging a connection in the Diagram. The event argument is of type [`DiagramConnectionDragEndEventArgs`](slug:Telerik.Blazor.Components.DiagramConnectionDragEndEventArgs) and provides the same information as `OnConnectionDragStart`.
 
->caption Using the Diagram OnDragEnd event
+>caption Using the Diagram OnConnectionDragEnd event
 
 ````RAZOR.skip-repl
-<TelerikDiagram OnDragEnd="@OnDiagramDragEnd" />
+<TelerikDiagram OnConnectionDragEnd="@OnDiagramConnectionDragEnd" />
 
 @code {
-    private void OnDiagramDragEnd(DiagramDragEventArgs args)
+    private void OnDiagramConnectionDragEnd(DiagramConnectionDragEndEventArgs args)
     {
-        if (args.Shapes?.Length > 0)
-        {
-            // Handle shape drag completion
-        }
+        // args.Connections contains the dragged connections
+    }
+}
+````
 
-        if (args.Connections?.Length > 0)
-        {
-            // Handle connection drag completion
-        }
+Also see the [example](#example) below.
+
+## OnShapeDragStart
+
+The `OnShapeDragStart` event fires when the user starts dragging a shape in the Diagram. The event argument is of type [`DiagramShapeDragStartEventArgs`](slug:Telerik.Blazor.Components.DiagramShapeDragStartEventArgs) and provides information about the shape being dragged.
+
+The `DiagramShapeDragStartEventArgs` exposes the following property:
+
+* `Shapes` (`List<DiagramShapeDragDescriptor>`)&mdash;the shapes being dragged. Each `DiagramShapeDragDescriptor` contains the shape `Id`.
+
+>caption Using the Diagram OnShapeDragStart event
+
+````RAZOR.skip-repl
+<TelerikDiagram OnShapeDragStart="@OnDiagramShapeDragStart" />
+
+@code {
+    private void OnDiagramShapeDragStart(DiagramShapeDragStartEventArgs args)
+    {
+        // args.Shapes contains the dragged shapes
+    }
+}
+````
+
+Also see the [example](#example) below.
+
+## OnShapeDragEnd
+
+The `OnShapeDragEnd` event fires when the user finishes dragging a shape in the Diagram. The event argument is of type [`DiagramShapeDragEndEventArgs`](slug:Telerik.Blazor.Components.DiagramShapeDragEndEventArgs) and provides the same information as `OnShapeDragStart`.
+
+>caption Using the Diagram OnShapeDragEnd event
+
+````RAZOR.skip-repl
+<TelerikDiagram OnShapeDragEnd="@OnDiagramShapeDragEnd" />
+
+@code {
+    private void OnDiagramShapeDragEnd(DiagramShapeDragEndEventArgs args)
+    {
+        // args.Shapes contains the dragged shapes
     }
 }
 ````
@@ -131,9 +154,11 @@ The following example demonstrates all Diagram events in action.
 ````RAZOR
 <TelerikDiagram Height="400px"
                 OnConnectionClick="@OnDiagramConnectionClick"
-                OnDrag="@OnDiagramDrag"
-                OnDragEnd="@OnDiagramDragEnd"
-                OnShapeClick="@OnDiagramShapeClick">
+                OnConnectionDragStart="@OnDiagramConnectionDragStart"
+                OnConnectionDragEnd="@OnDiagramConnectionDragEnd"
+                OnShapeClick="@OnDiagramShapeClick"
+                OnShapeDragStart="@OnDiagramShapeDragStart"
+                OnShapeDragEnd="@OnDiagramShapeDragEnd">
     <DiagramLayout Type="@DiagramLayoutType.Tree" />
 
     <DiagramShapes>
@@ -178,51 +203,28 @@ The following example demonstrates all Diagram events in action.
         }
     }
 
-    private void OnDiagramDrag(DiagramDragEventArgs args)
+    private void OnDiagramConnectionDragStart(DiagramConnectionDragStartEventArgs args)
     {
-        string dragInfo = "Dragging: ";
+        string handleInfo = string.IsNullOrEmpty(args.ConnectionHandle)
+            ? string.Empty
+            : $" (endpoint: {args.ConnectionHandle})";
 
-        if (args.Shapes?.Length > 0)
-        {
-            dragInfo += $"{args.Shapes.Length} shape(s)";
-        }
-
-        if (args.Connections?.Length > 0)
-        {
-            if (args.Shapes?.Length > 0)
-            {
-                dragInfo += ", ";
-            }
-            dragInfo += $"{args.Connections.Length} connection(s)";
-        }
-
-        if (!string.IsNullOrEmpty(args.ConnectionHandle))
-        {
-            dragInfo += $" (endpoint: {args.ConnectionHandle})";
-        }
-
-        DiagramEventLog = dragInfo;
+        DiagramEventLog = $"Started dragging {args.Connections?.Count} connection(s){handleInfo}.";
     }
 
-    private void OnDiagramDragEnd(DiagramDragEventArgs args)
+    private void OnDiagramConnectionDragEnd(DiagramConnectionDragEndEventArgs args)
     {
-        string dragInfo = "Drag completed: ";
+        DiagramEventLog = $"Finished dragging {args.Connections?.Count} connection(s).";
+    }
 
-        if (args.Shapes?.Length > 0)
-        {
-            dragInfo += $"{args.Shapes.Length} shape(s)";
-        }
+    private void OnDiagramShapeDragStart(DiagramShapeDragStartEventArgs args)
+    {
+        DiagramEventLog = $"Started dragging {args.Shapes?.Count} shape(s).";
+    }
 
-        if (args.Connections?.Length > 0)
-        {
-            if (args.Shapes?.Length > 0)
-            {
-                dragInfo += ", ";
-            }
-            dragInfo += $"{args.Connections.Length} connection(s)";
-        }
-
-        DiagramEventLog = dragInfo;
+    private void OnDiagramShapeDragEnd(DiagramShapeDragEndEventArgs args)
+    {
+        DiagramEventLog = $"Finished dragging {args.Shapes?.Count} shape(s).";
     }
 
     private void OnDiagramShapeClick(DiagramShapeClickEventArgs args)
