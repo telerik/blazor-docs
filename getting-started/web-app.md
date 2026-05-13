@@ -26,7 +26,9 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 ## Step 0: Set Up Telerik Development Environment
 
-The fastest way to set up your Telerik development environment is to use the [Telerik CLI](slug:installation-cli) .NET tool. Run the following commands in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other):
+The fastest way to set up your Telerik development environment is to use the [Telerik CLI](slug:installation-cli) .NET tool. Run the following commands in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other).
+
+>tip If you have already setup your Telerik development environment and it doesn't need updating, skip to [Step 1](#step-1-create-a-new-project).
 
 1. Install Telerik CLI
     ````SH.skip-repl
@@ -41,9 +43,12 @@ The fastest way to set up your Telerik development environment is to use the [Te
 The `setup` command performs multiple actions at once to configure your Telerik development environment:
 
 * Log in to your [Telerik account](https://www.telerik.com/account).
+* Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have a commercial license.
 * [Download a Telerik license key](slug:installation-license-key) that includes all your licenses and trials.
 * [Configure a Telerik NuGet package source](slug:installation-nuget).
 * [Install MCP servers](slug:ai-overview).
+* [Install Telerik UI for Blazor project templates](slug:installation-templates).
+* Create a new Blazor app using the Telerik project templates.
 
 ## Step 1: Create a New Project
 

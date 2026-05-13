@@ -9,7 +9,6 @@ To successfully complete the steps in this tutorial:
 
 1. Install a [supported .NET version](slug:system-requirements#supported-net-versions).
 1. Create a [Telerik user account](https://www.telerik.com/account) if you haven't one.
-1. Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have a commercial license.
 
 #end
 

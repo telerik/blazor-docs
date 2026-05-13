@@ -222,6 +222,8 @@ The `setup` command performs multiple actions at once to configure your Telerik 
 * [Download license key](#get-license-key)
 * [Configure NuGet package source](#set-up-nuget-feed)
 * [Install MCP server(s)](#install-mcp-server)
+* [Install Telerik UI for Blazor project templates](slug:installation-templates)
+* Create a new Blazor app using the Telerik project templates
 
 ````SH.skip-repl
 telerik setup blazor
