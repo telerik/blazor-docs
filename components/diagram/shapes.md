@@ -207,6 +207,48 @@ You can customize connectors globally or per shape. Connectors settings are part
 </TelerikDiagram>
 ````
 
+### Connector Offset
+
+The `Offset` parameter allows you to move connectors away from their default positions. This is useful for better alignment on custom shapes or when you need to adjust connector positioning for visual clarity.
+
+The `Offset` value is a pixel distance that moves the connector from its default position.
+
+To configure connector offset globally for all Shapes, use the `Offset` parameter of `<DiagramShapeDefaultsConnectorDefaults>` inside `<DiagramShapeDefaults>`.
+
+To configure connector offset for a specific Shape, use the `Offset` parameter of `<DiagramShapeConnectorDefaults>` inside `<DiagramShape>`.
+
+You can also set the offset for individual connectors using the `Offset` parameter of `<DiagramShapeConnector>` or `<DiagramShapeDefaultsConnector>`.
+
+>caption Configure connector offset globally and per Shape
+
+````RAZOR
+<TelerikDiagram Height="300px">
+    <DiagramShapeDefaults>
+        <DiagramShapeDefaultsConnectorDefaults Offset="10">
+            <DiagramShapeDefaultsConnectorDefaultsFill Color="purple" />
+        </DiagramShapeDefaultsConnectorDefaults>
+    </DiagramShapeDefaults>
+
+    <DiagramShapes>
+        <DiagramShape Id="shape1" X="50" Y="100">
+            <DiagramShapeContent Text="Global Offset" />
+        </DiagramShape>
+        <DiagramShape Id="shape2" X="250" Y="100">
+            <DiagramShapeContent Text="Custom Offset" />
+            <DiagramShapeConnectorDefaults Offset="20">
+                <DiagramShapeConnectorDefaultsFill Color="orange" />
+            </DiagramShapeConnectorDefaults>
+        </DiagramShape>
+        <DiagramShape Id="shape3" X="450" Y="100">
+            <DiagramShapeContent Text="No Offset" />
+            <DiagramShapeConnectorDefaults Offset="0">
+                <DiagramShapeConnectorDefaultsFill Color="blue" />
+            </DiagramShapeConnectorDefaults>
+        </DiagramShape>
+    </DiagramShapes>
+</TelerikDiagram>
+````
+
 ## Tooltips
 
 The Diagram allows you to display tooltips when hovering over Shapes. Each Shape requires explicit tooltip content configuration through the `Template` parameter.
@@ -308,6 +350,34 @@ To restrict or enable operations for a specific Shape, use the parameters of the
     <DiagramShapes>
         <DiagramShape>
             <DiagramShapeEditable Connect="false" />
+        </DiagramShape>
+    </DiagramShapes>
+</TelerikDiagram>
+````
+
+### Resize Handle Offset
+
+The Diagram displays resize handles on the boundaries of selected Shapes, allowing users to resize them. The `Offset` parameter of the resize handles configuration moves these handles away from the Shape boundary by a specified pixel distance. This improves usability, especially when working with smaller shapes or when handles overlap with other visual elements.
+
+To configure resize handle offset globally for all Shapes, use the `Offset` parameter of `<DiagramEditableResizeHandles>` inside `<DiagramEditable>`.
+
+>caption Configure resize handle offset globally
+
+````RAZOR
+<TelerikDiagram Height="400px">
+    <DiagramEditable>
+        <DiagramEditableResizeHandles Offset="10" />
+    </DiagramEditable>
+
+    <DiagramShapes>
+        <DiagramShape Id="shape1" X="100" Y="100" Width="120" Height="80">
+            <DiagramShapeContent Text="Shape 1" />
+        </DiagramShape>
+        <DiagramShape Id="shape2" X="300" Y="100" Width="150" Height="100">
+            <DiagramShapeContent Text="Shape 2" />
+        </DiagramShape>
+        <DiagramShape Id="shape3" X="200" Y="250" Width="100" Height="60">
+            <DiagramShapeContent Text="Shape 3" />
         </DiagramShape>
     </DiagramShapes>
 </TelerikDiagram>

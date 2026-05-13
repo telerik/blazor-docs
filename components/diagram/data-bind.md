@@ -34,6 +34,97 @@ Nested properties (such as `Fill`, `Stroke`, and `Content`) also have their own 
 * [`DiagramShapeContentDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeContentDescriptor)—defines the text and text color displayed inside a shape.
 * [`DiagramConnectionStrokeDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionStrokeDescriptor)—defines the stroke color and width of a connection.
 * [`DiagramConnectionContentDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionContentDescriptor)—defines the text and text color displayed on a connection.
+* [`DiagramConnectionEditableDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionEditableDescriptor)&mdash;configures connection editing behavior, including point editing, dragging, and removal.
+* [`DiagramConnectionEditablePointsDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionEditablePointsDescriptor)&mdash;configures connection point editing behavior, including enabling point editing and snap distance.
+
+### Connection Editable Configuration
+
+The `DiagramConnectionEditableDescriptor` provides programmatic control over connection editing behavior through the `ConnectionsData` API. This achieves parity with the declarative [`<DiagramConnectionEditable>`](slug:diagram-connections#resizable-connections) markup.
+
+The descriptor exposes the following properties:
+
+* `Drag` (bool?)&mdash;specifies if the connection can be dragged to link different shapes.
+* `Remove` (bool?)&mdash;specifies if the connection can be removed.
+* `Points` (`DiagramConnectionEditablePointsDescriptor`)&mdash;configures [editable intermediate connection points](slug:diagram-connections#resizable-connections). The `Points` property accepts:
+    * `null` or unset&mdash;uses default settings
+    * `new DiagramConnectionEditablePointsDescriptor { Enabled = false }`&mdash;disables point editing
+    * `new DiagramConnectionEditablePointsDescriptor { Enabled = true, Snap = 10 }`&mdash;enables point editing with optional snap distance in pixels
+
+>caption Configure connection editing behavior through descriptors
+
+````RAZOR
+<TelerikDiagram ShapesData="@ShapesData"
+                ConnectionsData="@ConnectionsData"
+                Height="400px">
+    <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline" />
+</TelerikDiagram>
+
+@code {
+    private List<DiagramShapeDescriptor> ShapesData { get; set; } = new List<DiagramShapeDescriptor>();
+    private List<DiagramConnectionDescriptor> ConnectionsData { get; set; } = new List<DiagramConnectionDescriptor>();
+
+    protected override void OnInitialized()
+    {
+        ShapesData = new List<DiagramShapeDescriptor>
+        {
+            new DiagramShapeDescriptor
+            {
+                Id = "shape1",
+                X = 100,
+                Y = 100,
+                Content = new DiagramShapeContentDescriptor { Text = "Shape 1" }
+            },
+            new DiagramShapeDescriptor
+            {
+                Id = "shape2",
+                X = 300,
+                Y = 100,
+                Content = new DiagramShapeContentDescriptor { Text = "Shape 2" }
+            },
+            new DiagramShapeDescriptor
+            {
+                Id = "shape3",
+                X = 200,
+                Y = 250,
+                Content = new DiagramShapeContentDescriptor { Text = "Shape 3" }
+            }
+        };
+
+        ConnectionsData = new List<DiagramConnectionDescriptor>
+        {
+            new DiagramConnectionDescriptor
+            {
+                FromId = "shape1",
+                ToId = "shape2",
+                Editable = new DiagramConnectionEditableDescriptor
+                {
+                    Drag = true,
+                    Remove = true,
+                    Points = new DiagramConnectionEditablePointsDescriptor
+                    {
+                        Enabled = true,
+                        Snap = 10
+                    }
+                }
+            },
+            new DiagramConnectionDescriptor
+            {
+                FromId = "shape2",
+                ToId = "shape3",
+                Editable = new DiagramConnectionEditableDescriptor
+                {
+                    Drag = false,
+                    Remove = false,
+                    Points = new DiagramConnectionEditablePointsDescriptor
+                    {
+                        Enabled = false
+                    }
+                }
+            }
+        };
+    }
+}
+````
 
 ## Binding Data from Custom Models
 

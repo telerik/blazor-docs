@@ -242,6 +242,7 @@ Selection handles are the additional visual elements that appear at both ends of
 By default, the Diagram allows users to:
 
 * Drag a Connection by its start and end cap to link other Shapes than the current ones.
+* Drag an entire Connection to reposition it while preserving its structure and shape endpoints.
 * Remove the selected Connection(s).
 
 To restrict these operations globally for all Connections, use the parameters of the `<DiagramConnectionDefaultsEditable>` tag.
@@ -249,6 +250,8 @@ To restrict these operations globally for all Connections, use the parameters of
 To restrict operations for a specific Connection, use the parameters of the `<DiagramConnectionEditable>` tag.
 
 Connection dragging and removing requires the `Selectable` parameter of `<DiagramConnectionDefaults>` to be set to `true`, which is by default.
+
+To track dragging operations, handle the [`OnDrag` and `OnDragEnd` events](slug:diagram-events#ondrag).
 
 >caption Setting global and Connection-specific editing options
 
@@ -261,6 +264,54 @@ Connection dragging and removing requires the `Selectable` parameter of `<Diagra
     <DiagramConnections>
         <DiagramConnection>
             <DiagramConnectionEditable Enabled="false" />
+        </DiagramConnection>
+    </DiagramConnections>
+</TelerikDiagram>
+````
+
+### Resizable Connections
+
+The Diagram allows users to reshape connections by dragging their intermediate [connection points](#connection-points). To enable this functionality, use the `Points` child configuration of the editable settings.
+
+To enable editable connection points globally for all Connections, use the `<DiagramConnectionDefaultsEditablePoints>` tag inside `<DiagramConnectionDefaultsEditable>`.
+
+To enable editable connection points for a specific Connection, use the `<DiagramConnectionEditablePoints>` tag inside `<DiagramConnectionEditable>`.
+
+>caption Enable editable connection points globally and per Connection
+
+````RAZOR
+<TelerikDiagram Height="400px">
+    <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline">
+        <DiagramConnectionDefaultsEditable>
+            <DiagramConnectionDefaultsEditablePoints Enabled="true" />
+        </DiagramConnectionDefaultsEditable>
+    </DiagramConnectionDefaults>
+
+    <DiagramShapes>
+        <DiagramShape Id="shape1" X="100" Y="100">
+            <DiagramShapeContent Text="Shape 1" />
+        </DiagramShape>
+        <DiagramShape Id="shape2" X="300" Y="100">
+            <DiagramShapeContent Text="Shape 2" />
+        </DiagramShape>
+        <DiagramShape Id="shape3" X="200" Y="250">
+            <DiagramShapeContent Text="Shape 3" />
+        </DiagramShape>
+    </DiagramShapes>
+
+    <DiagramConnections>
+        <DiagramConnection FromId="shape1" ToId="shape2">
+            <DiagramConnectionPoints>
+                <DiagramConnectionPoint X="200" Y="50" />
+            </DiagramConnectionPoints>
+        </DiagramConnection>
+        <DiagramConnection FromId="shape2" ToId="shape3">
+            <DiagramConnectionPoints>
+                <DiagramConnectionPoint X="350" Y="200" />
+            </DiagramConnectionPoints>
+            <DiagramConnectionEditable>
+                <DiagramConnectionEditablePoints Enabled="false" />
+            </DiagramConnectionEditable>
         </DiagramConnection>
     </DiagramConnections>
 </TelerikDiagram>
