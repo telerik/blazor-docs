@@ -144,4 +144,4 @@ The chart rendering engine uses JavaScript for label templates, so the `Date` co
 ## See Also
 
 * [Chart Label Template and Format]({%slug components/chart/label-template-format%})
-* [RangeBar Chart Overview]({%slug chart-types-rangebar%})
+* [RangeBar Chart Overview]({%slug components/chart/types/rangebar%})
