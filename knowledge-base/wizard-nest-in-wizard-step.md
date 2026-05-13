@@ -1,6 +1,6 @@
 ---
 title: Place a Wizard in Another Wizard Step
-description: How can I place a Wizard inside another Wizard's step.
+description: How can I place a Wizard inside another Wizard's step?
 type: how-to
 page_title: Place a Wizard in Another Wizard Step
 slug: wizard-kb-nest-wizard-in-step
@@ -22,7 +22,7 @@ components: ["wizard"]
 
 ## Description
 
-How can I place a Wizard inside another Wizard's step.
+How can I place a Wizard inside another Wizard's step?
 
 ## Solution
 
