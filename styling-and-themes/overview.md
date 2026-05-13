@@ -95,7 +95,7 @@ The `Telerik.UI.for.Blazor` NuGet package includes only the *Main* swatch of eac
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/all.css" />
 
     <!-- 
-    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/meridian-main.css" rel="stylesheet" />
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/all.css" rel="stylesheet" />
     <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/default-ocean-blue.css" rel="stylesheet" />
     <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
     <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-material/all.css" rel="stylesheet" />
