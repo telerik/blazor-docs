@@ -19,14 +19,14 @@ To export the Diagram, [capture a component reference](slug:diagram-overview#dia
 
 | Method | Parameters | Return Type | Description |
 | --- | --- | --- | --- |
-| `ExportPngAsync` | none | `Task<string>` | Exports the Diagram as a PNG image and returns a base64-encoded data URL. |
-| `ExportPdfAsync` | `PdfExportOptions?` | `Task<string>` | Exports the Diagram as a PDF document and returns a base64-encoded data URL. |
+| `ExportToPngAsync` | none | `Task<string>` | Exports the Diagram as a PNG image and returns a base64-encoded data URL. |
+| `ExportToPdfAsync` | `PdfExportOptions?` | `Task<string>` | Exports the Diagram as a PDF document and returns a base64-encoded data URL. |
 
 Both methods return a data URL string in the format `data:<media-type>;base64,<data>`. To get the raw bytes, strip the prefix up to and including the first comma.
 
 ## PDF Export Options
 
-Pass a `PdfExportOptions` object to `ExportPdfAsync` to customize the PDF output. All properties are optional.
+Pass a `PdfExportOptions` object to `ExportToPdfAsync` to customize the PDF output. All properties are optional.
 
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -95,7 +95,7 @@ The following example exports the Diagram as a PNG image or a PDF document and s
 
     private async Task OnExportPdfClick()
     {
-        var result = await DiagramRef!.ExportPdfAsync(new PdfExportOptions
+        var result = await DiagramRef!.ExportToPdfAsync(new PdfExportOptions
         {
             PaperSize = "A4",
             Landscape = true,
@@ -111,7 +111,7 @@ The following example exports the Diagram as a PNG image or a PDF document and s
 
     private async Task OnExportPngClick()
     {
-        var result = await DiagramRef!.ExportPngAsync();
+        var result = await DiagramRef!.ExportToPngAsync();
 
         var base64 = result.Substring(result.IndexOf(",") + 1);
         byte[] bytes = Convert.FromBase64String(base64);
