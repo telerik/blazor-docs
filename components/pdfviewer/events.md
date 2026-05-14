@@ -45,7 +45,9 @@ Using `OnOpen` is *not* required. Users can open local files from their devices 
 
 The `ZoomChanged` event fires when the user clicks on the zoom in/out buttons, or selects a new zoom level from the ComboBox.
 
-The event handler receives the new zoom level as an argument of type `decimal`. To apply the new zoom level, set it as a new `Zoom` parameter value. Not setting it will effectively cancel the event.
+The event handler receives the resolved zoom level as an argument of type `object`. The value is always a `decimal` (e.g., `1.25m` for 125%), regardless of whether a `PdfViewerZoomLevelType` value was set as the initial `Zoom`. To apply the new zoom level, set it as a new `Zoom` parameter value. Not setting it will effectively cancel the event.
+
+>tip The `ZoomChanged` callback type changed from `EventCallback<decimal>` to `EventCallback<object>`. Update existing handlers to accept `object`. Casting the argument with `(decimal)newZoom` is safe after the initial render.
 
 
 ## Example
@@ -62,7 +64,7 @@ The event handler receives the new zoom level as an argument of type `decimal`. 
                   OnDownload="@OnPdfDownload"
                   OnError="@OnPdfError"
                   OnOpen="@OnPdfOpen"
-                  Zoom="@PdfZoom"
+                  Zoom="@PdfZoomLevel"
                   ZoomChanged="@OnPdfZoomChanged">
 </TelerikPdfViewer>
 
@@ -70,6 +72,7 @@ The event handler receives the new zoom level as an argument of type `decimal`. 
     private byte[] PdfSource { get; set; }
 
     private decimal PdfZoom { get; set; } = 1.25m;
+    private object PdfZoomLevel { get; set; } = PdfViewerZoomLevelType.FitToPage;
 
     private bool AllowDownloads { get; set; } = true;
 
@@ -114,9 +117,9 @@ The event handler receives the new zoom level as an argument of type `decimal`. 
         }
     }
 
-    private async Task OnPdfZoomChanged(decimal newZoom)
+    private async Task OnPdfZoomChanged(object newZoom)
     {
-        PdfZoom = newZoom;
+        PdfZoomLevel = newZoom;
 
         EventLog = "Zoom level changed.";
     }
