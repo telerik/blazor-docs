@@ -13,32 +13,32 @@ position: 100
 
 This article describes the available events in the Telerik Notification for Blazor:
 
-* [`OnClose`](#onclose)
+* [`OnHide`](#onhide)
 
-## OnClose
+## OnHide
 
-The TaskBoard `OnClose` event fires when a visible notification popup disappears as a result of a [Close button click](slug:notification-open-close-hide#manually-closing-a-notification) or the elapse of the [`CloseAfter` timeout period](slug:notification-open-close-hide#automatically-closing-a-notification).
+The Notification `OnHide` event fires when a visible notification popup disappears as a result of a [Close button click](slug:notification-open-close-hide#manually-closing-a-notification) or the elapse of the [`CloseAfter` timeout period](slug:notification-open-close-hide#automatically-closing-a-notification).
 
-The event handler receives a [`NotificationCloseEventArgs`](slug:Telerik.Blazor.Components.NotificationCloseEventArgs) argument.
+The event handler receives a [`NotificationHideEventArgs`](slug:Telerik.Blazor.Components.NotificationHideEventArgs) argument.
 
->caption Using the Notification OnClose event
+>caption Using the Notification OnHide event
 
 ````RAZOR
 <TelerikButton OnClick="@ShowNotification">Show Notification</TelerikButton>
 
-<p>Last <code>OnClose</code> event: @NotificationEventLog</p>
+<p>Last <code>OnHide</code> event: @NotificationEventLog</p>
 
 <TelerikNotification @ref="@NotificationRef"
-                     OnClose="@OnNotificationClose" />
+                     OnHide="@OnNotificationHide" />
 
 @code {
     private TelerikNotification? NotificationRef;
 
     private string NotificationEventLog { get; set; } = string.Empty;
 
-    private void OnNotificationClose(NotificationCloseEventArgs args)
+    private void OnNotificationHide(NotificationHideEventArgs args)
     {
-        NotificationEventLog = $"Fired at {DateTime.Now.ToString("HH:mm:ss.fff")}. Close action: {args.CloseAction}. Text: \"{args.Model.Text}\"";
+        NotificationEventLog = $"Fired at {DateTime.Now.ToString("HH:mm:ss.fff")}. Hide action: {args.HideAction}. Text: \"{args.Model.Text}\"";
     }
 
     private void ShowNotification()
