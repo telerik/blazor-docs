@@ -369,6 +369,7 @@ See a full example in section [Create Diagram from JSON](#define-shapes-and-conn
 * [Configure Diagram shapes](slug:diagram-shapes)
 * [Customize Diagram connections](slug:diagram-connections)
 * [Handle Diagram events](slug:diagram-events)
+* [Export the Diagram](slug:diagram-export)
 
 ## See Also
 
