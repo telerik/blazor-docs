@@ -27,11 +27,11 @@ To use the `GridToolBarSmartBoxTool`, add it inside the `GridToolBar` tag. The S
 
 Each settings component can be enabled or disabled individually through its `Enabled` parameter (default is `true`). Each feature also supports history tracking through its respective history settings component.
 
-Use the `ActiveMode` parameter of `GridToolBarSmartBoxTool` to control which panel is displayed by default when the Grid renders. The parameter accepts a `GridSmartBoxMode` enum value:
+Use the `ActiveMode` parameter of `GridToolBarSmartBoxTool` to control which panel displays by default when the Grid renders. The parameter accepts a `GridSmartBoxMode` enum value:
 
-* `GridSmartBoxMode.Search` (default)
-* `GridSmartBoxMode.SemanticSearch`
-* `GridSmartBoxMode.AIAssistant`
+* `Search` (default)
+* `SemanticSearch`
+* `AIAssistant`
 
 >caption Setting the default active panel
 
