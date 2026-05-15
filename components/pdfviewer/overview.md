@@ -71,7 +71,7 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 | `MinZoom` | `decimal` <br /> (`0.5m`) | The smallest possible zoom level. The default value allows zooming out to 50%. |
 | `RenderScale` | `double` <br /> (`3.0`) | The resolution of the rendered PDF document. A higher value increases the quality, but also increases the memory consumption. Use a smaller value for large documents or less powerful user devices like mobile phones. |
 | `Width` | `string` | The PdfViewer width as a [CSS length value](slug:common-features/dimensions). If not set, the component will expand horizontally to fill its parent. |
-| `Zoom` | `decimal` <br /> (`1.25m`) | The current zoom level. Use the parameter with two-way binding or with a [`ZoomChanged` event handler](slug:pdfviewer-events#zoomchanged). |
+| `Zoom` | `object` <br /> (`1.25m`) | The current zoom level. Accepts a `decimal` ratio (e.g., `1.0m` for 100%, `1.5m` for 150%) or a `PdfViewerZoomLevelType` enum value (`ActualWidth`, `FitToWidth`, or `FitToPage`) for semantic zoom levels. Numeric values are clamped to [`MinZoom`, `MaxZoom`]. Use the parameter with two-way binding or with a [`ZoomChanged` event handler](slug:pdfviewer-events#zoomchanged). |
 | `ZoomRate` | `decimal` <br /> (`0.25m`) | The zoom level change that is used by the zoom in and zoom out buttons. |
 
 

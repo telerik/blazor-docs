@@ -27,6 +27,18 @@ To use the `GridToolBarSmartBoxTool`, add it inside the `GridToolBar` tag. The S
 
 Each settings component can be enabled or disabled individually through its `Enabled` parameter (default is `true`). Each feature also supports history tracking through its respective history settings component.
 
+Use the `ActiveMode` parameter of `GridToolBarSmartBoxTool` to control which panel displays by default when the Grid renders. The parameter accepts a `GridSmartBoxMode` enum value:
+
+* `Search` (default)
+* `SemanticSearch`
+* `AIAssistant`
+
+>caption Setting the default active panel
+
+````RAZOR.skip-repl
+<GridToolBarSmartBoxTool ActiveMode="@GridSmartBoxMode.AIAssistant" />
+````
+
 For detailed information on all available parameters, see the [GridToolBarSmartBoxTool API reference](slug:Telerik.Blazor.Components.GridToolBarSmartBoxTool).
 
 ## Standard Search
