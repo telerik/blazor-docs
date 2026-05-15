@@ -10,6 +10,7 @@ position: 0
 
 This article lists the releases of the Telerik UI for Blazor product that introduce breaking changes. You may want to go through it when [upgrading](slug:upgrade-tutorial) to see whether you are affected.
 
+* [14.0.0](slug:changes-in-14-0-0)
 * [13.0.0](slug:changes-in-13-0-0)
 * [12.0.0](slug:changes-in-12-0-0)
 * [10.0.0](slug:changes-in-10-0-0)
