@@ -209,15 +209,13 @@ You can customize connectors globally or per shape. Connectors settings are part
 
 ### Connector Offset
 
-The `Offset` parameter allows you to move connectors away from their default positions. This is useful for better alignment on custom shapes or when you need to adjust connector positioning for visual clarity.
+The `Offset` parameter allows you to move connectors away from their default positions. This is useful for better alignment on custom shapes or when you need to shift connectors for visual clarity.
 
 The `Offset` value is a pixel distance that moves the connector from its default position.
 
-To configure connector offset globally for all Shapes, use the `Offset` parameter of `<DiagramShapeDefaultsConnectorDefaults>` inside `<DiagramShapeDefaults>`.
-
-To configure connector offset for a specific Shape, use the `Offset` parameter of `<DiagramShapeConnectorDefaults>` inside `<DiagramShape>`.
-
-You can also set the offset for individual connectors using the `Offset` parameter of `<DiagramShapeConnector>` or `<DiagramShapeDefaultsConnector>`.
+* To configure connector offset globally for all Shapes, use the `Offset` parameter of `<DiagramShapeDefaultsConnectorDefaults>` inside `<DiagramShapeDefaults>`.
+* To configure connector offset for a specific Shape, use the `Offset` parameter of `<DiagramShapeConnectorDefaults>` inside `<DiagramShape>`.
+* To set the offset for individual connectors, use the `Offset` parameter of `<DiagramShapeConnector>` or `<DiagramShapeDefaultsConnector>`.
 
 >caption Configure connector offset globally and per Shape
 
@@ -339,29 +337,9 @@ To restrict these operations globally for all Shapes, use the parameters of the 
 
 To restrict or enable operations for a specific Shape, use the parameters of the `<DiagramShapeEditable>` tag.
 
->caption Setting global and Shape-specific editing options
+The Diagram also displays resize handles on the boundaries of selected Shapes. Use the `Offset` parameter of `<DiagramEditableResizeHandles>` inside `<DiagramEditable>` to move these handles away from the Shape boundary by a specified pixel distance. This improves usability when working with smaller shapes or when handles overlap with other visual elements.
 
-````RAZOR.skip-repl
-<TelerikDiagram>
-    <DiagramShapeDefaults>
-        <DiagramShapeDefaultsEditable Connect="true" Drag="false" Remove="false" />
-    </DiagramShapeDefaults>
-
-    <DiagramShapes>
-        <DiagramShape>
-            <DiagramShapeEditable Connect="false" />
-        </DiagramShape>
-    </DiagramShapes>
-</TelerikDiagram>
-````
-
-### Resize Handle Offset
-
-The Diagram displays resize handles on the boundaries of selected Shapes, allowing users to resize them. The `Offset` parameter of the resize handles configuration moves these handles away from the Shape boundary by a specified pixel distance. This improves usability, especially when working with smaller shapes or when handles overlap with other visual elements.
-
-To configure resize handle offset globally for all Shapes, use the `Offset` parameter of `<DiagramEditableResizeHandles>` inside `<DiagramEditable>`.
-
->caption Configure resize handle offset globally
+>caption Setting global and Shape-specific editing options and resize handle offset globally
 
 ````RAZOR
 <TelerikDiagram Height="400px">
@@ -369,12 +347,17 @@ To configure resize handle offset globally for all Shapes, use the `Offset` para
         <DiagramEditableResizeHandles Offset="10" />
     </DiagramEditable>
 
+    <DiagramShapeDefaults>
+        <DiagramShapeDefaultsEditable Connect="true" Drag="false" Remove="false" />
+    </DiagramShapeDefaults>
+
     <DiagramShapes>
         <DiagramShape Id="shape1" X="100" Y="100" Width="120" Height="80">
             <DiagramShapeContent Text="Shape 1" />
         </DiagramShape>
         <DiagramShape Id="shape2" X="300" Y="100" Width="150" Height="100">
             <DiagramShapeContent Text="Shape 2" />
+            <DiagramShapeEditable Connect="false" />
         </DiagramShape>
         <DiagramShape Id="shape3" X="200" Y="250" Width="100" Height="60">
             <DiagramShapeContent Text="Shape 3" />

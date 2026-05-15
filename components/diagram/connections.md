@@ -251,7 +251,7 @@ To restrict operations for a specific Connection, use the parameters of the `<Di
 
 Connection dragging and removing requires the `Selectable` parameter of `<DiagramConnectionDefaults>` to be set to `true`, which is by default.
 
-To track dragging operations, handle the [`OnConnectionDragStart` and `OnConnectionDragEnd` events](slug:diagram-events#onconnectiondragstart).
+To track dragging operations, handle the [`OnConnectionDragStart`](slug:diagram-events#onconnectiondragstart) and [`OnConnectionDragEnd`](slug:diagram-events#onconnectiondragend) events.
 
 >caption Setting global and Connection-specific editing options
 
@@ -273,9 +273,9 @@ To track dragging operations, handle the [`OnConnectionDragStart` and `OnConnect
 
 The Diagram allows users to reshape connections by dragging their intermediate [connection points](#connection-points). To enable this functionality, use the `Points` child configuration of the editable settings.
 
-To enable editable connection points globally for all Connections, use the `<DiagramConnectionDefaultsEditablePoints>` tag inside `<DiagramConnectionDefaultsEditable>`.
+* To enable editable connection points globally for all Connections, use the `<DiagramConnectionDefaultsEditablePoints>` tag inside `<DiagramConnectionDefaultsEditable>`.
 
-To enable editable connection points for a specific Connection, use the `<DiagramConnectionEditablePoints>` tag inside `<DiagramConnectionEditable>`.
+* To enable editable connection points for a specific Connection, use the `<DiagramConnectionEditablePoints>` tag inside `<DiagramConnectionEditable>`.
 
 >caption Enable editable connection points globally and per Connection
 

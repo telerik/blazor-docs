@@ -247,7 +247,7 @@ When both panning and [selection](#select) are enabled, make sure the two featur
 </TelerikDiagram>
 ````
 
-### Pannable Scrollbars
+### Scrollbars
 
 The Diagram allows you to control the visibility and behavior of scrollbars when panning is enabled. This provides better control over the user experience, especially when working with large diagrams.
 
@@ -256,43 +256,14 @@ The available scrollbar-related parameters are:
 * `ShowScrollbars` (bool?)&mdash;controls whether scrollbars are shown for a pannable Diagram viewport. When set to `true`, scrollbars appear when the Diagram content overflows the viewport boundaries.
 * `AutoHideScrollbars` (bool?)&mdash;controls whether the scrollbars hide automatically when idle. This parameter only applies when `ShowScrollbars` is enabled.
 
-To configure scrollbar visibility and auto-hide behavior, use the `ShowScrollbars` and `AutoHideScrollbars` parameters of `<DiagramPannable>`.
-
 >caption Configure scrollbar visibility and auto-hide behavior
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikDiagram Height="400px">
     <DiagramPannable Enabled="true"
                      Key="@DiagramPannableKey.Ctrl"
                      ShowScrollbars="true"
                      AutoHideScrollbars="false" />
-
-    <DiagramLayout Type="@DiagramLayoutType.Tree" />
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-        <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-        <DiagramShape Id="shape4">
-            <DiagramShapeContent Text="Shape 4" />
-        </DiagramShape>
-        <DiagramShape Id="shape5">
-            <DiagramShapeContent Text="Shape 5" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
-        <DiagramConnection FromId="shape1" ToId="shape3" />
-        <DiagramConnection FromId="shape2" ToId="shape4" />
-        <DiagramConnection FromId="shape2" ToId="shape5" />
-    </DiagramConnections>
 </TelerikDiagram>
 ````
 

@@ -61,13 +61,6 @@ Use the [Diagram JSON state](slug:diagram-overview#define-shapes-and-connections
 
 The `OnConnectionDragStart` event fires when the user starts dragging a connection in the Diagram. The event argument is of type [`DiagramConnectionDragStartEventArgs`](slug:Telerik.Blazor.Components.DiagramConnectionDragStartEventArgs) and provides information about the connection being dragged.
 
-The `DiagramConnectionDragStartEventArgs` exposes the following properties:
-
-* `Connections` (`List<DiagramConnectionDragDescriptor>`)&mdash;the connections being dragged. Each `DiagramConnectionDragDescriptor` contains:
-    * `FromId` and `ToId`&mdash;the source and target shape identifiers
-    * `FromX`, `FromY`, `ToX`, `ToY`&mdash;the source and target point coordinates
-* `ConnectionHandle` (string)&mdash;the handle name (`"source"` or `"target"`) when dragging a connection endpoint. This property is `null` when dragging the entire connection body.
-
 >caption Using the Diagram OnConnectionDragStart event
 
 ````RAZOR.skip-repl
@@ -209,22 +202,22 @@ The following example demonstrates all Diagram events in action.
             ? string.Empty
             : $" (endpoint: {args.ConnectionHandle})";
 
-        DiagramEventLog = $"Started dragging {args.Connections?.Count} connection(s){handleInfo}.";
+        DiagramEventLog = $"Started dragging {args.Connections.Count} connection(s){handleInfo}.";
     }
 
     private void OnDiagramConnectionDragEnd(DiagramConnectionDragEndEventArgs args)
     {
-        DiagramEventLog = $"Finished dragging {args.Connections?.Count} connection(s).";
+        DiagramEventLog = $"Finished dragging {args.Connections.Count} connection(s).";
     }
 
     private void OnDiagramShapeDragStart(DiagramShapeDragStartEventArgs args)
     {
-        DiagramEventLog = $"Started dragging {args.Shapes?.Count} shape(s).";
+        DiagramEventLog = $"Started dragging {args.Shapes.Count} shape(s).";
     }
 
     private void OnDiagramShapeDragEnd(DiagramShapeDragEndEventArgs args)
     {
-        DiagramEventLog = $"Finished dragging {args.Shapes?.Count} shape(s).";
+        DiagramEventLog = $"Finished dragging {args.Shapes.Count} shape(s).";
     }
 
     private void OnDiagramShapeClick(DiagramShapeClickEventArgs args)
