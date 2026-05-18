@@ -74,11 +74,9 @@ For example, you can instruct the model to always filter the Grid before exporti
 
 ### Page Access
 
-Control which pages the extension can inspect and where page tools can run.
+The browser extension only inspects pages and invokes tools on matching allowed origins. All other origins are denied by default. Add multiple allowed origins on separate lines.
 
-Configure allowed origins - one entry per line. The extension only inspects pages and invokes tools on matching origins. All other origins are denied by default.
-
-Accepted formats:
+The accepted formats are:
 
 * Full origins - `https://example.com`
 * Bare hostnames - `example.com`
