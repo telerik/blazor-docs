@@ -67,7 +67,7 @@ Each Telerik Blazor component that supports WebMCP has an `EnableWebMcpTools` pa
 }
 ````
 
-When `EnableWebMcpTools` is `true`, the component registers its tools with default names and descriptions. Some tools are always registered (for example, `Highlight` and `ClearHighlight` on the Grid), while others depend on the component's configuration - a Grid registers the `Filter` tool only when `FilterMode` is not `None`, and the `Sort` tool only when `Sortable` is `true`. For the full list of tools and their registration conditions, see the [Supported Components](slug:web-mcp-supported-components) article.
+When `EnableWebMcpTools` is `true`, the component registers its tools with default names and descriptions. Some tools are always registered (for example, `Highlight` and `ClearHighlight` on the Grid), while others depend on the component's configuration. For example, a Grid registers the `Sort` tool only when `Sortable` is `true`. For the full list of tools and their registration conditions, see the [Supported Components](slug:web-mcp-supported-components) article.
 
 ## How It Works
 
