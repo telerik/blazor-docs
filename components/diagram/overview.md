@@ -247,6 +247,26 @@ When both panning and [selection](#select) are enabled, make sure the two featur
 </TelerikDiagram>
 ````
 
+### Scrollbars
+
+The Diagram allows you to control the visibility and behavior of scrollbars when panning is enabled. This provides better control over the user experience, especially when working with large diagrams.
+
+The available scrollbar-related parameters are:
+
+* `ShowScrollbars` (bool?)&mdash;controls whether scrollbars are shown for a pannable Diagram viewport. When set to `true`, scrollbars appear when the Diagram content overflows the viewport boundaries.
+* `AutoHideScrollbars` (bool?)&mdash;controls whether the scrollbars hide automatically when idle. This parameter only applies when `ShowScrollbars` is enabled.
+
+>caption Configure scrollbar visibility and auto-hide behavior
+
+````RAZOR.skip-repl
+<TelerikDiagram Height="400px">
+    <DiagramPannable Enabled="true"
+                     Key="@DiagramPannableKey.Ctrl"
+                     ShowScrollbars="true"
+                     AutoHideScrollbars="false" />
+</TelerikDiagram>
+````
+
 ## Select
 
 Users can select a single shape or connection with a click. The Diagram also supports multiple selection through dragging a rectangular marquee. The following code snippet shows the relevant parameters together with their default values.
@@ -320,6 +340,7 @@ See a full example in section [Create Diagram from JSON](#define-shapes-and-conn
 * [Configure Diagram shapes](slug:diagram-shapes)
 * [Customize Diagram connections](slug:diagram-connections)
 * [Handle Diagram events](slug:diagram-events)
+* [Export the Diagram](slug:diagram-export)
 
 ## See Also
 

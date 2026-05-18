@@ -34,6 +34,8 @@ Nested properties (such as `Fill`, `Stroke`, and `Content`) also have their own 
 * [`DiagramShapeContentDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeContentDescriptor)—defines the text and text color displayed inside a shape.
 * [`DiagramConnectionStrokeDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionStrokeDescriptor)—defines the stroke color and width of a connection.
 * [`DiagramConnectionContentDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionContentDescriptor)—defines the text and text color displayed on a connection.
+* [`DiagramConnectionEditableDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionEditableDescriptor)&mdash;configures connection editing behavior, including point editing, dragging, and removal.
+* [`DiagramConnectionEditablePointsDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionEditablePointsDescriptor)&mdash;configures connection point editing behavior, including enabling point editing and snap distance.
 
 ## Binding Data from Custom Models
 
@@ -329,6 +331,16 @@ You can also create the descriptor objects directly without mapping from custom 
             {
                 Text = "Initialize",
                 Color = "#FF6358"
+            },
+            Editable = new DiagramConnectionEditableDescriptor()
+            {
+                Drag = true,
+                Remove = true,
+                Points = new DiagramConnectionEditablePointsDescriptor()
+                {
+                    Enabled = true,
+                    Snap = 10
+                }
             }
         },
         new DiagramConnectionDescriptor()
@@ -371,6 +383,15 @@ You can also create the descriptor objects directly without mapping from custom 
             {
                 Text = "Error Path",
                 Color = "#6C757D"
+            },
+            Editable = new DiagramConnectionEditableDescriptor()
+            {
+                Drag = false,
+                Remove = false,
+                Points = new DiagramConnectionEditablePointsDescriptor()
+                {
+                    Enabled = false
+                }
             }
         }
     };
