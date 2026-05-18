@@ -43,7 +43,7 @@ To enable it:
 1. Open `chrome://flags` in your browser address bar.
 1. Search for `#enable-webmcp-testing` (listed as **WebMCP for testing**).
 1. Set the flag to **Enabled**.
-1. Relaunch the browser.
+1. Restart the browser.
 
 This flag enables the WebMCP API and its associated testing interfaces, activating the `window.navigator.modelContext` object that components use to register and expose their tools.
 
