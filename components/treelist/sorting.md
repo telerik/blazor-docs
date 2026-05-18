@@ -8,6 +8,7 @@ published: True
 position: 21
 components: ["treelist"]
 ---
+
 # TreeList Sorting
 
 The TreeList component offers support for sorting.
@@ -18,7 +19,7 @@ When the user clicks the column header, the treelist will sort the data accordin
 
 You can prevent the user from sorting a certain field by setting `Sortable="false"` on its column.
 
-You can sort the treelist on the different columns and sorting is done according to the rules for the concrete column type (for example, rules for a `string` are different from rules for an `int`).
+You can sort the Treelist on the different columns and sorting is done according to the rules for the concrete column type. For example, rules for a `string` are different from rules for an `int`.
 
 Sorting keeps the expanded/collapsed state of items. For example, if filtering brings into view a child whose parent is collapsed, you will only see the collapsed parent.
 
@@ -26,79 +27,81 @@ You can let the user sort by more than one field by setting the `SortMode` param
 
 The sorting criteria are stored in a [collection of `SortDescriptor`](slug:common-features-descriptors#sorting).
 
->caption Enable Sorting in Telerik TreeList
+>caption Enable Sorting in the Telerik Blazor TreeList
 
 ````RAZOR
-Click a column header to sort by its data
-
-<TelerikTreeList Data="@Data" Sortable="true"
-                 Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px">
+<TelerikTreeList Data="@TreeListData"
+                 IdField="@nameof(Employee.Id)"
+                 ParentIdField="@nameof(Employee.ParentId)"
+                 Sortable="true"
+                 SortMode="@SortMode.Multiple"
+                 Height="90vh">
     <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px"></TreeListColumn>
-        <TreeListColumn Field="Id"></TreeListColumn>
+        <TreeListColumn Field="@nameof(Employee.Id)" Width="90px" Sortable="false" />
+        <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" />
+        <TreeListColumn Field="@nameof(Employee.Team)" Width="140px" />
+        <TreeListColumn Field="@nameof(Employee.Salary)" DisplayFormat="{0:C2}" Width="140px" />
+        <TreeListColumn Field="@nameof(Employee.HireDate)" DisplayFormat="{0:d}" Width="140px" />
+        <TreeListColumn Field="@nameof(Employee.IsDriver)" Width="120px" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    public List<Employee> Data { get; set; }
+    private List<Employee>? TreeListData { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        Data = await GetTreeListData();
+        TreeListData = new();
+        PopulateChildren(TreeListData, null, 1);
     }
 
-    // sample models and data generation
+    private readonly int TreeLevelCount = 3;
+    private readonly int RootItemCount = 3;
+    private readonly int ChildItemCount = 2;
+
+    private int LastId { get; set; }
+    private Random Rnd { get; set; } = Random.Shared;
+
+    private void PopulateChildren(List<Employee> items, int? parentId, int level)
+    {
+        int itemCount = level == 1 ? RootItemCount : ChildItemCount;
+
+        for (int i = 1; i <= itemCount; i++)
+        {
+            int itemId = ++LastId;
+
+            items.Add(new Employee()
+            {
+                Id = itemId,
+                ParentId = parentId,
+                HasChildren = level < TreeLevelCount,
+                Name = $"Employee {itemId}",
+                Team = parentId.HasValue ? $"Team {parentId}" : "Executive Team",
+                Salary = Rnd.Next(2, 6) * 1000m,
+                HireDate = DateTime.Today.AddDays(-Rnd.Next(365, 3650)),
+                IsDriver = itemId % 2 == 0
+            });
+
+            if (level < TreeLevelCount)
+            {
+                PopulateChildren(items, itemId, level + 1);
+            }
+        }
+    }
 
     public class Employee
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
-        public string Name { get; set; }
-    }
-
-    async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
-        for (int i = 1; i < 15; i++)
-        {
-            data.Add(new Employee
-            {
-                Id = i,
-                ParentId = null,
-                Name = $"root: {i}"
-            });
-
-            for (int j = 2; j < 5; j++)
-            {
-                int currId = i * 100 + j;
-                data.Add(new Employee
-                {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child of {i}"
-                });
-
-                for (int k = 3; k < 5; k++)
-                {
-                    data.Add(new Employee
-                    {
-                        Id = currId * 1000 + k,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}"
-                    }); ;
-                }
-            }
-        }
-
-        return await Task.FromResult(data);
+        public bool HasChildren { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
+        public decimal? Salary { get; set; }
+        public DateTime? HireDate { get; set; }
+        public bool IsDriver { get; set; }
     }
 }
 ````
-
->caption The result from the code snippet above, after the user clicked twice on the "ID" header to sort it in descending order
-
-![Blazor TreeList Basic Sorting](images/basic-sorting.png)
 
 You can sort the TreeList from your own code through its [state](slug:treelist-state).
 
@@ -110,9 +113,6 @@ You can sort the TreeList from your own code through its [state](slug:treelist-s
 @[template](/_contentTemplates/treelist/state.md#set-sort-from-code)
 ````
 
-
-
 ## See Also
 
-  * [Live Demo: TreeList Sorting](https://demos.telerik.com/blazor-ui/treelist/sorting)
-   
+* [Live Demo: TreeList Sorting](https://demos.telerik.com/blazor-ui/treelist/sorting)
