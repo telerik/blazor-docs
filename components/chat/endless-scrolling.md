@@ -23,7 +23,7 @@ On initialization, the Chat scrolls to the bottom and shows the latest messages.
 
 ## Client-Side Endless Scrolling
 
-In client-side mode, the component pages the `Data` collection automatically. No additional parameters or event handlers are required.
+In client-side mode, the component pages the `Data` collection automatically. No additional parameters or event handlers are required. Subscribe to [`OnLoadMoreMessages`](#loading-more-messages), if you want to detect changes in rendered message range.
 
 >caption Chat with client-side endless scrolling
 
@@ -86,13 +86,9 @@ To use server-side endless scrolling, set the following parameters in addition t
 
 ### Loading More Messages
 
-The `OnLoadMoreMessages` event fires when the component needs a new page of messages. The event args expose `StartIndex` and `EndIndex`, which define the requested range in the full dataset.
+The `OnLoadMoreMessages` event fires whenever the rendered message range changes.
 
-The handler determines the merge action by comparing the event args to the current `StartIndex` and `EndIndex` values:
-
-* If `args.EndIndex == StartIndex`, the user scrolled up and older messages must be added to the top.
-* If `args.StartIndex == EndIndex`, the user scrolled down and newer messages must be added to the bottom.
-* In any other case — replace `Data` with the new page and reset both `StartIndex` and `EndIndex`. This covers the initial load, a scroll-to-bottom action, or sending a message while a non-last page is displayed.
+The event arguments expose `StartIndex` and `EndIndex`, which define the full message range that should be rendered. Replace `Data` with the slice of the full dataset indicated by the args and update `StartIndex` and `EndIndex` to match.
 
 After updating `Data`, `StartIndex`, and `EndIndex`, also update `RepliedToMessages` to include any reply-to source messages that are not in the current page.
 
@@ -172,27 +168,9 @@ private void ReceiveExternalMessage(ChatMessage newMessage)
     {
         await Task.Delay(100); // simulate async data fetch
 
-        if (ChatMessages.Count > 0 && args.EndIndex == ChatStartIndex)
-        {
-            // Prepend: user scrolled up
-            var page = GetRange(args.StartIndex, args.EndIndex);
-            ChatMessages.InsertRange(0, page);
-            ChatStartIndex = args.StartIndex;
-        }
-        else if (ChatMessages.Count > 0 && args.StartIndex == ChatEndIndex)
-        {
-            // Append: user scrolled down
-            var page = GetRange(args.StartIndex, args.EndIndex);
-            ChatMessages.AddRange(page);
-            ChatEndIndex = args.EndIndex;
-        }
-        else
-        {
-            // Replace: initial load, scroll-to-bottom, send while not on last batch
-            ChatMessages = GetRange(args.StartIndex, args.EndIndex);
-            ChatStartIndex = args.StartIndex;
-            ChatEndIndex = args.EndIndex;
-        }
+        ChatMessages = GetRange(args.StartIndex, args.EndIndex);
+        ChatStartIndex = args.StartIndex;
+        ChatEndIndex = args.EndIndex;
 
         UpdateRepliedToMessages();
     }

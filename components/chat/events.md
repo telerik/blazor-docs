@@ -248,6 +248,8 @@ The Chat events provide specific argument types with relevant data:
 | `OnDownload` | `ChatDownloadEventArgs` | `Files`, `MessageId` |
 | `OnMessageUnpin` | `ChatMessageUnpinEventArgs` | `MessageId` |
 | `OnInputValueChanged` | `string` | The current input value |
+| `OnLoadMoreMessages` | `ChatLoadMoreMessagesEventArgs` | `StartIndex`, `EndIndex` |
+| `OnReferencedMessageClick` | `ChatReferencedMessageClickEventArgs` | `Id` |
 
 ## See Also
 
