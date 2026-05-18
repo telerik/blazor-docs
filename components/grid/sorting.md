@@ -8,9 +8,10 @@ published: True
 position: 21
 components: ["grid"]
 ---
+
 # Grid Sorting
 
-The Grid component offers support for sorting.
+The Telerik Blazor Grid component supports single and multiple column sorting.
 
 In this article:
 
@@ -21,86 +22,120 @@ In this article:
 
 ## Basics
 
-To enable sorting, set the grid's `Sortable` property to `true`.
+To enable sorting, set the Grid `Sortable` property to `true`.
 
-When the user clicks the column header, the grid will sort the data according to the column's data type, and an arrow indicator of the sorting direction will be shown next to the column title.
+When the user clicks a column header, the Grid sorts the data according to the column's data type, and an arrow indicates the sorting direction next to the column title.
 
 You can prevent the user from sorting a certain field by setting `Sortable="false"` on its column.
 
->caption Enable Sorting in Telerik Grid
+>caption Enable Sorting in the Telerik Blazor Grid
 
 ````RAZOR
-Click a column header to sort by its data
-
-<TelerikGrid Data="@MyData" Sortable="true" Height="500px">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-}
-````
-
->caption The result from the code snippet above, after the user clicked on the "Employee Name" header to sort
-
-![Blazor Grid Basic Sorting](images/basic-sorting.png)
-
-You can sort this grid on the different columns to see the results. The `Name` column is a string, and sorting is done according to the rules for strings, while the `ID` column sorts acording to rules for integers.
-
-
-### Multi Column Sorting
-
-To allow sorting on more than one column at a time, set the `SortMode` parameter of the grid to `Telerik.Blazor.SortMode.Multiple`.
-
->caption Enable multi column sorting
-
-````RAZOR
-@* Try sorting by Team, then by Name to see how the multiple sorts apply *@
-
-<TelerikGrid Data=@GridData Sortable="true" SortMode="@SortMode.Multiple"
-             Pageable="true" Height="400px">
+<TelerikGrid Data="@GridData"
+             TItem="@Product"
+             Sortable="true"
+             Height="90vh">
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Category)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:n0}" />
+        <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    public List<Employee> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 15; i++)
+        var rnd = Random.Shared;
+
+        for (int i = 1; i <= 20; i++)
         {
-            GridData.Add(new Employee()
+            GridData.Add(new Product()
             {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3,
-                IsOnLeave = i % 2 == 0
+                Id = i,
+                Name = $"Name {i} {(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)}",
+                Category = $"Category {i % 3 + 1}",
+                Price = rnd.Next(1, 100) * 1.23m,
+                Quantity = rnd.Next(0, 10000),
+                Released = DateTime.Today.AddDays(-rnd.Next(60, 1000)),
+                Discontinued = i % 4 == 0
             });
         }
     }
 
-    public class Employee
+    public class Product
     {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public bool IsOnLeave { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Released { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 ````
 
->caption Numbers in the column headers indicate the order by which the grid is sorted
+### Multi Column Sorting
 
-![multiple column sorting in grid](images/grid-multi-column-sorting.png)
+To allow sorting on more than one column at a time, set the Grid `SortMode` parameter to `Telerik.Blazor.SortMode.Multiple`. After the user sorts by several columns, the Grid shows numbers in the column headers that indicate the sorting priority.
+
+>caption Enable multi column Grid sorting
+
+````RAZOR
+<TelerikGrid Data="@GridData"
+             TItem="@Product"
+             Sortable="true"
+             SortMode="@SortMode.Multiple"
+             Height="90vh">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.CategoryA)" Title="Category A" />
+        <GridColumn Field="@nameof(Product.CategoryB)" Title="Category B" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:n0}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<Product> GridData { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        var rnd = Random.Shared;
+
+        for (int i = 1; i <= 20; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                CategoryA = $"A {rnd.Next(1, 4)}",
+                CategoryB = $"B {rnd.Next(1, 4)}",
+                Price = rnd.Next(10, 20),
+                Quantity = rnd.Next(0, 10),
+                Discontinued = i % 3 == 0
+            });
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string CategoryA { get; set; } = string.Empty;
+        public string CategoryB { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public bool Discontinued { get; set; }
+    }
+}
+````
 
 ## Sort From Code
 
@@ -124,6 +159,5 @@ The following articles and sample projects can be helpful when implementing sort
 
 ## See Also
 
-  * [Live Demo: Grid Sorting](https://demos.telerik.com/blazor-ui/grid/sorting)
-  * [Blazor Grid](slug:grid-overview)
-   
+* [Live Demo: Grid Sorting](https://demos.telerik.com/blazor-ui/grid/sorting)
+* [Blazor Grid](slug:grid-overview)
