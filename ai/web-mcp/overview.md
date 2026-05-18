@@ -15,7 +15,7 @@ position: 1
 
 [WebMCP](https://developer.chrome.com/blog/webmcp-epp) is a browser-native standard that provides a way for websites and web applications to expose structured tools to AI agents. It introduces the `navigator.modelContext` API, which lets components register operations that AI models can discover and invoke directly - instead of relying on DOM scraping or simulated clicks.
 
-Telerik UI for Blazor components integrate with WebMCP to expose their functionality as structured tools. When enabled, a component registers tools for its supported operations - data operations, value modifications, view navigation, and more - with the browser. AI assistants can then call these tools with typed parameters to manipulate component state natively. For example, an AI agent can sort a Grid, navigate a Scheduler to a specific date, or set an Editor's content - all through the WebMCP protocol.
+Telerik UI for Blazor components integrate with WebMCP to expose their functionality as structured tools. When enabled, a component registers tools for its supported operations like data operations, value changes, navigation, and more. AI assistants can then call these tools with typed parameters to manipulate the component state. For example, an AI agent can sort a Grid, navigate a Scheduler to a specific date, or set the Editor's content through the WebMCP protocol.
 
 ## Try It Out
 
