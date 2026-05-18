@@ -61,8 +61,9 @@ For example, the following list shows the minimum valid `RowHeight` values when 
 
 * `36` for the Default theme (`14px` font size, `20px` line height, and 2 * `8px` vertical paddings)
 * `40` for the Bootstrap theme (`16px` font size, `24px` line height, and 2 * `8px` vertical paddings)
-* `48` for the Material theme (`14px` font size, `28px` line height, and 2 * `10px` vertical paddings)
-* `44` for the Fluent theme (`14px` font size, `20px` font size and 2 * `12px` vertical paddings)
+* `45` for the Material theme (`14px` font size, `20px` line height, 2 * `12px` vertical paddings, and `1px` bottom border)
+* `41` for the Fluent theme (`14px` font size, `20px` font size and 2 * `10px` vertical paddings, and `1px` bottom border)
+* `47` for the Meridian theme (`16px` font size, `24px` line height, 2 * `11px` vertical paddings, and `1px` bottom border)
 
 > Browsers treat table row `height` styles as `min-height` styles. If the table row content cannot fit in the set `RowHeight`, the browser expands the table row. The Grid configuration must not allow this to happen. It is crucial that all Grid table rows display with the same effective height when using virtial scrolling, otherwise the virtual scrolling experience will break. You may need to [disable text wrapping in the Grid data cells to achieve this requirement](slug:grid-kb-rows-text-ellipsis).
 
