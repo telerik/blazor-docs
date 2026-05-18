@@ -23,7 +23,7 @@ On initialization, the Chat scrolls to the bottom and shows the latest messages.
 
 ## Client-Side Endless Scrolling
 
-In client-side mode, the component pages the `Data` collection automatically. No additional parameters or event handlers are required. Subscribe to `OnLoadMoreMessages`, if you want to be notified of paging activity — the event fires whenever the rendered message range changes.
+In client-side mode, the component pages the `Data` collection automatically. No additional parameters or event handlers are required. Subscribe to [`OnLoadMoreMessages`](#loading-more-messages), if you want to detect changes in rendered message range.
 
 >caption Chat with client-side endless scrolling
 
