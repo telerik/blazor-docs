@@ -3,7 +3,7 @@ title: Supported Components
 page_title: WebMCP Supported Components
 description: Explore all Telerik UI for Blazor components that support WebMCP tools, their available tool commands, and the conditions under which each tool is registered.
 slug: web-mcp-supported-components
-tags: web, mcp, tools, components, grid, scheduler, editor
+tags: webmcp, mcp
 published: True
 tag: new
 position: 5
