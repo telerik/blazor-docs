@@ -30,7 +30,7 @@ The Grid exposes up to 21 tools depending on its configuration.
 | `Groupable == true` | `Group` | `grid-group` |
 | | `ClearGroup` | `grid-clear-group` |
 | `Pageable == true` | `Page` | `grid-page` |
-| `Pageable == true` and `PagerPageSizes` has values | `PageSize` | `grid-page-size` |
+| `Pageable == true` and `PageSizes` has values | `PageSize` | `grid-page-size` |
 | `SelectionMode != GridSelectionMode.None` | `Select` | `grid-select` |
 | | `ClearSelect` | `grid-clear-select` |
 | `Reorderable == true` | `ColumnReorder` | `grid-column-reorder` |
