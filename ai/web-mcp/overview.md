@@ -5,7 +5,7 @@ description: Learn how Telerik UI for Blazor components expose their operations 
 slug: web-mcp-overview
 tags: web, mcp, tools, ai, model-context-protocol
 published: True
-tag: new
+tag: preview
 position: 1
 ---
 
@@ -13,102 +13,80 @@ position: 1
 
 >important WebMCP is an experimental browser standard currently available behind a feature flag in some Chromium-based browsers. The API and behavior may change as the standard evolves. The Telerik UI for Blazor WebMCP integration is a preview feature.
 
-[WebMCP](https://developer.chrome.com/blog/webmcp-epp) is a browser-native standard that provides a way for websites and web applications to expose structured tools to AI agents. It introduces the `navigator.modelContext` API, which lets components register operations that AI models can discover and invoke directly - instead of relying on DOM scraping or simulated clicks.
+[WebMCP](https://developer.chrome.com/blog/webmcp-epp) is a browser standard that lets web applications expose actions to AI agents running in the browser. Instead of the AI reading the DOM or simulating clicks, each component tells the AI exactly what it can do.
 
-Telerik UI for Blazor components integrate with WebMCP to expose their functionality as structured tools. When enabled, a component registers tools for its supported operations like data operations, value changes, navigation, and more. AI assistants can then call these tools with typed parameters to manipulate the component state. For example, an AI agent can sort a Grid, navigate a Scheduler to a specific date, or set the Editor's content through the WebMCP protocol.
+Telerik UI for Blazor components support WebMCP out of the box. When enabled, a component registers its operations (sorting, filtering, navigation, value changes, and more) as tools that an AI agent can call directly. For example, an AI can sort a Grid, navigate a Scheduler to a date, or set a value in an input — all from a natural language prompt.
 
-## Try It Out
+## How It Works
 
-To use WebMCP tools with Telerik Blazor components, you need a WebMCP-compatible AI agent. The Telerik WebMCP Extension provides a ready-to-use agent that connects to the registered tools in the browser.
+When a component has WebMCP enabled, a connected AI agent can control it through natural language. The user types a prompt and the component responds — no clicking, no form filling.
 
-<!-- TODO: replace with actual link -->
-* [Download the Telerik WebMCP Extension](https://example.com/placeholder-extension-download)
-* [Extension Documentation](slug:web-mcp-extension)
+For example:
 
-You can also explore WebMCP tools in action on the following live demo pages:
+* *"Show only orders from last month"* — the Grid filters accordingly.
+* *"Go to next week"* — the Scheduler navigates forward.
+* *"Set the discount to 15"* — the NumericTextBox updates its value.
 
-<!-- TODO: replace with actual demo URLs -->
-* [Grid WebMCP Demo](https://example.com/placeholder-grid-demo)
-* [Scheduler WebMCP Demo](https://example.com/placeholder-scheduler-demo)
-* [Dashboard WebMCP Demo](https://example.com/placeholder-dashboard-demo)
+The result is the same as if the user had interacted with the UI directly.
 
 ## How to Enable WebMCP
 
 ### 1. Enable the Browser Flag
 
-WebMCP requires the `navigator.modelContext` API. This API is currently available behind an experimental browser flag in Chromium-based browsers.
+WebMCP is currently available behind a browser flag in Chromium-based browsers.
 
-To enable it:
-
-1. Open `chrome://flags` in your browser address bar.
-1. Search for `#enable-webmcp-testing` (listed as **WebMCP for testing**).
+1. Open [`chrome://flags/#enable-webmcp-testing`](chrome://flags/#enable-webmcp-testing) in your browser (listed as **WebMCP for testing**).
 1. Set the flag to **Enabled**.
 1. Restart the browser.
 
-This flag enables the WebMCP API and its associated testing interfaces, activating the `window.navigator.modelContext` object that components use to register and expose their tools.
+### 2. Install the Telerik WebMCP Extension
 
-### 2. Set EnableWebMcpTools to the Component
+The browser flag enables the WebMCP API, but you still need an AI client that can discover and call the registered tools. The Telerik WebMCP Extension is a browser extension that provides a chat interface connected to an AI model. It reads the tools on the current page and invokes them based on your prompts.
+
+<!-- TODO: replace with actual link -->
+[Download the Telerik WebMCP Extension](https://example.com/placeholder-extension-download) and see the [Extension Documentation](slug:web-mcp-extension) for setup instructions.
+
+### 3. Try the Demos
+
+Once you have the browser flag enabled and the extension installed, you can explore WebMCP in action:
+
+* [WebMCP Operations Hub Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-operations-hub)
+* [Zero Click Dashboard Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-zero-click-dashboard)
+
+## Register Component Tools
 
 Each Telerik Blazor component that supports WebMCP has an `EnableWebMcpTools` parameter. Set it to `true` to register the component's tools with the browser.
-
->caption Enable WebMCP tools on a Button component
-
-````RAZOR
-<TelerikButton OnClick="@HandleClick"
-               EnableWebMcpTools="true">
-    Submit
-</TelerikButton>
-
-@code {
-    private void HandleClick()
-    {
-        // The AI model can trigger this click through the registered "button-click" tool.
-    }
-}
-````
-
-When `EnableWebMcpTools` is `true`, the component registers its tools with default names and descriptions. Some tools are always registered (for example, `Highlight` and `ClearHighlight` on the Grid), while others depend on the component's configuration. For example, a Grid registers the `Sort` tool only when `Sortable` is `true`. For the full list of tools and their registration conditions, see the [Supported Components](slug:web-mcp-supported-components) article.
-
-## How It Works
-
-The following sequence describes the WebMCP tool lifecycle:
-
-1. The developer sets `EnableWebMcpTools="true"` on the component.
-1. The component inspects its current configuration (for example, whether filtering, sorting, or paging is enabled) and builds a list of tool descriptors.
-1. The JavaScript layer calls `navigator.modelContext.registerTool()` for each enabled tool, providing a name, description, and JSON Schema for the input parameters.
-1. When an AI model invokes a tool, the JavaScript handler routes the command back to the C# component through a `[JSInvokable]` method.
-1. The component executes the operation and the UI re-renders automatically.
-
-
-## Common API
 
 All components that support WebMCP follow the same configuration pattern.
 
 ### EnableWebMcpTools Parameter
 
-The `EnableWebMcpTools` parameter is a `bool` on the root component. The default value is `false`. Set it to `true` to opt in. Even if `<ComponentWebMcpSettings>` is present, tools are not registered unless this parameter is `true`.
+The `EnableWebMcpTools` parameter is a `bool` on the root component. The default value is `false`. Set it to `true` to opt in.
 
-When `EnableWebMcpTools` is `true` without any settings, tools are registered based on the component's enabled features.
+Tools are registered based on the component's configuration — for example, `grid-sort` registers only when `Sortable` is `true`, while `grid-highlight` is always registered. For each tool and its registration condition, see [Supported Components](slug:web-mcp-supported-components).
+
+Some tools are never registered by default even when `EnableWebMcpTools` is `true`. For example, `grid-get-data` returns all Grid rows to the AI model, which can expose sensitive data or bloat the AI context. Such tools are useful when you want the AI to read and process your data, but they require an explicit opt-in — set `Enabled="true"` on the tool override in the component settings. See the example below.
+
+Even if `<ComponentWebMcpSettings>` is present, tools are not registered unless `EnableWebMcpTools` is `true`.
 
 ### Settings and Tool Overrides
 
-Use the `<ComponentWebMcpSettings>` child component to customize tool registration. Place it inside the component's settings tag.
+Each component has a corresponding settings element named after it — for example, `<GridWebMcpSettings>` for the Grid and `<SchedulerWebMcpSettings>` for the Scheduler. In this article, `Component` is a placeholder for the actual component name. Place the settings element inside the component's `<Settings>` tag.
 
-| Element | Description |
-|---|---|
-| `<ComponentWebMcpSettings>` | Accepts a `Name` parameter for [multi-instance disambiguation](#multi-instance-support) and a `<ComponentWebMcpTools>` RenderFragment for tool overrides. |
-| `<ComponentWebMcpTool>` | Overrides a single tool's `Name`, `Description`, or `Enabled` state via its `Command` parameter. |
+Use it to:
+* Set a `Name` to tell apart multiple instances of the same component on the same page. See [Multi-Instance Support](#multi-instance-support).
+* Override individual tools through `<ComponentWebMcpTools>` and `<ComponentWebMcpTool>` child elements.
 
 ### ComponentWebMcpTool Parameters
 
-The following parameters are the same across all component tool overrides (`GridWebMcpTool`, `SchedulerWebMcpTool`, and so on).
+Similarly, each component has a dedicated tool override element — for example, `<GridWebMcpTool>`. Place one inside `<ComponentWebMcpTools>` for each tool you want to configure.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| `Command` | Enum | - | The component operation this override applies to. |
-| `Name` | `string` | `null` | Overrides the default tool name visible to the AI model. |
-| `Description` | `string` | `null` | Overrides the default tool description visible to the AI model. |
-| `Enabled` | `bool` | `true` | Whether this tool is registered. Set to `false` to suppress a tool. |
+| `Command` | Enum | - | Identifies which tool this override applies to. |
+| `Name` | `string` | `null` | Overrides the default tool name. |
+| `Description` | `string` | `null` | Overrides the default tool description. Write a description that reflects your data — users rarely say component names in their prompts. For example, *"show me orders above $500"* should match a filter tool on an orders table, not just any filter. |
+| `Enabled` | `bool` | `true` | Whether the tool is registered. Set to `false` to disable it. For opt-in tools like `grid-get-data`, the default is `false` — set it to `true` to enable them. |
 
 >caption Customize tool registration on a Grid
 
@@ -125,13 +103,26 @@ The following parameters are the same across all component tool overrides (`Grid
                                 Description="Filter the sales data grid by a column." />
                 <GridWebMcpTool Command="@GridWebMcpToolCommand.ExportExcel"
                                 Enabled="false" />
+                <GridWebMcpTool Command="@GridWebMcpToolCommand.GetData"
+                                Enabled="true" />
             </GridWebMcpTools>
         </GridWebMcpSettings>
     </GridSettings>
+
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" />
         <GridColumn Field="@nameof(Product.Price)" />
     </GridColumns>
+
+    <GridToolBar>
+        <GridToolBarExcelExportTool>
+            Export to Excel
+        </GridToolBarExcelExportTool>
+    </GridToolBar>
+
+    <GridExport>
+        <GridExcelExport FileName="telerik-grid-export" />
+    </GridExport>
 </TelerikGrid>
 
 @code {
@@ -154,61 +145,34 @@ In this example:
 
 * The `Filter` tool uses a custom description instead of the default.
 * The `ExportExcel` tool is disabled and will not be registered.
+* The `grid-get-data` tool is explicitly enabled. It is disabled by default because it returns raw grid data to the AI model, which may include sensitive information. Only enable it when the data is safe to expose.
 * All other tools that match the Grid's enabled features (sorting, paging) are registered with their default names and descriptions.
 
-### Multi-Instance Support
+### Multiple Instances on the Same Page
 
-When multiple instances of the same component exist on a page, use the `Name` parameter on `<ComponentWebMcpSettings>` to disambiguate their tools.
+If two instances of the same component are on the same page, they would register tools with identical names — and the AI would not know which one to use. Set `Name` on `<ComponentWebMcpSettings>` to give each instance a unique prefix.
 
-* Tool names are prefixed with the `Name` value. For example, `"Sales"` produces `sales-grid-filter`, `sales-grid-sort`, and so on.
-* Tool descriptions are annotated with the name for AI model context.
+For example, with `Name="Sales"` and `Name="Inventory"`, the tools become `sales-grid-sort` and `inventory-grid-sort`. The AI can now target each instance separately.
 
 >caption Two Grid instances on the same page with distinct WebMCP tool names
 
 ````RAZOR
-<TelerikGrid Data="@SalesData"
-             EnableWebMcpTools="true"
-             Sortable="true">
+<TelerikGrid Data="@SalesData" EnableWebMcpTools="true" Sortable="true">
     <GridSettings>
         <GridWebMcpSettings Name="Sales" />
     </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@nameof(SaleItem.Region)" />
-        <GridColumn Field="@nameof(SaleItem.Revenue)" />
-    </GridColumns>
+    ...
 </TelerikGrid>
 
-<TelerikGrid Data="@InventoryData"
-             EnableWebMcpTools="true"
-             Sortable="true">
+<TelerikGrid Data="@InventoryData" EnableWebMcpTools="true" Sortable="true">
     <GridSettings>
         <GridWebMcpSettings Name="Inventory" />
     </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@nameof(InventoryItem.Product)" />
-        <GridColumn Field="@nameof(InventoryItem.Stock)" />
-    </GridColumns>
+    ...
 </TelerikGrid>
-
-@code {
-    private List<SaleItem> SalesData { get; set; } = new();
-    private List<InventoryItem> InventoryData { get; set; } = new();
-
-    public class SaleItem
-    {
-        public string Region { get; set; } = string.Empty;
-        public decimal Revenue { get; set; }
-    }
-
-    public class InventoryItem
-    {
-        public string Product { get; set; } = string.Empty;
-        public int Stock { get; set; }
-    }
-}
 ````
 
-The AI model sees `sales-grid-sort` and `inventory-grid-sort` as separate tools and can target each Grid independently.
+The AI sees `sales-grid-sort` and `inventory-grid-sort` as separate tools and targets each independently.
 
 ## Supported Components
 
@@ -216,5 +180,5 @@ For the full list of components, their available tools, and tool conditions, see
 
 ## Next Steps
 
-* [WebMCP Supported Components](slug:web-mcp-supported-components)
 * [Telerik WebMCP Extension](slug:web-mcp-extension)
+* [WebMCP Supported Components](slug:web-mcp-supported-components)

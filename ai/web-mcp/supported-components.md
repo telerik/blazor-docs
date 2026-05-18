@@ -5,286 +5,339 @@ description: Explore all Telerik UI for Blazor components that support WebMCP to
 slug: web-mcp-supported-components
 tags: webmcp, mcp
 published: True
-tag: new
+tag: preview
 position: 5
 ---
 
 # WebMCP Supported Components
 
-This article lists all Telerik UI for Blazor components that expose WebMCP tools, their tool conditions, and default tool names.
+This article lists all Telerik UI for Blazor components that expose WebMCP tools, their default tool names, and the conditions under which each tool is registered.
 
 For general information about the WebMCP API and how to configure tool overrides, see the [WebMCP Tools Overview](slug:web-mcp-overview).
 
-## Data Components
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-### Grid
+## AutoComplete
 
-The Grid exposes up to 21 tools depending on its configuration.
-
-| Condition | Tool | Default Name |
+| Tool | Default Name | Condition |
 |---|---|---|
-| `FilterMode != GridFilterMode.None` | `Filter` | `grid-filter` |
-| | `ClearFilter` | `grid-clear-filter` |
-| `Sortable == true` | `Sort` | `grid-sort` |
-| | `ClearSort` | `grid-clear-sort` |
-| `Groupable == true` | `Group` | `grid-group` |
-| | `ClearGroup` | `grid-clear-group` |
-| `Pageable == true` | `Page` | `grid-page` |
-| `Pageable == true` and `PageSizes` has values | `PageSize` | `grid-page-size` |
-| `SelectionMode != GridSelectionMode.None` | `Select` | `grid-select` |
-| | `ClearSelect` | `grid-clear-select` |
-| `Reorderable == true` | `ColumnReorder` | `grid-column-reorder` |
-| `Resizable == true` | `ColumnResize` | `grid-column-resize` |
-| `<GridExcelExport>` child present | `ExportExcel` | `grid-export-excel` |
-| `<GridPdfExport>` child present | `ExportPdf` | `grid-export-pdf` |
-| `<GridCsvExport>` child present | `ExportCsv` | `grid-export-csv` |
-| Always | `Highlight` | `grid-highlight` |
-| | `ClearHighlight` | `grid-clear-highlight` |
-| | `ColumnShow` | `grid-column-show` |
-| | `ColumnHide` | `grid-column-hide` |
-| | `ColumnLock` | `grid-column-lock` |
-| | `ColumnUnlock` | `grid-column-unlock` |
-| Explicitly enabled via `<GridWebMcpTool>` | `GetData` | `grid-get-data` |
-
-### TreeList
-
-The TreeList exposes up to 18 tools. It includes hierarchy-specific tools such as expand and collapse.
-
-| Condition | Tool | Default Name |
-|---|---|---|
-| `FilterMode != TreeListFilterMode.None` | `Filter` | `treelist-filter` |
-| | `ClearFilter` | `treelist-clear-filter` |
-| `Sortable == true` | `Sort` | `treelist-sort` |
-| | `ClearSort` | `treelist-clear-sort` |
-| `SelectionMode != TreeListSelectionMode.None` | `Select` | `treelist-select` |
-| | `ClearSelect` | `treelist-clear-select` |
-| `Pageable == true` | `Page` | `treelist-page` |
-| `Pageable == true` and `PageSizes` has values | `PageSize` | `treelist-page-size` |
-| `Reorderable == true` | `ColumnReorder` | `treelist-column-reorder` |
-| `Resizable == true` | `ColumnResize` | `treelist-column-resize` |
-| Always | `ColumnShow` | `treelist-column-show` |
-| | `ColumnHide` | `treelist-column-hide` |
-| | `ColumnLock` | `treelist-column-lock` |
-| | `ColumnUnlock` | `treelist-column-unlock` |
-| | `Expand` | `treelist-expand` |
-| | `Collapse` | `treelist-collapse` |
-| | `ExpandAll` | `treelist-expand-all` |
-| | `CollapseAll` | `treelist-collapse-all` |
-| Explicitly enabled via `<TreeListWebMcpTool>` | `GetData` | `treelist-get-data` |
-
-### Gantt
-
-The Gantt exposes up to 15 tools for task management, hierarchy control, and view switching.
-
-| Condition | Tool | Default Name |
-|---|---|---|
-| `FilterMode != GanttFilterMode.None` | `Filter` | `gantt-filter` |
-| | `ClearFilter` | `gantt-clear-filter` |
-| `Sortable == true` | `Sort` | `gantt-sort` |
-| | `ClearSort` | `gantt-clear-sort` |
-| `ColumnReorderable == true` | `ColumnReorder` | `gantt-column-reorder` |
-| `ColumnResizable == true` | `ColumnResize` | `gantt-column-resize` |
-| More than one `GanttView` defined | `ChangeView` | `gantt-change-view` |
-| `OnCreate` has delegate | `CreateTask` | `gantt-create-task` |
-| `OnDelete` has delegate | `DeleteTask` | `gantt-delete-task` |
-| Always | `ColumnShow` | `gantt-column-show` |
-| | `ColumnHide` | `gantt-column-hide` |
-| | `Expand` | `gantt-expand` |
-| | `Collapse` | `gantt-collapse` |
-| | `ExpandAll` | `gantt-expand-all` |
-| | `CollapseAll` | `gantt-collapse-all` |
-| Explicitly enabled via `<GanttWebMcpTool>` | `GetData` | `gantt-get-data` |
-
-### Spreadsheet
-
-The Spreadsheet exposes 5 tools that are always registered.
-
-| Tool | Default Name |
-|---|---|
-| `SetCell` | `spreadsheet-set-cell` |
-| `NavigateSheet` | `spreadsheet-navigate-sheet` |
-| `AddSheet` | `spreadsheet-add-sheet` |
-| `RenameSheet` | `spreadsheet-rename-sheet` |
-| `Export` | `spreadsheet-export` |
-
-## Scheduling
-
-### Scheduler
-
-The Scheduler exposes up to 4 tools for event management and view navigation.
-
-| Condition | Tool | Default Name |
-|---|---|---|
-| `AllowCreate == true` | `Create` | `scheduler-create` |
-| `AllowDelete == true` | `Delete` | `scheduler-delete` |
-| More than one `SchedulerView` defined | `ChangeView` | `scheduler-view` |
-| Always | `Navigate` | `scheduler-navigate` |
-
-### Calendar
-
-The Calendar exposes 2 tools that are always registered.
-
-| Tool | Default Name |
-|---|---|
-| `Navigate` | `calendar-navigate` |
-| `SelectDate` | `calendar-select-date` |
-
-## Editors
-
-### Editor
-
-The Editor exposes up to 2 tools for reading and writing HTML content.
-
-| Condition | Tool | Default Name |
-|---|---|---|
-| Always | `GetValue` | `editor-get-value` |
-| `ReadOnly == false` | `SetValue` | `editor-set-value` |
-
-## Navigation and Layout
-
-### TreeView
-
-The TreeView exposes up to 5 tools for node interaction.
-
-| Condition | Tool | Default Name |
-|---|---|---|
-| `SelectionMode != TreeViewSelectionMode.None` | `Select` | `treeview-select` |
-| `CheckBoxMode != TreeViewCheckBoxMode.None` | `Check` | `treeview-check` |
-| Always | `Expand` | `treeview-expand` |
-| | `Collapse` | `treeview-collapse` |
-| | `Filter` | `treeview-filter` |
-
-### PanelBar
-
-The PanelBar exposes 2 tools that are always registered.
-
-| Tool | Default Name |
-|---|---|
-| `Expand` | `panelbar-expand` |
-| `Collapse` | `panelbar-collapse` |
-
-### TabStrip
-
-The TabStrip exposes 1 tool that is always registered.
-
-| Tool | Default Name |
-|---|---|
-| `SelectTab` | `tabstrip-select-tab` |
-
-The `SelectTab` tool accepts either `index` (0-based tab index) or `title` (case-insensitive tab title). When `title` is provided, it takes precedence over `index`.
-
-### Stepper
-
-The Stepper exposes 1 tool that is always registered.
-
-| Tool | Default Name |
-|---|---|
-| `Step` | `stepper-step` |
-
-### Window
-
-The Window exposes 4 tools that are always registered.
-
-| Tool | Default Name |
-|---|---|
-| `Open` | `window-open` |
-| `Close` | `window-close` |
-| `Minimize` | `window-minimize` |
-| `Maximize` | `window-maximize` |
-
-## Lists
-
-### ListBox
-
-The ListBox exposes up to 2 tools depending on its configuration.
-
-| Condition | Tool | Default Name |
-|---|---|---|
-| `ConnectedListBoxId` is set | `Transfer` | `listbox-transfer` |
-| `OnReorder` has delegate | `Reorder` | `listbox-reorder` |
-
-### ListView
-
-The ListView exposes up to 2 tools depending on its configuration.
-
-| Condition | Tool | Default Name |
-|---|---|---|
-| `Pageable == true` | `Page` | `listview-page` |
-| Always | `Select` | `listview-select` |
-
-## Maps
-
-### Map
-
-The Map exposes 4 tools that are always registered. Map tools execute directly on the Kendo Map widget in JavaScript - no C# round-trip is needed.
-
-`AddMarker` creates markers in a dedicated MCP marker layer, separate from user-defined marker layers. `ClearMarkers` removes only markers from the MCP layer.
-
-| Tool | Default Name |
-|---|---|
-| `SetCenter` | `map-set-center` |
-| `SetZoom` | `map-set-zoom` |
-| `AddMarker` | `map-add-marker` |
-| `ClearMarkers` | `map-clear-markers` |
+| `SetValue` | `autocomplete-set-value` | Always |
+| `Clear` | `autocomplete-clear` | Always |
 
 ## Button
 
-The Button exposes 1 tool that is always registered.
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Click` | `button-click` | Always |
 
-| Tool | Default Name |
-|---|---|
-| `Click` | `button-click` |
+## Calendar
 
-## Input Components
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Navigate` | `calendar-navigate` | Always |
+| `SelectDate` | `calendar-select-date` | Always |
 
-Input components use a simplified API. Only the `EnableWebMcpTools` parameter is needed - no `<Settings>` or `<Tool>` child components are required. All tools are always registered when `EnableWebMcpTools="true"`.
+## CheckBox
 
-Every tool name follows the `{component}-{action}` pattern.
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Toggle` | `checkbox-toggle` | Always |
+| `SetValue` | `checkbox-set-value` | Always |
 
-### Text and Value Inputs
+## ColorPicker
 
-| Component | Tools |
-|---|---|
-| TextBox | `textbox-set-value`, `textbox-clear` |
-| TextArea | `textarea-set-value`, `textarea-clear` |
-| MaskedTextBox | `maskedtextbox-set-value`, `maskedtextbox-clear` |
-| AutoComplete | `autocomplete-set-value`, `autocomplete-clear` |
-| DatePicker | `datepicker-set-value`, `datepicker-clear` |
-| TimePicker | `timepicker-set-value`, `timepicker-clear` |
-| DateTimePicker | `datetimepicker-set-value`, `datetimepicker-clear` |
-| DateRangePicker | `daterangepicker-set-value`, `daterangepicker-clear` |
-| Rating | `rating-set-value`, `rating-clear` |
-| ColorPicker | `colorpicker-set-value`, `colorpicker-clear` |
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `colorpicker-set-value` | Always |
+| `Clear` | `colorpicker-clear` | Always |
 
-### Dropdowns
+## ComboBox
 
-| Component | Tools |
-|---|---|
-| ComboBox | `combobox-set-value`, `combobox-clear`, `combobox-open`, `combobox-close` |
-| MultiColumnComboBox | `multicolumncombobox-set-value`, `multicolumncombobox-clear`, `multicolumncombobox-open`, `multicolumncombobox-close` |
-| DropDownList | `dropdownlist-set-value`, `dropdownlist-open`, `dropdownlist-close` |
-| DropDownTree | `dropdowntree-set-value`, `dropdowntree-clear`, `dropdowntree-open`, `dropdowntree-close` |
-| MultiSelect | `multiselect-add-value`, `multiselect-remove-value`, `multiselect-clear`, `multiselect-open`, `multiselect-close` |
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `combobox-set-value` | Always |
+| `Clear` | `combobox-clear` | Always |
+| `Open` | `combobox-open` | Always |
+| `Close` | `combobox-close` | Always |
 
-### NumericTextBox
+## DatePicker
 
-| Component | Tools |
-|---|---|
-| NumericTextBox | `numerictextbox-set-value`, `numerictextbox-clear`, `numerictextbox-increment`, `numerictextbox-decrement` |
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `datepicker-set-value` | Always |
+| `Clear` | `datepicker-clear` | Always |
 
-### Toggle Inputs
+## DateRangePicker
 
-| Component | Tools |
-|---|---|
-| Switch | `switch-toggle`, `switch-set-value` |
-| CheckBox | `checkbox-toggle`, `checkbox-set-value` |
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `daterangepicker-set-value` | Always |
+| `Clear` | `daterangepicker-clear` | Always |
 
-### Range Inputs
+## DateTimePicker
 
-| Component | Tools |
-|---|---|
-| Slider | `slider-set-value` |
-| RangeSlider | `rangeslider-set-value` |
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `datetimepicker-set-value` | Always |
+| `Clear` | `datetimepicker-clear` | Always |
+
+## DropDownList
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `dropdownlist-set-value` | Always |
+| `Open` | `dropdownlist-open` | Always |
+| `Close` | `dropdownlist-close` | Always |
+
+## DropDownTree
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `dropdowntree-set-value` | Always |
+| `Clear` | `dropdowntree-clear` | Always |
+| `Open` | `dropdowntree-open` | Always |
+| `Close` | `dropdowntree-close` | Always |
+
+## Editor
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `GetValue` | `editor-get-value` | Always |
+| `SetValue` | `editor-set-value` | `ReadOnly == false` |
+
+## Gantt
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Filter` | `gantt-filter` | `FilterMode != GanttFilterMode.None` |
+| `ClearFilter` | `gantt-clear-filter` | `FilterMode != GanttFilterMode.None` |
+| `Sort` | `gantt-sort` | `Sortable == true` |
+| `ClearSort` | `gantt-clear-sort` | `Sortable == true` |
+| `ColumnReorder` | `gantt-column-reorder` | `ColumnReorderable == true` |
+| `ColumnResize` | `gantt-column-resize` | `ColumnResizable == true` |
+| `ChangeView` | `gantt-change-view` | More than one `GanttView` defined |
+| `CreateTask` | `gantt-create-task` | `OnCreate` has delegate |
+| `DeleteTask` | `gantt-delete-task` | `OnDelete` has delegate |
+| `ColumnShow` | `gantt-column-show` | Always |
+| `ColumnHide` | `gantt-column-hide` | Always |
+| `Expand` | `gantt-expand` | Always |
+| `Collapse` | `gantt-collapse` | Always |
+| `ExpandAll` | `gantt-expand-all` | Always |
+| `CollapseAll` | `gantt-collapse-all` | Always |
+| `GetData` | `gantt-get-data` | Disabled by default. Enable explicitly via `<GanttWebMcpTool Command="@GanttWebMcpToolCommand.GetData" Enabled="true" />`. |
+
+## Grid
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Filter` | `grid-filter` | `FilterMode != GridFilterMode.None` |
+| `ClearFilter` | `grid-clear-filter` | `FilterMode != GridFilterMode.None` |
+| `Sort` | `grid-sort` | `Sortable == true` |
+| `ClearSort` | `grid-clear-sort` | `Sortable == true` |
+| `Group` | `grid-group` | `Groupable == true` |
+| `ClearGroup` | `grid-clear-group` | `Groupable == true` |
+| `Page` | `grid-page` | `Pageable == true` |
+| `PageSize` | `grid-page-size` | `Pageable == true` and `PageSizes` has values |
+| `Select` | `grid-select` | `SelectionMode != GridSelectionMode.None` |
+| `ClearSelect` | `grid-clear-select` | `SelectionMode != GridSelectionMode.None` |
+| `ColumnReorder` | `grid-column-reorder` | `Reorderable == true` |
+| `ColumnResize` | `grid-column-resize` | `Resizable == true` |
+| `ExportExcel` | `grid-export-excel` | `<GridExcelExport>` child present |
+| `ExportPdf` | `grid-export-pdf` | `<GridPdfExport>` child present |
+| `ExportCsv` | `grid-export-csv` | `<GridCsvExport>` child present |
+| `Highlight` | `grid-highlight` | Always |
+| `ClearHighlight` | `grid-clear-highlight` | Always |
+| `ColumnShow` | `grid-column-show` | Always |
+| `ColumnHide` | `grid-column-hide` | Always |
+| `ColumnLock` | `grid-column-lock` | Always |
+| `ColumnUnlock` | `grid-column-unlock` | Always |
+| `GetData` | `grid-get-data` | Disabled by default. Enable explicitly via `<GridWebMcpTool Command="@GridWebMcpToolCommand.GetData" Enabled="true" />`. |
+
+## ListBox
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Transfer` | `listbox-transfer` | `ConnectedListBoxId` is set |
+| `Reorder` | `listbox-reorder` | `OnReorder` has delegate |
+
+## ListView
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Page` | `listview-page` | `Pageable == true` |
+| `Select` | `listview-select` | Always |
+
+## Map
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetCenter` | `map-set-center` | Always |
+| `SetZoom` | `map-set-zoom` | Always |
+| `AddMarker` | `map-add-marker` | Always |
+| `ClearMarkers` | `map-clear-markers` | Always |
+
+## MaskedTextBox
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `maskedtextbox-set-value` | Always |
+| `Clear` | `maskedtextbox-clear` | Always |
+
+## MultiColumnComboBox
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `multicolumncombobox-set-value` | Always |
+| `Clear` | `multicolumncombobox-clear` | Always |
+| `Open` | `multicolumncombobox-open` | Always |
+| `Close` | `multicolumncombobox-close` | Always |
+
+## MultiSelect
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `AddValue` | `multiselect-add-value` | Always |
+| `RemoveValue` | `multiselect-remove-value` | Always |
+| `Clear` | `multiselect-clear` | Always |
+| `Open` | `multiselect-open` | Always |
+| `Close` | `multiselect-close` | Always |
+
+## NumericTextBox
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `numerictextbox-set-value` | Always |
+| `Clear` | `numerictextbox-clear` | Always |
+| `Increment` | `numerictextbox-increment` | Always |
+| `Decrement` | `numerictextbox-decrement` | Always |
+
+## PanelBar
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Expand` | `panelbar-expand` | Always |
+| `Collapse` | `panelbar-collapse` | Always |
+
+## RangeSlider
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `rangeslider-set-value` | Always |
+
+## Rating
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `rating-set-value` | Always |
+| `Clear` | `rating-clear` | Always |
+
+## Scheduler
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Create` | `scheduler-create` | `AllowCreate == true` |
+| `Delete` | `scheduler-delete` | `AllowDelete == true` |
+| `ChangeView` | `scheduler-view` | More than one `SchedulerView` defined |
+| `Navigate` | `scheduler-navigate` | Always |
+
+## Slider
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `slider-set-value` | Always |
+
+## Spreadsheet
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetCell` | `spreadsheet-set-cell` | Always |
+| `NavigateSheet` | `spreadsheet-navigate-sheet` | Always |
+| `AddSheet` | `spreadsheet-add-sheet` | Always |
+| `RenameSheet` | `spreadsheet-rename-sheet` | Always |
+| `Export` | `spreadsheet-export` | Always |
+
+## Stepper
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Step` | `stepper-step` | Always |
+
+## Switch
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Toggle` | `switch-toggle` | Always |
+| `SetValue` | `switch-set-value` | Always |
+
+## TabStrip
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SelectTab` | `tabstrip-select-tab` | Always |
+
+## TextArea
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `textarea-set-value` | Always |
+| `Clear` | `textarea-clear` | Always |
+
+## TextBox
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `textbox-set-value` | Always |
+| `Clear` | `textbox-clear` | Always |
+
+## TimePicker
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `SetValue` | `timepicker-set-value` | Always |
+| `Clear` | `timepicker-clear` | Always |
+
+## TreeList
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Filter` | `treelist-filter` | `FilterMode != TreeListFilterMode.None` |
+| `ClearFilter` | `treelist-clear-filter` | `FilterMode != TreeListFilterMode.None` |
+| `Sort` | `treelist-sort` | `Sortable == true` |
+| `ClearSort` | `treelist-clear-sort` | `Sortable == true` |
+| `Select` | `treelist-select` | `SelectionMode != TreeListSelectionMode.None` |
+| `ClearSelect` | `treelist-clear-select` | `SelectionMode != TreeListSelectionMode.None` |
+| `Page` | `treelist-page` | `Pageable == true` |
+| `PageSize` | `treelist-page-size` | `Pageable == true` and `PageSizes` has values |
+| `ColumnReorder` | `treelist-column-reorder` | `Reorderable == true` |
+| `ColumnResize` | `treelist-column-resize` | `Resizable == true` |
+| `ColumnShow` | `treelist-column-show` | Always |
+| `ColumnHide` | `treelist-column-hide` | Always |
+| `ColumnLock` | `treelist-column-lock` | Always |
+| `ColumnUnlock` | `treelist-column-unlock` | Always |
+| `Expand` | `treelist-expand` | Always |
+| `Collapse` | `treelist-collapse` | Always |
+| `ExpandAll` | `treelist-expand-all` | Always |
+| `CollapseAll` | `treelist-collapse-all` | Always |
+| `GetData` | `treelist-get-data` | Disabled by default. Enable explicitly via `<TreeListWebMcpTool Command="@TreeListWebMcpToolCommand.GetData" Enabled="true" />`. |
+
+## TreeView
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Select` | `treeview-select` | `SelectionMode != TreeViewSelectionMode.None` |
+| `Check` | `treeview-check` | `CheckBoxMode != TreeViewCheckBoxMode.None` |
+| `Expand` | `treeview-expand` | Always |
+| `Collapse` | `treeview-collapse` | Always |
+| `Filter` | `treeview-filter` | Always |
+
+## Window
+
+| Tool | Default Name | Condition |
+|---|---|---|
+| `Open` | `window-open` | Always |
+| `Close` | `window-close` | Always |
+| `Minimize` | `window-minimize` | Always |
+| `Maximize` | `window-maximize` | Always |
 
 ## See Also
 
