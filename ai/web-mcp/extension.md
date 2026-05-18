@@ -11,7 +11,7 @@ position: 3
 
 # Telerik WebMCP Extension
 
-> The Telerik WebMCP Extension is currently in **beta**. Features and behavior may change before the final release.
+> The Telerik WebMCP Extension is currently in beta. Features and behavior may change before the final release.
 
 The Telerik WebMCP Extension is a browser extension that provides a chat interface for interacting with AI models. It connects to all [WebMCP tools](slug:web-mcp-overview) registered on the current page and allows AI models to discover and invoke those tools through natural language conversation.
 
