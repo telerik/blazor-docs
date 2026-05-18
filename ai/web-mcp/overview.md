@@ -11,7 +11,7 @@ position: 1
 
 # WebMCP Tools Overview
 
->important WebMCP is an experimental browser standard currently available behind a feature flag in Chromium-based browsers. The API and behavior may change as the standard evolves. Telerik UI for Blazor WebMCP integration is a preview feature.
+>important WebMCP is an experimental browser standard currently available behind a feature flag in some Chromium-based browsers. The API and behavior may change as the standard evolves. The Telerik UI for Blazor WebMCP integration is a preview feature.
 
 [WebMCP](https://developer.chrome.com/blog/webmcp-epp) is a browser-native standard that provides a way for websites and web applications to expose structured tools to AI agents. It introduces the `navigator.modelContext` API, which lets components register operations that AI models can discover and invoke directly - instead of relying on DOM scraping or simulated clicks.
 
