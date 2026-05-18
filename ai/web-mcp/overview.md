@@ -47,7 +47,7 @@ To enable it:
 
 This flag enables the WebMCP API and its associated testing interfaces, activating the `window.navigator.modelContext` object that components use to register and expose their tools.
 
-### 2. Set EnableWebMcpTools on the Component
+### 2. Set EnableWebMcpTools to the Component
 
 Each Telerik Blazor component that supports WebMCP has an `EnableWebMcpTools` parameter. Set it to `true` to register the component's tools with the browser.
 
