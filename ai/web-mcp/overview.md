@@ -79,7 +79,6 @@ The following sequence describes the WebMCP tool lifecycle:
 1. When an AI model invokes a tool, the JavaScript handler routes the command back to the C# component through a `[JSInvokable]` method.
 1. The component executes the operation and the UI re-renders automatically.
 
-Tools are only registered when their corresponding feature is enabled on the component. For example, a Grid with `FilterMode="@GridFilterMode.None"` does not register the `Filter` tool.
 
 ## Common API
 
