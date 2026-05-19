@@ -1,32 +1,27 @@
 ---
 title: Workflow Details
-page_title: Workflow Details for Using the Telerik UI for Blazor Components
+page_title: Workflow Details for Using Telerik UI for Blazor Components
 description: Learn about the packages and assets that you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
 slug: installation-workflow-details
-previous_url: /getting-started/what-you-need
+previous_url: /getting-started/what-you-need,/installation/workflow-details
 tags: installation
 published: True
-position: 10
+position: 15
 ---
 
-# Workflow Details for Using the Telerik UI for Blazor Components
+# Workflow Details for Using Telerik UI for Blazor Components
 
 This article describes the required steps to use the Telerik UI for Blazor components in any kind of Blazor application and any .NET version. The content below describes how to obtain the Telerik UI for Blazor components and configure your project to use them.
 
->tip The information in this article builds on top of the step-by-step tutorials for specific Blazor application types or render modes:
+>tip The information in this article builds on top of the [First Steps with Telerik UI for Blazor](slug:getting-started/web-app) tutorial.
 >
-> * [Blazor Web App](slug:getting-started/web-app) template
-> * [Blazor WebAssembly Standalone apps](slug:getting-started/client-side)
-> * [Blazor Hybrid (MAUI) apps](slug:getting-started/hybrid-blazor)
+> The differences between the above tutorial and this page are:
 >
-> The differences between the above tutorials and this page are:
+> * The above First Steps tutorial describes the fastest and simplest way to get started with Telerik UI for Blazor. It is suitable for first-time Blazor or Telerik component users.
+> * The current Workflow Details article assumes some Blazor experience and knowledge about the Blazor application structure. It requires manual configuration steps that help you learn about the pieces that enable Telerik UI for Blazor to work.
 >
-> * The above tutorials are simpler to follow and are suitable for first-time Blazor or Telerik component users.
-> * The current article assumes some Blazor experience and knowledge about the Blazor application structure.
-> * The above tutorials describe the fastest and simplest way to get started with Telerik UI for Blazor.
-> * The current article provides more setup options and suggests possible enhancements.
 >
-> It's best for first-time users to start from the above tutorials and then come back to this article. Developers who have already setup Telerik Blazor apps can use directly this article.
+> It's best for first-time users to start from the [First Steps tutorial](slug:getting-started/web-app) and then come back to this article. Developers who have already setup Telerik Blazor apps can use directly this article.
 
 The required milestones to obtain and use Telerik UI for Blazor are:
 
@@ -38,7 +33,6 @@ The required milestones to obtain and use Telerik UI for Blazor are:
 1. Add the [`<TelerikRootComponent>`](#telerikrootcomponent).
 1. [Add components to a view](#add-telerik-components-to-a-view).
 1. Install the [Telerik Blazor AI Tools](#install-the-telerik-ai-tools).
-
 
 ## NuGet Packages
 
@@ -231,12 +225,12 @@ The [`TelerikRootComponent` is a special component](slug:rootcomponent-overview#
 * It can apply settings to all other Telerik Blazor components in the application.
 * It renders all component popups. All Telerik Blazor components that use popups will throw an exception if they cannot detect the `TelerikRootComponent`.
 
-The `TelerikRootComponent` placement depends on the interactivity location of the Blazor app. The component should reside in a layout file, but only if the layout file supports interactive render mode.
+The `TelerikRootComponent` placement depends on the Blazor app hosting model and interactivity location. The component should reside in a layout file, but only if the layout file supports interactive render mode.
 
 > The instructions and code example below apply to:
 >
-> * .NET 8 or 9 Blazor Web Apps with **Global** interactivity location
-> * Blazor Server, WebAssembly and Hybrid apps in all .NET versions
+> * Blazor Web Apps with **Global** interactivity location
+> * Blazor WebAssembly Standalone and Blazor Hybrid apps
 >
 > If you have a Blazor Web App with **Per page/component** interactivity location, then the correct `TelerikRootComponent` usage is different. The component still needs to wrap all other Telerik components, but it cannot reside in a static layout file, because the [other Telerik components will not detect it](slug:common-kb-component-requires-telerikrootcomponent). Refer to section [Interactivity Considerations](slug:rootcomponent-overview#interactivity-considerations) and article [Using TelerikRootComponent with Per Page/Component Interactivity](slug:rootcomponent-percomponent).
 

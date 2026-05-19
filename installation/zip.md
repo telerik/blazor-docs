@@ -41,5 +41,4 @@ Once the download completes, open the archive and extract the files to a locatio
 ## See Also
 
 * [What You Need To Install](slug:installation-workflow-details)
-* [Getting Started with Client-side Blazor](slug:getting-started/client-side)
-* [Getting Started with Web Apps](slug:getting-started/web-app)
+* [Getting Started with Telerik UI for Blazor](slug:getting-started/web-app)

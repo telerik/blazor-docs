@@ -122,9 +122,7 @@ The linebreak characters used below enable multi-line commands for better readab
    }
    ````
 
-1. Run the app in the browser. You should see something like this:
-
-![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
+1. Run the app in the browser.
 
 Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app, showcasing the power of front-end development with Blazor.
 
