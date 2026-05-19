@@ -1,5 +1,5 @@
 ---
-title: Extension
+title: Browser Extension
 page_title: Telerik & Kendo UI WebMCP Browser Extension
 description: Learn about the Telerik & Kendo UI WebMCP browser extension, a browser-based chat UI that connects AI models to WebMCP tools registered by Telerik UI for Blazor components.
 slug: web-mcp-extension
