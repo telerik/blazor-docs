@@ -6,6 +6,7 @@ slug: ai-troubleshooting
 tags: AI, troubleshooting, issue
 position: 6
 tag: updated
+previous_url: /ai/troubleshooting
 ---
 
 # Troubleshooting
@@ -42,7 +43,7 @@ If the Telerik MCP server assistants are not available or recognized by GitHub C
 1. Click on the *Select Tools* button on the bottom right part of the Copilot chat window.
 1. In the popup that opens, check **telerik-blazor-mcp** from the list to enable it.
 
-<img alt="Enable MCP Server assistants in Visual Studio" src="images/mcp-server-enable-tools.png" style="width: 80%"/>
+<img alt="Enable MCP Server assistants in Visual Studio" src="../images/mcp-server-enable-tools.png" style="width: 80%"/>
 
 ## Hanging Tool Calls in Visual Studio
 

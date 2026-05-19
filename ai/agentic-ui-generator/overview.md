@@ -6,7 +6,7 @@ slug: ai-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
 tag: updated
-previous_url: /ai/agentic-ui-generator/overview, /ai/ai-coding-assistant/overview
+previous_url: /ai/overview, /ai/ai-coding-assistant/overview
 position: 1
 ---
 
@@ -66,13 +66,13 @@ The Telerik Blazor MCP server uses an orchestration-first model, centered on the
 
 The Agentic UI Generator orchestrates all assistants so you can build pages and components, apply styling and theming, and stay aligned with the design system in one seamless process. You can use the full end-to-end flow when you need complete page generation, or call a specific assistant directly when you need a focused change.
 
-![MCP Server Assistants Diagram](images/ai-assistants.png)
+![MCP Server Assistants Diagram](../images/ai-assistants.png)
 
 ## How the Agentic Flow Works
 
 The Agentic UI Generator takes one prompt and manages the flow for you. It decides which assistants to use and combines their output into a single result. Use it when you want to generate a full page quickly, or call a specific assistant when you need a focused update to the layout, components, styling, theme, or icons in your project.
 
-![Full Pages](images/ui-templates.png)
+![Full Pages](../images/ui-templates.png)
 
 ### Getting Started Assistant
 
@@ -86,7 +86,7 @@ Use the Layout Assistant to set up or refine the page structure. It helps with s
 
 Typical tasks include adding a new dashboard section, cleaning up visual hierarchy, and converting desktop-first screens into responsive layouts.
 
-![Layout Assistant](images/layout-assistant.png)
+![Layout Assistant](../images/layout-assistant.png)
 
 ### Component Assistant
 
@@ -94,7 +94,7 @@ Use the Component Assistant when you need help configuring Telerik UI for Blazor
 
 Common tasks include enabling Grid features (sorting, paging, filtering, grouping), building validated forms, setting up virtual scrolling or export, and using sample data for safe prototyping.
 
-![Component Assistant](images/component-assistant.png)
+![Component Assistant](../images/component-assistant.png)
 
 ### Styling Assistant
 
@@ -102,7 +102,7 @@ Use the Styling Assistant when you want consistent visuals across the app. It he
 
 Typical tasks include applying brand colors, adding dark mode or high-contrast variants, and keeping styling behavior consistent as new pages are added.
 
-![Styling Assistant](images/style-assistant.png)
+![Styling Assistant](../images/style-assistant.png)
 
 ### Icon Assistant
 
@@ -110,14 +110,14 @@ Use the Icon Assistant to choose icons that match user actions and UI context. T
 
 It is useful for toolbars, navigation menus, cards, and any new section where icon consistency matters.
 
-![Icon Assistant](images/icon-assistant.png)
+![Icon Assistant](../images/icon-assistant.png)
 
 ### Accessibility Assistant
 
 Use the Accessibility Assistant to apply WCAG 2.2 Level AA guidance during implementation, not after it. It helps with ARIA usage, keyboard navigation, semantic markup, and color contrast validation for text and UI controls.
 It is especially useful for interactive templates, complex component flows, and final semantic checks before release.
 
-![Accessibility Assistant](images/accessibility-assistant.png)
+![Accessibility Assistant](../images/accessibility-assistant.png)
 
 ### Validator Assistant
 
