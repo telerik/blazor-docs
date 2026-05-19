@@ -6,7 +6,7 @@ slug: ai-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
 tag: updated
-previous_url: /ai/agentic-ui-generator/overview, /ai/ai-coding-assistant/overview
+previous_url: /ai/overview, /ai/ai-coding-assistant/overview
 position: 1
 ---
 

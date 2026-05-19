@@ -28,7 +28,7 @@ For example:
 
 The result is the same as if the user had interacted with the UI directly.
 
-## Enable WebMCP
+## Enable Browser WebMCP
 
 ### 1. Enable the Browser Flag
 
@@ -52,7 +52,7 @@ Once you have the browser flag enabled and the extension installed, you can expl
 * [WebMCP Operations Hub Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-operations-hub)
 * [Zero Click Dashboard Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-zero-click-dashboard)
 
-## Register Component Tools
+## Enable WebWMCP for Telerik Components
 
 All Telerik Blazor components that support WebMCP follow the same configuration pattern.
 
@@ -84,12 +84,14 @@ Each component has a dedicated tool override element, for example, `<GridWebMcpT
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type and Default&nbsp;Value | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | `Command` | `GridWebMcpToolCommand` `enum` | Identifies which tool this override applies to. |
 | `Name` | `string` | Overrides the default tool name. |
-| `Description` | `string` | Overrides the default tool description. Write a description that reflects your data — users rarely say component names in their prompts. For example, *"show me orders above $500"* should match a filter tool on an orders table, not just any filter. |
-| `Enabled` | `bool` <br /> (`true`) | Whether the tool is registered. Set to `false` to disable it. For opt-in tools like `grid-get-data`, the default is `false` — set it to `true` to enable them. |
+| `Description` | `string` | Overrides the default tool description. |
+| `Enabled` | `bool` <br /> (`true` by default) | Whether the tool is registered. Set to `false` to disable it. For opt-in tools like `grid-get-data`, the default is `false` — set it to `true` to enable them. |
+
+>tip Components provide default descriptions for each tool. However, to ensure smooth and more deterministic user experience, you can customize the description of each enabled tool and add more context for the AI model. For example, provide descriptions that reflect your data, as users rarely mention component names in their prompts. For example, *"show me sales above $500"* should match a filter tool on a Sales table, not just any filter. Thus, the `Filter` tool description of the Grid should mention "sales".
 
 In the following example:
 
@@ -114,6 +116,7 @@ In the following example:
                 <GridWebMcpTool Command="@GridWebMcpToolCommand.ExportExcel"
                                 Enabled="false" />
                 <GridWebMcpTool Command="@GridWebMcpToolCommand.GetData"
+                                Description="Get the records from the sales data grid."
                                 Enabled="true" />
             </GridWebMcpTools>
         </GridWebMcpSettings>
@@ -159,19 +162,17 @@ For example, with `Name="Sales"` and `Name="Inventory"`, the tools become `sales
 
 >caption Set distinct WebMCP tool names to two Grid instances on the same page
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikGrid Data="@SalesData" EnableWebMcpTools="true" Sortable="true">
     <GridSettings>
         <GridWebMcpSettings Name="Sales" />
     </GridSettings>
-    ...
 </TelerikGrid>
 
 <TelerikGrid Data="@InventoryData" EnableWebMcpTools="true" Sortable="true">
     <GridSettings>
         <GridWebMcpSettings Name="Inventory" />
     </GridSettings>
-    ...
 </TelerikGrid>
 ````
 
