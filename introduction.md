@@ -24,24 +24,11 @@ Visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik UI
 
 ## Getting Started
 
-If you are new to Telerik UI for Blazor, visit the Getting Started tutorials that demonstrate how to add the Telerik components to your application:
+If you are new to Telerik UI for Blazor, start from the [First Steps with Telerik UI for Blazor tutorial](slug:getting-started/web-app).
 
-* [Get Started with a Blazor Web App](slug:getting-started/web-app)
-* [Get Started with a Blazor WebAssembly Standalone App](slug:getting-started/client-side)
-* [Get Started with Blazor Hybrid](slug:getting-started/hybrid-blazor)
+Developers who are familiar with Blazor may prefer the [Workflow Details](slug:installation-workflow-details) article. It is a more advanced and flexible way to start using the Telerik components.
 
->tip This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
-
-Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details](slug:installation-workflow-details) article. This is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
-
-<!--
-If you are not familiar with Blazor yet, you may find our Blazor Quick Start Guide video series useful:
-
-* [Blazor Getting Started Guide](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=1)
-* [Blazor Component Basics](https://www.youtube.com/watch?v=z9BOkBFDbc0&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=2)
-* [Blazor Component Events using EventCallback](https://www.youtube.com/watch?v=vdEQBhPoTes&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=3)
-* [Blazor Two-Way Binding](https://www.youtube.com/watch?v=Y9a6rJPrFFI&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo&index=4)
--->
+> This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. Your can also [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
 
 If you are just getting started with Blazor and Web development, you may find the following resources useful in getting up to speed with the core concepts:
 
@@ -259,9 +246,8 @@ For questions and issues related to Telerik UI for Blazor, use any of the availa
 
 ## Next Steps
 
-* [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
-* [First Steps with Blazor Web App](slug:getting-started/web-app)
-* [First Steps with Blazor Hybrid](slug:getting-started/hybrid-blazor)
+* [First Steps with Telerik UI for Blazor](slug:getting-started/web-app)
+* [Blazor Hybrid Specifics](slug:getting-started/hybrid-blazor)
 * [Workflow Details for using the Telerik UI for Blazor components](slug:installation-workflow-details) (a concise version of the tutorials above)
 * Use guided wizards to generate new Telerik Projects in [Visual Studio](slug:getting-started-vs-integration-new-project) and [Visual Studio Code](slug:getting-started-vs-code-integration-overview).
 * [Convert an existing project to a Telerik-enabled project](slug:getting-started-vs-integration-convert-project)
