@@ -5,7 +5,6 @@ description: Learn about the Telerik & Kendo UI WebMCP browser extension, a brow
 slug: web-mcp-extension
 tags: web, mcp, extension, chat, ai, browser
 published: True
-tag: preview
 position: 3
 ---
 
@@ -13,12 +12,11 @@ position: 3
 
 >note The Telerik & Kendo UI WebMCP browser extension is currently in **preview**. Features and behavior may change before the final release.
 
-The Telerik & Kendo UI WebMCP browser extension provides a chat interface for interacting with AI models. It connects to all [WebMCP tools](slug:web-mcp-overview) registered on the current page and allows AI models to discover and invoke those tools through natural language conversation.
+The [Telerik & Kendo UI WebMCP browser extension](https://example.com/placeholder-extension-download) provides a chat interface for interacting with AI models. It connects to all [WebMCP tools](slug:web-mcp-overview) registered on the current page and allows AI models to discover and invoke those tools through natural language conversation.
+
+[Download the Telerik WebMCP Browser Extension](https://example.com/placeholder-extension-download). Here is how it looks like in the browser:
 
 ![Telerik WebMCP Extension](../images/extension-chat-placeholder.png)
-
-<!-- TODO: replace with actual download link -->
-[Download the Telerik WebMCP Browser Extension](https://example.com/placeholder-extension-download)
 
 ## Extension Tabs
 
@@ -28,23 +26,27 @@ The browser extension toolbar contains four tabs:
 
 | Tab | Description |
 |---|---|
-| **Chat** | The main conversation interface. Send prompts and the AI model invokes WebMCP tools on the page. |
-| **Tools** | Inspect all `WebMCP` tools registered on the current page. View tool names, descriptions, and parameters. |
-| **Usage** | Track AI usage metrics - input tokens, output tokens, and total consumption across conversations. |
-| **Settings** | Configure API credentials, prompting behavior, and page access. See [Settings](#settings). |
+| **Chat** | The main conversation interface. It send prompts and the AI model invokes WebMCP tools on the page. |
+| **Tools** | Lists all `WebMCP` tools registered on the current page. View tool names, descriptions, and parameters. |
+| **Usage** | Shows AI usage metrics, including input tokens, output tokens, and the total consumption across conversations. |
+| **Settings** | Configures API credentials, prompting behavior, and page access. See [Settings](#settings). |
 
 ## Settings
 
-The Settings tab is organized into three sections: [API Credentials](#api-credentials), [Prompting](#prompting), and [Page Access](#page-access).
+The Settings tab is organized into three sections:
+
+* [API Credentials](#api-credentials)
+* [Prompting](#prompting)
+* [Page Access](#page-access)
 
 ### API Credentials
 
 Register an AI model provider that the extension uses to process conversations and invoke tools. The following providers are supported:
 
-* **OpenAI** - provide your OpenAI API key and select a model.
-* **Google Gemini** - provide your Gemini API key.
-* **Anthropic** - provide your Anthropic API key.
-* **Azure OpenAI** - provide your Azure OpenAI endpoint, deployment name, and API key.
+* **OpenAI**&mdash;provide your OpenAI API key and select a model.
+* **Google Gemini**&mdash;provide your Gemini API key.
+* **Anthropic**&mdash;provide your Anthropic API key.
+* **Azure OpenAI**&mdash;provide your Azure OpenAI endpoint, deployment name, and API key.
 
 ### Prompting
 
@@ -58,10 +60,10 @@ The browser extension only inspects pages and invokes tools on matching allowed 
 
 The accepted formats are:
 
-* Full origin with scheme - `https://example.com`
-* Bare hostnames - `example.com`
-* Host with port - `localhost:3000`
-* Wildcard subdomains - `*.example.com`
+* Host name with scheme: `https://example.com`
+* Bare hostname: `example.com`
+* Host with port: `localhost:3000`
+* Wildcard subdomains: `*.example.com`
 
 ## See Also
 

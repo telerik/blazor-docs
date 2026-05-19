@@ -5,7 +5,6 @@ description: Explore all Telerik UI for Blazor components that support WebMCP to
 slug: web-mcp-supported-components
 tags: webmcp, mcp
 published: True
-tag: preview
 position: 5
 ---
 
@@ -15,7 +14,7 @@ This article lists all Telerik UI for Blazor components that expose WebMCP tools
 
 For general information about the WebMCP API and how to configure tool overrides, see the [WebMCP Tools Overview](slug:web-mcp-overview).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+>tip In the tables below, a condition "Always" indicates a tool that is [enabled by default](slug:web-mcp-overview#settings-and-tool-overrides), no matter the component configuration. You can disable such tools by [setting `Enabled="false"`](slug:web-mcp-overview#componentwebmcptool-parameters) for the respective `<ComponentWebMcpTool>` tag and `Command` parameter.
 
 ## AutoComplete
 
