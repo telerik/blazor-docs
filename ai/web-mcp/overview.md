@@ -34,16 +34,20 @@ The result is the same as if the user had interacted with the UI directly.
 
 WebMCP is currently available behind a browser flag in Chromium-based browsers.
 
-1. Open [`chrome://flags/#enable-webmcp-testing`](chrome://flags/#enable-webmcp-testing) in your browser (listed as **WebMCP for testing**).
-1. Set the flag to **Enabled**.
+1. Open `chrome://flags/#enable-webmcp-testing` in your Chromium browser (these URLs cannot be clickable).
+1. You should see **WebMCP for testing**. Set the flag to **Enabled**.
 1. Restart the browser.
 
 ### 2. Install the Telerik WebMCP Extension
 
 The browser flag enables the WebMCP API, but you still need an AI client that can discover and call the registered tools. The Telerik WebMCP Extension is a browser extension that provides a chat interface connected to an AI model. It reads the tools on the current page and invokes them based on your prompts.
 
-<!-- TODO: replace with actual link -->
-[Download the Telerik WebMCP Extension](https://example.com/placeholder-extension-download) and see the [Extension Documentation](slug:web-mcp-extension) for setup instructions.
+1. [Download the Telerik WebMCP Browser Extension](./assets/telerik-kendo-browser-extension.zip).
+1. Open `chrome://extensions/` in your Chromium browser (these URLs cannot be clickable).
+1. Enable **Developer mode** at the top-right.
+1. Click the **Load unpacked** button at the top-left and select the downloaded `telerik-kendo-browser-extension.zip` file.
+
+See the [Extension Documentation](slug:web-mcp-extension) for details on the extension features and settings.
 
 ### 3. Try the Demos
 
