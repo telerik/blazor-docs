@@ -100,8 +100,6 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
         ThemeConstants.Button.ThemeColor.Success,
         ThemeConstants.Button.ThemeColor.Warning,
         ThemeConstants.Button.ThemeColor.Error,
-        ThemeConstants.Button.ThemeColor.Dark,
-        ThemeConstants.Button.ThemeColor.Light,
         ThemeConstants.Button.ThemeColor.Inverse
     };
 

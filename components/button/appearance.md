@@ -112,8 +112,6 @@ The `ThemeColor` parameter controls the Button background, text, and border colo
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Warning">Warning</TelerikButton>
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Error">Error</TelerikButton>
 
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Dark">Dark</TelerikButton>
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Light">Light</TelerikButton>
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Inverse">Inverse</TelerikButton>
 ````
 

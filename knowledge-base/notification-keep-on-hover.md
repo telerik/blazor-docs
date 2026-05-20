@@ -184,8 +184,6 @@ This KB article answers the following questions:
         ThemeConstants.Notification.ThemeColor.Warning,
         ThemeConstants.Notification.ThemeColor.Error,
         ThemeConstants.Notification.ThemeColor.Info,
-        ThemeConstants.Notification.ThemeColor.Dark,
-        ThemeConstants.Notification.ThemeColor.Light,
         ThemeConstants.Notification.ThemeColor.Inverse
     };
 
