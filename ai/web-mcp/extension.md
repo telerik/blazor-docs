@@ -14,7 +14,14 @@ position: 3
 
 The [Telerik & Kendo UI WebMCP browser extension](https://example.com/placeholder-extension-download) provides a chat interface for interacting with AI models. It connects to all [WebMCP tools](slug:web-mcp-overview) registered on the current page and allows AI models to discover and invoke those tools through natural language conversation.
 
-[Download the Telerik WebMCP Browser Extension](https://example.com/placeholder-extension-download). Here is how it looks like in the browser:
+## Install Extension
+
+1. [Download the Telerik WebMCP Browser Extension](./assets/telerik-kendo-browser-extension.zip).
+1. Open `chrome://extensions/` in your Chromium browser (these URLs cannot be clickable).
+1. Enable **Developer mode** at the top-right.
+1. Click the **Load unpacked** button at the top-left and select the downloaded `telerik-kendo-browser-extension.zip` file.
+
+Here is how the running extension looks like in the browser:
 
 ![Telerik WebMCP Extension](../images/extension-chat-placeholder.png)
 
