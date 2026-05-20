@@ -75,7 +75,7 @@ In this article, `Component` is a placeholder for the actual component name. Add
 
 The `ComponentWebMcpSettings` allow you to:
 
-* Set a `Name` to tell apart multiple instances of the same component on the same page. See [Multi-Instance Support](#multi-instance-support).
+* Set a `Name` to tell apart multiple instances of the same component on the same page. See [Multi-Instance Support](#multiple-instances-on-the-same-page).
 * Override individual tools through `<ComponentWebMcpTools>` and `<ComponentWebMcpTool>` child elements.
 
 ### ComponentWebMcpTool Parameters

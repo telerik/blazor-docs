@@ -84,7 +84,6 @@ The following table lists the Window parameters. Also check the [Window API](slu
 | `Resizable` | `bool` <br /> (`true`) | Determines if the Window allows users to change its dimensions. |
 | `Size` | `string` | A predefined Window width. Use the string members of the static class `ThemeConstants.Window.Size` - `Small`, `Medium`, and `Large`. They translate to widths of `300px`, `800px` and `1200px`, respectively. If set, the `Width` parameter will take precedence over `Size`. |
 | `State` | `WindowState` enum <br /> (`Default`) | The Window state can be `Maximized`, `Minimized`, or `Default`. The parameter supports two-way binding. |
-| `ThemeColor` | `string` | A predefined color scheme for the Window, especially the titlebar. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](slug:Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
 | `Top` | `string` | The `top` style of the Window relative to the browser viewport. The parameter supports two-way binding. If `ContainmentSelector` is set, the top position is with regard to the defined container. |
 | `Visible` | `bool` | Defines if the Window is rendered and visible on the page. The parameter supports two-way binding. |
 | `Width` | `string` | The `width` style of the `<div class="k-window">` element. The parameter supports two-way binding. |

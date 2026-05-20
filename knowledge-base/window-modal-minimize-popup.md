@@ -87,7 +87,6 @@ To configure a responsive popup Window that transforms to a chat bubble on small
 <TelerikWindow Class="@WindowClass"
                MinWidth="140px"
                @bind-State="@WindowState"
-               ThemeColor="@ThemeConstants.Window.ThemeColor.Primary"
                Visible="true">
     <WindowTitle>@WindowTitle</WindowTitle>
     <WindowContent>

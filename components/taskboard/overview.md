@@ -124,7 +124,7 @@ The main UI elements in the Blazor TaskBoard are Cards and Columns.
 
 ## Drag and Drop
 
-The UX milestone of the TaskBoard component is the user ability to [drag Cards from one column to another](slug:taskboard-drag-and-drop#dragging-card). Users can also [reorder Columns](slug:taskboard-drag-and-drop#reordering-columns), which is less common and disabled by default.
+The UX milestone of the TaskBoard component is the user ability to [drag Cards from one column to another](slug:taskboard-drag-and-drop#dragging-cards). Users can also [reorder Columns](slug:taskboard-drag-and-drop#reordering-columns), which is less common and disabled by default.
 
 ## ToolBar
 
