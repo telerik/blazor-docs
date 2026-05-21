@@ -18,7 +18,7 @@ Telerik UI for Blazor components support WebMCP out-of-the-box. When enabled, a 
 
 ## How It Works
 
-When a component has WebMCP enabled, a connected AI agent can control it through natural language. The user types a prompt and the component responds — no clicking, no form filling.
+When a component has WebMCP enabled, a connected AI agent can control it through natural language. The user types a prompt and the component reacts without the need to click buttons and fill-in forms.
 
 For example:
 
@@ -27,6 +27,22 @@ For example:
 * *"Set the discount to 15"* — the NumericTextBox updates its value.
 
 The result is the same as if the user had interacted with the UI directly.
+
+To learn more, visit the [AI-Ready Components](https://www.telerik.com/ai-components) page and see the following videos below.
+
+<div style="display: flex; gap: 1em; flex-wrap: wrap;">
+
+<div>
+<p><strong>AI Agent-Ready Dashboard</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YSbnMzPu9SM" title="AI Agent-Ready Dashboard powered by Telerik and Kendo UI with WebMCP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<div>
+<p><strong>Telerik and Kendo UI Workflows</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UPzLqOjUsuM" title="Telerik and Kendo UI Workflows Powered by WebMCP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+</div>
 
 ## Enable Browser WebMCP
 
@@ -43,15 +59,16 @@ WebMCP is currently available behind a browser flag in Chromium-based browsers.
 The browser flag enables the WebMCP API, but you still need an AI client that can discover and call the registered tools. The Telerik WebMCP Extension is a browser extension that provides a chat interface connected to an AI model. It reads the tools on the current page and invokes them based on your prompts.
 
 1. [Download the Telerik WebMCP Browser Extension](./assets/telerik-kendo-browser-extension.zip).
+1. Unzip the file.
 1. Open `chrome://extensions/` in your Chromium browser (these URLs cannot be clickable).
 1. Enable **Developer mode** at the top-right.
-1. Click the **Load unpacked** button at the top-left and select the downloaded `telerik-kendo-browser-extension.zip` file.
+1. Click the **Load unpacked** button at the top-left and select the folder that holds the unzipped extension.
 
 See the [Extension Documentation](slug:web-mcp-extension) for details on the extension features and settings.
 
 ### 3. Try the Demos
 
-Once you have the browser flag enabled and the extension installed, you can explore WebMCP in action:
+ Once you enable WebMCP in your browser and [configure the Telerik WebMCP browser extension](slug:web-mcp-extension#settings), you can explore WebMCP in action:
 
 * [WebMCP Operations Hub Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-operations-hub)
 * [Zero Click Dashboard Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-zero-click-dashboard)
