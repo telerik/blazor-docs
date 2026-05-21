@@ -4,9 +4,8 @@ meta_title: Telerik Blazor AI Tools Changelog
 description: Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Tools.
 slug: ai-changelog
 tags: AI, changelog, updates
-position: 7
+position: 40
 previous_url: /ai/ai-coding-assistant/changelog, /ai/changelog
-tag: updated
 ---
 
 # Telerik MCP Server Changelog
