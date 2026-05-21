@@ -4,8 +4,7 @@ meta_title: Telerik Blazor AI Tools Troubleshooting
 description: Common issues and their solutions when using the Telerik MCP Server for AI-powered development tools.
 slug: ai-troubleshooting
 tags: AI, troubleshooting, issue
-position: 6
-tag: updated
+position: 30
 previous_url: /ai/troubleshooting
 ---
 
