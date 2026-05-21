@@ -13,6 +13,14 @@ Explore the powerful AI-enhanced components and features in Telerik UI for Blazo
 
 <article-card-container>
     <article-card
+        href="/ai/web-mcp/overview"
+        src="./images/aicomponents/WebMCP_Light.svg"
+        title="WebMCP Support"
+        subTitle="UI Component Feature"
+        darkSrc="./images/aicomponents/WebMCP_Dark.svg"
+        description="Perform operations like data sorting, data filtering, navigation, value changes, and more through natural language user prompts.">
+    </article-card>
+    <article-card
         href="/components/chat/overview"
         src="./images/aicomponents/Chat_Light_Large.svg"
         title="AI Chat"
