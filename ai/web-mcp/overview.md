@@ -106,7 +106,7 @@ In the following example:
 
 >caption Customize tool registrations in a Telerik Blazor Grid
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikGrid Data="@GridData"
              EnableWebMcpTools="true"
              FilterMode="@GridFilterMode.FilterRow"
