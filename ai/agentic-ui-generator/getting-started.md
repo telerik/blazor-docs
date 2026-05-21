@@ -191,7 +191,7 @@ Follow these steps to set up the Agentic UI Generator and use it in your IDE:
    </TabStripTab>
    </TabStrip>
    
-   The server name `telerik-blazor-mcp` can be customized as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the Agentic UI Generator in your prompt.
+   You can customize the server name `telerik-blazor-mcp` as desired. The name helps distinguish the MCP server in your configuration and does not affect how you invoke the Agentic UI Generator in your prompt.
 
    Once the Telerik MCP server is added, make sure that all of its tools are enabled (checked) in the Copilot Chat window's tool selection dropdown.
 
