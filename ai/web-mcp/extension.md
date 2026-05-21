@@ -17,11 +17,12 @@ The [Telerik & Kendo UI WebMCP browser extension](https://example.com/placeholde
 ## Install Extension
 
 1. [Download the Telerik WebMCP Browser Extension](./assets/telerik-kendo-browser-extension.zip).
+1. Unzip the file.
 1. Open `chrome://extensions/` in your Chromium browser (these URLs cannot be clickable).
 1. Enable **Developer mode** at the top-right.
-1. Click the **Load unpacked** button at the top-left and select the downloaded `telerik-kendo-browser-extension.zip` file.
+1. Click the **Load unpacked** button at the top-left and select the folder that holds the unzipped extension.
 
-Here is how the running extension looks like in the browser:
+The next required steps are to [add AI model API credentials](#api-credentials) and [allow web page access](#page-access). Here is how the running extension looks like in the browser:
 
 ![Telerik WebMCP Extension](../images/extension-chat-placeholder.png)
 
