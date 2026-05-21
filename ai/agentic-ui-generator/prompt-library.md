@@ -6,7 +6,6 @@ slug: agentic-ui-generator-prompt-library
 position: 20
 tags: telerik,blazor,ai,agentic,ui,generator,prompts
 previous_url: /ai/ai-coding-assistant/prompt-library
-tag: updated
 published: True
 ---
 

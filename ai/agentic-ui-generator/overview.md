@@ -5,7 +5,6 @@ description: Learn about the Telerik Blazor MCP Server, its modes of operation, 
 slug: ai-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
-tag: updated
 previous_url: /ai/overview, /ai/ai-coding-assistant/overview
 position: 1
 ---
