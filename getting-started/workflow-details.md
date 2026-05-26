@@ -21,7 +21,7 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 > * The current Workflow Details article assumes some Blazor experience and knowledge about the Blazor application structure. It requires manual configuration steps that help you learn about the pieces that enable Telerik UI for Blazor to work.
 >
 >
-> It's best for first-time users to start from the [First Steps tutorial](slug:getting-started/web-app) and then come back to this article. Developers who have already setup Telerik Blazor apps can use directly this article.
+> It's best for first-time users to start from the [First Steps tutorial](slug:getting-started/web-app) and then come back to this article. Developers who have already set up Telerik Blazor apps can use directly this article.
 
 The required milestones to obtain and use Telerik UI for Blazor are:
 
