@@ -56,15 +56,9 @@ WebMCP is currently available behind a browser flag in Chromium-based browsers.
 
 ### 2. Install the Telerik WebMCP Extension
 
-The browser flag enables the WebMCP API, but you still need an AI client that can discover and call the registered tools. The Telerik WebMCP Extension is a browser extension that provides a chat interface connected to an AI model. It reads the tools on the current page and invokes them based on your prompts.
+The browser flag enables the WebMCP API, but you still need an AI client that can discover and call the registered tools. The [Telerik WebMCP Extension](https://chromewebstore.google.com/detail/telerik-kendo-ui/bikfklddeekcicbafiejfbbpdjnaaiid) is a browser extension that provides a chat interface connected to an AI model. It reads the tools on the current page and invokes them based on your prompts.
 
-1. [Download the Telerik WebMCP Browser Extension](./assets/telerik-kendo-browser-extension.zip).
-1. Unzip the file.
-1. Open `chrome://extensions/` in your Chromium browser (these URLs cannot be clickable).
-1. Enable **Developer mode** at the top-right.
-1. Click the **Load unpacked** button at the top-left and select the folder that holds the unzipped extension.
-
-See the [Extension Documentation](slug:web-mcp-extension) for details on the extension features and settings.
+[Install the Telerik WebMCP Browser Extension](https://chromewebstore.google.com/detail/telerik-kendo-ui/bikfklddeekcicbafiejfbbpdjnaaiid) from the Chrome Web Store. Then, see the [Extension Documentation](slug:web-mcp-extension) for details on the extension features and settings.
 
 ### 3. Try the Demos
 
