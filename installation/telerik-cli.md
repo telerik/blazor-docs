@@ -16,6 +16,7 @@ The Telerik CLI is a [.NET tool](https://learn.microsoft.com/en-us/dotnet/core/t
 * Install or update your [license key](#get-license-key).
 * Set up the [Telerik NuGet feed](#set-up-nuget-feed).
 * Install the [Telerik Blazor MCP server](#install-mcp-server).
+* Set up the overall [Telerik UI for Blazor development environment](#set-up-telerik-environment).
 
 ## Installation
 
@@ -91,7 +92,21 @@ In manual mode, the CLI outputs a link to `https://identity.telerik.com` for you
 
 The Telerik CLI can fall back to manual authentication even if the `--no-browser` option is not set. This happens if the automatic authentication takes longer than three minutes.
 
-### Command Output
+### Verbose Output
+
+To see more detailed diagnostic output of any command, use the `--verbose` option:
+
+>caption Getting detailed command output in the Telerik CLI
+
+````SH.skip-repl
+telerik setup blazor --verbose
+
+telerik nuget config --verbose
+
+telerik license get-key --verbose
+````
+
+### JSON Output
 
 Each Telerik CLI command has two output formats:
 
@@ -115,6 +130,20 @@ telerik whoami --json
   },
   "success": true
 }
+````
+
+### Disable Automatic Updates
+
+By default, the Telerik CLI will check for newer `Telerik.CLI` NuGet package version on every command execution. To disable the update check, use the `--no-update-check` option:
+
+>caption Skipping Telerik CLI update checks
+
+````SH.skip-repl
+telerik setup blazor --no-update-check
+
+telerik nuget config --no-update-check
+
+telerik license get-key --no-update-check
 ````
 
 ## Log In
@@ -214,6 +243,21 @@ You can also fine-tune the process with the following options:
 telerik mcp config blazor --ide visualstudio
 ````
 
+## Create Telerik Blazor App
+
+To create a [new Blazor app that includes Telerik UI for Blazor](slug:getting-started-workflow-details) with the help of the [Telerik UI for Blazor project templates](slug:installation-project-templates), use the `create` command:
+
+````SH.skip-repl
+telerik create blazor
+````
+
+The Telerik CLI will list the [available Telerik Blazor templates](slug:installation-project-templates#install) and prompt for all [template settings](slug:installation-project-templates#features-and-configuration), such as theme or icon type.
+
+You can use the `create` command with the following options:
+
+* `-o` or `--output` to set the parent folder for the new app. By default, that's the current folder.
+* `--skip-template-install` to avoid downloading or updating the [`Telerik.Blazor.Templates` NuGet package](https://www.nuget.org/packages/Telerik.Blazor.Templates) if you already have it.
+
 ## Set Up Telerik Environment
 
 The `setup` command performs multiple actions at once to configure your Telerik development environment:
@@ -223,7 +267,6 @@ The `setup` command performs multiple actions at once to configure your Telerik 
 * [Configure NuGet package source](#set-up-nuget-feed)
 * [Install MCP server(s)](#install-mcp-server)
 * [Install Telerik UI for Blazor project templates](slug:installation-templates)
-* Create a new Blazor app using the Telerik project templates
 
 ````SH.skip-repl
 telerik setup blazor
@@ -237,9 +280,9 @@ You can use the `setup` command with the following options:
 * `--no-interactive` to run without prompting the user and rely on explicit inline options or defaults. This option is enabled by default when the standard input is redirected and [`Console.IsInputRedirected` is `true`](https://learn.microsoft.com/en-us/dotnet/api/system.console.isinputredirected). The option is recommended for automation and CI use.
 
 ````SH.skip-repl
-telerik setup blazor --nuget-path . --force --no-interactive
+telerik setup blazor --scope project --nuget-path . --force --no-interactive
 ````
 
 ## See Also
 
-* [Workflow Details](slug:installation-workflow-details)
+* [Workflow Details](slug:getting-started-workflow-details)

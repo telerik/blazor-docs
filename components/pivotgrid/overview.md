@@ -54,7 +54,7 @@ The PivotGrid is an integrated product that includes several Razor components:
     * Add a `<TelerikPivotGridConfiguratorButton>`.
     * Wrap both tags and `<TelerikPivotGrid>` with a `<TelerikPivotGridContainer>`.
 
-> The Telerik PivotGrid for Blazor [depends on two additional NuGet packages](slug:installation-workflow-details#nuget-packages). They are installed automatically when using the [Telerik NuGet feed](slug:installation-nuget) and must not be used separately with other custom or third-party tools.
+> The Telerik PivotGrid for Blazor [depends on two additional NuGet packages](slug:getting-started-workflow-details#nuget-packages). They are installed automatically when using the [Telerik NuGet feed](slug:installation-nuget) and must not be used separately with other custom or third-party tools.
 
 >caption PivotGrid with configurator and local data
 

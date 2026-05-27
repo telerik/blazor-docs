@@ -15,7 +15,7 @@ The [`Telerik.Blazor.Templates` NuGet package](https://www.nuget.org/packages/Te
 
 ## Install
 
-By default, the [`Telerik.Blazor.Templates` NuGet package](https://www.nuget.org/packages/Telerik.Blazor.Templates) is installed during the execution of the [`Telerik.CLI` `setup` command](slug:installation-cli#setup-telerik-environment).
+By default, the [`Telerik.Blazor.Templates` NuGet package](https://www.nuget.org/packages/Telerik.Blazor.Templates) is installed during the execution of the [`Telerik.CLI` `setup` command](slug:installation-cli#set-up-telerik-environment).
 
 To install the Telerik UI for Blazor project templates separately:
 
@@ -51,7 +51,7 @@ To create a new app:
 1. Go to the Command Palette at the top (`Ctrl` + `Shift` + `P` on Windows or `Cmd` + `Shift` + `P` on Mac).
 1. Select **Show and Run Commands**.
 1. Select **.NET: New Project...**
-1. Type a project name and [configure the project template options](#project-template-features).
+1. Type a project name and [configure the project template options](#features-and-configuration).
 
 ## Use with the .NET CLI
 
@@ -79,7 +79,7 @@ To create a new Blazor app:
 
 The Telerik Blazor project templates differ in the following ways from the standard .NET Blazor project templates:
 
-* The Blazor Web Apps always use a **Global** interactivity location, i.e. [interactive render mode for the entire app](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). This is the [easier and recommended way to integrate Telerik UI for Blazor](slug:installation-workflow-details#interactive-render-mode).
+* The Blazor Web Apps always use a **Global** interactivity location, i.e. [interactive render mode for the entire app](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). This is the [easier and recommended way to integrate Telerik UI for Blazor](slug:getting-started-workflow-details#interactive-render-mode).
 * The WebAssembly apps reference the latest minor version of the selected .NET version through a wildcard `*`.
 * The apps use the `https` launch profile by default.
 * Visual Studio opens `Home.razor` automatically after the app is created.
@@ -87,7 +87,7 @@ The Telerik Blazor project templates differ in the following ways from the stand
 The Telerik-specific project template features include:
 
 * The apps reference the latest Telerik UI for Blazor version with a wildcard `*`.
-* The Telerik UI for Blazor NuGet package, namespaces, service, and static assets are [added, according to best practices](slug:installation-workflow-details).
+* The Telerik UI for Blazor NuGet package, namespaces, service, and static assets are [added, according to best practices](slug:getting-started-workflow-details).
 * The Web App template sets [`PrivateAssets="none"` to the Telerik UI for Blazor NuGet package reference](slug:installation-license-key#using-telerik-packages-in-referenced-projects) when using WebAssembly or Auto render mode. This avoids license warnings on app startup.
 
 The project templates provide options to configure the Telerik Blazor components during app creation:
@@ -99,7 +99,7 @@ The project templates provide options to configure the Telerik Blazor components
 
 ## Update
 
-Execute the `dotnet new update` command:
+The `Telerik.Blazor.Templates` NuGet package is updated automatically every time you use the [Telerik CLI `create` command](slug:installation-cli#create-telerik-blazor-app). Another option is to execute the `dotnet new update` command:
 
 ```sh.skip-repl
 dotnet new update Telerik.Blazor.Templates
@@ -115,4 +115,4 @@ dotnet new uninstall Telerik.Blazor.Templates
 
 ## See Also
 
-* [Workflow Details](slug:installation-workflow-details)
+* [Workflow Details](slug:getting-started-workflow-details)

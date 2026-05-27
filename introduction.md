@@ -26,7 +26,7 @@ Visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik UI
 
 If you are new to Telerik UI for Blazor, start from the [First Steps with Telerik UI for Blazor tutorial](slug:getting-started/web-app).
 
-Developers who are familiar with Blazor may prefer the [Workflow Details](slug:installation-workflow-details) article. It is a more advanced and flexible way to start using the Telerik components.
+Developers who are familiar with Blazor may prefer the [Workflow Details](slug:getting-started-workflow-details) article. It is a more advanced and flexible way to start using the Telerik components.
 
 > This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. Your can also [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
 
@@ -248,7 +248,7 @@ For questions and issues related to Telerik UI for Blazor, use any of the availa
 
 * [First Steps with Telerik UI for Blazor](slug:getting-started/web-app)
 * [Blazor Hybrid Specifics](slug:getting-started/hybrid-blazor)
-* [Workflow Details for using the Telerik UI for Blazor components](slug:installation-workflow-details) (a concise version of the tutorials above)
+* [Workflow Details for using the Telerik UI for Blazor components](slug:getting-started-workflow-details) (a concise version of the tutorials above)
 * Use guided wizards to generate new Telerik Projects in [Visual Studio](slug:getting-started-vs-integration-new-project) and [Visual Studio Code](slug:getting-started-vs-code-integration-overview).
 * [Convert an existing project to a Telerik-enabled project](slug:getting-started-vs-integration-convert-project)
 * [Style the Telerik Blazor Components](slug:themes-overview)
