@@ -90,13 +90,12 @@ Without using the above command buttons, the application can:
 
         private int LastId { get; set; }
 
-        public async Task<int> Create(Product product)
+        public async Task<int> Create(Product product, int? newItemIndex = 0)
         {
             await SimulateAsyncOperation();
 
             product.Id = ++LastId;
-
-            Items.Insert(0, product);
+            Items.Insert(newItemIndex ?? 0, product);
 
             return LastId;
         }
@@ -174,6 +173,7 @@ Without using the above command buttons, the application can:
 * Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
 * Use the `OnModelInit` event to provide [model instances](slug:grid-editing-overview#item-instances) with some default values before add and edit operations start.
 * Use the `OnAdd` event to provide some default values before add operations start.
+* Use the `NewRowPosition` parameter to set there new rows are added to the existing data.
 * Reload the Grid `Data` after making changes to the data source. When [using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically](#basic).
 * Apply the user changes to the Grid `Data` parameter to spare one read request to the database.
 * Use `DataAnnotations` validation for the `Name` and `ReleaseDate` properties.
@@ -187,6 +187,7 @@ Without using the above command buttons, the application can:
 
 #advanced-example-parameters
              ConfirmDelete="@GridConfirmDelete"
+             NewRowPosition="@GridNewRowPosition"
              OnAdd="@OnGridAdd"
              OnCancel="@OnGridCancel"
              OnCreate="@OnGridCreate"
@@ -194,8 +195,9 @@ Without using the above command buttons, the application can:
              OnEdit="@OnGridEdit"
              OnModelInit="@OnGridModelInit"
              OnUpdate="@OnGridUpdate"
+             @bind-Page="@GridPage"
              Pageable="true"
-             PageSize="5"
+             @bind-PageSize="@GridPageSize"
              Sortable="true">
 #end
 
@@ -208,6 +210,14 @@ Without using the above command buttons, the application can:
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@GridConfirmDelete" /> Confirm Delete Commands</label>
         <span class="k-separator"></span>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ShouldConfirmOnCancel" /> Confirm Cancel Commands</label>
+        <span class="k-separator"></span>
+        New Row Position:
+        <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
+            <ButtonGroupToggleButton Selected="@(GridNewRowPosition == GridNewRowPosition.Top)"
+                                     SelectedChanged="@((bool newValue) => { if (newValue) GridNewRowPosition = GridNewRowPosition.Top; })">Top</ButtonGroupToggleButton>
+            <ButtonGroupToggleButton Selected="@(GridNewRowPosition == GridNewRowPosition.Bottom)"
+                                     SelectedChanged="@((bool newValue) => { if (newValue) GridNewRowPosition = GridNewRowPosition.Bottom; })">Bottom</ButtonGroupToggleButton>
+        </TelerikButtonGroup>
     </GridToolBarTemplate>
 #end
 
@@ -220,6 +230,8 @@ Without using the above command buttons, the application can:
 
 #advanced-example-code
     private List<Product> GridData { get; set; } = new();
+    private int GridPage { get; set; } = 1;
+    private int GridPageSize { get; set; } = 7;
 
     private ProductService GridProductService { get; set; } = new();
 
@@ -231,6 +243,7 @@ Without using the above command buttons, the application can:
     private bool GridConfirmDelete { get; set; } = true;
     private bool ShouldCancelOnAddEdit { get; set; }
     private bool ShouldConfirmOnCancel { get; set; } = true;
+    private GridNewRowPosition GridNewRowPosition { get; set; } = GridNewRowPosition.Top;
 
     private string AddEditButtonThemeColor => ShouldCancelOnAddEdit ? ThemeConstants.Button.ThemeColor.Error : ThemeConstants.Button.ThemeColor.Base;
     private string DeleteButtonThemeColor => GridConfirmDelete ? ThemeConstants.Button.ThemeColor.Base : ThemeConstants.Button.ThemeColor.Warning;
@@ -269,14 +282,15 @@ Without using the above command buttons, the application can:
         var createdItem = (Product)args.Item;
 
         // Create the item in the database.
-        int newId = await GridProductService.Create(createdItem);
+        int newItemIndex = GridNewRowPosition == GridNewRowPosition.Bottom ? Math.Min(GridPageSize * GridPage - 1, GridData.Count) : 0;
+        int newId = await GridProductService.Create(createdItem, newItemIndex);
 
         // Reload the data from the database.
         GridData = await GridProductService.Read();
         // OR
         // Create the item in the local data instead of reloading.
         //createdItem.Id = newId;
-        //GridData.Insert(0, createdItem);
+        //GridData.Insert(newItemIndex, createdItem);
     }
 
     private async Task OnGridDelete(GridCommandEventArgs args)
