@@ -72,7 +72,7 @@ You can reproduce this with the following snippet:
 
 ## Solution
 
-Wrap the entire content of the `MainLayout.razor` file inside the `<TelerikRootComponent>`. Read more on the assets and configuration steps you need in the [What You Need](slug:installation-workflow-details) article.
+Wrap the entire content of the `MainLayout.razor` file inside the `<TelerikRootComponent>`. Read more on the assets and configuration steps you need in the [What You Need](slug:getting-started-workflow-details) article.
 
 >caption Wrapping the content of the MainLayout file inside the TelerikRootComponent
 

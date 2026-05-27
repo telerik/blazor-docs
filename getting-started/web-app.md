@@ -44,36 +44,71 @@ The fastest way to set up your Telerik development environment is to use the [Te
 The `setup` command performs multiple actions at once to configure your Telerik development environment:
 
 * Log in to your [Telerik account](https://www.telerik.com/account).
-* Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have a commercial license.
+* Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have an active commercial license or trial.
 * [Download a Telerik license key](slug:installation-license-key) that includes all your licenses and trials.
 * [Configure a Telerik NuGet package source](slug:installation-nuget).
 * [Install MCP servers](slug:ai-overview).
-* [Install Telerik UI for Blazor project templates](slug:installation-templates).
-* Create a new Blazor app using the Telerik project templates.
+* [Install Telerik UI for Blazor project templates](slug:installation-project-templates).
 
 ## Create New Blazor App
 
-To create a new Blazor app:
+This section assumes that you have successfully installed the [Telerik UI for Blazor project templates](slug:installation-project-templates) in the [previous step](#set-up-telerik-development-environment).
 
-1. Open your preferred IDE or [run the `dotnet new` .NET CLI command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
-1. Use one of the available project templates:
-    * Telerik Blazor Web App
-    * Telerik Blazor WebAssembly Standalone App
-    * Telerik Blazor Hybrid App
-1. ...
+To create a new Telerik Blazor app, use your preferred approach:
+
+<TabStrip>
+<TabStripTab title=".NET CLI">
+
+Use the .NET CLI `dotnet new` command to create a new Blazor Web App or WebAssembly Standalone App, depending on your preferences:
+
+>caption Create a Blazor Web App with interactive Server render mode 
+
+````SH.skip-repl
+dotnet new telerik-blazor -o TelerikBlazorWebApp1 -int Server
+````
+
+>caption Create a Blazor WebAssembly Standalone App
+
+````SH.skip-repl
+dotnet new telerik-blazorwasm -o TelerikBlazorWasmApp1
+````
+
+</TabStripTab>
+<TabStripTab title="Visual Studio or VS Code">
+
+Create a new app by using one of the following project templates:
+
+* Telerik Blazor Web App
+* Telerik Blazor WebAssembly Standalone App
+
+</TabStripTab>
+<TabStripTab title="Telerik CLI">
+
+Run the following Telerik CLI command to create a new Telerik Blazor app interactively:
+
+````SH.skip-repl
+telerik create blazor
+````
+
+</TabStripTab>
+</TabStrip>
+
+> A [Telerik Blazor Hybrid App template](slug:getting-started/hybrid-blazor) is also available, but it's outside the scope of this tutorial.
+
+> To manually add Telerik UI for Blazor to an existing Blazor app, follow the [Workflow Details](slug:getting-started-workflow-details) article.
 
 ## Add Telerik Component
 
-Add a Telerik UI for Blazor component to a Razor file and run the app.
-
-1. In `Home.razor`, add a `TelerikButton` component.
+Run the new Blazor app in the browser. Then, add a new Telerik component. For for example, add a `TelerikButton` component in `Home.razor`:
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
+
+Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app, showcasing the power of front-end development with Blazor.
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 
 ## See Also
 
-* [Workflow Details for Telerik UI for Blazor](slug:installation-workflow-details)
+* [Workflow Details for Telerik UI for Blazor](slug:getting-started-workflow-details)
 * [Using Blazor Sections inside Telerik Components](slug:common-kb-net8-sections)
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)

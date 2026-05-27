@@ -18,10 +18,44 @@ This article provides additional details on how to use Telerik UI for Blazor com
 To successfully complete the steps in this tutorial:
 
 1. Install the [latest version of .NET](https://dotnet.microsoft.com/en-us/download/dotnet) and [Visual Studio](https://visualstudio.microsoft.com/vs/preview/).
-2. Follow the general guidance at [First Steps with Telerik UI for Blazor](slug:getting-started/web-app). All prerequisites and steps there are applicable to this article too.
-3. Before adding the Telerik UI for Blazor components to an existing Blazor Hybrid app, ensure that the corresponding [technology stack is set up](https://docs.microsoft.com/en-us/dotnet/maui/get-started/first-app) and the basic Blazor Hybrid [WebView](https://docs.microsoft.com/en-us/dotnet/maui/user-interface/controls/webview) runs as expected in this stack.
+1. Follow the general guidance at [First Steps with Telerik UI for Blazor](slug:getting-started/web-app). All prerequisites and steps there are applicable to this article too.
+1. Install the [Telerik UI for Blazor project templates](slug:installation-project-templates).
+1. Before adding the Telerik UI for Blazor components to an existing Blazor Hybrid app, ensure that the corresponding [technology stack is set up](https://docs.microsoft.com/en-us/dotnet/maui/get-started/first-app) and the basic Blazor Hybrid [WebView](https://docs.microsoft.com/en-us/dotnet/maui/user-interface/controls/webview) runs as expected in this stack.
 
-If you want to manually add Telerik UI for Blazor to an existing WinForms, WPF, or MAUI app, the process is similar to including the components in a [native Blazor app](slug:installation-workflow-details). 
+If you want to manually add Telerik UI for Blazor to an existing WinForms, WPF, or MAUI app, the process is similar to including the components in a [native Blazor app](slug:getting-started-workflow-details). 
+
+## Create New Blazor App
+
+To create a new Telerik Blazor MAUI Hybrid App, use your preferred approach:
+
+<TabStrip>
+<TabStripTab title=".NET CLI">
+
+Use the .NET CLI `dotnet new` command:
+
+````SH.skip-repl
+dotnet new telerik-blazor-maui -o TelerikBlazorHybridApp1
+````
+
+</TabStripTab>
+<TabStripTab title="Visual Studio or VS Code">
+
+Create a new app by using the **Telerik Blazor MAUI Hybrid App** project template.
+
+</TabStripTab>
+<TabStripTab title="Telerik CLI">
+
+Run the following Telerik CLI command to create a new Telerik Blazor Hybrid app interactively:
+
+````SH.skip-repl
+telerik create blazor
+````
+
+</TabStripTab>
+</TabStrip>
+
+> To manually add Telerik UI for Blazor to an existing Blazor app, follow the [Workflow Details](slug:getting-started-workflow-details) article.
+
 
 ## Running Blazor Hybrid Apps
 
@@ -66,7 +100,7 @@ Refer to the following articles for more information on each technology stack:
 
 ## See Also
 
-* [Workflow Details for Telerik UI for Blazor](slug:installation-workflow-details)
+* [Workflow Details for Telerik UI for Blazor](slug:getting-started-workflow-details)
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
 * [First Steps with Telerik UI for Blazor](slug:getting-started/web-app)
 * [Blazor Hybrid](https://www.telerik.com/blazor-ui/blazor-hybrid)

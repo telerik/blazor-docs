@@ -2,7 +2,7 @@
 title: Workflow Details
 page_title: Workflow Details for Using Telerik UI for Blazor Components
 description: Learn about the packages and assets that you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
-slug: installation-workflow-details
+slug: getting-started-workflow-details
 previous_url: /getting-started/what-you-need,/installation/workflow-details
 tags: installation
 published: True
@@ -18,7 +18,7 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 > The differences between the above tutorial and this page are:
 >
 > * The above First Steps tutorial describes the fastest and simplest way to get started with Telerik UI for Blazor. It is suitable for first-time Blazor or Telerik component users.
-> * The current Workflow Details article assumes some Blazor experience and knowledge about the Blazor application structure. It requires manual configuration steps that help you learn about the pieces that enable Telerik UI for Blazor to work.
+> * The current Workflow Details article assumes some Blazor experience and knowledge about the Blazor application structure. It requires manual configuration steps that help you learn about Telerik UI for Blazor in more depth.
 >
 >
 > It's best for first-time users to start from the [First Steps tutorial](slug:getting-started/web-app) and then come back to this article. Developers who have already set up Telerik Blazor apps can use directly this article.
@@ -236,26 +236,9 @@ Check the [`TelerikRootComponent` documentation](slug:rootcomponent-overview) fo
 
 ## Add Telerik Components to a View
 
-The Blazor application is ready to use Telerik components.
+The Blazor application is ready to use Telerik components. For for example, add a `TelerikButton` component in `Home.razor`:
 
->caption Home.razor
-
-````RAZOR
-<TelerikButton OnClick="@OnButtonClick">
-    Telerik Blazor Button
-</TelerikButton>
-
-@ButtonClickLog
-
-@code {
-    private string ButtonClickLog { get; set; } = string.Empty;
-
-    private void OnButtonClick()
-    {
-        ButtonClickLog = $"Button clicked at {DateTime.Now.ToString("HH:mm:ss.fff")}.";
-    }
-}
-````
+@[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
 ## Install the Telerik AI Tools
 

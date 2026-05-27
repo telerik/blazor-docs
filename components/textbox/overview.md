@@ -31,7 +31,7 @@ You can control [various attributes](#textbox-parameters) of the `input` element
 }
 ````
 
-> In a [Blazor Web App project template](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure#blazor-web-app), use the TextBox component only in [interactive render mode](slug:installation-workflow-details#interactive-render-mode). Static server-side rendering (static SSR) is not supported.
+> In a [Blazor Web App project template](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure#blazor-web-app), use the TextBox component only in [interactive render mode](slug:getting-started-workflow-details#interactive-render-mode). Static server-side rendering (static SSR) is not supported.
 
 ## Appearance
 

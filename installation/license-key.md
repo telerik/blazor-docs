@@ -23,7 +23,7 @@ To install a license key, you must have a commercial or trial license for:
 
 If you are new to Telerik UI for Blazor, [sign up for a free trial](https://www.telerik.com/blazor-ui).
 
-The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:installation-workflow-details#nuget-packages). During project build, test and publish, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
+The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:getting-started-workflow-details#nuget-packages). During project build, test and publish, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
 
 Follow the steps below for [automatic](#automatic-installation) or [manual](#manual-installation) license key installation in your local development environment. Then, find out [how to use a Telerik license key during application deployment](slug:deployment-license-key).
 
@@ -180,4 +180,4 @@ No, versions up to **7.1.0** released prior to February 2025 do not require a li
 
 * [Troubleshoot License Key Errors](slug:troubleshooting-license-key-errors)
 * [Get Started with a Blazor Web App](slug:getting-started/web-app)
-* [Workflow Details for Telerik UI for Blazor](slug:installation-workflow-details)
+* [Workflow Details for Telerik UI for Blazor](slug:getting-started-workflow-details)

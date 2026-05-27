@@ -47,7 +47,7 @@ The invalid operation exception occurs if the app tries to inject the `DialogFac
 
 The following technical requirements ensure correct `DialogFactory` setup:
 
-* [Place a `TelerikRootComponent` in a layout `.razor` file](slug:rootcomponent-overview#using-telerikrootcomponent) in the app. If the `DialogFactory` must be avalable in the layout file itself, then [place the `TelerikRootComponent` in a parent layout file](slug:installation-workflow-details#optimal-telerikrootcomponent-usage).
+* [Place a `TelerikRootComponent` in a layout `.razor` file](slug:rootcomponent-overview#using-telerikrootcomponent) in the app. If the `DialogFactory` must be avalable in the layout file itself, then [place the `TelerikRootComponent` in a parent layout file](slug:getting-started-workflow-details#optimal-telerikrootcomponent-usage).
 * When using a Blazor Web App with <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-a-component-definition" target="_blank">**Per Page / Component** Interactity Location</a>, [place the `TelerikRootComponent` inside an interactive Razor component](slug:rootcomponent-percomponent), which is a parent of the component that consumes the `DialogFactory`.
 * Always [consume the `DialogFactory` as a `[CascadingParameter]`](slug:dialog-predefined), and not as a dependency injection with `@inject`.
 

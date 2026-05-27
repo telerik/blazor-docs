@@ -1,5 +1,5 @@
 #prerequisites-tip
->tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik license key, NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details](slug:installation-workflow-details) article. It provides more setup options and suggests possible enhancements.
+>tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik license key, NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details](slug:getting-started-workflow-details) article. It provides more setup options and suggests possible enhancements.
 
 #end
 
@@ -74,7 +74,7 @@ Next, add the Telerik NuGet feed to your local development environment:
 * [Visual Studio on Windows](#visual-studio)
 * [All IDEs and operating systems](#all-ides-and-operating-systems)
 
-> Telerik API keys expire in two years. Make sure to generate and use a new one in time. For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:installation-workflow-details#nuget-packages).
+> Telerik API keys expire in two years. Make sure to generate and use a new one in time. For more information on the Telerik NuGet packages and download options, check [the NuGet Packages section in the Workflow article](slug:getting-started-workflow-details#nuget-packages).
 
 ### Visual Studio
 
@@ -103,28 +103,24 @@ The linebreak characters used below enable multi-line commands for better readab
 
 #add-component-sample
 
-    >caption Home.razor
+>caption Home.razor
 
-   ````RAZOR.skip-repl
-   <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                  OnClick="@OnButtonClick">Say Hello</TelerikButton>
-   
-   <p>@HelloString</p>
-   
-   @code {
-       private MarkupString HelloString { get; set; }
-   
-       private void OnButtonClick()
-       {
-           HelloString = new MarkupString($"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
-               "<br /> Now you can use C# to write front-end!");
-       }
-   }
-   ````
+````RAZOR
+<TelerikButton OnClick="@OnButtonClick">
+    Telerik Blazor Button
+</TelerikButton>
 
-1. Run the app in the browser.
+<p>@ButtonClickLog</p>
 
-Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app, showcasing the power of front-end development with Blazor.
+@code {
+    private string ButtonClickLog { get; set; } = string.Empty;
+
+    private void OnButtonClick()
+    {
+        ButtonClickLog = $"Telerik Button clicked at {DateTime.Now.ToString("HH:mm:ss.fff")}.";
+    }
+}
+````
 
 #end
 

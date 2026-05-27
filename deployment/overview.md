@@ -34,9 +34,9 @@ The Telerik UI for Blazor components consist of:
 * assemblies
 * static CSS and JavaScript assets
 
-These resources are distributed in our [NuGet packages](slug:installation-workflow-details#nuget-packages). The .NET SDK is responsible for copying the Telerik `.dll`, `.css`, and `.js` files from the local NuGet cache to the target folder during the build or publish.
+These resources are distributed in our [NuGet packages](slug:getting-started-workflow-details#nuget-packages). The .NET SDK is responsible for copying the Telerik `.dll`, `.css`, and `.js` files from the local NuGet cache to the target folder during the build or publish.
 
->important The build machine must be able to [restore the Telerik NuGet packages from a remote or local NuGet feed](slug:installation-workflow-details#getting-the-telerik-nuget-packages). See the [CI, CD, Build Server](slug:deployment-ci-cd-build-pc) article for more details on automation setup.
+>important The build machine must be able to [restore the Telerik NuGet packages from a remote or local NuGet feed](slug:getting-started-workflow-details#getting-the-telerik-nuget-packages). See the [CI, CD, Build Server](slug:deployment-ci-cd-build-pc) article for more details on automation setup.
 
 ## Testing and Building Licenses
 
