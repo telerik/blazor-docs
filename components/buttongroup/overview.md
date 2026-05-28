@@ -16,7 +16,9 @@ The ButtonGroup component is a container for [regular and toggle buttons](slug:b
 
 The ButtonGroup component lets you [select one or more toggle buttons](slug:buttongroup-selection), and respond to the [selection and click events](slug:buttongroup-events). The buttons inside fill up the container, match the styling according to the [chosen theme](slug:themes-overview) and provide the regular button features like images and icons and the other parameters and attributes.
 
->tip Compared to the SegmentedControl, the ButtonGroup is a markup-based component — you declare each button explicitly as a child component and can configure the component for single or multiple selection. The [SegmentedControl](slug:segmentedcontrol-overview) is a data-bound component — it renders items from a `Data` collection and allows only single selection.
+## Comparison with SegmentedControl and TabStrip
+
+@[template](/_contentTemplates/segmentedcontrol/notes.md#comparison-with-buttongroup-tabstrip)
 
 ## Creating Blazor ButtonGroup
 
