@@ -12,6 +12,10 @@ components: ["tabstrip"]
 
 The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Blazor TabStrip component</a> displays a collection of tabs, containing associated content, which enable the user to switch between different views inside a single component.
 
+## Comparison with ButtonGroup and SegmentedControl
+
+@[template](/_contentTemplates/segmentedcontrol/notes.md#comparison-with-buttongroup-tabstrip)
+
 ## Creating Blazor TabStrip
 
 1. Use the `<TelerikTabStrip>` tag.
