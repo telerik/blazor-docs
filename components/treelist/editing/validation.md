@@ -53,6 +53,8 @@ The example below shows how to:
 
 Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazored.FluentValidation) NuGet package to run the following code and refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
 
+@[template](/_contentTemplates/common/form-validation.md#note-fluentvalidation)
+
 >caption Use Telerik TreeList for Blazor with FluentValidation
 
 ````RAZOR.skip-repl
