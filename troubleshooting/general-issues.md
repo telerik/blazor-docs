@@ -29,7 +29,7 @@ This page provides solutions for common issues you may encounter while working w
 ## Popups Do Not Work
 
 There are three common reasons for this
-* Missing [`<TelerikRootComponent>`](slug:installation-workflow-details#telerikrootcomponent) from the app.
+* Missing [`<TelerikRootComponent>`](slug:getting-started-workflow-details#telerikrootcomponent) from the app.
 * [Missing `telerik-blazor.js` file](slug:troubleshooting-js-errors#telerikblazor-was-undefined)
 * Special positioning on the `<app>` element or any other parent of the `TelerikRootComponent`.
 
@@ -91,7 +91,7 @@ If you get an error similar to this one:
 
 There can be two common causes for the problem:
 
-* The [Telerik services are not registered](slug:installation-workflow-details#service) in the app, a line similar to `builder.Services.AddTelerikBlazor();` is missing.
+* The [Telerik services are not registered](slug:getting-started-workflow-details#service) in the app, a line similar to `builder.Services.AddTelerikBlazor();` is missing.
 
 * The application uses localization, or there is a code snippet that does (e.g., a grid with custom buttons that are localized, copied over from another place), but the current app does not provide the necessary project-specific service. You can read more about implementing one in the [Localization](slug:globalization-localization) article.
 

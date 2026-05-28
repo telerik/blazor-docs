@@ -58,10 +58,10 @@ Here are the required steps to exclude Telerik UI for Blazor components from `te
 1. Run `npm install` in the `javascript` folder.
 1. Run `gulp build-cdn` in the `javascript` folder.
 1. Copy the generated `telerik-blazor.js` file to the `wwwroot` folder or your Blazor app.
-1. Remove the existing `telerik-blazor.js` file registration as a [static asset](slug:installation-workflow-details#javascript-file) or [CDN URL](slug:common-features-cdn#javascript-urls). Register the custom `telerik-blazor.js` from `wwwroot`.
+1. Remove the existing `telerik-blazor.js` file registration as a [static asset](slug:getting-started-workflow-details#javascript-file) or [CDN URL](slug:common-features-cdn#javascript-urls). Register the custom `telerik-blazor.js` from `wwwroot`.
 
 > Repeat the above steps and rebuild `telerik-blazor.js` after every [version update of Telerik UI for Blazor](slug:upgrade-tutorial).
 
 ## See Also
 
-* [Adding Telerik UI for Blazor to a Blazor app](slug:installation-workflow-details)
+* [Adding Telerik UI for Blazor to a Blazor app](slug:getting-started-workflow-details)

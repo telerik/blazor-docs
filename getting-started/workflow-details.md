@@ -1,32 +1,27 @@
 ---
 title: Workflow Details
-page_title: Workflow Details for Using the Telerik UI for Blazor Components
+page_title: Workflow Details for Using Telerik UI for Blazor Components
 description: Learn about the packages and assets that you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
-slug: installation-workflow-details
-previous_url: /getting-started/what-you-need
+slug: getting-started-workflow-details
+previous_url: /getting-started/what-you-need,/installation/workflow-details
 tags: installation
 published: True
-position: 10
+position: 15
 ---
 
-# Workflow Details for Using the Telerik UI for Blazor Components
+# Workflow Details for Using Telerik UI for Blazor Components
 
 This article describes the required steps to use the Telerik UI for Blazor components in any kind of Blazor application and any .NET version. The content below describes how to obtain the Telerik UI for Blazor components and configure your project to use them.
 
->tip The information in this article builds on top of the step-by-step tutorials for specific Blazor application types or render modes:
+>tip The information in this article builds on top of the [First Steps with Telerik UI for Blazor](slug:getting-started/web-app) tutorial.
 >
-> * [Blazor Web App](slug:getting-started/web-app) template
-> * [Blazor WebAssembly Standalone apps](slug:getting-started/client-side)
-> * [Blazor Hybrid (MAUI) apps](slug:getting-started/hybrid-blazor)
+> The differences between the above tutorial and this page are:
 >
-> The differences between the above tutorials and this page are:
+> * The above First Steps tutorial describes the fastest and simplest way to get started with Telerik UI for Blazor. It is suitable for first-time Blazor or Telerik component users.
+> * The current Workflow Details article assumes some Blazor experience and knowledge about the Blazor application structure. It requires manual configuration steps that help you learn about Telerik UI for Blazor in more depth.
 >
-> * The above tutorials are simpler to follow and are suitable for first-time Blazor or Telerik component users.
-> * The current article assumes some Blazor experience and knowledge about the Blazor application structure.
-> * The above tutorials describe the fastest and simplest way to get started with Telerik UI for Blazor.
-> * The current article provides more setup options and suggests possible enhancements.
 >
-> It's best for first-time users to start from the above tutorials and then come back to this article. Developers who have already setup Telerik Blazor apps can use directly this article.
+> It's best for first-time users to start from the [First Steps tutorial](slug:getting-started/web-app) and then come back to this article. Developers who have already set up Telerik Blazor apps can use this article.
 
 The required milestones to obtain and use Telerik UI for Blazor are:
 
@@ -39,45 +34,35 @@ The required milestones to obtain and use Telerik UI for Blazor are:
 1. [Add components to a view](#add-telerik-components-to-a-view).
 1. Install the [Telerik Blazor AI Tools](#install-the-telerik-ai-tools).
 
-
 ## NuGet Packages
 
-Telerik UI for Blazor is distributed through several private and public NuGet packages. The content below lists them all and explains how to obtain them.
+Telerik UI for Blazor is distributed through NuGet packages. The content below lists them all and explains how to obtain them.
 
 >tip `Telerik.UI.for.Blazor` is the only NuGet package that you must reference in the app. This package references all others as dependencies.
+
+>tip Starting from Telerik UI for Blazor version **14.0.0**, all required NuGet packages are [available on `nuget.org`](https://www.nuget.org/profiles/Progress).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | NuGet Package Name | Description |
 | --- | --- |
-| `Telerik.UI.for.Blazor` | Contains the main code of the UI components. Required for all Telerik UI for Blazor applications. |
-| [`Telerik.Licensing`](https://www.nuget.org/packages/Telerik.Licensing) | Verifies the licensing status of the developer during app build. Requires a [license key](#license-key). Available on `nuget.org`. |
-| [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons) | Contains all Telerik SVG icons. Available on `nuget.org`. |
-| [`Telerik.FontIcons`](https://www.nuget.org/packages/Telerik.FontIcons) | Contains all Telerik font icons. Available on `nuget.org`. |
-| `Telerik.DataSource` | Adds support for data operations. All databound UI components use it for paging, sorting, filtering, or grouping. |
-| `Telerik.Recurrence` | Adds support for recurring appointments in the [Scheduler component](slug:scheduler-overview). |
-| `Telerik.Documents.SpreadsheetStreaming` | Adds support for working with spreadsheet documents, and exporting to Excel or CSV. This package is part of [Telerik Document Processing](slug:dpl-in-blazor). |
-| `Telerik.Zip` | Contains code for working with ZIP archives and Excel files. Excel files are actually ZIP archives and this package takes part in the exporting process. This package is part of [Telerik Document Processing](slug:dpl-in-blazor). |
-| `Telerik.Pivot.Core` | Contains base code for the [PivotGrid component](slug:pivotgrid-overview). This NuGet package must not be used separately without the Telerik PivotGrid component. |
-| `Telerik.Pivot.DataProviders.Xmla` | Adds support for [data binding the PivotGrid component to XMLA](slug:pivotgrid-data-binding). This NuGet package must not be used separately without the Telerik PivotGrid component. |
+| [`Telerik.UI.for.Blazor`](https://www.nuget.org/packages/Telerik.UI.for.Blazor) | Contains the main code of the UI components. Required for all Telerik UI for Blazor applications. |
+| [`Telerik.Licensing`](https://www.nuget.org/packages/Telerik.Licensing) | Verifies the licensing status of the developer during app build. Requires a [license key](#license-key). |
+| [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons) | Contains all Telerik SVG icons. |
+| [`Telerik.FontIcons`](https://www.nuget.org/packages/Telerik.FontIcons) | Contains all Telerik font icons. |
+| [`Telerik.DataSource`](https://www.nuget.org/packages/Telerik.DataSource) | Adds support for data operations. All databound UI components use it for paging, sorting, filtering, or grouping. |
+| [`Telerik.Recurrence`](https://www.nuget.org/packages/Telerik.Recurrence) | Adds support for recurring appointments in the [Scheduler component](slug:scheduler-overview). |
+| [`Telerik.Documents.SpreadsheetStreaming`](https://www.nuget.org/packages/Telerik.Documents.SpreadsheetStreaming) | Adds support for working with spreadsheet documents, and exporting to Excel or CSV. This package is part of [Telerik Document Processing](slug:dpl-in-blazor). |
+| [`Telerik.Zip`](https://www.nuget.org/packages/Telerik.Zip) | Contains code for working with ZIP archives and Excel files. Excel files are actually ZIP archives and this package takes part in the exporting process. This package is part of [Telerik Document Processing](slug:dpl-in-blazor). |
+| [`Telerik.Pivot.Core`](https://www.nuget.org/packages/Telerik.Pivot.Core) | Contains base code for the [PivotGrid component](slug:pivotgrid-overview). This NuGet package must not be used separately without the Telerik PivotGrid component. |
+| [`Telerik.Pivot.DataProviders.Xmla`](https://www.nuget.org/packages/Telerik.Pivot.DataProviders.Xmla) | Adds support for [data binding the PivotGrid component to XMLA](slug:pivotgrid-data-binding). This NuGet package must not be used separately without the Telerik PivotGrid component. |
 
 ### Getting the Telerik NuGet Packages
 
-To get the public Telerik icon and licensing packages, you only need the default NuGet package source `nuget.org`. To [use a local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds), download the packages from:
+You can get the Telerik UI for Blazor packages and their dependencies in four ways:
 
-* [`Telerik.Licensing`](https://www.nuget.org/packages/Telerik.Licensing)
-* [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons)
-* [`Telerik.FontIcons`](https://www.nuget.org/packages/Telerik.FontIcons)
-
-Other Telerik packages that are hosted on `nuget.org` and are not required by Telerik UI for Blazor by default are:
-
-* [`Telerik.Blazor.MCP`](https://www.nuget.org/packages/Telerik.Blazor.MCP)&mdash;see [how to install and use the Telerik UI for Blazor AI Tools](slug:ai-overview).
-* [`Telerik.CLI`](https://www.nuget.org/packages/Telerik.CLI)&mdash;see [what is the Telerik CLI and how to use it](slug:installation-cli).
-* [`Telerik.AI.SmartComponents.Extensions`](https://www.nuget.org/packages/Telerik.CLI)&mdash;see how to [integrate Telerik UI for Blazor with this AI extensions package](slug:common-features-telerik-ai-smartcomponents-extensions-integration).
-
-You can get the private Telerik UI for Blazor packages in four ways:
-
-* [Telerik NuGet package source](slug:installation-nuget). This is usually the most convenient option, and your NuGet client will notify you about new component versions. The other options below can be useful as an emergency alternative, or in environments with restricted Internet connection.
+* [`nuget.org`](https://www.nuget.org/profiles/Progress). This is usually the most convenient option, and your NuGet client will notify you about new component versions. The other options below can be useful as an emergency alternative, or in environments with restricted Internet connection.
+* [Telerik private NuGet package source](slug:installation-nuget)&mdash;use only for Telerik UI for Blazor versions **13.3.0** and older. Note that the icon and licensing packages must be downloaded from `nuget.org`, regardless of the Telerik UI for Blazor version.
 * [Automated installer](slug:installation-msi)
 * [ZIP archive](slug:installation-zip)
 * As standalone `.nupkg` files. To use them, follow the instructions at [ZIP archive](slug:installation-zip), but download the `.nupkg` files instead.
@@ -231,12 +216,12 @@ The [`TelerikRootComponent` is a special component](slug:rootcomponent-overview#
 * It can apply settings to all other Telerik Blazor components in the application.
 * It renders all component popups. All Telerik Blazor components that use popups will throw an exception if they cannot detect the `TelerikRootComponent`.
 
-The `TelerikRootComponent` placement depends on the interactivity location of the Blazor app. The component should reside in a layout file, but only if the layout file supports interactive render mode.
+The `TelerikRootComponent` placement depends on the Blazor app hosting model and interactivity location. The component should reside in a layout file, but only if the layout file supports interactive render mode.
 
 > The instructions and code example below apply to:
 >
-> * .NET 8 or 9 Blazor Web Apps with **Global** interactivity location
-> * Blazor Server, WebAssembly and Hybrid apps in all .NET versions
+> * Blazor Web Apps with **Global** interactivity location
+> * Blazor WebAssembly Standalone and Blazor Hybrid apps
 >
 > If you have a Blazor Web App with **Per page/component** interactivity location, then the correct `TelerikRootComponent` usage is different. The component still needs to wrap all other Telerik components, but it cannot reside in a static layout file, because the [other Telerik components will not detect it](slug:common-kb-component-requires-telerikrootcomponent). Refer to section [Interactivity Considerations](slug:rootcomponent-overview#interactivity-considerations) and article [Using TelerikRootComponent with Per Page/Component Interactivity](slug:rootcomponent-percomponent).
 
@@ -251,26 +236,9 @@ Check the [`TelerikRootComponent` documentation](slug:rootcomponent-overview) fo
 
 ## Add Telerik Components to a View
 
-The Blazor application is ready to use Telerik components.
+The Blazor application is ready to use Telerik components. For example, add a `TelerikButton` component in `Home.razor`:
 
->caption Home.razor
-
-````RAZOR
-<TelerikButton OnClick="@OnButtonClick">
-    Telerik Blazor Button
-</TelerikButton>
-
-@ButtonClickLog
-
-@code {
-    private string ButtonClickLog { get; set; } = string.Empty;
-
-    private void OnButtonClick()
-    {
-        ButtonClickLog = $"Button clicked at {DateTime.Now.ToString("HH:mm:ss.fff")}.";
-    }
-}
-````
+@[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
 ## Install the Telerik AI Tools
 

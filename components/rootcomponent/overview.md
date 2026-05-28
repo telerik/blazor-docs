@@ -85,5 +85,5 @@ The `TelerikRootComponent` exposes and additional `<RootComponentSettings>` tag 
 ## See Also
 
 * [Popup Troubleshooting](slug:troubleshooting-general-issues)
-* [Setting up Telerik Blazor apps](slug:installation-workflow-details)
+* [Setting up Telerik Blazor apps](slug:getting-started-workflow-details)
 * [Exception: Telerik component requires a TelerikRootComponent](slug:common-kb-component-requires-telerikrootcomponent)

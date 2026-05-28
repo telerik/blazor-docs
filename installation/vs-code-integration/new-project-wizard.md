@@ -28,7 +28,7 @@ To create a Telerik-enabled Blazor project:
 
 ## Using the Wizard
 
-The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`](slug:installation-workflow-details).
+The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`](slug:getting-started-workflow-details).
 
 > Earlier versions of the wizard provided the **Admin**, **Dashboard**, **CRUD**, **Form**, and **Chart** templates which are now deprecated. You can find their source code in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
 
@@ -48,13 +48,13 @@ Select the preferred UI for Blazor version. Make sure that your system has acces
 
 #### Section 4: Select Hosting Model
 
-Here you can select the desired hosting model&mdash;[**WebApp**](slug:getting-started/web-app), [**Client** (also: WebAssembly)](slug:getting-started/client-side) or [**Hybrid** (a hybrid Blazor MAUI)](slug:getting-started/hybrid-blazor).
+Here you can select the desired hosting model&mdash;[**WebApp**, **Client** (also: WebAssembly)](slug:getting-started/web-app) or [**Hybrid** (a hybrid Blazor MAUI)](slug:getting-started/hybrid-blazor).
 
 The available target framework options are updated upon selecting the hosting model.
 
 #### Section 5: Choose How to Distribute the Client Assets
 
-Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets](slug:installation-workflow-details#css-theme-and-javascript-files) or load them from the [Telerik CDN](slug:common-features-cdn).
+Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets](slug:getting-started-workflow-details#css-theme-and-javascript-files) or load them from the [Telerik CDN](slug:common-features-cdn).
 
 #### Section 6: Configure Localization
 
@@ -81,6 +81,5 @@ After configuring the preferred settings, click the **Create Project** button. T
 
 * [Telerik UI for Blazor Visual Studio Code Extensions Overview](slug:getting-started-vs-code-integration-overview)
 * [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
-* [Getting Started with Client-Side Apps](slug:getting-started/client-side)
-* [Getting Started with Web Apps](slug:getting-started/web-app)
-* [Workflow for Using the UI Components for Blazor](slug:installation-workflow-details)
+* [Getting Started with Telerik UI for Blazor](slug:getting-started/web-app)
+* [Workflow for Using the UI Components for Blazor](slug:getting-started-workflow-details)

@@ -85,7 +85,7 @@ Here are a few examples:
 
 ## JavaScript URLs
 
-The CDN hosts the [JavaScript (JSInterop) file of Telerik UI for Blazor](slug:installation-workflow-details#javascript-file). The file URL looks like this:
+The CDN hosts the [JavaScript (JSInterop) file of Telerik UI for Blazor](slug:getting-started-workflow-details#javascript-file). The file URL looks like this:
 
 <code>blazor.cdn.telerik.com/blazor/**&lt;COMPONENT-VERSION&gt;**/telerik-blazor.min.js</code>
 
@@ -97,7 +97,7 @@ The CDN hosts the [JavaScript (JSInterop) file of Telerik UI for Blazor](slug:in
 <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js"></script>
 ````
 
-> When using the `telerik-blazor.js` file from CDN and with a `defer` attribute, [start the client-side Blazor framework manually](slug:installation-workflow-details#javascript-file).
+> When using the `telerik-blazor.js` file from CDN and with a `defer` attribute, [start the client-side Blazor framework manually](slug:getting-started-workflow-details#javascript-file).
 
 
 ## Pros and Cons of Using CDN
