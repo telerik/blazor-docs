@@ -10,7 +10,7 @@ position: 10
 
 This article describes how to use token-based authentication for the Telerik NuGet feed. You will learn how to create and use NuGet API keys to restore Telerik NuGet packages in your Continuous Integration (CI) workflow.
 
->tip This documentation page applies to Telerik UI for Blazor versions **13.3.0** and older. All packages required by newer versions are [available on nuget.org](https://www.nuget.org/profiles/Progress).
+>tip This documentation page applies to Telerik UI for Blazor versions **13.3.0** and earlier. All packages required by newer versions are [available on nuget.org](https://www.nuget.org/profiles/Progress).
 
 When you need to restore the [Telerik NuGet packages](slug:getting-started-workflow-details#nuget-packages) as part of your CI, using API Keys provides a secure way to authenticate. This method does not require you to provide your Telerik credentials anywhere in the CI workflow. An API key has a limited scope and can be used only with the Telerik NuGet server. If any of your API Keys is compromised, you can quickly delete it and create a new one.
 

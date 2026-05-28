@@ -28,7 +28,7 @@ If you are new to Telerik UI for Blazor, start from the [First Steps with Teleri
 
 Developers who are familiar with Blazor may prefer the [Workflow Details](slug:getting-started-workflow-details) article. It is a more advanced and flexible way to start using the Telerik components.
 
-> This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. Your can also [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
+> This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. You can also [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
 
 If you are just getting started with Blazor and Web development, you may find the following resources useful in getting up to speed with the core concepts:
 
