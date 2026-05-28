@@ -6,7 +6,7 @@ page_title: ArgumentNullException Value cannot be null (Parameter format)
 slug: common-kb-value-cannot-be-null-parameter-format
 position: 
 tags: localization, exception, error
-ticketid: 1528567, 1538739, 1542723, 1557818
+ticketid: 1528567, 1538739, 1542723, 1557818, 1714865
 res_type: kb
 category: knowledge-base
 components: ["general"]
@@ -18,9 +18,11 @@ components: ["general"]
         <tr>
             <td>Product</td>
             <td>
+                ColorPicker for Blazor, <br />
                 DateInput for Blazor, <br />
                 DatePicker for Blazor, <br />
                 DateTimePicker for Blazor, <br />
+                FlatColorPicker for Blazor, <br />
                 TimePicker for Blazor, <br />
                 <br />
                 Grid for Blazor, <br />
