@@ -21,7 +21,7 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 > * The current Workflow Details article assumes some Blazor experience and knowledge about the Blazor application structure. It requires manual configuration steps that help you learn about Telerik UI for Blazor in more depth.
 >
 >
-> It's best for first-time users to start from the [First Steps tutorial](slug:getting-started/web-app) and then come back to this article. Developers who have already set up Telerik Blazor apps can use directly this article.
+> It's best for first-time users to start from the [First Steps tutorial](slug:getting-started/web-app) and then come back to this article. Developers who have already set up Telerik Blazor apps can use this article.
 
 The required milestones to obtain and use Telerik UI for Blazor are:
 
@@ -236,7 +236,7 @@ Check the [`TelerikRootComponent` documentation](slug:rootcomponent-overview) fo
 
 ## Add Telerik Components to a View
 
-The Blazor application is ready to use Telerik components. For for example, add a `TelerikButton` component in `Home.razor`:
+The Blazor application is ready to use Telerik components. For example, add a `TelerikButton` component in `Home.razor`:
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 

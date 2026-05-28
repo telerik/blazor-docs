@@ -69,7 +69,7 @@ dotnet new telerik-blazor --help
 
 To create a new Blazor app:
 
-1. Open your Terminal or Shepp app and go to the desired parent folder of your future app.
+1. Open your Terminal or Shell app and go to the desired parent folder of your future app.
 1. Execute the `dotnet new` command with the short name of the template and the app name, for example:
    ```sh.skip-repl
    dotnet new telerik-blazor -o MyNewAppName

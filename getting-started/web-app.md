@@ -29,7 +29,7 @@ This article explains how to use the Telerik UI for Blazor components in web or 
 
 The fastest way to set up your Telerik development environment is to use the [Telerik CLI](slug:installation-cli) .NET tool. Run the following commands in your preferred command shell (Visual Studio Terminal, cmd, PowerShell, Bash, macOS Terminal, or other).
 
->tip If you have already setup your Telerik development environment and it doesn't need updating, skip to [Create New Blazor App](#create-new-blazor-app).
+>tip If you have already set up your Telerik development environment and it doesn't need updating, skip to [Create New Blazor App](#create-new-blazor-app).
 
 1. Install Telerik CLI
     ````SH.skip-repl
@@ -61,17 +61,15 @@ To create a new Telerik Blazor app, use your preferred approach:
 
 Use the .NET CLI `dotnet new` command to create a new Blazor Web App or WebAssembly Standalone App, depending on your preferences:
 
->caption Create a Blazor Web App with interactive Server render mode 
+* Create a Blazor Web App with interactive Server render mode 
+    ````SH.skip-repl
+    dotnet new telerik-blazor -o TelerikBlazorWebApp1 -int Server
+    ````
 
-````SH.skip-repl
-dotnet new telerik-blazor -o TelerikBlazorWebApp1 -int Server
-````
-
->caption Create a Blazor WebAssembly Standalone App
-
-````SH.skip-repl
-dotnet new telerik-blazorwasm -o TelerikBlazorWasmApp1
-````
+* Create a Blazor WebAssembly Standalone App
+    ````SH.skip-repl
+    dotnet new telerik-blazorwasm -o TelerikBlazorWasmApp1
+    ````
 
 </TabStripTab>
 <TabStripTab title="Visual Studio or VS Code">
@@ -99,7 +97,7 @@ telerik create blazor
 
 ## Add Telerik Component
 
-Run the new Blazor app in the browser. Then, add a new Telerik component. For for example, add a `TelerikButton` component in `Home.razor`:
+Run the new Blazor app in the browser. Then, add a new Telerik component. For example, add a `TelerikButton` component in `Home.razor`:
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
