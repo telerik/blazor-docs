@@ -12,6 +12,8 @@ position: 7
 
 This article summarizes the issues that may occur when you work with the Telerik UI for Blazor library and the online [Telerik NuGet feed](slug:installation-nuget), and their solutions.
 
+>tip This documentation page applies to the private Telerik NuGet package source `nuget.telerik.com`. Starting from Telerik UI for Blazor version **14.0.0**, the required NuGet packages are [available on nuget.org](https://www.nuget.org/profiles/Progress).
+
 Regardless of the cause for the issue, it is recommended that you start from the section on the commonly occurring issues.
 
 * [Tips for handling common NuGet issues](#tips-for-handling-common-nuget-issues)
