@@ -39,7 +39,7 @@ The resulting scrollbars should always be gray. However, if the operating system
 To avoid scrollbar visibility issues on iOS devices:
 
 1. [Detect the operating system color mode](https://stackoverflow.com/questions/56393880/how-do-i-detect-dark-mode-using-javascript) with the help of [`matchMedia()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) and [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme).
-1. [Load a consistent dark or light Telerik theme](slug:common-kb-change-theme-runtime). Note that the theme switching mechanisn in the example below is simplified and may not fit all scenarios.
+1. [Load a consistent dark or light Telerik theme](slug:common-kb-change-theme-runtime). Note that the theme switching mechanism in the example below is simplified and may not fit all scenarios.
 
 >caption Use dark or light Telerik theme, depending on the operating system color mode
 
