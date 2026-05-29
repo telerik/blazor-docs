@@ -9,3 +9,7 @@ The Telerik Blazor validation tools let you match the style of your validation m
 #note-editcontext-formitem-template
 > When using the [Form `EditContext` parameter](slug:form-overview#creating-blazor-form) together with [validation components](slug:validation-tools-overview) or [Form item `<Template>`s](slug:form-formitems-template), make sure to create the `EditContext` from the model instance, which is used by the validation components and inside the Form item templates. Otherwise, the Form will not update the correct object instance and validation will not work as expected.
 #end
+
+#note-fluentvalidation
+> Although `Blazored.FluentValidation` was deprecated, the following example uses it, because the package is still more popular that its alternatives. Telerik does not endorse any particular third-party validator. From Telerik API perspective, the integration is the same with any validator.
+#end
