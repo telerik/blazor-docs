@@ -15,6 +15,10 @@ The <a href="https://www.telerik.com/blazor-ui/segmented-control" target="_blank
 
 >tip Compared to the ButtonGroup, the SegmentedControl is a data-bound component — it renders items from a `Data` collection and allows only single selection. The [ButtonGroup](slug:buttongroup-overview) is markup-based — you declare each button explicitly as a child component and can configure the component for single or multiple selection.
 
+## Comparison with ButtonGroup and TabStrip
+
+@[template](/_contentTemplates/segmentedcontrol/notes.md#comparison-with-buttongroup-tabstrip)
+
 ## Creating Blazor SegmentedControl
 
 1. Use the `<TelerikSegmentedControl>` tag.
