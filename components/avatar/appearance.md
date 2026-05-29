@@ -133,20 +133,11 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
 |`Primary`|`primary`|
 |`Secondary`|`secondary`|
 |`Tertiary`|`tertiary`|
-|`Info`|`info`|
-|`Success`|`success`|
-|`Warning`|`warning`|
-|`Error`|`error`|
-|`Dark`|`dark`|
-|`Light`|`light`|
-|`Inverse`|`inverse`|
 
-
->caption The built-in ThemeColors
+>caption Built-in Avatar ThemeColors
 
 ````RAZOR
-@* The built-in Avatar colors *@
-
+<div style="display: flex; gap: 1em;">
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.ThemeColor)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -157,13 +148,16 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
     {
         string themeColor = field.GetValue(null).ToString();
 
-        <div style="float:left; margin: 20px;">
+        <div style="text-align: center;">
             <TelerikAvatar ThemeColor="@themeColor" Type="AvatarType.Text">
                 JD
             </TelerikAvatar>
+            <br />
+            @themeColor
         </div>
     }
 }
+</div>
 ````
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
