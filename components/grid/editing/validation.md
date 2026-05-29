@@ -51,16 +51,14 @@ The example below shows how to:
 * Enable and disable validation in the Grid.
 * Validate the user input with a custom validator instead of the default `DataAnnotationsValidator`.
 
-Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazored.FluentValidation) NuGet package to run the following code and refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
+Install the [`Blazilla` NuGet package](https://www.nuget.org/packages/Blazilla) NuGet package to run the following code and refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
 
 @[template](/_contentTemplates/common/form-validation.md#note-fluentvalidation)
 
 >caption Use Telerik Grid for Blazor with FluentValidation
 
 ````RAZOR.skip-repl
-@* Requires the Blazored.FluentValidation NuGet package *@
-
-@using Blazored.FluentValidation
+@using Blazilla
 @using FluentValidation
 
 <TelerikGrid Data="@GridData"
@@ -70,7 +68,7 @@ Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazore
     <GridSettings>
         <GridValidationSettings Enabled="@GridValidationEnabled">
             <ValidatorTemplate>
-                <FluentValidationValidator Validator="@GridFluentValidator" />
+                <FluentValidator Validator="@GridFluentValidator" />
             </ValidatorTemplate>
         </GridValidationSettings>
     </GridSettings>
