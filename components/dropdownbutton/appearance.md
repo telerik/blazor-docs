@@ -192,8 +192,6 @@ The `ThemeColor` parameter sets the background and text color of the DropDownBut
 | `Success` | `"success"` |
 | `Warning` | `"warning"` |
 | `Error` | `"error"` |
-| `Dark` | `"dark"` |
-| `Light` | `"light"` |
 | `Inverse` | `"inverse"` |
 
 >caption DropDownButton ThemeColor example

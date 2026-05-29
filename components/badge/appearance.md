@@ -71,9 +71,6 @@ You can change the color of the Badge by setting the `ThemeColor` parameter to a
 | `Success` | `success`|
 | `Warning` | `warning`|
 | `Error` | `error`  |
-| `Dark` | `dark`   |
-| `Light` | `light`  |
-| `Inverse` | `inverse`|
 
 Refer to the [example](#example) below to customize the available parameters and observe their impact on the Badge component.
 
@@ -110,6 +107,9 @@ The following example lets you experiment with the available settings that contr
         </div>
     </div>
 
+    <br />
+    <br />
+
     <div class="row">
         <div class="col-md-12 text-center">
             <TelerikButton>
@@ -136,10 +136,7 @@ The following example lets you experiment with the available settings that contr
         "info",
         "success",
         "warning",
-        "error",
-        "dark",
-        "light",
-        "inverse"
+        "error"
     };
 
     private string FillMode { get; set; } = ThemeConstants.Badge.FillMode.Solid;
