@@ -12,51 +12,16 @@ components: ["loadercontainer"]
 
 This article explains how to control the LoaderContainer look and feel.
 
-The LoaderContainer component provides multiple parameters that control its appearance:
-
-* [OverlayThemeColor](#overlaythemecolor)
-* [LoaderPosition](#loaderposition)
-
 The LoaderContainer uses a nested internal [Loader component](slug:loader-overview) to show the animated indicator. The LoaderContainer exposes parameters, which directly control the Loader's appearance:
 
 * [LoaderType](#loadertype)
 * [Size](#size)
 * [ThemeColor](#themecolor)
-    
+
+In addition, the LoaderContainer component provides a [LoaderPosition](#loaderposition) parameter.
+
 You can see the appearance settings in action in the [LoaderContainer Appearance live demo](https://demos.telerik.com/blazor-ui/loadercontainer/appearance).
 
-
-## OverlayThemeColor
-
-The `OverlayThemeColor` parameter sets the color of the LoaderContainer's semi-transparent overlay. It takes a string from the options below. To make the overlay fully transparent, set the value to `String.Empty` or `null`.
-
-* `"dark"` (default) - black semi-transparent background
-* `"light"` - white background color with opacity
-
->caption Change the OverlayThemeColor
-
-![Blazor Loadercontainer Overlaythemecolor Light Screenshot](images/loadercontainer-overlaythemecolor-light-screenshot.png)
-
-````RAZOR
-@*This example shows the difference between the light and dark overlay theme colors*@
-
-<div class="row">
-    <div class="col-4" style="position: relative; height: 200px">
-        <TelerikLoaderContainer OverlayThemeColor="dark"></TelerikLoaderContainer>
-
-        <div>
-            This is some text to showcase the dark overlay theme color
-        </div>
-    </div>
-    <div class="col-4" style="position: relative; height: 200px">
-        <TelerikLoaderContainer OverlayThemeColor="light"></TelerikLoaderContainer>
-
-        <div>
-            This is some text to showcase the light overlay theme color
-        </div>
-    </div>
-</div>
-````
 
 ## LoaderPosition
 
@@ -122,7 +87,7 @@ See [Loader `ThemeColor`](slug:loader-appearance#themecolor) for a list of possi
 >caption Setting TelerikLoaderContainer ThemeColor
 
 ````RAZOR
-<TelerikLoaderContainer ThemeColor="@ThemeConstants.Loader.ThemeColor.Info" />
+<TelerikLoaderContainer ThemeColor="@ThemeConstants.Loader.ThemeColor.Primary" />
 ````
 
 ### Custom LoaderContainer Colors

@@ -192,8 +192,6 @@ The `ThemeColor` parameter sets the SplitButton's background and text color from
 | `Success` | `"success"` |
 | `Warning` | `"warning"` |
 | `Error` | `"error"` |
-| `Dark` | `"dark"` |
-| `Light` | `"light"` |
 | `Inverse` | `"inverse"` |
 
 >caption SplitButton ThemeColor example
