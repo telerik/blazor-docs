@@ -135,17 +135,11 @@ The color of the notification popup is easily controlled through the `ThemeColor
 * `Info`
 * `Warning`
 * `Error`
-* `Dark`
-* `Light`
 * `Inverse`
 
 These predefined options match the main [Telerik Theme](slug:themes-overview) and you can see that in action in the [Notification Appearance](https://demos.telerik.com/blazor-ui/notification/appearance) Live Demo.
 
 There are built-in themes for the most common notifications such as Success, Info, Warning, Error, that also come with predefined icons, so you don't have to set them explicitly.
-
->caption Built-in Theme Colors
-
-![Notification Theme Colors](images/notification-themecolor-screenshot.png)
 
 ````RAZOR
 @* This sample adds a notification with each built-in theme color *@

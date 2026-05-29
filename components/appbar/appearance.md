@@ -22,12 +22,6 @@ You can change the color of the AppBar by setting the `ThemeColor` parameter to 
 | `Primary` | `primary`|
 | `Secondary` | `secondary`|
 | `Tertiary` | `tertiary`|
-| `Info` | `info`   |
-| `Success` | `success`|
-| `Warning` | `warning`|
-| `Error` | `error`  |
-| `Dark` | `dark`   |
-| `Light` | `light`  |
 | `Inverse` | `inverse`|
 
 >caption The built-in AppBar colors
@@ -74,12 +68,6 @@ You can change the color of the AppBar by setting the `ThemeColor` parameter to 
         "primary",
         "secondary",
         "tertiary",
-        "info",
-        "success",
-        "warning",
-        "error",
-        "dark",
-        "light",
         "inverse"
     };
 }

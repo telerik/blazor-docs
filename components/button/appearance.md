@@ -93,8 +93,6 @@ The `ThemeColor` parameter controls the Button background, text, and border colo
 | `Success` | `success` |
 | `Warning` | `warning` |
 | `Error` | `error` |
-| `Dark` | `dark` |
-| `Light` | `light` |
 | `Inverse` | `inverse` |
 
 
