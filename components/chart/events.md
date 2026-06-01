@@ -13,9 +13,13 @@ components: ["charts"]
 This article describes the available events for the Telerik Chart for Blazor:
 
 * [OnAxisLabelClick](#onaxislabelclick)
-* [OnLegendItemClick](#onlegenditemclick)
+* [OnDragEnd](#ondragend)
+* [OnDragStart](#ondragstart)
 * [OnDrilldown](#ondrilldown)
+* [OnLegendItemClick](#onlegenditemclick)
 * [OnSeriesClick](#onseriesclick)
+* [OnZoomEnd](#onzoomend)
+* [OnZoomStart](#onzoomstart)
 
 ## OnAxisLabelClick
 
@@ -233,6 +237,66 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
     }
 }
 ````
+
+## OnDragEnd
+
+The Chart `OnDragEnd` event fires at the end of a drag (pan) gesture. The event argument is of type `ChartDragEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnDragEnd` event fires after [`OnDragStart`](#ondragstart).
+
+````RAZOR.skip-repl
+<TelerikChart OnDragEnd="@OnChartDragEnd">
+    <ChartPannable Enabled="true"></ChartPannable>
+    ...
+</TelerikChart>
+
+@code {
+    private void OnChartDragEnd(ChartDragEndEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
+
+## OnDragStart
+
+The Chart `OnDragStart` event fires at the beginning of a drag (pan) gesture. The event argument is of type `ChartDragStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnDragStart` event fires before [`OnDragEnd`](#ondragend).
+
+````RAZOR.skip-repl
+<TelerikChart OnDragStart="@OnChartDragStart">
+    <ChartPannable Enabled="true"></ChartPannable>
+    ...
+</TelerikChart>
+
+@code {
+    private void OnChartDragStart(ChartDragStartEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
+
+
 
 ## OnDrilldown
 
@@ -491,6 +555,153 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 
 
+## OnZoomEnd
+
+The Chart `OnZoomEnd` event fires at the end of a zoom gesture. The event argument is of type `ChartZoomEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnZoomEnd` event fires after [`OnZoomStart`](#onzoomstart).
+
+````RAZOR.skip-repl
+<TelerikChart OnZoomEnd="@OnChartZoomEnd">
+    <ChartZoomable Enabled="true"></ChartZoomable>
+    ...
+</TelerikChart>
+
+@code {
+    private void OnChartZoomEnd(ChartZoomEndEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
+
+## OnZoomStart
+
+The Chart `OnZoomStart` event fires at the beginning of a zoom gesture. The event argument is of type `ChartZoomStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnZoomStart` event fires before [`OnZoomEnd`](#onzoomend).
+
+````RAZOR.skip-repl
+<TelerikChart OnZoomStart="@OnChartZoomStart">
+    <ChartZoomable Enabled="true"></ChartZoomable>
+    ...
+</TelerikChart>
+
+@code {
+    private void OnChartZoomStart(ChartZoomStartEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
+
+## Example
+
+The following example demonstrates all drag and zoom events in a Chart that has both [panning](slug:components/chart/pan) and [zooming](slug:components/chart/zoom) enabled.
+
+````RAZOR
+@* Chart drag (pan) and zoom events *@
+
+<p>Last event: @EventLog</p>
+
+<TelerikChart OnDragStart="@OnChartDragStart"
+              OnDragEnd="@OnChartDragEnd"
+              OnZoomStart="@OnChartZoomStart"
+              OnZoomEnd="@OnChartZoomEnd">
+
+    <ChartPannable Enabled="true"></ChartPannable>
+
+    <ChartZoomable Enabled="true">
+        <ChartZoomableMousewheel Enabled="true"></ChartZoomableMousewheel>
+        <ChartZoomableSelection Enabled="true"></ChartZoomableSelection>
+    </ChartZoomable>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column"
+                     Name="Revenue"
+                     Data="@ChartData"
+                     Field="@nameof(ChartModel.Revenue)"
+                     CategoryField="@nameof(ChartModel.Month)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Name="month-axis" Min="0" Max="5"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Monthly Revenue"></ChartTitle>
+</TelerikChart>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<ChartModel> ChartData { get; set; } = new List<ChartModel>();
+
+    private void OnChartDragStart(ChartDragStartEventArgs args)
+    {
+        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
+        EventLog = $"OnDragStart — {ranges}";
+    }
+
+    private void OnChartDragEnd(ChartDragEndEventArgs args)
+    {
+        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
+        EventLog = $"OnDragEnd — {ranges}";
+    }
+
+    private void OnChartZoomStart(ChartZoomStartEventArgs args)
+    {
+        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
+        EventLog = $"OnZoomStart — {ranges}";
+    }
+
+    private void OnChartZoomEnd(ChartZoomEndEventArgs args)
+    {
+        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
+        EventLog = $"OnZoomEnd — {ranges}";
+    }
+
+    protected override void OnInitialized()
+    {
+        var months = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+        var rnd = new Random();
+
+        for (int i = 0; i < months.Length; i++)
+        {
+            ChartData.Add(new ChartModel { Month = months[i], Revenue = rnd.Next(200, 1000) });
+        }
+    }
+
+    public class ChartModel
+    {
+        public string Month { get; set; }
+        public int Revenue { get; set; }
+    }
+}
+````
+
 ## See Also
 
 * [Live Demo: Chart Events](https://demos.telerik.com/blazor-ui/chart/events)
+* [Chart Pan](slug:components/chart/pan)
+* [Chart Zoom](slug:components/chart/zoom)
+
+

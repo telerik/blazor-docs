@@ -12,8 +12,68 @@ components: ["stockchart"]
 
 This article explains the available events for the Telerik Stock Chart for Blazor:
 
+* [OnDragEnd](#ondragend)
+* [OnDragStart](#ondragstart)
 * [OnSeriesClick](#onseriesclick)
+* [OnZoomEnd](#onzoomend)
+* [OnZoomStart](#onzoomstart)
 
+
+## OnDragEnd
+
+The Stock Chart `OnDragEnd` event fires at the end of a drag (pan) gesture. The event argument is of type `ChartDragEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnDragEnd` event fires after [`OnDragStart`](#ondragstart).
+
+````RAZOR.skip-repl
+<TelerikStockChart OnDragEnd="@OnStockChartDragEnd">
+    ...
+</TelerikStockChart>
+
+@code {
+    private void OnStockChartDragEnd(ChartDragEndEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
+
+## OnDragStart
+
+The Stock Chart `OnDragStart` event fires at the beginning of a drag (pan) gesture. The event argument is of type `ChartDragStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnDragStart` event fires before [`OnDragEnd`](#ondragend).
+
+````RAZOR.skip-repl
+<TelerikStockChart OnDragStart="@OnStockChartDragStart">
+    ...
+</TelerikStockChart>
+
+@code {
+    private void OnStockChartDragStart(ChartDragStartEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
 
 ## OnSeriesClick
 
@@ -274,6 +334,62 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 >caption The result from the code snippet above
 
 ![onseriesclick get data model example](images/stockchart-onseriesclick-data-model.gif)
+
+## OnZoomEnd
+
+The Stock Chart `OnZoomEnd` event fires at the end of a zoom gesture. The event argument is of type `ChartZoomEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnZoomEnd` event fires after [`OnZoomStart`](#onzoomstart).
+
+````RAZOR.skip-repl
+<TelerikStockChart OnZoomEnd="@OnStockChartZoomEnd">
+    ...
+</TelerikStockChart>
+
+@code {
+    private void OnStockChartZoomEnd(ChartZoomEndEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
+
+## OnZoomStart
+
+The Stock Chart `OnZoomStart` event fires at the beginning of a zoom gesture. The event argument is of type `ChartZoomStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnZoomStart` event fires before [`OnZoomEnd`](#onzoomend).
+
+````RAZOR.skip-repl
+<TelerikStockChart OnZoomStart="@OnStockChartZoomStart">
+    ...
+</TelerikStockChart>
+
+@code {
+    private void OnStockChartZoomStart(ChartZoomStartEventArgs args)
+    {
+        foreach (var range in args.AxisRanges)
+        {
+            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
+        }
+    }
+}
+````
 
 ## See Also
 
