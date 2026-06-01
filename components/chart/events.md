@@ -692,7 +692,7 @@ The following example demonstrates all drag and zoom events in a Chart that has 
 
     public class ChartModel
     {
-        public string Month { get; set; }
+        public string Month { get; set; } = string.Empty;
         public int Revenue { get; set; }
     }
 }
@@ -703,5 +703,4 @@ The following example demonstrates all drag and zoom events in a Chart that has 
 * [Live Demo: Chart Events](https://demos.telerik.com/blazor-ui/chart/events)
 * [Chart Pan](slug:components/chart/pan)
 * [Chart Zoom](slug:components/chart/zoom)
-
 
