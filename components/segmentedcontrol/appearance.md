@@ -132,4 +132,4 @@ The `Size` parameter controls the padding of the Segmented Control items. Use th
 ## See Also
 
 * [SegmentedControl Overview](slug:segmentedcontrol-overview)
-* [Live Demo: SegmentedControl](https://demos.telerik.com/blazor-ui/segmentedcontrol/overview)
+* [Live Demo: SegmentedControl](https://demos.telerik.com/blazor-ui/segmented-control/overview)
