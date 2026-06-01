@@ -11,5 +11,9 @@ The Telerik Blazor validation tools let you match the style of your validation m
 #end
 
 #note-fluentvalidation
-> Although `Blazored.FluentValidation` was deprecated, the following example uses it, because the package is still more popular that its alternatives. Telerik does not endorse any particular third-party validator. From Telerik API perspective, the integration is the same with any validator.
+> Telerik does not endorse any particular third-party validator. From Telerik API perspective, the integration is the same with any validator. To run the example with the popular (but obsolete) `Blazored.FluentValidation` library instead of `Blazilla`:
+>
+> * Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazored.FluentValidation) NuGet package
+> * Use `@using Blazored.FluentValidation` instead of `@using Blazilla`
+> * Use `<FluentValidationValidator>` instead of `<FluentValidator>`
 #end
