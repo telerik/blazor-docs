@@ -30,9 +30,7 @@ dotnet tool install -g Telerik.CLI
 
 Without the `-g` flag, .NET installs the tool in the current folder only.
 
-To verify successful installation, run:
-
->caption Confirm Telerik CLI installation
+To confirm successful installation, run:
 
 ````SH.skip-repl
 dotnet tool list -g
@@ -40,15 +38,11 @@ dotnet tool list -g
 
 To update the Telerik CLI to the latest version, run:
 
->caption Update Telerik CLI
-
 ````SH.skip-repl
 dotnet tool update telerik.cli -g
 ````
 
 To uninstall the Telerik CLI, run:
-
->caption Uninstall Telerik CLI
 
 ````SH.skip-repl
 dotnet tool uninstall -g Telerik.CLI
@@ -56,7 +50,18 @@ dotnet tool uninstall -g Telerik.CLI
 
 ## Usage
 
-Each Telerik CLI command starts with the `telerik` tool name, followed by the respective command and options. First, [log in the CLI](#log-in) to use the other commands effectively.
+There are two ways to use the Telerik CLI:
+
+* Execute the `telerik` tool without any commands or options. This starts the interactive experience which allows you to see a list of all available commands and navigate through them with the `Up` and `Down` arrow keys.
+
+    ````SH.skip-repl
+    telerik
+    ````
+* Type the `telerik` tool name, followed by the respective command and options. First, [log in the CLI](#log-in) to use the other commands effectively.
+
+    ````SH.skip-repl
+    telerik login
+    ````
 
 ### Help
 
@@ -165,7 +170,7 @@ The Telerik CLI stores a session token in:
 
 The session token is valid for one month.
 
-## Check Login State
+### Check Login State
 
 To see which Telerik user is logged in the CLI, use the `whoami` command:
 
@@ -175,7 +180,7 @@ telerik whoami
 
 The CLI will output your Telerik user account email.
 
-## Log Out
+### Log Out
 
 To log out from the Telerik CLI, use the `logout` command.
 
