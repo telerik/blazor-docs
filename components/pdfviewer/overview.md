@@ -35,6 +35,14 @@ The [PdfViewer toolbar can render built-in and custom tools](slug:pdfviewer-tool
 * Search and select text
 * Print, download and open local PDF files
 
+## Pinch-to-Zoom
+
+The Telerik PdfViewer supports built-in pinch-to-zoom gestures for touch devices, including mobile phones, tablets, and touchscreen computers. This behavior is enabled by default and works in modern mobile browsers that support the Touch Events API.
+
+Pinch-to-zoom complements the toolbar zoom tools and provides a more natural touch interaction than step-based zoom buttons. Gesture-based and toolbar zoom operations both respect the configured [`MinZoom`](#pdfviewer-parameters) and [`MaxZoom`](#pdfviewer-parameters) values.
+
+<demo metaUrl="client/pdfviewer/pinch-to-zoom/" height="400"></demo>
+
 ## Annotations
 
 The PdfViewer provides a built-in option for creating and editing annotations. Explore the [available annotation types and how to work with them](slug:pdfviewer-annotations).
