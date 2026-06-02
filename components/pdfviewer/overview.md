@@ -41,7 +41,7 @@ The Telerik PdfViewer supports built-in pinch-to-zoom gestures for touch devices
 
 Pinch-to-zoom complements the toolbar zoom tools and provides a more natural touch interaction than step-based zoom buttons. Gesture-based and toolbar zoom operations both respect the configured [`MinZoom`](#pdfviewer-parameters) and [`MaxZoom`](#pdfviewer-parameters) values.
 
-<demo metaUrl="client/pdfviewer/pinch-to-zoom/" height="400"></demo>
+<demo metaUrl="client/pdfviewer/pinch-to-zoom/" height="800"></demo>
 
 ## Annotations
 
