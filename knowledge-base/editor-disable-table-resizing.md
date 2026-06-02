@@ -28,40 +28,88 @@ How can I disable table resizing in the Telerik UI for Blazor Editor?
 
 ## Solution
 
-Hide table resize handles, to prevent table resizing:
+Hide table resize handles, to prevent table resizing. The approach depends on the [Editor edit mode](slug:editor-edit-modes-overview):
 
-1. Set the Editor `EditMode` to [`Div`](slug:editor-edit-modes-div).
-1. Use CSS to hide the table resize handles.
+* [Div mode](#div-mode) — use regular page CSS.
+* [Iframe mode](#iframe-mode) — inject CSS into the iframe document with JavaScript.
 
-This approach works with `Div` mode because it uses the page styles. The [`Iframe` mode](slug:editor-edit-modes-iframe) does not inherit the page CSS.
+### Div mode
 
->caption Hide table resize handles in the Telerik UI for Blazor Editor
+When the Editor [`EditMode`](slug:editor-edit-modes-overview) is [`Div`](slug:editor-edit-modes-div), the editable area is part of the current page document and inherits its CSS.
+
+>caption Hide table resize handles in the Telerik UI for Blazor Editor (Div mode)
 
 ````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor EditMode="@EditorEditMode.Div"
                @bind-Value="@EditorValue"
-               Tools="@Tools">
+               Tools="@EditorToolSets.All">
 </TelerikEditor>
 
 <style>
-    .k-editor .ProseMirror .column-resize-handle {
+    .k-editor .ProseMirror .column-resize-handle,
+    .k-editor .ProseMirror .row-resize-handle {
         display: none !important;
     }
 </style>
 
 @code {
-    private string EditorValue { get; set; } = "<p>Use the toolbar to insert a table.</p>";
+    private string EditorValue { get; set; } = @"
+<table>
+    <tbody>
+        <tr><td>R1C1</td><td>R1C2</td><td>R1C3</td></tr>
+        <tr><td>R2C1</td><td>R2C2</td><td>R2C3</td></tr>
+        <tr><td>R3C1</td><td>R3C2</td><td>R3C3</td></tr>
+    </tbody>
+</table>";
+}
+````
 
-    private List<IEditorTool> Tools { get; set; } = new()
+### Iframe mode
+
+When the Editor [`EditMode`](slug:editor-edit-modes-overview) is [`Iframe`](slug:editor-edit-modes-iframe) (the default), the editable area is inside an `<iframe>` element that does not apply the CSS rules of the current page. You must inject the CSS into the iframe document using JavaScript.
+
+>caption Hide table resize handles in the Telerik UI for Blazor Editor (Iframe mode)
+
+````RAZOR
+@inject IJSRuntime JS
+@using Telerik.Blazor.Components.Editor
+
+<TelerikEditor @bind-Value="@EditorValue"
+               Tools="@EditorToolSets.All">
+</TelerikEditor>
+
+@* suppress-error allows script tags inside Razor components as a workaround. *@
+@* Move this script to an external JS file in production environment. *@
+<script suppress-error="BL9992">
+    function hideEditorTableResizeHandlesInIframe() {
+        var iframe = document.querySelector(".k-editor iframe");
+        if (!iframe) return;
+        var doc = iframe.contentDocument || iframe.contentWindow.document;
+        var style = doc.createElement("style");
+        style.textContent = ".column-resize-handle, .row-resize-handle { display: none !important; }";
+        doc.head.appendChild(style);
+    }
+</script>
+
+@code {
+    private string EditorValue { get; set; } = @"
+<table>
+    <tbody>
+        <tr><td>R1C1</td><td>R1C2</td><td>R1C3</td></tr>
+        <tr><td>R2C1</td><td>R2C2</td><td>R2C3</td></tr>
+        <tr><td>R3C1</td><td>R3C2</td><td>R3C3</td></tr>
+    </tbody>
+</table>";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        new EditorButtonGroup(new Bold(), new Italic(), new Underline()),
-        new UnorderedList(),
-        new EditorButtonGroup(new CreateLink(), new Unlink(), new InsertImage()),
-        new InsertTable(),
-        new EditorButtonGroup(new AddRowBefore(), new AddRowAfter(), new MergeCells(), new SplitCell())
-    };
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("hideEditorTableResizeHandlesInIframe");
+        }
+    }
 }
 ````
 
