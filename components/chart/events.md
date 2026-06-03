@@ -250,19 +250,32 @@ The Chart `OnDragEnd` event fires at the end of a drag (pan) gesture. The event 
 
 The `OnDragEnd` event fires after [`OnDragStart`](#ondragstart).
 
-````RAZOR.skip-repl
+````RAZOR
 <TelerikChart OnDragEnd="@OnChartDragEnd">
     <ChartPannable Enabled="true"></ChartPannable>
-    ...
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
 </TelerikChart>
 
+<div>Last event: @EventLog</div>
+
 @code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
     private void OnChartDragEnd(ChartDragEndEventArgs args)
     {
-        foreach (var range in args.AxisRanges)
-        {
-            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
-        }
+        EventLog = $"OnDragEnd fired for {args.AxisRanges.Count} axis range(s).";
     }
 }
 ````
@@ -279,19 +292,32 @@ The Chart `OnDragStart` event fires at the beginning of a drag (pan) gesture. Th
 
 The `OnDragStart` event fires before [`OnDragEnd`](#ondragend).
 
-````RAZOR.skip-repl
+````RAZOR
 <TelerikChart OnDragStart="@OnChartDragStart">
     <ChartPannable Enabled="true"></ChartPannable>
-    ...
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
 </TelerikChart>
 
+<div>Last event: @EventLog</div>
+
 @code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
     private void OnChartDragStart(ChartDragStartEventArgs args)
     {
-        foreach (var range in args.AxisRanges)
-        {
-            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
-        }
+        EventLog = $"OnDragStart fired for {args.AxisRanges.Count} axis range(s).";
     }
 }
 ````
@@ -567,19 +593,35 @@ The Chart `OnZoomEnd` event fires at the end of a zoom gesture. The event argume
 
 The `OnZoomEnd` event fires after [`OnZoomStart`](#onzoomstart).
 
-````RAZOR.skip-repl
+````RAZOR
 <TelerikChart OnZoomEnd="@OnChartZoomEnd">
-    <ChartZoomable Enabled="true"></ChartZoomable>
-    ...
+    <ChartZoomable Enabled="true">
+        <ChartZoomableMousewheel Enabled="true"></ChartZoomableMousewheel>
+        <ChartZoomableSelection Enabled="true"></ChartZoomableSelection>
+    </ChartZoomable>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
 </TelerikChart>
 
+<div>Last event: @EventLog</div>
+
 @code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
     private void OnChartZoomEnd(ChartZoomEndEventArgs args)
     {
-        foreach (var range in args.AxisRanges)
-        {
-            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
-        }
+        EventLog = $"OnZoomEnd fired for {args.AxisRanges.Count} axis range(s).";
     }
 }
 ````
@@ -596,104 +638,35 @@ The Chart `OnZoomStart` event fires at the beginning of a zoom gesture. The even
 
 The `OnZoomStart` event fires before [`OnZoomEnd`](#onzoomend).
 
-````RAZOR.skip-repl
-<TelerikChart OnZoomStart="@OnChartZoomStart">
-    <ChartZoomable Enabled="true"></ChartZoomable>
-    ...
-</TelerikChart>
-
-@code {
-    private void OnChartZoomStart(ChartZoomStartEventArgs args)
-    {
-        foreach (var range in args.AxisRanges)
-        {
-            Console.WriteLine($"Axis: {range.Key}, Min: {range.Value.Min}, Max: {range.Value.Max}");
-        }
-    }
-}
-````
-
-## Example
-
-The following example demonstrates all drag and zoom events in a Chart that has both [panning](slug:components/chart/pan) and [zooming](slug:components/chart/zoom) enabled.
-
 ````RAZOR
-@* Chart drag (pan) and zoom events *@
-
-<p>Last event: @EventLog</p>
-
-<TelerikChart OnDragStart="@OnChartDragStart"
-              OnDragEnd="@OnChartDragEnd"
-              OnZoomStart="@OnChartZoomStart"
-              OnZoomEnd="@OnChartZoomEnd">
-
-    <ChartPannable Enabled="true"></ChartPannable>
-
+<TelerikChart OnZoomStart="@OnChartZoomStart">
     <ChartZoomable Enabled="true">
         <ChartZoomableMousewheel Enabled="true"></ChartZoomableMousewheel>
         <ChartZoomableSelection Enabled="true"></ChartZoomableSelection>
     </ChartZoomable>
 
     <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column"
-                     Name="Revenue"
-                     Data="@ChartData"
-                     Field="@nameof(ChartModel.Revenue)"
-                     CategoryField="@nameof(ChartModel.Month)">
-        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
     </ChartSeriesItems>
 
     <ChartCategoryAxes>
-        <ChartCategoryAxis Name="month-axis" Min="0" Max="5"></ChartCategoryAxis>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
     </ChartCategoryAxes>
-
-    <ChartTitle Text="Monthly Revenue"></ChartTitle>
 </TelerikChart>
+
+<div>Last event: @EventLog</div>
 
 @code {
     private string EventLog { get; set; } = "No event fired yet.";
 
-    private List<ChartModel> ChartData { get; set; } = new List<ChartModel>();
-
-    private void OnChartDragStart(ChartDragStartEventArgs args)
-    {
-        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
-        EventLog = $"OnDragStart — {ranges}";
-    }
-
-    private void OnChartDragEnd(ChartDragEndEventArgs args)
-    {
-        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
-        EventLog = $"OnDragEnd — {ranges}";
-    }
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
 
     private void OnChartZoomStart(ChartZoomStartEventArgs args)
     {
-        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
-        EventLog = $"OnZoomStart — {ranges}";
-    }
-
-    private void OnChartZoomEnd(ChartZoomEndEventArgs args)
-    {
-        var ranges = string.Join(", ", args.AxisRanges.Select(r => $"{r.Key}: [{r.Value.Min}, {r.Value.Max}]"));
-        EventLog = $"OnZoomEnd — {ranges}";
-    }
-
-    protected override void OnInitialized()
-    {
-        var months = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-        var rnd = new Random();
-
-        for (int i = 0; i < months.Length; i++)
-        {
-            ChartData.Add(new ChartModel { Month = months[i], Revenue = rnd.Next(200, 1000) });
-        }
-    }
-
-    public class ChartModel
-    {
-        public string Month { get; set; } = string.Empty;
-        public int Revenue { get; set; }
+        EventLog = $"OnZoomStart fired for {args.AxisRanges.Count} axis range(s).";
     }
 }
 ````
