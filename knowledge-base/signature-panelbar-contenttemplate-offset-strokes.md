@@ -111,23 +111,15 @@ Render the Signature only after the PanelBar animation ends:
     {
         SignatureItem = new PanelBarItem { Text = "Sign Here" };
 
-        var documentsItem = new PanelBarItem
-        {
-            Text = "Documents",
-            Items = new List<PanelBarItem>
-            {
-                new() { Text = "Reports" },
-                SignatureItem
-            }
-        };
-
         PanelBarData = new List<PanelBarItem>
         {
-            documentsItem,
+            new() { Text = "Documents" },
+            new() { Text = "Reports" },
+            SignatureItem,
             new() { Text = "Settings" }
         };
 
-        ExpandedItems = new List<object> { documentsItem, SignatureItem };
+        ExpandedItems = new List<object> { SignatureItem };
     }
 
     protected override void OnInitialized()
