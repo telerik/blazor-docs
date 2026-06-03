@@ -48,8 +48,12 @@ When the Editor [`EditMode`](slug:editor-edit-modes-overview) is [`Div`](slug:ed
 </TelerikEditor>
 
 <style>
+    /* Hide column resizers */
     .k-editor .ProseMirror .column-resize-handle,
-    .k-editor .ProseMirror .row-resize-handle {
+    /* Hide row resizers */
+    .k-editor .ProseMirror .row-resize-handle,
+    /* Hide table resizers */
+    .k-editor .ProseMirror table ~ .k-editor-resize-handle {
         display: none !important;
     }
 </style>
@@ -68,7 +72,7 @@ When the Editor [`EditMode`](slug:editor-edit-modes-overview) is [`Div`](slug:ed
 
 ### Iframe mode
 
-When the Editor [`EditMode`](slug:editor-edit-modes-overview) is [`Iframe`](slug:editor-edit-modes-iframe) (the default), the editable area is inside an `<iframe>` element that does not apply the CSS rules of the current page. You must inject the CSS into the iframe document using JavaScript.
+When the Editor [`EditMode`](slug:editor-edit-modes-overview) is [`Iframe`](slug:editor-edit-modes-iframe) (the default), the editable area is inside an `<iframe>` element that does not apply the CSS rules of the current page. You must [inject the CSS into the iframe document using JavaScript](https://feedback.telerik.com/blazor/1543925-add-the-ability-to-inject-css-files-into-the-iframe).
 
 >caption Hide table resize handles in the Telerik UI for Blazor Editor (Iframe mode)
 
@@ -88,7 +92,7 @@ When the Editor [`EditMode`](slug:editor-edit-modes-overview) is [`Iframe`](slug
         if (!iframe) return;
         var doc = iframe.contentDocument || iframe.contentWindow.document;
         var style = doc.createElement("style");
-        style.textContent = ".column-resize-handle, .row-resize-handle { display: none !important; }";
+        style.textContent = ".column-resize-handle, .row-resize-handle, table ~ .k-editor-resize-handle { display: none !important; }";
         doc.head.appendChild(style);
     }
 </script>
