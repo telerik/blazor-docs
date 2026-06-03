@@ -26,102 +26,94 @@ When the filter input contains leading or trailing spaces, the Grid's filtering 
 
 ## Solution
 
-To trim leading and trailing spaces in Grid FilterRow values, define a [`FilterCellTemplate`](slug:grid-templates-filter#filter-row-template) for the target columns and update the filter descriptor manually.
+To trim leading and trailing spaces in Grid FilterRow values, use the Grid [`OnRead` event](slug:components/grid/manual-operations). Create a new `DataSourceRequest` based on `args.Request` and trim only the string filter values in the copied filter descriptors.
 
-Use `string.Trim()` only when assigning the value to the filter descriptor. This keeps internal spaces intact, so values like `Green Apple` continue to work as expected.
+This approach does not require column templates and keeps the visible filter input unchanged.
 
 >caption Grid FilterRow that trims leading and trailing spaces
 
 ````RAZOR
 @using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
-<TelerikGrid Data="@GridData"
+<p>
+    Try typing <strong>" Apple"</strong> or <strong>"Apple "</strong> — matches same as <strong>"Apple"</strong>.
+    The filter input is untouched; only the query copy is trimmed.
+</p>
+
+<TelerikGrid OnRead="@OnReadItems"
              TItem="@FruitItem"
              FilterMode="@GridFilterMode.FilterRow"
              Pageable="true"
              Sortable="true">
     <GridColumns>
         <GridColumn Field="@nameof(FruitItem.Id)" />
-        <GridColumn Field="@nameof(FruitItem.Name)">
-            <FilterCellTemplate>
-                <TelerikTextBox Value="@NameFilterValue"
-                                ValueChanged="@( (string newValue) => OnNameChanged(newValue, context) )" />
-                <TelerikButton Class="k-clear-button-visible ml-2"
-                               Icon="@SvgIcon.FilterClear"
-                               OnClick="@(async () => await OnNameCleared(context))" />
-            </FilterCellTemplate>
-        </GridColumn>
-        <GridColumn Field="@nameof(FruitItem.Status)">
-            <FilterCellTemplate>
-                <TelerikTextBox Value="@StatusFilterValue"
-                                ValueChanged="@( (string newValue) => OnStatusChanged(newValue, context) )" />
-                <TelerikButton Class="k-clear-button-visible ml-2"
-                               Icon="@SvgIcon.FilterClear"
-                               OnClick="@(async () => await OnStatusCleared(context))" />
-            </FilterCellTemplate>
-        </GridColumn>
+        <GridColumn Field="@nameof(FruitItem.Name)" />
+        <GridColumn Field="@nameof(FruitItem.Status)" />
+        <GridColumn Field="@nameof(FruitItem.Category)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private List<FruitItem> GridData { get; set; } = new();
-    private string NameFilterValue { get; set; } = string.Empty;
-    private string StatusFilterValue { get; set; } = string.Empty;
+    private List<FruitItem> AllData { get; set; } =
+    [
+        new() { Id = 1, Name = "Apple",       Status = "Active",   Category = "Fruit" },
+        new() { Id = 2, Name = "Banana",      Status = "Inactive", Category = "Fruit" },
+        new() { Id = 3, Name = "Green Apple", Status = "Active",   Category = "Fruit" },
+        new() { Id = 4, Name = "Mango",       Status = "Pending",  Category = "Tropical" },
+        new() { Id = 5, Name = "Pineapple",   Status = "Active",   Category = "Tropical" },
+        new() { Id = 6, Name = "Red Apple",   Status = "Active",   Category = "Fruit" },
+    ];
 
-    private async Task OnNameChanged(string newValue, FilterCellTemplateContext context)
+    private async Task OnReadItems(GridReadEventArgs args)
     {
-        NameFilterValue = newValue;
-        ApplyTrimmedFilter(context, newValue, FilterOperator.Contains);
-        await context.FilterAsync();
-    }
-
-    private async Task OnNameCleared(FilterCellTemplateContext context)
-    {
-        NameFilterValue = string.Empty;
-        await context.ClearFilterAsync();
-    }
-
-    private async Task OnStatusChanged(string newValue, FilterCellTemplateContext context)
-    {
-        StatusFilterValue = newValue;
-        ApplyTrimmedFilter(context, newValue, FilterOperator.Contains);
-        await context.FilterAsync();
-    }
-
-    private async Task OnStatusCleared(FilterCellTemplateContext context)
-    {
-        StatusFilterValue = string.Empty;
-        await context.ClearFilterAsync();
-    }
-
-    private static void ApplyTrimmedFilter(
-        FilterCellTemplateContext context,
-        string rawValue,
-        FilterOperator filterOperator)
-    {
-        FilterDescriptor? filterDescriptor = context.FilterDescriptor.FilterDescriptors
-            .OfType<FilterDescriptor>()
-            .FirstOrDefault();
-
-        if (filterDescriptor is null)
+        // Build a new DataSourceRequest with fresh, trimmed FilterDescriptor instances.
+        // The original args.Request (and its descriptors) are never touched,
+        // so the Grid's internal state and the visible filter input stay intact.
+        var trimmedRequest = new DataSourceRequest
         {
-            return;
-        }
-
-        filterDescriptor.Operator = filterOperator;
-        filterDescriptor.Value = rawValue.Trim();
-    }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<FruitItem>
-        {
-            new() { Id = 1, Name = "Apple", Status = "Active" },
-            new() { Id = 2, Name = "Banana", Status = "Inactive" },
-            new() { Id = 3, Name = "Green Apple", Status = "Active" },
-            new() { Id = 4, Name = "Mango", Status = "Pending" },
-            new() { Id = 5, Name = "Pineapple", Status = "Active" }
+            Page = args.Request.Page,
+            PageSize = args.Request.PageSize,
+            Sorts = args.Request.Sorts,
+            Filters = BuildTrimmedFilters(args.Request.Filters),
+            Groups = args.Request.Groups,
+            Aggregates = args.Request.Aggregates
         };
+
+        var result = AllData.ToDataSourceResult(trimmedRequest);
+        args.Data = result.Data;
+        args.Total = result.Total;
+
+        await Task.CompletedTask;
+    }
+
+    // Returns a new filter list where every FilterDescriptor is a new instance
+    // with its string Value trimmed. Composite descriptors are also recreated.
+    private static FilterDescriptorCollection BuildTrimmedFilters(IEnumerable<IFilterDescriptor> source)
+    {
+        var result = new FilterDescriptorCollection();
+        foreach (var filter in source)
+        {
+            if (filter is CompositeFilterDescriptor composite)
+            {
+                result.Add(new CompositeFilterDescriptor
+                {
+                    LogicalOperator = composite.LogicalOperator,
+                    FilterDescriptors = BuildTrimmedFilters(composite.FilterDescriptors)
+                });
+            }
+            else if (filter is FilterDescriptor fd)
+            {
+                result.Add(new FilterDescriptor
+                {
+                    Member = fd.Member,
+                    MemberType = fd.MemberType,
+                    Operator = fd.Operator,
+                    Value = fd.Value is string s ? s.Trim() : fd.Value
+                });
+            }
+        }
+        return result;
     }
 
     public class FruitItem
@@ -129,6 +121,7 @@ Use `string.Trim()` only when assigning the value to the filter descriptor. This
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
     }
 }
 ````
