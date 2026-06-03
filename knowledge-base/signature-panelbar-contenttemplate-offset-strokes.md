@@ -36,8 +36,8 @@ When you place a `TelerikSignature` inside a PanelBar `ContentTemplate`, the Sig
 
 Render the Signature only after the PanelBar animation ends:
 
-1. Keep a `ShowSignature` flag set to `false` while the PanelBar item expands or collapses.
-1. In `OnAfterRenderAsync`, wait for the animation duration (`Task.Delay(400)` in this example), then set `ShowSignature` to `true`.
+1. Keep a `ShowSignature` flag set to `false` only when the user starts expanding the Signature item.
+1. In `OnAfterRenderAsync`, wait for the animation duration (`Task.Delay(100)` in this example), then set `ShowSignature` to `true`.
 1. Use a version counter to ignore stale delayed completions if the user expands or collapses again before the delay finishes.
 
 >caption Delay Signature rendering until PanelBar animation completes
@@ -89,16 +89,27 @@ Render the Signature only after the PanelBar animation ends:
     private bool ShowSignaturePending { get; set; }
     private int SignatureVersion { get; set; }
 
+    private PanelBarItem? SignatureItem { get; set; }
+
     private void OnExpandedItemsChanged(IEnumerable<object> items)
     {
-        ExpandedItems = items;
-        ShowSignature = false;
-        ShowSignaturePending = true;
+        var expandedList = items.ToList();
+
+        bool signatureWasExpanded = ExpandedItems.Contains(SignatureItem);
+        bool signatureIsExpanding = SignatureItem != null && expandedList.Contains(SignatureItem);
+
+        ExpandedItems = expandedList;
+
+        if (!signatureWasExpanded && signatureIsExpanding)
+        {
+            ShowSignature = false;
+            ShowSignaturePending = true;
+        }
     }
 
     private void LoadData()
     {
-        var signatureItem = new PanelBarItem { Text = "Sign Here" };
+        SignatureItem = new PanelBarItem { Text = "Sign Here" };
 
         var documentsItem = new PanelBarItem
         {
@@ -106,7 +117,7 @@ Render the Signature only after the PanelBar animation ends:
             Items = new List<PanelBarItem>
             {
                 new() { Text = "Reports" },
-                signatureItem
+                SignatureItem
             }
         };
 
@@ -116,7 +127,7 @@ Render the Signature only after the PanelBar animation ends:
             new() { Text = "Settings" }
         };
 
-        ExpandedItems = new List<object> { documentsItem, signatureItem };
+        ExpandedItems = new List<object> { documentsItem, SignatureItem };
     }
 
     protected override void OnInitialized()
@@ -133,7 +144,7 @@ Render the Signature only after the PanelBar animation ends:
             ShowSignaturePending = false;
 
             var version = ++SignatureVersion;
-            await Task.Delay(400);
+            await Task.Delay(100);
 
             if (SignatureVersion == version)
             {
