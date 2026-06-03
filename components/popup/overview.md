@@ -17,7 +17,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 1. Add the `<TelerikPopup>` tag to a Razor file.
 1. Set the `AnchorSelector` parameter to a CSS selector, which points to the HTML element that the Popup will align with.
 1. [Obtain the Popup reference](#popup-reference-and-methods) to show and hide the component programmatically.
-1. (optional) Set `CloseOnOutsideClick` to `true` if you want the Popup to close automatically when the user clicks somewhere outside the Popup and the anchor. In this case, also handle the [`OnClose` event](slug:popup-events) if you want to track the Popup state.
+1. (optional) Set `HideOnOutsideClick` to `true` if you want the Popup to close automatically when the user clicks somewhere outside the Popup and the anchor. In this case, also handle the [`OnHide` event](slug:popup-events) if you want to track the Popup state.
 1. (optional) Set the Popup `Width` and `Height`, or configure animations.
 
 >caption Basic Telerik Popup for Blazor

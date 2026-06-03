@@ -13,23 +13,23 @@ components: ["popup"]
 
 This article describes the available events in the Telerik Popup for Blazor.
 
-## OnClose
+## OnHide
 
-The `OnClose` event fires when the Popup closes automatically, as a result of a user click outside the Popup and outside the Popup anchor. The event fires only when the Popup `CloseOnOutsideClick` parameter is set to `true`.
+The `OnHide` event fires when the Popup closes automatically, as a result of a user click outside the Popup and outside the Popup anchor. The event fires only when the Popup `HideOnOutsideClick` parameter is set to `true`.
 
 Use the event to execute business logic or track the Popup visibility state.
 
->caption Using the Popup OnClose event
+>caption Using the Popup OnHide event
 
 ````RAZOR.skip-repl
 
-<TelerikPopup CloseOnOutsideClick="true"
-              OnClose="@OnPopupClose" />
+<TelerikPopup HideOnOutsideClick="true"
+              OnHide="@OnPopupHide" />
 
 @code {
     private bool PopupVisible { get; set; }
 
-    private void OnPopupClose()
+    private void OnPopupHide()
     {
         PopupVisible = false;
     }
@@ -47,8 +47,8 @@ The following runnable example demonstrates the Popup events in action.
 
 <TelerikPopup @ref="@PopupRef"
               AnchorSelector=".popup-target"
-              CloseOnOutsideClick="true"
-              OnClose="@OnPopupClose"
+              HideOnOutsideClick="true"
+              OnHide="@OnPopupHide"
               Width="200px"
               Height="100px">
     <div style="height: 100%; background: var(--kendo-color-primary-subtle);"></div>
@@ -66,10 +66,10 @@ The following runnable example demonstrates the Popup events in action.
 
     private string PopupEventLog { get; set; } = string.Empty;
 
-    private void OnPopupClose()
+    private void OnPopupHide()
     {
         PopupVisible = false;
-        PopupEventLog = $"Popup OnClose event fired at {DateTime.Now.ToString("HH:mm:ss")}";
+        PopupEventLog = $"Popup OnHide event fired at {DateTime.Now.ToString("HH:mm:ss")}";
     }
 
     private void TogglePopup()
