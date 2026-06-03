@@ -12,8 +12,186 @@ components: ["stockchart"]
 
 This article explains the available events for the Telerik Stock Chart for Blazor:
 
+* [OnDragEnd](#ondragend)
+* [OnDragStart](#ondragstart)
 * [OnSeriesClick](#onseriesclick)
+* [OnZoomEnd](#onzoomend)
+* [OnZoomStart](#onzoomstart)
 
+
+## OnDragEnd
+
+The Stock Chart `OnDragEnd` event fires at the end of a drag (pan) gesture. The event argument is of type `ChartDragEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnDragEnd` event fires after [`OnDragStart`](#ondragstart).
+
+````RAZOR
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)"
+                   OnDragEnd="@OnStockChartDragEnd">
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@nameof(StockDataPoint.High)"
+                                       CategoryField="@nameof(StockDataPoint.Date)">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+</TelerikStockChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<StockDataPoint> StockChartProduct1Data { get; set; } = new List<StockDataPoint>()
+    {
+        new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+        new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+        new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+        new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
+    };
+
+    private void OnStockChartDragEnd(ChartDragEndEventArgs args)
+    {
+        EventLog = $"OnDragEnd fired for {args.AxisRanges.Count} axis range(s).";
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+
+        public DateTime Date { get; set; }
+        public decimal Open { get; set; }
+        public decimal Close { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public int Volume { get; set; }
+    }
+}
+````
+
+## OnDragStart
+
+The Stock Chart `OnDragStart` event fires at the beginning of a drag (pan) gesture. The event argument is of type `ChartDragStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnDragStart` event fires before [`OnDragEnd`](#ondragend).
+
+````RAZOR
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)"
+                   OnDragStart="@OnStockChartDragStart">
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@nameof(StockDataPoint.High)"
+                                       CategoryField="@nameof(StockDataPoint.Date)">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+</TelerikStockChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<StockDataPoint> StockChartProduct1Data { get; set; } = new List<StockDataPoint>()
+    {
+        new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+        new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+        new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+        new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
+    };
+
+    private void OnStockChartDragStart(ChartDragStartEventArgs args)
+    {
+        EventLog = $"OnDragStart fired for {args.AxisRanges.Count} axis range(s).";
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+
+        public DateTime Date { get; set; }
+        public decimal Open { get; set; }
+        public decimal Close { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public int Volume { get; set; }
+    }
+}
+````
 
 ## OnSeriesClick
 
@@ -274,6 +452,180 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 >caption The result from the code snippet above
 
 ![onseriesclick get data model example](images/stockchart-onseriesclick-data-model.gif)
+
+## OnZoomEnd
+
+The Stock Chart `OnZoomEnd` event fires at the end of a zoom gesture. The event argument is of type `ChartZoomEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnZoomEnd` event fires after [`OnZoomStart`](#onzoomstart).
+
+````RAZOR
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)"
+                   OnZoomEnd="@OnStockChartZoomEnd">
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@nameof(StockDataPoint.High)"
+                                       CategoryField="@nameof(StockDataPoint.Date)">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+</TelerikStockChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<StockDataPoint> StockChartProduct1Data { get; set; } = new List<StockDataPoint>()
+    {
+        new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+        new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+        new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+        new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
+    };
+
+    private void OnStockChartZoomEnd(ChartZoomEndEventArgs args)
+    {
+        EventLog = $"OnZoomEnd fired for {args.AxisRanges.Count} axis range(s).";
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+
+        public DateTime Date { get; set; }
+        public decimal Open { get; set; }
+        public decimal Close { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public int Volume { get; set; }
+    }
+}
+````
+
+## OnZoomStart
+
+The Stock Chart `OnZoomStart` event fires at the beginning of a zoom gesture. The event argument is of type `ChartZoomStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnZoomStart` event fires before [`OnZoomEnd`](#onzoomend).
+
+````RAZOR
+<TelerikStockChart Width="750px"
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)"
+                   OnZoomStart="@OnStockChartZoomStart">
+
+    <StockChartCategoryAxes>
+        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months"></StockChartCategoryAxis>
+    </StockChartCategoryAxes>
+
+    <StockChartSeriesItems>
+        <StockChartSeries Type="StockChartSeriesType.Candlestick"
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
+        </StockChartSeries>
+    </StockChartSeriesItems>
+
+    <StockChartNavigator>
+        <StockChartNavigatorSeriesItems>
+            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@nameof(StockDataPoint.High)"
+                                       CategoryField="@nameof(StockDataPoint.Date)">
+            </StockChartNavigatorSeries>
+        </StockChartNavigatorSeriesItems>
+    </StockChartNavigator>
+</TelerikStockChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<StockDataPoint> StockChartProduct1Data { get; set; } = new List<StockDataPoint>()
+    {
+        new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
+        new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
+        new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
+        new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
+    };
+
+    private void OnStockChartZoomStart(ChartZoomStartEventArgs args)
+    {
+        EventLog = $"OnZoomStart fired for {args.AxisRanges.Count} axis range(s).";
+    }
+
+    public class StockDataPoint
+    {
+        public StockDataPoint() { }
+
+        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
+        {
+            Date = date;
+            Open = open;
+            Close = close;
+            High = high;
+            Low = low;
+            Volume = volume;
+        }
+
+        public DateTime Date { get; set; }
+        public decimal Open { get; set; }
+        public decimal Close { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public int Volume { get; set; }
+    }
+}
+````
 
 ## See Also
 

@@ -13,9 +13,13 @@ components: ["charts"]
 This article describes the available events for the Telerik Chart for Blazor:
 
 * [OnAxisLabelClick](#onaxislabelclick)
-* [OnLegendItemClick](#onlegenditemclick)
+* [OnDragEnd](#ondragend)
+* [OnDragStart](#ondragstart)
 * [OnDrilldown](#ondrilldown)
+* [OnLegendItemClick](#onlegenditemclick)
 * [OnSeriesClick](#onseriesclick)
+* [OnZoomEnd](#onzoomend)
+* [OnZoomStart](#onzoomstart)
 
 ## OnAxisLabelClick
 
@@ -233,6 +237,92 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
     }
 }
 ````
+
+## OnDragEnd
+
+The Chart `OnDragEnd` event fires at the end of a drag (pan) gesture. The event argument is of type `ChartDragEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnDragEnd` event fires after [`OnDragStart`](#ondragstart).
+
+````RAZOR
+<TelerikChart OnDragEnd="@OnChartDragEnd">
+    <ChartPannable Enabled="true"></ChartPannable>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+</TelerikChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    private void OnChartDragEnd(ChartDragEndEventArgs args)
+    {
+        EventLog = $"OnDragEnd fired for {args.AxisRanges.Count} axis range(s).";
+    }
+}
+````
+
+## OnDragStart
+
+The Chart `OnDragStart` event fires at the beginning of a drag (pan) gesture. The event argument is of type `ChartDragStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the drag. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnDragStart` event fires before [`OnDragEnd`](#ondragend).
+
+````RAZOR
+<TelerikChart OnDragStart="@OnChartDragStart">
+    <ChartPannable Enabled="true"></ChartPannable>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+</TelerikChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    private void OnChartDragStart(ChartDragStartEventArgs args)
+    {
+        EventLog = $"OnDragStart fired for {args.AxisRanges.Count} axis range(s).";
+    }
+}
+````
+
+
 
 ## OnDrilldown
 
@@ -491,6 +581,99 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 
 
+## OnZoomEnd
+
+The Chart `OnZoomEnd` event fires at the end of a zoom gesture. The event argument is of type `ChartZoomEndEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the end of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the new axis range. |
+
+The `OnZoomEnd` event fires after [`OnZoomStart`](#onzoomstart).
+
+````RAZOR
+<TelerikChart OnZoomEnd="@OnChartZoomEnd">
+    <ChartZoomable Enabled="true">
+        <ChartZoomableMousewheel Enabled="true"></ChartZoomableMousewheel>
+        <ChartZoomableSelection Enabled="true"></ChartZoomableSelection>
+    </ChartZoomable>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+</TelerikChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    private void OnChartZoomEnd(ChartZoomEndEventArgs args)
+    {
+        EventLog = $"OnZoomEnd fired for {args.AxisRanges.Count} axis range(s).";
+    }
+}
+````
+
+## OnZoomStart
+
+The Chart `OnZoomStart` event fires at the beginning of a zoom gesture. The event argument is of type `ChartZoomStartEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisRanges` | `Dictionary<string, ChartAxisRange>` | The visible range of each axis at the start of the zoom. The dictionary key is the axis name. Each `ChartAxisRange` value has `Min` and `Max` properties that reflect the current axis range. |
+
+The `OnZoomStart` event fires before [`OnZoomEnd`](#onzoomend).
+
+````RAZOR
+<TelerikChart OnZoomStart="@OnChartZoomStart">
+    <ChartZoomable Enabled="true">
+        <ChartZoomableMousewheel Enabled="true"></ChartZoomableMousewheel>
+        <ChartZoomableSelection Enabled="true"></ChartZoomableSelection>
+    </ChartZoomable>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@Series1Data"></ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@Series2Data"></ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+</TelerikChart>
+
+<div>Last event: @EventLog</div>
+
+@code {
+    private string EventLog { get; set; } = "No event fired yet.";
+
+    private List<object> Series1Data { get; set; } = new List<object>() { 10, 2, 5, 6 };
+    private List<object> Series2Data { get; set; } = new List<object>() { 5, 8, 2, 7 };
+    private string[] XAxisItems { get; set; } = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    private void OnChartZoomStart(ChartZoomStartEventArgs args)
+    {
+        EventLog = $"OnZoomStart fired for {args.AxisRanges.Count} axis range(s).";
+    }
+}
+````
+
 ## See Also
 
 * [Live Demo: Chart Events](https://demos.telerik.com/blazor-ui/chart/events)
+* [Chart Pan](slug:components/chart/pan)
+* [Chart Zoom](slug:components/chart/zoom)
+
