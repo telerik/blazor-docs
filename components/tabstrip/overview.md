@@ -7,6 +7,7 @@ tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 0
 components: ["tabstrip"]
+previous-url: components/tabstrip/active-tab-index, knowledge-base/tabstrip-activate-by-index
 ---
 # Blazor TabStrip Overview
 
@@ -27,10 +28,6 @@ The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Bla
 >caption TabStrip with specified tab position and a disabled tab
 
 <demo metaUrl="client/tabstrip/overview/" height="420"></demo>
-
-## Active Tab Index
-
-By default, the initially selected tab is the first one. You can programmatically control the selected tab through the `ActiveTabIndex` parameter. [Read more about the `ActiveTabIndex`...](slug:tabstrip-activetabindex)
 
 ## Tabs Configuration
 
@@ -78,7 +75,7 @@ The Blazor TabStrip component allows you to create TabStrip tabs dynamically. [R
 
 ## Events
 
-The TabStrip fires events when the user changes the active tab (`ActiveTabIndexChanged`, `ActiveTabIdChanged`), reorders tabs (`OnTabReorder`), or when its state changes (`OnStateInit`, `OnStateChanged`). [Read more about the TabStrip events...](slug:tabstrip-events)
+The TabStrip fires an event when the user changes the active tab (`ActiveTabIdChanged`), reorders tabs (`OnTabReorder`), or when its state changes (`OnStateInit`, `OnStateChanged`). [Read more about the TabStrip events...](slug:tabstrip-events)
 
 ## TabStrip Parameters
 
@@ -88,8 +85,7 @@ The TabStrip provides the following features to allow further customization of i
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `ActiveTabIndex` **(Obsolete)** | `int` | The index of the currently shown tab. Supports two-way binding. **Obsolete** — use `ActiveTabId` instead. Do not use it together with `ActiveTabId`. |
-| `ActiveTabId` | `string` | The ID of the currently active tab. If not set, the first tab is active. Do not use it together with `ActiveTabIndex`. Supports two-way binding. |
+| `ActiveTabId` | `string` | The ID of the currently active tab. If not set, the first tab is active. Supports two-way binding. |
 | `EnableTabReorder` | `bool` | Whether users can reorder tabs via drag-and-drop. See [Tab Reordering](slug:tabstrip-tab-reorder). |
 | `OnStateInit` | `EventCallback<TabStripStateEventArgs>` | Fires when the TabStrip initializes its state. Use this to inspect or restore the initial state. See [State Management](slug:tabstrip-state). |
 | `OnStateChanged` | `EventCallback<TabStripStateEventArgs>` | Fires whenever the TabStrip state changes. See [State Management](slug:tabstrip-state). |
