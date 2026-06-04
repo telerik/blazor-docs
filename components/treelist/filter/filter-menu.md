@@ -10,112 +10,21 @@ components: ["treelist"]
 ---
 # TreeList Filter Menu
 
-One of the [filter modes of the treelist](slug:treelist-filtering) is a popup menu with filter options that you can open from the column headers.
+The `FilterMenu` filter mode renders a button in the column header. When you click the button, a popup with filtering options appears. The popup allows you to apply two filter criteria, choose a suitable filter operator and buttons to apply, or clear the filter.
 
-In this article:
+## Enabling Filter Menu
 
-* [Basics](#basics)
-* [Filter From Code](#filter-from-code)
-* [Customization](#customization)
+Set the `FilterMode` parameter of the Telerik TreeList to `TreeListFilterMode.FilterMenu` and make sure that all filterable columns have their `Field` parameter set.
 
-## Basics
-
-To enable the filter menu, set the `FilterMode` property of the grid to `Telerik.Blazor.TreeListFilterMode.FilterMenu`.
-
-The treelist will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
-
-A key difference in the behavior from the [filter row](slug:treelist-filter-row) is that the filter is now applied only upon a button click, not upon input change. This may improve performance with large data sets.
-
->caption Filter Menu in Telerik TreeList
-
-````RAZOR
-@* Filter menu in the column header *@
-
-<TelerikTreeList Data="@Data" FilterMode="@TreeListFilterMode.FilterMenu"
-                 Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px">
-    <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px"></TreeListColumn>
-        <TreeListColumn Field="Id"></TreeListColumn>
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-    public List<Employee> Data { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
-
-    // sample models and data generation
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Name { get; set; }
-    }
-
-    async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
-        for (int i = 1; i < 15; i++)
-        {
-            data.Add(new Employee
-            {
-                Id = i,
-                ParentId = null,
-                Name = $"root: {i}"
-            });
-
-            for (int j = 2; j < 5; j++)
-            {
-                int currId = i * 100 + j;
-                data.Add(new Employee
-                {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child of {i}"
-                });
-
-                for (int k = 3; k < 5; k++)
-                {
-                    data.Add(new Employee
-                    {
-                        Id = currId * 1000 + k,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}"
-                    }); ;
-                }
-            }
-        }
-
-        return await Task.FromResult(data);
-    }
-}
+````RAZOR.skip-repl
+<TelerikTreeList FilterMode="@TreeListFilterMode.FilterMenu" />
 ````
 
->caption The result from the code snippet above, after the "Name" column has been filtered with "does not contain" "1" operator.
-
-![Blazor TreeList Filter Menu](images/filter-menu.png)
-
-
-## Filter From Code
-
-You can set the TreeList filters from your code through the component [state](slug:treelist-state).
-
-@[template](/_contentTemplates/treelist/state.md#initial-state)
-
->caption Set filtering programmatically
-
-````RAZOR
-@[template](/_contentTemplates/treelist/state.md#filter-menu-from-code)
-````
+Also see the full [runnable example](#example) below.
 
 ## Customization
 
-The TreeList allows you to customize the default behavior of the Filter Row in a couple ways:
+You can customize the default behavior of the Filter Menu with parameters of the columns and the TreeList.
 
 ### Configuring the Filter Menu
 
@@ -123,96 +32,117 @@ You can override the default Filter Row behavior for each column through the fol
 
 @[template](/_contentTemplates/common/filtering.md#filter-menu-customization-properties)
 
->caption Configure the Filter Menu
+### Filter Menu Template
+
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter  Menu Template](slug:treelist-templates-filter#filter-menu-template) article.
+
+## Filter From Code
+
+To learn how to programmatically filter the TreeList, refer to the [TreeList State](slug:treelist-state) documentation article. You can filter the TreeList on initial display with the [`OnStateInit` event](slug:treelist-state#onstateinit) or at any time afterwards with the [`SetStateAsync()` method](slug:treelist-state#methods).
+
+## Example
+
+>caption Using the TreeList Filter Menu
 
 ````RAZOR
-@*Customize the Filter Menu*@
-
 @using Telerik.DataSource
 
-<TelerikTreeList Data="@Data"
-                 IdField="Id"
-                 ParentIdField="ParentId"
+<TelerikTreeList Data="@TreeListData"
+                 IdField="@nameof(Employee.Id)"
+                 ItemsField="@nameof(Employee.Items)"
                  FilterMode="@TreeListFilterMode.FilterMenu"
-                 Pageable="true" Width="850px" Height="400px">
+                 FilterRowDebounceDelay="200"
+                 Height="400px">
     <TreeListColumns>
-        <TreeListColumn DefaultFilterOperator="FilterOperator.StartsWith"
-                        Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
-                        Field="Id" Width="120px" />
-        <TreeListColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
-                        Field="ParentId" Width="120px" />
-        <TreeListColumn DefaultFilterOperator="FilterOperator.Contains"
-                        Field="EmailAddress" Width="120px" />
-        <TreeListColumn DefaultFilterOperator="FilterOperator.IsGreaterThanOrEqualTo"
-                        Field="HireDate" Width="220px" />
+        <TreeListColumn Field="@nameof(Employee.Id)"
+                        ShowFilterCellButtons="false"
+                        Width="100px" />
+        <TreeListColumn Field="@nameof(Employee.Name)"
+                        Expandable="true"
+                        DefaultFilterOperator="@FilterOperator.Contains" />
+        <TreeListColumn Field="@nameof(Employee.Salary)" DisplayFormat="{0:C2}" Width="180px" />
+        <TreeListColumn Field="@nameof(Employee.HireDate)"
+                        DisplayFormat="{0:d}"
+                        DefaultFilterOperator="@FilterOperator.IsGreaterThanOrEqualTo"
+                        FilterEditorFormat="d"
+                        FilterEditorType="@TreeListFilterEditorType.DatePicker"
+                        Width="180px" />
+        <TreeListColumn Field="@nameof(Employee.IsDriver)" Width="120px" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    public List<Employee> Data { get; set; }
+    private List<Employee>? TreeListData { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        Data = await GetTreeListData();
+        TreeListData = new();
+        PopulateItems(TreeListData, 1);
     }
 
-    // sample model
+    #region Data Generation
+
+    private readonly int TreeLevelCount = 3;
+    private readonly int RootItemCount = 3;
+    private readonly int ChildItemCount = 2;
+
+    private int LastId { get; set; }
+    private readonly Random Rnd = Random.Shared;
+
+
+    private void PopulateItems(List<Employee> items, int level)
+    {
+        for (int i = 1; i <= (level == 1 ? RootItemCount : ChildItemCount); i++)
+        {
+            var itemId = ++LastId;
+
+            var newItem = new Employee()
+            {
+                Id = itemId,
+                HasChildren = level < TreeLevelCount,
+                Name = $"Employee Name {itemId}",
+                Notes = $"Multi-line\nnotes {itemId}",
+                Salary = Rnd.Next(1_000, 10_000) * 1.23m,
+                HireDate = DateTime.Today.AddDays(-Rnd.Next(365, 3650)),
+                IsDriver = itemId % 2 == 0
+            };
+
+            items.Add(newItem);
+        }
+
+        if (level < TreeLevelCount)
+        {
+            PopulateChildren(items, level + 1);
+        }
+    }
+
+    private void PopulateChildren(List<Employee> items, int level)
+    {
+        foreach (var item in items)
+        {
+            item.Items = new List<Employee>();
+
+            PopulateItems(item.Items, level);
+        }
+    }
+
+    #endregion Data Generation
 
     public class Employee
     {
-        // denote the parent-child relationship between items
         public int Id { get; set; }
-        public int? ParentId { get; set; }
-
-        // custom data fields for display
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-
-    // data generation
-
-    async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
-        for (int i = 1; i < 15; i++)
-        {
-            data.Add(new Employee
-                {
-                    Id = i,
-                    ParentId = null, // indicates a root-level item
-                    Name = $"root: {i}",
-                    EmailAddress = $"{i}@example.com",
-                    HireDate = DateTime.Now.AddYears(-i)
-                }); ;
-
-            for (int j = 1; j < 4; j++)
-            {
-                int currId = i * 100 + j;
-                data.Add(new Employee
-                    {
-                        Id = currId,
-                        ParentId = i,
-                        Name = $"first level child {j} of {i}",
-                        EmailAddress = $"{currId}@example.com",
-                        HireDate = DateTime.Now.AddDays(-currId)
-                    });
-            }
-        }
-
-        return await Task.FromResult(data);
+        public bool HasChildren { get; set; }
+        public List<Employee>? Items { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Notes { get; set; } = string.Empty;
+        public decimal? Salary { get; set; }
+        public DateTime? HireDate { get; set; }
+        public bool IsDriver { get; set; }
     }
 }
 ````
 
-### Filter Menu Template
-
-The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template](slug:grid-templates-filter#filter-menu-template) article.
-
-
 ## See Also
 
-  * [Treelist Filtering Overview](slug:treelist-filtering)
-  * [Live Demo: TreeList Filter Menu](https://demos.telerik.com/blazor-ui/treelist/filter-menu)
+* [Treelist Filtering Overview](slug:treelist-filtering)
+* [Live Demo: TreeList Filter Menu](https://demos.telerik.com/blazor-ui/treelist/filter-menu)

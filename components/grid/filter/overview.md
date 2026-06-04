@@ -9,19 +9,22 @@ previous_url: /components/grid/filtering
 position: 0
 components: ["grid"]
 ---
-# Filtering Overview
+# Grid Filtering Overview
 
-This article explains the available filtering modes in the Telerik Grid for Blazor.
+This article describes the basics of the filtering functionality of the Telerik Grid for Blazor.
+
+The Grid provides two alternative user interfaces for filtering:
+
+* [Filter Row](#filterrow)
+* [Filter Menu](#filtermenu)
 
 ## FilterRow
 
-The FilterRow filtering mode renders a row below the column headers, providing a UI where you can fill in the filter criteria. Read more about enabling and fine-tuning the filtering row in the [FilterRow documentation article...](slug:grid-filter-row)
+The `FilterRow` filtering mode renders a row below the column headers, providing a UI where you can fill in the filter criteria. Read more about enabling and fine-tuning the filtering row in the [Grid Filter Row](slug:grid-filter-row) article.
 
 ## FilterMenu
 
-The FilterMenu filter mode renders a button in the column header. Clicking the button opens a popup with filtering options, allowing you to apply two filter criteria, choose a filter operator, and use buttons to apply or clear the filter. Read more about enabling and fine-tuning the filtering menu in the [FilterMenu documentation article...](slug:grid-filter-menu)
-
-> You can prevent the user from filtering a certain field by setting `Filterable="false"` on its column.
+The `FilterMenu` filter mode renders a button in the column header. Clicking the button opens a popup with filtering options, allowing you to apply two filter criteria, choose a filter operator, and use buttons to apply or clear the filter. Read more about enabling and fine-tuning the filtering menu in the [Grid Filter Menu](slug:grid-filter-menu) article.
 
 ## More Filtering Options
 
@@ -47,67 +50,6 @@ There are two approaches to customize the Grid filtering behavior, and you can u
 
 * Customize the appearance and behavior of the filters - for that, use the [Filter Templates](slug:grid-templates-filter) the Grid provides.
 
-
-## Customize The Filter Editors
-
-You can customize the filter editors declaratively for some data types. It is possible to change the editor component or the editor format.
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| GridColumn Parameter | Type | Works for | Description |
-|---|---|---|---|
-| `FilterEditorType` | `GridFilterEditorType` enum | `DateTime` columns | The component, which the Grid will render for filtering (DatePicker or DateTimePicker). |
-| `FilterEditorFormat` | `string` | `DateTime` and numeric columns | The `Format` of the filtering component. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`). |
-
-````RAZOR
-@* Using FilterEditorType and FilterEditorFormat parameters *@
-
-<TelerikGrid Data=@GridData 
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
-             Pageable="true" 
-             Height="400px">
-    <GridColumns>
-        <GridColumn Field="@nameof(Employee.Name)" />
-        <GridColumn Field="@nameof(Employee.AgeInYears)" Title="Age" />
-        <GridColumn Field="@nameof(Employee.HireDate)" 
-                    FilterEditorType="@GridFilterEditorType.DateTimePicker"
-                    FilterEditorFormat="yyyy-MM-dd HH:mm"
-                    Title="Hire Date" />
-        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<Employee> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 100; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                AgeInYears = rand.Next(10, 80),
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20)),
-                IsOnLeave = i % 3 == 0
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int? EmployeeId { get; set; }
-        public string Name { get; set; }
-        public int? AgeInYears { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool IsOnLeave { get; set; }
-    }
-}
-````
-
 ## Advanced Examples
 
 The following articles and sample projects can be helpful when implementing filtering:
@@ -120,10 +62,11 @@ The following articles and sample projects can be helpful when implementing filt
 
 * [Leave only one option in the Filter Menu](slug:grid-kb-only-one-filtermenu-option) - this is a CSS approach, or you can implement a [custom filter template](slug:grid-templates-filter).
 
+## Next Steps
 
-## Notes
-
-The Grid uses `Activator.CreateInstance<TItem>();` to obtain the item's type it is bound to, enabling it to generate accurate filters and filter operators. To facilitate this, ensure you define a parameterless constructor for the model. If your model has no parameterless constructor use the [`OnModelInit` event](slug:grid-events#onmodelinit).
+* [Use Grid Filter Row](slug:grid-filter-row)
+* [Use Grid Filter Menu](slug:grid-filter-menu)
+* [Use Grid Checkbox List Filtering](slug:grid-checklist-filter)
 
 ## See Also
 
