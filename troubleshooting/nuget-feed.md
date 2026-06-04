@@ -118,7 +118,7 @@ If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon pac
 If you save a valid Telerik NuGet API key through Visual Studio, the Windows Credential Manager saves the username as `nuget.telerik.com\api-key` instead of just `api-key`. This is not expected by the Telerik NuGet server and it rejects the authentication attempt. You have two options:
 
 * [Edit the saved username in the Windows Credential Manager](#removing-saved-credentials) and remove the `nuget.telerik.com\` part.
-* [Remove the saved credentials from the Credential Manager](#removing-saved-credentials) and then [add the Telerik API key to your global NuGet.Config file](slug:installation-nuget#edit-the-nuget-config-file).
+* [Remove the saved credentials from the Credential Manager](#removing-saved-credentials) and then [add the Telerik API key to your global `NuGet.Config` file](slug:installation-nuget#edit-the-nuget-config-file).
 
 ## Error 503 Service Unavailable
 
