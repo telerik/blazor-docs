@@ -41,12 +41,12 @@ The focus outline of TabStrip tabs is an accessibility feature. The example belo
 >caption Remove TabStrip tab dotted outline
 
 ````RAZOR
-<TelerikTabStrip @bind-ActiveTabIndex="@TabStripActiveTabIndex"
+<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
                  Class="no-outline">
-    <TabStripTab Title="Tab 1">
+    <TabStripTab Title="Tab 1" Id="first-tab">
         Tab 1 Content
     </TabStripTab>
-    <TabStripTab Title="Tab 2">
+    <TabStripTab Title="Tab 2" Id="second-tab">
         Tab 2 Content
     </TabStripTab>
 </TelerikTabStrip>
@@ -58,7 +58,7 @@ The focus outline of TabStrip tabs is an accessibility feature. The example belo
 </style>
 
 @code {
-    private int TabStripActiveTabIndex { get; set; }
+    private string TabStripActiveTabId { get; set; } = "first-tab";
 }
 ````
 

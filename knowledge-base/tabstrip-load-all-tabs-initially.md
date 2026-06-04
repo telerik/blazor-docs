@@ -36,26 +36,26 @@ In scenarios where all TabStrip tabs must render initially and be in the DOM at 
 
 1. Move the tab content outside the TabStrip. Use one HTML `<div>` to hold the contents of each tab. The `<TabStripTab>` tags cannot remain completely empty, so add some dummy content such as `&nbsp;`.
 1. Hide the TabStrip tab container elements (`<div class="k-tabstrip-content">`) with a `display:none` CSS style.
-1. Toggle the `display` styles of the HTML `<div>`s in the [TabStrip `ActiveTabIndexChanged` event](slug:tabstrip-events#activetabindexchanged).
+1. Toggle the `display` styles of the HTML `<div>`s
 
 >caption Render all TabStrip tabs initially
 
 ````RAZOR
-<TelerikTabStrip @bind-ActiveTabIndex="@ActiveTabIndex"
+<TelerikTabStrip @bind-ActiveTabId="@ActiveTabId"
                  Class="empty-tabstrip">
-    <TabStripTab Title="First Tab">&nbsp;</TabStripTab>
-    <TabStripTab Title="Second Tab">&nbsp;</TabStripTab>
-    <TabStripTab Title="Third Tab">&nbsp;</TabStripTab>
+    <TabStripTab Title="First Tab" Id="tab1">&nbsp;</TabStripTab>
+    <TabStripTab Title="Second Tab" Id="tab2">&nbsp;</TabStripTab>
+    <TabStripTab Title="Third Tab" Id="tab3">&nbsp;</TabStripTab>
 </TelerikTabStrip>
 
 <div class="tabstrip-containers k-tabstrip">
-    <div class="@( $"k-tabstrip-content {GetTabActive(0)}" )">
+    <div class="@( $"k-tabstrip-content {GetTabActive("tab1")}" )">
         First Tab Content
     </div>
-    <div class="@( $"k-tabstrip-content {GetTabActive(1)}" )">
+    <div class="@( $"k-tabstrip-content {GetTabActive("tab2")}" )">
         Second Tab Content
     </div>
-    <div class="@( $"k-tabstrip-content {GetTabActive(2)}" )">
+    <div class="@( $"k-tabstrip-content {GetTabActive("tab3")}" )">
         Third Tab Content
     </div>
 </div>
@@ -72,11 +72,12 @@ In scenarios where all TabStrip tabs must render initially and be in the DOM at 
 </style>
 
 @code {
-    public int ActiveTabIndex { get; set; }
+    // Initialize with the ID of the default active tab
+    public string ActiveTabId { get; set; } = "tab1";
 
-    private string GetTabActive(int index)
+    private string GetTabActive(string tabId)
     {
-        return ActiveTabIndex == index ? "k-active" : string.Empty;
+        return ActiveTabId == tabId ? "k-active" : string.Empty;
     }
 }
 ````

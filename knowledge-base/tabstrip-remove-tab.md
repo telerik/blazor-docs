@@ -32,31 +32,33 @@ I want a close button on my tabs so the use can remove (close) them. When that h
 
 1. Stop the propagation of the `@onclick` event on the custom button. 
 
-1. Handle the [`ActiveTabIndexChanged` event](slug:tabstrip-events) explicitly to update the selected tab index
-
 1. In the Close button click handler use the [`Visible` parameter](slug:tabstrip-tabs-configuration#visible) to hide the tab.
 
 >caption Close button on a tab
 
 ````RAZOR
-Currently active tab index: @ActiveTabIndex
+Currently active tab ID: @ActiveTabId
 
-<TelerikTabStrip ActiveTabIndex="@ActiveTabIndex" ActiveTabIndexChanged="@TabIndexChangedHandler">
-    <TabStripTab Title="static one">
+<TelerikTabStrip ActiveTabId="@ActiveTabId" 
+                 ActiveTabIdChanged="@((string newId) => ActiveTabId = newId)">
+    <TabStripTab Title="static one" Id="static">
         The static tab
     </TabStripTab>
     @{
         foreach (TabModel tab in Tabs)
         {
-            <TabStripTab Title="@tab.Title" Visible="@tab.isVisibleTab" @key="@tab">
+            <TabStripTab Title="@tab.Title" 
+                         Id="@tab.Id" 
+                         Visible="@tab.isVisibleTab" 
+                         @key="@tab">
                 <HeaderTemplate>
                     <strong>@tab.Title</strong>
                     <button type="button"
-                    class="close ml-1"
-                    aria-label="Close"
-                        @onclick:stopPropagation
-                        @onclick="@( () => CloseTab(tab))">
-                        <span aria-hidden="true">&times;</span>
+                            class="telerik-blazor k-button k-button-xs k-button-flat "
+                            aria-label="Close"
+                            @onclick:stopPropagation
+                            @onclick="@(() => CloseTab(tab))">
+                            <span class="k-icon k-i-x"><b>X</b></span>
                     </button>
                 </HeaderTemplate>
                 <Content>
@@ -64,38 +66,44 @@ Currently active tab index: @ActiveTabIndex
                 </Content>
             </TabStripTab>
         }
-    }
+    } 
 </TelerikTabStrip>
-
 @code {
-    int ActiveTabIndex { get; set; } // we use it to set the new index we want active
-
-    // sample collection of tab descriptors
-    List<TabModel> Tabs = new List<TabModel>()
+    private string ActiveTabId { get; set; } = "static";
+    private List<TabModel> Tabs = new List<TabModel>()
     {
-        new TabModel { Title = "One", isVisibleTab = true },
-        new TabModel { Title = "Two", isVisibleTab = true },
-        new TabModel { Title = "Three", isVisibleTab = true }
+        new TabModel { Id = "tab1", Title = "One", isVisibleTab = true },
+        new TabModel { Id = "tab2", Title = "Two", isVisibleTab = true },
+        new TabModel { Id = "tab3", Title = "Three", isVisibleTab = true }
     };
 
     protected void CloseTab(TabModel tab)
     {
-        // update the active tab index only if needed - closing tabs to the right will not affect the current index
-        if (Tabs.IndexOf(tab) <= ActiveTabIndex)
+        // 1. If we are closing the currently active tab, switch to another
+        if (ActiveTabId == tab.Id)
         {
-            ActiveTabIndex = ActiveTabIndex > 0 ? ActiveTabIndex - 1 : 0;
+            // Logic to find an alternative:
+            // Try to find the previous visible tab in the list
+            int idx = Tabs.IndexOf(tab);
+            
+            if (idx > 0 && Tabs[idx - 1].isVisibleTab)
+            {
+                ActiveTabId = Tabs[idx - 1].Id;
+            }
+            else
+            {
+                // Fallback to "static" tab if no previous tab is available
+                ActiveTabId = "static";
+            }
         }
 
+        // 2. Hide the tab
         tab.isVisibleTab = false;
-    }
-
-    void TabIndexChangedHandler(int currIndex)
-    {
-        ActiveTabIndex = currIndex;
     }
 
     public class TabModel
     {
+        public string Id { get; set; }
         public string Title { get; set; }
         public bool isVisibleTab { get; set; }
     }
