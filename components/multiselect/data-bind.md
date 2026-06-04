@@ -164,3 +164,4 @@ In case you cannot provide either of a `Value`, or `Data`, or both when the comp
 ## See Also
 
 * [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)
+* [MultiSelect CheckBoxes](slug:multiselect-kb-checkbox-in-dropdown)
