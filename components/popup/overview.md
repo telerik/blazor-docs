@@ -16,27 +16,25 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 
 1. Add the `<TelerikPopup>` tag to a Razor file.
 1. Set the `AnchorSelector` parameter to a CSS selector, which points to the HTML element that the Popup will align with.
-1. [Obtain the component reference to show and hide the Popover programmatically](#popup-reference-and-methods).
+1. [Obtain the Popup reference](#popup-reference-and-methods) to show and hide the component programmatically.
+1. (optional) Set `HideOnOutsideClick` to `true` if you want the Popup to close automatically when the user clicks somewhere outside the Popup and the anchor. In this case, also handle the [`OnHide` event](slug:popup-events) if you want to track the Popup state.
 1. (optional) Set the Popup `Width` and `Height`, or configure animations.
 
->caption Basic configuration of the Telerik Popup for Blazor
+>caption Basic Telerik Popup for Blazor
 
 ````RAZOR
 <TelerikPopup @ref="@PopupRef"
               AnchorSelector=".popup-target"
               AnimationType="@AnimationType.SlideDown"
               AnimationDuration="200"
-              Width="200px"
-              Height="100px">
-    <div style="text-align: center;">
+              Width="200px">
+    <div style="text-align: center; padding: 2em 0;">
         <p>Telerik Popup for Blazor</p>
-        <TelerikButton OnClick="@( () => PopupRef?.Hide() )"
-                       Icon="@SvgIcon.XCircle">Close</TelerikButton>
+        <TelerikButton OnClick="@(() => PopupRef?.Hide())">Hide Popup</TelerikButton>
     </div>
-
 </TelerikPopup>
 
-<TelerikButton OnClick="@( () => PopupRef?.Show() )"
+<TelerikButton OnClick="@(() => PopupRef?.Show())"
                Class="popup-target">Show Popup</TelerikButton>
 
 @code {
@@ -44,13 +42,17 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 }
 ````
 
-## Popup Positioning and Collision
+## Positioning and Collision
 
 Use the available positioning and collision settings to customize how the Popup positions and reacts to insufficient space in the viewport. [Read more about the Blazor Popup Positioning and Collision...](slug:popup-position-collision)
 
-## Popup Animations 
+## Animations 
 
 Use the available parameters to customize the animation type and its duration. [Read more about the Blazor Popup animations...](slug:popup-animation).
+
+## Events
+
+The [Popup exposes events](slug:popup-events) that enable your app to react to user actions.
 
 ## Popup Parameters
 
