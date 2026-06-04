@@ -87,3 +87,7 @@ and
     }
 }
 ````
+
+## See Also
+
+* [MultiSelect CheckBoxes](slug:multiselect-kb-checkbox-in-dropdown)
