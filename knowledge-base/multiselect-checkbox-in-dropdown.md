@@ -1,15 +1,16 @@
 ---
-title: Checkbox in MultiSelect
-description: How to add checkbox in the MultiSelect dropdown.
+title: Checkboxes in MultiSelect Dropdown
+description: Learn how to add checkboxes for item selection in the MultiSelect dropdown.
 type: how-to
-page_title: Checkbox in MultiSelect
+page_title: How to Add Checkboxes in the MultiSelect Dropdown
 slug: multiselect-kb-checkbox-in-dropdown
 position: 
-tags: 
+tags: telerik, blazor, multiselect
 ticketid: 1453142, 1606291
 res_type: kb
 components: ["multiselect"]
 ---
+
 ## Environment
 
 <table>
@@ -21,152 +22,95 @@ components: ["multiselect"]
     </tbody>
 </table>
 
-
 ## Description
 
-I'd like a drop down list view/box control with check boxes and filtering. Let me know what I can use from the blazor controls.
-
-Like https://demos.telerik.com/aspnet-ajax/combobox/examples/functionality/checkboxes/defaultcs.aspx 
-
+How to add checkboxes for item selection in the Telerik MultiSelect for Blazor? There should also be a "Select All" option at the top of the dropdown.
 
 ## Solution
 
-We have the MultiSelect component for this in Blazor: https://demos.telerik.com/blazor-ui/multiselect/overview
+1. Use an [`ItemTemplate`](slug:multiselect-templates#item-template) to add a [Telerik Blazor CheckBox](slug:checkbox-overview) in each item.
+1. Use a [`HeaderTemplate`](slug:multiselect-templates#header-template) to add a "Select All" checkbox above the data items. Optionally, use an [indeterminate checkbox state](slug:checkbox-indeterminate-state) if only some MultiSelect items are selected.
+1. (optional) Set the MultiSelect `AutoClose` parameter to `false`.
+1. (optional) Set the MultiSelect [`TagMode`](slug:multiselect-tag-mode) parameter to `Single` or alternatively, set [`MaxAllowedTags`](slug:multiselect-tag-mode#summarized-tags-based-on-the-number-of-selections) to avoid drastic MultiSelect height changes when users select all items at once.
 
-The AutoClose feature allows the MultiSelect to stay open while the user selects the input.
-
-The MultiSelect offers a highlighted state for the selected items already, yet if you want to add checkboxes, you can do that through the [`ItemTemplate`](slug:multiselect-templates#item-template) and you can get their `checked` attribute by comparing the current item against the selected items.
-
->caption Add checkboxes in the multiselect
-
-````RAZOR
-@* Note: If you use complex models, the GetChecked() method will be more complex and 
-    you would need to implement another convention for the id attribute, and you would need to cast the context *@
-
-<TelerikMultiSelect Data="@Roles"
-                    @bind-Value="@TheValues"
-                    AutoClose="false"
-                    Placeholder="Write the roles you need">
-    <ItemTemplate>
-        <input type="checkbox"
-               id="@( "cb" + context.Replace(" ", "") )"
-               class="k-checkbox k-rounded-md k-checkbox-md"
-               checked="@GetChecked(context)">
-        @context
-    </ItemTemplate>
-</TelerikMultiSelect>
-
-@foreach (var item in TheValues)
-{
-    <div>@item</div>
-}
-
-@code {
-    private List<string> TheValues { get; set; } = new List<string>();
-
-    bool GetChecked(string text)
-    {
-        return TheValues.Contains(text);
-    }
-
-    private List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
-
-### Select All Checkbox
-
-You can add a "Select All" feature through the `HeaderTemplate` - it only has to update the `Value` collection accordingly (empty, or to have all the items in the `Data`).
-
->caption Select all MultiSelect items with a checkbox
+>caption Using MultiSelect checkboxes in header and item templates
 
 ````RAZOR
-@* Note: If you use complex models, the GetChecked() method will be more complex and
-    you would need to implement another convention for the id attribute, and you would need to cast the context *@
-    
-<TelerikMultiSelect @ref="MultiSelectRef"
-                    Data="@Roles"
-                    @bind-Value="@TheValues"
+
+<TelerikMultiSelect @ref="@MultiSelectRef"
+                    Data="@MultiSelectData"
+                    @bind-Value="@MultiSelectValues"
                     AutoClose="false"
-                    Placeholder="Write the roles you need">
+                    TextField="@nameof(ListItem.Text)"
+                    ValueField="@nameof(ListItem.Id)"
+                    ShowArrowButton="true"
+                    TagMode="@MultiSelectTagMode.Multiple"
+                    MaxAllowedTags="3">
     <HeaderTemplate>
-        <div class="select-all-item">
-            <TelerikCheckBox TValue="bool"
-                             Value="@IsAllSelected()"
-                             ValueChanged="@( (bool v) => ToggleSelectAll(v) )"
-                             Id="ms-select-all-checkbox">
-            </TelerikCheckBox>
-            <label for="ms-select-all-checkbox">&nbsp;Select All</label>
-        </div>
+        <label class="k-list-item">
+            <TelerikCheckBox Value="@(MultiSelectValues.Count == MultiSelectData.Count)"
+                             ValueChanged="@SelectAllChanged"
+                             TValue="@bool"
+                             Indeterminate="@(MultiSelectValues.Count > 0 && MultiSelectValues.Count < MultiSelectData.Count)" />
+            <strong>Select All @MultiSelectData.Count Items</strong>
+        </label>
     </HeaderTemplate>
     <ItemTemplate>
-        <input type="checkbox"
-               id="@( "cb" + context.Replace(" ", "") )"
-               class="k-checkbox k-checkbox-md"
-               checked="@GetChecked(context)">
-        @context
+        <TelerikCheckBox Value="@MultiSelectValues.Contains(context.Id)" />
+        @context.Text
     </ItemTemplate>
-
 </TelerikMultiSelect>
 
-<style>
-    .select-all-item {
-        padding: 4px 8px;
-        display: flex;
-        cursor: pointer;
-    }
-
-        .select-all-item:hover {
-            background: rgba(0, 0, 0, 0.06);
-        }
-        .select-all-item label {
-            display: block;
-            flex: 1 1 auto;
-            cursor: pointer;
-        }
-</style>
-
-@foreach (var item in TheValues)
-{
-    <div>@item</div>
-}
-
 @code {
-    private TelerikMultiSelect<string, string> MultiSelectRef;
-    private List<string> TheValues { get; set; } = new List<string>();
+    #nullable enable
 
-    void ToggleSelectAll(bool selectAll)
+    private TelerikMultiSelect<ListItem, int>? MultiSelectRef;
+    private List<ListItem> MultiSelectData { get; set; } = new();
+
+    private List<int> MultiSelectValues { get; set; } = new() { 1, 3 };
+
+    private void SelectAllChanged(bool value)
     {
-        TheValues.Clear();
-
-        if (selectAll)
+        if (value)
         {
-            TheValues.AddRange(Roles);
+            MultiSelectValues = MultiSelectData.Select(i => i.Id).ToList();
+        }
+        else
+        {
+            MultiSelectValues = new();
         }
 
-        MultiSelectRef.Rebind();
+        MultiSelectRef?.Refresh();
     }
 
-    bool IsAllSelected()
+    protected override void OnInitialized()
     {
-        return TheValues.Count == Roles.Count;
+        MultiSelectData = new List<ListItem>();
 
-        // in this example we do a simple count check for performance
-        // all items in the dropdown should be in the data anyway
-        // caveat: virtualization does not work that way, but for it selecting all
-        // would be a completely different feature anyway that will require asking the server for data
-        // so it is beyond the scope of this article as it depends heavily on the use case and needs
+        for (int i = 1; i <= 24; i++)
+        {
+            MultiSelectData.Add(new ListItem()
+            {
+                Id = i,
+                Text = $"Item {i}",
+                Category = $"Category {i % 6 + 1}"
+            });
+        }
+
+        base.OnInitialized();
     }
 
-    // for the item checkboxes
-    bool GetChecked(string text)
+    public class ListItem
     {
-        return TheValues.Contains(text);
+        public int Id { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
     }
-
-    private List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
 }
 ````
+
+## See Also
+
+* [MultiSelect Templates](slug:multiselect-templates)
+* [MultiSelect TagMode](slug:multiselect-tag-mode)
+* [CheckBox Overview](slug:checkbox-overview)
