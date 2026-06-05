@@ -33,7 +33,7 @@ The fastest way to set up your Telerik development environment is to use the [Te
 
 1. Install Telerik CLI
     ````SH.skip-repl
-    dotnet tool install -g Telerik.CLI
+    dotnet tool install -g Telerik.CLI --source https://api.nuget.org/v3/index.json
     ````
 
 1. Run the Telerik CLI `setup` command:
