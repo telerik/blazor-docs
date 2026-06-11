@@ -40,7 +40,7 @@ The different Upload events use different event argument types, but the exposed 
 
 | Property | Type | Description |
 |---|---|---|
-| `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect`, and `OnUpload` handlers. The file is always one in `OnCancel`, `OnError`, `OnProgress`, `OnRemove`, and `OnSuccess`. |
+| `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect`, and `OnUpload` handlers. The file is always one in `OnCancel`, `OnError`, `OnPause`, `OnProgress`, `OnRemove`, `OnResume`, and `OnSuccess`. |
 | `IsCancelled` | `bool` | Set to `true` to cancel the event and the respective user action. |
 | `Operation` | [`UploadOperationType`](slug:Telerik.Blazor.UploadOperationType) enum | Can be `Upload` or `Remove`. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
@@ -71,15 +71,13 @@ The `UploadFileInfo` object has the following properties:
 
 The `OnCancel` event fires when the user clicks the *Cancel* icon of a file that is currently uploading.
 
-The `UploadCancelEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property contains only one file.
+The `UploadCancelEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` collection contains only one file.
 
 If you cancel the event, the upload process will continue. For example, this can depend on some [file information](#uploadfileinfo) such as size and upload progress.
 
 >caption Using the Upload OnCancel event
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <TelerikUpload OnCancel="@OnUploadCancel" />
 
 @code {
@@ -102,15 +100,13 @@ See the [full example](#example) below.
 
 The `OnClear` event fires when the user clicks the *Clear* button below the file list. This button is visible when [`AutoUpload="false"`](slug:upload-overview#upload-parameters).
 
-The `UploadClearEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property can contain one or more files.
+The `UploadClearEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` collection can contain one or more files.
 
 If you cancel the event, the current file list will remain visible.
 
 >caption Using the Upload OnClear event
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <TelerikUpload OnClear="@OnUploadClear" />
 
 @code {
@@ -181,13 +177,30 @@ public async Task<IActionResult> Save(IFormFile files)
 
 See the [full example](#example) below.
 
+
 ## OnPause
 
-The `OnPause` event fires when the user clicks on the pause button during chunk upload. The `UploadPauseEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property can contain one or more files.
+The `OnPause` event fires when the user clicks on the Pause button during [chunk upload](slug:upload-chunk). The Pause button appears only when `UploadChunkSettings.Resumable` is `true`, which is by default.
+
+The `UploadPauseEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` collection contains one file.
 
 If you cancel the event, the chunk upload will not be paused.
 
-See a full example in the [Chunk Upload article](slug:upload-chunk).
+````RAZOR.skip-repl
+<TelerikUpload OnPause="@OnUploadPause">
+    <UploadSettings>
+        <UploadChunkSettings Enabled="true" Resume="true" />
+    </UploadSettings>
+</TelerikUpload>
+
+@code {
+    private void OnUploadPause(UploadPauseEventArgs args)
+    {
+        string fileName = args.Files.First().Name;
+    }
+}
+````
+
 
 ## OnProgress
 
@@ -195,13 +208,11 @@ The `OnProgress` event fires each time a file makes progress in its upload proce
 
 The event is tied directly to the [`progress` event of the `XHR` object](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/progress_event), which sends the file to the controller. The Upload component cannot control when or how often the event will fire. For small files, the `Progress` value is likely to jump directly to `100`, especially on `localhost`.
 
-The `UploadProgressEventArgs` event argument contains the properties [`Files` and `Progress`](#event-arguments). The `Files` property contains only one file.
+The `UploadProgressEventArgs` event argument contains the properties [`Files` and `Progress`](#event-arguments). The `Files` collection contains only one file.
 
 >caption Using the Upload OnProgress event
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <TelerikUpload OnProgress="@OnUploadProgress" />
 
 @code {
@@ -231,9 +242,7 @@ If you cancel the event, the Upload component will not send the file deletion re
 
 >caption Using the OnRemove event to send custom data to the controller
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <TelerikUpload OnRemove="@OnUploadRemove" />
 
 @code {
@@ -283,19 +292,35 @@ public async Task<IActionResult> Remove([FromForm] string files)
 
 See the [full example](#example) below.
 
+
 ## OnResume
 
-The `OnResume` event fires when the user clicks on the resume button during chunk upload. The `UploadResumeEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property can contain one or more files.
+The `OnResume` event fires when the user clicks on the Resume button during [chunk upload](slug:upload-chunk). Pausing and resuming uploads requires `UploadChunkSettings.Resume` to be `true`, which is by default.
+
+The `UploadResumeEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` collection contains one file.
 
 If you cancel the event, the chunk upload will not be resumed.
 
-See a full example in the [Chunk Upload article](slug:upload-chunk).
+````RAZOR.skip-repl
+<TelerikUpload OnResume="@OnUploadResume">
+    <UploadSettings>
+        <UploadChunkSettings Enabled="true" Resume="true" />
+    </UploadSettings>
+</TelerikUpload>
+
+@code {
+    private void OnUploadResume(UploadResumeEventArgs args)
+    {
+        string fileName = args.Files.First().Name;
+    }
+}
+````
 
 ## OnSelect
 
 The `OnSelect` event fires when the user selects one or more new files for upload. The selection of files is achieved either through the *Select files* button or by dropping the files anywhere in the component.
 
-The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments). The `Files` property can contain one or more files, and it is possible to [count the total number of selected files](slug:upload-kb-count-selected-uploaded-files).
+The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments). The `Files` collection can contain one or more files, and it is possible to [count the total number of selected files](slug:upload-kb-count-selected-uploaded-files).
 
 If you cancel the event, the Upload component will neither list, nor upload the selected files.
 
@@ -313,9 +338,7 @@ The file rename process requires two separate steps:
 
 >caption Using the Upload OnSelect event to rename files in the UI
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <TelerikUpload OnSelect="@OnUploadSelect" />
 
 @code {
@@ -363,9 +386,7 @@ For example, the server can return a URL string for an image thumbnail.
 
 >caption Using the OnSuccess event with message from the controller
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <TelerikUpload OnSuccess="@OnUploadSuccess" />
 
 @code {
@@ -508,7 +529,10 @@ public async Task<IActionResult> Save(IFormFile files)
 
 The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorApp`.
 
-Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
+Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, the file includes the following lines:
+
+* `builder.Services.AddControllers();`
+* `app.MapDefaultControllerRoute();`
 
 Also see:
 
@@ -704,91 +728,90 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TelerikBlazorApp.Controllers
+namespace TelerikBlazorApp.Controllers;
+
+[Route("api/[controller]/[action]")]
+public class UploadController : ControllerBase
 {
-    [Route("api/[controller]/[action]")]
-    public class UploadController : ControllerBase
+    public IWebHostEnvironment HostingEnvironment { get; set; }
+
+    public UploadController(IWebHostEnvironment hostingEnvironment)
     {
-        public IWebHostEnvironment HostingEnvironment { get; set; }
+        HostingEnvironment = hostingEnvironment;
+    }
 
-        public UploadController(IWebHostEnvironment hostingEnvironment)
+    [HttpPost]
+    public async Task<IActionResult> Save(IFormFile files) // "files" matches the Upload SaveField value
+    {
+        bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
+            && Convert.ToBoolean(Request.Headers["successHeader"]);
+
+        if (!shouldSucceed)
         {
-            HostingEnvironment = hostingEnvironment;
+            Response.StatusCode = 403;
+            await Response.WriteAsync("Upload refused.");
+        }
+        else if (files != null)
+        {
+            try
+            {
+                var rootPath = HostingEnvironment.WebRootPath; // save to wwwroot - Blazor Server only
+                //var rootPath = HostingEnvironment.ContentRootPath; // save to Server project root - Blazor Server or WebAssembly
+                var saveLocation = Path.Combine(rootPath, files.FileName);
+
+                using (var fileStream = new FileStream(saveLocation, FileMode.Create))
+                {
+                    await files.CopyToAsync(fileStream);
+
+                    Response.StatusCode = 201;
+                    await Response.WriteAsync("Upload successful.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                await Response.WriteAsync($"Upload failed. Exception: {ex.Message}");
+            }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Save(IFormFile files) // "files" matches the Upload SaveField value
+        return new EmptyResult();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Remove([FromForm] string files) // "files" matches the Upload RemoveField value
+    {
+        bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
+            && Convert.ToBoolean(Request.Headers["successHeader"]);
+
+        if (!shouldSucceed)
         {
-            bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
-                && Convert.ToBoolean(Request.Headers["successHeader"]);
-
-            if (!shouldSucceed)
+            Response.StatusCode = 403;
+            await Response.WriteAsync("Delete refused.");
+        }
+        else if (files != null)
+        {
+            try
             {
-                Response.StatusCode = 403;
-                await Response.WriteAsync("Upload refused.");
-            }
-            else if (files != null)
-            {
-                try
-                {
-                    var rootPath = HostingEnvironment.WebRootPath; // save to wwwroot - Blazor Server only
-                    //var rootPath = HostingEnvironment.ContentRootPath; // save to Server project root - Blazor Server or WebAssembly
-                    var saveLocation = Path.Combine(rootPath, files.FileName);
+                var rootPath = HostingEnvironment.WebRootPath; // delete from wwwroot - Blazor Server only
+                //var rootPath = HostingEnvironment.ContentRootPath; // delete from Server project root - Blazor Server or WebAssembly
+                var fileLocation = Path.Combine(rootPath, files);
 
-                    using (var fileStream = new FileStream(saveLocation, FileMode.Create))
-                    {
-                        await files.CopyToAsync(fileStream);
-
-                        Response.StatusCode = 201;
-                        await Response.WriteAsync("Upload successful.");
-                    }
-                }
-                catch (Exception ex)
+                if (System.IO.File.Exists(fileLocation))
                 {
-                    Response.StatusCode = 500;
-                    await Response.WriteAsync($"Upload failed. Exception: {ex.Message}");
+                    System.IO.File.Delete(fileLocation);
+
+                    Response.StatusCode = 200;
+                    await Response.WriteAsync($"Delete successful.");
                 }
             }
-
-            return new EmptyResult();
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                await Response.WriteAsync($"Delete failed. Exception: {ex.Message}");
+            }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Remove([FromForm] string files) // "files" matches the Upload RemoveField value
-        {
-            bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
-                && Convert.ToBoolean(Request.Headers["successHeader"]);
-
-            if (!shouldSucceed)
-            {
-                Response.StatusCode = 403;
-                await Response.WriteAsync("Delete refused.");
-            }
-            else if (files != null)
-            {
-                try
-                {
-                    var rootPath = HostingEnvironment.WebRootPath; // delete from wwwroot - Blazor Server only
-                    //var rootPath = HostingEnvironment.ContentRootPath; // delete from Server project root - Blazor Server or WebAssembly
-                    var fileLocation = Path.Combine(rootPath, files);
-
-                    if (System.IO.File.Exists(fileLocation))
-                    {
-                        System.IO.File.Delete(fileLocation);
-
-                        Response.StatusCode = 200;
-                        await Response.WriteAsync($"Delete successful.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Response.StatusCode = 500;
-                    await Response.WriteAsync($"Delete failed. Exception: {ex.Message}");
-                }
-            }
-
-            return new EmptyResult();
-        }
+        return new EmptyResult();
     }
 }
 ````
