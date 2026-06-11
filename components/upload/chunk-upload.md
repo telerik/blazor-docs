@@ -137,8 +137,7 @@ Also see:
         <UploadChunkSettings Size="@(512 * 1024)"
                              AutoRetryAfter="300"
                              MaxAutoRetries="2"
-                             MetadataField="chunkMetadata"
-                             Resumable="false">
+                             MetadataField="chunkMetadata">
         </UploadChunkSettings>
     </UploadSettings>
 </TelerikUpload>
@@ -173,9 +172,6 @@ public class UploadController : ControllerBase
         {
             try
             {
-                var rootPath = HostingEnvironment.WebRootPath; // Save to wwwroot
-                // var rootPath = HostingEnvironment.ContentRootPath; // Save outside wwwroot
-
                 DataContractJsonSerializer dcSerializer = new(typeof(ChunkMetadata));
                 using MemoryStream ms = new(Encoding.UTF8.GetBytes(chunkMetadata));
 
@@ -184,6 +180,7 @@ public class UploadController : ControllerBase
                     throw new NullReferenceException("Chunk metadata serialization failed.");
                 }
 
+                var rootPath = HostingEnvironment.WebRootPath; // save to wwwroot
                 string saveLocation = Path.Combine(rootPath, metadata.FileName);
 
                 using FileStream fs = new(saveLocation, metadata.ChunkIndex == 0 ? FileMode.Create : FileMode.Append);
@@ -209,8 +206,7 @@ public class UploadController : ControllerBase
         {
             try
             {
-                var rootPath = HostingEnvironment.WebRootPath; // delete from wwwroot - Blazor Server only
-                //var rootPath = HostingEnvironment.ContentRootPath; // delete from Server project root - Blazor Server or WebAssembly
+                var rootPath = HostingEnvironment.WebRootPath; // delete from wwwroot
                 var fileLocation = Path.Combine(rootPath, files);
 
                 if (System.IO.File.Exists(fileLocation))
