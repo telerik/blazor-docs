@@ -10,212 +10,252 @@ components: ["upload"]
 ---
 # Chunk Upload
 
-Chunk upload works by splitting a file into smaller parts (chunks) and sending them in multiple requests. These chunks are then reassembled at the remote endpoint into the final file.
+Chunk upload works by splitting a file into smaller parts (chunks) and sending them one by one in several sequential requests. These chunks are then reassembled at the remote endpoint into the final file.
 
-## Basics
+## Enable Chunk Upload
 
-To set up the Chunk upload feature, use the `UploadChunkSettings` tag, which is nested inside `UploadSettings`. The tag includes the following parameters:
+To enable the chunk upload feature, add the `<UploadChunkSettings>` tag inside inside `<UploadSettings>`. See the [`UploadChunkSettings` API reference](slug:telerik.blazor.components.uploadchunksettings) for all avalable parameters.
 
-| Parameter | Type and Default Value | Description |
-|----------|----------|----------|
-| `AutoRetryAfter` | `double` <br/> (100) | Specifies the amount of time in milliseconds after which a failed chunk upload request will be retried.  
-| `Enabled` | `bool` <br/> (`true`) | Specifies if the chunk upload is enabled.  
-| `MaxAutoRetries` | `int` <br/> (1) | Specifies the number of attempts to retry uploading a failed chunk.  
-| `MetadataField` | `string` <br/> (`chunkMetadata`) | Specifies the name of the variable that will receive the chunk upload metadata in the remote endpoint.  
-| `Resumable` | `bool` <br/> (`true`) | Specifies if the file upload process can be paused and later resumed.
-| `Size` | `double` <br/> (1024 * 1024) | The size of the chunks in bytes.
+````RAZOR.skip-repl
+<TelerikUpload>
+    <UploadSettings>
+        <UploadChunkSettings AutoRetryAfter="100"
+                             Enabled="true"
+                             MaxAutoRetries="1"
+                             MetadataField="chunkMetadata"
+                             Resumable="true"
+                             Size="@(1024 * 1024)" />
+    </UploadSettings>
+</TelerikUpload>
+````
+
+The above snippet shows the default values explicitly. It is equivalent to an empty `<UploadChunkSettings>` tag:
+
+````RAZOR.skip-repl
+<TelerikUpload>
+    <UploadSettings>
+        <UploadChunkSettings />
+    </UploadSettings>
+</TelerikUpload>
+````
+
+## Meta Data
+
+When posting files in chunks, the Upload component sends each chunk together with serialized meta data to the controller. To deserialize this meta data, define a class with the following properties. You can name the class, according to your preferences.
+
+````C#.skip-repl
+using using System.Runtime.Serialization;
+
+[DataContract]
+public class ChunkMetadata
+{
+    [DataMember(Name = "fileId")]
+    public string FileId { get; set; } = string.Empty;
+
+    [DataMember(Name = "fileName")]
+    public string FileName { get; set; } = string.Empty;
+
+    [DataMember(Name = "fileSize")]
+    public long FileSize { get; set; }
+
+    [DataMember(Name = "contentType")]
+    public string ContentType { get; set; } = string.Empty;
+
+    [DataMember(Name = "chunkIndex")]
+    public long ChunkIndex { get; set; }
+
+    [DataMember(Name = "totalChunks")]
+    public long TotalChunks { get; set; }
+}
+````
+
+## Controller Implementation
+
+The controller method that receives file chunks should be similar to the regular [controller method that receives complete files](slug:upload-overview#implement-controller-methods). The major differences are:
+
+* The Save action method must expect an additional `string` argument with a name that matches the value of the `UploadChunkSettings` `MetadataField` parameter. By default, that is `"chunkMetadata"`.
+* The action method must obtain the uploaded file name from the `FileName` property of the meta data object, instead of the `FileName` property of the `IFormFile` argument.
+* The `FileStream` `FileMode` must be `Append` instead of `Create` for all chunks, except the first one. Check the `ChunkIndex` property of the meta data object.
+
+The Upload sends the next chunk only after the previous one has been uploaded successfully.
+
+As always, make sure that the Save action method name is consistent with the Upload `SaveUrl` parameter value.
+
+>caption Chunk upload controller action method
+
+````C#.skip-repl
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
+public async Task<IActionResult> SaveChunk(IFormFile files, [FromForm] string chunkMetadata)
+{
+    DataContractJsonSerializer dcSerializer = new(typeof(ChunkMetadata));
+    MemoryStream ms = new(Encoding.UTF8.GetBytes(chunkMetadata));
+
+    string saveLocation = Path.Combine(HostingEnvironment.WebRootPath, metadata.FileName);
+
+    using FileStream fs = new(saveLocation, metadata.ChunkIndex == 0 ? FileMode.Create : FileMode.Append);
+    await files.CopyToAsync(fs);
+
+    // ...
+}
+````
 
 ## Events
 
-The Upload exposes several relevant events. You can find related examples in the [Events](slug:upload-events) article.
+The Upload exposes events related to chunk uploading. See the examples in the [Upload Events](slug:upload-events) article.
 
-* `OnPause`&mdash;fires when the user clicks on the pause button during chunk upload.
-* `OnResume`&mdash;fires when the user clicks on the "resume" button during chunk upload.
+* [`OnPause`](slug:upload-events#onpause)&mdash;fires when the user clicks on the Pause button during chunk upload.
+* [`OnResume`](slug:upload-events#onresume)&mdash;fires when the user clicks on the Resume button during chunk upload.
+
+The Upload renders Pause and Resume buttons only when `Resumable` is `true` in the `UploadChunkSettings`, which is by default.
 
 ## Example
 
 The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorApp`.
 
-Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
+Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, the file includes the following lines:
+
+* `builder.Services.AddControllers();`
+* `app.MapDefaultControllerRoute();`.
 
 Also see:
 
 * Section [Implement Controller Methods](slug:upload-overview#implement-controller-methods)
 * Page [Upload Troubleshooting](slug:upload-troubleshooting)
 
->caption Enable Chunk Upload
+>caption Using Chunk Upload
 
 <div class="skip-repl"></div>
 
-````RAZOR
+````RAZOR Home.razor
 @inject NavigationManager NavigationManager
 
-<TelerikUpload SaveUrl="@CustomSaveUrl"
-               OnPause="@OnPause"
-               OnResume="@OnResume"
-               RemoveUrl="@RemoveUrl"
-               AutoUpload="true">
+<TelerikUpload SaveUrl="@SaveChunkUrl"
+               RemoveUrl="@RemoveUrl">
     <UploadSettings>
-        <UploadChunkSettings Size="16000"
+        <UploadChunkSettings Size="@(512 * 1024)"
                              AutoRetryAfter="300"
                              MaxAutoRetries="2"
-                             MetadataField="customChunkMetadata"
+                             MetadataField="chunkMetadata"
                              Resumable="false">
         </UploadChunkSettings>
     </UploadSettings>
 </TelerikUpload>
 
 @code {
-    private string SaveUrl => NavigationManager.ToAbsoluteUri("api/upload/chunksave").ToString();
+    private string SaveChunkUrl => NavigationManager.ToAbsoluteUri("api/upload/savechunk").ToString();
     private string RemoveUrl => NavigationManager.ToAbsoluteUri("api/upload/remove").ToString();
-    private string CustomSaveUrl => NavigationManager.ToAbsoluteUri("api/upload/chunksavecustom").ToString();
-
-    private void OnPause(UploadPauseEventArgs args)
-    {
-        Console.WriteLine("pause event");
-
-        foreach (var file in args.Files)
-        {
-            Console.WriteLine(file.Name);
-        }
-    }
-
-    private void OnResume(UploadResumeEventArgs args)
-    {
-        Console.WriteLine("resume event");
-
-        foreach (var file in args.Files)
-        {
-            Console.WriteLine(file.Name);
-        }
-    }
 }
 ````
 ````C# UploadController.cs
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using TelerikBlazorApp.Data;
 
-namespace TelerikBlazorApp.Controllers
+namespace TelerikBlazorApp.Controllers;
+
+[Route("api/[controller]/[action]")]
+public class UploadController : ControllerBase
 {
-    [Route("api/[controller]/[action]")]
-    public class UploadController : ControllerBase
+    public IWebHostEnvironment HostingEnvironment { get; set; }
+
+    public UploadController(IWebHostEnvironment hostingEnvironment)
     {
-        public IWebHostEnvironment HostingEnvironment { get; set; }
+        HostingEnvironment = hostingEnvironment;
+    }
 
-        public UploadController(IWebHostEnvironment hostingEnvironment)
+    [HttpPost]
+    public async Task<IActionResult> SaveChunk(IFormFile files, [FromForm] string chunkMetadata)
+    {
+        if (files != null)
         {
-            HostingEnvironment = hostingEnvironment;
+            try
+            {
+                var rootPath = HostingEnvironment.WebRootPath; // Save to wwwroot
+                // var rootPath = HostingEnvironment.ContentRootPath; // Save outside wwwroot
+
+                DataContractJsonSerializer dcSerializer = new(typeof(ChunkMetadata));
+                using MemoryStream ms = new(Encoding.UTF8.GetBytes(chunkMetadata));
+
+                if (dcSerializer.ReadObject(ms) is not ChunkMetadata metadata)
+                {
+                    throw new NullReferenceException("Chunk metadata serialization failed.");
+                }
+
+                string saveLocation = Path.Combine(rootPath, metadata.FileName);
+
+                using FileStream fs = new(saveLocation, metadata.ChunkIndex == 0 ? FileMode.Create : FileMode.Append);
+                await files.CopyToAsync(fs);
+
+                Response.StatusCode = 201;
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                await Response.WriteAsync($"Chunk upload failed. Exception: {ex.Message}");
+                return new EmptyResult();
+            }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> ChunkSave(IEnumerable<IFormFile> files, string chunkMetadata)
+        return new EmptyResult();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Remove([FromForm] string files) // "files" matches the Upload RemoveField value
+    {
+        if (!string.IsNullOrEmpty(files))
         {
-            foreach (var file in files)
+            try
             {
-                if (file != null)
+                var rootPath = HostingEnvironment.WebRootPath; // delete from wwwroot - Blazor Server only
+                //var rootPath = HostingEnvironment.ContentRootPath; // delete from Server project root - Blazor Server or WebAssembly
+                var fileLocation = Path.Combine(rootPath, files);
+
+                if (System.IO.File.Exists(fileLocation))
                 {
-                    try
-                    {
-                        var rootPath = HostingEnvironment.WebRootPath; // Save to wwwroot
-                                                                       // var rootPath = HostingEnvironment.ContentRootPath; // For saving outside wwwroot
-
-                        var filePath = Path.Combine(rootPath, file.FileName);
-
-                        // If chunkMetadata is provided, append chunks
-                        using (var stream = new FileStream(filePath, FileMode.Append))
-                        {
-                            await file.CopyToAsync(stream);
-                        }
-
-                        Response.StatusCode = 201;
-                        await Response.WriteAsync("Chunk upload successful.");
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.StatusCode = 500;
-                        await Response.WriteAsync($"Chunk upload failed. Exception: {ex.Message}");
-                        return new EmptyResult();
-                    }
+                    System.IO.File.Delete(fileLocation);
                 }
             }
-
-            return new EmptyResult();
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                await Response.WriteAsync($"Delete failed. Exception: {ex.Message}");
+            }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> ChunkSaveCustom(IEnumerable<IFormFile> files, [FromForm(Name = "customChunkMetadata")] string customChunkMetadata)
-        {
-            foreach (var file in files)
-            {
-                if (file != null)
-                {
-                    try
-                    {
-                        var rootPath = HostingEnvironment.WebRootPath;
-                        var filePath = Path.Combine(rootPath, file.FileName);
-
-                        using (var stream = new FileStream(filePath, FileMode.Append))
-                        {
-                            await file.CopyToAsync(stream);
-                        }
-
-                        Response.StatusCode = 201;
-                        await Response.WriteAsync("Custom chunk upload successful.");
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.StatusCode = 500;
-                        await Response.WriteAsync($"Custom chunk upload failed. Exception: {ex.Message}");
-                        return new EmptyResult();
-                    }
-                }
-            }
-
-            return new EmptyResult();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Remove([FromForm] string files) // "files" matches the Upload RemoveField value
-        {
-            bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
-                && Convert.ToBoolean(Request.Headers["successHeader"]);
-
-            if (!shouldSucceed)
-            {
-                Response.StatusCode = 403;
-                await Response.WriteAsync("Delete refused.");
-            }
-            else if (files != null)
-            {
-                try
-                {
-                    var rootPath = HostingEnvironment.WebRootPath; // delete from wwwroot - Blazor Server only
-                    //var rootPath = HostingEnvironment.ContentRootPath; // delete from Server project root - Blazor Server or WebAssembly
-                    var fileLocation = Path.Combine(rootPath, files);
-
-                    if (System.IO.File.Exists(fileLocation))
-                    {
-                        System.IO.File.Delete(fileLocation);
-
-                        Response.StatusCode = 200;
-                        await Response.WriteAsync($"Delete successful.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Response.StatusCode = 500;
-                    await Response.WriteAsync($"Delete failed. Exception: {ex.Message}");
-                }
-            }
-
-            return new EmptyResult();
-        }
+        return new EmptyResult();
     }
 }
+````
+````C# ChunkMetadata.cs
+using System.Runtime.Serialization;
+
+namespace TelerikBlazorApp.Data;
+
+[DataContract]
+public class ChunkMetadata
+{
+    [DataMember(Name = "fileId")]
+    public string FileId { get; set; } = string.Empty;
+
+    [DataMember(Name = "fileName")]
+    public string FileName { get; set; } = string.Empty;
+
+    [DataMember(Name = "fileSize")]
+    public long FileSize { get; set; }
+
+    [DataMember(Name = "contentType")]
+    public string ContentType { get; set; } = string.Empty;
+
+    [DataMember(Name = "chunkIndex")]
+    public long ChunkIndex { get; set; }
+
+    [DataMember(Name = "totalChunks")]
+    public long TotalChunks { get; set; }
+}
+
 ````
 ````C# Program.cs
 // ...
