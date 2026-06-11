@@ -1,12 +1,13 @@
 ---
-title: Header Template
-page_title: TabStrip Header Template
-description: Header Template for the Blazor TabStrip component
-slug: tabstrip-header-template
+title: Templates
+page_title: TabStrip Templates
+description: Templates for the Blazor TabStrip component
+slug: tabstrip-templates
 tags: telerik,blazor, tabstrip, header, template
 published: True
-position: 15
+position: 50
 components: ["tabstrip"]
+previous_url: /components/tabstrip/header-template
 ---
 # TabStrip Header Template
 

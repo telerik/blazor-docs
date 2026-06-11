@@ -1,11 +1,11 @@
 ---
-title: Tab Overflow
-page_title: TabStrip Tab Overflow
+title: Scrolling and Overflow
+page_title: TabStrip Tab Scrolling and Overflow
 description: Learn how to configure overflow behavior for tabs in the Blazor TabStrip component.
 slug: tabstrip-scroll-tabs
 tags: telerik,blazor,tab,strip,tabstrip,scroll,overflow,tabs
 published: True
-position: 15
+position: 20
 tag: updated
 components: ["tabstrip"]
 ---
@@ -174,5 +174,5 @@ The following parameters allow you to customize the appearance of the overflow m
 ## See Also
 
 * [Live Demo: TabStrip - Scrollable Tabs](https://demos.telerik.com/blazor-ui/tabstrip/scrollable-tabs)
-* [TabStrip Overview](slug:components/tabstrip/overview)
+* [TabStrip Overview](slug:tabstrip-overview)
 

@@ -5,7 +5,7 @@ description: Persist Content of the TabStrip for Blazor.
 slug: tabstrip-persist-content
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
-position: 13
+position: 30
 components: ["tabstrip"]
 ---
 # TabStrip Persist Content

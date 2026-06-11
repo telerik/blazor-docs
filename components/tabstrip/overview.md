@@ -2,12 +2,12 @@
 title: Overview
 page_title: TabStrip Overview
 description: Discover the Blazor TabStrip. Explore the features and examples.
-slug: components/tabstrip/overview
+slug: tabstrip-overview
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 0
 components: ["tabstrip"]
-previous-url: components/tabstrip/active-tab-index, knowledge-base/tabstrip-activate-by-index
+previous-url: /components/tabstrip/active-tab-index, /knowledge-base/tabstrip-activate-by-index, /components/tabstrip/sizing
 ---
 # Blazor TabStrip Overview
 
@@ -28,6 +28,62 @@ The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Bla
 >caption TabStrip with specified tab position and a disabled tab
 
 <demo metaUrl="client/tabstrip/overview/" height="420"></demo>
+
+## ActiveTabId Parameter
+
+The `ActiveTabId` parameter allows you to manage the active tab by its ID. It supports two-way binding, allowing seamless updates between the component and the application state.
+
+To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
+
+>caption Using the `ActiveTabId` parameter to manage dynamic tabs
+
+````RAZOR
+<TelerikTabStrip @bind-ActiveTabId="@ActiveTabId">
+    @{
+        foreach (var tab in Tabs)
+        {
+            <TabStripTab @key="@tab.Id" Id="@tab.Id" Title="@tab.Title" Visible="@tab.Visible" Disabled="@tab.Disabled">
+                <HeaderTemplate>
+                    <span>@tab.Title</span>
+                </HeaderTemplate>
+                <Content>
+                    @if (tab.Id == "home")
+                    {
+                        <p>Welcome back! Check out the latest updates and news here.</p>
+                    }
+                    else if (tab.Id == "profile")
+                    {
+                        <p>Update your personal information and preferences in this section.</p>
+                    }
+                    else if (tab.Id == "settings")
+                    {
+                        <p>Customize your experience by adjusting your settings here.</p>
+                    }
+                </Content>
+            </TabStripTab>
+        }
+    }
+</TelerikTabStrip>
+
+@code {
+    private string ActiveTabId { get; set; } = string.Empty;
+
+    private List<Tab> Tabs { get; set; } = new List<Tab>
+    {
+        new Tab { Id = "home", Title = "🏠 Home", Visible = true, Disabled = false },
+        new Tab { Id = "profile", Title = "👤 Profile", Visible = true, Disabled = false },
+        new Tab { Id = "settings", Title = "⚙️ Settings", Visible = true, Disabled = false }
+    };
+
+    public class Tab
+    {
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public bool Visible { get; set; }
+        public bool Disabled { get; set; }
+    }
+}
+````
 
 ## Tabs Configuration
 

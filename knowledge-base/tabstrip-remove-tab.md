@@ -26,7 +26,7 @@ I want a close button on my tabs so the use can remove (close) them. When that h
 
 ## Solution
 
-1. Use the [HeaderTemplate](slug:tabstrip-header-template) of the tabs to add the desired close button
+1. Use the [HeaderTemplate](slug:tabstrip-templates) of the tabs to add the desired close button
 
 1. Have conditional logic to display only the tab you want (for example, loop over a collection of tab descriptor classes, see an example in <a href="https://github.com/telerik/blazor-ui/tree/master/tabstrip/DynamicTabs" target="_blank">this sample project</a>).
 
