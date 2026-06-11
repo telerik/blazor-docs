@@ -25,10 +25,10 @@ The [Telerik CLI NuGet package](https://www.nuget.org/packages/Telerik.CLI) is h
 >caption Install Telerik CLI
 
 ````SH.skip-repl
-dotnet tool install -g Telerik.CLI
+dotnet tool install -g Telerik.CLI --source https://api.nuget.org/v3/index.json
 ````
 
-Without the `-g` flag, .NET installs the tool in the current folder only.
+Without the `-g` flag, .NET installs the tool in the current folder only. The `--source` option is not required, but it avoids issues if any of the installed NuGet sources is misconfigured.
 
 To confirm successful installation, run:
 
@@ -229,6 +229,8 @@ telerik mcp config
 ````
 
 By default, the command creates or updates the global `mcp.json` configuration files of all supported IDEs with all available Telerik MCP servers.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | IDE | Operating System | Configuration File Path |
 | --- | --- | --- |
