@@ -5,7 +5,7 @@ description: Learn about the events and event arguments of the Telerik TabStrip 
 slug: tabstrip-events
 tags: telerik, blazor, tabstrip, events
 published: True
-position: 20
+position: 100
 tag: updated
 components: ["tabstrip"]
 ---
@@ -13,19 +13,20 @@ components: ["tabstrip"]
 
 This article explains the events available in the Telerik TabStrip for Blazor:
 
-* [ActiveTabIdChanged](#activetabidchanged)
-* [OnStateChanged](#onstatechanged)
-* [OnStateInit](#onstateinit)
-* [OnTabReorder](#ontabreorder)
-* [PinnedChanged](#pinnedchanged)
+* [`ActiveTabIdChanged`](#activetabidchanged)
+* [`OnStateChanged`](#onstatechanged)
+* [`OnStateInit`](#onstateinit)
+* [`OnTabReorder`](#ontabreorder)
+* [`PinnedChanged`](#pinnedchanged)
+* [`VisibleChanged`](#visiblechanged)
 
 ## ActiveTabIdChanged
 
-The `ActiveTabIdChanged` event was added in [version 9.0.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/telerik-ui-for-blazor-9-0-0-(2025-q2)). It fires when the user changes the active tab. The event handler receives the new tab ID of type `string` as an argument. If the `Id` parameter of the `TabStripTab` is not set, the component will generate one automatically.
+The `ActiveTabIdChanged` event was added in [version 9.0.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/telerik-ui-for-blazor-9-0-0-(2025-q2)). It fires when the user changes the active tab. The event handler receives the new tab `Id` as a `string` argument. If the `Id` parameter of the `TabStripTab` is not set, the component generates one automatically during initialization.
 
-The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection). Update the `ActiveTabId` parameter value manually in the `ActiveTabIdChanged` handler.
+The `ActiveTabIdChanged` event is designed to work with the [`ActiveTabId` parameter](slug:tabstrip-tabs-collection). Update the `ActiveTabId` parameter value manually in the `ActiveTabIdChanged` handler.
 
->caption Handle the TabStrip ActiveTabIdChanged event
+>caption Using the TabStrip ActiveTabIdChanged event
 
 ````RAZOR
 <TelerikTabStrip ActiveTabId="@TabStripActiveTabId"
@@ -55,11 +56,11 @@ The `ActiveTabIdChanged` event is designed to work with the new [`ActiveTabId` p
 
 ## OnStateChanged
 
-The `OnStateChanged` event fires whenever the user interacts with the TabStrip and changes the active tab, visible tabs, pinned tabs, and tab order.
+The `OnStateChanged` event fires whenever the user interacts with the TabStrip and changes the active tab, visible tabs, pinned tabs, or tab order.
 
-The event handler receives a `TabStripStateEventArgs` argument with a `TabStripState` property. Read more details in the [State Management](slug:tabstrip-state) article.
+The event handler receives a [`TabStripStateEventArgs`](slug:Telerik.Blazor.Components.TabStripStateEventArgs) argument with a `TabStripState` property. Read more details in the [State Management](slug:tabstrip-state) article.
 
->caption Handle the TabStrip OnStateChanged event
+>caption Using the TabStrip OnStateChanged event
 
 ````RAZOR
 <TelerikTabStrip @bind-ActiveTabId="@ActiveTabId"
@@ -91,9 +92,7 @@ The event handler receives a `TabStripStateEventArgs` argument with a `TabStripS
 
     private void OnTabStripStateChanged(TabStripStateEventArgs args)
     {
-        ActiveTabId = args.TabStripState.ActiveTabId;
-
-        TabHistory.Insert(0, $"{DateTime.Now:HH:mm:ss} → {ActiveTabId}");
+        TabHistory.Insert(0, $"{DateTime.Now:HH:mm:ss} → {args.TabStripState.ActiveTabId}");
     }
 }
 ````
@@ -104,13 +103,12 @@ The `OnStateInit` event fires once when the TabStrip initializes. Unlike other T
 
 Use this event to inspect, customize, or restore the initial state of the TabStrip—for example, from a persistent storage.
 
-The event handler receives a `TabStripStateEventArgs` argument with a `TabStripState` property. Read more details in the [State Management](slug:tabstrip-state) article.
+The event handler receives a [`TabStripStateEventArgs`](slug:Telerik.Blazor.Components.TabStripStateEventArgs) argument with a `TabStripState` property. Read more details in the [State Management](slug:tabstrip-state) article.
 
->caption Handle the TabStrip OnStateInit event
+>caption Using the TabStrip OnStateInit event
 
 ````RAZOR
-<TelerikTabStrip ActiveTabId="@TabStripActiveTabId"
-                 ActiveTabIdChanged="@OnActiveTabIdChanged"
+<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
                  OnStateInit="@OnTabStripStateInit">
     <TabStripTab Title="First" Id="tab1">
         First tab content.
@@ -125,11 +123,6 @@ The event handler receives a `TabStripStateEventArgs` argument with a `TabStripS
 
 @code {
     private string TabStripActiveTabId { get; set; } = "tab1";
-
-    private void OnActiveTabIdChanged(string newTabId)
-    {
-        TabStripActiveTabId = newTabId;
-    }
 
     private void OnTabStripStateInit(TabStripStateEventArgs args)
     {
@@ -151,13 +144,16 @@ The event handler receives a `TabStripStateEventArgs` argument with a `TabStripS
 
 ## OnTabReorder
 
-The `OnTabReorder` event fires when the user completes a drag-and-drop tab reorder. To enable tab reordering, set the `EnableTabReorder` parameter on the TabStrip to `true`. The event handler receives a [`TabStripTabReorderEventArgs`](slug:Telerik.Blazor.Components.TabStripTabReorderEventArgs) argument.
+The `OnTabReorder` event fires when a tab changes its order index during user dragging. The event can fire multiple times during a single user reorder operation. The event handler receives a [`TabStripTabReorderEventArgs`](slug:Telerik.Blazor.Components.TabStripTabReorderEventArgs) argument.
 
->caption Handle the TabStrip OnTabReorder event
+To [enable tab reordering](slug:tabstrip-tab-reorder), set the TabStrip `EnableTabReorder` parameter to `true`.
+
+Tab reordering also triggers the [`OnStateChanged` event](#onstatechanged), which fires before `OnTabReorder`.
+
+>caption Using the TabStrip OnTabReorder event
 
 ````RAZOR
-<TelerikTabStrip ActiveTabId="@TabStripActiveTabId"
-                 ActiveTabIdChanged="@OnActiveTabIdChanged"
+<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
                  EnableTabReorder="true"
                  OnTabReorder="@OnTabReorder">
     <TabStripTab Title="First" Id="1">
@@ -174,17 +170,11 @@ The `OnTabReorder` event fires when the user completes a drag-and-drop tab reord
     </TabStripTab>
 </TelerikTabStrip>
 
-<p>Active tab: <code>@TabStripActiveTabId</code></p>
 <p>Last reorder: @ReorderLog</p>
 
 @code {
     private string TabStripActiveTabId { get; set; } = "tab1";
     private string ReorderLog { get; set; } = string.Empty;
-
-    private void OnActiveTabIdChanged(string newTabId)
-    {
-        TabStripActiveTabId = newTabId;
-    }
 
     private void OnTabReorder(TabStripTabReorderEventArgs args)
     {
@@ -193,13 +183,13 @@ The `OnTabReorder` event fires when the user completes a drag-and-drop tab reord
 }
 ````
 
-> The `OnStateChanged` event also fires after a tab reorder. Read more in the [State Management](slug:tabstrip-state) article.
-
 ## PinnedChanged
 
-The `PinnedChanged` event fires when the user [pins or unpins a tab](slug:tabstrip-tabs-configuration#pinnable-and-pinned). The event handler receives a boolean value with the new tab pinned state.
+The Tab `PinnedChanged` event fires when the user [pins or unpins a tab](slug:tabstrip-tab-reorder). The event handler receives a boolean value with the new tab pinned state.
 
->caption Handle the TabStripTab PinnedChanged event
+Update the `Pinned` parameter value in the `PinnedChanged` handler.
+
+>caption Using the TabStripTab PinnedChanged event
 
 ````RAZOR
 <TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
@@ -248,9 +238,53 @@ The `PinnedChanged` event fires when the user [pins or unpins a tab](slug:tabstr
 }
 ````
 
+## VisibleChanged
+
+The Tab `VisibleChanged` event fires when the user [closes a tab](slug:tabstrip-tabs-collection#hiding-and-showing-tabs). The event handler receives a boolean value with the new tab visibility.
+
+Update the `Visible` parameter value in the `VisibleChanged` handler. You can also [display a confirmation prompt](slug:tabstrip-tabs-collection#hiding-and-showing-tabs) before hiding a tab or [reuse a single handler for multiple tabs](slug:tabstrip-tabs-collection#example).
+
+>caption Using the TabStripTab VisibleChanged event
+
+````RAZOR
+<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
+                 Height="200px">
+    <TabStripTab Id="tab1"
+                 Closeable="true"
+                 Title="Tab 1"
+                 Visible="@TabVisible"
+                 VisibleChanged="@TabVisibleChanged">
+        <p>First tab content.</p>
+    </TabStripTab>
+    <TabStripTab Id="tab2"
+                 Title="Tab 2">
+        <p>Second tab content.</p>
+    </TabStripTab>
+</TelerikTabStrip>
+
+<p>Last <code>VisibleChanged</code> event: @VisibleChangedEventLog</p>
+
+<TelerikButton OnClick="@(() => TabVisible = true)">Show Closed Tab</TelerikButton>
+
+@code {
+    private string TabStripActiveTabId { get; set; } = "tab1";
+
+    private bool TabVisible { get; set; } = true;
+
+    private string VisibleChangedEventLog { get; set; } = string.Empty;
+
+    private async Task TabVisibleChanged(bool newVisible)
+    {
+        TabVisible = newVisible;
+
+        VisibleChangedEventLog = $"Tab 1 visibility changed to {newVisible} at {DateTime.Now.ToString("HH:mm:ss")}";
+    }
+}
+````
+
 ## See Also
 
-* [TabStrip Overview](slug:components/tabstrip/overview)
+* [TabStrip Overview](slug:tabstrip-overview)
 * [Dynamic Tabs](slug:tabstrip-tabs-collection)
 * [Tab Reordering](slug:tabstrip-tab-reorder)
 * [State Management](slug:tabstrip-state)

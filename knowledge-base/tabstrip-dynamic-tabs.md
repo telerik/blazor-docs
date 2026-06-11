@@ -17,8 +17,14 @@ components: ["tabstrip"]
             <td>Product</td>
             <td>TabStrip for Blazor</td>
         </tr>
+        <tr>
+            <td>Version</td>
+            <td>13.0.0 and earlier</td>
+        </tr>
     </tbody>
 </table>
+
+>tip If you are using Telerik UI for Blazor version 13.1.0 or later, refer to [Dynamic TabStrip Tabs](slug:tabstrip-tabs-collection) instead of using this article.
 
 ## Description
 
@@ -34,7 +40,7 @@ This KB article also answers the following questions:
 ## Solution
 
 1. [Render the TabStrip tabs in a loop](slug:tabstrip-tabs-collection).
-1. Use a [`HeaderTemplate`](slug:tabstrip-header-template) for the tabs to add Remove buttons. You can display the buttons conditionally based on the tab count.
+1. Use a [`HeaderTemplate`](slug:tabstrip-templates) for the tabs to add Remove buttons. You can display the buttons conditionally based on the tab count.
 1. Declare a button for adding new tabs.
 1. Use custom styling and JavaScript to position the Add button next to the last tab header.
 
@@ -196,4 +202,4 @@ This KB article also answers the following questions:
 ## See Also
 
 * [Dynamic Tab Collection](slug:tabstrip-tabs-collection)
-* [TabStrip Tab `HeaderTemplate`](slug:tabstrip-header-template)
+* [TabStrip Tab `HeaderTemplate`](slug:tabstrip-templates)

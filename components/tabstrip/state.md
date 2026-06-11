@@ -5,51 +5,50 @@ description: Learn how to save, restore, and manipulate the state of the Telerik
 slug: tabstrip-state
 tags: telerik,blazor,tabstrip,state
 published: True
-position: 18
+position: 70
 tag: new
 components: ["tabstrip"]
 ---
 
 # TabStrip State Management
 
-The Telerik TabStrip for Blazor exposes state management capabilities through events and methods. Use them to save, restore, and programmatically manipulate the component state—for example, to persist it across page visits or to respond to state changes.
+The Telerik TabStrip for Blazor exposes state management capabilities through events and methods. Use them to save, restore, and programmatically manipulate the component state, for example, to persist it across page visits or to respond to state changes.
 
-## TabStrip State
+## Objects
 
-The `TabStripState` object describes the current state of the TabStrip:
+The TabStrip stores its state in the following objects:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `ActiveTabId` | `string` | The ID of the currently active tab. |
-| `TabStates` | `List<TabStripTabState>` | A collection of individual tab states. The tab states are returned in the same order as the tabs currently appear in the TabStrip. To reorder tabs programmatically, change the order of the objects in this collection and pass the new state via `SetState`. |
-
-Each `TabStripTabState` object represents the state of a single tab:
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `Id` | `string` | The ID of the tab. |
-| `Visible` | `bool` | Whether the tab is visible. |
-| `Pinned` | `bool` | Whether the tab is pinned. |
+* [`TabStripState`](slug:Telerik.Blazor.Components.TabStripState)&mdash;the state of the TabStrip component and all tabs
+* [`TabStripTabState`](slug:Telerik.Blazor.Components.TabStripTabState)&mdash;the state of a specific tab
 
 ## Events
 
-* [OnStateChanged](slug:tabstrip-events#onstatechanged)
-* [OnStateInit](slug:tabstrip-events#onstateinit)
+The TabStrip fires two events that enable you to monitor the component state or set it initially:
+
+* [`OnStateChanged`](slug:tabstrip-events#onstatechanged)
+* [`OnStateInit`](slug:tabstrip-events#onstateinit)
+
+Also see the [example](#example) below.
 
 ## Methods
 
-Access the TabStrip state at any time through its reference and methods:
+The [`GetState` and `SetState` methods](slug:telerik.blazor.components.teleriktabstrip#methods) of the [TabStrip instance](slug:tabstrip-overview#tabstrip-reference-and-methods) let you obtain and define the current TabStrip state on demand at any time after `OnStateInit`.
 
-| Method | Return Type | Description |
-| --- | --- | --- |
-| `GetState` | `TabStripState` | Returns the current state of the TabStrip. |
-| `SetState` | `void` | Accepts a `TabStripState` object and applies it to the TabStrip. |
+To make changes to the TabStrip state:
 
->tip To reorder tabs programmatically, get the current state, reorder the items in the `TabStates` collection, and pass the modified state back with `SetState`.
+1. Get the current state with the `GetState` method.
+1. Apply the desired modifications to the obtained `TabStripState` object.
+1. Set the modified state object through the `SetState` method.
+
+> Do not use `GetState()` in the `OnStateInit` or `OnStateChanged` events. Do not use `SetState()` in `OnStateInit`. Instead, get or set the `TabStripState` property of the event argument.
+
+## Example
+
+The following sample demonstrates the TabStrip state-related events and methods in action.
 
 ````RAZOR
+@using System.Text.Json
+
 <TelerikButton OnClick="@OnSetButtonClick">Activate First Visible Tab</TelerikButton>
 <TelerikButton OnClick="@OnSaveButtonClick">Save Current TabStrip State</TelerikButton>
 <TelerikButton OnClick="@OnRestoreButtonClick">Restore Initial or Saved State</TelerikButton>
@@ -58,6 +57,7 @@ Access the TabStrip state at any time through its reference and methods:
                  @bind-ActiveTabId="@ActiveTabId"
                  EnableTabReorder="true"
                  OverflowMode="@TabStripOverflowMode.Menu"
+                 OnStateChanged="@OnTabStripStateChanged"
                  Width="600px">
     @foreach (TabModel tab in TabStripTabs)
     {
@@ -75,10 +75,26 @@ Access the TabStrip state at any time through its reference and methods:
     }
 </TelerikTabStrip>
 
+<div style="display: flex; gap: 2em; margin-top: 1em;">
+    <div style="flex: 1 1 50%;">
+        <h2 style="font-size: 1.2em;">Initial or Saved <code>TabStripState</code>:</h2>
+
+        <TelerikTextArea Value="@SerializedSavedTabStripState" Rows="7" />
+    </div>
+    <div style="flex: 1 1 50%;">
+        <h2 style="font-size: 1.2em;"><code>TabStripState</code> in last <code>OnStateChanged</code> event:</h2>
+
+        <TelerikTextArea Value="@SerializedTabStripState" Rows="7" />
+    </div>
+</div>
+
 @code {
     private TelerikTabStrip? TabStripRef;
     private string ActiveTabId { get; set; } = "tab1";
     private TabStripState? SavedTabStripState { get; set; }
+    private string SerializedSavedTabStripState => SavedTabStripState is not null ? JsonSerializer.Serialize(SavedTabStripState, new JsonSerializerOptions { WriteIndented = true }) : string.Empty;
+
+    private string SerializedTabStripState { get; set; } = string.Empty;
 
     private List<TabModel> TabStripTabs { get; set; } = Enumerable.Range(1, 10)
         .Select(x => new TabModel
@@ -123,11 +139,22 @@ Access the TabStrip state at any time through its reference and methods:
         }
     }
 
+    private void OnTabStripStateChanged(TabStripStateEventArgs args)
+    {
+        SerializedTabStripState = JsonSerializer.Serialize(args.TabStripState, new JsonSerializerOptions { WriteIndented = true });
+    }
+
+    private void OnTabStripStateInit(TabStripStateEventArgs args)
+    {
+        args.TabStripState.TabStates.Find(x => !x.Visible)!.Visible = true;
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && TabStripRef is not null)
         {
             SavedTabStripState = TabStripRef.GetState();
+            StateHasChanged();
         }
 
         await base.OnAfterRenderAsync(firstRender);
