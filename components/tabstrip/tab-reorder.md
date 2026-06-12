@@ -2,7 +2,7 @@
 title: Reordering and Pinning
 page_title: TabStrip Tab Reordering and Pinning
 description: Learn how to enable drag-and-drop tab reordering in the Telerik TabStrip for Blazor.
-slug: tabstrip-tab-reorder
+slug: tabstrip-reordering-pinning
 tags: telerik,blazor,tabstrip,reorder,drag,drop
 published: True
 position: 40
@@ -61,7 +61,7 @@ Observe the following rules when using tab reordering:
 
 When [tab pinning](slug:tabstrip-tabs-configuration#pinnable-and-pinned) is enabled, pinned tabs are grouped at the start of the tab list. The [reorder constraints](#reorder-rules) prevent mixing of pinned and unpinned tabs.
 
-The `TabStripTab` `Pinnable` parameter specifies whether users can pin a tab. Pinned tabs are fixed to the start of the tab list and cannot be mixed with unpinned tabs during [reordering](slug:tabstrip-tab-reorder).
+The `TabStripTab` `Pinnable` parameter specifies whether users can pin a tab. Pinned tabs are fixed to the start of the tab list and cannot be mixed with unpinned tabs during [reordering](slug:tabstrip-reordering-pinning).
 
 Use the tab's `Pinned` parameter to set the initial or runtime pinned state of a tab. Use two-way binding or the [`PinnedChanged` event](slug:tabstrip-events#pinnedchanged) to keep the `Pinned` value in sync when users toggle the pin state through the context menu.
 

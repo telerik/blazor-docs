@@ -24,11 +24,11 @@ components: ["tabstrip"]
     </tbody>
 </table>
 
->tip If you are using Telerik UI for Blazor version 13.1.0 or later, refer to [Dynamic TabStrip Tabs](slug:tabstrip-tabs-collection) instead of using this article.
+>tip If you are using Telerik UI for Blazor version 13.1.0 or later, refer to [Dynamic TabStrip Tabs](slug:tabstrip-dynamic-tabs) instead of using this article.
 
 ## Description
 
-I have a collection of items representing separate tabs. I am iterating through that collection to render a tab for each item as shown in the [Tabs Collection article](slug:tabstrip-tabs-collection). I want to allow the user to add and remove tabs. How to achieve that?
+I have a collection of items representing separate tabs. I am iterating through that collection to render a tab for each item as shown in the [Tabs Collection article](slug:tabstrip-dynamic-tabs). I want to allow the user to add and remove tabs. How to achieve that?
 
 This KB article also answers the following questions:
 
@@ -39,7 +39,7 @@ This KB article also answers the following questions:
 
 ## Solution
 
-1. [Render the TabStrip tabs in a loop](slug:tabstrip-tabs-collection).
+1. [Render the TabStrip tabs in a loop](slug:tabstrip-dynamic-tabs).
 1. Use a [`HeaderTemplate`](slug:tabstrip-templates) for the tabs to add Remove buttons. You can display the buttons conditionally based on the tab count.
 1. Declare a button for adding new tabs.
 1. Use custom styling and JavaScript to position the Add button next to the last tab header.
@@ -201,5 +201,5 @@ This KB article also answers the following questions:
 
 ## See Also
 
-* [Dynamic Tab Collection](slug:tabstrip-tabs-collection)
+* [Dynamic Tab Collection](slug:tabstrip-dynamic-tabs)
 * [TabStrip Tab `HeaderTemplate`](slug:tabstrip-templates)

@@ -174,5 +174,5 @@ The following sample demonstrates the TabStrip state-related events and methods 
 ## See Also
 
 * [TabStrip Events](slug:tabstrip-events)
-* [Tab Reordering](slug:tabstrip-tab-reorder)
+* [Tab Reordering](slug:tabstrip-reordering-pinning)
 * [Tabs Configuration](slug:tabstrip-tabs-configuration)
