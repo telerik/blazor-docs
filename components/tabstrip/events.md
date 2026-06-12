@@ -142,7 +142,7 @@ The `OnTabDrop` event fires when the user completes a tab reorder and releases t
 
 The `OnTabDrop` event handler receives a [`TabStripTabDropEventArgs`](slug:Telerik.Blazor.Components.TabStripTabDropEventArgs) argument.
 
-To [enable tab reordering](slug:tabstrip-tab-reorder), set the TabStrip `EnableTabReorder` parameter to `true`.
+To [enable tab reordering](slug:tabstrip-reordering-pinning), set the TabStrip `EnableTabReorder` parameter to `true`.
 
 >caption Using the TabStrip OnTabDrop event
 
@@ -180,7 +180,7 @@ The `OnTabReorder` event fires when a tab changes its order index during user dr
 
 The `OnTabReorder` event handler receives a [`TabStripTabReorderEventArgs`](slug:Telerik.Blazor.Components.TabStripTabReorderEventArgs) argument.
 
-To [enable tab reordering](slug:tabstrip-tab-reorder), set the TabStrip `EnableTabReorder` parameter to `true`.
+To [enable tab reordering](slug:tabstrip-reordering-pinning), set the TabStrip `EnableTabReorder` parameter to `true`.
 
 Tab reordering also triggers the [`OnStateChanged` event](#onstatechanged), which fires before `OnTabReorder`.
 
@@ -216,7 +216,7 @@ Tab reordering also triggers the [`OnStateChanged` event](#onstatechanged), whic
 
 ## PinnedChanged
 
-The Tab `PinnedChanged` event fires when the user [pins or unpins a tab](slug:tabstrip-tab-reorder). The event handler receives a boolean value with the new tab pinned state.
+The Tab `PinnedChanged` event fires when the user [pins or unpins a tab](slug:tabstrip-reordering-pinning). The event handler receives a boolean value with the new tab pinned state.
 
 Update the `Pinned` parameter value in the `PinnedChanged` handler.
 
@@ -271,9 +271,9 @@ Update the `Pinned` parameter value in the `PinnedChanged` handler.
 
 ## VisibleChanged
 
-The Tab `VisibleChanged` event fires when the user [closes a tab](slug:tabstrip-tabs-collection#hiding-and-showing-tabs). The event handler receives a boolean value with the new tab visibility.
+The Tab `VisibleChanged` event fires when the user [closes a tab](slug:tabstrip-dynamic-tabs#hiding-and-showing-tabs). The event handler receives a boolean value with the new tab visibility.
 
-Update the `Visible` parameter value in the `VisibleChanged` handler. You can also [display a confirmation prompt](slug:tabstrip-tabs-collection#hiding-and-showing-tabs) before hiding a tab or [reuse a single handler for multiple tabs](slug:tabstrip-tabs-collection#example).
+Update the `Visible` parameter value in the `VisibleChanged` handler. You can also [display a confirmation prompt](slug:tabstrip-dynamic-tabs#hiding-and-showing-tabs) before hiding a tab or [reuse a single handler for multiple tabs](slug:tabstrip-dynamic-tabs#example).
 
 >caption Using the TabStripTab VisibleChanged event
 
@@ -316,6 +316,6 @@ Update the `Visible` parameter value in the `VisibleChanged` handler. You can al
 ## See Also
 
 * [TabStrip Overview](slug:tabstrip-overview)
-* [Dynamic Tabs](slug:tabstrip-tabs-collection)
-* [Tab Reordering](slug:tabstrip-tab-reorder)
+* [Dynamic Tabs](slug:tabstrip-dynamic-tabs)
+* [Tab Reordering](slug:tabstrip-reordering-pinning)
 * [State Management](slug:tabstrip-state)

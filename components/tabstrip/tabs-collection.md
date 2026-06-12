@@ -2,7 +2,7 @@
 title: Dynamic Tabs
 page_title: TabStrip - Dynamic Tabs
 description: Learn how to use the ActiveTabId parameter in the Telerik TabStrip for Blazor to manage dynamic tabs.
-slug: tabstrip-tabs-collection
+slug: tabstrip-dynamic-tabs
 tags: telerik,blazor,tabstrip,dynamic tabs
 published: True
 position: 60
@@ -108,7 +108,7 @@ Also see the [runnable example](#example) below.
 
 The app can change the `TabStripTab` parameter values at any time.
 
-Some [`TabStripTab` parameters](slug:telerik.blazor.components.tabstriptab) support two-way binding, for example, [`Visible`](#hiding-and-showing-tabs) and [`Pinned`](slug:tabstrip-tab-reorder). If users can change these tab properties at runtime, you must use two-way parameter binding or the respective [`Changed` event](slug:tabstrip-events). Otherwise the TabStrip state may become invalid and reset unexpectedly when the UI refreshes.
+Some [`TabStripTab` parameters](slug:telerik.blazor.components.tabstriptab) support two-way binding, for example, [`Visible`](#hiding-and-showing-tabs) and [`Pinned`](slug:tabstrip-reordering-pinning). If users can change these tab properties at runtime, you must use two-way parameter binding or the respective [`Changed` event](slug:tabstrip-events). Otherwise the TabStrip state may become invalid and reset unexpectedly when the UI refreshes.
 
 ## Example
 
@@ -117,7 +117,7 @@ The following sample shows how to:
 * Define the TabStrip tab configuration through a collection of custom descriptors. Some tabs are closed, pinned, disabled or not closable.
 * Use a `@key` when rendering Blazor components in a loop, which is a [standard Blazor requirement](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/element-component-model-relationships).
 * Synchronize the `Pinned` and `Visible` state of the tabs with the underlying tab descriptor collection.
-* [Display scroll buttons automatically](slug:tabstrip-scroll-tabs) when the tabs no longer fit the available space.
+* [Display scroll buttons automatically](slug:tabstrip-scrolling-overflow) when the tabs no longer fit the available space.
 * Use a [`TabStripSuffixTemplate`](slug:tabstrip-templates) to add custom buttons in the tab row.
 * Use the [`VisibleChanged` event](slug:tabstrip-events#visiblechanged) to hide closed tabs (default) or completely remove them from the tab collection. Tab removal can also be implemented through the [`OnStateChanged` event](slug:tabstrip-events#onstatechanged).
 * Add more tabs at runtime.
@@ -221,7 +221,7 @@ The following sample shows how to:
             Disabled = LastId == 3,
             Pinnable = true,
             Pinned = LastId == 5,
-            Visible = LastId != 2,
+            Visible = LastId != 2
         }).ToList();
 
         TabStripActiveTabId = TabDescriptors.First().Id;
