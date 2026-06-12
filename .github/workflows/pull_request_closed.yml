@@ -5,6 +5,9 @@ on:
     branches: [master]
     types: [closed]
 
+permissions:
+  contents: write
+
 jobs:
   cherry_pick:
     if: ${{github.event.pull_request.merged == true}}
