@@ -6,6 +6,9 @@ on:
     types:
       - labeled
 
+permissions:
+  pull-requests: write
+
 jobs:
   post_comment_master:
     runs-on: ubuntu-22.04
