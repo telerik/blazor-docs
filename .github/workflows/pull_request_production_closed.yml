@@ -3,6 +3,10 @@ on:
   pull_request:
     branches: [production]
     types: [closed]
+
+permissions:
+  contents: write
+
 jobs:
   delete_production_branch:
     runs-on: ubuntu-22.04

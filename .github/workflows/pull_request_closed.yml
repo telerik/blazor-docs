@@ -4,13 +4,14 @@ on:
   pull_request:
     branches: [master]
     types: [closed]
-    
+
+permissions:
+  contents: write
+
 jobs:
   cherry_pick:
     if: ${{github.event.pull_request.merged == true}}
     runs-on: ubuntu-22.04
-    permissions:
-      contents: write
     steps:
       - name: Should create PR to production?
         uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
@@ -68,8 +69,6 @@ jobs:
     needs: [cherry_pick]
     if: always()
     runs-on: ubuntu-22.04
-    permissions:
-      contents: write
 
     steps:
       - name: checkout
