@@ -39,9 +39,9 @@ The above snippet shows the default values explicitly. It is equivalent to an em
 </TelerikUpload>
 ````
 
-## Meta Data
+## Metadata
 
-When posting files in chunks, the Upload component sends each chunk together with serialized meta data to the controller. To deserialize this meta data, define a class with the following properties. You can name the class, according to your preferences.
+When posting files in chunks, the Upload component sends each chunk together with serialized metadata to the controller. To deserialize this metadata, define a class with the following properties. You can name the class, according to your preferences.
 
 ````C#.skip-repl
 using using System.Runtime.Serialization;
@@ -69,13 +69,19 @@ public class ChunkMetadata
 }
 ````
 
+The app can use the metadata in various ways, for example:
+
+* To obtain the uploaded file's name, total size, and content type. Unlike regular uploads, the file properties are not available in the `IFormFile` argument for each chunk.
+* To distinguish the first uploaded chunk and create a new file on the server, rather than append to an existing one.
+* To distinguish the last uploaded chunk and verify if the saved total file size matches the expected one.
+
 ## Controller Implementation
 
 The controller method that receives file chunks should be similar to the regular [controller method that receives complete files](slug:upload-overview#implement-controller-methods). The major differences are:
 
 * The Save action method must expect an additional `string` argument with a name that matches the value of the `UploadChunkSettings` `MetadataField` parameter. By default, that is `"chunkMetadata"`.
-* The action method must obtain the uploaded file name from the `FileName` property of the meta data object, instead of the `FileName` property of the `IFormFile` argument.
-* The `FileStream` `FileMode` must be `Append` instead of `Create` for all chunks, except the first one. Check the `ChunkIndex` property of the meta data object.
+* The action method must obtain the uploaded file name from the `FileName` property of the metadata object, instead of the `FileName` property of the `IFormFile` argument.
+* The `FileStream` `FileMode` must be `Append` instead of `Create` for all chunks, except the first one. Check the `ChunkIndex` property of the metadata object.
 
 The Upload sends the next chunk only after the previous one has been uploaded successfully.
 
@@ -96,6 +102,15 @@ public async Task<IActionResult> SaveChunk(IFormFile files, [FromForm] string ch
 
     using FileStream fs = new(saveLocation, metadata.ChunkIndex == 0 ? FileMode.Create : FileMode.Append);
     await files.CopyToAsync(fs);
+
+    if (metadata.ChunkIndex == metadata.TotalChunks - 1)
+    {
+        FileInfo fileInfo = new(saveLocation);
+        if (fileInfo.Length != metadata.FileSize)
+        {
+            throw new InvalidOperationException($"Uploaded file size mismatch. Expected: {metadata.FileSize}, Actual: {fileInfo.Length}");
+        }
+    }
 
     // ...
 }
@@ -185,6 +200,15 @@ public class UploadController : ControllerBase
 
                 using FileStream fs = new(saveLocation, metadata.ChunkIndex == 0 ? FileMode.Create : FileMode.Append);
                 await files.CopyToAsync(fs);
+
+                if (metadata.ChunkIndex == metadata.TotalChunks - 1)
+                {
+                    FileInfo fileInfo = new(saveLocation);
+                    if (fileInfo.Length != metadata.FileSize)
+                    {
+                        throw new InvalidOperationException($"File size mismatch. Expected: {metadata.FileSize}, Actual: {fileInfo.Length}");
+                    }
+                }
 
                 Response.StatusCode = 201;
             }
