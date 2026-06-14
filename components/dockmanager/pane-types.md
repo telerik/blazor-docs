@@ -23,7 +23,7 @@ Provides full control over explicitly defining custom content to be rendered for
 
 ## TabGroup Pane
 
-Groups panes in a tab strip, similar to the [TabStrip component](slug:components/tabstrip/overview). Users can navigate through panes using tabs in the header. 
+Groups panes in a tab strip, similar to the [TabStrip component](slug:tabstrip-overview). Users can navigate through panes using tabs in the header. 
 
 * It can be a direct child of `<DockManagerSplitPane>`. 
 * It can only contain `<DockManagerContentPane>` children.
