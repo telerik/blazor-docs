@@ -12,26 +12,26 @@ components: ["tabstrip"]
 
 # TabStrip Scrollable Tabs and Overflow Menu
 
-The Telerik TabStrip for Blazor provides two built-in mechanisms to handle scenarios in which the tabs do not fit in the available space. This article describes how to set up tab scrolling and how to use a dropdown menu to display the overflowing tabs.
+The Telerik TabStrip for Blazor provides three built-in mechanisms to handle scenarios in which the tabs do not fit in the available space. This article describes how to set up tab scrolling and how to use a dropdown menu to display the overflowing tabs.
 
 ## Basics
 
-The TabStrip provides an `OverflowMode` parameter, which controls how the component handles scenarios with too many tabs that don't fint in the available space. The parameter expects a [`TabStripOverflowMode` enum](slug:telerik.blazor.components.tabstripoverflowmode) value:
+The TabStrip provides an `OverflowMode` parameter, which controls how the component handles scenarios with too many tabs that don't fit in a single row in the available space. The parameter expects a [`TabStripOverflowMode` enum](slug:telerik.blazor.components.tabstripoverflowmode) value:
 
-* `None` (default)&mdash;Tabs wrap to multiple lines.
+* `None` (default)&mdash;Tabs wrap to multiple rows.
 * `Scroll`&mdash;All tabs remain on a single row or column, and scroll buttons appear.
 * `Menu`&mdash;The TabStrip displays a dropdown menu after the last tab that fits in the available space. The dropdown lists all the other [visible tabs](slug:dynamic-tabs#hiding-and-showing-tabs).
 
-The TabStrip `Scrollable` parameter is deprecated and must be replaced by `OverflowMode` in all Telerik UI for Blazor 13.1.0 and later versions.
+> The TabStrip `Scrollable` parameter is deprecated and must be replaced by `OverflowMode` in Telerik UI for Blazor 13.1.0 and later versions.
 
 ## Tab Scrolling
 
 The built-in tab scrolling is enabled when the TabStrip `OverflowMode` parameter is set to `Scroll`. The tab scrolling UX depends on two additional TabStrip parameters:
 
 * [`ScrollButtonsVisibility`](slug:telerik.blazor.tabstripscrollbuttonvisibility)&mdash;Sets whether the scroll buttons display always, never or only when necessary (default).
-* [`ScrollButtonsPosition`](slug:telerik.blazor.tabstripscrollbuttonsposition)&mdash;Sets whether the scroll buttons display before the tabs, after the tabs, or on both sides (default).
+* [`ScrollButtonsPosition`](slug:telerik.blazor.tabstripscrollbuttonsposition)&mdash;Sets whether the scroll buttons display before the tabs, after the tabs, or one on each side (default).
 
-The `Start` and `End`  values of `ScrollButtonsPosition` take into account the [right-to-left mode](slug:rtl-support), if the latter is being used.
+The `Start` and `End`  values of `ScrollButtonsPosition` take into account if [right-to-left mode](slug:rtl-support) is being used.
 
 >caption Using scrollable TabStrip tabs
 
@@ -113,6 +113,8 @@ The `Start` and `End`  values of `ScrollButtonsPosition` take into account the [
 
 The TabStrip tab overflow menu is a [DropDownButton](slug:dropdownbutton-overview) that renders when the TabStrip `OverflowMode` parameter is set to `Menu`. The menu collects tabs that do not fit and lets users activate them from the dropdown. If there are no overflowing tabs, the DropDownButton is disabled.
 
+If the user activates a tab from the overflow menu, it moves to the list of visible tabs, and one tab from the visible list moves to the overflow menu.
+
 The TabStrip exposes the built-in overflow menu as a separate [`TabStripOverflowMenu` component](#tabstripoverflowmenu-component) that you can use inside the [`TabStripSuffixTemplate`](slug:tabstrip-templates#suffix-template).
 
 >caption Using the TabStrip overflow menu
@@ -150,11 +152,11 @@ The TabStrip exposes the built-in overflow menu as a separate [`TabStripOverflow
 
 ## TabStripOverflowMenu Component
 
-The [TabStrip Overflow Menu](#overflow-menu) renders in the default [`TabStripSuffixTemplate`](slug:tabstrip-templates#suffix-template). When using a custom Suffix Template together with `Menu` `OverflowMode`, you must:
+The [TabStrip Overflow Menu](#overflow-menu) renders in the default [`TabStripSuffixTemplate`](slug:tabstrip-templates#suffix-template). To use a custom Suffix Template together with `Menu` `OverflowMode`, you must:
 
-1. Define a `TabStripOverflowMenu` component explicitly in the `<TabStripSuffixTemplate>` child content.
+1. Define a `TabStripOverflowMenu` component in the `<TabStripSuffixTemplate>` child content.
 1. Obtain the reference to the `TabStripOverflowMenu` component instance with a `@ref` atttribute.
-1. Call the `Refresh()` method of the Overflow Menu instance whenever the [visible tabs change](slug:tabstrip-dynamic-tabs).
+1. Call the `Refresh()` method of the Overflow Menu instance whenever the [visible tabs or tab count change](slug:tabstrip-dynamic-tabs).
 
 See the [TabStriptOverflowMenu component API reference](slug:telerik.blazor.components.tabstripoverflowmenu) for all available parameters and methods.
 
@@ -241,7 +243,17 @@ See the [TabStriptOverflowMenu component API reference](slug:telerik.blazor.comp
 }
 ````
 
+## Next Steps
+
+* [Persist tab content on active tab change](slug:tabstrip-persist-content)
+* [Reorder and pin tabs](slug:tabstrip-reordering-pinning)
+* [Customize TabStrip UI with templates](slug:tabstrip-templates)
+* [Change the number of tabs at runtime](slug:tabstrip-dynamic-tabs)
+* [Manage TabStrip state](slug:tabstrip-state)
+* [Handle TabStrip events](slug:tabstrip-events)
+
 ## See Also
 
 * [Live Demo: TabStrip Scrollable Tabs](https://demos.telerik.com/blazor-ui/tabstrip/scrollable-tabs)
-* [TabStrip Overview](slug:tabstrip-overview)
+* [Live Demo: TabStrip Overflow Menu](https://demos.telerik.com/blazor-ui/tabstrip/tab-overflow)
+

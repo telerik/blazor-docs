@@ -11,13 +11,13 @@ previous_url: /components/tabstrip/tabs-alignment
 ---
 # TabStrip Tab Position and Alignment
 
-The TabStrip allows you to customize the placement and layout of the tabs.
+The TabStrip allows you to customize the placement and layout of the tabs, according to your requirements. This article describes the available options and how they integrate with one another.
 
 ## Tab Position
 
-The clickable TabStrip tabs can appear on any side of the component. By default, the tabs display at the top.
+The TabStrip tabs can appear on any side of the component. By default, the tabs display at the top.
 
-To set a custom tab position, use the TabStrip `TabPosition` parameter and use a [`TabPosition` enum](slug:telerik.blazor.tabposition) value.
+To customize the tab position, use the TabStrip `TabPosition` parameter and use a [`TabPosition` enum](slug:telerik.blazor.tabposition) value.
 
 >caption Setting TabStrip TabPosition
 
@@ -25,20 +25,20 @@ To set a custom tab position, use the TabStrip `TabPosition` parameter and use a
 <TelerikTabStrip TabPosition="@TabPosition.Bottom" />
 ````
 
-When using the TabStrip `Height` parameter together with `Left` or `Right` tab position, make sure the component is high enough to fit the tabs. Otherwise, enable [tab scrolling or overflow](slug:tabstrip-scrolling-overflow).
+When using the TabStrip `Height` parameter together with `Left` or `Right` tab position, make sure the component is high enough to fit the tabs. Otherwise, enable [tab scrolling or the overflow menu](slug:tabstrip-scrolling-overflow).
 
-When using [right-to-left mode](slug:rtl-support), the `Left` and `Right` tab positions result in the same UI as in left-to-right layouts.
+When using [right-to-left mode](slug:rtl-support), the `Left` and `Right` tab positions do not switch. The two settings result in the same UI as in left-to-right layouts.
 
 ## Tab Alignment
 
-The TabStrip tab alignment determines the tab size and layout in the context of a given [tab position](#tab-position).
+The TabStrip tab alignment determines the tab layout, tab dimensions and spacing in the context of a given [tab position](#tab-position).
 
 To customize the alignment, set the TabStrip `TabAlignment` parameter to a [`TabStripTabAlignment` enum](slug:telerik.blazor.tabstriptabalignment). The default value is `Start`, which means that the tabs render:
 
-* On the left side of the component header when using a horizontal tab layout with [`Top` or `Bottom` tab position].
-* At the top side of the component header when using a vertical tab layout with `Left` or `Right` tab position.
+* On the left side of the component header when using horizontal tabs with [`Top` or `Bottom` tab position](#tab-position).
+* At the top side of the component header when using vertical tabs with `Left` or `Right` tab position.
 
-The `Start` and `End` alignment values take into account the [right-to-left mode](slug:rtl-support), if the latter is being used.
+When using horizontal tabs, the `Start` and `End` alignment values take into account if [right-to-left mode](slug:rtl-support) is being used. In other words, `Start` is equivalent to left in LTR mode and right in RTL mode.
 
 >caption Setting TabStrip TabAlignment
 
@@ -122,7 +122,13 @@ The `Start` and `End` alignment values take into account the [right-to-left mode
 ## Next Steps
 
 * [Enable tab scrolling or overflow](slug:tabstrip-scrolling-overflow)
+* [Persist tab content on active tab change](slug:tabstrip-persist-content)
+* [Reorder and pin tabs](slug:tabstrip-reordering-pinning)
+* [Customize TabStrip UI with templates](slug:tabstrip-templates)
+* [Change the number of tabs at runtime](slug:tabstrip-dynamic-tabs)
+* [Manage TabStrip state](slug:tabstrip-state)
+* [Handle TabStrip events](slug:tabstrip-events)
 
 ## See Also
 
-* [Live Demo: TabStrip - Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
+* [Live Demo: TabStrip Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)

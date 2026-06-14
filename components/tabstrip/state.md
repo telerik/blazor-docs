@@ -171,8 +171,11 @@ The following sample demonstrates the TabStrip state-related events and methods 
 }
 ````
 
+## Next Steps
+
+* [Handle TabStrip events](slug:tabstrip-events)
+
 ## See Also
 
-* [TabStrip Events](slug:tabstrip-events)
-* [Tab Reordering](slug:tabstrip-reordering-pinning)
-* [Tabs Configuration](slug:tabstrip-tabs-configuration)
+* [TabStrip Tab Position and Alignment](slug:tabstrip-position-alignment)
+* [TabStrip Tab Scrolling or Overflow Menu](slug:tabstrip-scrolling-overflow)
