@@ -18,11 +18,9 @@ previous_url: /components/tabstrip/tabs-configuration
 
 The TabStrip tabs can be hidden or shown by setting their `Visible` boolean parameter. Setting `Visible` to `false` hides the tab from the tab list, but keeps it in the tab collection. Changing the tab visibility at runtime preserves the tab order. This is in contrast to adding a new tab at runtime, which adds it at the last position.
 
-The `TabStripTab` component has a `Closeable` parameter with a `false` default value. When `Closeable` is enabled, the tab renders a built-in Close button. Closing a tab sets its `Visible` parameter to `false`. In this case, you must either use the `Visible` parameter with two-way binding (`@bind-Visible="..."`), or handle the [`VisibleChanged` event](slug:tabstrip-events#visiblechanged) that fires when a tab is closed. Either approach ensures that the tab state matches the app state. You can use the `VisibleChanged` event to intercept close actions, for example, show a [confirmation dialog](slug:dialog-predefined).
+The `TabStripTab` component has a `Closeable` parameter with a `false` default value. When `Closeable` is enabled, the tab renders a built-in Close button next to the tab title. Closing a tab sets its `Visible` parameter to `false`. In this case, you must either use the `Visible` parameter with two-way binding (`@bind-Visible="..."`), or handle the [`VisibleChanged` event](slug:tabstrip-events#visiblechanged) that fires when a tab is closed. Either approach ensures that the tab state matches the app state. You can use the `VisibleChanged` event to intercept close actions, for example, show a [confirmation dialog](slug:dialog-predefined).
 
 Showing hidden tabs is possible with custom UI.
-
-Also see the [more comprehensive example](#example) below.
 
 >caption Using the tab Closeable and Visible parameters, and the VisibleChanged event
 
@@ -68,41 +66,45 @@ Also see the [more comprehensive example](#example) below.
 }
 ````
 
+Also see the [more comprehensive example](#example) below.
+
 ## Adding and Removing Tabs
 
 The TabStrip uses declarative tab definitions and is not a databound component. To change the actual number of tab objects in the component (no matter their visibility), you need to:
 
 * Render the tabs in a loop, based on a collection of objects. Always set a [`@key` attribute](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/element-component-model-relationships) to the `<TabStripTab>` tags.
-* Change the number of members in the looped collection through custom UI and application logic.
 
-Also see the [runnable example](#example) below.
+    ````RAZOR
+    <TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId">
+        @foreach (TabDescriptor tab in TabDescriptors)
+        {
+            <TabStripTab @key="@tab"
+                        Id="@tab.Id"
+                        Title="@tab.Title">
+                <p>Content of Tab <strong>@tab.Title</strong></p>
+            </TabStripTab>
+        }
+    </TelerikTabStrip>
 
->caption Rendering TabStrip tabs in a loop
+    @code {
+        private string TabStripActiveTabId { get; set; } = "tab1";
 
-````RAZOR.skip-repl
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId">
-    @foreach (TabDescriptor tab in TabDescriptors)
-    {
-        <TabStripTab @key="@tab"
-                     Id="@tab.Id"
-                     Title="@tab.Title">
-            <p>Content of Tab @tab.Title</p>
-        </TabStripTab>
+        private List<TabDescriptor> TabDescriptors { get; set; } = new()
+            {
+                new TabDescriptor { Id = "tab1", Title = "Tab 1" },
+                new TabDescriptor { Id = "tab2", Title = "Tab 2" },
+                new TabDescriptor { Id = "tab3", Title = "Tab 3" }
+            };
+
+        public class TabDescriptor
+        {
+            public string Id { get; set; } = Guid.NewGuid().ToString();
+            public string Title { get; set; } = "Tab Title";
+        }
     }
-</TelerikTabStrip>
+    ````
 
-@code {
-    private string TabStripActiveTabId { get; set; } = string.Empty;
-
-    private List<TabDescriptor> TabDescriptors { get; set; } = new();
-
-    public class TabDescriptor
-    {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public string Title { get; set; } = "Tab Title";
-    }
-}
-````
+* Change the number of members in the looped collection through custom UI and application logic. See the [comprehensive example](#example) below.
 
 ## Changing Tab Settings
 
@@ -239,6 +241,11 @@ The following sample shows how to:
     }
 }
 ````
+
+## Next Steps
+
+* [Manage TabStrip state](slug:tabstrip-state)
+* [Handle TabStrip events](slug:tabstrip-events)
 
 ## See Also
 

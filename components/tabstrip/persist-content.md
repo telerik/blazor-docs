@@ -44,6 +44,14 @@ To keep Tab content in the DOM after the Tab is deactivated, set the `PersistCon
 </TelerikTabStrip>
 ````
 
+## Next Steps
+
+* [Reorder and pin tabs](slug:tabstrip-reordering-pinning)
+* [Customize TabStrip UI with templates](slug:tabstrip-templates)
+* [Change the number of tabs at runtime](slug:tabstrip-dynamic-tabs)
+* [Manage TabStrip state](slug:tabstrip-state)
+* [Handle TabStrip events](slug:tabstrip-events)
+
 ## See Also
 
 * [Live Demo: TabStrip - Persist Tab Content](https://demos.telerik.com/blazor-ui/tabstrip/persist-content)

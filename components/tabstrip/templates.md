@@ -32,7 +32,7 @@ Using a `HeaderTemplate` requires you to define the tab content inside a `<Conte
 
 The `TabStripSuffixTemplate` allows you to render custom content after the last tab header, for example labels or buttons.
 
-When using a Suffix Template, you must wrap the `<TabStripTab>` tags by a `<ChildContent>` tag.
+When using a Suffix Template, you must wrap the `<TabStripTab>` tags in a `<ChildContent>` tag.
 
 The Suffix Template disables the rendering of the built-in [Overflow Menu](slug:tabstrip-scrolling-overflow). When you need both features, [add a `TabStripOverflowMenu` component to the `TabStripSuffixTemplate`](slug:tabstrip-scrolling-overflow#tabstripoverflowmenu-component) explicitly.
 
@@ -111,7 +111,9 @@ The Suffix Template disables the rendering of the built-in [Overflow Menu](slug:
 
 ## Next Steps
 
-* [Handle TabStrip Events](slug:tabstrip-events)
+* [Change the number of tabs at runtime](slug:tabstrip-dynamic-tabs)
+* [Manage TabStrip state](slug:tabstrip-state)
+* [Handle TabStrip events](slug:tabstrip-events)
 
 ## See Also
 
