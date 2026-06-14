@@ -12,7 +12,7 @@ components: ["tabstrip"]
 
 The TabStrip always renders the content of a Tab when this Tab becomes active. Once the Tab is deactivated, its content is disposed and re-initialized again when the user selects the corresponding Tab later.
 
-To keep Tab content in the DOM after the Tab is deactivated, set the `PersistContent` boolean parameter of the TabStrip to `true`. In this way the inactive TabStrip content will be hidden with CSS.
+To keep Tab content in the DOM after the Tab is deactivated, set the `PersistContent` boolean parameter of the TabStrip to `true`. In this way the inactive TabStrip content will be hidden with CSS. This is useful when tab content includes stateful components, such as forms or text inputs, where you want to preserve the state across tab switches without the need to use additional parameters or a custom app state service.
 
 >caption Persist the TabStrip content
 
