@@ -177,6 +177,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
     <IntroTableSection title="Interactivity and UX">
       <IntroTableAnchor title="AIPrompt" href="slug:aiprompt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Chat" href="slug:chat-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="ExpansionPanel" href="slug:expansionpanel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Loader" href="slug:loader-overview"></IntroTableAnchor>
       <IntroTableAnchor title="LoaderContainer" href="slug:loadercontainer-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Skeleton" href="slug:skeleton-overview"></IntroTableAnchor>
