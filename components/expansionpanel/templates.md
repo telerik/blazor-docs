@@ -6,7 +6,7 @@ slug: expansionpanel-templates
 tags: blazor,expansionpanel
 components: ["expansionpanel"]
 published: True
-position: 50
+position: 10
 ---
 
 # ExpansionPanel Templates
@@ -16,7 +16,11 @@ The Telerik ExpansionPanel component for Blazor exposes templates for more flexi
 * [`HeaderTemplate`](#cardbodytemplate)
 * [`SubHeaderTemplate`](#cardtemplate)
 
+When using ExpansionPanel templates, wrap the component content in a `<Content>` child tag. Othewise, the `<Content>` tag is optional and you can insert the ExpansionPanel content directly between the opening and closing `TelerikExpansionPanel` tags.
+
 ## HeaderTemplate
+
+The ExpansionPanel `HeaderTemplate` renders at the place of the plain-text title.
 
 Do not use `Title` and `HeaderTemplate` at the same time. If the app defines both, the ExpansionPanel will use the `HeaderTemplate`.
 
@@ -27,12 +31,17 @@ Do not use `Title` and `HeaderTemplate` at the same time. If the app defines bot
     <HeaderTemplate>
         Expansion Panel Header Template
     </HeaderTemplate>
+    <Content>
+        Expansion Panel Content
+    </Content>
 </TelerikTaskBoard>
 ````
 
 Also see the [runnable example below](#example).
 
 ## SubHeaderTemplate
+
+The ExpansionPanel `SubHeaderTemplate` renders at the place of the plain-text sub-title.
 
 Do not use `SubTitle` and `SubHeaderTemplate` at the same time. If the app defines both, the ExpansionPanel will use the `SubHeaderTemplate`.
 
@@ -43,6 +52,9 @@ Do not use `SubTitle` and `SubHeaderTemplate` at the same time. If the app defin
     <SubHeaderTemplate>
         Expansion Panel SubHeader Template
     </SubHeaderTemplate>
+    <Content>
+        Expansion Panel Content
+    </Content>
 </TelerikTaskBoard>
 ````
 
@@ -51,7 +63,22 @@ Do not use `SubTitle` and `SubHeaderTemplate` at the same time. If the app defin
 >caption Using ExpansionPanel templates
 
 ````RAZOR
+<TelerikExpansionPanel Expanded="@ExpansionPanelExpanded">
+    <HeaderTemplate>
+        <TelerikSvgIcon Icon="@SvgIcon.Info" />
+        <span style="color: var(--kendo-color-primary)"><strong>Header</strong> Template</span>
+    </HeaderTemplate>
+    <SubHeaderTemplate>
+        <strong>Sub Header</strong> Template
+    </SubHeaderTemplate>
+    <Content>
+        Expansion Panel Content
+    </Content>
+</TelerikExpansionPanel>
 
+@code {
+    private bool ExpansionPanelExpanded { get; set; }
+}
 ````
 
 ## Next Steps

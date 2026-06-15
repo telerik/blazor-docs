@@ -11,84 +11,27 @@ position: 100
 
 # ExpansionPanel Events
 
-This article describes the available events in the Telerik ExpansionPanel for Blazor:
-
-* [`ExpandedChanged`](#)
-* [`OnCollapse`](#)
-* [`OnExpand`](#)
+This article describes the available events in the Telerik ExpansionPanel for Blazor.
 
 ## ExpandedChanged
 
-The ExpansionPanel `OnCardClick` event fires when the user:
+The ExpansionPanel `ExpandedChanged` event fires when:
 
-* Clicks or taps a Card.
-* Hits `Enter` while a Card is focused.
+* The user expands or collapses the component.
+* The app executes the component's `ExpandAsync`, `CollapseAsync`, or `ToggleAsync` method.
 
-The event handler receives a generic [`TaskBoardCardClickEventArgs<TItem>`](slug:Telerik.Blazor.Components.TaskBoardCardClickEventArgs-1) argument.
-
-The [`OnExpand`](#) and [`OnCollapse`]() fire after `ExpandedChanged`.
-
->caption Using the ExpansionPanel ExpandedChanged event
-
-````RAZOR.skip-repl
-<TelerikExpansionPanel Expanded="@ExpansionPanelExpanded"
-                       ExpandedChanged="@ExpansionPanelExpandedChanged" />
-
-@code {
-    private bool ExpansionPanelExpanded { get; set; }
-
-    private void ExpansionPanelExpandedChanged(bool newExpanded)
-    {
-        ExpansionPanelExpanded = newExpanded;
-    }
-}
-````
-
-Also see the [runnable example](#example) below.
-
-## OnCollapse
-
->caption Using the ExpansionPanel OnCollapse event
-
-````RAZOR.skip-repl
-<TelerikExpansionPanel OnCollapse="@OnExpansionPanelCollapse" />
-
-@code {
-    private void OnExpansionPanelCollapse()
-    {
-
-    }
-}
-````
-
-Also see the [runnable example](#example) below.
-
-## OnExpand
-
->caption Using the ExpansionPanel OnExpand event
-
-````RAZOR.skip-repl
-<TelerikExpansionPanel OnExpand="@OnExpansionPanelExpand" />
-
-@code {
-    private void OnExpansionPanelExpand()
-    {
-
-    }
-}
-````
-
-## Example
+Make sure to update the value of the `Expanded` parameter by using the boolean argument that the event handler receives.
 
 >caption Using the ExpansionPanel events
 
 ````RAZOR
 <p>Last Event: @ExpansionPanelEventLog</p>
 
-<TelerikExpansionPanel Expanded="@ExpansionPanelExpanded"
+<p><TelerikButton OnClick="@OnToggleButtonClick">Toggle</TelerikButton></p>
+
+<TelerikExpansionPanel @ref="ExpansionPanelRef"
+                       Expanded="@ExpansionPanelExpanded"
                        ExpandedChanged="@ExpansionPanelExpandedChanged"
-                       OnCollapse="@OnExpansionPanelCollapse"
-                       OnExpand="@OnExpansionPanelExpand"
                        Title="Expansion Panel Title">
     <Content>
         ExpansionPanel Content
@@ -96,6 +39,8 @@ Also see the [runnable example](#example) below.
 </TelerikExpansionPanel>
 
 @code {
+    private TelerikExpansionPanel? ExpansionPanelRef;
+
     private bool ExpansionPanelExpanded { get; set; }
 
     private string ExpansionPanelEventLog { get; set; } = string.Empty;
@@ -106,14 +51,9 @@ Also see the [runnable example](#example) below.
         ExpansionPanelEventLog = $"ExpansionPanel ExpandedChanged event fired with new value: {newExpanded}";
     }
 
-    private void OnExpansionPanelCollapse()
+    private async Task OnToggleButtonClick()
     {
-        ExpansionPanelEventLog = "ExpansionPanel OnCollapse event fired.";
-    }
-
-    private void OnExpansionPanelExpand()
-    {
-        ExpansionPanelEventLog = "ExpansionPanel OnExpand event fired.";
+        await ExpansionPanelRef!.ToggleAsync();
     }
 }
 ````
