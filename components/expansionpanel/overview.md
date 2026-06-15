@@ -25,6 +25,7 @@ The ExpansionPanel and [PanelBar](slug:panelbar-overview) are similar and interc
 1. Set the `Expanded` parameter to a boolean value. If users will be able to toggle the component, use two-way binding or the [ExpansionPanel `ExpandedChanged` event](slug:expansionpanel-events#expandedchanged).
 1. Set the `Title` parameter.
 1. (optional) Set the `SubTitle` parameter to a label that will appear next to the expand/collapse arrow.
+1. (optional) If you need to programmatically expand or collapse the ExpansionPanel, use the [component methods](#expansionpanel-api). Updating the `Expanded` parameter also works, but without animations.
 
 ````RAZOR
 <TelerikExpansionPanel @ref="ExpansionPanelRef"
@@ -79,11 +80,12 @@ The [ExpansionPanel exposes events](slug:expansionpanel-events) that enable the 
 
 Consult the [ExpansionPanel API Reference](slug:Telerik.Blazor.Components.TelerikExpansionPanel) to see all available component parameters, methods, and events.
 
-Use `@ref` to add a reference to the component instance and use the ExpansionPanel methods.
+Use `@ref` to add a reference to the component instance and use the ExpansionPanel methods. The earliest possible time to use Blazor component references is in `OnAfterRender` or `OnAfterRenderAsync`.
 
-The earliest possible time to use Blazor component references is in `OnAfterRender` or `OnAfterRenderAsync`.
+The ExpansionPanel methods `ExpandAsync`, `CollapseAsync`, and `ToggleAsync` provide the following benefits:
 
-The app can expand and collapse the ExpansionPanel programmatically even if the `Toggleable` parameter is set to `false`.
+* The app can expand and collapse the ExpansionPanel programmatically even if the `Toggleable` parameter is set to `false`.
+* When using the methods, the ExpansionPanel changes its state with an animation. When only updating the `Expanded` parameter value, there is no animation.
 
 >caption Using ExpansionPanel methods
 
