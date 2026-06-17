@@ -10,16 +10,23 @@ ticketid: 1508419
 res_type: kb
 components: ["tabstrip"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TabStrip for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TabStrip for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td>13.0.0 and earlier</td>
+        </tr>
+    </tbody>
 </table>
 
+>tip This KB discusses a scenario, which is [supported out-of-the-box](slug:tabstrip-dynamic-tabs) in Telerik UI for Blazor 13.1.0 and newer versions.
 
 ## Description
 I want a close button on my tabs so the use can remove (close) them. When that happens, I want to have the previous tab selected instead of no tab.
@@ -32,7 +39,7 @@ I want a close button on my tabs so the use can remove (close) them. When that h
 
 1. Stop the propagation of the `@onclick` event on the custom button. 
 
-1. In the Close button click handler use the [`Visible` parameter](slug:tabstrip-tabs-configuration#visible) to hide the tab.
+1. In the Close button click handler use the [`Visible` parameter](slug:tabstrip-dynamic-tabs#hiding-and-showing-tabs) to hide the tab.
 
 >caption Close button on a tab
 

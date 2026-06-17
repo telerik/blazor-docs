@@ -20,7 +20,7 @@ The TabStrip provides an `OverflowMode` parameter, which controls how the compon
 
 * `None` (default)&mdash;Tabs wrap to multiple rows.
 * `Scroll`&mdash;All tabs remain on a single row or column, and scroll buttons appear.
-* `Menu`&mdash;The TabStrip displays a dropdown menu after the last tab that fits in the available space. The dropdown lists all the other [visible tabs](slug:dynamic-tabs#hiding-and-showing-tabs).
+* `Menu`&mdash;The TabStrip displays a dropdown menu after the last tab that fits in the available space. The dropdown lists all the other [visible tabs](slug:tabstrip-dynamic-tabs#hiding-and-showing-tabs).
 
 > The TabStrip `Scrollable` parameter is deprecated and must be replaced by `OverflowMode` in Telerik UI for Blazor 13.1.0 and later versions.
 
@@ -28,7 +28,7 @@ The TabStrip provides an `OverflowMode` parameter, which controls how the compon
 
 The built-in tab scrolling is enabled when the TabStrip `OverflowMode` parameter is set to `Scroll`. The tab scrolling UX depends on two additional TabStrip parameters:
 
-* [`ScrollButtonsVisibility`](slug:telerik.blazor.tabstripscrollbuttonvisibility)&mdash;Sets whether the scroll buttons display always, never or only when necessary (default).
+* [`ScrollButtonsVisibility`](slug:telerik.blazor.tabstripscrollbuttonsvisibility)&mdash;Sets whether the scroll buttons display always, never or only when necessary (default).
 * [`ScrollButtonsPosition`](slug:telerik.blazor.tabstripscrollbuttonsposition)&mdash;Sets whether the scroll buttons display before the tabs, after the tabs, or one on each side (default).
 
 The `Start` and `End`  values of `ScrollButtonsPosition` take into account if [right-to-left mode](slug:rtl-support) is being used.
