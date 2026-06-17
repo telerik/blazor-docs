@@ -52,9 +52,9 @@ Use the tab's `Pinned` parameter to set the initial or runtime pinned state of a
 
 The tab reorder and tab pin fatures obey the following rules:
 
-* [Pinned tabs](#pinn-tabs) can only be reordered among other pinned tabs.
+* [Pinned tabs](#pin-tabs) can only be reordered among other pinned tabs.
 * Unpinned tabs can only be reordered among other unpinned tabs. A pinned tab cannot be dragged and dropped on the unpinned tab area.
-* [Disabled tabs](slug:tabstrip-tabs-configuration#disabled) cannot be reordered, pinned or unpinned. However, the order index of disabled tabs can change when users reorder the other tabs.
+* Disabled tabs cannot be reordered, pinned or unpinned. However, the order index of disabled tabs can change when users reorder the other tabs.
 
 ## Example
 
