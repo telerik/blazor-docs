@@ -86,7 +86,6 @@ The following table lists the LoaderContainer parameters. Also check the [Loader
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader-container">` element. Use it to [override theme styles](slug:themes-override). See an example at [Custom LoaderContainer Colors](slug:loadercontainer-appearance#custom-loadercontainer-colors). |
-| `OverlayThemeColor` | `string`<br />(`"dark"`) | Sets the [color of the semi-transparent overlay](slug:loadercontainer-appearance#overlaythemecolor). Use `"light"` or ``"dark"``. |
 | `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic](slug:loadercontainer-appearance#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](slug:Telerik.Blazor.ThemeConstants.Loader.Size). |
 | `Text` | `string`<br />(`"Loading..."`) | Sets the text below the loading animation. Set to `null` or `String.Empty` to remove the text and its containing HTML element. |
 | `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic and text](slug:loadercontainer-appearance#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](slug:Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
