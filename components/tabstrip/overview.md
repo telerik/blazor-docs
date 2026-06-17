@@ -2,12 +2,12 @@
 title: Overview
 page_title: TabStrip Overview
 description: Discover the Blazor TabStrip. Explore the features and examples.
-slug: components/tabstrip/overview
+slug: tabstrip-overview
 tags: telerik,blazor,tab,strip,tabstrip,overview
 published: True
 position: 0
 components: ["tabstrip"]
-previous-url: components/tabstrip/active-tab-index, knowledge-base/tabstrip-activate-by-index
+previous-url: /components/tabstrip/active-tab-index, /knowledge-base/tabstrip-activate-by-index, /components/tabstrip/sizing
 ---
 # Blazor TabStrip Overview
 
@@ -22,159 +22,108 @@ The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Bla
 1. Use the `<TelerikTabStrip>` tag.
 1. Add a nested `<TabStripTab>` tag for each tab you want to include in the component.
 1. Set tab titles through the `Title` parameter of the `<TabStripTab>` tags.
-1. Optionally, configure other tab settings such as `Disabled` - read more in the [Tabs Configuration](slug:tabstrip-tabs-configuration) article.
-1. Place the desired content in the tabs - it can be any content, including other components.
+1. Place the desired content in each tab, including HTML markup and Razor components.
 
->caption TabStrip with specified tab position and a disabled tab
+>caption Basic Blazor TabStrip
 
 <demo metaUrl="client/tabstrip/overview/" height="420"></demo>
 
-## Tabs Configuration
+## ActiveTabId Parameter
 
-The Tabs are the building blocks of the TabStrip. The component allows individual configuration of the declared `<TabStripTab>` tags - you can set their title and visibility or put them in disabled state. [Read more about the available Tabs configuration options...](slug:tabstrip-tabs-configuration)
+The TabStrip `ActiveTabId` parameter allows you to manage the active tab by its `string` ID. The parameter supports two-way binding through an [`ActiveTabIdChanged` `EventCallback`](slug:tabstrip-events#activetabidchanged), allowing seamless updates between the component and the application state.
 
-## Position of the Tabs
+To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
 
-The Blazor TabStrip component allows you to control the position of the tabs. [Read more about the Tabs Position...](slug:tabstrip-tabs-position)
+>caption Using the TabStrip `ActiveTabId` parameter
 
-## Alignment of the Tabs
+````RAZOR
+<TelerikButton OnClick="@(() => TabStripActiveTabId = string.Empty)">Deactivate Tab</TelerikButton>
 
-The Blazor TabStrip component allows you to control the alignment of the tabs. [Read more about the Tabs Alignment...](slug:tabstrip-tabs-alignment)
-
-## Tab Size
-
-The Blazor TabStrip component allow you to set different size of the tabs and scroll buttons. [Read more about the TabStrip Sizing...](slug:tabstrip-tabs-size)
-
-## Persist Content
-
-The Blazor TabStrip component can persist the content of the tabs. When the user navigates between the tabs, their content will be hidden with CSS only to avoid re-initialization. [Read more about the Persist Content...](slug:tabstrip-persist-content)
-
-## Tab Overflow
-
-When you define more tabs than the available space allows, the Blazor TabStrip can handle the overflow with scroll buttons or a dropdown menu. [Read more about the Tab Overflow...](slug:tabstrip-scroll-tabs)
-
-## Closeable Tabs
-
-The Blazor TabStrip allows tabs to render a close button so users can hide individual tabs. [Read more about the Tabs Configuration...](slug:tabstrip-tabs-configuration#closeable)
-
-## Pinnable Tabs
-
-The Blazor TabStrip supports pinning tabs to the start of the tab list. Pinned tabs stay fixed and cannot be mixed with unpinned tabs during reordering. [Read more about Pinnable and Pinned tabs...](slug:tabstrip-tabs-configuration#pinnable-and-pinned)
-
-## Tab Reorder
-
-The Blazor TabStrip allows users to reorder tabs by dragging and dropping them to new positions. [Read more about Tab Reordering...](slug:tabstrip-tab-reorder)
-
-## State Management
-
-The Blazor TabStrip exposes state management capabilities through events and methods. You can save, restore, and programmatically manipulate the component state. [Read more about State Management...](slug:tabstrip-state)
-
-## Dynamic Tabs
-
-The Blazor TabStrip component allows you to create TabStrip tabs dynamically. [Read more about the Dynamic Tabs...](slug:tabstrip-tabs-collection)
-
-## Events
-
-The TabStrip fires an event when the user changes the active tab (`ActiveTabIdChanged`), reorders tabs (`OnTabReorder`), or when its state changes (`OnStateInit`, `OnStateChanged`). [Read more about the TabStrip events...](slug:tabstrip-events)
-
-## TabStrip Parameters
-
-The TabStrip provides the following features to allow further customization of its behavior:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default&nbsp;Value | Description |
-| --- | --- | --- |
-| `ActiveTabId` | `string` | The ID of the currently active tab. If not set, the first tab is active. Supports two-way binding. |
-| `EnableTabReorder` | `bool` | Whether users can reorder tabs via drag-and-drop. See [Tab Reordering](slug:tabstrip-tab-reorder). |
-| `OnStateInit` | `EventCallback<TabStripStateEventArgs>` | Fires when the TabStrip initializes its state. Use this to inspect or restore the initial state. See [State Management](slug:tabstrip-state). |
-| `OnStateChanged` | `EventCallback<TabStripStateEventArgs>` | Fires whenever the TabStrip state changes. See [State Management](slug:tabstrip-state). |
-| `OnTabReorder` | `EventCallback<TabStripTabReorderEventArgs>` | Fires when a tab is reordered via drag-and-drop. See [Tab Reordering](slug:tabstrip-tab-reorder). |
-| `OverflowMode` | `TabStripOverflowMode` enum <br/> (`TabStripOverflowMode.None`) | Controls the behavior of tabs when they exceed the available space. The available options are `None`, `Scroll`, and `Menu`. See [Tab Overflow](slug:tabstrip-scroll-tabs). |
-| `PersistTabContent` | `bool` | Whether to remove the content of inactive tabs from the DOM (if `false`), or just hide it with CSS (if `true`). See [Persist Content](slug:tabstrip-persist-content). |
-| `Scrollable` | `bool` | **Obsolete.** Use `OverflowMode="@TabStripOverflowMode.Scroll"` instead. |
-| `ScrollButtonsPosition` | `TabStripScrollButtonsPosition` enum <br/> (`TabStripScrollButtonsPosition.Split`) | Specifies the position of the scroll buttons when `OverflowMode` is `Scroll`. |
-| `ScrollButtonsVisibility` | `TabStripScrollButtonsVisibility` enum <br/> (`TabStripScrollButtonsVisibility.Visible`) | Specifies the visibility of the scroll buttons when `OverflowMode` is `Scroll`. |
-| `Size` | `string` <br/> (`ThemeConstants.TabStrip.Size.Medium`) | Controls the size of the tabs. |
-| `TabAlignment` | `TabStripTabAlignment` enum <br/> (`TabStripTabAlignment.Start`) | Controls the alignment of the tabs. |
-| `TabPosition` | `TabPosition` enum <br/> (`TabPosition.Top`) | Controls the position of the tabs. |
-
-
-### Styling and Appearance
-
-The following parameters enable you to customize the appearance of the Blazor TabStrip:.
-
-| Parameter | Type     | Description                              |
-|-----------|----------|------------------------------------------|
-| `Class`   | `string` | The CSS class that will be rendered on the main wrapping element of the component. |
-| `Width`   | `string` | The width of the component. You can set the Width parameter to any of the [supported units](slug:common-features/dimensions). |
-| `Height`  | `string` | The height of the Component. You can set the `Height` parameter to any of the [supported units](slug:common-features/dimensions). |
-
-### Templates
-
-| Template | Description |
-| --- | --- |
-| `TabStripSuffixTemplate` | A `RenderFragment` rendered after the tab list, inside the TabStrip container. Use this to add custom content such as action buttons or navigation elements. When you use `OverflowMode.Menu`, include the `TabStripOverflowMenu` component inside this template to preserve overflow menu functionality. |
-
-## TabStrip Reference and Methods
-
-The `TabStrip` methods are accessible through its reference.
-
-| Method | Return Type | Description |
-| --- | --- | --- |
-| `GetState` | `TabStripState` | Returns the current state of the TabStrip. See [State Management](slug:tabstrip-state). |
-| `Refresh` | `void` | Redraws the component. |
-| `SetState` | `void` | Accepts a `TabStripState` object and applies it to the TabStrip. See [State Management](slug:tabstrip-state). |
-
->caption Get a reference to the TabStrip and use its methods.
-
-````RAZOR Index.razor
-@* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
-
-<TelerikTabStrip @ref="@TabRef">
-    <CityPopulation TabRef="TabRef" />
+<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId">
+    <TabStripTab Id="tab1"
+                 Title="Tab 1">
+        First tab content.
+    </TabStripTab>
+    <TabStripTab Id="tab2"
+                 Title="Tab 2">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Id="tab3"
+                 Title="Tab 3">
+        Third tab content.
+    </TabStripTab>
 </TelerikTabStrip>
 
 @code {
-    public TelerikTabStrip TabRef { get; set; }
+    private string TabStripActiveTabId { get; set; } = "tab1";
 }
 ````
-````RAZOR CityPopulation.razor
-@* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
 
-<TabStripTab Title="Sofia">
-    <Content>
-        <div>
-            <h2>City Population: @Count</h2>
-        </div>
-        <TelerikButton OnClick="IncreaseCount">Increase Count!</TelerikButton>
-    </Content>
-</TabStripTab>
+## Tab Position and Alignment
+
+The TabStrip can position tabs on any side of the component. Tab alignment controls how tabs are distributed in the selected position.
+
+For more details, see the [TabStrip Position and Alignment](slug:tabstrip-position-alignment) article.
+
+## Tab Overflow and Scrolling
+
+When tabs do not fit in the available space, the TabStrip provides three built-in behaviors: wrapping to multiple rows (default), scrolling, or collapsing overflowing tabs into a dropdown menu.
+
+For more details, see the [TabStrip Scrollable Tabs and Overflow Menu](slug:tabstrip-scrolling-overflow) article.
+
+## Persist Content
+
+By default, the TabStrip destroys the content of inactive tabs when the user switches tabs and re-initializes it when the tab becomes active again. To keep all tab content in the DOM and hide inactive tabs with CSS only, see the [TabStrip Persist Content](slug:tabstrip-persist-content) article.
+
+## Tab Reordering and Pinning
+
+The TabStrip lets users reorder tabs by drag-and-drop and pin important tabs to a fixed position. See [Tab Reordering and Pinning] for details.
+
+## Templates
+
+The TabStrip allows you to replace the plain text in the tab headers with custom HTML markup or components. You can also add custom content next to the tabs, for example, and **Add** button. For more details, see the [TabStrip Templates](slug:tabstrip-templates) article.
+
+## Dynamic Tabs
+
+The TabStrip supports dynamic tab management, allowing you to add, remove, show, or hide tabs at runtime by iterating a collection of objects. For more details, see the [TabStrip Dynamic Tabs](slug:tabstrip-dynamic-tabs) article.
+
+## More TabStrip Features
+
+* [State Management](slug:tabstrip-state)&mdash;Save, restore, and programmatically control the TabStrip state to persist it across page visits.
+* [Events](slug:tabstrip-events)&mdash;Handle events such as `ActiveTabIdChanged`, `OnTabReorder`, `PinnedChanged`, and `VisibleChanged` to respond to user interactions.
+
+## TabStrip API
+
+Get familiar with all TabStrip parameters, methods, and events in the [TabStrip API Reference](slug:Telerik.Blazor.Components.TelerikTabStrip) and the [`TabStripTab` API Reference](slug:Telerik.Blazor.Components.TabStripTab).
+
+## TabStrip Reference and Methods
+
+The Blazor TabStrip component exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
+
+>caption Get a reference to the TabStrip instance and use its methods
+
+````RAZOR.skip-repl
+<TelerikTabStrip @ref="@TabStripRef" />
 
 @code {
-    public int Count { get; set; } = 30;
-    [Parameter] public TelerikTabStrip TabRef { get; set; }
-
-    void IncreaseCount()
-    {
-        Count += 1;
-        TabRef.Refresh();
-    }
+    private TelerikTabStrip? TabStripRef { get; set; }
 }
 ````
 
 ## Next Steps
 
-* [Configure the Tabs](slug:tabstrip-tabs-configuration)
-* Explore the supported Tab [positions](slug:tabstrip-tabs-position) and [alignments](slug:tabstrip-tabs-alignment)
-* [Manage the TabStrip state](slug:tabstrip-state)
-* [Handle the TabStrip events](slug:tabstrip-events)
+* [Set the TabStrip tab position and alignment](slug:tabstrip-position-alignment)
+* [Enable tab scrolling or overflow](slug:tabstrip-scrolling-overflow)
+* [Persist tab content on active tab change](slug:tabstrip-persist-content)
+* [Reorder and pin tabs](slug:tabstrip-reordering-pinning)
+* [Customize TabStrip UI with templates](slug:tabstrip-templates)
+* [Change the number of tabs at runtime](slug:tabstrip-dynamic-tabs)
+* [Manage TabStrip state](slug:tabstrip-state)
+* [Handle TabStrip events](slug:tabstrip-events)
+
 
 ## See Also
 
 * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
-* [Live Demo: Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
-* [Events](slug:tabstrip-events)
-* [State Management](slug:tabstrip-state)
-* [Tab Reordering](slug:tabstrip-tab-reorder)
 * [TabStrip API Reference](slug:Telerik.Blazor.Components.TelerikTabStrip)
+* [TabStripTab API Reference](slug:Telerik.Blazor.Components.TabStripTab)

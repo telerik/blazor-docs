@@ -75,7 +75,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Speech to Text Button" href="slug:speechtotextbutton-overview"></IntroTableAnchor>
       <IntroTableAnchor title="SplitButton" href="slug:splitbutton-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Stepper" href="slug:stepper-overview"></IntroTableAnchor>
-      <IntroTableAnchor title="Tab Strip" href="slug:components/tabstrip/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Tab Strip" href="slug:tabstrip-overview"></IntroTableAnchor>
       <IntroTableAnchor title="ToolBar" href="slug:toolbar-overview"></IntroTableAnchor>
       <IntroTableAnchor title="TreeView" href="slug:treeview-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Wizard" href="slug:wizard-overview"></IntroTableAnchor>

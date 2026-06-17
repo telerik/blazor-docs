@@ -105,7 +105,7 @@ If you set the `ShouldRender` field of the event arguments to `true`, the compon
 | tb-stacklayout             | [StackLayout](slug:stacklayout-overview) |
 | tb-stepper                 | [Stepper](slug:stepper-overview)     |
 | tb-switch                  | [Switch](slug:switch-overview)       |
-| tb-tabstrip                | [TabStrip](slug:components/tabstrip/overview) |
+| tb-tabstrip                | [TabStrip](slug:tabstrip-overview) |
 | tb-textarea                | [TextArea](slug:textarea-overview)   |
 | tb-textbox                 | [Textbox](slug:components/textbox/overview) |
 | tb-tilelayout              | [TileLayout](slug:tilelayout-overview) |
