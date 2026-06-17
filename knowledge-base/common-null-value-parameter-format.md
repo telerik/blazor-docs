@@ -6,7 +6,7 @@ page_title: Value cannot be null. (Parameter 'format')
 slug: common-kb-null-value-parameter-format
 position: 
 tags: telerik, blazor, null, value, parameter, format, localization
-ticketid: 1528567, 1570325
+ticketid: 1528567, 1570325, 1715511
 res_type: kb
 components: ["general"]
 ---
@@ -44,6 +44,13 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'format')
 System.ArgumentNullException: Value cannot be null. (Parameter 'format')
     at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
     at Telerik.Blazor.Components.Common.Filters.FilterMenu.TelerikFilterMenu.get_FilterMenuSettingsLabel() 
+````
+
+````C#.skip-repl
+Microsoft.AspNetCore.Components.WebAssembly.Rendering.WebAssemblyRenderer[100]
+      Unhandled exception rendering component: ArgumentNull_Generic Arg_ParamName_Name, format
+System.ArgumentNullException: ArgumentNull_Generic Arg_ParamName_Name, format
+   at System.ArgumentNullException.Throw(String paramName)
 ````
 
 ## Possible Cause
