@@ -65,5 +65,5 @@ The focus outline of TabStrip tabs is an accessibility feature. The example belo
 ## See Also
 
 * [Customize Selected Tab Shadow](slug:tabstrip-customize-selected-tab-border-blazor)
-* [TabStrip Overview](slug:components/tabstrip/overview)
+* [TabStrip Overview](slug:tabstrip-overview)
 * [Override Theme Styles](slug:themes-override)

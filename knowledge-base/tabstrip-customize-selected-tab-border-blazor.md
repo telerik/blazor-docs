@@ -21,7 +21,7 @@ components: ["tabstrip"]
 
 ## Description
 
-When using the [TabStrip](https://docs.telerik.com/blazor-ui/components/tabstrip/overview) for Blazor, the default appearance includes a grey outline around the selected tab. How can I modify this outline to encompass both the tab title and the content of the selected tab, rather than just the tab title.
+When using the [TabStrip](https://docs.telerik.com/blazor-ui/tabstrip-overview) for Blazor, the default appearance includes a grey outline around the selected tab. How can I modify this outline to encompass both the tab title and the content of the selected tab, rather than just the tab title.
 
 This KB article answers the following questions:
 * How can I change the border around the selected tab in a TabStrip?
