@@ -64,11 +64,7 @@ Follow these steps to set up the Agentic UI Generator and use it in your IDE:
    </TabStripTab>
    </TabStrip>
 
-1. Create a Blank Solution in Visual Studio, or an empty folder in Visual Studio Code, and open it in your IDE. In the AI chat interface, invoke the Getting Started Assistant:
-
-   ````text.skip-repl
-   #telerik_getting_started_assistant create a new blazor web app
-   ````
+1. (optional) If you want to use the Agentic UI Generator in a new Telerik Blazor app, then create it with the [Telerik CLI](slug:installation-cli) or the [Telerik Blazor project templates](slug:installation-project-templates).
 
 </TabStripTab>
 <TabStripTab title="Manual Setup">

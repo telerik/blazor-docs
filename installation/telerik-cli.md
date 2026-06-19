@@ -17,6 +17,7 @@ The Telerik CLI is a [.NET tool](https://learn.microsoft.com/en-us/dotnet/core/t
 * Set up the [Telerik NuGet feed](#set-up-nuget-feed).
 * Install the [Telerik Blazor MCP server](#install-mcp-server).
 * Set up the overall [Telerik UI for Blazor development environment](#set-up-telerik-environment).
+* [Create new Telerik Blazor apps](#create-telerik-blazor-app).
 
 ## Installation
 
