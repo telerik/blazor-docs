@@ -7,7 +7,6 @@ tags: telerik,blazor,accessibility,overview
 published: True
 position: 1
 previous_url: /accessibility/keyboard-navigation,/accessibility/accessibility-swatch
-components: ["window"]
 ---
 
 # Blazor Accessibility Overview
