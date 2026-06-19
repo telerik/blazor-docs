@@ -6,11 +6,18 @@ slug: ai-changelog
 tags: AI, changelog, updates
 position: 40
 previous_url: /ai/ai-coding-assistant/changelog, /ai/changelog
+tag: updated
 ---
 
 # Telerik MCP Server Changelog
 
 Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Tools and the Agentic UI Generator. The updates are structured in a chronological order with the newest ones appearing first.
+
+## June, 2026 Changelog
+
+### Highlights
+
+* Launched the `telerik-blazor-plugin` - an AI agent plugin for Claude Code, GitHub Copilot CLI, and VS Code Copilot that wraps the Telerik MCP server.
 
 ## March, 2026
 
