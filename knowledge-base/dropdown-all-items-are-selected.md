@@ -10,6 +10,7 @@ ticketid: 1574582
 res_type: kb
 components: ["dropdownlist","combobox"]
 ---
+
 ## Environment
 
 <table>
@@ -24,7 +25,6 @@ components: ["dropdownlist","combobox"]
     </tbody>
 </table>
 
-
 ## Description
 
 I have a DropDownList with a programmatically preselected `Value`. On initial page load, the component doesn't display the expected selected value. When the user selects an item from the dropdown, then all items show as selected.
@@ -32,7 +32,6 @@ I have a DropDownList with a programmatically preselected `Value`. On initial pa
 A manually selected initial ComboBox value doesn't display, and then no matter which item I select, all values are selected.
 
 Why the component matches all items to the selected one?
-
 
 ## Possible Cause
 
@@ -42,7 +41,6 @@ Such unexpected behavior may occur if the ComboBox or DropDownList component are
 * `Value` and `TValue` are not strings or value types, while they should be (for example, `int`, `string`, `Guid`).
 * The `ValueField` points to a model property, which is not unique for all items.
 * The `ValueField` points to a model property, which is equal to the default value for its type (for example, `null`, `0`, `String.Empty`).
-
 
 ## Solution
 
@@ -54,7 +52,6 @@ When the ComboBox or DropDownList are data bound to a collection of complex obje
 * The `ValueField` property value should be unique for each item.
 * If `TItem` is set, it must match the model type.
 * If `TValue` is set, it must match the `Value` and `ValueField` type.
-
 
 ## Example
 

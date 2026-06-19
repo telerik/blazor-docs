@@ -9,6 +9,7 @@ previous_url: /components/grid/aggregates
 position: 5
 components: ["grid"]
 ---
+
 # Grid Aggregates
 
 The Grid component provides built-in aggregates for column values based on [grouping](slug:components/grid/features/grouping) and also a grand total row.

@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["card"]
 ---
+
 # Card Building Blocks
 
 The Card component supports a variety of template-based components used as building blocks. All building blocks can be rendered as root level elements of the Card and therefore can be used as desired with no restriction in their place of declaration or requirement for the Card structure. The elements can also be nested inside each other.

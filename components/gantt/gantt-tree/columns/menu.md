@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["gantt"]
 ---
+
 # Column Menu
 
 The Gantt allows you to set up a menu for its columns. The Column Menu enables you to perform high-level customization like [sorting](slug:gantt-sorting), [filtering](slug:gantt-filtering-overview), and [showing or hiding](slug:gantt-columns-visible) columns.

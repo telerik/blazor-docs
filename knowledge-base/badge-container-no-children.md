@@ -8,6 +8,7 @@ tags: telerik, badge, avatar, container
 res_type: kb
 components: ["badge"]
 ---
+
 ## Environment
 
 <table>
@@ -20,7 +21,6 @@ components: ["badge"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 

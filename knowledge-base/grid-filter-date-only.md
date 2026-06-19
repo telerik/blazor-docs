@@ -10,6 +10,7 @@ ticketid: 1464665, 1522948, 1531072, 1559607, 1570059, 1570460
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 A Grid has a DateTime column with filtering. How to filter only by date and ignore the time part?
 
 How to filter the Grid only by date without the time portion? The filter operator is `equal to`.
-
 
 ## Solution
 
@@ -295,7 +294,6 @@ This approach is suitable for both filter menu and filter row modes. It has the 
 * More coding may be required.
 
 See the [Grid Filter Menu Template Demo](https://demos.telerik.com/blazor-ui/grid/custom-filter-menu).
-
 
 ## See Also
 

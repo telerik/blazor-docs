@@ -9,6 +9,7 @@ ticketid: 1633582
 res_type: kb
 components: ["daterangepicker"]
 ---
+
 ## Environment
 
 <table>

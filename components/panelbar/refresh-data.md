@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["panelbar"]
 ---
+
 # PanelBar - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

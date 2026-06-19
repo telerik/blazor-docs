@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["dropdownlist"]
 ---
+
 # DropDownList Data Binding
 
 This article explains the different ways to provide data to a DropDownList component, the properties related to data binding and their results.

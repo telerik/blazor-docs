@@ -10,6 +10,7 @@ ticketid: 1456016
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 When I try to Generate or Export documents through the Telerik Document Processing in a WASM app, even relatively simple or small documents don't work.
-
 
 ## Error Message
 
@@ -43,11 +42,9 @@ dotnet.js:1 Uncaught RuntimeError: abort(undefined). Build with -s ASSERTIONS=1 
     at _abort (http://localhost:62774/_framework/wasm/dotnet.js:1:117299)
 ````
 
-
 ## Possible Cause
 
 It looks like, at the time of writing, the MONO runtime has issues with allocating memory in a WASM scenario. The same code works perfectly fine in a server-side Blazor app or in a console app.
-
 
 ## Suggested Workarounds
 

@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["aiprompt"]
 ---
+
 # AIPrompt Views
 
 The AIPrompt component provides three predefined views and also lets you create custom views. Through interaction with the component, the user can change the currently active view.

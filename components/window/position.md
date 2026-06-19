@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["window"]
 ---
+
 # Window Position
 
 The Telerik Window component provides multiple options to control its position, allowing you to customize its placement and behavior to suit your application's layout and requirements. This article contains the following sections:

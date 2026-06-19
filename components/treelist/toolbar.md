@@ -8,6 +8,7 @@ published: True
 position: 45
 components: ["treelist"]
 ---
+
 # TreeList Toolbar
 
 The [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or [customize the toolbar](#custom-toolbar-configuration).

@@ -8,6 +8,7 @@ published: True
 position: 25
 components: ["grid"]
 ---
+
 # Reorder Columns
 
 The Grid lets the user reorder its columns by dragging their headers.

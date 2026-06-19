@@ -8,6 +8,7 @@ published: True
 position: 55
 components: ["grid"]
 ---
+
 # Manual Data Source Operations
 
 By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging](slug:components/grid/features/paging), [sorting](slug:components/grid/features/sorting), [filtering](slug:components/grid/filtering)) internally.

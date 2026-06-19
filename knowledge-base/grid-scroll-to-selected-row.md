@@ -10,16 +10,17 @@ ticketid: 1513767
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -284,6 +285,7 @@ The example below offers comments in the code on some possible improvements.
 ````
 
 ## See Also
+
 * [Grid Row Selection](slug:grid-selection-row)
 * [Grid paging feature](slug:components/grid/features/paging)
 * [Grid virtualization feature](slug:components/grid/virtual-scrolling)

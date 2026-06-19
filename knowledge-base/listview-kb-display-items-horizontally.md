@@ -9,13 +9,15 @@ res_type: kb
 ticketid: 1649286
 components: ["listview"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>ListView for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>ListView for Blazor</td>
+        </tr>
     </tbody>
 </table>
 
@@ -76,5 +78,6 @@ To display the ListView items horizontally, apply the `display: inline-block;` C
 `````
 
 ## See Also
+
 - [TelerikListView for Blazor - Overview](https://docs.telerik.com/blazor-ui/components/listview/overview)
 - [TelerikListView for Blazor - Templates](https://docs.telerik.com/blazor-ui/components/listview/templates)

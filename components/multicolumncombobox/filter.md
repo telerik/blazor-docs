@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["multicolumncombobox"]
 ---
+
 # MultiColumnComboBox Filter
 
 The MultiColumnComboBox component allows users to filter items by their text, so they can find the one they need faster.

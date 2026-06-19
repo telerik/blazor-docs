@@ -8,6 +8,7 @@ tags: telerik,blazor,pdfviewer,form filling,forms
 slug: pdfviewer-form-filling
 components: ["pdfviewer"]
 ---
+
 # Form Filling
 
 The PDFViewer enables users to fill interactive forms directly in PDF documents. You can display and edit form fields such as text boxes, checkboxes, radio buttons, and dropdowns.

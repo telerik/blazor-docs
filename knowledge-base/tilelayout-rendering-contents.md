@@ -9,21 +9,21 @@ tags:
 res_type: kb
 components: ["tilelayout"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TileLayout for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TileLayout for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I have bound the `HeaderText` of the TileLayout to a property in my code. I would like to be able to set its value dynamically based on user action such as a click on a child component (chart series, button, etc.) in the `<Content>` of another Tile. 
-
 
 ## Solution
 

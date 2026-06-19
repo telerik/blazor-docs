@@ -10,18 +10,20 @@ ticketid: 1504777
 res_type: kb
 components: ["contextmenu"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ContextMenu for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ContextMenu for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Can I use the ContextMenu without a data source?
 
 That way we can use this control to provide a popup of items that we can control, and don't want to set it up with a list of items that are never used.

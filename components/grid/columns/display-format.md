@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["grid"]
 ---
+
 # Column Display Format
 
 @[template](/_contentTemplates/grid/common-link.md#display-format-basics)

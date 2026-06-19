@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1675518
 components: ["map"]
 ---
+
 ## Environment
 
 <table>

@@ -10,6 +10,7 @@ ticketid: 1503388
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -22,11 +23,13 @@ components: ["general"]
 </table>
 
 ## Description
+
 Is there a good equivalent in your control set or plans for new controls as a replacement for the Web Forms Panel control? We are trying to replicate UI that we had in our Web Forms project and we cannot find a good replacement for a panel.
 
 I often have the situation that i have some controls (Textboxes, DropDowns,...). In Webforms i used a panel or AjaxPanel for example to set all of them invisible/visible. I am missing such a control in Blazor UI.
 
 ## Solution
+
 The Panel control in WebForms renders as a simple `<div>`, so this is what you could use to replace it in any razor-based solution (be that blazor, mvc, razor pages). You can set things like `class` or `tabIndex` to it for styling and other functionality.
 
 Instead of setting the `Visible` property of a component/panel/control to toggle its visibility, you can toggle its CSS `display` property, or you just wrap the content you want to remove in a conditional `if`-block.

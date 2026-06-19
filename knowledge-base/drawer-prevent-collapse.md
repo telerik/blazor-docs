@@ -9,21 +9,21 @@ tags:
 res_type: kb
 components: ["drawer"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Drawer for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Drawer for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I would like to prevent the Drawer from collapsing when an item from the navigation is clicked and switch between the collapsed and expanded state by the click of a button.
-
 
 ## Solution
 

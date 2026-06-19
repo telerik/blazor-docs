@@ -10,17 +10,17 @@ ticketid: 1455515
 res_type: kb
 components: ["multiselect"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>MultiSelect for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>MultiSelect for Blazor</td>
+        </tr>
+    </tbody>
 </table>
-
 
 ## Description
 

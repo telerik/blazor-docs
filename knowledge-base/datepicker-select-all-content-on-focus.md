@@ -10,6 +10,7 @@ res_type: kb
 ticketid: 1704388
 components: ["datepicker"]
 ---
+
 ## Environment
 
 <table>

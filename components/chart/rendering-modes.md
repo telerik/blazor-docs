@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["charts"]
 ---
+
 # Rendering Modes
 
 The Chart for Blazor supports two modes for rendering its data. You can set the desired rendering mode through the `RenderAs` parameter the `TelerikChart` exposes. It takes a member of the `Telerik.Blazor.RenderingMode` enum and depending on the result you are trying to achieve, you can choose one of the following:

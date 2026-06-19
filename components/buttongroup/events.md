@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["buttongroup"]
 ---
+
 # ButtonGroup Events
 
 This article describes the events of the Telerik ButtonGroup component for Blazor.

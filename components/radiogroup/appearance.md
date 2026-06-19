@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["radiogroup"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the RadioButtonGroup button by setting the following attribute:

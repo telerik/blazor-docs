@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["buttongroup"]
 ---
+
 # ButtonGroup Buttons
 
 The ButtonGroup component supports two types of buttons that have different behaviors:

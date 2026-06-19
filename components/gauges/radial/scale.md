@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["radialgauge"]
 ---
+
 ## Radial Gauge Scale
 
 The Scale of the Radial Gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<RadialGaugeScale>` to the `<RadialGaugeScales>` collection, child tag of the `<TelerikRadialGauge>`. The `<RadialGaugeScale>` exposes the following parameters:

@@ -8,6 +8,7 @@ published: True
 position: 31
 components: ["stockchart"]
 ---
+
 # No Data Template
 
 Starting in **version 7.0.0**, when all StockChart series have no data to show, a default layout with **No data** text is displayed over the StockChart. To customize the default layout content declare a `<NoDataTemplate>` tag inside a `<StockChartSettings>` tag.

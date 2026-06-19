@@ -10,6 +10,7 @@ ticketid: 1545884, 1574761
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,18 +22,15 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 I see errors when I load the Grid state at initialization (`OnStateInit` event handler) and then try to filter.
-
 
 ## Steps to Reproduce
 
 1. Load (restore) the [Grid state](slug:grid-state) from a serialized Json string in the `OnStateInit` handler.
 1. The serialized state should contain filter descriptors.
 1. Open a filter menu.
-
 
 ## Error Message
 
@@ -57,13 +55,11 @@ If the Grid is bound to **OData**, the OData query may be incorrect and the foll
 A binary operator with incompatible types was detected. Found operand types '...' and '...' for operator kind '...'.", "type": "Microsoft.OData.ODataException".
 ````
 
-
 ## Possible Cause
 
 The `FilterDescriptor` class has a `MemberType` property that is of type `Type`. The default [`JsonSerializer` is unable to serialize types](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-migrate-from-newtonsoft-how-to?pivots=dotnet-6-0#types-without-built-in-support). After state restore in `OnStateInit`, the Grid filter descriptors end up with `null` `MemberType` values. This omission causes the errors.
 
 There is a [public issue about filtering error after Grid state restore in OnStateInit](https://feedback.telerik.com/blazor/1505237-set-deserialized-grid-state-in-onstateinit-handler-cause-error-on-open-filter-menu-of-column-on-ui). Follow the item to receive status updates.
-
 
 ## Solution
 
@@ -74,7 +70,6 @@ All suggested options are demonstrated in the examples below.
 * Restore the Grid State in a `try {} catch() {}` block. The Grid `OnStateInit` event fires two times - [once in the prerender phase and once in the render phase](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-6.0#component-initialization-oninitializedasync). The deserialization problem will occur only if the Grid state is restored in the prerender phase. It is possible to skip state restoration during prerender with a `JSInterop` call. This is not allowed during prerender, so it will trigger an `InvalidOperationException` and `OnStateInit` execution will abort. This approach is used in example [Save and Load Grid State from Browser LocalStorage](slug:grid-kb-save-load-state-localstorage)
 
 > There are serializers which support `Type` serialization, for example Newtonsoft Json.NET. They, however, can [cause other undesired side effects](slug:common-kb-newtonsoft-breaks-datasourcerequest-serialization).
-
 
 ## Examples
 

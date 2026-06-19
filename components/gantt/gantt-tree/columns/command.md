@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["gantt"]
 ---
+
 # Gantt Tree Command Column
 
 The command column of a Gantt Tree allows you to initiate [editing](slug:gantt-tree-editing), or to execute your own commands.

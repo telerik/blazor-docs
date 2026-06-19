@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 * How to enter edit mode from code?
@@ -30,7 +30,6 @@ components: ["grid"]
 * How to insert Grid rows with an external button?
 * How to cancel Grid edit mode programmatically?
 * How to implement Grid command buttons outside the Grid?
-
 
 ## Solution
 
@@ -47,7 +46,6 @@ To enter and exit edit mode, set the following properties of the `GridState` obj
 * `EditField` is used for incell editing only. It determines which cell will render an editor.
 
 Each property that is not relevant to a desired Grid state, should be set to `null`.
-
 
 ## Example
 

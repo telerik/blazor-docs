@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["badge"]
 ---
+
 # Appearance Settings
 
 The Badge component features built-in appearance parameters that allow you to customize virtually every aspect of its look and feel.

@@ -11,6 +11,7 @@ res_type: kb
 category: knowledge-base
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -33,11 +34,9 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 The Blazor app triggers a null reference exception about a `format` parameter value. The error may seem to occur on a random basis or consistently, depending on the component configuration.
-
 
 ## Error Message
 
@@ -58,7 +57,6 @@ or
 The error is caused by an outdated localization resource file (`.resx`), which is missing some localization keys.
 
 This exception will occur if the type of TItem is different from the type of the elements in the args.Data collection.
-
 
 ## Solution
 

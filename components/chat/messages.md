@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["chat"]
 ---
+
 # Chat Messages
 
 The Telerik UI for Blazor Chat component provides comprehensive control over message display, interactions, and styling to create rich conversational experiences.

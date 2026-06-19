@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["grid"]
 ---
+
 # Resize Columns
 
 The Grid features two different column resizing mechanisms:

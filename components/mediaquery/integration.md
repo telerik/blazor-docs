@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["mediaquery"]
 ---
+
 # Integration
 
 You can integrate the TelerikMediaQuery component with our existing components. This article provides examples on the most common scenarios:

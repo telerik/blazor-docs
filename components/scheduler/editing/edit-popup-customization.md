@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["scheduler"]
 ---
+
 # Edit Popup Customization
 
 The Scheduler allows customization of the edit popup and its form. You can define your desired configuration in the `SchedulerPopupEditSettings` and `SchedulerPopupEditFormSettings` tags under the `SchedulerSettings` tag.

@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["menu"]
 ---
+
 # Events
 
 This article describes the events available in the Telerik Menu for Blazor:

@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["loader"]
 ---
+
 # Blazor Loader Overview
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/loader" target="_blank">Blazor Loader component</a> and its core features.

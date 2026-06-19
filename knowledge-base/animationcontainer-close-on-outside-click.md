@@ -9,6 +9,7 @@ ticketid: 1588069, 1593919
 res_type: kb
 components: ["animationcontainer"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["animationcontainer"]
     </tbody>
 </table>
 
-
 ## Description
 
 When I click outside of the AnimationContainer, the control doesn't collapse like other popup components and you have to manually click the **Toggle** button for the component to do so. How can I enable the AnimationContainer to close with a user clicks outside of it?
-
 
 ## Solution
 
@@ -112,7 +111,6 @@ To achieve the desired scenario:
 * If the AnimationContainer is opened as a result of a button click, consider this in the opening and closing logic. The above example uses a `bool` flag for the AnimatioContainer state.
 * All Telerik Blazor popup and drop-down components are rendered at the root of the app, and not at the place of declaration. For example, if the AnimationContainer contains a ComboBox, its drop-down will render outside the AnimationContainer. This behavior affects the check in [step 3](#solution) above. To distinguish it, use [another Class for the nested popup](slug:components/combobox/overview#popup-settings).
 * The AnimationContainer must reside outside elements with an `overflow` style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation does not exist in the [Popup component](slug:popup-overview).
-
 
 ## See Also
 

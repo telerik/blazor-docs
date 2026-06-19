@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["calendar"]
 ---
+
 # Date Selection
 
 The user can select one or mode dates depending on the Calendar configuration set by the developer. They may also be forbidden selection of certain disabled dates.

@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1672888
 components: ["calendar"]
 ---
+
 ## Environment
 
 <table>

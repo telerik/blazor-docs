@@ -11,16 +11,17 @@ ticketid: 1471167
 res_type: kb
 components: ["general"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor, AutoComplete for Blazor, TextBox for Blazor, NumericTextBox for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor, ComboBox for Blazor, AutoComplete for Blazor, TextBox for Blazor, NumericTextBox for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

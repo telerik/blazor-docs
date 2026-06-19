@@ -9,21 +9,21 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 If I'm filtering a column containing enum values I expect a dropdown of available values to choose from. I also expect the same dropdown in the editor.
-
 
 ## Solution
 

@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["grid"]
 ---
+
 # Group Header
 
 When the grid is grouped, the top row above the group provides information about the current group value by default. You can use this template to add custom content there in addition to the current value. For more information and examples, see the [Aggregates](slug:grid-aggregates) article.

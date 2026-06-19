@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1656109
 components: ["treeview"]
 ---
+
 ## Environment
 
 <table>
@@ -21,6 +22,7 @@ components: ["treeview"]
 </table>
 
 ## Description
+
 I want to customize the icons used for expanding and collapsing items in the [TreeView for Blazor](slug:treeview-overview). 
 
 This knowledge base article answers the following questions:
@@ -131,5 +133,6 @@ You can change the expand/collapse icons in the TreeView by overriding the built
 }
 ````
 ## See Also
+
 - [TreeView Overview](slug:treeview-overview) 
 - [Telerik Icons List](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/)

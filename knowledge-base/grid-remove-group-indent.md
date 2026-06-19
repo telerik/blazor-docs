@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1684110
 components: ["grid"]
 ---
+
 ## Description
 
 This knowledge base article answers the following questions:
@@ -21,12 +22,12 @@ This knowledge base article answers the following questions:
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Solution

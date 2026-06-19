@@ -10,6 +10,7 @@ ticketid: 1496723
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -24,7 +25,6 @@ components: ["grid"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -119,7 +119,6 @@ Another option is, of course, to create a child component that receives the `con
     }
 }
 ````
-
 
 ## Notes
 

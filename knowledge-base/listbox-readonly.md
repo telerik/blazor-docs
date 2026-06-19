@@ -8,9 +8,11 @@ slug: listbox-kb-readonly
 tags: listbox, blazor, readonly
 res_type: kb
 ticketid: 1708525
+components: ["listbox"]
 ---
 
 ## Environment
+
 <table>
     <tbody>
         <tr>

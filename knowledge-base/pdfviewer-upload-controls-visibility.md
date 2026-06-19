@@ -9,15 +9,16 @@ res_type: kb
 ticketid: 1675214
 components: ["pdfviewer"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>PdfViewer for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>PdfViewer for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

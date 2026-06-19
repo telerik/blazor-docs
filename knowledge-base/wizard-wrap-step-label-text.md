@@ -9,14 +9,15 @@ res_type: kb
 ticketid: 1671064, 1574805, 1527700
 components: ["wizard"]
 ---
+
 ## Environment
 
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Wizard for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Wizard for Blazor</td>
+        </tr>
     </tbody>
 </table>
 

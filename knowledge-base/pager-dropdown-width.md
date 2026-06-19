@@ -10,6 +10,7 @@ ticketid: 1565123, 1583175
 res_type: kb
 components: ["pager"]
 ---
+
 ## Environment
 
 <table>
@@ -25,11 +26,9 @@ components: ["pager"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to change the pager dropdown list width and make it wider? The page size number in the DropDownList is cut off when it contains three or more digits.
-
 
 ## Solution
 

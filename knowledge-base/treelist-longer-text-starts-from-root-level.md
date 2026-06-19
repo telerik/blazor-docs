@@ -10,22 +10,23 @@ ticketid: 1498752
 res_type: kb
 components: ["treelist"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TreeList for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TreeList for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 When a text is longer than the column width, it does a line break but the next line doesn't take into account the depth level and starts at the very left.
 
 ![treelist-long-text-not-aligned](images/treelist-long-text-not-aligned.png)
-
 
 ## Solution
 

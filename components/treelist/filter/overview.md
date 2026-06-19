@@ -9,6 +9,7 @@ previous_url: /components/treelist/filtering
 position: 0
 components: ["treelist"]
 ---
+
 # TreeList Filtering Overview
 
 This article describes the basics of the filtering functionality of the Telerik TreeList for Blazor.

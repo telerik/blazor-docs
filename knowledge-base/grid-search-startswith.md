@@ -10,6 +10,7 @@ ticketid: 1565940
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to search the Grid items, so that the results start with the search value?
 
 If users search for `"AA"`, I only want to see items starting with `AA`, like `AAB` and `AAC`. The Grid should not return results like `BAAC`, `SLAA`, etc.
-
 
 ## Solution
 

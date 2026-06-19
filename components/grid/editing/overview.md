@@ -9,6 +9,7 @@ previous_url: /components/grid/editing/built-in-dialogs/delete-confirmation, /co
 position: 0
 components: ["grid"]
 ---
+
 # Blazor Grid CRUD Operations
 
 The Telerik Grid for Blazor supports create, update, and delete operations (CRUD) with different modes and user experience. The component also supports built-in `DataAnnotations` or custom validation. This page describes:

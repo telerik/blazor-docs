@@ -8,6 +8,7 @@ published: True
 position: 4
 components: ["chat"]
 ---
+
 # File Uploads and Media
 
 The Telerik UI for Blazor Chat component supports file uploads, media sharing, and speech-to-text functionality to enhance the messaging experience.

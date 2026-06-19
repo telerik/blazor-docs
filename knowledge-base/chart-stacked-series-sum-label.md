@@ -10,6 +10,7 @@ ticketid: 1546346, 1598736, 1627415, 1628026
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
@@ -29,7 +30,6 @@ components: ["charts"]
     </tbody>
 </table>
 
-
 ## Description
 
 This knowledge base article answers the following questions:
@@ -39,7 +39,6 @@ This knowledge base article answers the following questions:
 * How do you show stacked column series broken down by sub-category across the category axis?
 * Can you label each stacked Chart column in a category group? How to align the group and column labels on the axis?
 * How to draw an axis label for each individual `ChartSeries` column in the same category group?
-
 
 ## Solution
 
@@ -300,7 +299,6 @@ Here is how to display an additional custom label on the horizontal Chart axis b
 ## Notes
 
 Chart label templates require a different configuration for [Telerik UI for Blazor versions](https://www.telerik.com/support/whats-new/blazor-ui/release-history) before 4.5.0. If you are using an earlier version, then [download the PDF documentation](https://www.telerik.com/account/downloads/product-download?product=BLAZOR) for your version, or [browse an older version of the Chart Label Templates documentation](https://github.com/telerik/blazor-docs/blob/4.4.0/components/chart/labels-template-and-format.md#templates).
-
 
 ## See Also
 

@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["circulargauge"]
 ---
+
 # Circular Gauge Scale
 
 The scale of the Circular Gauge renders the values, pointers and labels. You can customize it by adding an instance of the `<CircularGaugeScale>` to the `<CircularGaugeScales>` collection, child tag of the `<TelerikCircularGauge>`.

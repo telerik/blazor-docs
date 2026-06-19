@@ -10,6 +10,7 @@ ticketid: 1454018
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 Can you please advise me on how to display validation message as tooltip?
-
 
 ## Solution
 

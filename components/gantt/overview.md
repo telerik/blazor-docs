@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["gantt"]
 ---
+
 # Blazor Gantt Component Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/gantt" target="_blank">Blazor Gantt Chart component</a> allows you to easily illustrate a collection of tasks. The component consists of two areas: 

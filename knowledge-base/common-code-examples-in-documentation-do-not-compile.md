@@ -10,6 +10,7 @@ ticketid: 1565701
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -21,16 +22,13 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 I am trying to run the code snippets in the documentation but they do not compile. The `Preview` tab of the examples throws an error.
 
-
 ## Error Message
 
 `Unhandled Exception: System.MissingMethodException: Method not found: Microsoft.Extensions.DependencyInjection.IServiceCollection`
-
 
 ## Solution
 

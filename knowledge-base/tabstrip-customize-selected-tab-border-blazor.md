@@ -9,13 +9,15 @@ res_type: kb
 ticketid: 1652526, 1563024, 1574295, 1620296, 1647194
 components: ["tabstrip"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>TabStrip for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>TabStrip for Blazor</td>
+        </tr>
     </tbody>
 </table>
 

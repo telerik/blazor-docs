@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["popup"]
 ---
+
 # Popup Animation
 
 This article outlines how to customize the animations when the Popup displays and hides.

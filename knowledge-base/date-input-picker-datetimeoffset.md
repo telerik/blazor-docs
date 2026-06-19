@@ -10,17 +10,17 @@ ticketid: 1462128
 res_type: kb
 components: ["dateinput","datetimepicker","timepicker","datepicker"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DateInput for Blazor, DateTimePicker for Blazor, TimePicker for Blazor, DatePicker for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DateInput for Blazor, DateTimePicker for Blazor, TimePicker for Blazor, DatePicker for Blazor</td>
+        </tr>
+    </tbody>
 </table>
-
 
 ## Description
 

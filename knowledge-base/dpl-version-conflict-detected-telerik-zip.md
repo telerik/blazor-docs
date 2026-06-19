@@ -9,6 +9,7 @@ ticketid: 1666834, 1663672, 1652709, 1651020, 1649684, 1647998, 1647404, 1646717
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 Visual Studio and the .NET SDK throw an error if incompatible versions of Telerik UI for Blazor and Telerik Document Processing are used in the same project.
-
 
 ## Error Message
 
@@ -42,7 +41,6 @@ or
 Warning NU1605: Detected package downgrade: Telerik.Zip from ... to .... Reference the package directly from the project to select a different version.
 ````
 
-
 ## Cause
 
 `Telerik.Zip` is a transitive dependency of multiple other Telerik NuGet packages:
@@ -55,7 +53,6 @@ Telerik UI for Blazor and Telerik Document Processing use different release cycl
 [Error `NU1107 Version conflict detected for Telerik.Zip`](https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1605) occurs when an older Telerik UI for Blazor version is used together with a newer Telerik Document Processing version. As a result, `Telerik.UI.for.Blazor` expects an older `Telerik.Zip` version than what the project has resolved.
 
 [Warning `NU1605 Detected package downgrade: Telerik.Zip`](https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1605) occurs when a newer Telerik UI for Blazor version is used together with a older Telerik Document Processing version. As a result, `Telerik.UI.for.Blazor` expects a newer `Telerik.Zip` version than what the project has resolved.
-
 
 ## Solution
 

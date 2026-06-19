@@ -10,16 +10,17 @@ ticketid: 1540856
 res_type: kb
 components: ["general"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DateTimePicker for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DateTimePicker for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -39,106 +40,106 @@ The sample below demonstrates the described approach.
 
 ````RAZOR
 <style>
-	.k-state-invalid .k-textbox {
-		border-color: rgba(213,25,35,.5);
-	}
+    .k-state-invalid .k-textbox {
+        border-color: rgba(213,25,35,.5);
+    }
 </style>
 
 @if (Invalid)
 {
-	<div class="k-validation-summary k-messagebox k-messagebox-error" role="alert">
-		<ul>
-			<li>
-				<a style="text-decoration: none">@ErrorMessage</a>
-			</li>
-		</ul>
-	</div>
+    <div class="k-validation-summary k-messagebox k-messagebox-error" role="alert">
+        <ul>
+            <li>
+                <a style="text-decoration: none">@ErrorMessage</a>
+            </li>
+        </ul>
+    </div>
 }
 
 <div class="k-form">
-	<div class="k-form-field">
-		<label class="k-label k-form-label">Start Time:</label>
-		<TelerikDateTimePicker @bind-Value="@StartTime"
-							   Format="dd MMM yyyy HH:mm:ss"
-							   Width="250px">
-		</TelerikDateTimePicker>
-	</div>
-	<div class="k-form-field">
-		<TelerikMaskedTextBox Mask="00:00:00"
-							  Value="@DurationValue"
-							  ValueChanged="@ValueChangedHandler"
-							  IncludeLiterals="true"
-							  Class="@(Invalid? "k-state-invalid" : "")"
-							  Width="250px">
-		</TelerikMaskedTextBox>
-	</div>
+    <div class="k-form-field">
+        <label class="k-label k-form-label">Start Time:</label>
+        <TelerikDateTimePicker @bind-Value="@StartTime"
+                               Format="dd MMM yyyy HH:mm:ss"
+                               Width="250px">
+        </TelerikDateTimePicker>
+    </div>
+    <div class="k-form-field">
+        <TelerikMaskedTextBox Mask="00:00:00"
+                              Value="@DurationValue"
+                              ValueChanged="@ValueChangedHandler"
+                              IncludeLiterals="true"
+                              Class="@(Invalid? "k-state-invalid" : "")"
+                              Width="250px">
+        </TelerikMaskedTextBox>
+    </div>
 
-	<div class="k-form-field">
-		<TelerikButton OnClick="CalculateEnd" Enabled="@(!Invalid)">Calculate End</TelerikButton>
-	</div>
+    <div class="k-form-field">
+        <TelerikButton OnClick="CalculateEnd" Enabled="@(!Invalid)">Calculate End</TelerikButton>
+    </div>
 
-	<div class="k-form-field">
-		<label class="k-label k-form-label">End Time:</label>
-		<TelerikDateTimePicker @bind-Value="@EndTime"
-							   Format="dd MMM yyyy HH:mm:ss"
-							   Width="250px">
-		</TelerikDateTimePicker>
-	</div>
+    <div class="k-form-field">
+        <label class="k-label k-form-label">End Time:</label>
+        <TelerikDateTimePicker @bind-Value="@EndTime"
+                               Format="dd MMM yyyy HH:mm:ss"
+                               Width="250px">
+        </TelerikDateTimePicker>
+    </div>
 </div>
 
 @code {
-	string DurationValue { get; set; }
+    string DurationValue { get; set; }
 
-	public DateTime StartTime { get; set; } = DateTime.Now;
-	public DateTime? EndTime { get; set; }
+    public DateTime StartTime { get; set; } = DateTime.Now;
+    public DateTime? EndTime { get; set; }
 
-	public double Hours { get; set; }
-	public double Minutes { get; set; }
-	public double Seconds { get; set; }
+    public double Hours { get; set; }
+    public double Minutes { get; set; }
+    public double Seconds { get; set; }
 
-	string ErrorMessage;
-	bool Invalid;
+    string ErrorMessage;
+    bool Invalid;
 
-	void ValueChangedHandler(string newVal)
-	{
-		DurationValue = newVal;
+    void ValueChangedHandler(string newVal)
+    {
+        DurationValue = newVal;
 
-		if (DurationValue != null)
-		{
-			string[] duration = DurationValue.Split(":");
+        if (DurationValue != null)
+        {
+            string[] duration = DurationValue.Split(":");
 
-			Hours = string.IsNullOrWhiteSpace(duration.ElementAtOrDefault(0)) ? 0 : double.Parse(duration[0]);
-			Minutes = string.IsNullOrWhiteSpace(duration.ElementAtOrDefault(1)) ? 0 : double.Parse(duration[1]);
-			Seconds = string.IsNullOrWhiteSpace(duration.ElementAtOrDefault(2)) ? 0 : double.Parse(duration[2]);
+            Hours = string.IsNullOrWhiteSpace(duration.ElementAtOrDefault(0)) ? 0 : double.Parse(duration[0]);
+            Minutes = string.IsNullOrWhiteSpace(duration.ElementAtOrDefault(1)) ? 0 : double.Parse(duration[1]);
+            Seconds = string.IsNullOrWhiteSpace(duration.ElementAtOrDefault(2)) ? 0 : double.Parse(duration[2]);
 
-			Validate();
-		}
-	}
+            Validate();
+        }
+    }
 
-	void Validate()
-	{
-		if (Minutes > 60)
-		{
-			Invalid = true;
-			ErrorMessage = "Minutes cannot be more than 60";
-		}
-		else if (Seconds > 60)
-		{
-			Invalid = true;
-			ErrorMessage = "Seconds cannot be more than 60";
-		}
-		else
-		{
-			Invalid = false;
-		}
-	}
+    void Validate()
+    {
+        if (Minutes > 60)
+        {
+            Invalid = true;
+            ErrorMessage = "Minutes cannot be more than 60";
+        }
+        else if (Seconds > 60)
+        {
+            Invalid = true;
+            ErrorMessage = "Seconds cannot be more than 60";
+        }
+        else
+        {
+            Invalid = false;
+        }
+    }
 
-	void CalculateEnd()
-	{
-		if (!Invalid)
-		{
-			EndTime = StartTime.AddHours(Hours).AddMinutes(Minutes).AddSeconds(Seconds);
-		}
-	}
+    void CalculateEnd()
+    {
+        if (!Invalid)
+        {
+            EndTime = StartTime.AddHours(Hours).AddMinutes(Minutes).AddSeconds(Seconds);
+        }
+    }
 }
 ````

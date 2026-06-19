@@ -10,6 +10,7 @@ ticketid: 1628534
 res_type: kb
 components: ["editor"]
 ---
+
 ## Environment
 
 <table>
@@ -25,7 +26,6 @@ components: ["editor"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article addresses the following questions or issues:
@@ -34,13 +34,11 @@ This KB article addresses the following questions or issues:
 * Why empty paragraphs look different in the Editor and outside the Editor?
 * Why empty paragraphs in the Editor don't show afterwards on the web page?
 
-
 ## Cause
 
 By default, empty paragraphs do not occupy any space on the web page. Here is why empty paragraphs look different inside and outside the Editor:
 
 Note that the Editor uses the [ProseMirror engine](https://prosemirror.net). By design, the engine inserts a `<br />` tag in every empty `<p></p>`. This ensures that each empty paragraph takes up visible space and the user can distinguish it, focus it, and type inside. Since version 4.6.0, the Editor `Value` does not contain these "service" `<br />` tags anymore.
-
 
 ## Suggested Workarounds
 
@@ -97,7 +95,6 @@ Note that the Editor uses the [ProseMirror engine](https://prosemirror.net). By 
     private string EditorValue { get; set; } = "<p>Paragraph 1.</p><p></p><p>Paragraph 3.</p>";
 }
 ````
-
 
 ## See Also
 

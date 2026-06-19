@@ -7,6 +7,7 @@ published: True
 position: 15
 components: ["gantt"]
 ---
+
 # Editor Template
 
 The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing](slug:gantt-tree-editing) the field. It is also used when inserting a new item. The template receives a copy of the model, so that changes can be canceled with the `Cancel` command.

@@ -10,21 +10,21 @@ ticketid: 1558952
 res_type: kb
 components: ["drawer"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Drawer for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Drawer for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I would like to put the Drawer in [MiniMode](slug:drawer-mini-mode) on small screens. This behavior would be great for mobile devices. 
-
 
 ## Solution
 

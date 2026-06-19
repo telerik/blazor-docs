@@ -10,6 +10,7 @@ ticketid: 1450341
 res_type: kb
 components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownlist","maskedtextbox","numerictextbox","textbox","timepicker"]
 ---
+
 ## Environment
 
 <table>
@@ -31,11 +32,9 @@ components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownli
     </tbody>
 </table>
 
-
 ## Description
 
 I would know how to discriminate between lost focus and enter key press in OnChange event. Also, is there a way to mange other events such as OnKeyDown, OnKeyPress, OnInput, etc.
-
 
 ## Solution
 

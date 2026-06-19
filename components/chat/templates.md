@@ -9,6 +9,7 @@ position: 8
 tag: updated
 components: ["chat"]
 ---
+
 # Chat Templates
 
 The Telerik Chat component in Blazor allows for a high degree of customization through various templates. Each template provides a way to customize the UI rendering of the Chat interface, making it more suitable for your application’s needs. 

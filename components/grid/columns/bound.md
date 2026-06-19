@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["grid"]
 ---
+
 # Grid Data Bound Columns
 
 This article explains the basics of showing data in a grid and the features of its bound columns.

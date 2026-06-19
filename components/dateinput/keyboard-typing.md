@@ -9,6 +9,7 @@ previous_url: /components/dateinput/efficient-keyboard-input
 position: 3
 components: ["dateinput"]
 ---
+
 # DateInput Keyboard Typing
 
 This article describes the parameters, which affect the typing user experience in the Date Input textbox.

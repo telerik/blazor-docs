@@ -10,7 +10,9 @@ ticketid: 1598580
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
         <tr>
@@ -20,12 +22,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 I want to format the cells of the exported Excel file and customize their appearance. For example, to set a background color. How to achieve this without compromising the application performance? When I use RadSpreadProcessing in Blazor WASM applications, customizing the exported file is slow.
-
-
 
 ## Solution
 

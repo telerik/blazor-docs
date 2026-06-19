@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
@@ -20,13 +21,11 @@ components: ["charts"]
     </tbody>
 </table>
 
-
 ## Description
 
 * How to print the rendered Blazor Chart?
 * How to print the Chart?
 * How to print only the Chart and hide everything else on the page so only the Chart will show up when printing?
-
 
 ## Solution
 

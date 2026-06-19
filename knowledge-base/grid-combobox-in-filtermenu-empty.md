@@ -10,28 +10,32 @@ ticketid: 1522512
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-		<tr>
-			<td>Version</td>
-			<td><strong>2.30</strong> or older</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td><strong>2.30</strong> or older</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I have a ComboBox in a Grid `FilterMenuTemplate`. The ComboBox data is loaded asynchronously. The first time I open it, the dropdown is empty and reads and *No Data*. The second time the ComboBox is opened, the data shows as expected.
 
 ## Possible Cause
+
 The behavior is related to the filter menu popup. It is rendered outside the Grid component in the page `<body>`. If the ComboBox data is loaded asynchronously, the popup is not refreshed even by `StateHasChanged`.
 
 ## Suggested Workarounds
+
 * Upgrade to UI for Blazor **3.0** or later. It uses different `OnRead` mechanism for loading asynchronous data and updating the ComboBox. The component dropdown will update even after it has been opened.
 * Load the ComboBox data before the filter menu is opened for the first time. Use Blazor events like `OnInitializedAsync`, or Grid events like [`OnStateInit`](slug:grid-state#events) or [`OnRead`](slug:grid-events#read-event).
 * Load the ComboBox data synchronously.

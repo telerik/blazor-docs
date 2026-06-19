@@ -8,6 +8,7 @@ published: True
 position: 55
 components: ["maskedtextbox"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the MaskedTextBox button by setting the following attribute:

@@ -10,6 +10,7 @@ ticketid: 1563914
 res_type: kb
 components: ["editor"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["editor"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to print the contents of the Blazor Editor? The user should print only the Editor value, without the page content around the component.
-
 
 ## Solution
 

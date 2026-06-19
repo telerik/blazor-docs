@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["charts"]
 ---
+
 # Shared Tooltip for Telerik Blazor Chart
 
 The Telerik Chart allows you to show a unified tooltip for all categories in [Categorical](slug:components/chart/databind#series-types) Charts.

@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["gantt"]
 ---
+
 # Gantt Tree Data Binding to Flat Data
 
 This article explains how to bind the Gantt Tree for Blazor to flat data.

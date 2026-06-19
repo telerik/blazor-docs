@@ -8,6 +8,7 @@ published: True
 position: 4
 components: ["window"]
 ---
+
 # Blazor Window Animations
 
 The Telerik Window component for Blazor provides an option to control the opening animations to enhance the user experience. You can configure the animation type and duration using the following parameters:

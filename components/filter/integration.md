@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["filter"]
 ---
+
 # Blazor Filter Integration
 
 You can integrate the Filter component with different databound components. This allows users to build complex filtering criteria that may not be supported by the databound component UI.

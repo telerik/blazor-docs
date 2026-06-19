@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["buttongroup"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the buttons in the `<TelerikButtonGroup>` by setting the following attributes:

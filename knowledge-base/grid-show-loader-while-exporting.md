@@ -9,6 +9,7 @@ res_type: kb
 ticketid:
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -109,7 +110,6 @@ To display a loader over the Grid during the Excel, CSV or PDF export, follow th
     }
 }
 ````
-
 
 ## See Also
 

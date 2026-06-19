@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["chiplist"]
 ---
+
 # Events
 
 This article describes the Blazor ChipList events and provides a runnable example with sample event handler implementations.

@@ -9,24 +9,25 @@ ticketid: 1518367
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I have noticed that if I specify a GridColumn in a razor component and then try to use it in a Telerik Grid elsewhere, this column gets set as the last one on the right, regardless of where I place it in my code (the "html" order). Is there any way to either make the "html" order matter or to specify the position of the column in a grid?
 
 When you use `GridColumn` tags directly in the grid markup, they are rendered in the order they are set in the markup.
 
 When you put a `GridColumn` in a custom component in the app and put that component in the grid columns declaration, the column is not rendered in the place of declaration but at the end.
-
 
 ## Possible Cause
 

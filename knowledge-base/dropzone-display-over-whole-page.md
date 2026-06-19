@@ -9,6 +9,7 @@ ticketid: 1703123
 res_type: kb
 components: ["dropzone"]
 ---
+
 ## Environment
 
 <table>

@@ -10,6 +10,7 @@ ticketid: 1462254
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
@@ -28,7 +29,6 @@ components: ["charts"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -80,13 +80,11 @@ Sample chart that does not display any longer after adding serialization setting
 }
 ````
 
-
 ## Possible Cause
 
 The Telerik Chart serializes its data for client-side rendering. The component will honor any server-side serialization settings. For example, `JsonProperty` settings in the Chart model will change the field names from what is in the Chart markup, as the `nameof()` operator does not use these settings.
 
 In the example above, the Chart will use `TheValue` server-side, while the client-side rendering mechanism will receive `thevalue`.
-
 
 ## Solution
 

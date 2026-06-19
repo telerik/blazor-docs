@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to use remote (server, async) validation upon Insert or Update in Grid? How to prevent updating/inserting of items when they don't match certain conditions that cannot be implemented through the standard `DataAnnotation` validation?
-
 
 ## Solution
 

@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["calendar"]
 ---
+
 # Century Cell Template
 
 The Century Cell Template controls what the calendar will render in the `<td>` element for each decade in the Century view that lists the decades.

@@ -10,6 +10,7 @@ ticketid: 1506280
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -82,6 +83,7 @@ The grid needs to create a new instance of the model for inserting or editing, a
 ````
 
 ## Suggested Workarounds
+
 The Telerik components cannot get an instance of the model in any other way, so there can be two potential options:
 
 * Create a custom edit form ([inline](https://demos.telerik.com/blazor-ui/grid/editing-custom-form) or [popup](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)) where you can implement the model generation and validation as required in a way that works for your project.

@@ -10,18 +10,20 @@ ticketid: 1443151
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 The Window renders at the root of the app, which can put it out of the current context.
 
 For example, when an `EditForm` uses an explicit `EditContext`, the data updates to the model that come from the `Window` will not update the `EditContext`.
@@ -29,6 +31,7 @@ For example, when an `EditForm` uses an explicit `EditContext`, the data updates
 A symptom is that `IsModified()` of the `EditContext` is not correct after changes happen in the Window.
 
 ## Solution
+
 Call the `NotifyFieldChanged()` method of the `EditContext` to let it know it needs to update.
 
 ````RAZOR

@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["tilelayout"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>TileLayout for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>TileLayout for Blazor</td>
+        </tr>
     </tbody>
 </table>
-
 
 ## Description
 

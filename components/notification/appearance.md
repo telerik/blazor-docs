@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["notification"]
 ---
+
 # Appearance Settings
 
 The Notification component provides parameters and properties that allows you to customize its appearance. For brevity, this article will be divided in the following sections:

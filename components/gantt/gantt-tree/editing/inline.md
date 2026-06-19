@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["gantt"]
 ---
+
 # Gantt Tree Inline Editing
 
 Inline editing lets the user click an [Edit command button](slug:gantt-columns-command) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).

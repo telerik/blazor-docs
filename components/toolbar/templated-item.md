@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["toolbar"]
 ---
+
 # Templated (Custom) Item
 
 The Telerik ToolBar for Blazor allows you to add a custom element. To use it, add the `<ToolBarTemplateItem>` inside the `<TelerikToolBar>`. In it, you can add HTML and components according to your application needs.

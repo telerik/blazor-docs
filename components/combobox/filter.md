@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["combobox"]
 ---
+
 # ComboBox Filter
 
 The ComboBox component allows the user to filter the available items by their text, so they can find the one they need faster.

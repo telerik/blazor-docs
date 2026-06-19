@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["grid"]
 ---
+
 # Grid Selection
 
 The Grid component supports row and cell selection. When you select a row or a cell, they will be highlighted in the Grid. This article provides an overview of the Grid selection behavior and configuration:

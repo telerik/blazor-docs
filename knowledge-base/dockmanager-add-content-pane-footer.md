@@ -10,7 +10,9 @@ res_type: kb
 ticketid: 1700189
 components: ["dockmanager"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
         <tr>
@@ -82,4 +84,5 @@ To add a fixed footer below a scrollable content in a `DockManagerContentPane`, 
 ````
 
 ## See Also
+
 - [DockManager Documentation](slug:dockmanager-overview)

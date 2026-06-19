@@ -10,6 +10,7 @@ ticketid: 1562696
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How can I drag and drop rows between two different Grids, which are bound to different model types?
-
 
 ## Solution
 

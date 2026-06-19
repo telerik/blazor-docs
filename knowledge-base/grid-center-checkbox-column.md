@@ -10,18 +10,18 @@ ticketid: 1540685
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor, <br />
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor, <br />
                 TreeList for Blazor</td>
-		</tr>
-	</tbody>
+        </tr>
+    </tbody>
 </table>
-
 
 ## Description
 

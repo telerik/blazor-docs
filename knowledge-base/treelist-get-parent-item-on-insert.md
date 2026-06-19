@@ -10,20 +10,21 @@ ticketid: 1490309
 res_type: kb
 components: ["treelist"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TreeList for Blazor</td>
-		</tr>
-		<tr>
-			<td>Version</td>
-			<td>2.18.0 and later</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TreeList for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td>2.18.0 and later</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

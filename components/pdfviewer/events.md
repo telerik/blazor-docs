@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["pdfviewer"]
 ---
+
 # PdfViewer Events
 
 This article describes the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) events and provides a runnable example with sample event handler implementations.

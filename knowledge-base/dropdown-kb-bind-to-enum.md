@@ -10,21 +10,24 @@ ticketid: 1450139
 res_type: kb
 components: ["dropdownlist"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor, ComboBox for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Is there a way to bind the Data source for a Blazor UI DropDownList or ComboBox to an Enum?
 
 ## Solution
+
 You need to prepare an `IEnumerable` collection of items that correspond to the enum values and can be shown to the user. At the minimum, that is a collection of `string` versions of the enum. If you want to get the `Value` to actually be an enum, you will need a model that holds this value and a string representation for the user.
 
 Here are examples of both.

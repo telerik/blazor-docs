@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["upload"]
 ---
+
 # Chunk Upload
 
 Chunk upload works by splitting a file into smaller parts (chunks) and sending them one by one in several sequential requests. These chunks are then reassembled at the remote endpoint into the final file.

@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["pdfviewer"]
 ---
+
 # PdfViewer Annotations
 
 The PdfViewer supports a set of annotation types to enhance PDF documents. For example, users can highlight important text areas or add notes as free text.

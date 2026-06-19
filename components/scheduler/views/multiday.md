@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["scheduler"]
 ---
+
 # MultiDay View
 
 The MultiDay view of the Scheduler for Blazor shows several days at once to the user.

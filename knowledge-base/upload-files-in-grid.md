@@ -10,6 +10,7 @@ ticketid: 1544295, 1585763, 1590409, 1600123, 1636473
 res_type: kb
 components: ["upload, grid"]
 ---
+
 ## Environment
 
 <table>
@@ -34,7 +35,6 @@ How to add an upload button in every Grid row?
 
 How to upload photos and files as an attachment in a Blazor Grid?
 
-
 ## Solution
 
 Here are the required steps to implement file uploading inside the Telerik Blazor Grid.
@@ -49,7 +49,6 @@ Here are the required steps to implement file uploading inside the Telerik Blazo
     * If the file name depends on the controller, receive it in the `OnSuccess` event arguments via `args.Request.ResponseText`.
 1. Handle the [Grid `OnUpdate`, `OnCreate` and `OnDelete` events](slug:grid-editing-overview#events) to commit changes to the Grid data source. Optionally, delete the respective saved files in `OnDelete`. The example below uses `OnAdd` to provide the `Id` of the new Grid data item, which also affects the uploaded file's name.
 1. Display the uploaded files as images or download links in a [Grid column `<Template>`](slug:grid-templates-column).
-
 
 ## Example
 
@@ -334,14 +333,12 @@ app.MapDefaultControllerRoute();
 app.Run();
 ````
 
-
 ## Notes
 
 * If necessary, [adjust the application settings to allow larger file uploads](slug:upload-overview#large-file-uploads).
 * The Upload component itself can't delete files, which have been uploaded in previous edit sessions. Use separate UI for that inside the column `<Template>` or the `<EditorTemplate>`. In both cases, call the controller method directly via `HttpClient.PostAsync()`. The Upload `OnSuccess` event will not fire in this case.
 * It is also possible to use the Upload component in a [custom edit form outside the Grid](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
 * Instead of an Upload, you can also implement a similar scenario with a [FileSelect component](slug:fileselect-overview#fileselect-vs-upload). In that case, the file contents will be available directly in the Razor component, which holds the Grid.
-
 
 ## See Also
 

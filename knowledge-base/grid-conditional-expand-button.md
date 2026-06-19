@@ -10,16 +10,17 @@ ticketid: 1430980
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -124,6 +125,7 @@ Then, if you want to hide the expand icon, set a CSS class to the row that will 
 ````
 
 ## Notes
+
 If you have hierarchical data, especially data that goes many levels deep, you may want to consider the <a href="https://demos.telerik.com/blazor-ui/treelist/overview" target="_blank">TreeList component</a> instead of a grid. It can also load data on demand.
 
 You may also want to load data on demand for the detail template instead of loading it all at once initially, you can see one easy way to do that in the following sample project: <a href="https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy" target="_blank">Load data on demand in a Hierarchy Grid</a>.

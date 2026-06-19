@@ -7,6 +7,7 @@ tags: telerik,blazor,validation,data,annotation,form
 published: True
 position: 40
 ---
+
 # Input Validation
 
 The UI for Blazor suite supports and integrates seamlessly into Blazor's Forms and Validation infrastructure. All Telerik UI for Blazor Input components work out of the box when placed inside an `EditForm`, respond to `EditContext` changes and provide default invalid styles.

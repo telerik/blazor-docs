@@ -9,14 +9,16 @@ ticketid: 1636055
 res_type: kb
 components: ["dropdownlist"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor, MultiColumnComboBox for Blazor, MultiSelect for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor, ComboBox for Blazor, MultiColumnComboBox for Blazor, MultiSelect for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

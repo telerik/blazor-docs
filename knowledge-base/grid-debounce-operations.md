@@ -10,23 +10,26 @@ ticketid: 1451805
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I want to specify a debounce time for filtering. This way I can (for example) set the debounce time to 500(ms), and then only have the grid filter when the user stops typing.
 
 This can be useful for filtering with remote data when using the FilterRow mode - it invokes a filter on every keystroke.
 
 ## Solution
+
 There are three ideas on the basic approach how to do this:
 
 * Use the [FilterMenu](https://demos.telerik.com/blazor-ui/grid/filter-menu) filtering mode because it fires filtering requests only when the user presses a button.

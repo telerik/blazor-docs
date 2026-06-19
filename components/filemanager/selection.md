@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["filemanager"]
 ---
+
 # FileManager Selection
 
 The FileManager lets the user select one or multiple files and folders in its main pane. You can also pre-select a desired item.

@@ -10,16 +10,17 @@ ticketid: 1482238
 res_type: kb
 components: ["menu"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Menu for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Menu for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -31,6 +32,6 @@ Use the following CSS to set the display to none.
 
 ```` CSS
 .k-menu-expand-arrow {
-	display: none;
+    display: none;
 }
 ````

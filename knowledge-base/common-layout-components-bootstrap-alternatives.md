@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -29,7 +30,6 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -37,7 +37,6 @@ This KB article answers the following questions:
 * Which Telerik UI for Blazor components to use to create layouts?
 * How to build page layouts with Telerik Blazor components and without using third-party tools like Bootstrap?
 * What are the Bootstrap framework alternatives in Telerik UI for Blazor?
-
 
 ## Solution
 
@@ -55,7 +54,6 @@ Other components that may be relevant to application layouts are:
 * The [Card](https://demos.telerik.com/blazor-ui/card/overview) lets you display items and sets of information through predefined building blocks.
 * [Various popup components](slug:common-kb-popup-component-comparison) let you conserve real estate on the screen.
 * Many other components help with navigation and layouts, review the [list of available components in our demos](https://demos.telerik.com/blazor-ui).
-
 
 ## See Also
 

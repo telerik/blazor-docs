@@ -8,6 +8,7 @@ published: true
 position: 30
 components: ["contextmenu"]
 ---
+
 # Events
 
 This article describes the events that are fired by the Telerik Context Menu for Blazor:

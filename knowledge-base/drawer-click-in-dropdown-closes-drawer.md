@@ -10,6 +10,7 @@ ticketid: 1575100
 res_type: kb
 components: ["drawer"]
 ---
+
 ## Environment
 
 <table>
@@ -30,7 +31,6 @@ components: ["drawer"]
         </td>
     </tr>
 </table>
-
 
 ## Description
 

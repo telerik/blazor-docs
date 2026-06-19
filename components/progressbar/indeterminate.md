@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["progressbar"]
 ---
+
 # Indeterminate state
 
 The Indeterminate state of the ProgressBar can be used in cases when the estimated time of completion of the task is unknown or the progress can not be represented as a physical value. The ProgressBar is filled with flowing motion animation to showcase that the task is running. 

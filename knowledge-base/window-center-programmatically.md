@@ -9,14 +9,16 @@ res_type: kb
 ticketid:
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -67,5 +69,6 @@ To center a Telerik Window programmatically, follow these steps:
 ````
 
 ## See Also
+
 - [Window Position](slug:components/window/position)
 - [Telerik Window for Blazor - Overview](slug:window-overview)

@@ -8,6 +8,7 @@ published: True
 position: 4
 components: ["treelist"]
 ---
+
 # TreeList Column Width
 
 This article explains how to set TreeList column widths and how the component behaves, depending on its column width configuration.

@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["gantt"]
 ---
+
 # Gantt Tree Popup Editing
 
 In this article:

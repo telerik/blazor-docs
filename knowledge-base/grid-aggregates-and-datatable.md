@@ -10,14 +10,16 @@ ticketid: 1499804
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 In this article:
@@ -29,11 +31,9 @@ In this article:
 * [Solution](#solution)
 * [Suggested Workarounds](#suggested-workarounds)
 
-
-
 ## Description
-I have a TelerikGrid with a [DataTable binding](https://demos.telerik.com/blazor-ui/grid/data-table), I'm trying to add aggregates but it fails because it is not finding the properties in the Dictionary. When I comment out the `FooterTemplate` it does not throw an exception, but I can't see the aggregates.
 
+I have a TelerikGrid with a [DataTable binding](https://demos.telerik.com/blazor-ui/grid/data-table), I'm trying to add aggregates but it fails because it is not finding the properties in the Dictionary. When I comment out the `FooterTemplate` it does not throw an exception, but I can't see the aggregates.
 
 ## Error Message
 
@@ -137,9 +137,11 @@ This sample contains a solution for calculating them on the server over all data
 ````
 
 ## Possible Cause
+
 When using a `DataTable` as the grid data source, aggregates are not supported, they require using a model so they can extract the type of the field - the grid itself is strongly typed.
 
 ## Solution
+
 For such scenarios you can pass the desired aggregation functions through the `DataSourceRequest` object to use it with the `.ToDataSourceResult()` method, and get the desired aggregations through fields in the view-model:
 
 ````RAZOR

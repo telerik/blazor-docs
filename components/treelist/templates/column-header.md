@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["treelist"]
 ---
+
 # Column Header Template
 
 Bound columns render the name of the field or their `Title` in their header. Through the `HeaderTemplate`, you can define custom content there instead of the title text.

@@ -10,6 +10,7 @@ ticketid: 1579328
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to automatically append a new Grid row when hitting Enter while in edit mode on the last row?
 
 When you press Enter while editing a cell on the last row, the Grid takes the row out of edit mode. How to automatically add a new row at the bottom of the Grid, and place the user in that row?
-
 
 ## Solution
 

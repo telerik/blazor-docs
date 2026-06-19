@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["datetimepicker"]
 ---
+
 # Events
 
 This article explains the events available in the Telerik DateTimePicker for Blazor:

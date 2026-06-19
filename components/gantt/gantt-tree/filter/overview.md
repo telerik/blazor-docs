@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["gantt"]
 ---
+
 # Gantt Filtering Overview
 
 The Gantt Tree component offers built-in support for filtering.

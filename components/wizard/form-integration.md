@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["wizard"]
 ---
+
 # Form Integration
 
 The Wizard component provides integration with the [Telerik Form](slug:form-overview).
