@@ -69,6 +69,15 @@ The Telerik UI for Blazor components may provide enhanced, standard, or no keybo
 * *Enhanced keyboard support* builds on top of the standard key combinations and provides additional built-in shortcuts for improved flexibility and user experience.
 * Components with no keyboard support may serve a purely visual purpose, or be containers with no available interaction.
 
+### Custom Keyboard Shortcuts
+
+Some Telerik Blazor components allow you to define custom keys for the keyboard navigation. Refer to the dedicated articles:
+
+* [ContextMenu](slug:contextmenu-keyboard-navigation)
+* [Grid](slug:grid-keyboard-navigation)
+* [Window](slug:window-keyboard-navigation)
+* [Wizard](slug:wizard-keyboard-navigation)
+
 ### Right-to-Left Support
 
 When using [right-to-left text direction](slug:rtl-support), the keyboard shortcuts for the components remain unchanged. The left and right arrow keys reverse their behavior to be consistent with the RTL mode.
