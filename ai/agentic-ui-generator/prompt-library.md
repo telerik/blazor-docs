@@ -102,6 +102,12 @@ For more precise control over the generation process, you can invoke the special
 | Accessibility Assistant | `#telerik_accessibility_assistant` | Provides WCAG 2.2 Level AA guidance and component-specific accessibility implementation details. Use this assistant to ensure your UI meets compliance standards, implement correct ARIA roles, validate color contrast, and retrieve accessibility API references for Telerik UI for Blazor components. |
 | Validator Assistant | n/a | Not designed to be invoked manually. It is called automatically by the UI Generator Orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards. |
 
+#### Getting Started Assistant Prompts
+
+```prompt
+#telerik_getting_started_assistant create a new telerik blazor web app with server render mode and global interactivity location
+```
+
 #### Layout Assistant Prompts
 
 The Layout Assistant applies suitable CSS utility classes from the [Progress Design System](https://www.telerik.com/design-system/docs/) for styling and positioning elements. You can use it, when you need help with spacing, typography, colors, layout structure, or transforms.
