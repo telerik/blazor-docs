@@ -29,7 +29,7 @@ To use the Telerik Blazor MCP server, you need:
 
 ## Quick Start
 
-Use the Telerik CLI and the built-in Getting Started Assistant to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one.
+Use either the Telerik CLI to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one. Alternatively, install the `telerik-blazor-plugin`, which delivers the Agentic UI Generator functionality as skills: purpose-built instructions that your agent picks up automatically from context or that you can call explicitly with a slash command.
 
 Follow these steps to set up the Agentic UI Generator and use it in your IDE:
 
@@ -65,6 +65,71 @@ Follow these steps to set up the Agentic UI Generator and use it in your IDE:
    </TabStrip>
 
 1. (optional) If you want to use the Agentic UI Generator in a new Telerik Blazor app, then create it with the [Telerik CLI](slug:installation-cli) or the [Telerik Blazor project templates](slug:installation-project-templates).
+
+</TabStripTab>
+<TabStripTab title="AI Plugin">
+
+Instead of configuring the MCP server manually, install the `telerik-blazor-plugin`. It wraps the Telerik MCP server and starts it automatically - no manual `mcp.json` configuration required.
+
+<TabStrip>
+<TabStripTab title="VS Code Copilot">
+
+To install the Telerik UI for Blazor AI Plugin:
+
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your [Telerik license key](slug:installation-license-key#automatic-installation) globally on your machine.
+2. Open **VS Code Settings** (`Cmd+,` / `Ctrl+,`) and search for `chat.marketplaces`.
+3. Add the `telerik/ai-plugins` marketplace entry, or add it directly via `settings.json`:
+
+    ````JSON.skip-repl
+    "chat.plugins.marketplaces": ["telerik/ai-plugins"]
+    ````
+
+4. Press `F1` and select **Chat: Manage Plugin Marketplaces**.
+5. Select `telerik/ai-plugins` -> **Show plugins**.
+6. In the **Agent Plugins** tab, find `telerik-blazor-plugin` and click **Install**.
+
+> Agent Plugins is a preview feature in VS Code. It requires **VS Code 1.100 or later** with the `chat.plugins.enabled: true` setting.
+
+</TabStripTab>
+<TabStripTab title="Claude Code">
+
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your [Telerik license key](slug:installation-license-key#automatic-installation) globally on your machine.
+2. Add the `telerik/ai-plugins` marketplace, then install the plugin:
+
+````SH.skip-repl
+/plugin marketplace add telerik/ai-plugins
+/plugin install telerik-blazor-plugin@ai-plugins
+````
+
+While a session is running, reload plugins after any local changes with `/reload-plugins`.
+
+> Requires [Claude Code](https://code.claude.com) with plugin support.
+
+</TabStripTab>
+<TabStripTab title="GitHub Copilot CLI">
+
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your [Telerik license key](slug:installation-license-key#automatic-installation) globally on your machine.
+2. Add the marketplace and install the plugin:
+
+````SH.skip-repl
+copilot plugin marketplace add telerik/ai-plugins
+copilot plugin install telerik-blazor-plugin@ai-plugins
+````
+
+To refresh after changes, exit and reopen the session or run `/restart`.
+
+> Requires [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli).
+
+</TabStripTab>
+</TabStrip>
+
+Once installed, invoke the UI Generator skill:
+
+```prompt
+/telerik-blazor-plugin telerik-blazor-ui-generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
+```
+
+> caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting) and increased token usage.
 
 </TabStripTab>
 <TabStripTab title="Manual Setup">
