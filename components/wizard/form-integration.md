@@ -5,7 +5,7 @@ description: Form Integration in the Wizard for Blazor.
 slug: wizard-form-integration
 tags: telerik,blazor,wizard,form,integration
 published: True
-position: 5
+position: 15
 components: ["wizard"]
 ---
 # Form Integration

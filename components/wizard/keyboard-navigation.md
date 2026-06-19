@@ -6,7 +6,7 @@ slug: wizard-keyboard-navigation
 tags: telerik,blazor,wizard,keyboard
 published: True
 tag: new
-position: 14
+position: 90
 components: ["wizard"]
 ---
 

@@ -5,7 +5,7 @@ description: Events in the Context Menu for Blazor.
 slug: contextmenu-events
 tags: telerik,blazor,context menu,events
 published: true
-position: 30
+position: 100
 components: ["contextmenu"]
 ---
 # Events

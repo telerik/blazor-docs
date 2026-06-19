@@ -47,10 +47,7 @@ Set the `Dictionary` to the Window `CustomKeyboardShortcuts` parameter.
 @code {
     private Dictionary<string, WindowKeyboardCommand?> WindowCustomShortcuts = new()
     {
-        ["w"] = WindowKeyboardCommand.NavigateUp,
-        ["s"] = WindowKeyboardCommand.NavigateDown,
-        ["d"] = WindowKeyboardCommand.OpenSubmenu,
-        ["a"] = WindowKeyboardCommand.NavigateToParent
+        { "Escape", WindowKeyboardCommand.Minimize }
     };
 }
 ````

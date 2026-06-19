@@ -5,7 +5,7 @@ description: Explore the available templates for the Wizard for Blazor.
 slug: wizard-templates
 tags: telerik,blazor,wizard,template,templates
 published: True
-position: 50
+position: 25
 components: ["wizard"]
 ---
 # Wizard Templates

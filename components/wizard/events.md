@@ -5,7 +5,7 @@ description: Events of the Wizard for Blazor.
 slug: wizard-events
 tags: telerik,blazor,wizard,events
 published: True
-position: 15
+position: 100
 components: ["wizard"]
 ---
 ## Events

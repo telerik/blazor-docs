@@ -5,7 +5,7 @@ description: Layout of the Wizard for Blazor.
 slug: wizard-layout
 tags: telerik,blazor,wizard,layout
 published: True
-position: 10
+position: 20
 components: ["wizard"]
 ---
 # Wizard Layout
