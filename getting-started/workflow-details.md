@@ -161,20 +161,27 @@ Register the [Telerik theme stylesheet](slug:themes-overview) in the `<head>` of
 
 Register the [Telerik font icon stylesheet](slug:common-features-icons#font-icon-stylesheet) only if the app uses [Telerik font icons](slug:common-features-icons).
 
+Set a `k-body` CSS class to the `<body>` element to apply typography, text color, and background color to the whole page, depending on the Telerik theme. The `k-body` class is crucial when using dark [theme swatches](slug:themes-overview#what-is-a-swatch).
+
 >caption Adding the Telerik Blazor CSS files
 
 ````HTML.skip-repl
 <head>
+    <!-- Telerik theme -->
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
 
-    <!-- Add only if using font icons -->
+    <!-- Add only if using Telerik font icons -->
     <!--<link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />-->
 
-    <!-- main application stylesheet -->
+    <!-- Main application stylesheet -->
     <link rel="stylesheet" href="css/app.css" />
     <!-- CSS isolation stylesheet -->
     <link rel="stylesheet" href="AppName.styles.css"  />
 </head>
+<!-- Add k-body class for page typography and background color -->
+<body class="k-body">
+
+</body>
 ````
 
 ### JavaScript File
@@ -195,7 +202,7 @@ The recommended way to register the Telerik Blazor JS file for better loading pe
 <head>
    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
 </head>
-<body>
+<body class="k-body">
    <script src="_framework/blazor.web.js" autostart="false"></script>
    <script>
       document.addEventListener("DOMContentLoaded", function () {
