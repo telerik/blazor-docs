@@ -12,7 +12,7 @@ components: ["contextmenu"]
 
 # ContextMenu Keyboard Navigation
 
-This article describes how the ContextMenu keyboard navigation works and how to [customize](#using-custom-keys) it. The article extends the general information about [keyboard navigation in Telerik UI for Blazor](slug:accessibility-overview#keyboard-navigation).
+This article describes how the ContextMenu keyboard navigation [works](#default-keys) and how to [customize](#using-custom-keys) it. The article extends the general information about [keyboard navigation in Telerik UI for Blazor](slug:accessibility-overview#keyboard-navigation).
 
 The ContextMenu is a single tab stop component and it focuses the first item on open. The keyboard navigation is active while the ContextMenu is visible and focused.
 

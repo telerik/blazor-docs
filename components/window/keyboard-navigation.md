@@ -12,13 +12,13 @@ components: ["window"]
 
 # Window Keyboard Navigation
 
-This article describes how the Window keyboard navigation works and how to [customize](#using-custom-keys) it. The article extends the general information about [keyboard navigation in Telerik UI for Blazor](slug:accessibility-overview#keyboard-navigation).
+This article describes how the Window keyboard navigation [works](#default-keys) and how to [customize](#using-custom-keys) it. The article extends the general information about [keyboard navigation in Telerik UI for Blazor](slug:accessibility-overview#keyboard-navigation).
 
 The Window's keyboard navigation is active while the component is visible and focused.
 
 ## Default Keys
 
-The following sections list the default built-in keyboard shortcuts and the actions that they perform when a specific Window area or cell is focused. Also check the [Window Keyboard Navigation demo](https://demos.telerik.com/blazor-ui/window/keyboard-navigation).
+The following sections list the default built-in keyboard shortcuts and the actions that they perform when the Window is focused. Also check the [Window Keyboard Navigation demo](https://demos.telerik.com/blazor-ui/window/keyboard-navigation).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -54,7 +54,7 @@ Set the `Dictionary` to the Window `CustomKeyboardShortcuts` parameter.
 
 ### Keyboard Command
 
-The [`WindowKeyboardCommand`](slug:Telerik.Blazor.WindowKeyboardCommand) enum represents a user action, for example, `NavigateDown`, `ActivateItem`, `OpenSubmenu`, and others.
+The [`WindowKeyboardCommand`](slug:Telerik.Blazor.WindowKeyboardCommand) enum represents a user action, for example, `Minimize`, `Close`, and others.
 
 You can define multiple keyboard shortcuts that execute the same keyboard command. If a Window keyboard command has no custom key, the component uses the default key. To disable a built-in keyboard command for a specific key, use `null`.
 

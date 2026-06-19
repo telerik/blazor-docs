@@ -12,13 +12,13 @@ components: ["wizard"]
 
 # Wizard Keyboard Navigation
 
-This article describes how the Wizard keyboard navigation works and how to [customize](#using-custom-keys) it. The article extends the general information about [keyboard navigation in Telerik UI for Blazor](slug:accessibility-overview#keyboard-navigation).
+This article describes how the Wizard keyboard navigation [works](#default-keys) and how to [customize](#using-custom-keys) it. The article extends the general information about [keyboard navigation in Telerik UI for Blazor](slug:accessibility-overview#keyboard-navigation).
 
 The Wizard is a single tab stop component and its keyboard navigation is active while the component's Stepper is focused.
 
 ## Default Keys
 
-The following sections list the default built-in keyboard shortcuts and the actions that they perform when a specific item in the Wizard Stepper is focused. Also check the [Wizard Keyboard Navigation demo](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation).
+The following sections list the default built-in keyboard shortcuts and the actions that they perform when the Wizard Stepper is focused. Also check the [Wizard Keyboard Navigation demo](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
