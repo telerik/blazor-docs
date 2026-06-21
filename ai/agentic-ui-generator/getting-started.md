@@ -16,8 +16,8 @@ The Agentic UI Generator is an intelligent development tool delivered through th
 
 You can get started in two ways:
 
-* **Try it in the browser (no setup required)** - the [Blazor REPL](https://blazorrepl.telerik.com/) includes a built-in Agentic UI Generator integration, allowing you to generate, run, and evaluate Telerik UI for Blazor components directly in the browser. To use it, describe your UI requirements using natural language in the REPL's chat interface, and iterate with follow-up prompts. Sign in and get 10 monthly requests to evaluate the Agentic UI Generator without leaving the browser.
-* **Set up locally** - use the Telerik CLI to configure your local environment, or set it up manually. The Telerik CLI automates license configuration, Telerik MCP server and Telerik NuGet setup, and project scaffolding. Get started in minutes—follow the [Quick Start](#quick-start) guide to configure your local environment.
+* Try it in the browser (no setup required)&mdash;the [Blazor REPL](https://blazorrepl.telerik.com/) includes a built-in Agentic UI Generator integration, allowing you to generate, run, and evaluate Telerik UI for Blazor components directly in the browser. To use it, describe your UI requirements using natural language in the REPL's chat interface, and iterate with follow-up prompts. Sign in and get 10 monthly requests to evaluate the Agentic UI Generator without leaving the browser.
+* Set up locally&mdash;get started in minutes—follow the [Quick Start](#quick-start) guide to configure your local environment either through the Telerik CLI or by installing the `telerik-blazor-plugin`.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To use the Telerik Blazor MCP server, you need:
 
 ## Quick Start
 
-Use either the Telerik CLI to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one. Alternatively, install the `telerik-blazor-plugin`, which delivers the Agentic UI Generator functionality as skills: purpose-built instructions that your agent picks up automatically from context or that you can call explicitly with a slash command.
+Use the Telerik CLI to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one. Alternatively, install the `telerik-blazor-plugin`, which delivers the Agentic UI Generator functionality as skills.
 
 Follow these steps to set up the Agentic UI Generator and use it in your IDE:
 
@@ -123,16 +123,18 @@ To refresh after changes, exit and reopen the session or run `/restart`.
 </TabStripTab>
 </TabStrip>
 
-Once installed, invoke the UI Generator skill:
+Once installed, invoke the UI Generator skill in the IDE chat interface:
 
-```prompt
+````TEXT.skip-repl
 /telerik-blazor-plugin telerik-blazor-ui-generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
-```
+````
 
-> caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting) and increased token usage.
+> caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting#ai-plugin-and-mcp-server-running-simultaneously) and increased token usage.
 
 </TabStripTab>
 <TabStripTab title="Manual Setup">
+
+The manual setup is an alternative to configuring the Telerik MCP Server through the Telerik CLI or the Telerik AI Plugin.  
 
 1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates the available MCP tools.
 
