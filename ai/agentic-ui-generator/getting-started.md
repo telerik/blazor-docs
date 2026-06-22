@@ -126,7 +126,7 @@ To refresh after changes, exit and reopen the session or run `/restart`.
 Once installed, invoke the UI Generator skill in the IDE chat interface:
 
 ````TEXT.skip-repl
-/telerik-blazor-plugin telerik-blazor-ui-generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
+/telerik-blazor-plugin:telerik-blazor-ui-generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
 ````
 
 > caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting#ai-plugin-and-mcp-server-running-simultaneously) and increased token usage.
