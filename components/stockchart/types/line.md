@@ -47,7 +47,7 @@ Line series
         </StockChartSeries>
 
         <StockChartSeries Type="StockChartSeriesType.Line"
-                          Name="Product 1"
+                          Name="Product 2"
                           Data="@Data"
                           Field="@nameof(ChartSeriesData.Product2Sales)"
                           CategoryField="@nameof(ChartSeriesData.Year)">
