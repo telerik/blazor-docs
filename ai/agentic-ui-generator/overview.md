@@ -129,7 +129,7 @@ Use `#telerik_ui_generator` for a complete orchestration-first workflow from a s
 
 ## AI Plugin
 
-The Agentic UI Generator also comes with an AI `telerik-blazor-plugin` that brings the same capabilities directly into your agent without any manual MCP configuration. Instead of tools, the plugin delivers the functionality as skills: purpose-built instructions that your agent picks up automatically from context or that you can call explicitly with a slash command. It is a convenient way to get started, if you do not want to manage an MCP server yourself.
+The Agentic UI Generator also comes with an AI `telerik-blazor-plugin` that brings the same capabilities directly into your agent without any manual MCP configuration. Instead of tools, the plugin delivers the functionality as skills: purpose-built instructions that your agent picks up automatically from context or that you can call explicitly with a slash command. It is a convenient way to get started and an alternative to setting up the MCP Server through the Telerik CLI.
 
 To explore the available skills and usage examples, see [Prompt Library](slug:agentic-ui-generator-prompt-library#skills-and-assistant-prompts).
 
