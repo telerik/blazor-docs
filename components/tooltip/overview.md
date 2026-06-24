@@ -41,9 +41,9 @@ The Blazor Tooltip will automatically display the value of `title` and `alt` att
 
 >tip For better performance, use one single Tooltip instance for multiple targets, especially if the targets are similar and a lot in number.
 
-## Position
+## Position and Collision
 
-The Blazor Tooltip normally appears above its target, but can show on all four sides. If there is not enough space, the component will shift or flip its position automatically. Learn how to [control the Tooltip position](slug:tooltip-position).
+The Blazor Tooltip normally appears above its target, but can show on all four sides. If there is not enough space, the component will shift (fit) or flip its position automatically. Learn how to [control the Tooltip position and collision settings](slug:tooltip-position).
 
 ## Show Behavior
 
