@@ -16,8 +16,8 @@ The Agentic UI Generator is an intelligent development tool delivered through th
 
 You can get started in two ways:
 
-* **Try it in the browser (no setup required)** - the [Blazor REPL](https://blazorrepl.telerik.com/) includes a built-in Agentic UI Generator integration, allowing you to generate, run, and evaluate Telerik UI for Blazor components directly in the browser. To use it, describe your UI requirements using natural language in the REPL's chat interface, and iterate with follow-up prompts. Sign in and get 10 monthly requests to evaluate the Agentic UI Generator without leaving the browser.
-* **Set up locally** - use the Telerik CLI to configure your local environment, or set it up manually. The Telerik CLI automates license configuration, Telerik MCP server and Telerik NuGet setup, and project scaffolding. Get started in minutes—follow the [Quick Start](#quick-start) guide to configure your local environment.
+* Try it in the browser (no setup required)&mdash;the [Blazor REPL](https://blazorrepl.telerik.com/) includes a built-in Agentic UI Generator integration, allowing you to generate, run, and evaluate Telerik UI for Blazor components directly in the browser. To use it, describe your UI requirements using natural language in the REPL's chat interface, and iterate with follow-up prompts. Sign in and get 10 monthly requests to evaluate the Agentic UI Generator without leaving the browser.
+* Set up locally&mdash;get started in minutes—follow the [Quick Start](#quick-start) guide to configure your local environment either through the Telerik CLI or by installing the `telerik-blazor-plugin`.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To use the Telerik Blazor MCP server, you need:
 
 ## Quick Start
 
-Use the Telerik CLI and the built-in Getting Started Assistant to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one.
+Use the Telerik CLI to handle the entire setup automatically - whether you are starting a new project or adding Telerik UI for Blazor to an existing one. Alternatively, install the `telerik-blazor-plugin`, which delivers the Agentic UI Generator functionality as skills.
 
 Follow these steps to set up the Agentic UI Generator and use it in your IDE:
 
@@ -67,7 +67,74 @@ Follow these steps to set up the Agentic UI Generator and use it in your IDE:
 1. (optional) If you want to use the Agentic UI Generator in a new Telerik Blazor app, then create it with the [Telerik CLI](slug:installation-cli) or the [Telerik Blazor project templates](slug:installation-project-templates).
 
 </TabStripTab>
+<TabStripTab title="AI Plugin">
+
+The `telerik-blazor-plugin` provides an alternative to setting up the Telerik MCP Server via the Telerik CLI. The plugin wraps the Telerik MCP server and starts it automatically - no manual `mcp.json` configuration required.
+
+<TabStrip>
+<TabStripTab title="VS Code Copilot">
+
+> Agent Plugins is a preview feature in VS Code. It requires **VS Code 1.100 or later** with the `chat.plugins.enabled: true` setting.
+
+To install the Telerik UI for Blazor AI Plugin:
+
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your [Telerik license key](slug:installation-license-key#automatic-installation) globally on your machine.
+2. Open **VS Code Settings** (`Cmd+,` / `Ctrl+,`) and search for `chat.marketplaces`.
+3. Add the `telerik/ai-plugins` marketplace entry, or add it directly via `settings.json`:
+
+    ````JSON.skip-repl
+    "chat.plugins.marketplaces": ["telerik/ai-plugins"]
+    ````
+
+4. Press `F1` and select **Chat: Manage Plugin Marketplaces**.
+5. Select `telerik/ai-plugins` -> **Show plugins**.
+6. In the **Agent Plugins** tab, find `telerik-blazor-plugin` and click **Install**.
+
+</TabStripTab>
+<TabStripTab title="Claude Code">
+
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your [Telerik license key](slug:installation-license-key#automatic-installation) globally on your machine.
+2. Add the `telerik/ai-plugins` marketplace, then install the plugin:
+
+````SH.skip-repl
+/plugin marketplace add telerik/ai-plugins
+/plugin install telerik-blazor-plugin@ai-plugins
+````
+
+While a session is running, reload plugins after any local changes with `/reload-plugins`.
+
+> Requires [Claude Code](https://code.claude.com/docs/en/discover-plugins) with plugin support.
+
+</TabStripTab>
+<TabStripTab title="GitHub Copilot CLI">
+
+1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your [Telerik license key](slug:installation-license-key#automatic-installation) globally on your machine.
+2. Add the marketplace and install the plugin:
+
+````SH.skip-repl
+copilot plugin marketplace add telerik/ai-plugins
+copilot plugin install telerik-blazor-plugin@ai-plugins
+````
+
+To refresh after changes, exit and reopen the session or run `/restart`.
+
+> Requires [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli).
+
+</TabStripTab>
+</TabStrip>
+
+Once installed, invoke the UI Generator skill in the IDE chat interface:
+
+````TEXT.skip-repl
+/telerik-blazor-plugin:telerik-blazor-ui-generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
+````
+
+> caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting#inconsistent-output-or-increased-token-usage) and increased token usage.
+
+</TabStripTab>
 <TabStripTab title="Manual Setup">
+
+The manual setup is an alternative to configuring the Telerik MCP Server through the Telerik CLI or the Telerik AI Plugin.  
 
 1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your Telerik license key globally on your machine or in the `.mcp.json` configuration. The server automatically recognizes your license and activates the available MCP tools.
 

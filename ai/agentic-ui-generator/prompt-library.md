@@ -7,20 +7,26 @@ position: 20
 tags: telerik,blazor,ai,agentic,ui,generator,prompts
 previous_url: /ai/ai-coding-assistant/prompt-library
 published: True
+tag: updated
 ---
 
 # Agentic UI Generator Prompt Library
 
-The prompts provided here are intended and optimized for use with the Telerik Blazor MCP Server tools, including the Agentic UI Generator and the [specialized assistants](#assistant-specific-prompts). They can help you accelerate the creation and styling of modern web applications, from individual components to complete responsive pages and custom themes.
+The prompts provided here are intended and optimized for use with the Telerik UI for Blazor AI tools — the Telerik Blazor MCP Server and the `telerik-blazor-plugin` AI plugin. They can help you accelerate the creation and styling of modern web applications, from individual components to complete responsive pages and custom themes.
 
 >tip [Go straight to the prompts ⬇️](#general-prompts)
 
 ## How to Use the Prompts
 
-The prompts in this library target the [Agentic UI Generator](slug:agentic-ui-generator-getting-started) using the main `#telerik_ui_generator` handle, individual assistant handles, or natural language descriptions. Make sure that you have [installed and enabled](slug:agentic-ui-generator-getting-started#quick-start) the Agentic UI Generator before attempting to run the prompts.
+The prompts in this library target the [Agentic UI Generator](slug:agentic-ui-generator-getting-started). Depending on your setup, you can invoke them in two ways:
+
+* Call the **AI Plugin skills** — The [telerik-blazor-plugin](slug:agentic-ui-generator-getting-started#tab-2-ai-plugin) wraps the MCP server and starts it automatically — no manual `mcp.json` configuration required. If you have the plugin installed, use the `/telerik-blazor-plugin:<skill-name>` slash command to call a skill and follow with a prompt. 
+* Call the **Assistants** — Use the dedicated `#handle` syntax (for example, `#telerik_ui_generator`) to prefix your prompt, when working with GitHub Copilot and the Telerik Blazor MCP Server.
+
+Make sure that you have [installed and enabled](slug:agentic-ui-generator-getting-started#quick-start) the Agentic UI Generator before attempting to run the prompts.
 
 1. Browse the [prompt library](#general-prompts) to find a prompt that suits your needs.
-2. Copy the prompt text (including the `#telerik_ui_generator` handle if present).
+2. Copy the prompt text, including the handle or slash command prefix if shown.
 3. (optional) Customize the prompt as needed for your specific use case.
 4. Run the prompt against your AI-powered IDE.
 
@@ -88,9 +94,105 @@ Create an employee onboarding wizard (using the Telerik Wizard) with step icons:
 ```Razor
 ```
 
-### Assistant-Specific Prompts
+### Skills and Assistant Prompts
 
-For more precise control over the generation process, you can invoke the specialized assistants individually using their dedicated handles.
+For more precise control, you can target a specific skill or assistant directly.
+
+<TabStrip>
+<TabStripTab title="AI Plugin Skills">
+
+Skills are triggered automatically when your agent recognizes a relevant prompt. You can also invoke them explicitly using a slash command:
+
+````text.skip-repl
+/telerik-blazor-plugin:<skill-name> <your prompt>
+````
+
+| Skill | Slash Command | Purpose |
+|-------|---------------|---------|
+| **telerik-blazor-ui-generator** | `/telerik-blazor-plugin:telerik-blazor-ui-generator` | Orchestrates all other skills to build or refine complete pages, dashboards, and UI features end-to-end from a single prompt. |
+| **telerik-blazor-getting-started** | `/telerik-blazor-plugin:telerik-blazor-getting-started` | Scaffolds a new Telerik UI for Blazor project or adds Telerik to an existing one. |
+| **telerik-blazor-component** | `/telerik-blazor-plugin:telerik-blazor-component` | Retrieves component documentation, API reference, and code examples for any Telerik UI for Blazor component. |
+| **telerik-blazor-accessibility** | `/telerik-blazor-plugin:telerik-blazor-accessibility` | Provides WCAG 2.2 Level AA guidance and component-specific ARIA, keyboard navigation, and screen reader requirements. |
+| **telerik-blazor-layout** | `/telerik-blazor-plugin:telerik-blazor-layout` | Retrieves Kendo Design System CSS utility classes for layout, spacing, and responsive behavior. Call before writing custom CSS. |
+| **telerik-blazor-style** | `/telerik-blazor-plugin:telerik-blazor-style` | Generates CSS variables and custom themes from a natural language description of the desired visual style. |
+| **telerik-blazor-icon** | `/telerik-blazor-plugin:telerik-blazor-icon` | Searches the Telerik icon library by name, action, or concept and returns matching icons with usage details. |
+
+#### Layout
+
+```prompt Responsive Layout
+/telerik-blazor-plugin:telerik-blazor-layout Update the existing page layout by adding a new section in the middle of the page. In that added section, a Dashboard Card displays summary KPIs (revenue, active users, growth rate), next to a Compact Card showing a recent alert or message. Make the page responsive with proper spacing and typography.
+```
+```Razor
+```
+
+#### Components
+
+```prompt Interactive Data Page
+/telerik-blazor-plugin:telerik-blazor-component Create a Grid component with paging, sorting, and filtering. Include column configuration for a product catalog with name, price, category, and actions. Ensure the Grid is properly integrated into a card layout with responsive design and consistent spacing.
+```
+```Razor
+```
+
+```prompt Multi-Component Data View
+/telerik-blazor-plugin:telerik-blazor-component Insert a new section with a Grid on the left to filter and sort product data. On the right, add a Chart and DateRangePicker to visualize product sales over time. Both components should be data-bound to the same source.
+```
+```Razor
+```
+
+#### Theming
+
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+
+```prompt Accessible Color Theme
+/telerik-blazor-plugin:telerik-blazor-style Generate a custom theme for a corporate blue and green color scheme with high contrast accessibility requirements.
+```
+```Razor
+```
+
+```prompt Dark Mode Theme
+/telerik-blazor-plugin:telerik-blazor-style Create a comprehensive dark mode theme with a dark background, light text, subtle border radius on cards and buttons, and increased spacing between the UI components.
+```
+```Razor
+```
+
+</div>
+
+#### Icons
+
+<div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+
+```prompt Navigation Icons
+/telerik-blazor-plugin:telerik-blazor-icon Add icons suitable for the Home, Settings, and User Profile buttons in my navigation bar.
+```
+```Razor
+```
+
+```prompt Toolbar Action Icons
+/telerik-blazor-plugin:telerik-blazor-icon Find appropriate icons for data visualization actions like export, print, refresh, and search in a dashboard toolbar.
+```
+```Razor
+```
+
+</div>
+
+#### Accessibility
+
+```prompt Grid Cell Template Navigation
+/telerik-blazor-plugin:telerik-blazor-accessibility I have a Grid with a custom cell template that has multiple buttons like view report, download PDF, and send email. When I try to navigate with the keyboard, I can't get to these buttons properly. How can I make the keyboard navigation work for focusable elements inside the cell?
+```
+```Razor
+```
+
+```prompt Grid Row Headers
+/telerik-blazor-plugin:telerik-blazor-accessibility I have a Grid that displays employee data where the first column contains employee names, followed by columns for department, salary, and hire date. How can I improve accessibility for screen reader users navigating this table?
+```
+```Razor
+```
+
+</TabStripTab>
+<TabStripTab title="Assistants">
+
+You can invoke the specialized assistants individually using their dedicated handles.
 
 | Assistant | Handle | Purpose |
 |------------|-------------|-------------|
@@ -189,6 +291,11 @@ Use the `#telerik_accessibility_assistant` handle to verify WCAG 2.2 Level AA co
 ```
 ```Razor
 ```
+
+</TabStripTab>
+</TabStrip>
+
+
 
 ## See Also
 
