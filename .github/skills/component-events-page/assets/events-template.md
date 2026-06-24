@@ -3,7 +3,7 @@ title: Events
 page_title: Component Name Events
 description: Learn about the Telerik Component Name component events and event arguments.
 slug: componentname-events
-tags: telerik, blazor, component name
+tags: telerik, blazor, component name, events
 published: True
 position: 100
 ---
@@ -21,7 +21,6 @@ This article describes the available events in the Telerik Component Name for Bl
 The Component Name `OnComponentEvent` event fires when the user ...
 
 ````RAZOR.skip-repl
-
 <TelerikComponent OnComponentEvent="@OnComponentEventHandler" />
 
 @code {
@@ -37,7 +36,6 @@ The Component Name `OnComponentEvent` event fires when the user ...
 The Component Name `OnComponentEvent` event fires when the user ...
 
 ````RAZOR.skip-repl
-
 <TelerikComponent OnComponentEvent="@OnComponentEventHandler" />
 
 @code {
@@ -51,14 +49,12 @@ The Component Name `OnComponentEvent` event fires when the user ...
 ## Example
 
 ````RAZOR
-
 <TelerikComponent />
 
 @code {
 
 }
 ````
-
 
 ## See Also
 
