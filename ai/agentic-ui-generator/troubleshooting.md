@@ -6,7 +6,6 @@ slug: ai-troubleshooting
 tags: AI, troubleshooting, issue
 position: 30
 previous_url: /ai/troubleshooting
-tag: updated
 ---
 
 # Troubleshooting
@@ -66,7 +65,7 @@ In this case, enable HTTP/2 on the client device and any related firewalls or pr
 
 ## AI Plugin and MCP Server Running Simultaneously
 
-The `telerik-blazor-plugin` comes with its own predefined MCP server configuration tuned for skills, so if you already have the MCP server configured in your IDE, you must disable or remove it before installing the plugin. Running both at the same time can cause the following issues:
+The [telerik-blazor-plugin](slug:ai-overview#ai-plugins) comes with its own predefined MCP server configuration tuned for skills, so if you already have the MCP server configured in your IDE, you must disable or remove it before installing the plugin. Running both at the same time can cause the following issues:
 
 * Tool vs. skill confusion&mdash;The MCP server exposes a `telerik_ui_generator` tool. The plugin intentionally disables that tool and provides a `telerik-ui-generator` skill instead, to avoid ambiguity. When the MCP server is also active, that protection no longer works and the agent may be unsure which entry point to use.
 * Duplicated context&mdash;MCP tools carry static context that is injected into the model on every invocation. The plugin replaces this with skills that are loaded on demand. If both configurations are active, the agent receives both the skill instructions and the tool's static context — duplicate information that leads to higher token usage and inconsistent responses.

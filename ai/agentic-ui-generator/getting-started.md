@@ -74,6 +74,8 @@ Instead of configuring the MCP server manually, install the `telerik-blazor-plug
 <TabStrip>
 <TabStripTab title="VS Code Copilot">
 
+> Agent Plugins is a preview feature in VS Code. It requires **VS Code 1.100 or later** with the `chat.plugins.enabled: true` setting.
+
 To install the Telerik UI for Blazor AI Plugin:
 
 1. Ensure you have a [supported license](slug:ai-overview#license-requirements) and set up your [Telerik license key](slug:installation-license-key#automatic-installation) globally on your machine.
@@ -88,8 +90,6 @@ To install the Telerik UI for Blazor AI Plugin:
 5. Select `telerik/ai-plugins` -> **Show plugins**.
 6. In the **Agent Plugins** tab, find `telerik-blazor-plugin` and click **Install**.
 
-> Agent Plugins is a preview feature in VS Code. It requires **VS Code 1.100 or later** with the `chat.plugins.enabled: true` setting.
-
 </TabStripTab>
 <TabStripTab title="Claude Code">
 
@@ -103,7 +103,7 @@ To install the Telerik UI for Blazor AI Plugin:
 
 While a session is running, reload plugins after any local changes with `/reload-plugins`.
 
-> Requires [Claude Code](https://code.claude.com) with plugin support.
+> Requires [Claude Code](https://code.claude.com/docs/en/discover-plugins) with plugin support.
 
 </TabStripTab>
 <TabStripTab title="GitHub Copilot CLI">
@@ -129,7 +129,7 @@ Once installed, invoke the UI Generator skill in the IDE chat interface:
 /telerik-blazor-plugin:telerik-blazor-ui-generator Create a dashboard page with a grid showing sales data and a chart visualizing monthly trends.
 ````
 
-> caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting#ai-plugin-and-mcp-server-running-simultaneously) and increased token usage.
+> caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting#inconsistent-output-or-increased-token-usage) and increased token usage.
 
 </TabStripTab>
 <TabStripTab title="Manual Setup">
