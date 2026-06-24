@@ -10,6 +10,7 @@ ticketid: 1656228, 1647734
 res_type: kb
 components: ["form"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["form"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -30,7 +30,6 @@ This KB article answers the following questions:
 * How to wrap Form items in a reusable custom component?
 * How to implement a `FormGroup` that contains a nested shared component with `FormItem` instances inside?
 * How to put a `<FormItem>` in another component (control)?
-
 
 ## Solution
 
@@ -198,7 +197,6 @@ namespace YourAppName.Data
     }
 }
 ````
-
 
 ## See Also
 

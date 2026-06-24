@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["treelist"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["treelist"]
     </tbody>
 </table>
 
-
 ## Description
 
 This knowledge base article answers the following questions:
@@ -32,7 +32,6 @@ This knowledge base article answers the following questions:
 * How to insert TreeList rows with an external button?
 * How to cancel TreeList edit mode programmatically?
 * How to implement TreeList command buttons outside the TreeList?
-
 
 ## Solution
 
@@ -50,7 +49,6 @@ To enter and exit edit mode, set the following properties of the `TreeListState`
 * `EditField` is used for incell editing only. It determines which cell will render an editor.
 
 Each property that is not relevant to a desired TreeList state, should be set to `null`.
-
 
 ## Example
 

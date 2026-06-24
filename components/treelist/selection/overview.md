@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["treelist"]
 ---
+
 # TreeList Selection
 
 The TreeList component supports row and cell selection. When you select a row or a cell, they will be highlighted in the TreeList. This article provides an overview of the TreeList selection behavior and configuration:

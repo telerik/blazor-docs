@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["qrcode"]
 ---
+
 # QRCode Types
 
 The component exposes the following QRCode types:

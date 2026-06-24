@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["pdfviewer"]
 ---
+
 # Blazor PdfViewer Overview
 
 The <a href = "https://demos.telerik.com/blazor-ui/pdfviewer/overview" target="_blank">Pdf Viewer for Blazor</a> allows users to open PDF files directly in the browser. The component provides features such as paging, zooming, printing, text selection and search. In addition, users can upload and display a PDF file from their local device, or download the currently open file.

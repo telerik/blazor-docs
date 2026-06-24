@@ -8,6 +8,7 @@ published: true
 position: 5
 components: ["menu"]
 ---
+
 # Orientation
 
 You can control the orientation of the Menu for Blazor so that it orders its items horizontally or vertically.

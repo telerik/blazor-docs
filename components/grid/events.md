@@ -8,6 +8,7 @@ published: True
 position: 100
 components: ["grid"]
 ---
+
 # Grid Events
 
 This article explains the events available in the Telerik Grid for Blazor. They are grouped logically.

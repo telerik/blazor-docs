@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["dropdownlist"]
 ---
+
 # DropDownList Filter
 
 The DropDownList filter textbox allows users to filter the available items by their text and find the one they need faster. The filtering input is at the top of the dropdown popup.

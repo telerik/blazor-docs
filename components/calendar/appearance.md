@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["calendar"]
 ---
+
 # Appearance Settings
 
 This article outlines the available Calendar parameters, which control its appearance.

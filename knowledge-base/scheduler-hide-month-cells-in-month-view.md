@@ -9,6 +9,7 @@ ticketid: 1637063
 res_type: kb
 components: ["scheduler"]
 ---
+
 ## Environment
 
 <table>
@@ -243,5 +244,6 @@ To hide the dates from other months in the month view of the Scheduler component
 ````
 
 ## See Also
+
 * [Scheduler Slot Templates](slug:scheduler-templates-slot)
 

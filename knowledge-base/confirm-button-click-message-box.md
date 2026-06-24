@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["dialog","window"]
 ---
+
 ## Environment
 
 <table>
@@ -23,11 +24,9 @@ components: ["dialog","window"]
     </tbody>
 </table>
 
-
 ## Description
 
 Sometimes user actions can be sensitive or result in data deletion. For such cases, you may want to require confirmation to protect against accidental clicks.
-
 
 ## Solution
 

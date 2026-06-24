@@ -8,6 +8,7 @@ published: True
 position: 9
 components: ["map"]
 ---
+
 # Bubble Layer
 
 The **Bubble** layer lets you create shapes of different type on a geographic position with a radius that is calculated via the value associated with the shape.

@@ -10,21 +10,21 @@ ticketid: 1536031
 res_type: kb
 components: ["form"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product Version</td>
-			<td>2.29.0</td>
-		</tr>
-		<tr>
-			<td>Product</td>
-			<td>Form for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product Version</td>
+            <td>2.29.0</td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td>Form for Blazor</td>
+        </tr>
+    </tbody>
 </table>
-
 
 ## Description
 

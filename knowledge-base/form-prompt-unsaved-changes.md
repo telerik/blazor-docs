@@ -9,15 +9,16 @@ res_type: kb
 ticketid: 1682122, 1629951
 components: ["form"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Form for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Form for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

@@ -10,16 +10,17 @@ ticketid: 1492092
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -36,7 +37,6 @@ The problem is that the `OnParametersSetAsync` event is called multiple times wh
 * when a parent row enters or exits Edit mode all expanded detail templates re-render
 
 Having the parameters of the nested component be primitive types don't (always) cause this, having an object (model) and/or an `EventCallback` causes this.
-
 
 ## Steps to Reproduce
 
@@ -216,7 +216,6 @@ There are a few factors at play:
     }
 }
 ````
-
 
 ## Workarounds
 

@@ -10,7 +10,9 @@ res_type: kb
 ticketid: 1697204
 components: ["scheduler"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
         <tr>
@@ -139,4 +141,5 @@ Here’s an example:
 ````
 
 ## See Also
+
 * [Scheduler Appointment Templates](slug:scheduler-templates-appointment)

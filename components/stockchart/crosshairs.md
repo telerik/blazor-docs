@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["stockchart"]
 ---
+
 # Stock Chart Crosshairs
 
 The Crosshairs are lines perpendicular to the axes that allow the user to see the exact value of a point at the current cursor position.

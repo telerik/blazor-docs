@@ -8,6 +8,7 @@ published: True
 position: 7
 components: ["card"]
 ---
+
 # CardImage
 
 Every Blazor Card can have a dedicated area to render a card image that will fill the size of the card. The content of the CardImage as well as its size is completely customizable through the available configuration options.

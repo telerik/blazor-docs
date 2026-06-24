@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["notification"]
 ---
+
 # Blazor Notification Overview
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/notification" target="_blank">Blazor Notification component</a> and its main features.

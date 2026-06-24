@@ -10,24 +10,26 @@ ticketid: 1525532, 1540469, 1629878, 1602035
 res_type: kb
 components: ["treeview"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TreeView for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TreeView for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 This KB article answers the following questions:
  - Is there any way I can edit the node text within a Blazor TreeView?
  - How can I let the user rename a node? 
 
-
 ## Solution
+
 Use the `ItemTemplate` to determine the node text's rendering and customize the editing UI. For example, you can define a button that initiates editing, a TextBox that modifies the node's name, and another button that saves the changes.
 
 ````RAZOR
@@ -204,7 +206,6 @@ Use the `ItemTemplate` to determine the node text's rendering and customize the 
     }
 }
 ````
-
 
 ## See Also
 

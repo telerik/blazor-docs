@@ -9,16 +9,17 @@ ticketid: 1657421
 res_type: kb
 components: ["general"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Autocomplete for Blazor, Breadcrumb for Blazor, Chart for Blazor, ChipList for Blazor, ComboBox for Blazor, ContextMenu for Blazor, Drawer for Blazor, DropDownList for Blazor, FileManager for Blazor, Gantt for Blazor, Grid for Blazor, ListBox for Blazor, ListView for Blazor, Menu for Blazor, MultiColumnComboBox for Blazor, MultiSelect for Blazor, PanelBar for Blazor, PivotGrid for Blazor, RadioGroup for Blazor, Sankey for Blazor, Scheduler for Blazor, Stock Chart for Blazor, TreeList for Blazor, TreeView for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Autocomplete for Blazor, Breadcrumb for Blazor, Chart for Blazor, ChipList for Blazor, ComboBox for Blazor, ContextMenu for Blazor, Drawer for Blazor, DropDownList for Blazor, FileManager for Blazor, Gantt for Blazor, Grid for Blazor, ListBox for Blazor, ListView for Blazor, Menu for Blazor, MultiColumnComboBox for Blazor, MultiSelect for Blazor, PanelBar for Blazor, PivotGrid for Blazor, RadioGroup for Blazor, Sankey for Blazor, Scheduler for Blazor, Stock Chart for Blazor, TreeList for Blazor, TreeView for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -80,9 +81,11 @@ To reproduce the problem, you can use the following code sample:
 ````
 
 ## Cause
+
 The cause for this null exception is the binding of Telerik UI for Blazor components to a `struct` component model.
 
 ## Solution
+
 The solution is to always bind the component to a `class` model, not a `struct`. For more information, see [Data Binding Overview](slug:common-features-data-binding-overview#how-to-provide-data).
 
 <div class="skip-repl"></div>

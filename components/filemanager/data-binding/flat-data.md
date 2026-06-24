@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["filemanager"]
 ---
+
 # FileManager Data Binding to Flat Data
 
 This article explains how to bind the FileManager for Blazor to flat data. Before continuing, make sure you are familiar with the [FileManager data binding basics](slug:filemanager-data-binding-overview).

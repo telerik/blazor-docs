@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["editor"]
 ---
+
 # AI Integration Overview
 
 The Editor provides AI integration to enhance the user productivity and streamline workflows. This integration is available in two ways:

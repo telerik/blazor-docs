@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["gantt"]
 ---
+
 # Gantt Tree
 
 The Gantt Tree is the left part of the [Gantt Chart](slug:gantt-overview). The component exposes `TreeListWidth` (string, default `30`) parameter for changing the width of the TreeList pane in the splitter. 

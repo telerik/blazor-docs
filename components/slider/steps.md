@@ -8,6 +8,7 @@ published: true
 position: 5
 components: ["slider"]
 ---
+
 # Steps
 
 The Slider for Blazor requires values for its large and small steps. You can control them through the corresponding parameters.

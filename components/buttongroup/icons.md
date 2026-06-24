@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["buttongroup"]
 ---
+
 # ButtonGroup Icons
 
 You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the ButtonGroup items to illustrate its purpose by using the `Icon` parameter.

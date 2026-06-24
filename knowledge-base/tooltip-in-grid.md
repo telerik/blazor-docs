@@ -8,6 +8,7 @@ tags: telerik, blazor, grid, tooltip
 res_type: kb
 components: ["tooltip"]
 ---
+
 ## Environment
 
 <table>
@@ -22,13 +23,11 @@ components: ["tooltip"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following question:
  - How to add Tooltips for elements in a Grid column? 
  - How to load Tooltip content on demand?
-
 
 ## Solution
 

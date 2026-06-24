@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["grid"]
 ---
+
 # Grid Validation
 
 The Telerik Grid for Blazor supports built-in validation that is enabled by default. This article describes how the Grid validation works and how to customize or disable it.

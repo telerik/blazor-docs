@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["aiprompt"]
 ---
+
 # AIPrompt Templates
 
 The AIPrompt component provides the `PromptSuggestionItemTemplate` that allows you to change the appearance of the prompt suggestions made by the component.

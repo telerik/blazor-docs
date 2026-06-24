@@ -9,22 +9,26 @@ res_type: kb
 ticketid: 1671641
 components: ["grid"]
 ---
+
 ## Description
+
 This knowledge base article answers the following questions:
 - How can I create a reusable `GridColumn` component in Blazor?
 - What is the best way to encapsulate `GridColumn` templates in a reusable component?
 
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Grid for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
     </tbody>
 </table>
 
 ## Solution
+
 To create a reusable `GridColumn` component with templates, follow these steps:
 
 1. Define a custom column component that accepts parameters for the field, title, whether it uses templates, and the currently edited item.

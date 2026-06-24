@@ -9,6 +9,7 @@ ticketid: 1693133
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>

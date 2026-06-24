@@ -9,15 +9,16 @@ res_type: kb
 ticketid: 1665023
 components: ["tooltip"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Tooltip for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Tooltip for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

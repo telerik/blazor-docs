@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["treelist"]
 ---
+
 # Column Chooser Template
 
 The Column Chooser Template lets you control the rendering of the [ColumnChooser](slug:treelist-column-menu#column-chooser). It exposes a [`context`](slug:Telerik.Blazor.Components.ColumnMenuChooserTemplateContext) object that contains a list of all columns in the TreeList. 

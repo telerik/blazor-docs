@@ -10,6 +10,7 @@ ticketid: 1632919
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -29,7 +29,6 @@ This KB article answers the following questions:
 * How to remove or hide the Grid pagination section when there are no available records?
 * How to disable Grid paging when the data source is null or empty?
 * How to make the value of the pager input (`PagerInputType.Input`) zero when the Grid has no data?
-
 
 ## Solution
 
@@ -146,7 +145,6 @@ The following example demonstrates both options.
     }
 }
 ````
-
 
 ## See Also
 

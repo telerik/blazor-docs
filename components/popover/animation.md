@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["popover"]
 ---
+
 # Popover Animation Settings
 
 This article outlines the available settings that allow you to customize the animations when the Popover displays and hides.

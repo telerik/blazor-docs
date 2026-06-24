@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["popover"]
 ---
+
 # Popover Position and Collision Settings
 
 This article outlines the available settings which enable you to control the position of the Popover based on its anchor and dictate how the component responds to insufficient screen space.

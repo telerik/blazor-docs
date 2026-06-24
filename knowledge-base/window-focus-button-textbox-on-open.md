@@ -10,6 +10,7 @@ ticketid: 1486212, 1513605, 1610413, 1659021, 1685761
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["window"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -31,7 +31,6 @@ This KB article answers the following questions:
 * How to focus a component after the Window opens? The JavaScript call is made before the Window actually shows, so the focusable element is `null`.
 * How do you set focus on an input element in a Window, so that the user doesn't have to use their mouse?
 * How to open (expand) a DropDownList automatically on Window open?
-
 
 ## Solution
 

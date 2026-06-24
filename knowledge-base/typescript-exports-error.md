@@ -10,6 +10,7 @@ ticketid: 1483634
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 Using TypeScript to write (and generate) JavaScript code used in the Blazor application can cause two types of errors - one where the default compiled result throws exceptions, an if a common workaround for that is added - it can lead to issues with the Telerik JS Interop file.
 
 This article explains the errors, their origin and how you can avoid them.
-
 
 ## Steps to Reproduce
 

@@ -10,21 +10,21 @@ ticketid: 1490348
 res_type: kb
 components: ["tooltip"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Tooltip for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Tooltip for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 When I have some dynamic content inside the tooltip template, the tooltip seems not to be re-rendering. E.g. when I have a tooltip with a text input and button and wish to disable the button when no text is entered, the tooltip seems to be only refreshing after closing and re-opening it. Calling `StateHasChanged` in the desired event does not help.
-
 
 ## Steps to Reproduce
 
@@ -57,7 +57,6 @@ The Tooltip component renders at the root of the app to ensure its correct posit
 
 This means that its content is no longer a sibling or child of the current component whose view-model you changed, and this is why calls to `StateHasChanged` do not update it.
 
-
 ## Solution
 
 Encapsulate the desired Tooltip content in a separate child component that has its own logic and component life cycle. This will help with the rendering updates. You can expose the necessary parameters and events, so that there are no API changes in the view-model of the main component
@@ -76,7 +75,7 @@ Note that the child component will call its `OnParametersSet` method only on Too
                 ShowOn="TooltipShowEvent.Click">
     <Template>
         @* The Update AnotherParameter button will not work
-			unless the whole Tooltip Template content is in a child component. *@
+            unless the whole Tooltip Template content is in a child component. *@
         <TelerikButton OnClick="@UpdateAnotherParameter"
                        ThemeColor="@ThemeConstants.Button.ThemeColor.Error">
             Update AnotherParameter
@@ -111,9 +110,9 @@ Note that the child component will call its `OnParametersSet` method only on Too
     private void UpdateAnotherParameter()
     {
         // Will not work inside a Tooltip,
-		// unless this method is insde a child component of the Tooltip Template
-  		// and AnotherValue is consumed by a grand child.
-	    // Use the next method as an alternative.
+        // unless this method is insde a child component of the Tooltip Template
+          // and AnotherValue is consumed by a grand child.
+        // Use the next method as an alternative.
         AnotherValue = DateTime.Now.Millisecond;
     }
 

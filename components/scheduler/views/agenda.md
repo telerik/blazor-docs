@@ -8,6 +8,7 @@ published: True
 position: 6
 components: ["scheduler"]
 ---
+
 # Agenda View
 
 The Agenda view of the Scheduler for Blazor shows a weekly summary (or another custom period set by the user) in a table format.

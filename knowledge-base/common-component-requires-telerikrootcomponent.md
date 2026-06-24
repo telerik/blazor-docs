@@ -9,6 +9,7 @@ ticketid:
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -20,16 +21,13 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 This knowledge base article explains how to avoid or fix the exception about a missing `TelerikRootComponent`.
 
-
 ## Error Message
 
 `Exception: A Telerik component on the requested view requires a TelerikRootComponent in MainLayout or a parent component.`
-
 
 ## Cause
 
@@ -39,7 +37,6 @@ More specifically, the exception implies the following issues with the applicati
 
 * A Blazor application is missing a `TelerikRootComponent` in `MainLayout.razor` or any other layout file that is currently in use.
 * A [Blazor Web App](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-9.0#blazor-web-app) has a `TelerikRootComponent` in a used layout file, but the app's **Interactivity location** is set to **Per page/component**. In such cases, the layout files use static render mode and the `TelerikRootComponent` is unable to pass cascading values down the component tree.
-
 
 ## Solution
 
@@ -52,7 +49,6 @@ To fix and avoid the `TelerikRootComponent` exception:
 > To avoid [problems with popup positioning](slug:troubleshooting-general-issues#wrong-popup-position), wrap all the web page content in a `TelerikRootComponent`.
 >
 > Do not nest multiple `TelerikRootComponent` instances.
-
 
 ## See Also
 

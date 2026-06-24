@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to save and load the Grid state from the browser's `localStorage`?
 
 How to persist and restore the Grid's paging, sorting and filtering state to a future user session?
-
 
 ## Solution
 
@@ -52,7 +51,6 @@ For more information about `localStorage`, see:
 * [`Storage` API](https://developer.mozilla.org/en-US/docs/Web/API/Storage).
 
 > The `Id` and `Field` properties of `ColumnStates` are always `null` after deserialization, because these properties have no public setters. If it's critical to deserialize the `Id` and `Field` information, then serialize `ColumnStates` separately and then deserialize it to a custom object.
-
 
 ## Example
 

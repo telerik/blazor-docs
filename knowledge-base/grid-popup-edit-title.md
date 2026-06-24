@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to set the title of a pop up editing window to the value of one of the model's fields?
@@ -29,7 +29,6 @@ How to set the title of a pop up editing window to the value of one of the model
 How to customize the Grid popup edit form title, so that it matches the a property value of the edited data item?
 
 How to dynamically set the Grid popup edit Window title?
-
 
 ## Solution
 

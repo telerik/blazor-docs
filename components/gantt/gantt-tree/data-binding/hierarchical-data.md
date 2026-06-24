@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["gantt"]
 ---
+
 # Gantt Data Binding to Hierarchical Data
 
 This article explains how to bind the Gantt Chart for Blazor to hierarchical data. 

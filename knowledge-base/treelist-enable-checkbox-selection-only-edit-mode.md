@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1657252
 components: ["treelist"]
 ---
+
 ## Environment
 
 <table>
@@ -34,8 +35,6 @@ This article suggests two options to disable the TreeList Checkbox selection in 
 
 * [Solution 1: Toggle the visibility of the CheckboxColumn](#solution-1-toggle-the-visibility-of-the-checkboxcolumn)
 * [Solution 2: Disable the CheckboxColumn with CSS](#solution-2-disable-the-checkboxcolumn-with-css)
-
-
 
 ### Solution 1: Toggle the visibility of the CheckboxColumn
 

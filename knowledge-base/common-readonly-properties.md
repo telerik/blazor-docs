@@ -10,7 +10,9 @@ ticketid: 1631052, 1620193, 1621413, 1632496, 1632497
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
         <tr>
@@ -19,7 +21,6 @@ components: ["general"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 

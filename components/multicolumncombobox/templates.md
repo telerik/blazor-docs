@@ -8,6 +8,7 @@ published: True
 position: 25
 components: ["multicolumncombobox"]
 ---
+
 # MultiColumnComboBox Templates
 
 The MultiColumnComboBox component allows you to change what is rendered in its header and footer through templates.

@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["treeview"]
 ---
+
 # Check Multiple Nodes in TreeView
 
 The TreeView lets the user select multiple nodes with checkboxes based on the value of its `CheckBoxMode` parameter.

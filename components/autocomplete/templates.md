@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["autocomplete"]
 ---
+
 # AutoComplete Templates
 
 The AutoComplete component allows you to change what is rendered in its items, header and footer through templates.

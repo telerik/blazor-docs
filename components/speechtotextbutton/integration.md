@@ -8,6 +8,7 @@ published: true
 position: 4
 components: ["speechtotextbutton"]
 ---
+
 # SpeechToTextButton Integration
 
 Integrate the SpeechToTextButton component with forms, input fields, and other UI elements to provide voice input capabilities.

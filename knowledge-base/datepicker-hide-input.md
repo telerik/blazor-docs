@@ -10,6 +10,7 @@ ticketid: 1504648, 1557843, 1572315
 res_type: kb
 components: ["datepicker"]
 ---
+
 ## Environment
 
 <table>
@@ -25,11 +26,9 @@ components: ["datepicker"]
     </tbody>
 </table>
 
-
 ## Description
 
 Is there a way to hide the input portion of the DatePicker and leave only the selections Icon? Users should not see or type in the textbox.
-
 
 ## Solution
 

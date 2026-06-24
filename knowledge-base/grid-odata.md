@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to use the grid with an ODATA service? How do I get parameters such as filtering and sorting to pass to the service so it can return the appropriate data?
-
 
 ## Solution
 

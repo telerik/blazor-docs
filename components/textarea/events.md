@@ -8,6 +8,7 @@ published: true
 position: 10
 components: ["textarea"]
 ---
+
 # Events
 
 The events exposed for the Telerik TextArea for Blazor let you react to user actions and input. This article explains the events available in the Telerik TextArea.

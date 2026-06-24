@@ -9,14 +9,15 @@ res_type: kb
 ticketid: 1667656
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Grid for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
     </tbody>
 </table>
 

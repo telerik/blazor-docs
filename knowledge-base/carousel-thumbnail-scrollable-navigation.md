@@ -10,21 +10,24 @@ ticketid: 1550292
 res_type: kb
 components: ["carousel"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Carousel for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Carousel for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 How to add a thumbnail scrollable navigation below the page/image in Carousel? This would be a nice addition, which would allow independent scrolling from that of the current page. It will also be clickable in the same way that the dots are to jump to the selected page.
 
 ## Solution
+
 To add a thumbnail scrollable navigation:
 
 1. Add HTML `<div>` container under the `Carousel` markup.

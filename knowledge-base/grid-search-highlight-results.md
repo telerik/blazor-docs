@@ -10,6 +10,7 @@ ticketid: 1568455, 1593620
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -22,13 +23,11 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 I am using the Grid [**SearchBox**](slug:grid-searchbox). How to format the Grid cell values to bold the search keyword? Is there a suitable event to highlight the text, which matches the search string in the cells?
 
 How to highlight matching search results in the Grid cells?
-
 
 ## Solution
 
@@ -145,7 +144,6 @@ The following approach is valid for both the Grid and the TreeList.
     }
 }
 ````
-
 
 ## See Also
 

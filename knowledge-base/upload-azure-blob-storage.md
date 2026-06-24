@@ -10,6 +10,7 @@ ticketid: 1532310, 1555878, 1567320
 res_type: kb
 components: ["upload"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["upload"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to upload files to Microsoft Azure Blob Storage by using Telerik Blazor components?
 
 Can I upload files directly to Azure Blob Storage?
-
 
 ## Solution
 

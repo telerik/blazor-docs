@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["contextmenu"]
 ---
+
 # Context Menu Data Binding to Flat Data
 
 This article explains how to bind the Context Menu for Blazor to flat data. 

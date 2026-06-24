@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["datepicker"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DatePicker for Blazor, Calendar for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DatePicker for Blazor, Calendar for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -31,7 +32,6 @@ I am using the Bootstrap theme and the popup resizes when I navigate between the
 ## Cause
 
 The Bootstrap theme has a larger font size which causes long month names to take up more space than in other themes. For example, the month of September is long and pushes the layout of the popup to be wider, which, in turn, changes its width and the relative position of the next/prev arrows to the mouse.
-
 
 ## Solutions
 

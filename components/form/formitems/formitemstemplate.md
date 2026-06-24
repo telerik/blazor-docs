@@ -8,6 +8,7 @@ published: True
 position: 6
 components: ["form"]
 ---
+
 # Form Template for All Items
 
 This article describes how to create custom Form layouts with components and HTML markup between or around the Form items. To define a custom editor in a specific Form item, see article [Form Item Template](slug:form-formitems-template).

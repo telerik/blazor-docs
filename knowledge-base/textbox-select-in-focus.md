@@ -10,21 +10,21 @@ ticketid: 1480268
 res_type: kb
 components: ["textbox"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TextBox for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TextBox for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 As soon as I click inside the textbox, I want to select the whole text. How to highlight all the text when the input is focused?
-
 
 ## Solution
 

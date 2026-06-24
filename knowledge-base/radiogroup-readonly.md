@@ -10,6 +10,7 @@ res_type: kb
 ticketid: 1690650
 components: ["radiogroup"]
 ---
+
 ## Environment
 
 <table>

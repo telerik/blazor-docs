@@ -10,7 +10,9 @@ ticketid: 1500437, 1548428
 res_type: kb
 components: ["treeview"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
         <tr>
@@ -25,7 +27,6 @@ components: ["treeview"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 

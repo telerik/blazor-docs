@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["treelist"]
 ---
+
 # TreeList Command Column
 
 The command column of a treelist allows you to initiate [inline](slug:treelist-editing-inline) or [popup](slug:treelist-editing-popup) editing, or to execute your own commands.

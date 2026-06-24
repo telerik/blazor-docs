@@ -8,6 +8,7 @@ published: True
 position: 50
 components: ["wizard"]
 ---
+
 # Wizard Templates
 
 You can customize the whole appearance of the steps in the Stepper, that is part of the Wizard component, through their `StepTemplate`. It allows you to control the rendering and styles of both indicators and labels of the step.

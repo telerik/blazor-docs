@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["treeview"]
 ---
+
 # TreeView Events
 
 This article explains the events available in the Telerik TreeView for Blazor:

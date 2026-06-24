@@ -8,6 +8,7 @@ published: True
 position: 7
 components: ["stepper"]
 ---
+
 # Steps Validation
 
 The Stepper component allows you to set validation logic for each step. You can configure it through the `Valid` parameter of the `StepperStep` which accepts `bool?`.

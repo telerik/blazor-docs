@@ -29,6 +29,7 @@ components: ["tabstrip"]
 >tip This KB discusses a scenario, which is [supported out-of-the-box](slug:tabstrip-dynamic-tabs) in Telerik UI for Blazor 13.1.0 and newer versions.
 
 ## Description
+
 I want a close button on my tabs so the use can remove (close) them. When that happens, I want to have the previous tab selected instead of no tab.
 
 ## Solution

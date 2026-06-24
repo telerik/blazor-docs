@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["checkbox"]
 ---
+
 # Events
 
 This article showcases the available events in the Telerik CheckBox component:

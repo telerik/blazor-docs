@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["chip"]
 ---
+
 # Events
 
 This article showcases the available events in the Telerik Chip component, together with a complete [example](#example).

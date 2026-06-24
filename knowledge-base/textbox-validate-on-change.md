@@ -10,20 +10,21 @@ ticketid: 1448879
 res_type: kb
 components: ["textbox"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TextBox for Blazor</td>
-		</tr>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TextBox for Blazor</td>
+        </tr>
         <tr>
             <td>Product Version</td>
             <td>2.30 and older</td>
         </tr>
-	</tbody>
+    </tbody>
 </table>
-
 
 ## Description
 
@@ -101,9 +102,9 @@ from model: @person.theTbValue
         person.theTbValue = (string)theUserInput;
 
         // We want to control when validation happens. To do that, we need to have
-	// the EditContext object, and to call its .Validate() method
-	// In this example, we use the OnChange event of the Telerik component
-	// to avoid the default behavior where validation happens on every ValueChanged event
+    // the EditContext object, and to call its .Validate() method
+    // In this example, we use the OnChange event of the Telerik component
+    // to avoid the default behavior where validation happens on every ValueChanged event
         MyEditContext.Validate();
     }
 

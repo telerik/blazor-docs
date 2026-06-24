@@ -10,16 +10,17 @@ ticketid: 1553828
 res_type: kb
 components: ["scheduler"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Scheduler for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Scheduler for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

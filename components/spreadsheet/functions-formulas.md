@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["spreadsheet"]
 ---
+
 # Spreadsheet Functions and Formulas
 
 This article lists the built-in functions and formulas supported by the Spreadsheet for Blazor.

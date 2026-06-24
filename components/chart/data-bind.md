@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["charts"]
 ---
+
 # Chart Data Binding
 
 This article explains the different ways to provide data to a Chart component, the properties related to data binding and their results.

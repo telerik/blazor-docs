@@ -9,21 +9,21 @@ tags: telerik,blazor,tilelayout,add,remove,tiles
 res_type: kb
 components: ["tilelayout"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TileLayout for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TileLayout for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I would like to allow users to hide/remove TileLayoutItems via an 'X' button in the header and be able to re-add them from a separate list.
-
 
 ## Solution
 

@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 gRPC services are becoming more common in various applications and you may want to benefit from them in your Blazor applications as well.
-
 
 ## Solution
 

@@ -10,23 +10,26 @@ ticketid: 1513072
 res_type: kb
 components: ["combobox"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ComboBox for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ComboBox for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Is there any event that fires when you click the clear button on the combo box?
 
 There doesn't seem to be any event attached to the clear action, I would like to catch this event to reset the list, but there is nothing to catch it appear until you click outside of the box (Blur).
 
 ## Solution
+
 You can use the `ValueChanged` event for an immediate response, or the `OnChange` event if it is OK for you to wait for the user to confirm this choice (it happens when they press Enter or blur the input).
 
 What you need to do is to check if the new value that comes in is the `default` for the value type. The code snippet below showcases two ways to do that for different binding scenarios and value types.
@@ -96,4 +99,5 @@ Monitor the console to see when the events fire in these examples. You can use o
 ````
 
 ## See Also
+
 [ComboBox Events](slug:components/combobox/events)

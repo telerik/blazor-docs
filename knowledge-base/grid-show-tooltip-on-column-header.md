@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1677858
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -137,6 +138,7 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 > The additional CSS is used to adjust the position of the tooltip callout. Modify this CSS based on your application's specific layout and design requirements.
 
 ## See Also
+
 - [Grid Column Header Template Documentation](slug:grid-templates-column-header#column-header-template)
 - [Telerik Tooltip Overview](slug:tooltip-overview)
 - [Hide the Tooltip Callout or Change Its Position](slug:tooltip-kb-callout-position)

@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["appbar"]
 ---
+
 # Sections
 
 The `<AppBarSection>` is a template-based component that allows you to render HTML content or Razor components in the AppBar component.

@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["dropzone"]
 ---
+
 # Blazor DropZone Overview
 
 The <a href="https://www.telerik.com/blazor-ui/dropzone" target="_blank">Telerik UI for Blazor DropZone component</a> allows you to declare an external drop zone for an existing [FileSelect](slug:fileselect-overview) or [Upload](slug:upload-overview) component.

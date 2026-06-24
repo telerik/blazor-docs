@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["textarea"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the TextArea button by setting the following attribute:

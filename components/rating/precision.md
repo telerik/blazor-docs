@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["rating"]
 ---
+
 # Precision
 
 The Rating allows you to control the precision of the item selection.

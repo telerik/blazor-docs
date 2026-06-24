@@ -8,6 +8,7 @@ published: true
 position: 30
 components: ["scheduler"]
 ---
+
 # Scheduler Resources
 
 The Scheduler lets you associate appointments with a shared resource (such as meeting rooms, people, pieces of equipment) and shows the appointment in the corresponding color. You can also use resources to separate events into different calendars (e.g., work and personal events) through their colors.

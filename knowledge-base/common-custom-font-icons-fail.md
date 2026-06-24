@@ -10,6 +10,7 @@ ticketid: 1517982, 1514661
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -24,7 +25,6 @@ components: ["general"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -104,7 +104,6 @@ Make sure to use the correct way and resources for your actual project *@
     }
 }
 ````
-
 
 ## Solution
 

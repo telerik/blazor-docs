@@ -8,6 +8,7 @@ published: True
 position: 7
 components: ["map"]
 ---
+
 # Shape Layer
 
 The shape layer provides binding to **GeoJSON** data and renders the specified geospatial objects.

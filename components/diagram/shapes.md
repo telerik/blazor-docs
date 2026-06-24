@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["diagram"]
 ---
+
 # Blazor Diagram Shapes
 
 The Shape is the main building block of the Telerik Diagram for Blazor. It represents a single node in the graph. This article describes all Diagram Shape types and customization options.

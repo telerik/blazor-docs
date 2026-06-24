@@ -10,23 +10,26 @@ ticketid: 1517065
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I want to have the detail pushed to the side when there is enough room, and I want to push the detail down below the grid when there isn't.
 
 I want to have a few grids or tables in a row in the grid hierarchy detail template side by side, but on small screens I want them to stack on top of each other.
 
 ## Solution
+
 You can array the child grids or other elements/components in any responsive layout you would normally use for your app - the DetailTemplate gives you full control over the rendering.
 
 For example, you can use tools like Bootstrap to put columns with grids next to, or above each other in the detail template, depending on the available size.

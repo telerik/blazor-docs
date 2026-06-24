@@ -8,6 +8,7 @@ published: True
 position: 50
 components: ["grid"]
 ---
+
 # Grid State
 
 The Grid lets you read, save, load, and change its state through code. The state includes the Grid features that are controlled by the user, such as the current sorting, page number, applied grouping, column widths, and many others.

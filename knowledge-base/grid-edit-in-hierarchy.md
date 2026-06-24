@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -23,7 +24,6 @@ components: ["grid"]
 ## Description
 
 This article shows how to create, update, and delete items in the main (master) and nested (detail) Grids in a [hierarchy](slug:components/grid/features/hierarchy).
-
 
 ## Solution
 

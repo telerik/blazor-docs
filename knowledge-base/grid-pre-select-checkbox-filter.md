@@ -10,21 +10,24 @@ ticketid: 1541980
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 How can I pre-set a checkbox filter using a filter descriptor? How to set checkbox filter on Grid first load? How can I statically specify the checkbox list content? How to set checkbox filter on the first initialization of the Grid?
 
 ## Solution
+
 To pre-select checkbox filter in the Grid using a filter descriptor:
 
 1. Use the [OnStateInit](slug:grid-state#events) event of the Grid.

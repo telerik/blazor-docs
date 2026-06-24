@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["gantt"]
 ---
+
 # Date Header
 
 The `Date Header` provides you with full control over the rendering for each header view slot of the Timeline. The Date Header templates will be implemented inside the settings of the corresponding view parent tag.

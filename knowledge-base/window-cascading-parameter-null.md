@@ -10,26 +10,30 @@ ticketid: 1444108
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I have a number of nested controls and I have a cascading value that encompasses all the controls.  When I put one of my nested components inside a Telerik window then the cascading parameter on said component does not work (it gets value of `null`). 
 
 If I move my component just outside the Telerik window and nothing else -- then the `CascadingParamter` gets the correct value from the `CascadingValue`.
 
 ## Possible Cause
+
 The cause for this behavior is that the Telerik Window renders at the root  of the application, so its contents go out of the context of the original CascadingValue component.
 
 ## Solution
+
 The solution is to expose a `CascadingParameter` in the component that hosts the Window, and use a new `CascadingValue` for its contents. This will keep the nesting chain of values unbroken.
 
 >caption Part 1 - topmost component that passes values to its children
@@ -117,7 +121,6 @@ else
 }
 
 ````
-
 
 ## See Also
 

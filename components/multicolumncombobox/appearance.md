@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["multicolumncombobox"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the MultiColumnComboBox by setting the following attributes:

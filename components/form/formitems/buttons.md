@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["form"]
 ---
+
 # Form Buttons
 
 The [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) component adds a Submit Button at the end of the Form by default. You can add your own buttons through the `FormButtons` tag.

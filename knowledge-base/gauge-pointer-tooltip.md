@@ -10,7 +10,9 @@ ticketid: 1535827
 res_type: kb
 components: ["arcgauge","circulargauge","lineargaugee","radialgauge"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
         <tr>
@@ -28,7 +30,6 @@ components: ["arcgauge","circulargauge","lineargaugee","radialgauge"]
 ## Description
 
 How can I add a Tooltip to the Blazor Arc or Radial Gauge? I want to show a Tooltip when the user hovers over the pointer of the Radial Gauge or the Arc Gauge.
-
 
 ## Solution
 

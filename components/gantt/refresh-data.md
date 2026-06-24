@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["gantt"]
 ---
+
 # Gantt - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

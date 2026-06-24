@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["form"]
 ---
+
 # Appearance Settings
 
 This article outlines the available Form parameters, which control its appearance.

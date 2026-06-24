@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["combobox"]
 ---
+
 # ComboBox Custom Values
 
 The ComboBox component allows the user to type in their own value that is not a part of the predefined set of options that the developer provided.

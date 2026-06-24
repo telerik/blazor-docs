@@ -10,6 +10,7 @@ position: 0
 tag: updated
 components: ["grid"]
 ---
+
 # Grid Grouping
 
 The Grid component offers support for grouping.

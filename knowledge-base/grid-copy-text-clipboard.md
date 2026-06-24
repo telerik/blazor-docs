@@ -10,6 +10,7 @@ res_type: kb
 ticketid: 1695036
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>

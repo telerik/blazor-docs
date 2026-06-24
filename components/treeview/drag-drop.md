@@ -8,6 +8,7 @@ published: True
 position: 11
 components: ["treeview"]
 ---
+
 # Drag and Drop
 
 The Drag and Drop functionality for the TreeView allows you to move a node or multitude of nodes between different parents in the same treeview or between different Telerik TreeView instances.

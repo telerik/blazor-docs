@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["gantt"]
 ---
+
 # Gantt Filter Row
 
 One of the filter modes of the Gantt Chart is a row of filter that renders below the column headers.

@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["gantt"]
 ---
+
 # Gantt Filter Menu
 
 One of the filter modes of the Gantt is a popup menu with filter options that you can open from the column headers.

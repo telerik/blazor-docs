@@ -10,16 +10,17 @@ ticketid: 1508692
 res_type: kb
 components: ["contextmenu"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ContextMenu for Blazor, TreeView for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ContextMenu for Blazor, TreeView for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

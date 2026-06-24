@@ -10,23 +10,23 @@ ticketid: 1452606
 res_type: kb
 components: ["window"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 How do I align the window to the right side of the screen (similar to Left = '100px')?
 
 A popup's position is usually controlled through the `Top` and `Left` parameters (CSS rules) because you don't know how far the page will go to the right and down. This is why an explicit `Right` or `Bottom` parameter does not exist in the Window component.
-
 
 ## Solution
 

@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1657431
 components: ["tooltip"]
 ---
+
 ## Environment
 
 <table>

@@ -8,6 +8,7 @@ published: True
 position: 21
 components: ["gantt"]
 ---
+
 # Gantt Sorting
 
 The Gantt component offers support for sorting.

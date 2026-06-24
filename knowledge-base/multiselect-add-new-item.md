@@ -10,6 +10,7 @@ ticketid: 1470173, 1496248, 1501053, 1534242, 1554788
 res_type: kb
 components: ["multiselect"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["multiselect"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to allow the user to add new items to the Multiselect, and select them automatically?
-
 
 ## Solution
 

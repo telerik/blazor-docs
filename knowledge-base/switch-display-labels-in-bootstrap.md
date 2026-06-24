@@ -10,22 +10,25 @@ ticketid: 1513399
 res_type: kb
 components: ["switch"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Switch for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Switch for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Telerik Switch control doesn't seem to display the ON/OFF Labels when used with Bootstrap.
 How can I customize it to show the ON/OFF labels when I'm using Bootstrap or Material theme?
 
 ## Solution
+
 In Bootstrap and Material themes the Switch component does not render any labels by design. You can also test that in our [live demo](https://demos.telerik.com/blazor-ui/switch/labels).
 
 The labels have classes k-switch-label-on and k-switch-label-off which have display:none property.

@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["drawer"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["drawer"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to put two Drawers on the same site? How to use `Push` and `Overlay` Drawers in the same layout?
-
 
 ## Solution
 

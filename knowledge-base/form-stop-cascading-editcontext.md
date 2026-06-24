@@ -9,14 +9,16 @@ tags:
 res_type: kb
 components: ["form"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Form for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Form for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

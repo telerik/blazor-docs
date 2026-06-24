@@ -9,6 +9,7 @@ ticketid: 1714807
 res_type: kb
 components: ["card"]
 ---
+
 ## Environment
 
 <table>

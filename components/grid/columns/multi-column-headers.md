@@ -8,6 +8,7 @@ published: True
 position: 60
 components: ["grid"]
 ---
+
 # Multi-Column Headers
 
 The Grid allows you to stack several columns under one header to visually group relevant fields for your end users.

@@ -10,17 +10,17 @@ ticketid: 1650374, 1552684, 1552385, 1549637, 1545970
 res_type: kb
 components: ["treeview"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TreeView for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TreeView for Blazor</td>
+        </tr>
+    </tbody>
 </table>
-
 
 ## Description
 

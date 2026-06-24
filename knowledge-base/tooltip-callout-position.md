@@ -9,6 +9,7 @@ ticketid: 1628953, 1565205
 res_type: kb
 components: ["tooltip"]
 ---
+
 ## Environment
 
 <table>
@@ -21,6 +22,7 @@ components: ["tooltip"]
 </table>
 
 ## Description
+
 This Knowledge Base article answers the following questions:
 
 * How to customize the Tooltip callout?
@@ -79,5 +81,6 @@ This Knowledge Base article answers the following questions:
 ````
 
 ## See Also
+
 * [Tooltip Overview](slug:tooltip-overview)
 * [Tooltip Position](slug:tooltip-position)

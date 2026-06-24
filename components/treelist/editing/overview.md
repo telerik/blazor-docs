@@ -9,6 +9,7 @@ previous_url: /components/treelist/editing/built-in-dialogs/delete-confirmation,
 position: 0
 components: ["treelist"]
 ---
+
 # Blazor TreeList CRUD Operations
 
 The Telerik TreeList for Blazor supports create, update, and delete operations (CRUD) with different modes and user experience. The component also supports built-in `DataAnnotations` or custom validation. This page describes:

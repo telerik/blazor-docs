@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,14 +22,12 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
 
 * How to implement a filter operator dropdown list in a [Grid filter row template (`FilterCellTemplate`)](slug:grid-templates-filter)?
 * How to reuse the filter operator logic and the clear filter button logic across multiple filter cell templates?
-
 
 ## Solution
 
@@ -449,7 +448,6 @@ The sample also shows a few additional optional features:
     }
 }
 ````
-
 
 ## See Also
 

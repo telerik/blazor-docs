@@ -9,6 +9,7 @@ ticketid: 1626687, 1602572
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["charts"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to export the Chart as an image? How to export the Chart as a JPG file?
-
 
 ## Solution
 

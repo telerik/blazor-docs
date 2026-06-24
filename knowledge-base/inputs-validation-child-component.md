@@ -10,6 +10,7 @@ ticketid: 1499665, 1697034
 res_type: kb
 components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownlist","multicolumncombobox","multiselect","timepicker"]
 ---
+
 ## Environment
 
 <table>
@@ -29,7 +30,6 @@ components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownli
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 

@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["gantt"]
 ---
+
 # Column Header Template
 
 By default columns display the name of the corresponding field or their `Title` in their header. Through the `HeaderTemplate`, you can  define custom content there instead of plain title text.

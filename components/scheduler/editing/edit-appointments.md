@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["scheduler"]
 ---
+
 # Edit Appointments
 
 The Scheduler component lets you edit appointments. This article will explain how to enable and use it.

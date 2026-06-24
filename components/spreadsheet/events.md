@@ -8,6 +8,7 @@ published: True
 position: 60
 components: ["spreadsheet"]
 ---
+
 # Spreadsheet Events
 
 The Telerik Blazor Spreadsheet fires events that are related to different user actions. This article describes all events and event arguments.

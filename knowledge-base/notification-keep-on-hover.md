@@ -10,6 +10,7 @@ ticketid: 1630136
 res_type: kb
 components: ["notification"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["notification"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -30,7 +30,6 @@ This KB article answers the following questions:
 * How to keep a notification from hiding automatically when the user moves their mouse over it?
 * How to persist a visible notification on the screen when the user hovers it?
 * How to prevent the hiding of a notification when the mouse cursor is over it?
-
 
 ## Solution
 
@@ -191,13 +190,11 @@ This KB article answers the following questions:
 }
 ````
 
-
 ## Notes
 
 * Visible notifications can move on the screen when other notifications are hidden. As a result, a notification may no longer be under the mouse cursor.
 * You can set `Closable` to `true` in the `NotificationModel` and show notifications that have a close button. However, the close button is not part of the Notification `<Template>` and hovering it will not prevent the notification from hiding.
 * Be aware of [thread safety when changing the page UI](https://blazor-university.com/components/multi-threaded-rendering/invokeasync/) with a `Timer`.
-
 
 ## See Also
 

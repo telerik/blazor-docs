@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["tilelayout"]
 ---
+
 # TileLayout Resize
 
 Resize tiles by dragging their bottom and right borders to change the dashboard to your liking.

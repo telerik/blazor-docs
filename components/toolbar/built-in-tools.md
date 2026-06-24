@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["toolbar"]
 ---
+
 # Built-in Tools
 
 The Telerik ToolBar for Blazor allows you to use built-in buttons and button groups or to add a [custom tool](slug:toolbar-templated-item). The available built-in tools are:

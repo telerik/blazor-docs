@@ -7,6 +7,7 @@ slug: grid-kb-negative-skip-value-virtual-scrolling
 tags: blazor, grid, treelist, virtualization
 ticketid: 1681703, 1705599, 1712296, 1713445
 res_type: kb
+components: ["grid", "treelist"]
 ---
 
 ## Environment

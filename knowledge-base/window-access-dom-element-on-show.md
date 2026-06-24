@@ -10,18 +10,20 @@ ticketid: 1444024
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I have a Telerik window which becomes visible on a button click. On this button click I will change the `Visible` property to `true` and I will call a JavaScript function (using `JSRuntime`) which will do some work (like creating jQuery widgets) inside my Telerik Window. 
 
 ## Error Message
@@ -36,6 +38,7 @@ TypeError: Cannot read property 'innerHTML' of null`
 When you make the window visible and issue the JS Interop call, there is a race condition and when the JS code runs, the window is not yet rendered, so the element in question is not yet in the DOM.
 
 ## Solution
+
 Before invoking JS Interop calls that use elements in the window when making the window visible, wait a little so they have rendered first. 
 
 Comments in the sample below provide more explanations:

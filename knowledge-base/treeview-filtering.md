@@ -10,6 +10,7 @@ ticketid: 1684940, 1629723, 1468684, 1547890, 1578053, 1541792
 res_type: kb
 components: ["treeview"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["treeview"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -32,7 +32,6 @@ This KB article answers the following questions:
 * How to put search box in the Tree View to filter tree records?
 * How to search the TreeView nodes, for example, folders and files?
 * How to highlight the search text in the found TreeView items?
-
 
 ## Solution
 
@@ -298,7 +297,6 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
     #endregion Data Generation and Classes
 }
 ````
-
 
 ## See Also
 

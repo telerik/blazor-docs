@@ -8,6 +8,7 @@ published: True
 position: 100
 components: ["charts"]
 ---
+
 # Telerik Chart Legend
 
 The Telerik Chart for Blazor can show a visual guide with details about the series or elements in the Chart. This article explores how to add a Chart legend, identify its building blocks, and customize the legend appearance.

@@ -10,21 +10,24 @@ ticketid: 1499425
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 When I right click a cell in a Grid, I want to show context menu. I need to know row, column and ideally cell value.  When using the [grid context menu event](slug:grid-events#onrowcontextmenu), I need to figure out which column was clicked.
 
 ## Solution
+
 To distinguish a column (cell) from the rest, you need to:
 
 1. Use the [cell template](slug:grid-templates-column) for columns that need special handling.

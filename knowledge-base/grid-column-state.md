@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,10 +22,7 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
-
-
 
 ## Solution
 
@@ -53,7 +51,6 @@ There are two ways to obtain the Grid column information programmatically:
 | `Width` | `string` | The width of the column if it is set. It will change as a result of column resizing.  |
 
 The column order in the `ColumnStates` collection matches the `<GridColumn>` tag order in the Grid declaration.
-
 
 ## Example
 

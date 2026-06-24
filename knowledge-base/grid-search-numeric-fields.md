@@ -10,6 +10,7 @@ ticketid: 1485012, 1488627, 1440872, 1488627, 1551397, 1546489, 1520936, 1616608
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to allow users search the Blazor Grid in numeric, date and enum fields?
@@ -32,7 +32,6 @@ How to search integers or float numbers from the Grid toolbar?
 
 How to make the Grid SearchBox search with multiple data types?
 
-
 ## Solution
 
 The Blazor Grid search works with `string` data types, because it uses a `contains` string filter operator.
@@ -41,7 +40,6 @@ It is possible to search by other data types with some additional coding that wi
 
 The following sections discuss how to implement the desired behavior, what are the limitations, and provide an example.
 
-
 ## Prerequisites
 
 The solution below requires familiarity with:
@@ -49,7 +47,6 @@ The solution below requires familiarity with:
 * [How to use Grid filter descriptors](slug:components/grid/filtering#filter-descriptors)
 * [How to change the Grid state](slug:grid-state)
 * [How to invoke Razor component events from a child component](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0#eventcallback).
-
 
 ## Steps
 
@@ -63,7 +60,6 @@ Here is an overview of the major steps in the example:
     * For each searchable field, parse the search string and convert it the field's data type. Create a child `FilterDescriptor` object, depending on the data field type and the parsed search value.
 1. Apply the filter descriptors to the `SearchFilter` property of the Grid state.
 
-
 ## How it works
 
 * A search value `"8"` will return:
@@ -76,7 +72,6 @@ Here is an overview of the major steps in the example:
 >tip It is possible to achieve different behavior with a different implementation of the filter descriptor creation.
 
 > The `OnInput` handler in `GridUniversalSearchBox` uses a single `else if` block for similar data types for brevity, for example `float`, `float?`, `double` and `double?`. If the Grid data contains `null` values, then you must use a separate `else if` block for each type. For example, use one `else if` block for `float` and `float?`, and another block for `double` and `double?`. Otherwise you will get an exception *Nullable object must have a value*. The same requirement applies to all integer types too.
-
 
 ## Example
 

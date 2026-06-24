@@ -10,18 +10,20 @@ ticketid: 1516498
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I have a Grid with Incell editing mode, and one of its columns uses EditorTemplate with TelerikDropDownList.
 
 When I quickly click on the dropdown twice, it doesn't open, or opens as blank, and clicking on it more times does not help. It does not reproduce when double-clicking slowly.
@@ -104,7 +106,6 @@ To reproduce, double click quickly a row in the `Role` column.
 
 ![DropDownList in Grid InCell not opening](images/grid-incell-dropdown-open-issue-example.gif)
 
-
 ## Possible Cause
 
 Such behavior stems from the lifecycle of the Blazor framework and the time it takes for the Grid to be re-rendered. The double click causes a race condition between the rendering of the Grid and initialization of the DropDownList in its Editor template.
@@ -118,7 +119,6 @@ If you quickly click (double click) on the cell containing a DropDownList, the f
 1. Second click is performed quickly after the first one - Grid re-rendering might not still be completed and the DropDownList in the Editor Template is not initialized fully, its content is not loaded.
 
 1. Grid re-rendering is completed, the DropDownList in the Editor Template is initialized, however the second click that should be responsible for opening its popup has already passed (a third click at this stage could open the popup as seen in the reproduction, however this is not the behavior we are seeking for).
-
 
 ## Solution
 

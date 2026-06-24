@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["dropzone"]
 ---
+
 # DropZone Template
 
 The DropZone allows you to customize the default rendering of its content by using a `Template`. 

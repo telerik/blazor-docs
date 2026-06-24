@@ -10,18 +10,20 @@ ticketid: 1505970
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 We use [virtualization](slug:components/grid/virtual-scrolling) and set the `Skip` of the grid through its [state](slug:grid-state) (for example, to restore state from the user or to scroll the grid programmatically).
 
 When the sum of the skip and the page size is bigger then the total count of the items and we try to set the Skip property for the second time, some of the top items are not shown.
@@ -31,11 +33,13 @@ When the sum of the skip and the page size is bigger then the total count of the
 ![Setting invalid Skip value breaks the grid virtualization appearance](images/invalid-skip.gif)
 
 ## Possible Cause
+
 The origin of the problem is that when the `Skip` value is too large, there may not be enough items to fill the Grid viewport. 
 
 For example, if the Grid viewport can fit 15 items, but according to the `Skip` setting, there are only 8 items to display, those items cannot push the placeholder rows out of view, and you will still see them at the top of the Grid.
 
 ## Solution
+
 Ensure that you set a suitable `Skip` value, so that row placeholders don't show. For example, when the data arrives, check if there are too few items and update the `Skip` value.
 
 >caption Reproducible and a solution for setting an invalid (too large) Skip
@@ -148,7 +152,6 @@ Ensure that you set a suitable `Skip` value, so that row placeholders don't show
     }
 }
 ````
-
 
 ## Notes
 

@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to customize the editing experience? How to change the layout of the popup editing form? How to implement business logic around the editing form?
-
 
 ## Solution
 

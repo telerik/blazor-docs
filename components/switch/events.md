@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["switch"]
 ---
+
 # Events
 
 This article showcases the available events in the Telerik Switch component:

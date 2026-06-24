@@ -8,6 +8,7 @@ published: True
 position: 16
 components: ["gantt"]
 ---
+
 # Date Header Format
 
 You can set a date format to the timeline major and minor slot headers. 

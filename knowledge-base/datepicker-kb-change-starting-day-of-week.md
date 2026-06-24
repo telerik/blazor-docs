@@ -9,14 +9,16 @@ res_type: kb
 ticketid: 1665695
 components: ["datepicker"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DatePicker for Blazor, Calendar for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DatePicker for Blazor, Calendar for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

@@ -8,6 +8,7 @@ published: True
 position: 17
 components: ["stepper"]
 ---
+
 # Display Modes
 
 This article explains the Display modes that the Stepper for Blazor provides.

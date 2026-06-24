@@ -8,6 +8,7 @@ published: True
 position: 13
 components: ["charts"]
 ---
+
 # Heatmap Chart
 
 The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor Heatmap chart</a> shows the data in a grid-like structure that shows the magnitude of a value over two dimensions.

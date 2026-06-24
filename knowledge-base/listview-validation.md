@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["listview"]
 ---
+
 ## Environment
 
 <table>
@@ -20,13 +21,11 @@ components: ["listview"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to add validation to the ListView Edit and Insert operations?
 
 How to cancel the event when validation fails and keep the ListView in edit/insert mode?
-
 
 ## Solution
 

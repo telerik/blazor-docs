@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["menu"]
 ---
+
 # Menu Data Binding to Flat Data
 
 This article explains how to bind the Menu for Blazor to flat data. 

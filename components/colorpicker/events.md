@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["colorpicker"]
 ---
+
 # ColorPicker Events
 
 This article describes the available events of the Telerik ColorPicker for Blazor.

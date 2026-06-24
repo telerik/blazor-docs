@@ -9,6 +9,7 @@ ticketid: 1678109
 res_type: kb
 components: ["pivotgrid"]
 ---
+
 ## Environment
 
 <table>

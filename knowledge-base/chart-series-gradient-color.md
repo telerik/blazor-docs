@@ -10,18 +10,20 @@ ticketid: 1545645, 1591373
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Chart for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 How can I apply a gradient color effect on the Telerik UI for Blazor Chart series?
 
 ## Solution

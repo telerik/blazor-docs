@@ -10,6 +10,7 @@ ticketid: 1557229
 res_type: kb
 components: ["radiogroup"]
 ---
+
 ## Environment
 
 <table>
@@ -26,6 +27,7 @@ components: ["radiogroup"]
 Is there a way to bind the data source for a Blazor UI RadioGroup to an enum?
 
 ## Solution
+
 To achieve this, prepare a list of items that correspond to the enum values that can be shown to the user. Here is an example:
 
 ````RAZOR

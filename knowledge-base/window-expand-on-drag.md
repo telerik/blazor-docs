@@ -10,6 +10,7 @@ ticketid: 1522796, 1524154
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
 
 <table>

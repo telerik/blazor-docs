@@ -10,6 +10,7 @@ ticketid: 1585064, 1617097
 res_type: kb
 components: ["calendar"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["calendar"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to make the multiview Calendar wrap to multiple rows when the months do not fit?
 
 How to use columns and rows for the Blazor Calendar multi-month feature?
-
 
 ## Solution
 

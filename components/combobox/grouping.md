@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["combobox"]
 ---
+
 # ComboBox Grouping
 
 The ComboBox component allows users to see the listed items grouped in categories. This can improve the user experience and make browsing through the items faster.

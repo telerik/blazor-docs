@@ -9,6 +9,7 @@ ticketid: 1637702, 1634460, 1634313, 1632874
 res_type: kb
 components: ["fileselect"]
 ---
+
 ## Environment
 
 <table>
@@ -24,7 +25,6 @@ components: ["fileselect"]
     </tbody>
 </table>
 
-
 ## Description
 
 This knowledge base article deals with the following issues:
@@ -33,7 +33,6 @@ This knowledge base article deals with the following issues:
 * FileSelect file stream reading fails when using `builder.Host.UseServiceProviderFactory`.
 * An exception occurs when trying to upload files through Blazor FileSelect with Autofac dependency injection enabled.
 
-
 ## Error Message
 
 ````C#.skip-repl
@@ -41,7 +40,6 @@ Microsoft.JSInterop.JSException: JSON serialization is attempting to deserialize
     at System.Threading.Tasks.ValueTask`1.get_Result()
     at Telerik.Blazor.Components.FileSelect.Stream.FileInfoStream.&lt;ReadBytesAsync&gt;d__24.MoveNext()
 ````
-
 
 ## Cause
 
@@ -62,7 +60,6 @@ The following resources provide additional details:
 * [Technical description of the cause in the `aspnetcore` GitHub repository](https://github.com/dotnet/aspnetcore/issues/38842#issuecomment-1342540950)
 * [Closed issue in the `aspnetcore` GitHub repository](https://github.com/dotnet/aspnetcore/issues/47875)
 * [Similar StackOverflow thread about the Blazor `InputFile` component](https://stackoverflow.com/questions/76098236/blazor-inputfile-component-does-not-work-when-registering-autofacserviceprovider).
-
 
 ## Solution
 

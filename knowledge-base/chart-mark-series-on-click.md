@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["charts"]
     </tbody>
 </table>
 
-
 ## Description
 
 I would like to mark a Chart Series [on click](slug:chart-events#onseriesclick) by changing the color and opacity or to separate the clicked item from the rest.
-
 
 ## Solution
 

@@ -10,6 +10,7 @@ ticketid: 1652093, 1632300
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -25,7 +26,6 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -36,7 +36,6 @@ This KB article answers the following questions:
 * How to remove the Spreadsheet component from `telerik-blazor.js` in order to achieve [strict Content Security Policy compliance](slug:troubleshooting-csp)?
 * How to remove the PDF Viewer component from `telerik-blazor.js` in order to avoid conflicts with other third-party tools that depend on PDF.js?
 * How to reduce the file size of the Telerik Blazor JavaScript asset?
-
 
 ## Solution
 

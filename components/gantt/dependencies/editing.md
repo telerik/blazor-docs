@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["gantt"]
 ---
+
 # Dependencies Editing
 
 The Gantt Chart component allows you delete its dependencies and create new ones. It exposes dedicated events for dependency editing that you can use to transfer the changes to the underlying data source.

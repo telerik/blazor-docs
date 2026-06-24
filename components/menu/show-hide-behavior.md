@@ -8,6 +8,7 @@ published: true
 position: 3
 components: ["menu"]
 ---
+
 # Show and Hide Behavior
 
 You can control the user interaction with the Menu items by defining how the child items show and hide. 

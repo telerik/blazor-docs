@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["chat"]
 ---
+
 # Quick Actions
 
 The Telerik UI for Blazor Chat component supports quick message actions to enhance the user experience and provide convenient interaction options:

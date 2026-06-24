@@ -10,16 +10,17 @@ ticketid: 1463581, 1460076
 res_type: kb
 components: ["menu"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Menu for Blazor, Drawer for Blazor, TreeView for Blazor, ContextMenu for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Menu for Blazor, Drawer for Blazor, TreeView for Blazor, ContextMenu for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -38,13 +39,12 @@ For example, a `.Where()` filter can be used to return only items based on certa
 <div class="skip-repl"></div>
 ````RAZOR
 <AuthorizeView>
-	<h1>Hello, @context.User.Identity.Name!</h1>
-	<TelerikMenu Data="@AuthService.GetMenuData(context.User.Identity.Name)" />
+    <h1>Hello, @context.User.Identity.Name!</h1>
+    <TelerikMenu Data="@AuthService.GetMenuData(context.User.Identity.Name)" />
 </AuthorizeView>
 ````
 
 This would be the same approach as handling any other data that needs to be behind authentication mechanisms.
-
 
 ## Notes
 

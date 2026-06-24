@@ -8,6 +8,7 @@ published: true
 position: 1
 components: ["charts"]
 ---
+
 # Zoom
 
 The `Zoom` feature allows you to zoom in or out the Telerik UI for Blazor Chart component. This functionality works with both `category` and `numeric` series.

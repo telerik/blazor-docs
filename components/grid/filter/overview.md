@@ -9,6 +9,7 @@ previous_url: /components/grid/filtering
 position: 0
 components: ["grid"]
 ---
+
 # Grid Filtering Overview
 
 This article describes the basics of the filtering functionality of the Telerik Grid for Blazor.

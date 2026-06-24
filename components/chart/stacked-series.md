@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["charts"]
 ---
+
 # Stacked Chart Series
 
 You can stack different series in one data category on top of each other to showcase cumulative effects.
