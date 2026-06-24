@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,7 +21,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to send the Grid state to the server and retrieve data? How to use Telerik `DataSourceRequest` and `DataSourceResult` on the server?
@@ -28,7 +28,6 @@ How to send the Grid state to the server and retrieve data? How to use Telerik `
 How to call the server and receive only the desired information for paging, sorting, filtering?
 
 How to optimize the amount of loaded data?
-
 
 ## Solution
 

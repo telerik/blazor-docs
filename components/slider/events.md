@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["slider"]
 ---
+
 # Events
 
 This article showcases the available events in the Telerik Slider component:

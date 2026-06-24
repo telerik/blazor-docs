@@ -8,6 +8,7 @@ published: True
 position: 100
 components: ["grid"]
 ---
+
 # Grid Column Events
 
 This article explains the events available for the Columns of the Telerik Grid for Blazor.

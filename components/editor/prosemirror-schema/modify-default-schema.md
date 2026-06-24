@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["editor"]
 ---
+
 # Modify the Default ProseMirror Schema
 
 This article describes how you can modify the default [ProseMirror schema that the Editor for Blazor uses](slug:editor-prosemirror-schema-overview). Updating the existing schema is useful if you want to:

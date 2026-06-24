@@ -8,6 +8,7 @@ published: True
 position: 100
 components: ["wizard"]
 ---
+
 ## Events
 
 The available events in the Telerik Wizard for Blazor are:

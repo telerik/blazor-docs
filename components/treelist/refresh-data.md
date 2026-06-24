@@ -8,6 +8,7 @@ published: True
 position: 60
 components: ["treelist"]
 ---
+
 # TreeList - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

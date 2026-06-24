@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["listbox"]
 ---
+
 ## Environment
 
 <table>
@@ -25,14 +26,12 @@ components: ["listbox"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
 
 * How to enable users to search the ListBox component data?
 * How to implement programmatic ListBox data filtering?
-
 
 ## Solution
 

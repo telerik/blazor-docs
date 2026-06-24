@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["panelbar"]
 ---
+
 # PanelBar Data Binding Basics
 
 This article explains the different ways to provide data to a PanelBar component, the properties related to data binding and their results.

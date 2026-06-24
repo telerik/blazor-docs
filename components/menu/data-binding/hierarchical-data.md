@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["menu"]
 ---
+
 # Menu Data Binding to Hierarchical Data
 
 This article explains how to bind the Menu for Blazor to hierarchical data. 

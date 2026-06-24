@@ -10,6 +10,7 @@ ticketid: 1642784, 1648528
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -29,7 +30,6 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -37,7 +37,6 @@ This KB article answers the following questions:
 * What are the differences between the Dialog and the Window component? Dialog vs Window comparison.
 * What are the differences between the Popover and the Tooltip? Popover vs Tooltip comparison.
 * When should you use one popup component over another?
-
 
 ## Solution
 
@@ -62,7 +61,6 @@ The following table provides another point of view for easier comparison.
 | Window | depends on [`ContainmentSelector`](slug:components/window/position#containmentselector) | page | 0 | header with actions | depends on [`Modal`](slug:components/window/modal) | yes |
 
 \* **Root** rendering location means as a direct child of the [`TelerikRootComponent`](slug:rootcomponent-overview). **In-place** is how Blazor components normally work.
-
 
 ## See Also
 

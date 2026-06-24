@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["multicolumncombobox"]
 ---
+
 # MultiColumnComboBox Virtualization
 
 The MultiColumnComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-proposition)

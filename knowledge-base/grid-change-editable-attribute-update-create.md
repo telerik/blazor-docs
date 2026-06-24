@@ -10,21 +10,24 @@ ticketid: 1428138
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Can I dynamically change column attributes during update and create?  Specifically, I would like to make it editable during "create" and not editable during "update".  How can I modify column attributes programmatically?
 
 ## Solution
+
 There are two general ways to do this:
 
 * Use a [Grid editor template](slug:grid-templates-editor) and add logic to it that renders an actual editor only when needed (for example, the edited item has no ID, so it is a Create operation for a new item).

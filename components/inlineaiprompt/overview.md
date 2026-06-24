@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["inlineaiprompt"]
 ---
+
 # Blazor InlineAIPrompt Overview
 
 The Telerik InlineAIPrompt for Blazor is a popup-based component that lets you interact with AI language models right inside your content.

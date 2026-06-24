@@ -8,6 +8,7 @@ published: True
 position: 50
 components: ["grid"]
 ---
+
 # Popup Form Template
 
 With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the Grid. 

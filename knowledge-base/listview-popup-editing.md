@@ -10,6 +10,7 @@ ticketid: 1617531
 res_type: kb
 components: ["listview"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["listview"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to use popup editing for the ListView component, similar to the Grid?
-
 
 ## Solution
 

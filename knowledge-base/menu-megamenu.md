@@ -10,23 +10,26 @@ ticketid: 1519248
 res_type: kb
 components: ["menu"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Menu for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Menu for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 How can I create a large structured menu? I want the dropdown to be big and to contain many items instead of one item per row.
 
 ![mega menu structured dropdown result](images/megamenu.gif)
 
 ## Solution
+
 You can use the ItemTemplate of the menu to render the desired content and layout.
 
 To avoid the expand arrows, make sure you have no further child items for the items you want to make into a mega-menu. You may also want to add a bit of CSS to remove the built-in paddings on nested menu items so you can have full control over the layout and colors.

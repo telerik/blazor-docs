@@ -11,6 +11,7 @@ res_type: kb
 category: knowledge-base
 components: ["card"]
 ---
+
 ## Environment
 
 <table>
@@ -22,13 +23,11 @@ components: ["card"]
     </tbody>
 </table>
 
-
 ## Description
 
 Card icon buttons are sized incorrectly when used with vertical orientation. The CardAction icon buttons become huge squares with side length of the Card's width.
 
 The icon buttons become large squares also in horizontal orientation with stretched layout.
-
 
 ## Possible Cause
 
@@ -51,7 +50,6 @@ There are two CSS styles in the Telerik Blazor theme, which cause the action ico
         flex: 1 1 auto;
     }
     ````
-
 
 ## Solution
 

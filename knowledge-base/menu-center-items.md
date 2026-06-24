@@ -10,16 +10,17 @@ ticketid: 1543208
 res_type: kb
 components: ["menu"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Menu for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Menu for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

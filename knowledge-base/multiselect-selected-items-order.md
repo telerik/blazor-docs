@@ -10,6 +10,7 @@ ticketid: 1540543, 1557872
 res_type: kb
 components: ["multiselect"]
 ---
+
 ## Environment
 
 <table>
@@ -21,20 +22,17 @@ components: ["multiselect"]
     </tbody>
 </table>
 
-
 ## Description
 
 The MultiSelect selected items order changes. The component sorts the list of numbers that represent the selected values. This causes the selected items (tags, chips) to show up in the wrong order. How to override this behavior?
 
 The MultiSelect reorders selected items alphabetically. The items in the initial `Value` collection are in the correct order, but the MultiSelect sorts them. Is there any way to preserve selection order and disable automatic self sorting?
 
-
 ## Possible Cause
 
 The selected items' order in the MultiSelect `Value` matches the order of these items in the `Data`. This applies to initial page load and when the MultiSelect `Value` changes programmatically.
 
 The MultiSelect creates a collection of its selected items internally, based on `Value` and `Data`. Then, the component uses this internal collection for rendering. That's why the rendered selected items always match the order of the data items. This behavior is related to performance.
-
 
 ## Solution
 

@@ -9,14 +9,16 @@ res_type: kb
 ticketid: 1672113
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -79,4 +81,5 @@ To center a Telerik Window horizontally while maintaining a fixed distance from 
 ````
 
 ## See Also
+
 - [Telerik Window for Blazor - Overview](slug:window-overview)

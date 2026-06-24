@@ -8,6 +8,7 @@ published: true
 position: 50
 components: ["colorpalette"]
 ---
+
 # Events
 
 This article explains the events available in the Telerik Color Palette for Blazor:

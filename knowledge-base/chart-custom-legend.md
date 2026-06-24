@@ -10,15 +10,16 @@ ticketid: 1637556, 1640086
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Chart for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

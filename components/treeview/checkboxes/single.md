@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["treeview"]
 ---
+
 # Check a Single Node in TreeView
 
 The TreeView lets the user check a single node at a time based on the value of its `CheckBoxMode` parameter.

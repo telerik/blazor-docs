@@ -8,6 +8,7 @@ published: true
 position: 100
 components: ["scheduler"]
 ---
+
 # Scheduler Events
 
 This article explains the events available in the Telerik Scheduler for Blazor:

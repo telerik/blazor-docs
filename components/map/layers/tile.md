@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["map"]
 ---
+
 # Tile Layer
 
 The tile layer works by rendering images that display the actual map. These images are requested from third-party services that conform to the [Tile Map Service standard](https://en.wikipedia.org/wiki/Tile_Map_Service) and support the [WGS 84 projection standards](https://en.wikipedia.org/wiki/World_Geodetic_System). 

@@ -9,6 +9,7 @@ ticketid: 1622761, 1635324
 res_type: kb
 components: ["contextmenu"]
 ---
+
 ## Environment
 
 <table>
@@ -21,6 +22,7 @@ components: ["contextmenu"]
 </table>
 
 ## Description
+
 This Knowledge Base article answers the following questions:
 
 * How to remove autofocus from the first menu item?

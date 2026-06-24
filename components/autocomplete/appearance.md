@@ -8,6 +8,7 @@ published: True
 position: 65
 components: ["autocomplete"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the AutoComplete by setting the following attribute:

@@ -8,6 +8,7 @@ published: True
 position: 9
 components: ["dialog"]
 ---
+
 # Integrating Components into the Blazor Dialog
 
 A common application requirement is to display other Blazor components in the Blazor Dialog. You can achieve this by placing them inside the `DialogContent`.

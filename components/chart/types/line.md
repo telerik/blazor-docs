@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["charts"]
 ---
+
 # Line Chart
 
 The <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazor Line chart</a> displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.

@@ -9,6 +9,7 @@ ticketid:
 res_type: kb
 components: ["tabstrip"]
 ---
+
 ## Environment
 
 <table>

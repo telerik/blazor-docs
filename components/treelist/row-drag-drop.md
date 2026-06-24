@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["treelist"]
 ---
+
 # Drag and Drop
 
 The Drag and Drop functionality for the TreeList rows allows you to move a row or a multitude of rows between different parents in the same TreeList or between different Telerik TreeList instances.

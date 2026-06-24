@@ -10,18 +10,20 @@ ticketid: 1543661
 res_type: kb
 components: ["calendar"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Calendar for Blazor, DatePicker for Blazor, DateTimePicker for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Calendar for Blazor, DatePicker for Blazor, DateTimePicker for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I want to hide the weekends in the Calendar Month view, so only the week days are visible.
 
 ## Solution

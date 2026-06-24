@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1665785
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>

@@ -10,23 +10,23 @@ ticketid: 1571365
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor, <br /> TreeList for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 How to center the text content of the Grid column header?
 
 How to align Grid header cell text to the right?
-
 
 ## Solution
 

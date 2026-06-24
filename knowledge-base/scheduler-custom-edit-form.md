@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["scheduler"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["scheduler"]
     </tbody>
 </table>
 
-
 ## Description
 
 The built-in edit form of the scheduler lets you edit all aspects of the appointments. In some cases, however, you may want to have some more metadata, or to implement certain business logic there. In such cases, you must create a custom edit form through the scheduler's `OnEdit` event.
-
 
 ## Solution
 

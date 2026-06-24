@@ -9,29 +9,27 @@ tags:
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Window for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
     </tbody>
 </table>
-
 
 ## Description
 
 When the user resizes the browser window you may want to have the window resized with the new dimensions, so it is also responsive.
-
-
 
 ## Solution
 
 The following examples show how you can make responsive Window:
 * [Dimensions set in percent](#dimensions-set-in-percent)
 * [CSS media queries](#css-media-queries)
-
 
 ### Dimensions set in percent
 
@@ -60,7 +58,6 @@ Generally, the `Width` and `Height` parameters of the Window can take values in 
 
 
 >note The `Width` and `Height` parameters render as inline CSS styles, meaning that they will have the highest priority. If you want to override them in a stylesheet (see below) you must use the `!important` statement.
-
 
 ### CSS media queries
 

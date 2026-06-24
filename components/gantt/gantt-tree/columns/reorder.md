@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["gantt"]
 ---
+
 # Reorder Columns
 
 The Gantt Tree lets the user reorder columns by dragging their headers.

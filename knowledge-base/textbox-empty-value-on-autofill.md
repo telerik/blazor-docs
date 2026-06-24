@@ -10,23 +10,23 @@ ticketid: 1546904
 res_type: kb
 components: ["textbox"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TextBox for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TextBox for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I am using TextBox components for username and password fields in a form. The Chrome browser saves them and when I execute the application, it automatically fills those fields for me.
 However, if I try to submit the form, the login fails. The reason is that for the first time, and only for the first time, the value of each field is empty. If I try to login again, the fields appear correctly filled.
 The issue occurs after an upgrade to version 2.30.
-
 
 ## Steps to Reproduce
 

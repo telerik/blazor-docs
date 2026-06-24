@@ -10,18 +10,20 @@ ticketid: 1471559
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Is it possible to forbid the user to remove the grouping configured by code?
 
 How to hide the groupable column (set from code) but show its Group Header Template?
@@ -33,6 +35,7 @@ How to ensure a group is always set for the grid?
 I would like to not show the buttons to remove the grouping options for this grid.
 
 ## Solution
+
 To ensure certain grid state (like always having the grid grouped by a certain field), you can use the [grid state](slug:grid-state) - through its `OnStateChanged` event, you can know what the user did and [prevent or override that action](slug:grid-state#onstatechanged).
 
 You can hide the group header or [x] buttons on group indicators with CSS rules.

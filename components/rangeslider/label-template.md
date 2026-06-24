@@ -8,6 +8,7 @@ published: true
 position: 10
 components: ["rangeslider"]
 ---
+
 # Label Template
 
 You can customize what the range slider labels render through the `LabelTemplate`.

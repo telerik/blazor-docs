@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["grid"]
 ---
+
 # Grid Excel Export
 
 You can export the grid to Excel with a click of a button. The current filter, sort, page, grouping, column order and column size are applied to the `xlsx` document.

@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -190,7 +191,6 @@ Add the [Multi Select component](slug:multiselect-overview) to the [EditorTempla
     }
 }
 ````
-
 
 ## Notes
 

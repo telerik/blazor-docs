@@ -11,6 +11,7 @@ res_type: kb
 category: knowledge-base
 components: ["form"]
 ---
+
 ## Environment
 
 <table>
@@ -22,7 +23,6 @@ components: ["form"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to apply custom conditional validation, based on user selection?
@@ -30,7 +30,6 @@ How to apply custom conditional validation, based on user selection?
 How to implement conditional *required* validation for a form field? There are fields that I want to set as required only when another field has a certain value.
 
 How to set dynamic validation for Blazor form fields? I want to update the validation criteria of a TextBox at runtime.
-
 
 ## Solution
 

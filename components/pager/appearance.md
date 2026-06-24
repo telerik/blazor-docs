@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["pager"]
 ---
+
 # Appearance Settings
 
 This article outlines the available Pager parameters, which control its appearance.

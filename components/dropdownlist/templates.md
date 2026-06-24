@@ -8,6 +8,7 @@ published: True
 position: 25
 components: ["dropdownlist"]
 ---
+
 # DropDownList Templates
 
 The DropDownList component allows you to change what is rendered in its items, body, header and footer through templates.

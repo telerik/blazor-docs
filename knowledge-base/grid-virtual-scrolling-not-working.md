@@ -9,24 +9,25 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I have a Grid with [Virtual Scrolling](slug:components/grid/virtual-scrolling) enabled. When I scroll up or down the rows for the current view port are not rendered as the loading indicator remains visible as shown in the image below.
 
 >caption A depiction of the problem and symptom
 
 ![Blazor Virtual Scrolling Loading Indicator](images/virtual-scrolling-loading-indicator.png)
-
 
 ## Possible Cause
 
@@ -90,7 +91,6 @@ There are several common causes for that behavior:
     }
 }
 ````
-
 
 ## Solution
 

@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["mediaquery"]
 ---
+
 # Events
 
 The TelerikMediaQuery component for Blazor exposes events that allow you to respond to user actions and provide custom logic.

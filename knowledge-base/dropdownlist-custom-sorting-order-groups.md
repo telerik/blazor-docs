@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1666981, 1579415
 components: ["dropdownlist"]
 ---
+
 ## Environment
 
 <table>
@@ -102,7 +103,6 @@ To sort the groups in a DropDownList by a custom order, perform a manual sorting
     }
 }
 ````
-
 
 ## See Also
 

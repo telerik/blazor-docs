@@ -10,16 +10,17 @@ ticketid: 1583333
 res_type: kb
 components: ["treeview"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TreeView for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TreeView for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -35,11 +36,11 @@ To expand a TreeView item when you click on it:
 
 * Handle the [TreeView `OnItemClick` event](slug:treeview-events#onitemclick).
 * Verify if the clicked item is a parent, so it can be expanded:
-	* For [flat data](slug:components/treeview/data-binding/flat-data) check if `HasChildren` field equals `true`.
-	* For [hierarchical data](slug:components/treeview/data-binding/hierarchical-data) check if the `Items` field (or your custom field name) contains any child items.
-* Check if the clicked item exists in the [`ExpandedItems`](slug:treeview-expand-items)  collection:	
-	* If the clicked item is not part of the collection, you may add it to programmatically expand it.
-	* If the clicked item is already part of the collection, this means the item is currently expanded. You may programmatically collapse it by removing it from the `ExpandedItems`.
+    * For [flat data](slug:components/treeview/data-binding/flat-data) check if `HasChildren` field equals `true`.
+    * For [hierarchical data](slug:components/treeview/data-binding/hierarchical-data) check if the `Items` field (or your custom field name) contains any child items.
+* Check if the clicked item exists in the [`ExpandedItems`](slug:treeview-expand-items)  collection:    
+    * If the clicked item is not part of the collection, you may add it to programmatically expand it.
+    * If the clicked item is already part of the collection, this means the item is currently expanded. You may programmatically collapse it by removing it from the `ExpandedItems`.
 
 >caption Expand and collapse TreeView items on click
 

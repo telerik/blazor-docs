@@ -10,6 +10,7 @@ ticketid: 1493683, 1561274, 1577265, 1582760, 1602670, 1604620, 1616508, 1618666
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to bind Grid to Expando object?
@@ -29,7 +29,6 @@ How to bind Grid to Expando object?
 How to use the Grid with dynamic model type and dynamic columns?
 
 How to edit nullable properties in the `ExpandoObject`?
-
 
 ## Solution
 
@@ -181,7 +180,6 @@ The key points in the required implementation are:
     }
 }
 ````
-
 
 ## Notes
 

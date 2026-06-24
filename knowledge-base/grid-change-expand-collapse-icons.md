@@ -10,22 +10,25 @@ ticketid: 1515980
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 How to change the expand/collapse icons in a Hierarchical Grid?
 I want to change the built-in plus/minus icons in a Hierarchical Grid. 
 
 ## Solution
+
 You can change the expand/collapse [icons](slug:common-features-icons) in the Hierarchical Grid by overriding the built-in plus/minus icons with other icons using custom CSS rules. In addition, you can use the Class parameter of the Grid to add custom CSS Class and modify a specific instance of the Grid, instead of all instances on the page. The code block below demonstrates how to achieve the described approach.
 
 ````RAZOR
@@ -142,6 +145,7 @@ You can change the expand/collapse [icons](slug:common-features-icons) in the Hi
 ![Hierarchical Grid with changed expand/collapse icons](images/grid-change-expand-collapse-icons-example.png)
 
 ## Notes
+
 To get the desired icons, you can use your dev tools to inspect the rendered icon that you want to use and get its content/path. Also, you can use any custom icons that are not from the Telerik icons package (e.g., icons from Bootstrap, Open Iconic, and so on) by specifying the desired font name in addition to the content. 
 
 ## See Also

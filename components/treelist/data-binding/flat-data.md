@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["treelist"]
 ---
+
 # TreeList Data Binding to Flat Data
 
 This article explains how to bind the treelist for Blazor to flat data. 

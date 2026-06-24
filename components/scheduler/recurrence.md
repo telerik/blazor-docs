@@ -8,6 +8,7 @@ published: True
 position: 7
 components: ["scheduler"]
 ---
+
 # Scheduler Recurrence
 
 The Telerik Scheduler for Blazor supports displaying and editing of recurring appointments and exceptions. This article describes how to:

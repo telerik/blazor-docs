@@ -10,14 +10,16 @@ ticketid: 1504012, 1526682
 res_type: kb
 components: ["notification"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Notification for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Notification for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

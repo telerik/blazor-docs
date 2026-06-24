@@ -10,6 +10,7 @@ ticketid: 1436233, 1537132, 1537553, 1540098, 1540705, 1542404, 1570566, 1573165
 res_type: kb
 components: ["grid, treelist"]
 ---
+
 ## Environment
 
 <table>
@@ -20,7 +21,6 @@ components: ["grid, treelist"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -37,7 +37,6 @@ How to show a drop down list of available values in edit mode and then assign th
 Grid columns use human readable values for dropdownlists. The Grid displays entities related via ID. How to sort alphabetically by the name in the cell, and not on the backing numeric field.
 
 How to display, sort and edit data in the Grid from a foreign key table? The entities are linked with a foreign key.
-
 
 ## Solution
 

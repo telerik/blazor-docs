@@ -11,15 +11,15 @@ components: ["timepicker","datetimepcicker","dateinput"]
 ---
 
 ## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TimePicker for Blazor, DateTimePicker for Blazor, DateInput for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TimePicker for Blazor, DateTimePicker for Blazor, DateInput for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -28,7 +28,6 @@ When typing in time in the TimePicker/DateTimePicker (enter hours,enter mins, ar
 When using the DateInput component and using format "hh:mm:ss tt" the UI part allows me to edit the hour minute seconds correctly, but the AM / PM is not editable by typing A or P.  Only changes the AM/PM by using up arrow and down arrow on keyboard.  
 
 Any way to make the AM/PM change the way the hh mm ss does by directly entering A or P?
-
 
 ## Solution
 

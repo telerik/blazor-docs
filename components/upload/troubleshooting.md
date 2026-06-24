@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["upload"]
 ---
+
 # Upload Troubleshooting
 
 The Upload component requires integration with remote endpoints and controller methods to work. Controller routing depends entirely on the app configuration. This article discusses the most common pitfalls.

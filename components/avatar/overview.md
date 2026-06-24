@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["avatar"]
 ---
+
 # Blazor Avatar Overview
 
 The <a href="https://www.telerik.com/blazor-ui/avatar" target="_blank">Blazor Avatar component</a> is typically used to display images, icons or initials representing people or other entities.

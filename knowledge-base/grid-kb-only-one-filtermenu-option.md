@@ -10,17 +10,17 @@ ticketid: 1451755, 1551245, 1705873
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor, <br /> TreeList for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
+        </tr>
+    </tbody>
 </table>
-
 
 ## Description
 
@@ -40,7 +40,7 @@ There are two options:
 ````CSS.skip-repl
 .k-filter-menu-container > .k-button-group,
 .k-filter-menu-container > span:nth-child(n+3) {
-	display: none;
+    display: none;
 }
 ````
 

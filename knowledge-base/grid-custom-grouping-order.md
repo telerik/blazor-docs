@@ -9,13 +9,15 @@ res_type: kb
 ticketid: 1661227
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Grid for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
     </tbody>
 </table>
 
@@ -51,117 +53,117 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 <h1>Custom sort of grouping on a column</h1>
 
 <TelerikGrid OnRead="@ReadTexts"
-			 TItem="GridDataModel"
-			 OnStateInit="@((GridStateEventArgs<GridDataModel> args) => OnGridStateInit(args))"
-			 Groupable="true"
-			 Class="my-grid">
-	<GridColumns>
-		<GridColumn Title="String 1" Field="@nameof(GridDataModel.S1)" />
-		<GridColumn Title="String 2" Field="@nameof(GridDataModel.S2)" />
-		<GridColumn Title="String 3" Field="@nameof(GridDataModel.S3)" />
-		<GridColumn Title="String 4" Field="@nameof(GridDataModel.S4)" />
-		<GridColumn Title="String 5" Field="@nameof(GridDataModel.S5)" />
-	</GridColumns>
+             TItem="GridDataModel"
+             OnStateInit="@((GridStateEventArgs<GridDataModel> args) => OnGridStateInit(args))"
+             Groupable="true"
+             Class="my-grid">
+    <GridColumns>
+        <GridColumn Title="String 1" Field="@nameof(GridDataModel.S1)" />
+        <GridColumn Title="String 2" Field="@nameof(GridDataModel.S2)" />
+        <GridColumn Title="String 3" Field="@nameof(GridDataModel.S3)" />
+        <GridColumn Title="String 4" Field="@nameof(GridDataModel.S4)" />
+        <GridColumn Title="String 5" Field="@nameof(GridDataModel.S5)" />
+    </GridColumns>
 </TelerikGrid>
 
 @code {
-	private ObservableCollection<GridDataModel> GridData = new ObservableCollection<GridDataModel>();
+    private ObservableCollection<GridDataModel> GridData = new ObservableCollection<GridDataModel>();
 
-	protected override void OnInitialized()
-	{
-		base.OnInitialized();
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
 
-		GridData = new ObservableCollection<GridDataModel>
-		{
-			new(5, "Text D", "Text 5-2", "Text 5-3", "Text 5-4", "Text 5-5"),
-			new(1, "Text A", "Text 1-2", "Text 1-3", "Text 1-4", "Text 1-5"),
-			new(3, "Text C", "Text 3-2", "Text 3-3", "Text 3-4", "Text 3-5"),
-			new(4, "Text C", "Text 4-2", "Text 4-3", "Text 4-4", "Text 4-5"),
-			new(2, "Text B", "Text 2-2", "Text 2-3", "Text 2-4", "Text 2-5"),
-		};
-	}
+        GridData = new ObservableCollection<GridDataModel>
+        {
+            new(5, "Text D", "Text 5-2", "Text 5-3", "Text 5-4", "Text 5-5"),
+            new(1, "Text A", "Text 1-2", "Text 1-3", "Text 1-4", "Text 1-5"),
+            new(3, "Text C", "Text 3-2", "Text 3-3", "Text 3-4", "Text 3-5"),
+            new(4, "Text C", "Text 4-2", "Text 4-3", "Text 4-4", "Text 4-5"),
+            new(2, "Text B", "Text 2-2", "Text 2-3", "Text 2-4", "Text 2-5"),
+        };
+    }
 
-	protected async Task ReadTexts(GridReadEventArgs args)
-	{
-		var datasourceResult = GridData.ToDataSourceResult(args.Request);
+    protected async Task ReadTexts(GridReadEventArgs args)
+    {
+        var datasourceResult = GridData.ToDataSourceResult(args.Request);
 
-		// Determine if the data is grouped
-		if (args.Request.Groups.Any())
-		{
-			// Data is grouped, so we need to handle AggregateFunctionsGroup objects
-			var groups = datasourceResult.Data.Cast<AggregateFunctionsGroup>().ToList();
+        // Determine if the data is grouped
+        if (args.Request.Groups.Any())
+        {
+            // Data is grouped, so we need to handle AggregateFunctionsGroup objects
+            var groups = datasourceResult.Data.Cast<AggregateFunctionsGroup>().ToList();
 
-			// Custom sort logic for grouped data based on your custom order: D, A, C, B
-			List<string> customOrder = new List<string> { "Text D", "Text A", "Text C", "Text B" };
-			groups = groups.OrderBy(group => customOrder.IndexOf(group.Key.ToString())).ToList();
+            // Custom sort logic for grouped data based on your custom order: D, A, C, B
+            List<string> customOrder = new List<string> { "Text D", "Text A", "Text C", "Text B" };
+            groups = groups.OrderBy(group => customOrder.IndexOf(group.Key.ToString())).ToList();
 
-			args.Data = groups;
-		}
-		else
-		{
-			// Data is not grouped, so we can cast directly to GridDataModel
-			var orderedData = datasourceResult.Data.Cast<GridDataModel>()
-								.OrderBy(Text => GetCustomOrderIndex(Text.S1))
-								.ToList();
+            args.Data = groups;
+        }
+        else
+        {
+            // Data is not grouped, so we can cast directly to GridDataModel
+            var orderedData = datasourceResult.Data.Cast<GridDataModel>()
+                                .OrderBy(Text => GetCustomOrderIndex(Text.S1))
+                                .ToList();
 
-			args.Data = orderedData;
-		}
+            args.Data = orderedData;
+        }
 
-		args.Total = datasourceResult.Total;
-		args.AggregateResults = datasourceResult.AggregateResults;
-	}
+        args.Total = datasourceResult.Total;
+        args.AggregateResults = datasourceResult.AggregateResults;
+    }
 
-	private int GetCustomOrderIndex(string? value)
-	{
-		// Define the custom order
-		List<string> customOrder = new List<string> { "Text D", "Text A", "Text C", "Text B" };
+    private int GetCustomOrderIndex(string? value)
+    {
+        // Define the custom order
+        List<string> customOrder = new List<string> { "Text D", "Text A", "Text C", "Text B" };
 
-		// Return the index based on the custom order
-		return customOrder.IndexOf(value ?? string.Empty);
-	}
+        // Return the index based on the custom order
+        return customOrder.IndexOf(value ?? string.Empty);
+    }
 
-	protected void OnGridStateInit(GridStateEventArgs<GridDataModel> args)
-	{
-		GridState<GridDataModel> desiredState = new GridState<GridDataModel>()
-		{
-			GroupDescriptors = new List<GroupDescriptor>()
-			{
-				new GroupDescriptor()
-				{
-					Member = nameof(GridDataModel.S1),
-					MemberType = typeof(string),
-				}
-			}
-		};
-		args.GridState = desiredState;
-	}
+    protected void OnGridStateInit(GridStateEventArgs<GridDataModel> args)
+    {
+        GridState<GridDataModel> desiredState = new GridState<GridDataModel>()
+        {
+            GroupDescriptors = new List<GroupDescriptor>()
+            {
+                new GroupDescriptor()
+                {
+                    Member = nameof(GridDataModel.S1),
+                    MemberType = typeof(string),
+                }
+            }
+        };
+        args.GridState = desiredState;
+    }
 
-	public class GridDataModel
-	{
-		public int Id { get; init; }
-		public string? S1 { get; set; }
-		public string? S2 { get; set; }
-		public string? S3 { get; set; }
-		public string? S4 { get; set; }
-		public string? S5 { get; set; }
+    public class GridDataModel
+    {
+        public int Id { get; init; }
+        public string? S1 { get; set; }
+        public string? S2 { get; set; }
+        public string? S3 { get; set; }
+        public string? S4 { get; set; }
+        public string? S5 { get; set; }
 
-		public GridDataModel()
-		{
-			// Editable Telerik components require a parameterless constructor.
-		}
+        public GridDataModel()
+        {
+            // Editable Telerik components require a parameterless constructor.
+        }
 
-		public GridDataModel(
-			int id,
-			string s1, string s2, string s3, string s4, string s5)
-		{
-			Id = id;
-			S1 = s1;
-			S2 = s2;
-			S3 = s3;
-			S4 = s4;
-			S5 = s5;
-		}
-	}
+        public GridDataModel(
+            int id,
+            string s1, string s2, string s3, string s4, string s5)
+        {
+            Id = id;
+            S1 = s1;
+            S2 = s2;
+            S3 = s3;
+            S4 = s4;
+            S5 = s5;
+        }
+    }
 }
 ````
 

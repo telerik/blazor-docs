@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["chat"]
 ---
+
 # Data Binding
 
 The Telerik UI for Blazor Chat component supports data binding to collections of messages and provides flexible field mapping to accommodate different data models.

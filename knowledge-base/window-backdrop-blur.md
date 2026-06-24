@@ -10,14 +10,16 @@ ticketid: 1642061
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

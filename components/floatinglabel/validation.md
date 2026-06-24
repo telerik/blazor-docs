@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["floatinglabel"]
 ---
+
 # Floating Label Validation
 
 The Blazor FloatingLabel integrates with form validation of [compatible Telerik components](slug:floatinglabel-overview#compatibility). When a form field is invalid, the floating label will change color to suggest user action.

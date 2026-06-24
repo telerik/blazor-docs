@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["listview"]
 ---
+
 # ListView Events
 
 This article explains the events available in the Telerik ListView for Blazor:

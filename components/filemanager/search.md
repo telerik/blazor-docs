@@ -8,6 +8,7 @@ published: True
 position: 11
 components: ["filemanager"]
 ---
+
 # FileManager Search
 
 The `FileManager` provides an inbuilt Search functionality that allows you to find a specific file in the current folder. It represents a textbox input in the toolbar.

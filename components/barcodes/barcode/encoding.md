@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["barcode"]
 ---
+
 # Barcode Encoding
 
 Encoding (symbology) represents the mapping between messages and barcodes.

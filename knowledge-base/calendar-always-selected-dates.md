@@ -10,23 +10,26 @@ ticketid: 1434214
 res_type: kb
 components: ["calendar"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Calendar for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Calendar for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I can pre-load existing dates fine, but if I select a new date the pre-loaded dates vanish. Do I need to reload dates on each click?
 
 I want to show certain dates as marked on the calendar so the user always sees them, or they are always selected.
 
 ## Suggested Workarounds
+
 You can keep a list of the items you want to denote as always selected, and ensure that they are always present in the selection, so the user effectively cannot deselect them. To do this, you need a separate collection that you will check against when the date selection changes. For example:
 
 ````RAZOR
@@ -92,6 +95,7 @@ You can keep a list of the items you want to denote as always selected, and ensu
 ````
 
 ## Notes
+
 When a Scheduler component becomes available, it may be better suited for such a task.
 
 Also, you may want to see if the Calendar offers (day) templates when you are trying to implement such a feature, because if it does when you read this, you may be able to denote the special days without using the selection feature and tampering with the user actions.

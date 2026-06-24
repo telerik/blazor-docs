@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["stepper"]
 ---
+
 # Stepper Orientation
 
 You can customize the stepper orientation through the `Orientation` parameter the `TelerikStepper` exposes. It takes a member of the `Telerik.Blazor.Enums.StepperOrientation` enum:

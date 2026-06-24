@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["togglebutton"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the toggle button by setting the following attributes:

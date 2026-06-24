@@ -8,6 +8,7 @@ published: true
 position: 50
 components: ["maskedtextbox"]
 ---
+
 # Events
 
 This article explains the events available in the Telerik MaskedTextbox for Blazor:

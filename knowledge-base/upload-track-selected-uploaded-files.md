@@ -10,6 +10,7 @@ ticketid: 1570508, 1595493, 1626509
 res_type: kb
 components: ["upload"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["upload"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -29,7 +29,6 @@ This KB article answers the following questions:
 * How to find out when upload of multiple files is complete? I need an `EventCallback` like `OnComplete` for a completion of all files, or `OnProgress` event for all files.
 * I set `Multiple="true"`. Is it possible to "see" the last successful upload in the `OnSuccess` event? I need to do something after ALL files are uploaded successfully.
 * Users add files one by one. If they select more than 3 files, I want to notify them that they can't add anymore and prevent them from adding.
-
 
 ## Solution
 

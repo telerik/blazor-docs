@@ -11,6 +11,7 @@ res_type: kb
 components: ["autocomplete","button","combobox","textbox","dropdownlist"]
 
 ---
+
 ## Environment
 
 <table>
@@ -28,11 +29,9 @@ components: ["autocomplete","button","combobox","textbox","dropdownlist"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to change the default css styles for the input controls? I need to alter the default font family, font size and padding of these components.
-
 
 ## Solution
 

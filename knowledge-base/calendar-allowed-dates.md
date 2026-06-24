@@ -9,6 +9,7 @@ tags: telerik, blazor, calendar
 res_type: kb
 components: ["calendar"]
 ---
+
 ## Environment
 
 <table>

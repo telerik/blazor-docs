@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["tabstrip"]
 ---
+
 # TabStrip Persist Content
 
 The TabStrip always renders the content of a Tab when this Tab becomes active. Once the Tab is deactivated, its content is disposed and re-initialized again when the user selects the corresponding Tab later.

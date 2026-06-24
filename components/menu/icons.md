@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["menu"]
 ---
+
 # Menu Icons
 
 You can add [Telerik Font or SVG icons](slug:common-features-icons) to the Menu items. The component also supports custom icons.

@@ -10,6 +10,7 @@ ticketid: 1442823
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -28,7 +29,6 @@ This KB article answers the following questions:
 * How to change the Telerik CSS theme or swatch at runtime?
 * How to allow users to switch the component theme on the fly?
 * How to toggle light and dark mode for the Telerik UI for Blazor components?
-
 
 ## Solution
 
@@ -331,11 +331,9 @@ The following algorithm follows the commonly used approach to replace a CSS file
     }
     ````
 
-
 ## Next Steps
 
 * [Implement CDN Fallback](slug:common-kb-cdn-fallback)
-
 
 ## See Also
 

@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["stepper"]
 ---
+
 # Blazor Stepper Overview
 
 The <a href ="https://www.telerik.com/blazor-ui/stepper"><strong>Stepper for Blazor</strong></a> is a component that renders a path formed by a sequence of logical steps towards a bigger action. The Stepper indicates the user’s progress within this action by showing the steps left for them to complete it. It makes the user experience less overwhelming as it breaks the long process into smaller parts.

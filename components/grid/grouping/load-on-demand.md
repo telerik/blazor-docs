@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["grid"]
 ---
+
 # Load On Demand Group Data
 
 The grid component lets you load the data for each individual [group](slug:components/grid/features/grouping) on demand, instead of having it always present.

@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["filemanager"]
 ---
+
 # FileManager Toolbar
 
 The Blazor FileManager Toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or customize the toolbar.

@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["form"]
 ---
+
 # FormItem Template - Custom Editors
 
 This article explains how to customize the editor of a single Form item. To customize the rendering and item structure of the whole Form, check the article [Form Template for All Items](slug:form-formitems-formitemstemplate).

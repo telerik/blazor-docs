@@ -9,21 +9,21 @@ tags:
 res_type: kb
 components: ["daterangepicker"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DateRangePicker for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DateRangePicker for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I would like to reposition the labels of the DateRangePicker so that they are on the same line as the date inputs.
-
 
 ## Solution
 

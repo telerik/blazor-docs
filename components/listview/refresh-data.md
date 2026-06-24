@@ -8,6 +8,7 @@ published: True
 position: 53
 components: ["listview"]
 ---
+
 # ListView - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

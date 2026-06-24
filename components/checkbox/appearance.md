@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["checkbox"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the CheckBox button by setting the following attribute:

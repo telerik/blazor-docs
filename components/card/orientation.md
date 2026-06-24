@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["card"]
 ---
+
 # Card Orientation
 
 You can define the Card orientation by setting its `Orientation` parameter to a member of the `Telerik.Blazor.CardOrientation` enum that provides the following options:

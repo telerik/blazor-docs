@@ -10,6 +10,7 @@ ticketid: 1628589, 1604089, 1586468, 1562312, 1562104, 1551940
 res_type: kb
 components: ["calendar"]
 ---
+
 ## Environment
 
 <table>
@@ -30,7 +31,6 @@ components: ["calendar"]
     </tbody>
 </table>
 
-
 ## Description
 
 This knowledge base article answers the following questions:
@@ -39,7 +39,6 @@ This knowledge base article answers the following questions:
 * The Calendar should not show days from the "overhang" month. How to disable the display of overflow from the next or previous month?
 * How to remove the overview of the next month days in the left side month of the DateRangePicker? Same for the right side month, it shouldn't start with the last days of the previous month.
 * How to prevent display and selection of "overlap" days from different months in the DatePicker Calendar? 
-
 
 ## Solution
 
@@ -67,7 +66,6 @@ Use [custom CSS to override the component theme](slug:themes-override) and hide 
     visibility: hidden;
 }
 ````
-
 
 ## Example
 
@@ -133,11 +131,9 @@ else
 }
 ````
 
-
 ## Notes
 
 The Calendar behavior changed in 2.26 and this is when the component started showing days from the next and previous month by design.
-
 
 ## See Also
 

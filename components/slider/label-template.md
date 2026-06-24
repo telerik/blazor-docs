@@ -8,6 +8,7 @@ published: true
 position: 10
 components: ["slider"]
 ---
+
 # Label Template
 
 You can customize what the slider labels render through the `LabelTemplate`.

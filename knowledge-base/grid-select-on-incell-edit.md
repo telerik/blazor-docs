@@ -9,14 +9,16 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -24,8 +26,6 @@ components: ["grid"]
 When using the [InCell](slug:grid-editing-incell) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected by clicking both in editable and non-editable cells.
 
  By default, the click action opens a cell for editing and does not select a row to avoid an ambiguous action, and so rows can only be selected with the dedicated grid selection column.
-
-
 
 ## Solution
 
@@ -47,7 +47,6 @@ Use the [Grid events](slug:grid-events#cud-events) to update the `SelectedItems`
 * [How to Select the row that is being edited in InCell edit mode using the OnRowClick event](#how-to-select-the-row-that-is-being-edited-in-incell-edit-mode-using-the-onrowclick-event)
 
 * [How to Select the row that is being edited in InCell edit mode using Cell Template and the onclick event](#how-to-select-the-row-that-is-being-edited-in-incell-edit-mode-using-cell-template-and-the-onclick-event)
-
 
 ### How to Select the row that is being edited in InCell edit mode using the OnRowClick event
 

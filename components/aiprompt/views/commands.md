@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["aiprompt"]
 ---
+
 # AIPrompt Commands View
 
 The Commands View displays a set of predefined commands, which the user can browse and execute. The commands are passed to the component through the `Commands` parameter, which expects a collection of type `List<AIPromptCommandDescriptor>`. You can also organize commands in a hierarchy, through parent-child relationships.

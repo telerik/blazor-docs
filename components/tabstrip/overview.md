@@ -9,6 +9,7 @@ position: 0
 components: ["tabstrip"]
 previous-url: /components/tabstrip/active-tab-index, /knowledge-base/tabstrip-activate-by-index, /components/tabstrip/sizing
 ---
+
 # Blazor TabStrip Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Blazor TabStrip component</a> displays a collection of tabs, containing associated content, which enable the user to switch between different views inside a single component.

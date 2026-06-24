@@ -8,6 +8,7 @@ tags: grid,state,wasm,webassembly,save
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -19,11 +20,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to save the Grid State in a WASM project? How to save the Grid State in a WebAssembly through a controller? How to save the Grid State in a WebAssembly from the browser's LocalStorage? 
-
 
 ## Solution
 

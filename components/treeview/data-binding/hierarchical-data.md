@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["treeview"]
 ---
+
 # Treeview Data Binding to Hierarchical Data
 
 This article explains how to bind the TreeView for Blazor to hierarchical data. 

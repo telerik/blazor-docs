@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1659413
 components: ["progressbar"]
 ---
+
 ## Environment
 
 <table>

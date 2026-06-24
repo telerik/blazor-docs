@@ -10,16 +10,17 @@ ticketid: 1546809
 res_type: kb
 components: ["splitter"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Splitter for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Splitter for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -28,7 +29,6 @@ I want to save the Splitter state when it is expanded or collapsed, and then aut
 ## Solution
 
 Implement this scenario in two steps:
-
 
 ### Save the Splitter state
 

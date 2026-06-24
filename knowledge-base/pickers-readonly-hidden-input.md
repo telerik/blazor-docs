@@ -10,6 +10,7 @@ ticketid: 1597101, 1619245
 res_type: kb
 components: ["datepicker", "datetimepicker", "timepicker"]
 ---
+
 ## Environment
 
 <table>
@@ -24,7 +25,6 @@ components: ["datepicker", "datetimepicker", "timepicker"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 

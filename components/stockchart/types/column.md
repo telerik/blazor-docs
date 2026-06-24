@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["stockchart"]
 ---
+
 # Column Chart
 
 A **Column** chart displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.

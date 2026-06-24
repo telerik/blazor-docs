@@ -10,6 +10,7 @@ ticketid: 1629418, 1627421, 1626964, 1617119, 1561446, 1534078, 1489807
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,7 +21,6 @@ components: ["grid"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -34,7 +34,6 @@ This KB article answers the following questions. All of them revolve around the 
 * Is a way to get current Grid state data?
 * How to find the next or previous data row if the user has sorted the Grid? In this case the original table row index doesn't match the index in the sorted data.
 * How to get the clicked row index if the Grid is sorted or filtered?
-
 
 ## Solution
 
@@ -311,7 +310,6 @@ The most important part of the example below is in the `OnGridRead` handler.
     }
 }
 ````
-
 
 ## See Also
 

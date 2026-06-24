@@ -11,6 +11,7 @@ res_type: kb
 components: ["autocomplete","combobox","dropdownlist","multiselect"]
 
 ---
+
 ## Environment
 
 <table>
@@ -26,7 +27,6 @@ components: ["autocomplete","combobox","dropdownlist","multiselect"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 

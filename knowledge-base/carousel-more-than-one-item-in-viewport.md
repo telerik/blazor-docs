@@ -10,23 +10,26 @@ ticketid: 1548026
 res_type: kb
 components: ["carousel"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Carousel for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Carousel for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 The Carousel component displays one item at a time and scrolls that and then shows the next item from list.
 
 I wants to display multiple items at a time (e.g., 2, 3, 5) together and then scroll the same number of items and display the next set of multiple items after the scroll.
 
 ## Solution
+
 The [Template you define in the carousel](slug:carousel-template) will define how many items are shown at any given time. The carousel creates a "page" for every top-level item in its data source. This allows you full control over the presentation by controlling the carousel size and the styles of the nested items.
 
 To have more than one item display at any given time, group the data source in the carousel so the top-level items define the number of "pages" the carousel will scroll through, and use a loop in the template of the carousel to render the desired information for every actual item in the data source.

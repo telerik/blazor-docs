@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["grid"]
 ---
+
 # Column Chooser Template
 
 The `Column Chooser Template` lets you control the rendering of the [ColumnChooser](slug:grid-column-menu#column-chooser). It exposes a `context` object that contains a List of all columns in the Grid. 

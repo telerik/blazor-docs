@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["drawer"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["drawer"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to use Drawer as a side navigation in a project?
-
 
 ## Solution
 

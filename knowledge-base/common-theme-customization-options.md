@@ -11,6 +11,7 @@ res_type: kb
 category: knowledge-base
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -22,7 +23,6 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 What is the best approach to create a base company fully customized CSS stylesheet for Telerik UI for Blazor?
@@ -32,7 +32,6 @@ How to provide visual flexibility and change the appearance of the components? H
 What are your recommendations to change the overall component styles? Should I modify the css manually?
 
 Is there a simple and streamlined way to customize all component styles?
-
 
 ## Solution
 
@@ -59,7 +58,6 @@ To change the sizing and layout of most or all our components, go for manual the
 The final decision depends on what and how much you need to customize and what other requirements may appear.
 
 [**Figma UI Kits**](https://www.telerik.com/figma-kits) allow designers to include visual representations of the Telerik components in their application designs. Custom kits still require you to [create a custom theme](slug:themes-customize) afterwards.
-
 
 ## See Also
 

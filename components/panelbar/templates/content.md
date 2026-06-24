@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["panelbar"]
 ---
+
 ## ContentTemplate
 
 You can control and customize the rendering of the content items in the PanelBar with a `ContentTemplate`. Here is how to use it.

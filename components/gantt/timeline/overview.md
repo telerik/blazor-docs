@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["gantt"]
 ---
+
 # Timeline
 
 The Timeline of the Gantt component provides visual representation of the Gantt records in a timeline view. It is configured similarly to a Scheduler Timeline view, where the horizontal dimension is divided into time slots.

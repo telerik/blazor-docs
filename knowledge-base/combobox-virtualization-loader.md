@@ -10,6 +10,7 @@ res_type: kb
 ticketid: 1693304
 components: ["combobox"]
 ---
+
 ## Environment
 
 <table>
@@ -120,11 +121,13 @@ Modify the visibility of old items using CSS rules and conditionally toggle thei
 ```
 
 ### Key Points
+
 - Use the `HeaderTemplate` for displaying a loading indicator during scrolling or filtering.
 - Call the `Refresh` method on the ComboBox reference to update the UI dynamically during data load operations.
 - Toggle visibility of old items using CSS to enhance user experience.
 
 ## See Also
+
 - [ComboBox HeaderTemplate Documentation](slug:components/combobox/templates#header-template)
 - [ComboBox Reference and Methods](slug:components/combobox/overview#combobox-reference-and-methods)
 - [ComboBox Virtualization Documentation](slug:combobox-virtualization#remote-data-example)

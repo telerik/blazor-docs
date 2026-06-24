@@ -9,15 +9,16 @@ res_type: kb
 ticketid: 1682510
 components: ["combobox"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ComboBox for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ComboBox for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

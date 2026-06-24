@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["grid"]
 ---
+
 # Toolbar SearchBox
 
 In addition to [Grid filtering](slug:components/grid/filtering), you can enhance functionality by adding a SearchBox to the [Grid Toolbar](slug:components/grid/features/toolbar). This search box filters multiple Grid columns simultaneously.

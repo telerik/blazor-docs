@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["filemanager"]
 ---
+
 # Blazor FileManager Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">Blazor FileManager component</a> is an Explorer-like component that enables you to [upload](slug:filemanager-upload), [download](slug:filemanager-context-menu#download), [rename](slug:filemanager-context-menu#rename) and manage file and folders.

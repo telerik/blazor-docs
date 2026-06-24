@@ -10,6 +10,7 @@ ticketid: 1424840
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["charts"]
     </tbody>
 </table>
 
-
 ## Description
 
 I want to add dynamic series at run time, from the C# code-behind, based on the user selected options.
-
 
 ## Solution
 

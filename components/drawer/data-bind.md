@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["drawer"]
 ---
+
 # Drawer Data Binding
 
 This article explains the how to provide data to a Drawer component so it renders items for you, the properties related to data binding and their results.

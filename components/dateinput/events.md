@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["dateinput"]
 ---
+
 # Events
 
 This article explains the events available in the Telerik DateInput for Blazor:

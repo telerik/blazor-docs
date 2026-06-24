@@ -10,20 +10,21 @@ ticketid: 1543661
 res_type: kb
 components: ["calendar"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Calendar for Blazor, DatePicker for Blazor, DateRangePicker for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Calendar for Blazor, DatePicker for Blazor, DateRangePicker for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
-I want to disable the weekends in the Calendar Month view, so the user is not able to select them.
 
+I want to disable the weekends in the Calendar Month view, so the user is not able to select them.
 
 ## Solution
 

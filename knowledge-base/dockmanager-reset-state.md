@@ -10,14 +10,16 @@ res_type: kb
 ticketid: 1691957
 components: ["dockmanager"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DockManager for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DockManager for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

@@ -10,20 +10,21 @@ ticketid: 1544054
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
-I want to be able to sort the grouped column. How can I achieve this?
 
+I want to be able to sort the grouped column. How can I achieve this?
 
 ## Solution
 

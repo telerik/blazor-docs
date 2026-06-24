@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["pivotgrid"]
 ---
+
 # PivotGrid Data Binding
 
 This article describes the PivotGrid data binding mechanism and the supported data source options.

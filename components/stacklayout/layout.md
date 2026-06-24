@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["stacklayout"]
 ---
+
 # Layout
 
 The StackLayout component provides the following parameters that control its appearance:

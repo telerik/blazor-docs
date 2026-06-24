@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["gantt"]
 ---
+
 # TaskTemplate
 
 The `TaskTemplate` provides you with full control over the rendering of the Timeline tasks.

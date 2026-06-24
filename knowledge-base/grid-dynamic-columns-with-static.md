@@ -10,6 +10,7 @@ ticketid: 1551916
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 I define some dynamic Grid columns in a `for` or `foreach` loop. There is a `GridCommandColumn`, which should always appear last, after the other columns.
 
 When I switch the number of dynamic columns or the column definitions, the command column does not stay and the end of the column list.
-
 
 ## Steps to Reproduce
 
@@ -99,13 +98,11 @@ When I switch the number of dynamic columns or the column definitions, the comma
 }
 ````
 
-
 ## Possible Cause
 
 Unexpected reordering of dynamic components is related to how Blazor works. The framework appends newly added components at the end of the component collection.
 
 Typical scenarios that can exhibit such column position change are binding to `DataTable` or another dynamic datasource.
-
 
 ## Solution
 

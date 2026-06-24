@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["gantt"]
 ---
+
 # TooltipTemplate
 
 The `TooltipTemplate` provides you with full control over the rendering of the Timeline Task Tooltips.

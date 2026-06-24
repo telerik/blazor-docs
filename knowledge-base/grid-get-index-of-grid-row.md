@@ -9,20 +9,21 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
 
 I have a Grid and I would like to know the new index of a row when sorting or filtering the Grid. 
-
 
 ## Solution
 

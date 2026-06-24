@@ -10,16 +10,17 @@ ticketid: 1456439
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -58,7 +59,6 @@ The simplest way you can reproduce this is to add some layout that you expect to
     List<SampleData> FilteredUsers { get; set; }
 }
 ````
-
 
 ## Possible Cause
 
@@ -114,7 +114,6 @@ You can reproduce this with plain HTML like this:
     </div>
 </div>
 ````
-
 
 ## Suggested Workarounds
 

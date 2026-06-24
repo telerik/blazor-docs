@@ -10,6 +10,7 @@ ticketid: 1637172
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 This knowledge base article discusses the following scenarios:
@@ -29,7 +29,6 @@ This knowledge base article discusses the following scenarios:
 * How to make the animations of the Telerik dropdowns faster for fast data entry?
 * How to remove all animations for Telerik Blazor ComboBox, DropDownList, DateTimePicker and other selection components?
 * I want to remove animations for the dropdowns to accommodate users who prefer no animations (e.g., for accessibility reasons).
-
 
 ## Solution
 
@@ -101,7 +100,6 @@ You can also wrap the custom CSS in a `@media` query to capture users who have c
     }
 }
 ````
-
 
 ## Notes
 

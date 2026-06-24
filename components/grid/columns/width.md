@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["grid"]
 ---
+
 # Grid Column Width
 
 This article explains how to set Grid column widths and how the component behaves, depending on its column width configuration.

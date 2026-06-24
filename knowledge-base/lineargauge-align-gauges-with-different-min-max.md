@@ -9,6 +9,7 @@ ticketid: 1704384
 res_type: kb
 components: ["lineargauge"]
 ---
+
 ## Environment
 
 <table>

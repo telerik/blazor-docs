@@ -10,6 +10,7 @@ ticketid: 1656007
 previous_url: /knowledge-base/scheduler-appointment-context-menu
 components: ["scheduler"]
 ---
+
 ## Environment
 
 <table>
@@ -370,6 +371,7 @@ To implement a Context menu on appointments and on empty slots in the Scheduler,
 ````
 
 ## See Also
+
 * [Scheduler Overview](slug:scheduler-overview)
 * [Scheduler Appointment Templates](slug:scheduler-templates-appointment)
 * [Scheduler Slot Templates](slug:scheduler-templates-slot)

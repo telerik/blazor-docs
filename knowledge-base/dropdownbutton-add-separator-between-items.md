@@ -9,14 +9,16 @@ res_type: kb
 ticketid: 1680307
 components: ["dropdownbutton"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownButton for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownButton for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

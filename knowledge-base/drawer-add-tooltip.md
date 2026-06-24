@@ -10,6 +10,7 @@ ticketid: 1640720
 res_type: kb
 components: ["drawer"]
 ---
+
 ## Environment
 
 <table>

@@ -8,6 +8,7 @@ published: True
 position: 22
 components: ["drawer"]
 ---
+
 # Drawer Icons
 
 You can add [Telerik Font or SVG icons](slug:common-features-icons) to the Drawer items. The component also supports custom icons.

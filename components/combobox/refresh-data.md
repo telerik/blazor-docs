@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["combobox"]
 ---
+
 # ComboBox - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

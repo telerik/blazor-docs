@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -23,7 +24,6 @@ components: ["grid"]
 ## Description
 
 How can I merge cells across rows in the Blazor Data Grid?
-
 
 ## Solution
 

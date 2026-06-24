@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["listbox"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["listbox"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -29,7 +29,6 @@ This KB article answers the following questions:
 * How to select ListBox items with checkboxes?
 * Does the ListBox support single and multiple checkbox selection?
 * How to implement a checkbox multi select demo with the Blazor ListBox?
-
 
 ## Solution
 
@@ -144,7 +143,6 @@ ListBox <code>SelectionMode</code>:
     }
 }
 ````
-
 
 ## See Also
 

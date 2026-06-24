@@ -8,6 +8,7 @@ published: true
 position: 35
 components: ["autocomplete"]
 ---
+
 # AutoComplete Events
 
 This article explains the events available in the Telerik AutoComplete for Blazor:

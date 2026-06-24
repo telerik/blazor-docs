@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["upload"]
 ---
+
 # Upload Initial Files
 
 The Blazor Upload component enables you to display specific files in the file list when the component loads for the first time. This is a convenient way to show previously uploaded files.

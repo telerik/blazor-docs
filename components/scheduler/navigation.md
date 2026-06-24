@@ -8,6 +8,7 @@ published: true
 position: 4
 components: ["scheduler"]
 ---
+
 # Scheduler Navigation
 
 This article explains how to browse the available dates, views and features of the scheduler - as a user and from code.

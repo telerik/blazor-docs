@@ -10,16 +10,17 @@ ticketid: 1527830
 res_type: kb
 components: ["drawer"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Drawer for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Drawer for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

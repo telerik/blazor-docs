@@ -8,6 +8,7 @@ published: True
 position: 12
 components: ["drawer"]
 ---
+
 # Drawer Templates
 
 The Drawer can be customized by using Templates. This article explains the available layout templates for the component.

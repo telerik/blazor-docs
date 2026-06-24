@@ -10,6 +10,7 @@ ticketid: 1555847, 1558501
 res_type: kb
 components: ["fileselect"]
 ---
+
 ## Environment
 
 <table>
@@ -24,7 +25,6 @@ components: ["fileselect"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to apply custom CSS styles to the FileSelect and Upload components?
@@ -32,7 +32,6 @@ How to apply custom CSS styles to the FileSelect and Upload components?
 How to hide the selected files list? How to remove, hide or disable the filename list below the "Select Files" button?
 
 How to resize or remove the frame around the FileSelect and Upload button?
-
 
 ## Solution
 

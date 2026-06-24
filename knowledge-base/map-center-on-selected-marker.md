@@ -9,14 +9,15 @@ res_type: kb
 ticketid: 1671734
 components: ["map"]
 ---
+
 ## Environment
 
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Map for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Map for Blazor</td>
+        </tr>
     </tbody>
 </table>
 

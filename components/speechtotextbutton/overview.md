@@ -8,6 +8,7 @@ published: true
 position: 1
 components: ["speechtotextbutton"]
 ---
+
 # Blazor SpeechToTextButton Overview
 
 The [Blazor SpeechToTextButton component](https://www.telerik.com/blazor-ui/speech-to-text-button) enables speech recognition in Blazor applications. It provides a button that users can select to start and stop speech recognition. The component converts spoken words into text and emits events with the recognized results.

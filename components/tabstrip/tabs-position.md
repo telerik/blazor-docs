@@ -9,6 +9,7 @@ position: 10
 components: ["tabstrip"]
 previous_url: /components/tabstrip/tabs-alignment
 ---
+
 # TabStrip Tab Position and Alignment
 
 The TabStrip allows you to customize the placement and layout of the tabs, according to your requirements. This article describes the available options and how they integrate with one another.
