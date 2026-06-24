@@ -296,6 +296,8 @@ meta:
     title: FileManager
   "*editor":
     title: Editor
+  "*expansionpanel":
+    title: ExpansionPanel
   "*dockmanager":
     title: Dock Manager
   "*dropdowntree":
