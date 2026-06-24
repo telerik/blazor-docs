@@ -9,14 +9,16 @@ res_type: kb
 ticketid: 1690467
 components: ["gantt"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Gantt for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Gantt for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

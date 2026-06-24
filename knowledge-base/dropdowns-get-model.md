@@ -10,16 +10,17 @@ ticketid: 1452556
 res_type: kb
 components: ["autocomplete","combobox","dropdownlist","multiselect"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor, AutoComplete for Blazor, MultiSelect for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor, ComboBox for Blazor, AutoComplete for Blazor, MultiSelect for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Problem
 

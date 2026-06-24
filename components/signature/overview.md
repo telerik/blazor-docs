@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["signature"]
 ---
+
 # Blazor Signature Overview
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/signature" target="_blank">Blazor Signature component</a> and its core features.

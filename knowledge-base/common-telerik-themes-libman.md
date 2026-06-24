@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -20,7 +21,6 @@ components: ["general"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -36,7 +36,6 @@ The benefits of Libman are:
 * The Blazor app can use theme swatches, which are not available in the `Telerik.UI.for.Blazor` NuGet package.
 * The Blazor app is not dependent on remote CDN servers.
 * The theme in the `wwwroot` folder can update automatically.
-
 
 ## Solution
 
@@ -139,7 +138,6 @@ The CSS file URL(s) depend on the `"destination"` values in `libman.json`. Alway
 ### 3. Enable Automatic Updates on App Build
 
 Install the `Microsoft.Web.LibraryManager.Build` NuGet package in your Blazor app, so that the dependencies in `libman.json` are resolved and updated at build-time by LibMan. If a package version is already restored, you may need to rebuild the app to update it.
-
 
 ## See Also
 

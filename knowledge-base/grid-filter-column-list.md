@@ -10,6 +10,7 @@ ticketid: 1522880, 1623151
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -25,7 +26,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to filter Grid data items, which contain a `List` in a single property?
@@ -33,7 +33,6 @@ How to filter Grid data items, which contain a `List` in a single property?
 How to filter a Grid column that is a `List<string>`?
 
 How to filter a `List` within a single Grid column?
-
 
 ## Solution
 
@@ -285,7 +284,6 @@ The example below includes two Grids - one for each `FilterMode`.
 ## Notes
 
 .NET doesn't provide a built-in mechanism for filtering or comparing collections. As a result, built-in Grid data operations exist only for `string` and [value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) like `int`, `bool`, `DateTime`, and so on.
-
 
 ## See Also
 

@@ -8,6 +8,7 @@ published: True
 position: 26
 components: ["contextmenu"]
 ---
+
 # Context Menu - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

@@ -10,16 +10,17 @@ ticketid: 1518898
 res_type: kb
 components: ["dropdownlist"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

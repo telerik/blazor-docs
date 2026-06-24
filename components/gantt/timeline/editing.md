@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["gantt"]
 ---
+
 # Timeline Editing
 
 The Gantt component allows you to initiate editing from its Timeline component in several ways. The updates will be accordingly applied in both Gantt components - Gantt Tree and Timeline.

@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["filemanager"]
 ---
+
 # FileManager Data Binding Overview
 
 This FileManager Data Binding section explains the different ways to provide data to a FileManager component and the properties related to data binding. This article describes what are the available (bindable) features of FileManager data items and how to map model properties to these features.

@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["editor"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Editor for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Editor for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -28,7 +29,6 @@ I would like to set the Editor in invalid state when validation does not pass by
 >caption The goal (result) from the solution below
 
 ![the editor in invalid state](images/editor-invalid-state.png)
-
 
 ## Solution
 

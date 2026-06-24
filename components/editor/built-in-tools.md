@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["editor"]
 ---
+
 # Editor Built-in Tools
 
 This article explains which are the built-in tools and commands of the Editor, how to invoke them programmatically and what functionality they offer.

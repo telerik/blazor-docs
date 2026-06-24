@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["gantt"]
 ---
+
 # Timeline Views
 
 The Gantt Timeline provides four predefined views, which dictate how much time a single time slot represents:

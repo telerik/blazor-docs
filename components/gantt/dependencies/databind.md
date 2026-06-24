@@ -9,6 +9,7 @@ position: 5
 previous_url: /components/gantt/dependencies/types
 components: ["gantt"]
 ---
+
 # Dependencies Data Binding
 
 To bind a collection of dependencies to the Gantt Chart you should use the `Data` parameter, available for the `GanttDependencies` tag. This article explains how to use the data binding schema for the Gantt Dependencies.

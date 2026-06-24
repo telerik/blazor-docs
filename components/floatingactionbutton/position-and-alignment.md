@@ -8,6 +8,7 @@ published: True
 position: 2
 components: ["floatingactionbutton"]
 ---
+
 # Position and Alignment
 
 You can position and align the Blazor Floating Action Button component relative to its parent container by using the available parameters. The example at the bottom of the page lets you experiment with the available parameters.

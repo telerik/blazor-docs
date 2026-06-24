@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["editor"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Editor for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Editor for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

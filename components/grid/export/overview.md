@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["grid"]
 ---
+
 # Blazor Grid Export
 
 The Grid for Blazor provides a built-in functionality to export the data to:

@@ -8,6 +8,7 @@ published: True
 position: 60
 components: ["grid"]
 ---
+
 # Grid Virtual Scrolling
 
 The Grid virtual scrolling feature allows users to scroll vertically through all records in the Grid data source. The feature is an alternative to paging.

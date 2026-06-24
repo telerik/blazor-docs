@@ -8,6 +8,7 @@ ticketid: 1595176
 res_type: kb
 components: ["editor"]
 ---
+
 ## Environment
 
 <table>
@@ -19,13 +20,11 @@ components: ["editor"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to implement **Copy** and **Paste** buttons in the Editor toolbar?
 
 How can I copy and paste in the Editor component programmatically?
-
 
 ## Solution
 
@@ -196,7 +195,6 @@ To programmatically paste in the Editor:
     }
 }
 ````
-
 
 ## Notes
 

@@ -8,6 +8,7 @@ published: true
 position: 5
 components: ["upload"]
 ---
+
 # Validate Uploaded Files
 
 The Blazor Upload component can perform client-side validation.

@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["editor"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["editor"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to use Markdown content in the Editor?
-
 
 ## Solution
 

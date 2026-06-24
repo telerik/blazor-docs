@@ -10,6 +10,7 @@ ticketid: 1626509, 1637325
 res_type: kb
 components: ["upload"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["upload"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -29,7 +29,6 @@ This KB article answers the following questions:
 * How to use the Telerik Blazor Upload component with controllers that are decorated with the `[ValidateAntiForgeryToken]` attribute?
 * How to upload files to controllers that require antiforgery validation?
 * How to set antiforgery tokens in the Upload's `OnUpload` and `OnRemove` events?
-
 
 ## Solution
 
@@ -216,11 +215,9 @@ namespace BlazorAppName.Controllers
 }
 ````
 
-
 ## Disclaimer
 
 > This article contains code snippets and suggestions that relate to general .NET programming and antiforgery setup of a Blazor application. The provided implementation is just an example and is strictly outside the Telerik support scope. The primary resource for antiforgery configuration is the Microsoft documentation. See [Blazor authentication and authorization](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/).
-
 
 ## See Also
 

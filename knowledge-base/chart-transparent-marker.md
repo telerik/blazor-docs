@@ -10,6 +10,7 @@ ticketid: 1452809
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["charts"]
     </tbody>
 </table>
 
-
 ## Description
 
 I want semi-transparent solid marks, not fully opaque rings for the chart series markers.
-
 
 ## Solution
 

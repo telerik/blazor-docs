@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["splitbutton"]
 ---
+
 # SplitButton Appearance
 
 This article describes the declarative settings of the SplitButton component, which affect its styling and appearance.

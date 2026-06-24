@@ -8,6 +8,7 @@ published: true
 position: 2
 components: ["tooltip"]
 ---
+
 # Tooltip Position and Collision
 
 The Telerik Tooltip for Blazor can show on any side of its target. In scenarios when the configured position leads to content overflow outside the browser viewport boundaries, the component can automatically readjust, so that it remains fully visible on the screen.

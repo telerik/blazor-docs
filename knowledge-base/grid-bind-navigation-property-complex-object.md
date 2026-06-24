@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 I bind the Grid to Data with complex objects in its model, not only strings, primitive and value types.
@@ -29,7 +29,6 @@ I bind the Grid to Data with complex objects in its model, not only strings, pri
 How to use complex objects in my model and show nested (navigation) properties information in the Grid?
 
 I prefer *not* to use a Column `Template` or a Grid `DetailTemplate`.
-
 
 ## Solution
 
@@ -135,7 +134,6 @@ The correct approach is to use a concatenated string that includes the property 
     );
 }
 ````
-
 
 ## Notes
 

@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,13 +22,11 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to sort a Grid column descending first, and then ascending?
 
 How to reverse the Grid sorting logic for a column?
-
 
 ## Solution
 

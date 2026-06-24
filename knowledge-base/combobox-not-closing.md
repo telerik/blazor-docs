@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["combobox"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ComboBox for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ComboBox for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

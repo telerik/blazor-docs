@@ -10,23 +10,26 @@ ticketid: 1506313
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Button for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Button for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Is it possible to use target="_blank" with Telerik Button? I need to open Telerik report in separate browser-tab.
 
 I want to navigate the user to another page when a button is clicked but I do not see a href parameter on it.
 
 ## Solution
+
 To use regular (in-app) links from a button, you can use the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-5.0#uri-and-navigation-state-helpers" target="_blank">NavigationManager and its NavigateTo method</a> in the click event of the button.
 
 If you also want to open a new tab, you need an anchor element (`<a>`) and to set its `target` attribute to `_blank`. Often you could also achieve that through JavaScript and using `window.open(url)`, but in the context of a Blazor app you might prefer to use less JavaScript.

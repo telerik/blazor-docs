@@ -8,6 +8,7 @@ published: True
 position: 4
 components: ["calendar"]
 ---
+
 # Decade Cell Template
 
 The Decade Cell Template controls what the calendar will render in the `<td>` element for each year in the Decade view that lists the years.

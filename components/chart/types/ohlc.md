@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["charts"]
 ---
+
 # OHLC Chart
 
 The <a href="https://www.telerik.com/blazor-ui/ohlc-chart" target="_blank">OHLC (open-high-low-close) chart </a> is typically used to illustrate movements in the price of a financial instrument over time. Each vertical line on the chart shows the price range (the highest and lowest prices) over a period of time.

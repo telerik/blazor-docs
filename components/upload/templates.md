@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["upload"]
 ---
+
 # Upload Templates
 
 The Upload component provides templates that allow you to customize the rendering of the select files button and the file list items.

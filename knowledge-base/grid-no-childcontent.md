@@ -10,26 +10,28 @@ ticketid: 1470288
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 When opening the page I get an error
 
 > `Telerik.Blazor.Components.GridColumn' does not have a property matching the name 'ChildContent'. `
 
 similar code is used somewhere else in the application without any problems
 
-
 ## Steps to Reproduce
+
 ````RAZOR
 <TelerikGrid Data="@MyData" Sortable="true" Height="500px">
     <GridColumns>
@@ -48,12 +50,15 @@ similar code is used somewhere else in the application without any problems
 ````
 
 ## Error Message
+
 InvalidOperationException: Object of type 'Telerik.Blazor.Components.GridColumn' does not have a property matching the name 'ChildContent'.
 
 ## Possible Cause
+
 Having a comment or any other content directly in the grid column tag definition causes such an exception. The razor engine tries to add it as content of the column (basically, an unnamed `RenderFragment`), but the `GridColumn` has several named `RenderFragment` instances, so it cannot have an unnamed one.
 
 ## Solution
+
 Remove comments entirely.
 
 Remove content directly in the column tags - use the relevant [templates](slug:components/grid/features/templates) to add it.

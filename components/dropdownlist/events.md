@@ -8,6 +8,7 @@ published: true
 position: 35
 components: ["dropdownlist"]
 ---
+
 # Events
 
 This article explains the events available in the Telerik DropDownList for Blazor:

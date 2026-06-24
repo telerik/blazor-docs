@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["contextmenu"]
 ---
+
 # Context Menu Item Template
 
 The Context Menu component allows you to define a custom template for its items. This article explains how you can use it.

@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>

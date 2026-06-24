@@ -10,16 +10,17 @@ ticketid: 1498927
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -28,8 +29,6 @@ How to prevent sorting when clicking a specific component in a column header?
 I have custom column's grid header template that contains CheckBox and column's title. The column is sortable. The checkbox calls a specific method, but clicking on it also triggers sorting.
 
 I would like to put a `TelerikComboBox` into a `HeaderTemplate` of a Grid's column. But when I click into the ComboBox to type something (it's filterable), the header's sorting event hides it and the column will be sorted. How could I solve this?
-
-
 
 ## Possible Cause
 

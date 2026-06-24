@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["upload"]
 ---
+
 ## Environment
 
 <table>
@@ -23,12 +24,10 @@ components: ["upload"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to use the uploaded files as part of form model?
 How to include the uploaded files in the form validation?
-
 
 ## Solution
 

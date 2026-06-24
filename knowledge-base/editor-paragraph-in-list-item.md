@@ -10,6 +10,7 @@ ticketid: 1551863, 1563286
 res_type: kb
 components: ["editor"]
 ---
+
 ## Environment
 
 <table>
@@ -21,20 +22,17 @@ components: ["editor"]
     </tbody>
 </table>
 
-
 ## Description
 
 The Blazor Editor adds unwanted HTML tags to the content. List items contain `<p>` tags around each item content. As a result, bullets are spread too far apart.
 
 How can I get rid of the unwanted and unneeded paragraph tags, and the large spacing between list items?
 
-
 ## Possible Cause
 
 List items show with some empty space in-between, because the Editor's [ProseMirror engine](https://prosemirror.net) always [inserts a `<p>` tag inside every `<li>` tag](https://discuss.prosemirror.net/t/removing-the-default-paragraph-p-inside-a-list-item-li/2745). This is how the engine handles block containers, although HTML standards don't require such an approach.
 
 By default, HTML paragraphs have top and bottom margins.
-
 
 ## Solution
 
@@ -108,7 +106,6 @@ Here are the possible workarounds to remove extra empty space between list items
 ## Notes
 
 It is possible to [hack the ProseMirror engine and disable usage of `p` inside `li`](https://www.telerik.com/forums/remove-outer-p-tag-from-editor#5264679). However, this will break other features and is not recommended.
-
 
 ## See Also
 

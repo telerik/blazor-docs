@@ -11,21 +11,24 @@ res_type: kb
 components: ["autocomplete","combobox","dropdownlist","multiselect"]
 
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ComboBox for Blazor, DropDownList for Blazor, Autocomplete for Blazor, MultiSelect for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ComboBox for Blazor, DropDownList for Blazor, Autocomplete for Blazor, MultiSelect for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 When using the combo box component when the desired data is list of readonly structs there is a null reference exception and the combo box does not work.
 
 ## Error Message
+
 A typical error would be null reference exception like the one below:
 
 ````C#.skip-repl
@@ -63,9 +66,11 @@ Selected value: @selectedValue
 ````
 
 ## Possible Cause
+
 The components require a model when binding so it can be instantiated with a parameterless constructor. This is a requirement that comes down to the forms validation that they must support and getting the `Default` value and object. Structs do not have a parameterless constructor.
 
 ## Solution
+
 There are two approaches to avoiding this error:
 
 * Use a model (class), not a struct, as shown [here](slug:components/combobox/databind#bind-to-a-model), for example

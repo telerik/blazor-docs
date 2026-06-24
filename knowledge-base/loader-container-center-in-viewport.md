@@ -10,16 +10,17 @@ ticketid: 1564614
 res_type: kb
 components: ["loader"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>LoaderContainer for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>LoaderContainer for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

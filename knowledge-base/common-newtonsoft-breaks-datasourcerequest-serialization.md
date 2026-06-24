@@ -10,6 +10,7 @@ ticketid: 1505522, 1550585
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -25,7 +26,6 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 I recently added the Telerik Reporting (Web Report Designer) to my Blazor WebAssembly application.
@@ -33,7 +33,6 @@ I recently added the Telerik Reporting (Web Report Designer) to my Blazor WebAss
 My application has `services.AddRazorPages().AddNewtonsoftJson();` on the server-side so I can work with various REST APIs and send data.
 
 Now, when I <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server" target="_blank">send the `DataSourceRequest` from the grid to the server</a> things break when I use filters. The same happens to DropDownList virtualization. It worked before.
-
 
 ## Steps to Reproduce
 
@@ -59,7 +58,6 @@ The API call from the grid returns a status code `400` or `500` with an error si
 **If I remove Newtonsoft JSON**, other things in my project break, such as the reporting service becoming inaccessible with errors like when displaying a report:
 
 > Cannot access the Reporting REST service. (serviceUrl = '/api/reports'). Make sure the service address is correct and enable CORS if needed. (https://enable-cors.org)
-
 
 ## Possible Cause
 

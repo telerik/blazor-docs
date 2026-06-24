@@ -8,6 +8,7 @@ published: True
 position: 30
 components: ["diagram"]
 ---
+
 # Blazor Diagram Connections
 
 The Connections in the Telerik Diagram for Blazor signify the relationship between two Shapes (graph nodes). This article describes all Diagram Connection customization options.

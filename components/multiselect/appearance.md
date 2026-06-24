@@ -8,6 +8,7 @@ published: True
 position: 65
 components: ["multiselect"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the MultiSelect by setting the following attribute:

@@ -8,6 +8,7 @@ published: True
 position: 4
 components: ["scheduler"]
 ---
+
 # Month View
 
 The Month view of the Scheduler for Blazor shows an entire month to the user.

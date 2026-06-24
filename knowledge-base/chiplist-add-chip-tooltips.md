@@ -10,6 +10,7 @@ res_type: kb
 ticketid: 1691888
 components: ["chiplist"]
 ---
+
 ## Environment
 
 <table>
@@ -79,6 +80,7 @@ To add tooltips to chips in the ChipList, use the `ItemTemplate` to customize ch
 ```
 
 ## See Also
+
 - [ChipList Overview](slug:chiplist-overview)
 - [ChipList Templates](slug:chiplist-templates#item-template)
 - [Tooltip Overview](slug:tooltip-overview)

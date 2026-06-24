@@ -10,6 +10,7 @@ ticketid: 1479427
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -25,7 +26,6 @@ components: ["general"]
 
 The [CDN](slug:common-features-cdn) is down, or my users have it filtered by a firewall, proxy, admin policy or other problem. This can cause errors or bad looking sites. How do I ensure the necessary resources will be fetched?
 
-
 ## Solution
 
 This article contains three examples:
@@ -37,7 +37,6 @@ This article contains three examples:
 
 
 >note In this article, the paths to the actual CDN resources are broken deliberately with a string of `aaaaa`, so you can examine how the fallback works. For a real app, fix the paths and consider minifying the scripts.
-
 
 ### Stylesheet Fallback
 
@@ -100,6 +99,7 @@ A server-side Blazor app is bootstrapped in a Razor page (`_Host.cshtml`) and so
 ````
 
 ## Notes
+
 You may want to consider using [static assets](slug:getting-started-workflow-details#css-theme-and-javascript-files) as the primary way to obtain the necessary resources. They provide the following benefits in a Blazor app:
 
 * For server-side Blazor - the necessity for a low-latency connection makes this flavor suitable for Intranet apps, and in such cases the user is likely to be closer to the server than to the cloud. Thus, downloading the files from the app server is likely to be faster than downloading from the CDN.

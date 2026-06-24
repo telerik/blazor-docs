@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["multicolumncombobox"]
 ---
+
 # MultiColumnComboBox Columns
 
 This article explains how to show data in the dropdown columns of the MultiColumnComboBox.

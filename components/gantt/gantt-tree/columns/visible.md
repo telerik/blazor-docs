@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["gantt"]
 ---
+
 # Visible Columns
 
 The TreeList allows you to programmatically hide some of its columns. 

@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["aiprompt"]
 ---
+
 # AIPrompt Views Templates
 
 This article explains the available templates for the views of the AIPrompt for Blazor.

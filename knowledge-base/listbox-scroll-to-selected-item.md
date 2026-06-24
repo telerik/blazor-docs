@@ -10,6 +10,7 @@ ticketid: 1628516
 res_type: kb
 components: ["listbox"]
 ---
+
 ## Environment
 
 <table>
@@ -21,14 +22,12 @@ components: ["listbox"]
     </tbody>
 </table>
 
-
 ## Description
 
 This knowledge base article answers the following questions:
 
 * How to scroll the ListBox component to the initially selected item?
 * How to scroll automatically to the first selected ListBox item on page load?
-
 
 ## Solution
 
@@ -129,7 +128,6 @@ This knowledge base article answers the following questions:
     }
 }
 ````
-
 
 ## See Also
 

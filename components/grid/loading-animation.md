@@ -8,6 +8,7 @@ published: True
 position: 90
 components: ["grid"]
 ---
+
 # Loading Animation
 
 The Grid can show a loading animation during data operations that take more than 600ms to complete. This improves the user experience with a visual hint that the requested action is still running and prevents repetitive user actions.

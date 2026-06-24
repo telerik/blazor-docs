@@ -8,6 +8,7 @@ published: True
 position: 15
 components: ["scheduler"]
 ---
+
 # Slot Templates
 
 You can use the `SlotTemplate` and the `AllDaySlotTemplate` to customize the rendering of the slots in the Scheduler.

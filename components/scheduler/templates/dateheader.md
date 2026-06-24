@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["scheduler"]
 ---
+
 # DateHeader Templates
 
 You can use the `DateHeaderTemplate` to customize the rendering of the Scheduler date header cells. This allows you to change the date format, add custom icons or other HTML elements.

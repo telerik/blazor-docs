@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["menu"]
 ---
+
 # Menu Data Binding Basics
 
 This article explains the different ways to provide data to a Menu component, the properties related to data binding and their results.

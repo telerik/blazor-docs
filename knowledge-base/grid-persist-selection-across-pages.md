@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How do I select data across different pages without losing the current selection? If I click a row, all other rows are deselected. If I click the header checkbox, only the current page is selected.
-
 
 ## Solution
 

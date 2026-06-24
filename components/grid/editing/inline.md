@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["grid"]
 ---
+
 # Grid Inline Editing
 
 Inline Grid editing lets users modify all values on a Grid row. The edit process starts and ends with clicking of command buttons on the respective row. Inline editing can be more intuitive for beginner users, compared to in-cell editing.

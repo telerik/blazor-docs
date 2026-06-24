@@ -8,6 +8,7 @@ published: True
 position: 9
 components: ["general"]
 ---
+
 # Sankey Diagram Events
 
 This article explains the available events for the Telerik Sankey Diagram for Blazor:

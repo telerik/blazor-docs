@@ -8,6 +8,7 @@ tags: telerik, pdf, viewer, sign, digital signature
 res_type: kb
 components: ["pdfviewer"]
 ---
+
 ## Environment
 
 <table>
@@ -31,7 +32,6 @@ The PdfViewer does not currently have the capability to manage digital signature
 2. Use the PdfProcessing tool to add a digital signature programmatically to the PDF. See [Document Processing - Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/digital-signature) for instructions.
 3. Reload the document into the PdfViewer. See [PdfViewer - Overview](https://docs.telerik.com/blazor-ui/components/pdfviewer/overview) for instructions.
 
-
 ## Example
 
 <div class="skip-repl"></div>
@@ -41,9 +41,9 @@ The PdfViewer does not currently have the capability to manage digital signature
     <PdfViewerToolBar>
         <PdfViewerToolBarOpenTool />
         <!-- all other buttons here -->
-		<PdfViewerToolBarSeparator />
-		
-		<PdfViewerToolBarCustomTool>
+        <PdfViewerToolBarSeparator />
+        
+        <PdfViewerToolBarCustomTool>
             <TelerikButton OnClick="@OnSignPdfClick">SIGN</TelerikButton>
         </PdfViewerToolBarCustomTool>
     </PdfViewerToolBar>
@@ -51,8 +51,8 @@ The PdfViewer does not currently have the capability to manage digital signature
 
 @code {
     private byte[] PdfSource { get; set; }
-	
-	private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
+    
+    private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
     {
         args.FileName = "My.pdf";
     }
@@ -66,27 +66,27 @@ The PdfViewer does not currently have the capability to manage digital signature
         this.PdfSource = signedDocument;
     }
 
-	private byte[] SignDocument(byte[] unsignedDocumentBytes)
-	{
+    private byte[] SignDocument(byte[] unsignedDocumentBytes)
+    {
         // **** PHASE 1 - Get certificate **** //
-		
-		X509Certificate2 certificate = null;
+        
+        X509Certificate2 certificate = null;
 
-		// OPTION 1 - BRING YOUR OWN CERTIFICATE FILE
+        // OPTION 1 - BRING YOUR OWN CERTIFICATE FILE
         // RadPdfProcessing enables you to sign and validate signature fields using standard signature encodings
         // adbe.x509.rsa_sha1 (PKCS #1)
         // adbe.pkcs7.sha1 (PKCS #7)
         // adbe.pkcs7.detached (PKCS #7 Detached)
 
-		//certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(certificateFilePath, certificateFilePassword);
+        //certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(certificateFilePath, certificateFilePassword);
 
-		// OPTION 2 - USE AN EXISTING CERTIFICATE
-		var x509Store = new X509Store("MY", StoreLocation.CurrentUser);
-		x509Store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-		var validCerts = x509Store.Certificates.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
-		
-		// IMPORTANT: This example is taking the very first valid certificate. In a real app, you will selected the cert you want to sign the document with.
-		certificate = validCerts.FirstOrDefault();
+        // OPTION 2 - USE AN EXISTING CERTIFICATE
+        var x509Store = new X509Store("MY", StoreLocation.CurrentUser);
+        x509Store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+        var validCerts = x509Store.Certificates.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+        
+        // IMPORTANT: This example is taking the very first valid certificate. In a real app, you will selected the cert you want to sign the document with.
+        certificate = validCerts.FirstOrDefault();
 
 
         // **** PHASE 2 - Add certificate to SignatureField and use certificate **** //
@@ -95,8 +95,8 @@ The PdfViewer does not currently have the capability to manage digital signature
         var signatureName = "John Doe";
 
         // The Signature object is added to a signature field, so we can add a visualization to it.
-		var signatureField = new SignatureField(signatureName);
-		signatureField.Signature = new Telerik.Windows.Documents.Fixed.Model.DigitalSignatures.Signature(certificate);
+        var signatureField = new SignatureField(signatureName);
+        signatureField.Signature = new Telerik.Windows.Documents.Fixed.Model.DigitalSignatures.Signature(certificate);
 
         // Close the local cert store now that you're done
         x509Store.Close();
@@ -121,22 +121,22 @@ The PdfViewer does not currently have the capability to manage digital signature
         formEditor.DrawCircle(new Point(50, 50), 20);
         formEditor.DrawText(signatureName);
 
-		// The widget contains the Form XObject and defines the appearance of the signature field.
-		var widget = signatureField.Widgets.AddWidget();
-		widget.Rect = new Rect(200, 600, 100, 100);
-		widget.Border = new AnnotationBorder(10, AnnotationBorderStyle.Solid, null);
-		widget.Content.NormalContentSource = form.FormSource;
-		widget.RecalculateContent();
+        // The widget contains the Form XObject and defines the appearance of the signature field.
+        var widget = signatureField.Widgets.AddWidget();
+        widget.Rect = new Rect(200, 600, 100, 100);
+        widget.Border = new AnnotationBorder(10, AnnotationBorderStyle.Solid, null);
+        widget.Content.NormalContentSource = form.FormSource;
+        widget.RecalculateContent();
 
         // Finally, add the SignatureWidget to the page's annotations.
-		page.Annotations.Add(widget);
+        page.Annotations.Add(widget);
 
-		var editor = new FixedContentEditor(page);
-		editor.Position.Translate(200, 400);
-		editor.DrawForm(form.FormSource);
-		document.AcroForm.FormFields.Add(signatureField);
-		widget.RecalculateContent();
-		widget.AppearanceCharacteristics.Background = new Telerik.Windows.Documents.Fixed.Model.ColorSpaces.RgbColor(255, 0, 0);
+        var editor = new FixedContentEditor(page);
+        editor.Position.Translate(200, 400);
+        editor.DrawForm(form.FormSource);
+        document.AcroForm.FormFields.Add(signatureField);
+        widget.RecalculateContent();
+        widget.AppearanceCharacteristics.Background = new Telerik.Windows.Documents.Fixed.Model.ColorSpaces.RgbColor(255, 0, 0);
 
         // **** PHASE 4 - EXPORT DOCUMENT **** //
         byte[] signedDocBytes = new PdfFormatProvider().Export(document);

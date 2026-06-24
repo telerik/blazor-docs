@@ -10,6 +10,7 @@ ticketid: 1451701
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -29,13 +30,11 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 Publishing a client-side (WASM) Blazor app may fail with messages similar to the error below.
 
 A particular environment is an ASP.NET Core hosted Blazor project hosted on smarterAsp.net with the automatic config which enabled caching and compacting with cloudflare.com.
-
 
 ## Error Message
 

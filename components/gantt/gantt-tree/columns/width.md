@@ -8,6 +8,7 @@ published: True
 position: 4
 components: ["gantt"]
 ---
+
 # Gantt Column Width Behavior
 
 This article explains how the Gantt column width behaves depending on the settings applied by the developer.

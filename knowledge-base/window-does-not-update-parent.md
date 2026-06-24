@@ -10,26 +10,30 @@ ticketid: 1443151
 res_type: kb
 components: ["window"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 If you have a form and a component that hosts a Telerik Window, you may want to update the main form with data from the window. It may appear, however, that the data (or EditContext) on the main page does not get updated.
 
 ## Possible Cause
+
 The issue arises from the way UI re-rendering works. When the Window is in a separate component, UI updates only happen in that render tree, and not on the main component. 
 
 The Window renders in the [`TelerikRootComponent`](slug:rootcomponent-overview) to ensure proper positioning, and does not render in the place of declaration. Thus, its parent is not what you see as a markup structure.
 
 ## Solution
+
 You need to invoke StateHasChanged() on the parent component in order to have the UI update. This is easily done by exposing an EventCallback from the component that hosts the Window, and handling that event in the parent component.
 
 ### Example

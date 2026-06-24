@@ -8,6 +8,7 @@ published: true
 position: 30
 components: ["charts"]
 ---
+
 # Date Axis
 
 This article demonstrates how to use `DateTime` values for the x-axis of the chart.

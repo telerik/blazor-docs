@@ -9,14 +9,16 @@ res_type: kb
 ticketid: 1653280
 components: ["gantt"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Gantt for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Gantt for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -29,7 +31,6 @@ You have two options to display the other fields form you model in the Tooltip:
 
 * [Get the Gantt Data Item From Context Properties](#get-the-gantt-data-item-from-context-properties)
 * [Use a Separate Tooltip Component](#use-a-separate-tooltip-component)
-
 
 ### Get the Gantt Data Item From Context Properties
 

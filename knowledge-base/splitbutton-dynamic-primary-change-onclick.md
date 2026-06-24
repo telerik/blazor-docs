@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["splitbutton"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["splitbutton"]
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
@@ -30,7 +30,6 @@ This KB article answers the following questions:
 * How to make the clicked SplitButton item primary?
 * How to switch the SplitButton's default item after click, similar to the Create Pull Request button in GitHub?
 * How to create dynamic SplitButton that toggles its primary action when the user clicks on a dropdown item?
-
 
 ## Solution
 
@@ -97,7 +96,6 @@ This KB article answers the following questions:
     }
 }
 ````
-
 
 ## See Also
 

@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["switch"]
 ---
+
 # Switch Labels
 
 `On` or `Off` labels are rendered inside the Switch based on its value:

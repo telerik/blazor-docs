@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -20,11 +21,9 @@ components: ["grid"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to import (paste) content in the Grid from Excel instead of using the built-in way for creating new items?
-
 
 ## Solution
 

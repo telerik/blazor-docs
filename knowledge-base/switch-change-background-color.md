@@ -10,6 +10,7 @@ ticketid: 1546317
 res_type: kb
 components: ["switch"]
 ---
+
 ## Environment
 
 <table>
@@ -21,7 +22,6 @@ components: ["switch"]
     </tbody>
 </table>
 
-
 ## Description
 
 How to change the Switch background color?
@@ -29,7 +29,6 @@ How to change the Switch background color?
 How to customize the background styles of only one Switch on the page, if there are many?
 
 What CSS class to change the Switch background color when it has focus?
-
 
 ## Solution
 

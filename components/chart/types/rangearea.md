@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["charts"]
 ---
+
 # Range Area Chart
 
 The <a href="https://www.telerik.com/blazor-ui/range-area-chart" target="_blank">Blazor Range Area Chart</a> shows the data as a colored area between two continuous lines that pass through points defined by pairs of `from` and `to` values. The graph between the border lines has a different customizable color for each series. The Range Area Chart is similar to the [Area Chart](slug:components/chart/types/area), which can be regarded as a Range Area Chart with zero `from` values.

@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["grid"]
 ---
+
 # Grid AI Features
 
 This article describes the built-in AI-enabled features of the Telerik Grid for Blazor. You can allow users to type prompts, which are sent to an AI service that suggests the appropriate operations for the Grid to perform. The currently supported operations include those managed through the Grid state (such as filtering and sorting) and those triggered through Grid methods, for example, export.

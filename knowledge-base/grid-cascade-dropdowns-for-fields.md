@@ -10,21 +10,24 @@ ticketid: 1491893
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I want to have the options for one of the fields in the grid to depend on the choice of another. In other words, to cascade one dropdown from the other in the grid columns.
 
 ## Solution
+
 There are three approaches you can take:
 
 * For full freedom, implement a custom edit form (here are examples for <a href="https://demos.telerik.com/blazor-ui/grid/editing-custom-form" target="_blank">inline</a>, and <a href="https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form" target="_blank">popup</a>)

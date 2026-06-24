@@ -10,16 +10,17 @@ ticketid:
 res_type: kb
 components: ["textarea"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TextArea for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TextArea for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -28,7 +29,6 @@ This how-to article answers the following questions:
 
 * The TextArea has a `MaxLength` parameter but it does not show when the maximum allowed characters count is reached. How to notify the user they have reached the `MaxLength` value?
 * How to display a counter, so the user knows how many characters they have left before reaching the `MaxLength` value?
-
 
 ## Solution
 

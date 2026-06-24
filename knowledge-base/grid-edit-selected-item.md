@@ -10,16 +10,17 @@ ticketid: 1499119
 res_type: kb
 components: ["grid"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -42,7 +43,6 @@ You can use the regular [TelerikButton](slug:components/button/overview) and the
 1. Based on the flag created in the previous point conditionally show the `Save` and `Cancel` buttons.
 
 1. Toggle the value of the `bool` flag in the respective methods.
-
 
 ### Sample Implementation
 

@@ -9,6 +9,7 @@ position: 100
 tag: updated
 components: ["tabstrip"]
 ---
+
 # TabStrip Events
 
 This article explains the events available in the Telerik TabStrip for Blazor:

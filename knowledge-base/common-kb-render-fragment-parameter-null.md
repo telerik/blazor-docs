@@ -10,6 +10,7 @@ ticketid: 1449470
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -21,11 +22,9 @@ components: ["general"]
     </tbody>
 </table>
 
-
 ## Description
 
 When I use a `RenderFragment` that comes as a parameter (for example, because I am wrapping a component that already uses a `RenderFragment` in another component), I get an exception.
-
 
 ## Error Message
 
@@ -37,13 +36,11 @@ When I use a `RenderFragment` that comes as a parameter (for example, because I 
 >
 >    at YourCustomComponentNameHere`2.BuildRenderTree(RenderTreeBuilder __builder)
 
-
 ## Possible Cause
 
 `RenderFragment` parameters are `null` by default and there is no really suitable place to make a check when passing the parameter as a property. You can read more here: [https://github.com/dotnet/aspnetcore/issues/10270](https://github.com/dotnet/aspnetcore/issues/10270)
 
 So, for example, with a Telerik component such as the ComboBox, such templates (fragments) will throw exceptions if you pass them as a property.
-
 
 ## Steps to Reproduce
 
@@ -99,7 +96,6 @@ typeparam TItem
     int selectedValue { get; set; } = 3;
 }
 ````
-
 
 ## Solution
 

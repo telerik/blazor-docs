@@ -9,6 +9,7 @@ ticketid: 1635198
 res_type: kb
 components: ["dropdownlist"]
 ---
+
 ## Environment
 
 <table>
@@ -20,16 +21,13 @@ components: ["dropdownlist"]
     </tbody>
 </table>
 
-
 ## Description
 
 When the dropdown is smaller than the default `min-height` of the no data template, the "No Data" text is not visible.
 
-
 ## Cause
 
 The default `min-height` of the `.k-nodata` class is `140px`. The default `height` of the dropdown is `200px`. If the `Height` or `MaxHeight` of the dropdown is equal to or smaller than `100px`, the "No Data" text is not visible.
-
 
 ## Solution
 
@@ -125,7 +123,6 @@ You need to change the default minimum height of the popup element. The DropDown
     };
 }
 ````
-
 
 ## See Also
 

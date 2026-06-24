@@ -9,15 +9,16 @@ res_type: kb
 ticketid: 1683091
 components: ["fileselect"]
 ---
+
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>FileSelect for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>FileSelect for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

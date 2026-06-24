@@ -8,6 +8,7 @@ published: true
 position: 11
 components: ["filter"]
 ---
+
 # Filter Events
 
 This article explains the available events for the Telerik Filter for Blazor:

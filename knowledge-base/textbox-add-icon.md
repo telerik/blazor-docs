@@ -10,20 +10,21 @@ ticketid: 1461494, 1459772
 res_type: kb
 components: ["textbox"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>TextBox for Blazor</td>
-		</tr>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TextBox for Blazor</td>
+        </tr>
          <tr>
             <td>Product Version</td>
             <td>5.0.1 and older</td>
         </tr>
-	</tbody>
+    </tbody>
 </table>
-
 
 ## Description
 

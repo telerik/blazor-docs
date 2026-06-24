@@ -9,14 +9,16 @@ res_type: kb
 ticketid: 1680480, 1612125
 components: ["dropdownlist"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

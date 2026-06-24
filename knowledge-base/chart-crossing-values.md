@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["charts"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Chart for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -29,7 +30,6 @@ I want the labels of my chart at the bottom so they aren't on top of the chart i
 >caption Labels overlapped by the chart series. Problematic example.
 
 ![chart crossing values problematic example](images/chart-crossing-values-problematic-example.png)
-
 
 ## Solution
 

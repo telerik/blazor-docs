@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["calendar"]
 ---
+
 # Year Cell Template
 
 The Year Cell Template controls what the calendar will render in the `<td>` element for each month in the Year view that lists the months.

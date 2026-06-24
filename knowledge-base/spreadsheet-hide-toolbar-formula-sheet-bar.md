@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1676073
 components: ["spreadsheet"]
 ---
+
 ## Environment
 
 <table>

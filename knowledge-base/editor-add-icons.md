@@ -10,16 +10,17 @@ ticketid:
 res_type: kb
 components: ["editor"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Editor for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Editor for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -36,7 +37,6 @@ The default schema of the Telerik Editor does not include an `<i>` tag, so the E
 2. Ensure the required font icon stylesheets can affect the Editor content. The approach varies depending on the [edit mode of the Editor](slug:editor-edit-modes-overview):
     * [Iframe Edit Mode](#add-icons-in-iframe-edit-mode)
     * [Div Edit Mode](#add-icons-in-div-edit-mode)
-
 
 ### Add Icons in Iframe Edit Mode
 

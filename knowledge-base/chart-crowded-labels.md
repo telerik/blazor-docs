@@ -9,21 +9,21 @@ tags:
 res_type: kb
 components: ["charts"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Chart for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I am having a Chart with big load of data. The labels are overlapping and thus - unreadable.
-
 
 ## Solution
 
@@ -149,7 +149,6 @@ This example shows how to enable automatic label rotation - try running the page
 >caption Comparison between a large and small chart size that shows how the labels get rotated when needed
 
 ![automatic rotation for crowded labels](images/chart-crowded-labels-auto-rotation.png)
-
 
 ### Example - Skip rendering every n-th label
 

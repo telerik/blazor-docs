@@ -8,6 +8,7 @@ published: True
 position: 50
 components: ["grid"]
 ---
+
 # Visible Columns
 
 The Grid allows you to programmatically hide some of its columns. 

@@ -10,6 +10,7 @@ ticketid: 1556263
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -24,7 +25,6 @@ components: ["grid"]
 ## Description
 
 How to edit several records in the grid at once and to only create one request to the database/service to save the changes? How to implement batch editing?
-
 
 ## Solution
 

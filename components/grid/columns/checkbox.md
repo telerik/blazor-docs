@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["grid"]
 ---
+
 # Grid Checkbox Column
 
 This article describes the configuration parameters of the Blazor `GridCheckboxColumn`.

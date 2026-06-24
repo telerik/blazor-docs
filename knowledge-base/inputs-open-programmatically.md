@@ -10,7 +10,9 @@ ticketid: 1526273, 1539587, 1547004, 1562064, 1475760
 res_type: kb
 components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownlist","multicolumncombobox","multiselect","timepicker"]
 ---
+
 ## Environment
+
 <table>
     <tbody>
         <tr>

@@ -9,14 +9,16 @@ res_type: kb
 ticketid: 1661907
 components: ["numerictextbox"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>NumericTextBox for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>NumericTextBox for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

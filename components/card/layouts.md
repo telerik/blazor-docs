@@ -8,6 +8,7 @@ published: True
 position: 11
 components: ["card"]
 ---
+
 # Card Layouts
 
 When working with a collection of Cards, you can control the collection layout by wrapping all the Card instances in a container and apply the desired styles to position them.

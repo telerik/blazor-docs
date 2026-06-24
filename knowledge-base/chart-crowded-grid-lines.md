@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["charts"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Chart for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
@@ -95,7 +96,6 @@ For a [`Date Axis` Chart](slug:components/chart/date-axis), you can set the `Bas
 >caption The result from the code snippet above
 
 ![customize chart grid lines](images/chart-grid-lines-example.png)
-
 
 ## Notes
 

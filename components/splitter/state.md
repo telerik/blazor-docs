@@ -8,6 +8,7 @@ published: true
 position: 10
 components: ["splitter"]
 ---
+
 # State
 
 This article explains how to save, restore and programmatically control the state of the Telerik Splitter for Blazor.

@@ -9,16 +9,17 @@ tags:
 res_type: kb
 components: ["dropdownlist"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor, MultiSelect for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor, ComboBox for Blazor, MultiSelect for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

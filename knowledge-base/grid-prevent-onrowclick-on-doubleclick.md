@@ -9,6 +9,7 @@ res_type: kb
 ticketid: 1684377
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -21,9 +22,11 @@ components: ["grid"]
 </table>
 
 ## Description
+
 I need to handle both [`OnRowClick`](slug:grid-events#onrowclick) and [`OnRowDoubleClick`](slug:grid-events#onrowdoubleclick) events in a Grid, but I don't want `OnRowClick` to be called when I double click.
 
 ## Solution
+
 To achieve the distinction between single and double clicks and prevent the `OnRowClick` event from firing on a double click, implement a delay mechanism using a timer. This solution involves starting a timer on the first click event. If the second click (double click) occurs before the timer elapses, the timer is stopped, and the `OnRowClick` logic is cancelled. Otherwise, the `OnRowClick` logic proceeds.
 
 Here is a code example demonstrating the approach:
@@ -105,5 +108,6 @@ Here is a code example demonstrating the approach:
 `````
 
 ## See Also
+
 - [Grid Events](slug:grid-events)
 - [Timer Class in .NET](https://docs.microsoft.com/en-us/dotnet/api/system.timers.timer)

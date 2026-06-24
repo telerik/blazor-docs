@@ -8,6 +8,7 @@ published: true
 position: 20
 components: ["dockmanager"]
 ---
+
 # DockManager Events
 
 This article explains the events available in the Telerik DockManager for Blazor:

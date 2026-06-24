@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["calendar"]
 ---
+
 # Calendar Templates
 
 You can customize the calendar appearance through the various templates it provides so you can add more details for your users such as mark special days or holidays, or events.

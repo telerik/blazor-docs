@@ -8,6 +8,7 @@ published: true
 position: 33
 components: ["charts"]
 ---
+
 # Chart Events
 
 This article describes the available events for the Telerik Chart for Blazor:

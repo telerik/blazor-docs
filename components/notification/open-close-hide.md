@@ -8,6 +8,7 @@ published: True
 position: 20
 components: ["notification"]
 ---
+
 # Open, Close and Hide Notifications
 
 

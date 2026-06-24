@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["charts"]
 ---
+
 ## Environment
 
 <table>

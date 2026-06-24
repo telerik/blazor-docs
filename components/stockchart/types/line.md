@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["stockchart"]
 ---
+
 # Line Chart
 
 A **Line** chart displays data as continuous lines that pass through points defined by the values of their items. It is useful for rendering a trend over time and comparing several sets of similar data.
@@ -47,7 +48,7 @@ Line series
         </StockChartSeries>
 
         <StockChartSeries Type="StockChartSeriesType.Line"
-                          Name="Product 1"
+                          Name="Product 2"
                           Data="@Data"
                           Field="@nameof(ChartSeriesData.Product2Sales)"
                           CategoryField="@nameof(ChartSeriesData.Year)">

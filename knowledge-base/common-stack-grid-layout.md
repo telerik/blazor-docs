@@ -9,6 +9,7 @@ tags:
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -35,8 +36,8 @@ Familiarity with the core concepts will let you create flexible layouts with a f
 In this article:
 
 * [Basic Examples](#basic-examples)
-	* [Grid Layout](#grid-layout)
-	* [Stack Layout](#stack-layout)
+    * [Grid Layout](#grid-layout)
+    * [Stack Layout](#stack-layout)
 * [Detailed Tutorials and Examples](#detailed-tutorials-and-examples)
 
 ## Basic Examples
@@ -148,7 +149,6 @@ To create a stack layout, you can use CSS Flexbox. For example:
     <TextBlock Foreground="White" FontSize="25" Text="Feels like: 63°"/>
 </StackPanel>
 ````
-
 
 ## Detailed Tutorials and Examples
 

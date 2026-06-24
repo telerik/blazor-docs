@@ -10,6 +10,7 @@ ticketid: 1475025
 res_type: kb
 components: ["general"]
 ---
+
 ## Environment
 
 <table>
@@ -20,7 +21,6 @@ components: ["general"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -41,7 +41,6 @@ NullReferenceException: Object reference not set to an instance of an object.
 Object reference not set to an instance of an object.
     at Telerik.Blazor.Components.TelerikRootComponentFragmentBase.OnInitAsync()
 ````
-
 
 ## Possible Cause
 
@@ -68,7 +67,6 @@ You can reproduce this with the following snippet:
         </div>
     </div>
 ````
-
 
 ## Solution
 

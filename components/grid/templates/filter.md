@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["grid"]
 ---
+
 # Filter Template
 
 The Filter Template lets you customize the appearance and logic of the built-in filters. It lets you step on the built-in filtering logic of the grid and implement your own design and logic for setting their values.

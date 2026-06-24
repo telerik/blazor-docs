@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["numerictextbox"]
 ---
+
 # Appearance Settings
 
 You can control the appearance of the NumericTextBox button by setting the following attribute:

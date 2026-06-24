@@ -10,21 +10,21 @@ ticketid: 1536209
 res_type: kb
 components: ["gantt"]
 ---
-## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Gantt for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Gantt for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I want to set different colors for the Gantt tasks. I store the colors in my data source. How to apply the colors from my data source to the rendered Gantt tasks?
-
 
 ## Solution
 

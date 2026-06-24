@@ -10,23 +10,26 @@ ticketid: 1489592
 res_type: kb
 components: ["numerictextbox"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>NumericTextBox for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>NumericTextBox for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 When I try to update a value, the numeric textbox automatically transforms the value into the equivalent scientific notation, but I need to keep the decimal notation of the value.
 
 ![scientific notation after focus issue](images/numeric-small-number-scientific-notation.png)
 
 ## Steps to Reproduce
+
 Use a sufficiently small number and bind it to the Numeric Textobox, then focus it.
 
 ````RAZOR
@@ -82,6 +85,7 @@ focused:
 ````
 
 ## Solution
+
 Use a type with sufficient precision that will still be rendered by the framework in decimal notation at the desired precision levels, such as `decimal`.
 
 

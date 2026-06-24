@@ -8,6 +8,7 @@ published: True
 position: 5
 components: ["wizard"]
 ---
+
 # Wizard Buttons
 
 This article provides details on the buttons available in the Telerik Wizard.

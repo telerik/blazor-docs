@@ -8,6 +8,7 @@ published: True
 position: 0
 components: ["map"]
 ---
+
 # Map Layers
 
 The information that the Map renders is organized into layers. These layers are stacked from bottom to top in the order of definition and are oblivious to each other.

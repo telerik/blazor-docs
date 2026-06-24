@@ -8,6 +8,7 @@ published: True
 position: 10
 components: ["menu"]
 ---
+
 # Menu Templates
 
 The Menu component allows you to define a custom template for its items. This article explains how to use it.

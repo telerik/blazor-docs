@@ -10,6 +10,7 @@ ticketid: 1553006, 1660439, 1625888
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
 
 <table>
@@ -17,10 +18,9 @@ components: ["grid"]
         <tr>
             <td>Product</td>
             <td>Grid for Blazor <br/>TreeList for Blazor <br/>Scheduler for Blazor </td>
-        </tr>	
+        </tr>    
     </tbody>
 </table>
-
 
 ## Description
 
@@ -42,7 +42,6 @@ You can use:
 * [Localization](#localization) - this approach is useful if you just want to change the text of the built-in Delete Confirmation Dialog elements. It does not allow adding item details to the dialog text.
 * [Predefined Dialog Component](#predefined-dialog-component) - this option is useful if you want to just change the dialog text and include some details for the item the user tries to delete (for example, record name).
 * [Dialog Component](#dialog-component) - this solution allows you to fully customize the rendering and appearance of the dialog. You may add any desired content there, be that custom text, HTML elements or other components.
-
 
 ### Localization
 

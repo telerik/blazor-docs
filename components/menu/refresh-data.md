@@ -8,6 +8,7 @@ published: True
 position: 17
 components: ["menu"]
 ---
+
 # Menu - Refresh Data
 
 @[template](/_contentTemplates/common/observable-data.md#intro)

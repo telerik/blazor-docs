@@ -8,6 +8,7 @@ published: True
 position: 14
 components: ["rating"]
 ---
+
 # Events
 
 This article explains the events available in the Telerik Rating for Blazor:

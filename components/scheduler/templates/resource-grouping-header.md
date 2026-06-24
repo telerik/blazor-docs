@@ -8,6 +8,7 @@ published: True
 position: 13
 components: ["scheduler"]
 ---
+
 # Resource Grouping Header Templates
 
 You can use the `SchedulerResourceGroupHeaderTemplate` to customize the rendering of the Scheduler resource grouping header cells. This allows you to change the appearance of the content, add custom content or any HTML elements.

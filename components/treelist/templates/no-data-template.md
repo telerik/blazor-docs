@@ -8,6 +8,7 @@ published: True
 position: 40
 components: ["treelist"]
 ---
+
 # No Data Template
 
 The `NoDataTemplate` allows you to define custom content when the TreeList has no data to show. It lets you change the default **No records available** localizable text.

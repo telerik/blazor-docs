@@ -10,23 +10,26 @@ ticketid: 1517730
 res_type: kb
 components: ["grid"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 Is there a tooltip option to add for the expend plus button on the left of a telerik grid row?
 
 I want to add a tooltip to the hierarchy expand button for the detail template as an extra visual queue for my users.
 
 ## Solution
+
 You can use JS Interop to add title attributes on the grid elements.
 
 You can call this JS function after the grid re-renders with new data by using its [OnRead event](slug:components/grid/manual-operations).

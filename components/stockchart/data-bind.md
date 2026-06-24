@@ -8,6 +8,7 @@ published: True
 position: 1
 components: ["stockchart"]
 ---
+
 # Stock Chart Data Binding
 
 This article explains how to provide data to a Stock Chart component, the properties related to data binding and their results.

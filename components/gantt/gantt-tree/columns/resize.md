@@ -8,6 +8,7 @@ published: True
 position: 3
 components: ["gantt"]
 ---
+
 # Resize Columns
 
 The Gantt Tree features two different column resizing mechanisms:

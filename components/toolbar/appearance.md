@@ -8,6 +8,7 @@ published: True
 position: 35
 components: ["toolbar"]
 ---
+
 # Appearance Settings
 
 This article outlines the available ToolBar parameters, which control its appearance.

@@ -10,18 +10,20 @@ ticketid: 1503103
 res_type: kb
 components: ["listview"]
 ---
+
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>ListView for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>ListView for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
+
 I would like to justify the items of the ListView to the center of the content area.
 
 ## Solution

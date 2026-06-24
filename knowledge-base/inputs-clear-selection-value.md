@@ -31,11 +31,12 @@ components: ["autocomplete","combobox","datepicker","datetimepicker","dropdownli
     </tbody>
 </table>
 
-
 ## Description
+
 There is no Clear() method equivalent for combo boxes. How do I clear the selection or value of the input without changing it to the placeholder text value?
 
 ## Solution
+
 In Blazor, you clear the value of an input (such as a combobox, textbox, doropdownlist, date picker and so on) by changing its `Value` parameter to the `default` value for its type (or to a desired other value).
 
 With the MVVM patter used by the framework, you do not need methods like `Clear()` to remove selection - when the `Value` matches the default value for its type, the Telerik component will show the placeholder automatically (if one is set).
@@ -161,7 +162,6 @@ Here are a few examples in their corresponding tabs per component:
     }
 }
 ````
-
 
 ## See Also
 

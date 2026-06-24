@@ -10,6 +10,7 @@ ticketid:
 res_type: kb
 components: ["upload"]
 ---
+
 ## Environment
 
 <table>
@@ -27,7 +28,6 @@ components: ["upload"]
         </tr>
     </tbody>
 </table>
-
 
 ## Description
 
@@ -71,7 +71,6 @@ function openFileSelect() {
     }
 }
 ````
-
 
 ## Suggested Workarounds
 
