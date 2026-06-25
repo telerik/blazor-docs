@@ -17,7 +17,7 @@ The Agentic UI Generator is an intelligent development tool delivered through th
 You can get started in two ways:
 
 * Try it in the browser (no setup required)&mdash;the [Blazor REPL](https://blazorrepl.telerik.com/) includes a built-in Agentic UI Generator integration, allowing you to generate, run, and evaluate Telerik UI for Blazor components directly in the browser. To use it, describe your UI requirements using natural language in the REPL's chat interface, and iterate with follow-up prompts. Sign in and get 10 monthly requests to evaluate the Agentic UI Generator without leaving the browser.
-* Set up locally&mdash;get started in minutes—follow the [Quick Start](#quick-start) guide to configure your local environment either through the Telerik CLI or by installing the `telerik-blazor-plugin`.
+* Set up locally&mdash;get started in minutes—follow the [Quick Start](#quick-start) guide to configure your local environment either through the Telerik CLI or by installing the [telerik-blazor-plugin](https://github.com/telerik/ai-plugins). 
 
 ## Prerequisites
 
@@ -113,7 +113,7 @@ While a session is running, reload plugins after any local changes with `/reload
 
 ````SH.skip-repl
 copilot plugin marketplace add telerik/ai-plugins
-copilot plugin install telerik-blazor-plugin@ai-plugins
+copilot plugin install telerik-blazor-plugin@telerik-ai-plugins
 ````
 
 To refresh after changes, exit and reopen the session or run `/restart`.
