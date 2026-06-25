@@ -1,5 +1,5 @@
 ---
-title: Indeterminate
+title: Indeterminate State
 page_title: CheckBox - Indeterminate State
 description: Indeterminate State in the CheckBox for Blazor.
 slug: checkbox-indeterminate-state
@@ -9,165 +9,147 @@ position: 2
 components: ["checkbox"]
 ---
 
-# Indeterminate State
+# CheckBox Indeterminate State
 
-In addition to `checked` and `unchecked` basic states, the Telerik CheckBox has a third state - `Indeterminate`. This means that its state is something in between - neither checked, nor unchecked.
-The main use case is when the checkbox owns a number of sub-options and they have different states, than the main checkbox is in indeterminate state.
+In addition to the basic *checked* and *unchecked* states, the Telerik CheckBox has a third *indeterminate* state. From UX perspective, the indeterminate state means that the CheckBox is neither checked, nor unchecked.
 
-To put the checkbox in the indeterminate state, set its `Indeterminate` parameter to `true`. You can bind it to a `bool` and `bool?` types, and it also exposes the [`IndeterminateChanged` event](slug:checkbox-events#indeterminatechanged) and two-way binding.
+## Basics
 
-The `Indeterminate` parameter maps to the `indeterminate` attribute of the standard HTML `<input type="checkbox" />`.
+To put a CheckBox in the indeterminate state, set its `Indeterminate` parameter to `true`. You can use two-way binding for the parameter or the [`IndeterminateChanged` event](slug:checkbox-events#indeterminatechanged). A `Value` change by the user clears that state and the user cannot restore it on their own. A `true` indeterminate state is only set by the application logic.
 
-The Indeterminate state is something that the application logic should set to show information to the user. A user interaction with the component will clear that state and will set a `true` or `false` value to it and the `Indeterminate` parameter will be set to `false`.. 
+The `Indeterminate` parameter controls the [`indeterminate` property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/indeterminate) of the standard HTML `<input type="checkbox" />`.
 
-For example, if you bind the checkbox to a nullable field and its value is `null`, you may want to show the checkbox as indeterminate.
+You can set the `Indeterminate` parameter to `true`, no matter if:
 
->caption Basic setup - show Indeterminate checkbox when its Value is not defined (null)
+* The component `Value` type is `bool` or nullable `bool?`.
+* The current component `Value` is `true`, `false,` or `null`. Depending on the [Telerik CSS theme](slug:themes-overview) and current `Value`, the CheckBox indeterminate state may look different.
 
-````RAZOR
-@* 
-    This example shows how to make a checkbox indeterminate when its Value is unknown (e.g., null)
-    It also shows that when the user changes the state of the CheckBox, the Indeterminate status is set to false
-*@
-
-Indeterminate: @( !TheValue.HasValue )
-<br />
-
-Checked: @TheValue
-<br />
-
-<TelerikButton ThemeColor="primary" OnClick="@( _ => TheValue = null )">Make indeterminate</TelerikButton>
-<br />
-
-<TelerikCheckBox Id="DemoCheckbox" @bind-Value="@TheValue" Indeterminate="@( !TheValue.HasValue )" />
-<label for="DemoCheckbox">Checkbox</label>
-
-@code{
-    bool? TheValue { get; set; } // defaults to null so the checkbox will be indeterminate initially
-}
-````
-
->caption Observe the behavior of the Indeterminate state
+>caption Using the CheckBox Indeterminate parameter
 
 ````RAZOR
+<p>
+    <label class="k-checkbox-label">
+        <TelerikCheckBox @bind-Value="@CheckBoxValue1"
+                         @bind-Indeterminate="@CheckBoxIndeterminate1" />
+        <span>Toggle from @CheckBoxValue1 to @(!CheckBoxValue1)</span>
+    </label>
+</p>
 
-@*Observe the behavior of the Select all checkbox*@
+<p>
+    <label class="k-checkbox-label">
+        <TelerikCheckBox @bind-Value="@CheckBoxValue2"
+                         @bind-Indeterminate="@CheckBoxIndeterminate2" />
+        <span>Toggle from @CheckBoxValue2 to @(!CheckBoxValue2)</span>
+    </label>
+</p>
 
-<h3 class="text-muted">Deliveries</h3>
-
-<div>
-    <TelerikCheckBox Id="selectAllCheckbox"
-                     Value="SelectAll"
-                     ValueChanged="((bool newVal) => ChangeAllHander(newVal))"
-                     Indeterminate="SelectAllIndeterminate"></TelerikCheckBox>
-    <label for="selectAllCheckbox" class="text-muted">Select all items</label>
-</div>
-
-@foreach (var delivery in Deliveries)
-{
-    <div class="ml-2">
-        <label class="text-muted">
-            <TelerikCheckBox Value="delivery.IsDelivered"
-                             ValueChanged="((bool value) => ChangeHandler(value, delivery.ProductName))" />
-            @delivery.ProductName
-        </label>
-    </div>
-}
-
-@if (AlreadyDelivered.Any())
-{
-    <div>
-        <h6 class="text-info">Successfully delivered products:</h6>
-        <ul>
-            @{
-                foreach (var item in AlreadyDelivered)
-                {
-                    <li>
-                        @item.ProductName
-                    </li>
-                }
-            }
-        </ul>
-    </div>
-}
+<p>
+    <TelerikButton Enabled="@(!CheckBoxIndeterminate1 || !CheckBoxIndeterminate2)"
+                   OnClick="@OnButtonClick">Set Indeterminate</TelerikButton>
+</p>
 
 
 @code {
-    public bool SelectAll
-    {
-        get
-        {
-            return Deliveries.All(item => item.IsDelivered);
-        }
-    }
+    private bool CheckBoxValue1 { get; set; } = true;
+    private bool CheckBoxValue2 { get; set; } = false;
+    private bool CheckBoxIndeterminate1 { get; set; } = true;
+    private bool CheckBoxIndeterminate2 { get; set; } = true;
 
-    public bool SelectAllIndeterminate
-    {
-        get
-        {
-            return Deliveries.Any(item => item.IsDelivered) && !SelectAll;
-        }
-    }
-
-    public List<Delivery> Deliveries { get; set; }
-    public List<Delivery> AlreadyDelivered
-    {
-        get
-        {
-            return Deliveries.Where(x => x.IsDelivered == true).ToList();
-        }
-    }
-
-    void ChangeAllHander(bool newVal)
-    {
-        Deliveries.ForEach(item => item.IsDelivered = newVal);
-    }
-
-    void ChangeHandler(bool value, string productName)
-    {
-        var item = Deliveries.Where(x => x.ProductName == productName).First();
-        item.IsDelivered = value;
-    }
-
-    //In real case scenarios the model will be in a separate file.
-    public class Delivery
-    {
-        public string ProductName { get; set; }
-        public bool IsDelivered { get; set; }
-    }
-
-    //Generating dummy data
-    protected override void OnInitialized()
-    {
-        //Make your real data generation here.
-        Deliveries = new List<Delivery>();
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "PC",
-            IsDelivered = false
-        });
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "Mobile Phone",
-            IsDelivered = false
-        });
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "Headset",
-            IsDelivered = false
-        });
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "Monitor",
-            IsDelivered = false
-        });
+    private void OnButtonClick() {
+        CheckBoxIndeterminate1 = true;
+        CheckBoxIndeterminate2 = true;
     }
 }
 ````
 
->caption The result from the code snippet above
+## Examples
 
-![gif to showcase the Indeterminate state](images/checkbox-indeterminate-example.gif)
+Possible use cases for the indeterminate CheckBox state are:
+
+* A CheckBox is [bound to a nullable boolean](#null-value) property and the current `Value` is `null`.
+* [A "parent" CheckBox is related to multiple "child" CheckBoxes](#related-checkboxes) that have different values. Another example for such a x1built-in behavior is a [TreeView with CheckBoxes](https://demos.telerik.com/blazor-ui/treeview/checkboxes).
+
+### Null Value
+
+The following sample shows how to:
+
+* Set the `Indeterminate` parameter to `true` automatically when the CheckBox `Value` is `null`.
+* Use the [CheckBox `ValueChanged` event](slug:checkbox-events#valuechanged) Enable users to toggle between all three possible CheckBox values: `true`, `false`, and `null`.
+
+>caption Using CheckBox Indeterminate when the Value is null
+
+````RAZOR
+<p><label class="k-checkbox-label">
+    <TelerikCheckBox Value="@CheckBoxValue"
+                     ValueChanged="@((bool? newVal) => CheckBoxValueChanged(newVal))"
+                     Indeterminate="@(CheckBoxValue == null)" />
+    <span>Toggle between <code>null</code>, <code>true</code>, and <code>false</code></span>
+</label></p>
+
+@code {
+    private bool? CheckBoxValue { get; set; }
+
+    private void CheckBoxValueChanged(bool? newValue) {
+        CheckBoxValue = CheckBoxValue == true ? false : (CheckBoxValue == false ? null : true);
+    }
+}
+````
+
+### Related CheckBoxes
+
+The following sample shows how to set the `Indeterminate` parameter of a "parent" CheckBox, depending on the `Value` of several "child" CheckBoxes.
+
+>caption Using CheckBox Indeterminate with related CheckBoxes
+
+````RAZOR
+<ul>
+    <li>
+        <label class="k-checkbox-label">
+            <TelerikCheckBox Value="@Devices"
+                             ValueChanged="@((bool newVal) => ParentChanged(newVal))"
+                             Indeterminate="@DevicesIndeterminate" />
+            <span>Devices</span>
+        </label>
+        <ul>
+            @foreach (KeyValuePair<string, bool> device in ChildDevices) {
+                <li>
+                    <label class="k-checkbox-label">
+                        <TelerikCheckBox Value="@ChildDevices[device.Key]"
+                                         ValueChanged="@((bool newVal) => ChildChanged(device.Key, newVal))" />
+                        <span>@device.Key</span>
+                    </label>
+                </li>
+            }
+        </ul>
+    </li>
+</ul>
+
+@code {
+    private bool Devices { get; set; }
+
+    private Dictionary<string, bool> ChildDevices { get; set; } = new Dictionary<string, bool>
+    {
+        { "Laptops", false },
+        { "Tablets", false },
+        { "Phones", false }
+    };
+
+    private bool DevicesIndeterminate => !ChildDevices.Values.All(v => v) && !ChildDevices.Values.All(v => !v);
+
+    private void ParentChanged(bool newValue) {
+        Devices = newValue;
+    
+        foreach (string key in ChildDevices.Keys.ToList()) {
+            ChildDevices[key] = newValue;
+        }
+    }
+
+    private void ChildChanged(string key, bool newValue) {
+        ChildDevices[key] = newValue;
+        Devices = ChildDevices.Values.All(v => v);
+    }
+}
+````
 
 ## See Also
 
