@@ -98,7 +98,7 @@ To install the Telerik UI for Blazor AI Plugin:
 
 ````SH.skip-repl
 /plugin marketplace add telerik/ai-plugins
-/plugin install telerik-blazor-plugin@ai-plugins
+/plugin install telerik-blazor-plugin@telerik-ai-plugins
 ````
 
 While a session is running, reload plugins after any local changes with `/reload-plugins`.
