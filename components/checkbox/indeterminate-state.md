@@ -67,7 +67,7 @@ You can set the `Indeterminate` parameter to `true`, no matter if:
 Possible use cases for the indeterminate CheckBox state are:
 
 * A CheckBox is [bound to a nullable boolean](#null-value) property and the current `Value` is `null`.
-* [A "parent" CheckBox is related to multiple "child" CheckBoxes](#related-checkboxes) that have different values. Another example for such a x1built-in behavior is a [TreeView with CheckBoxes](https://demos.telerik.com/blazor-ui/treeview/checkboxes).
+* [A "parent" CheckBox is related to multiple "child" CheckBoxes](#related-checkboxes) that have different values. Another example for such a built-in behavior is a [TreeView with CheckBoxes](https://demos.telerik.com/blazor-ui/treeview/checkboxes).
 
 ### Null Value
 
