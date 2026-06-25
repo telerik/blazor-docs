@@ -11,97 +11,162 @@ components: ["checkbox"]
 
 # Events
 
-This article showcases the available events in the Telerik CheckBox component:
+This article describes the available events in the Telerik CheckBox component for Blazor.
 
-* [ValueChanged](#valuechanged)
-* [OnChange](#onchange)
 * [IndeterminateChanged](#indeterminatechanged)
 * [OnBlur](#onblur)
+* [OnChange](#onchange)
+* [ValueChanged](#valuechanged)
+
+## IndeterminateChanged
+
+The CheckBox fires its `IndeterminateChanged` event when the user clicks an [indeterminate CheckBox](slug:checkbox-indeterminate-state) and the `Indeterminate` parameter changes to `false`. From this point, only the app can restore the `Indeterminate` parameter value to `true`, which does not fire the `IndeterminateChanged` event.
+
+>caption Using the CheckBox IndeterminateChanged event
+
+````RAZOR
+<p>
+    <label class="k-checkbox-label">
+        <TelerikCheckBox @bind-Value="@CheckBoxValue"
+                        Indeterminate="@CheckBoxIndeterminate"
+                        IndeterminateChanged="@CheckBoxIndeterminateChanged" />
+        <span>Toggle CheckBox Value</span>
+    </label>
+</p>
+
+<p>Last <code>IndeterminateChanged</code> event at: @IndeterminateChangedEventLog</p>
+
+<p><TelerikButton OnClick="@(() => CheckBoxIndeterminate = true)">Set Indeterminate</TelerikButton></p>
+
+@code {
+    private bool? CheckBoxValue { get; set; }
+    private bool CheckBoxIndeterminate { get; set; } = true;
+
+    private string IndeterminateChangedEventLog { get; set; } = string.Empty;
+
+    private void CheckBoxIndeterminateChanged(bool newIndeterminate) {
+        IndeterminateChangedEventLog = DateTime.Now.ToString("HH:mm:ss");
+        CheckBoxIndeterminate = newIndeterminate;
+    }
+}
+````
+
+## OnBlur
+
+The `OnBlur` event fires when the CheckBox loses focus.
+
+>caption Using the CheckBox OnBlur event
+
+````RAZOR
+<p><label class="k-checkbox-label">
+    <TelerikCheckBox @bind-Value="@CheckBoxValue"
+                        OnBlur="@OnCheckBoxBlur" />
+    <span>Toggle CheckBox Value</span>
+</label></p>
+
+<p>Last <code>OnBlur</code> event at: @OnBlurEventLog</p>
+
+@code {
+    private bool CheckBoxValue { get; set; } = true;
+
+    private string OnBlurEventLog { get; set; } = string.Empty;
+
+    private void OnCheckBoxBlur() {
+        OnBlurEventLog = DateTime.Now.ToString("HH:mm:ss");
+    }
+}
+````
+
+## OnChange
+
+The `OnChange` event fires every time the `Value` parameter changes. The key differences with [`ValueChanged`](#valuechanged) are:
+
+* `OnChange` does not prevent two-way data binding for the `Value` parameter (`@bind-Value` syntax).
+* `ValueChanged` always fires before `OnChange`.
+* The `OnChange` event argument is an `object` that you need to cast. The `ValueChanged` event argument has the same type as `Value`.
+* The `OnChange` event argument holds the current `Value`, while `ValueChanged` holds the new value that you must apply manually.
+
+>caption Using the CheckBox OnChange event
+
+````RAZOR
+<p><label class="k-checkbox-label">
+    <TelerikCheckBox @bind-Value="@CheckBoxValue"
+                     OnChange="@OnCheckBoxChange" />
+    <span>Toggle CheckBox Value</span>
+</label></p>
+
+<p>Last <code>OnChange</code> event at: @OnChangeEventLog</p>
+
+@code {
+    private bool CheckBoxValue { get; set; } = true;
+
+    private string OnChangeEventLog { get; set; } = string.Empty;
+
+    private void OnCheckBoxChange(object currentValue) {
+        OnChangeEventLog = DateTime.Now.ToString("HH:mm:ss.fff");
+    }
+}
+````
 
 ## ValueChanged
 
-The `ValueChanged` event fires every time the `Value` parameter changes.
+The `ValueChanged` event fires every time the `Value` parameter changes. The event handler argument has the same type as the `Value` parameter. However, the handler always receives a `true` or `false` argument, even if the component is bound to a nullable boolean property. The new value depends on the old one as follows:
 
->caption Handle CheckBox ValueChanged
+| Old Value | New Value |
+| --- | --- |
+| `true` | `false` |
+| `false` | `true` |
+| `null` | `true` |
+
+Using the `ValueChanged` event requires one-way binding for the `Value` parameter and manual updating of the parameter in the handler. Compare with the [`OnChange` event](#onchange).
+
+You can use the `ValueChanged` handler to set a `null` `Value` programmatically and toggle between three possible values instead of two.
+
+>caption Using the CheckBox ValueChanged event
 
 ````RAZOR
-@* CheckBox one-way Value binding with ValueChanged *@
+<label class="k-checkbox-label">
+    <TelerikCheckBox Value="@CheckBoxValue1"
+                     ValueChanged="@((bool newVal) => CheckBoxValueChanged1(newVal))" />
+    <span>Toggle between <code>true</code> and <code>false</code> (now <strong>@ToLower(CheckBoxValue1)</strong>)</span>
+</label>
 
-<h2>Deliveries:</h2>
+<br /><br />
 
-@foreach (var delivery in Deliveries)
-{
-    <div>
-        <label>
-            <TelerikCheckBox Value="@delivery.IsDelivered"
-                             ValueChanged="@( (bool value) => OnCheckBoxValueChanged(value, delivery.ProductName) )" />
-            @delivery.ProductName
-        </label>
-    </div>
-}
+<label class="k-checkbox-label">
+    <TelerikCheckBox Value="@CheckBoxValue2"
+                     ValueChanged="@((bool? newVal) => CheckBoxValueChanged2(newVal))"
+                     Indeterminate="@(CheckBoxValue2 == null)" />
+    <span>Toggle between <code>null</code>, <code>true</code>, and <code>false</code> (now <strong>@ToLower(CheckBoxValue2)</strong>)</span>
+</label>
 
-@if (AlreadyDelivered.Any())
-{
-    <h2>Delivered products:</h2>
-    <ul>
-        @{
-            foreach (var item in AlreadyDelivered)
-            {
-                <li>
-                    @item.ProductName
-                </li>
-            }
-        }
-    </ul>
-}
+<br /><br />
+
+Last <code>ValueChanged</code> event: @((MarkupString)ValueChangedEventLog)
 
 @code {
-    private List<Delivery> Deliveries { get; set; }
+    private bool CheckBoxValue1 { get; set; } = true;
+    private bool? CheckBoxValue2 { get; set; }
 
-    private List<Delivery> AlreadyDelivered
-    {
-        get
-        {
-            return Deliveries.Where(x => x.IsDelivered == true).ToList();
-        }
+    private string ValueChangedEventLog { get; set; } = string.Empty;
+
+    private void CheckBoxValueChanged1(bool newValue) {
+        LogValueChanged(CheckBoxValue1, newValue);
+        CheckBoxValue1 = newValue;
     }
 
-    private void OnCheckBoxValueChanged(bool value, string productName)
-    {
-        var item = Deliveries.Where(x => x.ProductName == productName).First();
-
-        // update the model value because the framework does not allow two-way binding when the event is used
-        item.IsDelivered = value;
+    private void CheckBoxValueChanged2(bool? newValue) {
+        bool? finalValue = CheckBoxValue2 == true ? false : (CheckBoxValue2 == false ? null : true);
+        LogValueChanged(CheckBoxValue2, newValue, $", final <code>{ToLower(finalValue)}</code>");
+        CheckBoxValue2 = finalValue;
     }
 
-    protected override void OnInitialized()
+    private void LogValueChanged(bool? oldValue, bool? newValue, string? appendix = "")
     {
-        Deliveries = new List<Delivery>();
-
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "PC",
-            IsDelivered = false
-        });
-
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "Headset",
-            IsDelivered = false
-        });
-
-        Deliveries.Add(new Delivery()
-        {
-            ProductName = "Monitor",
-            IsDelivered = false
-        });
+        ValueChangedEventLog = $"at {DateTime.Now:HH:mm:ss}, from <code>{ToLower(oldValue)}</code> to <code>{ToLower(newValue)}</code>{appendix}";
     }
 
-    public class Delivery
-    {
-        public string ProductName { get; set; }
-        public bool IsDelivered { get; set; }
-    }
+    private string ToLower(bool? value) => value?.ToString().ToLower() ?? "null";
 }
 ````
 
@@ -109,107 +174,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
-## OnChange
-
-The `OnChange` event fires every time the `Value` parameter changes. The key difference with `ValueChanged` is that `OnChange` does not prevent two-way data binding (using the `@bind-Value` syntax).
-
->caption Handle OnChange
-
-````RAZOR
-@*This example showcases the usage of OnChange event in conjunction with two-way data binding*@
-
-<TelerikCheckBox Id="myCheckBox"
-                 @bind-Value="@isSelected"
-                 OnChange="@ChangeHandler">
-</TelerikCheckBox>
-<label for="myCheckBox">@(isSelected ? "Selected" : "Not selected")</label>
-
-<div class="text-info">
-    @Result
-</div>
-
-
-@code {
-    private bool isSelected { get; set; }
-    private string Result { get; set; } = String.Empty;
-
-    void ChangeHandler(object value)
-    {
-        Result = $"OnChange event fired with: {value}";
-    }
-}
-````
->caption The result from the code snippet above
-
-![checkbox with two-way data binding and OnChange event](images/checkbox-onchange.gif)
-
-## IndeterminateChanged
-
-The `IndeterminateChanged` event fires every time the `Indeterminate` parameter changes. The component does this when the checkbox was indeterminate and the user clicks it to toggle it to a checked/unchecked state. If you toggle the parameter value yourself, the event will not be raised.
-
->caption Handle IndeterminateChanged event
-
-````RAZOR
-@* Click the checkbox when it is indeterminate to toggle its state to see when the event fires. *@
-
-<div class="m-3">
-    Checkbox is checked: @CheckBoxValue
-    <br />
-    @result
-</div>
-<div class="mt-2">
-    <label for="theCb" class="text-muted">Indeterminate checkbox</label>
-    <TelerikCheckBox @bind-Value="@CheckBoxValue" Id="theCb"
-                     Indeterminate="@Indeterminate"
-                     IndeterminateChanged="((bool val) => ChangeHandler(val))">
-    </TelerikCheckBox>
-</div>
-<TelerikButton ThemeColor="primary" OnClick="@(() => Indeterminate = !Indeterminate)"> Toggle Indeterminate </TelerikButton>
-
-@code{
-    bool Indeterminate { get; set; } = true;
-    bool CheckBoxValue { get; set; }
-
-    string result { get; set; }
-
-    void ChangeHandler(bool value)
-    {
-        // make sure to set the model value, two-way binding does not update it automatically
-        Indeterminate = value;
-
-        result = $"Indeterminate state changed to {value} on <strong>{DateTime.Now}</strong>";
-    }
-}
-````
-
-
-
-## OnBlur
-
-The `OnBlur` event fires when the component loses focus.
-
->caption Handle the OnBlur event
-
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-<TelerikCheckBox @bind-Value="@TheValue"
-                 OnBlur="@OnBlurHandler">
-</TelerikCheckBox>
-
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
-    }
-
-    bool TheValue { get; set; }
-}
-````
-
-
 ## See Also
 
 * [ValueChanged and Validation](slug:value-changed-validation-model)
-* [Fire OnChange Only Once](slug:ddl-kb-onchange-fires-twice)
 
