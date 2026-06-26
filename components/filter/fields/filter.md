@@ -15,20 +15,9 @@ The Filter can show a search box in the field selection dropdown. This behavior 
 
 To enable this feature, set `FilterableFields` to `true`.
 
-## Filterable Fields Parameters
-
-The following `TelerikFilter` parameters control filtering in the field selection dropdown:
-
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `FilterableFields` | `bool` | `false` | Enables the filter input in the field selection dropdown. |
-| `FilterableFieldsOperator` | `StringFilterOperator` | `StartsWith` | Defines how the component matches user input against field labels. Use `StartsWith`, `Contains`, or `EndsWith`. |
-| `FilterableFieldsPlaceholder` | `string` | `null` | Sets placeholder text in the filter input. |
-| `FilterableFieldsDebounceDelay` | `int` | `150` | Sets debounce delay in milliseconds before filtering runs. |
-
 ## Behavior
 
-The Filter applies these parameters only to the field selection dropdown in each expression row. The operator dropdown does not use these settings.
+The Filter applies the filtering settings from the example only to the field selection dropdown in each expression row. The operator dropdown does not use these settings.
 
 All four parameters are reactive. If you update them at runtime, the component applies the new values immediately.
 
