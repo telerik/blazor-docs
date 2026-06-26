@@ -15,11 +15,11 @@ The Filter can show a search box in the field selection dropdown. This behavior 
 
 To enable this feature, set `FilterableFields` to `true`.
 
-## Behavior
+## Filtering Behavior
 
 The Filter applies the filtering settings from the example only to the field selection dropdown in each expression row. The operator dropdown does not use these settings.
 
-All four parameters are reactive. If you update them at runtime, the component applies the new values immediately.
+The fields filtering parameters are reactive. If you update them at runtime, the component applies the new values immediately.
 
 ## Example
 
