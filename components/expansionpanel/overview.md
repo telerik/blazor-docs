@@ -28,8 +28,7 @@ The ExpansionPanel and [PanelBar](slug:panelbar-overview) are similar and interc
 1. (optional) If you need to programmatically expand or collapse the ExpansionPanel, use the [component methods](#expansionpanel-api). Updating the `Expanded` parameter also works, but without animations.
 
 ````RAZOR
-<TelerikExpansionPanel @ref="ExpansionPanelRef"
-                       @bind-Expanded="@ExpansionPanelExpanded"
+<TelerikExpansionPanel @bind-Expanded="@ExpansionPanelExpanded"
                        SubTitle="Sub Title"
                        Title="Expansion Panel Title">
     <Content>
