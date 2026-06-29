@@ -11,7 +11,10 @@ position: 0
 
 # Blazor ExpansionPanel Overview
 
-The [Telerik ExpansionPanel component for Blazor](https://www.telerik.com/blazor-ui/expansionpanel)
+The [Telerik ExpansionPanel component for Blazor](https://www.telerik.com/blazor-ui/expansionpanel) facilitates the display of content in expandable containers that users can expand or collapse to show or hide information, options, or additional details. The component consists of:
+
+* A header that includes a title, a subtitle, and an indicator icon that shows the state of the panel.
+* A content area that shows and hides with an animation.
 
 ## Comparison with PanelBar
 
@@ -26,6 +29,8 @@ The ExpansionPanel and [PanelBar](slug:panelbar-overview) are similar and interc
 1. Set the `Title` parameter.
 1. (optional) Set the `SubTitle` parameter to a label that will appear next to the expand/collapse arrow.
 1. (optional) If you need to programmatically expand or collapse the ExpansionPanel, use the [component methods](#expansionpanel-api). Updating the `Expanded` parameter also works, but without animations.
+
+>caption Basic Blazor ExpasionPanel
 
 ````RAZOR
 <TelerikExpansionPanel @bind-Expanded="@ExpansionPanelExpanded"
@@ -44,6 +49,8 @@ The ExpansionPanel and [PanelBar](slug:panelbar-overview) are similar and interc
 ## Icons
 
 The ExpansionPanel uses [`ChevronDown` and `ChevronUp` icons](slug:common-features-icons) in the header to communicate its current state and hint the users that they can expand and collapse the component. You can customize the icons with the ExpansionPanel `CollapseIcon` and `ExpandIcon` parameters.
+
+>caption Using custom ExpasionPanel icons
 
 ````RAZOR
 <TelerikExpansionPanel CollapseIcon="@SvgIcon.ArrowUp"
@@ -64,8 +71,22 @@ The ExpansionPanel uses [`ChevronDown` and `ChevronUp` icons](slug:common-featur
 
 The ExpansionPanel provides two parameters that affect the users' ability to interact with the component:
 
-* `Toggleable`&mdash;If set to `false`, users are not be able to expand and collapse the component. Only the app can do that through the [component methods](#expansionpanel-api).
+* `Toggleable`&mdash;If set to `false`, users are not be able to expand and collapse the component. The app can always toggle the ExpansionPanel through the [component methods](#expansionpanel-api).
 * `Enabled`&mdash;Similar to `Toggleable`, but when `false`, the component applies additional styling to hint users that it's disabled.
+
+Both parameters depend on the component configuration. Users have no built-in way to control them, unless the app provides a custom UI.
+
+>caption Using the ExpansionPanel Enabled and Toggleable parameters
+
+````RAZOR.skip-repl
+<TelerikExpansionPanel Enabled="@ExpansionPanelEnabled"
+                       Toggleable="@ExpansionPanelToggleable" />
+
+@code {
+    private bool ExpansionPanelEnabled { get; set; } = true;
+    private bool ExpansionPanelToggleable { get; set; } = true;
+}
+````
 
 ## Templates
 
@@ -88,7 +109,7 @@ The ExpansionPanel methods `ExpandAsync`, `CollapseAsync`, and `ToggleAsync` pro
 
 >caption Using ExpansionPanel methods
 
-````RAZOR.skip-repl
+````RAZOR
 <TelerikButton OnClick="@OnExpandButtonClick">Expand</TelerikButton>
 <TelerikButton OnClick="@OnCollapseButtonClick">Collapse</TelerikButton>
 <TelerikButton OnClick="@OnToggleButtonClick">Toggle</TelerikButton>
@@ -126,9 +147,11 @@ The ExpansionPanel methods `ExpandAsync`, `CollapseAsync`, and `ToggleAsync` pro
 
 ## Next Steps
 
+* [Use ExpansionPanel Templates](slug:expansionpanel-templates)
 * [Handle ExpansionPanel Events](slug:expansionpanel-events)
 
 ## See Also
 
 * [ExpansionPanel Live Demos](https://demos.telerik.com/blazor-ui/expansionpanel/overview)
 * [ExpansionPanel API Reference](slug:Telerik.Blazor.Components.TelerikExpansionPanel)
+* [Hide empty space between expanded adjacent ExpansionPanels](slug:expansionpanel-kb-remove-empty-space)

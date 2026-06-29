@@ -13,24 +13,24 @@ position: 10
 
 The Telerik ExpansionPanel component for Blazor exposes templates for more flexible content customization. This article lists the available templates and describes how to use them.
 
-* [`HeaderTemplate`](#cardbodytemplate)
-* [`SubHeaderTemplate`](#cardtemplate)
+* [`TitleTemplate`](#cardbodytemplate)
+* [`SubTitleTemplate`](#cardtemplate)
 
 When using ExpansionPanel templates, wrap the component content in a `<Content>` child tag. Othewise, the `<Content>` tag is optional and you can insert the ExpansionPanel content directly between the opening and closing `TelerikExpansionPanel` tags.
 
-## HeaderTemplate
+## TitleTemplate
 
-The ExpansionPanel `HeaderTemplate` renders at the place of the plain-text title.
+The ExpansionPanel `TitleTemplate` renders at the place of the plain-text title.
 
-Do not use `Title` and `HeaderTemplate` at the same time. If the app defines both, the ExpansionPanel will use the `HeaderTemplate`.
+Do not use `Title` and `TitleTemplate` at the same time. If the app defines both, the ExpansionPanel will use the `TitleTemplate`.
 
->caption Using ExpansionPanel Header
+>caption Using ExpansionPanel TitleTemplate
 
 ````RAZOR.skip-repl
 <TelerikExpansionPanel>
-    <HeaderTemplate>
-        Expansion Panel Header Template
-    </HeaderTemplate>
+    <TitleTemplate>
+        Expansion Panel Title Template
+    </TitleTemplate>
     <Content>
         Expansion Panel Content
     </Content>
@@ -39,19 +39,19 @@ Do not use `Title` and `HeaderTemplate` at the same time. If the app defines bot
 
 Also see the [runnable example below](#example).
 
-## SubHeaderTemplate
+## SubTitleTemplate
 
-The ExpansionPanel `SubHeaderTemplate` renders at the place of the plain-text sub-title.
+The ExpansionPanel `SubTitleTemplate` renders at the place of the plain-text sub-title.
 
-Do not use `SubTitle` and `SubHeaderTemplate` at the same time. If the app defines both, the ExpansionPanel will use the `SubHeaderTemplate`.
+Do not use `SubTitle` and `SubTitleTemplate` at the same time. If the app defines both, the ExpansionPanel will use the `SubTitleTemplate`.
 
->caption Using ExpansionPanel Header
+>caption Using ExpansionPanel SubTitleTemplate
 
 ````RAZOR.skip-repl
 <TelerikExpansionPanel>
-    <SubHeaderTemplate>
-        Expansion Panel SubHeader Template
-    </SubHeaderTemplate>
+    <SubTitleTemplate>
+        Expansion Panel SubTitle Template
+    </SubTitleTemplate>
     <Content>
         Expansion Panel Content
     </Content>
@@ -64,13 +64,13 @@ Do not use `SubTitle` and `SubHeaderTemplate` at the same time. If the app defin
 
 ````RAZOR
 <TelerikExpansionPanel Expanded="@ExpansionPanelExpanded">
-    <HeaderTemplate>
+    <TitleTemplate>
         <TelerikSvgIcon Icon="@SvgIcon.Info" />
-        <span style="color: var(--kendo-color-primary)"><strong>Header</strong> Template</span>
-    </HeaderTemplate>
-    <SubHeaderTemplate>
-        <strong>Sub Header</strong> Template
-    </SubHeaderTemplate>
+        <span style="color: var(--kendo-color-primary)"><strong>Title</strong> Template</span>
+    </TitleTemplate>
+    <SubTitleTemplate>
+        <strong>Sub Title</strong> Template
+    </SubTitleTemplate>
     <Content>
         Expansion Panel Content
     </Content>
