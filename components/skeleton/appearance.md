@@ -9,76 +9,74 @@ position: 5
 components: ["skeleton"]
 ---
 
-# Appearance Settings
+# Skeleton Appearance
 
-This article explains how to control the visual appearance of the Skeleton component.
+This article explains how to control the visual appearance of the Telerik Skeleton component for Blazor.
 
-The Skeleton component provides multiple parameters that control its appearance:
-
-* [ShapeType](#shapetype)
 * [AnimationType](#animationtype)
+* [ShapeType](#shapetype)
 
+## AnimationType
 
-## ShapeType
+The Skeleton `AnimationType` parameter controls the animation of the Skeleton. Set a predefined option that is a member of the [`SkeletonAnimationType` enum](slug:Telerik.Blazor.SkeletonAnimationType). The default value is `Pulse`.
 
-The `ShapeType` parameter sets the shape of the Skeleton. It takes a member of the `SkeletonShapeType` enum:
-
-* `Text` (default)
-* `Rectangle`
-* `Circle`
-
->caption Change the ShapeType
+>caption Using Skeleton animations
 
 ````RAZOR
-@*This example shows the difference between the shapes of the Skeleton*@
-
-<div class="row">
-    <div class="col-4" style="position: relative;">
-        <TelerikSkeleton ShapeType="@SkeletonShapeType.Circle"
-                         Width="50px" Height="50px" Visible="true">
-        </TelerikSkeleton>
+<div style="display: flex; gap: 2em;">
+    <div style="flex: 1">
+        Pulse Animation (default)
+        <TelerikSkeleton AnimationType="@SkeletonAnimationType.Pulse"
+                         Height="40px"
+                         ShapeType="@SkeletonShapeType.Rectangle" />
     </div>
-    <div class="col-4" style="position: relative;">
-        <TelerikSkeleton ShapeType="@SkeletonShapeType.Rectangle"
-                         Width="50px" Height="50px" Visible="true">
-        </TelerikSkeleton>
+    <div style="flex: 1">
+        Wave Animation
+        <TelerikSkeleton AnimationType="@SkeletonAnimationType.Wave"
+                         Height="40px"
+                         ShapeType="@SkeletonShapeType.Rectangle" />
     </div>
-    <div class="col-4" style="position: relative;">
-        <TelerikSkeleton ShapeType="@SkeletonShapeType.Text"
-                         Width="50px" Height="50px" Visible="true">
-        </TelerikSkeleton>
+    <div style="flex: 1">
+        No Animation
+        <TelerikSkeleton AnimationType="@SkeletonAnimationType.None"
+                         Height="40px"
+                         ShapeType="@SkeletonShapeType.Rectangle" />
     </div>
 </div>
 ````
 
-## AnimationType
+## ShapeType
 
-The `AnimationType` parameter controls the type of animation for the Skeleton. There are three predefined options, which are members of the `SkeletonAnimationType` enum:
+The Skeleton `ShapeType` parameter sets the form of the Skeleton. It takes a member of the [`SkeletonShapeType` enum](slug:Telerik.Blazor.SkeletonShapeType) and the default value is `Text`.
 
-* `None`
-* `Pulse` (default)
-* `Wave`
+The differences between `Rectangle` and `Text` are:
 
->caption The animations for the Skeleton
+* The Text shape has rounded corners.
+* The effective Text shape height is 60% of the set `Height`. In this way, you can display multiple Text Skeletons one below the other with empty space in-between.
+
+>caption Using Skeleton shapes
 
 ````RAZOR
-@* The different animations for the Skeleton. *@
+<div style="display: flex; gap: 2em;">
+    <div style="flex: 1">
+        Circle (default)
 
-<div class="row">
-    <div class="col-4" style="position:relative;">
-        <TelerikSkeleton AnimationType="@SkeletonAnimationType.None"
-                         Width="50px" Height="50px" Visible="true">
-        </TelerikSkeleton>
+        <TelerikSkeleton Height="64px"
+                        ShapeType="@SkeletonShapeType.Circle"
+                        Width="64px" />
     </div>
-    <div class="col-4" style="position:relative;">
-        <TelerikSkeleton AnimationType="@SkeletonAnimationType.Pulse"
-                         Width="50px" Height="50px" Visible="true">
-        </TelerikSkeleton>
+    <div style="flex: 1">
+        Rectangle
+
+        <TelerikSkeleton Height="64px"
+                        ShapeType="@SkeletonShapeType.Rectangle" />
     </div>
-    <div class="col-4" style="position:relative;">
-        <TelerikSkeleton AnimationType="@SkeletonAnimationType.Wave"
-                         Width="50px" Height="50px" Visible="true">
-        </TelerikSkeleton>
+    <div style="flex: 1">
+        Text (default)
+
+        <TelerikSkeleton Height="24px" />
+        <TelerikSkeleton Height="24px" />
+        <TelerikSkeleton Height="24px" />
     </div>
 </div>
 ````
