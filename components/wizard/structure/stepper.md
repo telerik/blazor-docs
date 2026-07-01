@@ -345,7 +345,7 @@ Hidden steps do not render in the Stepper, the pager, or the content area. The N
 
 The Wizard `Value` always refers to the full zero-based step index, including hidden steps. If you hide the current step, update `Value` to another visible step. Otherwise, the Wizard will not display step content until the user selects a visible step.
 
->caption Toggle the visibility of a Wizard step.
+>caption Toggle the visibility of a Wizard step
 
 ````RAZOR
 <TelerikButton OnClick="@ToggleVisibility">Toggle Visibility of the Preview Step</TelerikButton>
