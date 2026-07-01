@@ -26,6 +26,7 @@ You can use the parameters the `WizardStep` exposes to customize the following p
     * [Optional](#optional)
     * [Disabled](#disabled)
     * [Valid](#valid)
+    * [Visible](#visible)
 
 
 ## General Stepper Settings
@@ -332,6 +333,63 @@ You can toggle the `Valid` parameter value based on your application logic to ac
         {
             args.IsCancelled = true;
         }
+    }
+}
+````
+
+### Visible
+
+You can hide a Wizard step from the Stepper and the pager through the `Visible` parameter of the `WizardStep`. It accepts a `bool` and its default value is `true`.
+
+Hidden steps do not render in the Stepper, the pager, or the content area. The Next and Previous buttons, keyboard navigation, and step clicks skip hidden steps.
+
+The Wizard `Value` always refers to the full zero-based step index, including hidden steps. If you hide the current step, update `Value` to another visible step. Otherwise, the Wizard will not display step content until the user selects a visible step.
+
+>caption Toggle the visibility of a Wizard step.
+
+````RAZOR
+<TelerikButton OnClick="@ToggleVisibility">Toggle Visibility of the Preview Step</TelerikButton>
+
+<div style="text-align:center">
+    <TelerikWizard @bind-Value="@WizardValue" Width="600px" Height="300px">
+        <WizardSteps>
+            <WizardStep Label="Cart" Icon="@("cart")">
+                <Content>
+                    <h2>Content for Wizard Step 1</h2>
+                </Content>
+            </WizardStep>
+            <WizardStep Label="Delivery address" Icon="SvgIcon.Pin">
+                <Content>
+                    <h2>Content for Wizard Step 2</h2>
+                </Content>
+            </WizardStep>
+            <WizardStep Visible="@IsVisible" Label="Preview" Icon="@("eye")">
+                <Content>
+                    <h2>Content for Wizard Step 3</h2>
+                </Content>
+            </WizardStep>
+            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
+                <Content>
+                    <h2>Content for Wizard Step 4</h2>
+                </Content>
+            </WizardStep>
+        </WizardSteps>
+    </TelerikWizard>
+</div>
+
+@code {
+    private bool IsVisible { get; set; } = true;
+
+    private int WizardValue { get; set; }
+
+    private void ToggleVisibility()
+    {
+        if (IsVisible && WizardValue == 2)
+        {
+            WizardValue = 1;
+        }
+
+        IsVisible = !IsVisible;
     }
 }
 ````
