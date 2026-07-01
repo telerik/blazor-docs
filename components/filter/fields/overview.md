@@ -6,6 +6,7 @@ slug: filter-fields
 tags: telerik,blazor,filter,fields
 published: True
 position: 0
+previous_url: /components/filter/fields/operators
 components: ["filter"]
 ---
 
