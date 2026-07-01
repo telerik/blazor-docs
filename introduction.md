@@ -166,6 +166,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Carousel" href="slug:carousel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Dialog" href="slug:dialog-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Dock Manager" href="slug:dockmanager-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Expansion Panel" href="slug:expansionpanel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Form" href="slug:form-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Grid Layout" href="slug:gridlayout-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Media Query" href="slug:mediaquery-overview"></IntroTableAnchor>
@@ -177,7 +178,6 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
     <IntroTableSection title="Interactivity and UX">
       <IntroTableAnchor title="AIPrompt" href="slug:aiprompt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Chat" href="slug:chat-overview"></IntroTableAnchor>
-      <IntroTableAnchor title="ExpansionPanel" href="slug:expansionpanel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Loader" href="slug:loader-overview"></IntroTableAnchor>
       <IntroTableAnchor title="LoaderContainer" href="slug:loadercontainer-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Skeleton" href="slug:skeleton-overview"></IntroTableAnchor>
