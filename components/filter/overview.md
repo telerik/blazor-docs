@@ -13,7 +13,7 @@ components: ["filter"]
 
 The <a href="https://www.telerik.com/blazor-ui/filter" target="_blank">Blazor Filter component</a> serves as a complementary addition to data-bound components that do not have built-in filtering.
 
-The component gives a unified way to build filter descriptors using its [fields](slug:filter-fields). You can also define different [operators](slug:filter-operators) and use these filter descriptors to filter data.
+The component gives a unified way to build filter descriptors using its [fields](slug:filter-fields). You can also define different field operators and use these filter descriptors to filter data.
 
 ## Creating Blazor Filter
 
