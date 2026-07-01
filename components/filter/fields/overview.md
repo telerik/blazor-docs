@@ -12,19 +12,44 @@ components: ["filter"]
 # Filter Fields
 You can define different field settings, such as field names, labels, available operators, and field selection filtering.
 
+A filter field maps a Filter expression row to a model member. Define a `<FilterField>` for each data field that users can filter. Set `Name` to the model member and `Type` to its .NET type. Use `Label` to show custom text in the field selector.
+
+>caption Define Filter fields
+
+````RAZOR
+@using Telerik.DataSource
+
+<TelerikFilter Value="@FilterValue">
+    <FilterFields>
+        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
+        <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="Name"></FilterField>
+        <FilterField Name="@(nameof(Person.HireDate))" Type="@(typeof(DateTime))" Label="Hire Date"></FilterField>
+    </FilterFields>
+</TelerikFilter>
+
+@code {
+    private CompositeFilterDescriptor FilterValue { get; set; } = new();
+
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+
+        public string Name { get; set; }
+
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
 ## Operators
 
 The Filter provides options for defining which filter operators are available in the operators dropdown.
 
 The `Operators` parameter takes a collection of `FilterListOperator`. You can list the desired operators and customize their text.
 
-### Supported Field Operators
-
 [Read about the supported Filter field operators...](slug:common-features-filter-operators)
 
-To configure field operators:
-
-1. Provide a list of `<FilterListOperator>` for each field.
+To configure field operators, provide a list of `<FilterListOperator>` for each field.
 
 >caption Configure Filter field operators
 
@@ -41,22 +66,22 @@ To configure field operators:
 </TelerikFilter>
 
 @code {
-    public CompositeFilterDescriptor Value { get; set; } = new CompositeFilterDescriptor();
+    private CompositeFilterDescriptor Value { get; set; } = new CompositeFilterDescriptor();
 
-    public List<FilterListOperator> TextOperators = new List<FilterListOperator>
+    private List<FilterListOperator> TextOperators = new List<FilterListOperator>
     {
         new FilterListOperator { Operator = FilterOperator.StartsWith, Text = "custom starts with" },
         new FilterListOperator { Operator = FilterOperator.EndsWith, Text = "custom ends with" },
     };
 
-    public List<FilterListOperator> NumericOperators = new List<FilterListOperator>
+    private List<FilterListOperator> NumericOperators = new List<FilterListOperator>
     {
         new FilterListOperator { Operator = FilterOperator.IsEqualTo, Text = "custom equal to" },
         new FilterListOperator { Operator = FilterOperator.IsLessThan, Text = "custom less than" },
         new FilterListOperator { Operator = FilterOperator.IsGreaterThan, Text = "custom greater than" },
     };
 
-    public List<FilterListOperator> BooleanOperators = new List<FilterListOperator>
+    private List<FilterListOperator> BooleanOperators = new List<FilterListOperator>
     {
         new FilterListOperator { Operator = FilterOperator.IsEqualTo, Text = "custom equal to" }
     };
@@ -81,8 +106,6 @@ To configure field operators:
 The Filter can show a search box in the field selection dropdown. This behavior helps users find a field faster when the Filter contains many configured fields.
 
 To enable this feature, set `FilterableFields` to `true`.
-
-### Filtering Behavior
 
 The Filter applies the field filtering settings only to the field selection dropdown in each expression row. The operator dropdown does not use these settings.
 
