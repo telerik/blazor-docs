@@ -1,5 +1,5 @@
 ---
-title: Importing an Excel Files in the Grid
+title: Importing an Excel File in the Grid
 description: Learn how to enable the Excel import functionality in the Telerik UI for Blazor Data Grid component by using the Telerik Document Processing Library.
 type: how-to
 page_title: Enabling Excel Import in Grid with Telerik DPL
@@ -111,4 +111,4 @@ To import the data of an Excel file in the Grid:
 
 ## See Also
 
-  * [Configuring Document Processing Libraries](slug:getting-started-vs-integration-dpl)
+* [Configuring Document Processing Libraries](slug:getting-started-vs-integration-dpl)
