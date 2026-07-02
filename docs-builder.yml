@@ -24,7 +24,7 @@ search-provider: nuclia
 
 demos:
   metaFileName: demo.json
-  defaultTheme: default-ocean-blue-a11y
+  defaultTheme: meridian-main
   uris:
       www.telerik.com: https://demos.telerik.com/blazor-examples/
       www.telerik.com/blazor-ui/documentation/: https://demos.telerik.com/blazor-examples/
@@ -34,6 +34,16 @@ demos:
       wwwsit.telerik.com/blazor-ui/documentation/: https://blazor-examples-test-hwhpazgrf0b7gfh9.eastus-01.azurewebsites.net/blazor-examples/
       default: https://localhost:63216/blazor-examples/
   themes:
+      meridian-main:
+          name: Main
+          group: Meridian
+          colors: ['#ffffff', '#5558e8', '#334155']
+      meridian-main-dark:
+          name: Main Dark
+          group: Meridian
+          tags: [dark]
+          colors: ['#060813', '#5558e8', '#cbd5e1']
+
       default-main:
           name: Main
           group: Default
