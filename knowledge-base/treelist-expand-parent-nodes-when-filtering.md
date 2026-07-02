@@ -15,7 +15,7 @@ components: ["treelist"]
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Grid for Blazor</td>
+            <td>TreeList for Blazor</td>
         </tr>
     </tbody>
 </table>
