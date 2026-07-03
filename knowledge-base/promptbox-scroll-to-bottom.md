@@ -2,7 +2,7 @@
 title: How to Automatically Scroll to Bottom
 description: Learn how to implement automatic scroll to bottom, after the user submits a message, or a responce is received.
 type: how-to
-page_title: How to Implement Automatic Scroll to Bottom in the Telerik UI for Blazor PromptBox
+page_title: How to Implement Automatic Scroll to Bottom when using the Telerik UI for Blazor PromptBox and a Messages Container
 slug: promptbox-kb-scroll-to-bottom
 tags: blazor, popover, scroll, bottom
 ticketid: 1714794
@@ -33,11 +33,28 @@ This KB shows how to implement automatic scroll to bottom in the PromptBox, afte
     ````
 
 2. Use JS interop to invoke a JavaScript function that sets the scroll position of the messages container.
-3. Handle the `OnPromptAction` event of the PromptBox and invoke the JavaScript function after `StateHasChanged()` and a small delay:
     ````RAZOR.skip-repl
-    StateHasChanged();
-    await Task.Delay(50);
     await JS.InvokeVoidAsync("scrollToBottom", "message-list");
+    ````
+
+3. Use a flag to schedule scrolling after each render. In `ScrollAsync`, set the flag and call `StateHasChanged()`. In `OnAfterRenderAsync`, check the flag, reset it, and invoke the JavaScript function:
+    ````RAZOR.skip-repl
+    private bool ShouldScroll;
+
+    private void ScrollAsync()
+    {
+        ShouldScroll = true;
+        StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (ShouldScroll)
+        {
+            ShouldScroll = false;
+            await JS.InvokeVoidAsync("scrollToBottom", "message-list");
+        }
+    }
     ````
 
 >caption Scroll to bottom in the PromptBox
@@ -88,6 +105,7 @@ This KB shows how to implement automatic scroll to bottom in the PromptBox, afte
 @code {
     private string Prompt = string.Empty;
     private bool IsLoading { get; set; }
+    private bool ShouldScroll;
 
     private List<ChatMessage> Messages { get; set; } = new()
     {
@@ -109,8 +127,6 @@ This KB shows how to implement automatic scroll to bottom in the PromptBox, afte
         "I recommend checking the Telerik demos at demos.telerik.com/blazor-ui for live examples."
     };
 
-    private static readonly Random Rng = new();
-
     private async Task OnActionButtonClick(PromptBoxActionButtonEventArgs args)
     {
         if (args.Action == PromptBoxActionType.Stop)
@@ -125,22 +141,30 @@ This KB shows how to implement automatic scroll to bottom in the PromptBox, afte
             Prompt = string.Empty;
             IsLoading = true;
 
-            await ScrollAsync();
+            ScrollAsync();
 
-            await Task.Delay(Rng.Next(800, 1800));
+            await Task.Delay(Random.Shared.Next(800, 1800));
 
-            Messages.Add(new ChatMessage(false, SimulatedReplies[Rng.Next(SimulatedReplies.Length)]));
+            Messages.Add(new ChatMessage(false, SimulatedReplies[Random.Shared.Next(SimulatedReplies.Length)]));
             IsLoading = false;
 
-            await ScrollAsync();
+            ScrollAsync();
         }
     }
 
-    private async Task ScrollAsync()
+    private void ScrollAsync()
     {
+        ShouldScroll = true;
         StateHasChanged();
-        await Task.Delay(50);
-        await JS.InvokeVoidAsync("scrollToBottom", "message-list");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (ShouldScroll)
+        {
+            ShouldScroll = false;
+            await JS.InvokeVoidAsync("scrollToBottom", "message-list");
+        }
     }
 
     private record ChatMessage(bool IsUser, string Text);
