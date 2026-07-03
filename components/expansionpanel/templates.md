@@ -63,9 +63,9 @@ Do not use `SubTitle` and `SubTitleTemplate` at the same time. If the app define
 >caption Using ExpansionPanel templates
 
 ````RAZOR
-<TelerikExpansionPanel Expanded="@ExpansionPanelExpanded">
+<TelerikExpansionPanel @bind-Expanded="@ExpansionPanelExpanded">
     <TitleTemplate>
-        <TelerikSvgIcon Icon="@SvgIcon.Info" />
+        <TelerikSvgIcon Icon="@SvgIcon.InfoCircle" />
         <span style="color: var(--kendo-color-primary)"><strong>Title</strong> Template</span>
     </TitleTemplate>
     <SubTitleTemplate>
@@ -77,7 +77,7 @@ Do not use `SubTitle` and `SubTitleTemplate` at the same time. If the app define
 </TelerikExpansionPanel>
 
 @code {
-    private bool ExpansionPanelExpanded { get; set; }
+    private bool ExpansionPanelExpanded { get; set; } = true;
 }
 ````
 
