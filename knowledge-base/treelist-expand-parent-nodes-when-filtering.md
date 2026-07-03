@@ -3,7 +3,7 @@ title: How to Expand Parent Nodes to Show Filtered Children
 description: Learn how to expand TreeList parent nodes after filtering, to display the filtered child nodes.
 type: how-to
 slug: treelist-kb-expand-parent-nodes-filtering
-tags: telerik, blazor, treelist, filter, expand, parent, child, children
+tags: telerik, blazor, treelist, filter, expand
 ticketid: 1715942
 res_type: kb
 components: ["treelist"]
@@ -26,14 +26,16 @@ This KB shows how to expand parent nodes in the TreeList, to display their child
 
 ## Solution
 
-1. Implement a `FilterCellTemplate` and add a TextBox component to it. 
-2. Handle the `ValueChanged` event of the TextBox and implement logic that walks the full tree, finds matches, and collects their ancestors.
+1. Implement a [FilterCellTemplate](slug:treelist-templates-filter#filter-row-template) and add a TextBox component to it. 
+2. Handle the [ValueChanged](slug:components/textbox/events#valuechanged) event of the TextBox and implement logic that walks the full tree, finds matches, and collects their ancestors.
 3. Set `state.ExpandedItems` to the list of ancestors, and call `SetStateAsync()`.
 4. Use the `OnStateChanged` event to detect when the user expands/collapses a parent node, so that you can restore the parent's state after the filter is cleared. 
 
 >caption Expand parent nodes after filtering their children
 
 ````RAZOR
+@using Telerik.DataSource
+
 <TelerikTreeList @ref="TreeListRef"
                  Data="@Locations"
                  ItemsField="@nameof(Location.Children)"
@@ -42,11 +44,11 @@ This KB shows how to expand parent nodes in the TreeList, to display their child
     <TreeListColumns>
         <TreeListColumn Field="@nameof(Location.Name)" Title="Name" Expandable="true" Width="300px">
             <FilterCellTemplate Context="filterCtx">
-                <TelerikTextBox Value="@filterText"
+                <TelerikTextBox Value="@FilterText"
                                ValueChanged="@((string v) => OnFilterChanged(v, filterCtx))"
                                AutoComplete="off"
                                Placeholder="Search…" />
-                @if (!string.IsNullOrEmpty(filterText))
+                @if (!string.IsNullOrEmpty(FilterText))
                 {
                     <TelerikButton Icon="@FontIcon.FilterClear" OnClick="@(() => OnFilterChanged(string.Empty, filterCtx))" />
                 }
@@ -57,10 +59,10 @@ This KB shows how to expand parent nodes in the TreeList, to display their child
 </TelerikTreeList>
 
 @code {
-    private TelerikTreeList<Location> TreeListRef = null!;
-    private string filterText = string.Empty;
+    private TelerikTreeList<Location> TreeListRef;
+    private string FilterText { get; set; } = string.Empty;
     // Tracks which items the user manually expanded, so that they can keep their state after clearing the filter.
-    private HashSet<Location> userExpandedItems = new();
+    private HashSet<Location> UserExpandedItems = new();
     private List<Location> Locations { get; set; } = new();
 
     protected override void OnInitialized()
@@ -117,7 +119,7 @@ This KB shows how to expand parent nodes in the TreeList, to display their child
 
     private async Task OnFilterChanged(string newValue, FilterCellTemplateContext filterCtx)
     {
-        filterText = newValue;
+        FilterText = newValue;
 
         // Push the value into the TreeList's built-in filter pipeline.
         var descriptor = filterCtx.FilterDescriptor.FilterDescriptors
@@ -137,7 +139,7 @@ This KB shows how to expand parent nodes in the TreeList, to display their child
         if (string.IsNullOrEmpty(newValue))
         {
             // Restore user's manual expansion when the filter is cleared.
-            state.ExpandedItems = userExpandedItems.ToList();
+            state.ExpandedItems = UserExpandedItems.ToList();
         }
         else
         {
@@ -153,11 +155,11 @@ This KB shows how to expand parent nodes in the TreeList, to display their child
 
     private void OnStateChanged(TreeListStateEventArgs<Location> args)
     {
-        // Keep `userExpandedItems` in sync with manual expand/collapse,
+        // Keep `UserExpandedItems` in sync with manual expand/collapse,
         // but only when no filter is active (during filtering, expansion is driven by us).
-        if (string.IsNullOrEmpty(filterText))
+        if (string.IsNullOrEmpty(FilterText))
         {
-            userExpandedItems = args.TreeListState.ExpandedItems?.ToHashSet() ?? new();
+            UserExpandedItems = args.TreeListState.ExpandedItems?.ToHashSet() ?? new();
         }
     }
 
@@ -200,4 +202,5 @@ This KB shows how to expand parent nodes in the TreeList, to display their child
 
 * [TreeList State Documentation](slug:treelist-state)
 * [TreeList Filtering](slug:treelist-filtering)
+* [TreeList FilterCellTemplate](slug:treelist-templates-filter#filter-row-template)
 * [TreeList Overview](slug:treelist-overview)
