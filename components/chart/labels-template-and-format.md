@@ -74,8 +74,6 @@ Where the labels are numerical (series values, the value axis), you can format t
 
 ## Templates
 
-> This section changed for product version 4.5.0. If you are using an older version, then [download the PDF documentation](https://www.telerik.com/account/downloads/product-download?product=BLAZOR) for your version, or [browse an older version of this documentation page](https://github.com/telerik/blazor-docs/blob/4.4.0/components/chart/labels-template-and-format.md#templates).
-
 To set a template for Chart labels, use the `Template` parameter in the corresponding inner `...Labels` tag. For example, set `Template` to `<ChartSeriesLabels>` inside `<ChartSeries>`, or to `<ChartValueAxisLabels>` inside `<ChartValueAxis>`.
 
 The Blazor Chart uses client-side rendering and the label templates are JavaScript-based. The `Template` parameter must point to a name of a JavaScript function, which is defined in the global scope. This function must return the formatted label as a plain text string. HTML markup inside the label template is not supported.
