@@ -23,6 +23,7 @@ The error means one of the following:
 * You have a legacy *Perpetual* license, while the Telerik AI tools require a *Subscription* license.
 * Your Telerik UI for Blazor Subscription license has expired.
 * Your Telerik UI for Blazor trial or Agentic UI Generator trial has expired.
+* The Telerik license key on your computer [needs updating](slug:installation-license-key#license-key-updates).
 
 @[template](/_contentTemplates/common/general-info.md#license-names)
 
