@@ -14,7 +14,7 @@ This article provides solutions to common issues you may encounter when working 
 
 ## Permission Denied (No Valid License)
 
-The MCP server may start and respond, but then exit unexpectedly with the following error:
+The Telerik MCP server may exit unexpectedly with the following error:
 
 `gRPC error in ValidateUserLicenseAsync: PermissionDenied - no valid license found for the requested product`
 
