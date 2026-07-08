@@ -12,15 +12,18 @@ previous_url: /ai/troubleshooting
 
 This article provides solutions to common issues you may encounter when working with the Telerik UI for Blazor AI Tools.
 
-## No Access to the AI Coding Assistant
+## Permission Denied (No Valid License)
 
-Starting in February 2026, we restructured the Telerik UI for Blazor AI Tools to better serve different user needs by deprecating the AI Coding Assistant. The Telerik Blazor MCP server now provides a single workflow centered around the Agentic UI Generator tool and its specialized MCP assistants.
+The Telerik MCP server may exit unexpectedly with the following error:
 
-As part of this restructuring, license requirements have also changed.:
+`gRPC error in ValidateUserLicenseAsync: PermissionDenied - no valid license found for the requested product`
 
-* **All active Telerik Subscription models**&mdash;Provide access to the Agentic UI Generator.
-* **Trial licenses**&mdash;Provide access to the Agentic UI Generator during the active trial period.
-* **Perpetual licenses**&mdash;Do not grant access to the AI tools. You must have an active Subscription or a trial license to use the Telerik Blazor MCP server.
+The error means one of the following:
+
+* You have a legacy *Perpetual* license, while the Telerik AI tools require a *Subscription* license.
+* Your Telerik UI for Blazor Subscription license has expired.
+* Your Telerik UI for Blazor trial or Agentic UI Generator trial has expired.
+* The Telerik license key on your computer [needs updating](slug:installation-license-key#license-key-updates).
 
 @[template](/_contentTemplates/common/general-info.md#license-names)
 
