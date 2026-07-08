@@ -141,6 +141,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
 
 ## See Also
 
-  * [Live Demo: TreeView Selection](https://demos.telerik.com/blazor-ui/treeview/selection)
-  * [Single Selection](slug:treeview-selection-single)
-  * [Multiple Selection](slug:treeview-selection-multiple)
+* [Live Demo: TreeView Selection](https://demos.telerik.com/blazor-ui/treeview/selection)
+* [Single Selection](slug:treeview-selection-single)
+* [Multiple Selection](slug:treeview-selection-multiple)
+* [Apply Selection Styles Only on TreeView Item Text](slug:treeview-kb-node-selection-only-on-item-text)
