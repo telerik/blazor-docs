@@ -396,5 +396,6 @@ You can bind the treeview to different models at each level, and the selection a
 
 ## See Also
 
-  * [Selection Overview](slug:treeview-selection-overview)
-  * [Single Selection](slug:treeview-selection-single)
+* [Selection Overview](slug:treeview-selection-overview)
+* [Single Selection](slug:treeview-selection-single)
+* [Apply Selection Styles Only on TreeView Item Text](slug:treeview-kb-node-selection-only-on-item-text)
