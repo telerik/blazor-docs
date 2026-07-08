@@ -283,5 +283,6 @@ You can use two-way binding to get the node the user has selected. This can be u
 
 ## See Also
 
-  * [Selection Overview](slug:treeview-selection-overview)
-  * [Multiple Selection](slug:treeview-selection-multiple)
+* [Selection Overview](slug:treeview-selection-overview)
+* [Multiple Selection](slug:treeview-selection-multiple)
+* [Apply Selection Styles Only on TreeView Item Text](slug:treeview-kb-node-selection-only-on-item-text)
