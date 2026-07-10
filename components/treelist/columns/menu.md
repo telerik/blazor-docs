@@ -253,5 +253,6 @@ The example shows the following things:
 * When using the [Column Chooser Template](slug:treelist-templates-column-chooser) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all TreeList Columns.
 
 ## See Also
+
 * [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)
 * [Live Demo: TreeList Custom Column Menu](https://demos.telerik.com/blazor-ui/treelist/custom-column-menu)

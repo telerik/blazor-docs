@@ -287,5 +287,6 @@ The example shows the following things:
 * When using the [Column Chooser Template](slug:gantt-templates-column-chooser) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all Gantt Columns.
 
 ## See Also
+
 * [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/gantt/column-menu)
 * [Live Demo: Gantt Custom Column Menu](https://demos.telerik.com/blazor-ui/gantt/custom-column-menu)

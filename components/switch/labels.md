@@ -56,5 +56,6 @@ To remove the Switch labels, use a blank space for the `OnLabel` and `OffLabel` 
 ````
 
 ## See Also
+
 * [Live Demo: Switch Labels](https://demos.telerik.com/blazor-ui/switch/labels)
 * [Switch Events](slug:switch-events)
