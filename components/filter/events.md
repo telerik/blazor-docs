@@ -68,4 +68,4 @@ The `OnUpdate` event fires when the user changes the Filter `Value`. The compone
 
 ## See Also
 
-  * [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/overview)
+* [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/overview)

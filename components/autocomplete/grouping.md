@@ -71,4 +71,4 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 ## See Also
 
-  * [Live Demo: AutoComplete Grouping](https://demos.telerik.com/blazor-ui/autocomplete/grouping)
+* [Live Demo: AutoComplete Grouping](https://demos.telerik.com/blazor-ui/autocomplete/grouping)

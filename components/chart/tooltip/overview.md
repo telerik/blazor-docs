@@ -263,5 +263,5 @@ The available series data point information in the `context` is:
 
 ## See Also
 
-  * [Chart Overview](slug:components/chart/overview)
-  * [Chart Shared Tooltip](slug:chart-tooltip-shared)
+* [Chart Overview](slug:components/chart/overview)
+* [Chart Shared Tooltip](slug:chart-tooltip-shared)

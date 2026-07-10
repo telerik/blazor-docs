@@ -83,8 +83,8 @@ The `FooterTemplate` allows you to control the rendering of the footer within in
 
 ## See Also
 
-  * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
-  * [Views Overview](slug:aiprompt-views-overview)
-  * [Prompt View](slug:aiprompt-views-prompt)
-  * [Output View](slug:aiprompt-views-output)
-  * [Commands View](slug:aiprompt-views-commands)
+* [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
+* [Views Overview](slug:aiprompt-views-overview)
+* [Prompt View](slug:aiprompt-views-prompt)
+* [Output View](slug:aiprompt-views-output)
+* [Commands View](slug:aiprompt-views-commands)

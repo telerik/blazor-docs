@@ -269,6 +269,6 @@ You can use the `Class` of the notification to set a higher z-index for the noti
 
 ## See Also
 
-  * [Live Demo: Notification Overview](https://demos.telerik.com/blazor-ui/notification/overview)
-  * [Live Demo: Notification Appearance](https://demos.telerik.com/blazor-ui/notification/appearance)
-  * [Live Demo: Notification Animation](https://demos.telerik.com/blazor-ui/notification/animation)
+* [Live Demo: Notification Overview](https://demos.telerik.com/blazor-ui/notification/overview)
+* [Live Demo: Notification Appearance](https://demos.telerik.com/blazor-ui/notification/appearance)
+* [Live Demo: Notification Animation](https://demos.telerik.com/blazor-ui/notification/animation)

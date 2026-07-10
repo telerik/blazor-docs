@@ -69,5 +69,5 @@ The `SelectedChanged` event will fire when the user changes the state of the [`T
 
 ## See Also
 
-  * [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
-  * [ToolBar Overview](slug:toolbar-overview)
+* [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
+* [ToolBar Overview](slug:toolbar-overview)

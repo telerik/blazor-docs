@@ -159,5 +159,5 @@ You can handle events in the template of the notification like with any other Bl
 
 ## See Also
 
-  * [Live Demo: Notification Overview](https://demos.telerik.com/blazor-ui/notification/overview)
-  * [Live Demo: Notification Template](https://demos.telerik.com/blazor-ui/notification/template)
+* [Live Demo: Notification Overview](https://demos.telerik.com/blazor-ui/notification/overview)
+* [Live Demo: Notification Template](https://demos.telerik.com/blazor-ui/notification/template)

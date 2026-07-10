@@ -98,6 +98,6 @@ Footer templates usually display aggregates. Here are some things to keep in min
 
 ## See Also
 
- * [Live Demo: Grid Footer Template](https://demos.telerik.com/blazor-ui/grid/footer-template)
- * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Grid Footer Template](https://demos.telerik.com/blazor-ui/grid/footer-template)
+* [Blazor Grid](slug:grid-overview)
 

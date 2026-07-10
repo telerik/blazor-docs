@@ -53,4 +53,4 @@ If the `Type` parameter value is not matching the type of the content, you will 
 
 ## See Also
 
-  * [Live Demo: Avatar](https://demos.telerik.com/blazor-ui/avatar/overview)
+* [Live Demo: Avatar](https://demos.telerik.com/blazor-ui/avatar/overview)

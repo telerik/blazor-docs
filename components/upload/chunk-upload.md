@@ -300,4 +300,4 @@ app.Run();
 
 ## See Also
 
-  * [Blazor Upload](slug:upload-overview)
+* [Blazor Upload](slug:upload-overview)

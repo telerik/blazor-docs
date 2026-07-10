@@ -129,4 +129,4 @@ If the Stepper uses the [`Labels`](slug:stepper-display-modes#labels)display mod
 
 ## See Also
 
-  * [Live Demo: Stepper Validation](https://demos.telerik.com/blazor-ui/stepper/validation)
+* [Live Demo: Stepper Validation](https://demos.telerik.com/blazor-ui/stepper/validation)

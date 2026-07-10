@@ -100,6 +100,6 @@ When you click a button, it becomes selected. When you click another button, the
 
 ## See Also
 
-  * [ButtonGroup Overview](slug:buttongroup-overview)
-  * [ButtonGroup Events](slug:buttongroup-events)
-  * [Live Demo: ButtonGroup Selection](https://demos.telerik.com/blazor-ui/buttongroup/selection)
+* [ButtonGroup Overview](slug:buttongroup-overview)
+* [ButtonGroup Events](slug:buttongroup-events)
+* [Live Demo: ButtonGroup Selection](https://demos.telerik.com/blazor-ui/buttongroup/selection)

@@ -559,5 +559,5 @@ Parameter | Type | Description
 
 ## See Also
 
-  * [Live Demo: Gantt Popup Editing](https://demos.telerik.com/blazor-ui/gantt/editing-popup)
+* [Live Demo: Gantt Popup Editing](https://demos.telerik.com/blazor-ui/gantt/editing-popup)
    

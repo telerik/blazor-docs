@@ -1031,8 +1031,8 @@ Visit the [Grid Cell Selection article to see an example](slug:grid-selection-ce
 
 ## See Also
 
-  * [Grid Overview](slug:grid-overview)
-  * [Grid Editing Overview](slug:grid-editing-overview)
-  * [Grid Column Events](slug:grid-column-events)
-  * [Manual Data Source Operations](slug:components/grid/manual-operations)
-  * [Blazor Grid](slug:grid-overview)
+* [Grid Overview](slug:grid-overview)
+* [Grid Editing Overview](slug:grid-editing-overview)
+* [Grid Column Events](slug:grid-column-events)
+* [Manual Data Source Operations](slug:components/grid/manual-operations)
+* [Blazor Grid](slug:grid-overview)

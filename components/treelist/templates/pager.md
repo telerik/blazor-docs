@@ -122,5 +122,5 @@ The `TreeListPagerTemplate` allows you to modify the layout, content, and functi
 
 ## See Also
 
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
+* [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
 

@@ -134,4 +134,4 @@ Autofitting specific columns preserves the current widths of all the other colum
 
 ## See Also
 
-  * [Live Demo: Column Resizing](https://demos.telerik.com/blazor-ui/gantt/column-resizing)
+* [Live Demo: Column Resizing](https://demos.telerik.com/blazor-ui/gantt/column-resizing)

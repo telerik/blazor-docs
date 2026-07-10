@@ -105,4 +105,4 @@ You can render the lines between the points with different styles. The supported
 
 ## See Also
 
-  * [Live Demo: Radar Line Chart](https://demos.telerik.com/blazor-ui/chart/radar-line-chart)
+* [Live Demo: Radar Line Chart](https://demos.telerik.com/blazor-ui/chart/radar-line-chart)

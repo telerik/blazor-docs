@@ -112,4 +112,4 @@ To prevent the user from moving a certain column, set its own parameter `Reorder
 
 ## See Also
 
-  * [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/gantt/column-reordering)
+* [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/gantt/column-reordering)

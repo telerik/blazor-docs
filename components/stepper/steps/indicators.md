@@ -75,5 +75,5 @@ When defining text and icons for the step indicators, you should take into consi
 
 ## See Also
 
-  * [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
-  * [Live Demo: Stepper Icons](https://demos.telerik.com/blazor-ui/stepper/icons)
+* [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
+* [Live Demo: Stepper Icons](https://demos.telerik.com/blazor-ui/stepper/icons)

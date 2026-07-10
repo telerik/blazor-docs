@@ -53,7 +53,7 @@ The template receives the `DateTime` corresponding to its cell.
 
 ## See Also
 
- * [Calendar Templates Overview](slug:calendar-templates-overview)
- * [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
+* [Calendar Templates Overview](slug:calendar-templates-overview)
+* [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
  
 

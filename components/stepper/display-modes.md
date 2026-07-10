@@ -67,4 +67,4 @@ If you want to display only labels for the steps, set the `StepType` parameter o
 
 ## See Also
 
-  * [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)
+* [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)

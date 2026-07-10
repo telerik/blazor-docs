@@ -190,7 +190,7 @@ public class MenuItem
 
 ## See Also
 
-  * [Binding to Flat Data](slug:components/menu/data-binding/flat-data)
-  * [Binding to Hierarchical Data](slug:components/menu/data-binding/hierarchical-data)
-  * [Live Demo: Menu Flat Data](https://demos.telerik.com/blazor-ui/menu/flat-data)
-  * [Live Demo: Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/menu/hierarchical-data)
+* [Binding to Flat Data](slug:components/menu/data-binding/flat-data)
+* [Binding to Hierarchical Data](slug:components/menu/data-binding/hierarchical-data)
+* [Live Demo: Menu Flat Data](https://demos.telerik.com/blazor-ui/menu/flat-data)
+* [Live Demo: Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/menu/hierarchical-data)

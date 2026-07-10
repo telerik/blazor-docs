@@ -143,5 +143,5 @@ The following articles and sample projects can be helpful when implementing pagi
 
 ## See Also
 
-  * [Live Demo: Grid Paging](https://demos.telerik.com/blazor-ui/grid/paging)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Grid Paging](https://demos.telerik.com/blazor-ui/grid/paging)
+* [Blazor Grid](slug:grid-overview)

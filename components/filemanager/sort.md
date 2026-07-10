@@ -212,4 +212,4 @@ The dropdown in the toolbar exposes several more options to sort by:
 
 ## See Also
 
-  * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
+* [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)

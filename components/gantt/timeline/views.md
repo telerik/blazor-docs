@@ -187,4 +187,4 @@ The Gantt Timeline provides four predefined views, which dictate how much time a
 
 ## See Also
 
-  * [Live Demo: Gantt Views](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
+* [Live Demo: Gantt Views](https://demos.telerik.com/blazor-ui/treelist/editing-inline)

@@ -827,6 +827,6 @@ You can combine both selection and checking nodes. To keep both collections in s
 
 ## See Also
 
-  * [Live Demo: TreeView CheckBoxes](https://demos.telerik.com/blazor-ui/treeview/checkboxes)
-  * [Single Node](slug:treeview-checkboxes-single)
-  * [Multiple Nodes](slug:treeview-checkboxes-multiple)
+* [Live Demo: TreeView CheckBoxes](https://demos.telerik.com/blazor-ui/treeview/checkboxes)
+* [Single Node](slug:treeview-checkboxes-single)
+* [Multiple Nodes](slug:treeview-checkboxes-multiple)

@@ -258,4 +258,4 @@ It is up to the data access logic to save the data once it is changed in the dat
 
 ## See Also
 
-  * [Live Demo: Gantt InCell Editing](https://demos.telerik.com/blazor-ui/gantt/editing-incell)
+* [Live Demo: Gantt InCell Editing](https://demos.telerik.com/blazor-ui/gantt/editing-incell)

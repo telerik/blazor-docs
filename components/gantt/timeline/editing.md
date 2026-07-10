@@ -181,4 +181,4 @@ By default, a delete button is rendered on the right side of a task when it is h
 
 ## See Also
 
-  * [Live Demo: Gantt Editing](https://demos.telerik.com/blazor-ui/gantt/editing-incell)
+* [Live Demo: Gantt Editing](https://demos.telerik.com/blazor-ui/gantt/editing-incell)

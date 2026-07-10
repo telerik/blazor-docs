@@ -143,5 +143,5 @@ The known limitations of the Autofit Columns feature include:
 
 ## See Also
 
-  * [Live Demo: Column Resizing](https://demos.telerik.com/blazor-ui/grid/column-resizing)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Column Resizing](https://demos.telerik.com/blazor-ui/grid/column-resizing)
+* [Blazor Grid](slug:grid-overview)

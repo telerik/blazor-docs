@@ -167,5 +167,5 @@ You can use the following properties on bound columns:
 
 ## See Also
 
-  * [Live Demo: Grid Columns](https://demos.telerik.com/blazor-ui/grid/columns)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Grid Columns](https://demos.telerik.com/blazor-ui/grid/columns)
+* [Blazor Grid](slug:grid-overview)

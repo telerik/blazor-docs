@@ -231,5 +231,5 @@ The following code example demonstrates declarations and handling.
 
 ## See Also
 
-  * [Live Demo: Grid Command Column](https://demos.telerik.com/blazor-ui/grid/editing-inline)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Grid Command Column](https://demos.telerik.com/blazor-ui/grid/editing-inline)
+* [Blazor Grid](slug:grid-overview)

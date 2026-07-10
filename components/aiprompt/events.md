@@ -140,4 +140,4 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
 
 ## See Also
 
-  * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
+* [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
