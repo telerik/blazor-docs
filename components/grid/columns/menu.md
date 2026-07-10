@@ -256,6 +256,7 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 * If you are using the [Column Chooser Template](slug:grid-templates-column-chooser) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all Grid Columns.
 
 ## See Also
+
 * [Live Demo: Grid Column Menu](https://demos.telerik.com/blazor-ui/grid/column-menu)
 * [Live Demo: Grid Custom Column Menu](https://demos.telerik.com/blazor-ui/grid/custom-column-menu)
 * [Blazor Grid](slug:grid-overview)

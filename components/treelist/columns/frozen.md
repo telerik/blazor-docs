@@ -117,4 +117,5 @@ The frozen columns pose some requirements:
 
 
 ## See also
+
  * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/treelist/frozen-columns)
