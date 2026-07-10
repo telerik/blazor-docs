@@ -50,4 +50,4 @@ The CardImage provides the following features:
 
 ## See Also
 
-  * [Live Demo: Card Building Blocks](https://demos.telerik.com/blazor-ui/card/building-blocks)
+* [Live Demo: Card Building Blocks](https://demos.telerik.com/blazor-ui/card/building-blocks)

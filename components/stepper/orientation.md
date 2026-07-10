@@ -60,5 +60,5 @@ Set the `Orientation` parameter of the Stepper to `vertical` to change its defau
 
 ## See Also
 
-  * [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
-  * [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)
+* [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
+* [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)

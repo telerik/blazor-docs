@@ -54,4 +54,4 @@ Furthermore, you can take full control over the Separator rendering with the [Se
 
 ## See Also
 
-  * * [Live Demo: Breadcrumb Separator](https://demos.telerik.com/blazor-ui/breadcrumb/separator)
+* * [Live Demo: Breadcrumb Separator](https://demos.telerik.com/blazor-ui/breadcrumb/separator)

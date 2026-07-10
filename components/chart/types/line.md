@@ -116,4 +116,4 @@ If some values are missing from the series data (they are `null`), you can have 
 
 ## See Also
 
-  * [Live Demo: Line Chart](https://demos.telerik.com/blazor-ui/chart/line-chart)
+* [Live Demo: Line Chart](https://demos.telerik.com/blazor-ui/chart/line-chart)

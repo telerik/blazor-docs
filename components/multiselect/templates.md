@@ -142,6 +142,6 @@ The context of the `SummaryTagTemplate` is of type `MultiSelectSummaryTagTemplat
 
 ## See Also
 
-  * [Live Demo: MultiSelect Templates](https://demos.telerik.com/blazor-ui/multiselect/templates)
+* [Live Demo: MultiSelect Templates](https://demos.telerik.com/blazor-ui/multiselect/templates)
    
   

@@ -130,4 +130,4 @@ You can render the lines between the points with different styles. The supported
 
 ## See Also
 
-  * [Live Demo: Radar Area Chart](https://demos.telerik.com/blazor-ui/chart/radar-area-chart)
+* [Live Demo: Radar Area Chart](https://demos.telerik.com/blazor-ui/chart/radar-area-chart)

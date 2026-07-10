@@ -298,4 +298,4 @@ In addition to `Page` and `PageSize`, the TreeList provides advanced pager confi
 
 ## See Also
 
-  * [Live Demo: TreeList Paging](https://demos.telerik.com/blazor-ui/treelist/paging)
+* [Live Demo: TreeList Paging](https://demos.telerik.com/blazor-ui/treelist/paging)

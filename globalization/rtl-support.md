@@ -52,5 +52,5 @@ When the [right-to-left direction is enabled](slug:rtl-support), the keyboard sh
 
 ## See Also
 
-  * [Localization](slug:globalization-localization)
-  * [Globalization Formats](slug:globalization-formats)
+* [Localization](slug:globalization-localization)
+* [Globalization Formats](slug:globalization-formats)

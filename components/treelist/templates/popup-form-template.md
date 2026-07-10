@@ -242,6 +242,6 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
 
 ## See Also
 
- * [TreeList Popup Buttons Template](slug:treelist-templates-popup-buttons)
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/TreeList/templates)
- * [Live Demo: TreeList Popup Edit Form Template](https://demos.telerik.com/blazor-ui/treelist/popup-edit-form-template)
+* [TreeList Popup Buttons Template](slug:treelist-templates-popup-buttons)
+* [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/TreeList/templates)
+* [Live Demo: TreeList Popup Edit Form Template](https://demos.telerik.com/blazor-ui/treelist/popup-edit-form-template)

@@ -108,5 +108,5 @@ Render the entire row with your own code and logic
 
 ## See Also
 
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
+* [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
 

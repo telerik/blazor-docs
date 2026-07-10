@@ -110,5 +110,5 @@ The `GridPagerTemplate` allows you to modify the layout, content, and functional
 
 ## See Also
 
- * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Get Current Page of Grid Items and Total Count](slug:grid-kb-get-filtered-data)
+* [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
+* [Get Current Page of Grid Items and Total Count](slug:grid-kb-get-filtered-data)

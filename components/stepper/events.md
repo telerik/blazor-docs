@@ -100,4 +100,4 @@ The Telerik Stepper for Blazor supports ValueChanged event. It fires upon every 
 
 ## See Also
 
-  * [Live Demo: Stepper Events](https://demos.telerik.com/blazor-ui/stepper/events)
+* [Live Demo: Stepper Events](https://demos.telerik.com/blazor-ui/stepper/events)

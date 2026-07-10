@@ -375,8 +375,8 @@ This means that you need to ensure that the view-model will be updated as well, 
 
 ## See Also
 
-  * [ObservableCollection](slug:common-features-observable-data)
-  * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
-  * [Live Demos](https://demos.telerik.com/blazor-ui)
-  * [Knowledge Base: Force a Grid to Refresh](slug:grid-force-refresh)
-  * [Blazor Grid](slug:grid-overview)
+* [ObservableCollection](slug:common-features-observable-data)
+* [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
+* [Live Demos](https://demos.telerik.com/blazor-ui)
+* [Knowledge Base: Force a Grid to Refresh](slug:grid-force-refresh)
+* [Blazor Grid](slug:grid-overview)

@@ -95,6 +95,6 @@ The AutoComplete component allows you to change what is rendered in its items, h
 
 ## See Also
 
-  * [Live Demo: AutoComplete Templates](https://demos.telerik.com/blazor-ui/autocomplete/templates)
+* [Live Demo: AutoComplete Templates](https://demos.telerik.com/blazor-ui/autocomplete/templates)
    
   

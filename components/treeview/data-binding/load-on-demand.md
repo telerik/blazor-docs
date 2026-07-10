@@ -340,7 +340,7 @@ The **example** below shows how you can handle hierarchical data load on demand 
 
 ## See Also
 
-  * [TreeView Data Binding Basics](slug:components/treeview/data-binding/overview)
-  * [Live Demo: TreeView Load on Demand](https://demos.telerik.com/blazor-ui/treeview/lazy-loading)
-  * [Binding to Flat Data](slug:components/treeview/data-binding/flat-data)
-  * [Binding to Hierarchical Data](slug:components/treeview/data-binding/hierarchical-data)
+* [TreeView Data Binding Basics](slug:components/treeview/data-binding/overview)
+* [Live Demo: TreeView Load on Demand](https://demos.telerik.com/blazor-ui/treeview/lazy-loading)
+* [Binding to Flat Data](slug:components/treeview/data-binding/flat-data)
+* [Binding to Hierarchical Data](slug:components/treeview/data-binding/hierarchical-data)

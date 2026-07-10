@@ -294,4 +294,4 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
 
 ## See Also
 
-  * [Live Demo: TreeList Command Column](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
+* [Live Demo: TreeList Command Column](https://demos.telerik.com/blazor-ui/treelist/editing-inline)

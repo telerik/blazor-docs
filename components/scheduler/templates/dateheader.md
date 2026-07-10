@@ -101,5 +101,5 @@ The `DateHeaderTemplate` can be defined for the [day and week Scheduler views](s
 
 ## See Also
 
- * [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/templates)
+* [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/templates)
 

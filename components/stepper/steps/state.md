@@ -70,4 +70,4 @@ This feature serves to mark the desired step as disabled, so users cannot click 
 
 ## See Also
 
-  * [Live Demo: Stepper State](https://demos.telerik.com/blazor-ui/stepper/state)
+* [Live Demo: Stepper State](https://demos.telerik.com/blazor-ui/stepper/state)

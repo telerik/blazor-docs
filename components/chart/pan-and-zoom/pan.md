@@ -163,4 +163,4 @@ Press CTRL + Click and Drag.
 
 ## See Also
 
-  * [Live Demos: Chart - Pan and Zoom](https://demos.telerik.com/blazor-ui/chart/pan-zoom)
+* [Live Demos: Chart - Pan and Zoom](https://demos.telerik.com/blazor-ui/chart/pan-zoom)

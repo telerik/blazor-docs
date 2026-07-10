@@ -108,6 +108,6 @@ Selected value: @selectedValue
 
 ## See Also
 
-  * [Live Demo: ComboBox Custom Values](https://demos.telerik.com/blazor-ui/combobox/custom-values)
+* [Live Demo: ComboBox Custom Values](https://demos.telerik.com/blazor-ui/combobox/custom-values)
    
   

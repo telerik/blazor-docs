@@ -264,9 +264,9 @@ The `OnInvalidSubmit` event fires when there are validation errors in the Form u
 
 ## See Also
 
-  * [Overview](slug:form-overview)
-  * [FormItems](slug:form-formitems)
-  * [Template](slug:form-formitems-template)
-  * [Orientation](slug:form-orientation)
-  * [Events](slug:form-events)
+* [Overview](slug:form-overview)
+* [FormItems](slug:form-formitems)
+* [Template](slug:form-formitems-template)
+* [Orientation](slug:form-orientation)
+* [Events](slug:form-events)
    

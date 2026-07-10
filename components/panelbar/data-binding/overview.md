@@ -311,7 +311,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
 
 ## See Also
 
-  * [Binding to Flat Data](slug:panelbar-data-binding-flat)
-  * [Binding to Hierarchical Data](slug:panelbar-data-binding-hierarchical)
-  * [Live Demo: PanelBar Flat Data](https://demos.telerik.com/blazor-ui/panelbar/flat-data)
-  * [Live Demo: PanelBar Hierarchical Data](https://demos.telerik.com/blazor-ui/panelbar/hierarchical-data)
+* [Binding to Flat Data](slug:panelbar-data-binding-flat)
+* [Binding to Hierarchical Data](slug:panelbar-data-binding-hierarchical)
+* [Live Demo: PanelBar Flat Data](https://demos.telerik.com/blazor-ui/panelbar/flat-data)
+* [Live Demo: PanelBar Hierarchical Data](https://demos.telerik.com/blazor-ui/panelbar/hierarchical-data)

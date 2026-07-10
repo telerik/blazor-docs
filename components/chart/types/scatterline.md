@@ -131,4 +131,4 @@ You would usually use ScatterLine charts for showing the relation between differ
 
 ## See Also
 
-  * [Live Demo: ScatterLine Chart](https://demos.telerik.com/blazor-ui/chart/scatter-line-chart)
+* [Live Demo: ScatterLine Chart](https://demos.telerik.com/blazor-ui/chart/scatter-line-chart)

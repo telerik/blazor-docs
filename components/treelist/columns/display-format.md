@@ -90,4 +90,4 @@ components: ["treelist"]
 
 ## See Also
 
-  * [Live Demo: Cell Formatting](https://demos.telerik.com/blazor-ui/treelist/cell-formatting)
+* [Live Demo: Cell Formatting](https://demos.telerik.com/blazor-ui/treelist/cell-formatting)

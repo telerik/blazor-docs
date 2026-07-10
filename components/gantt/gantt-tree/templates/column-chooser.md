@@ -129,7 +129,7 @@ When you set up the Column Chooser Template, the list of columns that are render
 
 ## See Also
 
- * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
- * [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)
- * [Live Demo: Gantt Custom Column Menu](https://demos.telerik.com/blazor-ui/gantt/custom-column-menu)
- * [Columns Menu](slug:gantt-column-menu)
+* [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
+* [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)
+* [Live Demo: Gantt Custom Column Menu](https://demos.telerik.com/blazor-ui/gantt/custom-column-menu)
+* [Columns Menu](slug:gantt-column-menu)

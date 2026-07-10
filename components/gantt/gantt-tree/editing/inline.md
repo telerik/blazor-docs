@@ -261,5 +261,5 @@ The `NewRowPosition` parameter accepts values from the `GanttTreeListNewRowPosit
 
 ## See Also
 
-  * [Live Demo: Gantt Inline Editing](https://demos.telerik.com/blazor-ui/gantt/editing-inline)
+* [Live Demo: Gantt Inline Editing](https://demos.telerik.com/blazor-ui/gantt/editing-inline)
    

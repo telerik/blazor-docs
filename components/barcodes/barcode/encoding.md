@@ -69,5 +69,5 @@ You can choose which supported encoding to use by setting the `Type` parameter o
 
 ## See Also
 
-  * [Live Demo: Barcode](https://demos.telerik.com/blazor-ui/barcode/overview)
-  * [Live Demo: Barcode Encoding](https://demos.telerik.com/blazor-ui/barcode/encodings)
+* [Live Demo: Barcode](https://demos.telerik.com/blazor-ui/barcode/overview)
+* [Live Demo: Barcode Encoding](https://demos.telerik.com/blazor-ui/barcode/encodings)

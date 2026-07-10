@@ -499,4 +499,4 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 ## See Also
 
-  * [Live Demo: Heatmap Chart](https://demos.telerik.com/blazor-ui/chart/heatmap-chart)
+* [Live Demo: Heatmap Chart](https://demos.telerik.com/blazor-ui/chart/heatmap-chart)

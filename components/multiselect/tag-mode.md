@@ -141,5 +141,5 @@ To restrict the allowed number of individual tags, use the `MaxAllowedTags` para
 
 ## See Also
 
-  * [Live Demo: MultiSelect Tag Mode](https://demos.telerik.com/blazor-ui/multiselect/tag-mode)
+* [Live Demo: MultiSelect Tag Mode](https://demos.telerik.com/blazor-ui/multiselect/tag-mode)
    

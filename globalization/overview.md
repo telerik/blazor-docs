@@ -115,7 +115,7 @@ Each Telerik UI for Blazor component supports a different set of internationaliz
 
 ## See Also
 
-  * [Localization](slug:globalization-localization)
-  * [Globalization Formats](slug:globalization-formats)
-  * [Right-to-Left Support](slug:rtl-support)
+* [Localization](slug:globalization-localization)
+* [Globalization Formats](slug:globalization-formats)
+* [Right-to-Left Support](slug:rtl-support)
 

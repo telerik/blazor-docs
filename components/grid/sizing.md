@@ -84,6 +84,6 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 
 ## See Also
 
-  * [Grid Overview](slug:grid-overview)
-  * [Live Demo: Grid Sizing](https://demos.telerik.com/blazor-ui/grid/sizing)
-  * [Blazor Grid](slug:grid-overview)
+* [Grid Overview](slug:grid-overview)
+* [Live Demo: Grid Sizing](https://demos.telerik.com/blazor-ui/grid/sizing)
+* [Blazor Grid](slug:grid-overview)

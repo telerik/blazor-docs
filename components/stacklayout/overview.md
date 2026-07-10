@@ -137,5 +137,5 @@ Sometimes you may need to create a more complex layout that includes both horizo
 
 ## See Also
 
-  * [Live StackLayout Demos](https://demos.telerik.com/blazor-ui/stacklayout/overview)
-  * [StackLayout API Reference](slug:Telerik.Blazor.Components.TelerikStackLayout)
+* [Live StackLayout Demos](https://demos.telerik.com/blazor-ui/stacklayout/overview)
+* [StackLayout API Reference](slug:Telerik.Blazor.Components.TelerikStackLayout)

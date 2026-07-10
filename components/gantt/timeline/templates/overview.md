@@ -25,4 +25,4 @@ Available templates for the [Timeline](slug:gantt-timeline):
 
 ## See Also
 
-  * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
+* [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)

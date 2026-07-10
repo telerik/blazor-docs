@@ -279,6 +279,6 @@ The `NoDataTemplate` allows you to define custom content when the TreeList has n
 
 ## See Also
 
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
- * [Live Demo: TreeList - No Data Template](https://demos.telerik.com/blazor-ui/treelist/no-data-template)
+* [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
+* [Live Demo: TreeList - No Data Template](https://demos.telerik.com/blazor-ui/treelist/no-data-template)
 

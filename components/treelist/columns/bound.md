@@ -186,4 +186,4 @@ You can use the following properties on bound columns:
 
 ## See Also
 
-  * [Live Demo: TreeList Columns](https://demos.telerik.com/blazor-ui/treelist/columns)
+* [Live Demo: TreeList Columns](https://demos.telerik.com/blazor-ui/treelist/columns)

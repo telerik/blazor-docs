@@ -67,4 +67,4 @@ You can find more options for customizing the Avatar styling in the [Appearance 
 
 ## See Also
 
-  * [Live Demo: Avatar](https://demos.telerik.com/blazor-ui/avatar/overview)
+* [Live Demo: Avatar](https://demos.telerik.com/blazor-ui/avatar/overview)

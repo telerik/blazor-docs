@@ -408,5 +408,5 @@ You can bind the treeview to different models at each level, and the selection a
 
 ## See Also
 
-  * [Checkboxes Overview](slug:treeview-checkboxes-overview)
-  * [Single Node](slug:treeview-checkboxes-single)
+* [Checkboxes Overview](slug:treeview-checkboxes-overview)
+* [Single Node](slug:treeview-checkboxes-single)

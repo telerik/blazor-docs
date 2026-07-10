@@ -186,4 +186,4 @@ If the Form validation is not satisfied, you can cancel the `OnChange` event of 
 
 ## See Also
 
-  * [Live Demos: Wizard Form](https://demos.telerik.com/blazor-ui/wizard/form)
+* [Live Demos: Wizard Form](https://demos.telerik.com/blazor-ui/wizard/form)

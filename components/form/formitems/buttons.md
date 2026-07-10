@@ -84,9 +84,9 @@ You can provide a standard [Telerik UI for Blazor Button](slug:components/button
 
 ## See Also
 
-  * [Form Overview](slug:form-overview)
-  * [Form Items](slug:form-formitems)
-  * [Form Groups](slug:form-formgroups)
-  * [Orientation](slug:form-orientation)
-  * [Events](slug:form-events)
+* [Form Overview](slug:form-overview)
+* [Form Items](slug:form-formitems)
+* [Form Groups](slug:form-formgroups)
+* [Orientation](slug:form-orientation)
+* [Events](slug:form-events)
    

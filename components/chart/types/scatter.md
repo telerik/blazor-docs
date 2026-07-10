@@ -109,4 +109,4 @@ Scatter charts are useful for showing the relation between different sets of dat
 
 ## See Also
 
-  * [Live Demo: Scatter Chart](https://demos.telerik.com/blazor-ui/chart/scatter-chart)
+* [Live Demo: Scatter Chart](https://demos.telerik.com/blazor-ui/chart/scatter-chart)

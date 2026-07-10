@@ -27,7 +27,7 @@ The Calendar component provides templates for:
 
 ## See Also
 
- * [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
+* [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
  
 
 
