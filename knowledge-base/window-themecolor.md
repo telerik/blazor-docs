@@ -113,9 +113,10 @@ To apply a theme color to a Window or Dialog component:
     private string GetCssRuleForWindowThemeColor(string themeColor)
     {
         return
-            $".window-{themeColor} .k-window-titlebar " + "{" +
-            $"    color: var(--kendo-color-on-{themeColor});" +
-            $"    background-color: var(--kendo-color-{themeColor});" +
+            $".window-{themeColor} .k-window-titlebar" +
+            "{" +
+                $"color: var(--kendo-color-on-{themeColor});" +
+                $"background-color: var(--kendo-color-{themeColor});" +
             "}";
     }
 
