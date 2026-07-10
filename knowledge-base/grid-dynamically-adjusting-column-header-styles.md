@@ -130,6 +130,6 @@ Note that the [`HeaderTemplate`](slug:grid-templates-column-header) does not rec
 
 ## See Also
 
-- [Grid HeaderClass Parameter](slug:components/grid/columns/bound#appearance)
-- [Grid Column Header Template](slug:grid-templates-column-header)
-- [Templates Overview - Telerik UI for Blazor](slug:components/grid/features/templates)
+* [Grid HeaderClass Parameter](slug:components/grid/columns/bound#appearance)
+* [Grid Column Header Template](slug:grid-templates-column-header)
+* [Templates Overview - Telerik UI for Blazor](slug:components/grid/features/templates)

@@ -14,9 +14,9 @@ components: ["treeview"]
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
-- [Rebind Method](#rebind-method)
-- [Observable Data](#observable-data)
-- [New Collection Reference](#new-collection-reference)
+* [Rebind Method](#rebind-method)
+* [Observable Data](#observable-data)
+* [New Collection Reference](#new-collection-reference)
 
 ## Rebind Method
 

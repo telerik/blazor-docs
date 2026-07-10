@@ -27,9 +27,9 @@ components: ["grid"]
 I want to prevent the [OnRowClick](slug:grid-events#onrowclick) event in the [Grid for Blazor](slug:grid-overview) from executing when a user selects text by dragging to highlight it. 
 
 This knowledge base article also answers the following questions:
-- How to prevent row click event in a Blazor Grid during text selection?
-- How to check for text selection before firing Grid events?
-- How to use JavaScript interop for handling the `OnRowClick` event in Telerik Blazor Grid?
+* How to prevent row click event in a Blazor Grid during text selection?
+* How to check for text selection before firing Grid events?
+* How to use JavaScript interop for handling the `OnRowClick` event in Telerik Blazor Grid?
 
 ## Solution
 

@@ -71,6 +71,6 @@ Use the `Class` parameter to apply custom CSS classes. You can further style the
 
 ## See Also
 
-- [SpeechToTextButton Overview](slug:speechtotextbutton-overview)
-- [SpeechToTextButton Events](slug:speechtotextbutton-events)
-- [SpeechToTextButton Integration](slug:speechtotextbutton-integration)
+* [SpeechToTextButton Overview](slug:speechtotextbutton-overview)
+* [SpeechToTextButton Events](slug:speechtotextbutton-events)
+* [SpeechToTextButton Integration](slug:speechtotextbutton-integration)

@@ -26,8 +26,8 @@ components: ["listview"]
 I want to display the items in the TelerikListView component horizontally.
 
 This KB article answers the following questions:
-- How to set the TelerikListView layout to horizontal?
-- Is it possible to display ListView items side by side in Blazor?
+* How to set the TelerikListView layout to horizontal?
+* Is it possible to display ListView items side by side in Blazor?
 
 ## Solution
 
@@ -79,5 +79,5 @@ To display the ListView items horizontally, apply the `display: inline-block;` C
 
 ## See Also
 
-- [TelerikListView for Blazor - Overview](https://docs.telerik.com/blazor-ui/components/listview/overview)
-- [TelerikListView for Blazor - Templates](https://docs.telerik.com/blazor-ui/components/listview/templates)
+* [TelerikListView for Blazor - Overview](https://docs.telerik.com/blazor-ui/components/listview/overview)
+* [TelerikListView for Blazor - Templates](https://docs.telerik.com/blazor-ui/components/listview/templates)

@@ -36,8 +36,8 @@ To ensure all items will be selected upon clicking the SelectAll CheckBox when u
 
 1. Use [`HeaderTemplate` for the `CheckboxColumn`](slug:components/grid/columns/checkbox#header-template) and add a custom [CheckBox component](slug:checkbox-overview) so you can have full control over its behavior.
 1. Handle the [`ValueChanged` event](slug:checkbox-events#valuechanged) of the CheckBox to track when the user checks/unchecks it to manage the selected items. 
-    - When the CheckBox is checked, add the newly coming items to the `SelectedItems` collection, so you have all items selected. This requires custom logic in the Grid `OnRead` and `SelectedItemsChanged` events.
-    - When the user deselects the CheckBox, clear the  `SelectedItems` collection.
+    * When the CheckBox is checked, add the newly coming items to the `SelectedItems` collection, so you have all items selected. This requires custom logic in the Grid `OnRead` and `SelectedItemsChanged` events.
+    * When the user deselects the CheckBox, clear the  `SelectedItems` collection.
 1. Manage the [`Indeterminate` state](slug:checkbox-indeterminate-state) of the CheckBox based on the selected items' count.
 1. Track [when the user changes the `Indeterminate` state](slug:checkbox-events#indeterminatechanged) of the CheckBox (clicks the CheckBox when it is in `Indeterminate` state). In this case, ensure that the CheckBox value will be always set to true if you want to completely mimic the default CheckBox selection behavior.
 

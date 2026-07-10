@@ -15,13 +15,13 @@ Telerik REPL for Blazor is integrated in the UI for Blazor resources (documentat
 
 In this article:
 
-  - [Agentic UI Generator Integration in REPL](#agentic-ui-generator-integration-with-blazor-repl-preview)
-  - [Documentation Integration](#documentation-integration)
-  - [Demos Integration](#demos-integration)
-  - [Visual Studio and Visual Studio Code Integration](#visual-studio-and-visual-studio-code-integration)
-    - [Sharing to REPL in Visual Studio](#sharing-to-repl-in-visual-studio)
-    - [Sharing to REPL Visual Studio Code](#sharing-to-repl-visual-studio-code)
-  - [See Also](#see-also)
+  * [Agentic UI Generator Integration in REPL](#agentic-ui-generator-integration-with-blazor-repl-preview)
+  * [Documentation Integration](#documentation-integration)
+  * [Demos Integration](#demos-integration)
+  * [Visual Studio and Visual Studio Code Integration](#visual-studio-and-visual-studio-code-integration)
+    * [Sharing to REPL in Visual Studio](#sharing-to-repl-in-visual-studio)
+    * [Sharing to REPL Visual Studio Code](#sharing-to-repl-visual-studio-code)
+  * [See Also](#see-also)
 
 ## Agentic UI Generator Integration with Blazor REPL (Preview)
  

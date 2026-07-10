@@ -16,9 +16,9 @@ This article provides essential information and resources to help you secure Tel
 
 If you have identified a potential security vulnerability in a Telerik or Kendo UI product, you can report it through the following channels:
 
-- **For Progress Customers**: Submit a security report by opening a support ticket through the [Technical Support Center](https://www.telerik.com/account/support-center). Provide detailed information, including the steps to reproduce the issue and any relevant reports or screenshots.
+* **For Progress Customers**: Submit a security report by opening a support ticket through the [Technical Support Center](https://www.telerik.com/account/support-center). Provide detailed information, including the steps to reproduce the issue and any relevant reports or screenshots.
 
-- **For Security Researchers**: Ethical hackers and security researchers can report vulnerabilities through our [Bugcrowd Vulnerability Disclosure Program](https://bugcrowd.com/engagements/whatsupgold-vdp). This platform ensures that security issues are addressed efficiently and transparently.
+* **For Security Researchers**: Ethical hackers and security researchers can report vulnerabilities through our [Bugcrowd Vulnerability Disclosure Program](https://bugcrowd.com/engagements/whatsupgold-vdp). This platform ensures that security issues are addressed efficiently and transparently.
 
 We will review the report and follow up in line with our security processes, making every effort to resolve confirmed vulnerabilities in a timely manner.
 

@@ -35,9 +35,9 @@ components: ["autocomplete","combobox","datepicker","datetimepicker","daterangep
 ## Description
 
 This KB article answers the following questions:
-- How can I prevent users from pasting text into a TextBox?
-- What is the method to disable the copy and paste actions in a NumericTextBox?
-- Can I use JavaScript Interop to control copy and paste in the Telerik ComboBox for Blazor?
+* How can I prevent users from pasting text into a TextBox?
+* What is the method to disable the copy and paste actions in a NumericTextBox?
+* Can I use JavaScript Interop to control copy and paste in the Telerik ComboBox for Blazor?
 
 ## Solution
 
@@ -89,4 +89,4 @@ To disable the copy and paste functionality in a TextBox and other Telerik Blazo
 
 ## See Also
 
-- [Using JavaScript Interop in Blazor](https://docs.microsoft.com/aspnet/core/blazor/javascript-interop)
+* [Using JavaScript Interop in Blazor](https://docs.microsoft.com/aspnet/core/blazor/javascript-interop)

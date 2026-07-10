@@ -23,7 +23,7 @@ Use the `OnResult` event to update an input field with the recognized text. For 
 
 ## See Also
 
-- [AI Model Voice Transcription Intergration](https://github.com/telerik/blazor-ui/tree/master/common/microsoft-extensions-ai-integration/SpeechToTextIntegration)
-- [SpeechToTextButton Overview](slug:speechtotextbutton-overview)
-- [SpeechToTextButton Events](slug:speechtotextbutton-events)
-- [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance)
+* [AI Model Voice Transcription Intergration](https://github.com/telerik/blazor-ui/tree/master/common/microsoft-extensions-ai-integration/SpeechToTextIntegration)
+* [SpeechToTextButton Overview](slug:speechtotextbutton-overview)
+* [SpeechToTextButton Events](slug:speechtotextbutton-events)
+* [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance)

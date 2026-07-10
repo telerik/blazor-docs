@@ -14,8 +14,8 @@ components: ["contextmenu"]
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
-- [Observable Data](#observable-data)
-- [New Collection Reference](#new-collection-reference)
+* [Observable Data](#observable-data)
+* [New Collection Reference](#new-collection-reference)
 
 ## Observable Data
 

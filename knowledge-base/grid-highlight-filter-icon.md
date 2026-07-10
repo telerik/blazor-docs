@@ -102,5 +102,5 @@ Below is an example demonstrating how to initialize a Grid with a predefined fil
 
 ## See Also
 
-- [Grid Overview](https://docs.telerik.com/blazor-ui/components/grid/overview)
-- [Grid OnStateInit Event](https://docs.telerik.com/blazor-ui/components/grid/state#onstateinit)
+* [Grid Overview](https://docs.telerik.com/blazor-ui/components/grid/overview)
+* [Grid OnStateInit Event](https://docs.telerik.com/blazor-ui/components/grid/state#onstateinit)

@@ -27,9 +27,9 @@ In certain scenarios, it may be necessary to hide the horizontal scrollbar of th
 
 This knowledge base article also answers the following questions:
 
-- How can I remove the horizontal scrollbar from a ListView component?
-- What CSS can hide the horizontal overflow in TelerikListView for Blazor?
-- Is there a way to ensure elements within ListView do not cause a horizontal scrollbar?
+* How can I remove the horizontal scrollbar from a ListView component?
+* What CSS can hide the horizontal overflow in TelerikListView for Blazor?
+* Is there a way to ensure elements within ListView do not cause a horizontal scrollbar?
 
 ## Solution
 
@@ -78,4 +78,4 @@ To hide the horizontal scrollbar in a TelerikListView, apply custom CSS to set t
 
 ## See Also
 
-- [ListView Overview](slug:listview-overview)
+* [ListView Overview](slug:listview-overview)

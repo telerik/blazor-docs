@@ -13,8 +13,8 @@ components: ["grid"]
 ## Description
 
 This knowledge base article answers the following questions:
-- How can I create a reusable `GridColumn` component in Blazor?
-- What is the best way to encapsulate `GridColumn` templates in a reusable component?
+* How can I create a reusable `GridColumn` component in Blazor?
+* What is the best way to encapsulate `GridColumn` templates in a reusable component?
 
 ## Environment
 
@@ -175,5 +175,5 @@ public class Role
 
 ## See Also
 
-- [Grid Columns](slug:components/grid/columns/bound)
-- [Grid Templates](slug:components/grid/features/templates)
+* [Grid Columns](slug:components/grid/columns/bound)
+* [Grid Templates](slug:components/grid/features/templates)

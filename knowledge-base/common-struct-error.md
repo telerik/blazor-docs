@@ -102,4 +102,4 @@ public class Product
 
 ## See Also
 
-- [Data Binding Overview](slug:common-features-data-binding-overview)
+* [Data Binding Overview](slug:common-features-data-binding-overview)

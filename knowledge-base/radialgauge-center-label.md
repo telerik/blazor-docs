@@ -53,4 +53,4 @@ To add and center a label on the RadialGauge, wrap the RadialGauge inside a `div
 
 ## See Also
 
-- [Radial Gauge Overview](https://docs.telerik.com/blazor-ui/components/gauges/radial/overview)
+* [Radial Gauge Overview](https://docs.telerik.com/blazor-ui/components/gauges/radial/overview)

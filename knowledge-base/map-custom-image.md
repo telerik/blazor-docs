@@ -25,9 +25,9 @@ components: ["map"]
 
 This knowledge base article answers the following questions:
 
-- How can I set a background image for the Blazor Map component?
-- Is it possible to overlay markers on a static image in Blazor Map?
-- Can I use a custom floor plan as a map in Blazor?
+* How can I set a background image for the Blazor Map component?
+* Is it possible to overlay markers on a static image in Blazor Map?
+* Can I use a custom floor plan as a map in Blazor?
 
 ## Solution
 

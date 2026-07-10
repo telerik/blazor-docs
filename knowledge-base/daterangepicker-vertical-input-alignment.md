@@ -24,9 +24,9 @@ components: ["daterangepicker"]
 ## Description
 
 This KB article answers the following questions:
-- How to change the layout of DateRangePicker inputs in Blazor, so they appear vertically oriented?
-- Can I display DateRangePicker inputs vertically in Blazor?
-- Is there a way to adjust the DateRangePicker so the inputs appear on two lines, one on top of each other?
+* How to change the layout of DateRangePicker inputs in Blazor, so they appear vertically oriented?
+* Can I display DateRangePicker inputs vertically in Blazor?
+* Is there a way to adjust the DateRangePicker so the inputs appear on two lines, one on top of each other?
 
 ## Solution
 
@@ -63,5 +63,5 @@ This CSS ensures that the labels and inputs of the DateRangePicker display one b
 
 ## See Also
 
-- [Repositioning Labels in DateRangePicker](https://docs.telerik.com/blazor-ui/knowledge-base/daterangepicker-reposition-labels)
-- [DateRangePicker Overview](https://docs.telerik.com/blazor-ui/components/daterangepicker/overview)
+* [Repositioning Labels in DateRangePicker](https://docs.telerik.com/blazor-ui/knowledge-base/daterangepicker-reposition-labels)
+* [DateRangePicker Overview](https://docs.telerik.com/blazor-ui/components/daterangepicker/overview)
