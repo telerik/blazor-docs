@@ -24,8 +24,8 @@ Whether you're a customer encountering an issue or a security researcher, we hav
 
 At Progress, we work diligently to identify and fix security vulnerabilities in our products. Customers who believe they have identified a security issue should contact Technical Support for an evaluation. This allows us to document the issue and have our engineering teams confirm and address it as needed. Customers can submit reports through our support center:
 
-- [Technical Support](https://www.telerik.com/account/support-center)
-- [Contact Us](https://www.telerik.com/account/support-center/contact-us/technical-support)
+* [Technical Support](https://www.telerik.com/account/support-center)
+* [Contact Us](https://www.telerik.com/account/support-center/contact-us/technical-support)
 
 ### For Security Researchers
 
@@ -39,17 +39,17 @@ We value the contributions of security researchers and ethical hackers. If a res
 
 For more information, visit:
 
-- [Bugcrowd Vulnerability Disclosure Program](https://bugcrowd.com/engagements/devtools-vdp)
-- [Progress Trust Center](https://www.progress.com/trust-center)
-- [Vulnerability Reporting Policy](https://www.progress.com/trust-center/vulnerability-reporting-policy)
+* [Bugcrowd Vulnerability Disclosure Program](https://bugcrowd.com/engagements/devtools-vdp)
+* [Progress Trust Center](https://www.progress.com/trust-center)
+* [Vulnerability Reporting Policy](https://www.progress.com/trust-center/vulnerability-reporting-policy)
 
 ## Vulnerability Remediation Guidelines
 
 Progress follows defined timelines for remediating vulnerabilities based on their severity level, ensuring a structured and efficient approach to maintaining security across all products. These guidelines are aligned with the CVSS (Common Vulnerability Scoring System) scoring:
 
-- **Critical score issues (CVSS 9.0+):** Resolved within **30 days**.  
-- **High score issues (CVSS 7.0–8.9):** Resolved within **60 days**.  
-- **Medium or lower score issues (CVSS < 7):** Resolved within **90–120 days**, depending on the score.  
+* **Critical score issues (CVSS 9.0+):** Resolved within **30 days**.  
+* **High score issues (CVSS 7.0–8.9):** Resolved within **60 days**.  
+* **Medium or lower score issues (CVSS < 7):** Resolved within **90–120 days**, depending on the score.  
 
 While these are not strict SLA (Service Level Agreement), they serve as a commitment to providing timely resolutions for identified vulnerabilities.
 
@@ -63,8 +63,8 @@ We actively manage the following strategies to mitigate risks:
 
 Our primary goal is to prevent security issues before product delivery. We use the following prevention techniques:
 
-- **Internal Logging**: Every potential security issue is logged, researched, tested, and verified. Issues deemed valid are assessed using a CVSS score, with critical issues prioritized.
-- **Third-Party Static Analysis Testing**: We utilize some of the leading security scanning tools in the market to scan for vulnerabilities in our software code. Regular scans are conducted, and results are reviewed to address vulnerabilities and mitigate false positives.
+* **Internal Logging**: Every potential security issue is logged, researched, tested, and verified. Issues deemed valid are assessed using a CVSS score, with critical issues prioritized.
+* **Third-Party Static Analysis Testing**: We utilize some of the leading security scanning tools in the market to scan for vulnerabilities in our software code. Regular scans are conducted, and results are reviewed to address vulnerabilities and mitigate false positives.
 
 
 ## Third-Party Dependency Handling

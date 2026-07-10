@@ -13,8 +13,8 @@ components: ["aiprompt"]
 
 This article explains the available templates for the views of the AIPrompt for Blazor.
 
-- [View Template](#view-template)
-- [Footer Template](#footer-template)
+* [View Template](#view-template)
+* [Footer Template](#footer-template)
 
 
 ## View Template

@@ -26,8 +26,8 @@ components: ["window"]
 I want to center a Telerik Window horizontally in my Blazor application but keep it at a fixed distance from the top without using JavaScript for calculations.
 
 This knowledge base article answers the following questions:
-- How can I center a Telerik Window only horizontally in Blazor?
-- Is it possible to position a Telerik Window at a fixed distance from the top in Blazor while centering it horizontally?
+* How can I center a Telerik Window only horizontally in Blazor?
+* Is it possible to position a Telerik Window at a fixed distance from the top in Blazor while centering it horizontally?
 
 ## Solution
 
@@ -82,4 +82,4 @@ To center a Telerik Window horizontally while maintaining a fixed distance from 
 
 ## See Also
 
-- [Telerik Window for Blazor - Overview](slug:window-overview)
+* [Telerik Window for Blazor - Overview](slug:window-overview)

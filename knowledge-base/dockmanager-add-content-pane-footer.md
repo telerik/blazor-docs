@@ -85,4 +85,4 @@ To add a fixed footer below a scrollable content in a `DockManagerContentPane`, 
 
 ## See Also
 
-- [DockManager Documentation](slug:dockmanager-overview)
+* [DockManager Documentation](slug:dockmanager-overview)

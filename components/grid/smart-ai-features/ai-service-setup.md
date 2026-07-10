@@ -16,10 +16,10 @@ To enable AI-powered interaction in the [Smart Grid AI Assistant tools](slug:gri
 
 This article shows you how to build your own .NET backend service. You will learn how to:
 
-- Install the [`Telerik.AI.SmartComponents.Extensions`](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) package
-- Configure your AI provider (Azure OpenAI, OpenAI, or local models)
-- Create an API endpoint that uses the library
-- Understand the commands the library generates
+* Install the [`Telerik.AI.SmartComponents.Extensions`](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) package
+* Configure your AI provider (Azure OpenAI, OpenAI, or local models)
+* Create an API endpoint that uses the library
+* Understand the commands the library generates
 
 ## How It Works
 
@@ -110,8 +110,8 @@ var app = builder.Build();
 
 Create a controller that handles Grid AI requests. The Smart Extensions library provides two key methods:
 
-- `AddGridChatTools()`&mdash;Configures the AI model with Grid-specific capabilities.
-- `ExtractGridResponse()`&mdash;Extracts structured commands and messages from the AI response that the Grid can understand.
+* `AddGridChatTools()`&mdash;Configures the AI model with Grid-specific capabilities.
+* `ExtractGridResponse()`&mdash;Extracts structured commands and messages from the AI response that the Grid can understand.
 
 ````C#.skip-repl
 using Microsoft.AspNetCore.Mvc;
@@ -463,15 +463,15 @@ The Smart Extensions library interprets natural language prompts and converts th
 
 The library supports various filter operators for different data types:
 
-- `equalto`&mdash;Exact match
-- `contains`&mdash;Contains substring (text)
-- `startswith`&mdash;Starts with text
-- `endswith`&mdash;Ends with text
-- `greaterthan`&mdash;Greater than (numeric/date)
-- `lessthan`&mdash;Less than (numeric/date)
-- `greaterthanorequal`&mdash;Greater than or equal
-- `lessthanorequal`&mdash;Less than or equal
-- `notequalto`&mdash;Not equal to
+* `equalto`&mdash;Exact match
+* `contains`&mdash;Contains substring (text)
+* `startswith`&mdash;Starts with text
+* `endswith`&mdash;Ends with text
+* `greaterthan`&mdash;Greater than (numeric/date)
+* `lessthan`&mdash;Less than (numeric/date)
+* `greaterthanorequal`&mdash;Greater than or equal
+* `lessthanorequal`&mdash;Less than or equal
+* `notequalto`&mdash;Not equal to
 
 ## Best Practices
 
@@ -544,28 +544,28 @@ if (request.Contents == null || !request.Contents.Any())
 
 ### Connection Errors
 
-- Verify your AI service endpoint URL is correct in `appsettings.json`
-- Check that your API key is valid and not expired
-- Ensure your application can reach the Azure OpenAI service (firewall/network settings)
+* Verify your AI service endpoint URL is correct in `appsettings.json`
+* Check that your API key is valid and not expired
+* Ensure your application can reach the Azure OpenAI service (firewall/network settings)
 
 ### Model Not Found
 
-- Confirm the model ID (e.g., "gpt-4") is deployed in your Azure OpenAI resource
-- Check that the model name in `appsettings.json` matches exactly
-- Verify the deployment name matches the model configuration
+* Confirm the model ID (e.g., "gpt-4") is deployed in your Azure OpenAI resource
+* Check that the model name in `appsettings.json` matches exactly
+* Verify the deployment name matches the model configuration
 
 ### Token Limit Exceeded
 
-- Reduce the number of columns sent in requests
-- Limit the size of the `Values` arrays for columns
-- Consider using a model with higher token limits (e.g., gpt-4-32k)
-- Break complex requests into smaller, more focused prompts
+* Reduce the number of columns sent in requests
+* Limit the size of the `Values` arrays for columns
+* Consider using a model with higher token limits (e.g., gpt-4-32k)
+* Break complex requests into smaller, more focused prompts
 
 ### Invalid Responses
 
-- Ensure the `Contents` property contains valid text prompts
-- Verify column definitions include correct field names
-- Check that column `Values` arrays contain representative data samples
+* Ensure the `Contents` property contains valid text prompts
+* Verify column definitions include correct field names
+* Check that column `Values` arrays contain representative data samples
 
 ## See Also
 

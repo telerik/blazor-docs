@@ -27,9 +27,9 @@ components: ["dockmanager"]
 I want to reset the [DockManager state](slug:dockmanager-state) on a button click. The DockManager currently only resets by reloading the page. I need a solution to reset its state dynamically.
 
 This knowledge base article also answers the following questions:
-- How to reset DockManager layout to its default state?
-- How to refresh DockManager without reloading the page?
-- How to implement a button to reset DockManager panes?
+* How to reset DockManager layout to its default state?
+* How to refresh DockManager without reloading the page?
+* How to implement a button to reset DockManager panes?
 
 ## Solution
 
@@ -132,5 +132,5 @@ Change something in the DockManager (move, resize, or close panes). Тhen click
 
 ## See Also
 
-- [DockManager Overview](slug:dockmanager-overview)
-- [DockManager State](slug:dockmanager-state)
+* [DockManager Overview](slug:dockmanager-overview)
+* [DockManager State](slug:dockmanager-state)

@@ -41,6 +41,6 @@ The `OnClick` event fires when the user clicks or taps the button. It receives a
 
 ## See Also
 
-- [SpeechToTextButton Overview](slug:speechtotextbutton-overview)
-- [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance)
-- [SpeechToTextButton Integration](slug:speechtotextbutton-integration)
+* [SpeechToTextButton Overview](slug:speechtotextbutton-overview)
+* [SpeechToTextButton Appearance](slug:speechtotextbutton-appearance)
+* [SpeechToTextButton Integration](slug:speechtotextbutton-integration)

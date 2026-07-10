@@ -24,9 +24,9 @@ components: ["tooltip"]
 ## Description
 
 This knowledge base article answers the following questions:
-- How can I display tooltips on disabled context menu items in Blazor?
-- Is it possible to make menu items appear disabled but still interact with tooltips in Blazor?
-- How to apply conditional tooltips on visually disabled elements in a Blazor application?
+* How can I display tooltips on disabled context menu items in Blazor?
+* Is it possible to make menu items appear disabled but still interact with tooltips in Blazor?
+* How to apply conditional tooltips on visually disabled elements in a Blazor application?
 
 ## Solution
 
@@ -101,5 +101,5 @@ Disable Menu Items
 
 ## See Also
 
-- [Telerik UI for Blazor Tooltip Documentation](slug:tooltip-overview)
-- [Telerik UI for Blazor ContextMenu Documentation](slug:contextmenu-overview)
+* [Telerik UI for Blazor Tooltip Documentation](slug:tooltip-overview)
+* [Telerik UI for Blazor ContextMenu Documentation](slug:contextmenu-overview)

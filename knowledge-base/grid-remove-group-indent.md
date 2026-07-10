@@ -14,10 +14,10 @@ components: ["grid"]
 
 This knowledge base article answers the following questions:
 
-- Is there a way to remove the group indent and adjust the spacing without compromising the Grid behavior?
-- How can I customize the grouping appearance in a Blazor Grid?
-- How to hide the group indent and group header icons in a Blazor Grid?
-- What is the best way to hide the expand/collapse icons of the groups headers in a Telerik Blazor Grid?
+* Is there a way to remove the group indent and adjust the spacing without compromising the Grid behavior?
+* How can I customize the grouping appearance in a Blazor Grid?
+* How to hide the group indent and group header icons in a Blazor Grid?
+* What is the best way to hide the expand/collapse icons of the groups headers in a Telerik Blazor Grid?
 
 ## Environment
 
@@ -88,5 +88,5 @@ To remove the group indent in the [Grid for Blazor](slug:grid-overview) and hide
 
 ## See Also
 
-- [Grid Overview](slug:grid-overview)
-- [Override Theme Styles](slug:themes-override)
+* [Grid Overview](slug:grid-overview)
+* [Override Theme Styles](slug:themes-override)

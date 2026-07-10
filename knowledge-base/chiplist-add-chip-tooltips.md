@@ -27,9 +27,9 @@ components: ["chiplist"]
 You can display additional information for each chip in the [ChipList](slug:chiplist-overview) by showing a Tooltip. This approach helps you keep the chip text concise while providing more details on hover.
 
 This article answers the following questions:
-- How do you show extra details for chips in a ChipList?
-- Can you display a TelerikTooltip for each chip in the ChipList?
-- How do you use [`ItemTemplate`](slug:chiplist-templates) in Telerik Blazor ChipList?
+* How do you show extra details for chips in a ChipList?
+* Can you display a TelerikTooltip for each chip in the ChipList?
+* How do you use [`ItemTemplate`](slug:chiplist-templates) in Telerik Blazor ChipList?
 
 ## Solution
 
@@ -81,6 +81,6 @@ To add tooltips to chips in the ChipList, use the `ItemTemplate` to customize ch
 
 ## See Also
 
-- [ChipList Overview](slug:chiplist-overview)
-- [ChipList Templates](slug:chiplist-templates#item-template)
-- [Tooltip Overview](slug:tooltip-overview)
+* [ChipList Overview](slug:chiplist-overview)
+* [ChipList Templates](slug:chiplist-templates#item-template)
+* [Tooltip Overview](slug:tooltip-overview)

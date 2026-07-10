@@ -25,9 +25,9 @@ components: ["treeview"]
 
 This knowledge base article answers the following questions:
 
-- How can I apply custom CSS to TreeView items conditionally?
-- How to use the [`OnItemRender` event](slug:treeview-events#onitemrender) in the TreeView for Blazor?
-- Is it possible to disable checkboxes for certain TreeView items?
+* How can I apply custom CSS to TreeView items conditionally?
+* How to use the [`OnItemRender` event](slug:treeview-events#onitemrender) in the TreeView for Blazor?
+* Is it possible to disable checkboxes for certain TreeView items?
 
 ## Solution
 
@@ -151,5 +151,5 @@ To disable checkboxes for specific TreeView items based on a condition, use the 
 
 ## See Also
 
-- [TreeView Overview](slug:treeview-overview)
-- [TreeView OnItemRender Event](slug:treeview-events#onitemrender)
+* [TreeView Overview](slug:treeview-overview)
+* [TreeView OnItemRender Event](slug:treeview-events#onitemrender)

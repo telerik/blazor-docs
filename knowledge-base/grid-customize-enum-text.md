@@ -25,8 +25,8 @@ components: ["grid"]
 
 In scenarios where enums are used for filtering and enum values contain underscores, it might be necessary to display these values without underscores or with customized text. This knowledge base article answers the following questions:
 
-- How to remove underscores from enum values?
-- How to display customized text for enum values?
+* How to remove underscores from enum values?
+* How to display customized text for enum values?
 
 ## Solution
 

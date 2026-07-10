@@ -29,9 +29,9 @@ The requirement is to either hide this empty footer or utilize it by placing the
 
 This KB article also answers the following questions:
 
-- How to hide the empty footer in the edit popup of the Grid for Blazor?
-- How to display custom buttons in the footer of the edit popup?
-- How to manage form submission with custom buttons in the Grid for Blazor?
+* How to hide the empty footer in the edit popup of the Grid for Blazor?
+* How to display custom buttons in the footer of the edit popup?
+* How to manage form submission with custom buttons in the Grid for Blazor?
 
 ## Solution
 
@@ -457,5 +457,5 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
 
 ## See Also
 
-- [Grid Popup Editing - Documentation](slug:grid-editing-popup)
-- [Customizing the Grid's Edit Form](slug:grid-templates-popup-form)
+* [Grid Popup Editing - Documentation](slug:grid-editing-popup)
+* [Customizing the Grid's Edit Form](slug:grid-templates-popup-form)

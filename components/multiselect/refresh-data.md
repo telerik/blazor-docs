@@ -15,10 +15,10 @@ components: ["multiselect"]
 
 Sections in this article:
 
-- [Rebind Method](#rebind-method)
-- [Observable Data](#observable-data)
-- [New Collection Reference](#new-collection-reference)
-- [Update Value](#update-value)
+* [Rebind Method](#rebind-method)
+* [Observable Data](#observable-data)
+* [New Collection Reference](#new-collection-reference)
+* [Update Value](#update-value)
 
 ## Rebind Method
 

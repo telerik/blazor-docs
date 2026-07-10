@@ -70,5 +70,5 @@ To center a Telerik Window programmatically, follow these steps:
 
 ## See Also
 
-- [Window Position](slug:components/window/position)
-- [Telerik Window for Blazor - Overview](slug:window-overview)
+* [Window Position](slug:components/window/position)
+* [Telerik Window for Blazor - Overview](slug:window-overview)

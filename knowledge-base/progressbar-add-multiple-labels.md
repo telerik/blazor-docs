@@ -27,9 +27,9 @@ I want to display two labels on my ProgressBar component: one on the left side t
 
 This KB article also answers the following questions:
 
-- How can I customize the label inside a ProgressBar in Blazor?
-- Is it possible to display two or more labels in a ProgressBar?
-- How do I use the label template feature in the ProgressBar for Blazor?
+* How can I customize the label inside a ProgressBar in Blazor?
+* Is it possible to display two or more labels in a ProgressBar?
+* How do I use the label template feature in the ProgressBar for Blazor?
 
 ## Solution
 

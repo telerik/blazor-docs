@@ -59,4 +59,4 @@ By setting the `FirstDayOfWeek` property to `DayOfWeek.Monday`, the DatePicker w
 
 ## See Also
 
-- [DatePicker Overview Documentation](slug:components/datepicker/overview)
+* [DatePicker Overview Documentation](slug:components/datepicker/overview)

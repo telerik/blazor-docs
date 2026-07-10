@@ -106,7 +106,7 @@ To sort the groups in a DropDownList by a custom order, perform a manual sorting
 
 ## See Also
 
-- [Telerik DropDownList for Blazor - Overview](slug:components/dropdownlist/overview)
-- [OnRead Event in Telerik DropDownList](slug:components/dropdownlist/events#onread)
-- [Grouping in Telerik DropDownList](slug:components/dropdownlist/grouping)
-- [Custom Grouping Order in Grid](slug:grid-custom-grouping-order)
+* [Telerik DropDownList for Blazor - Overview](slug:components/dropdownlist/overview)
+* [OnRead Event in Telerik DropDownList](slug:components/dropdownlist/events#onread)
+* [Grouping in Telerik DropDownList](slug:components/dropdownlist/grouping)
+* [Custom Grouping Order in Grid](slug:grid-custom-grouping-order)

@@ -25,8 +25,8 @@ components: ["treeview"]
 ## Description
 
 This KB article answers the following questions:
- - Is there any way I can edit the node text within a Blazor TreeView?
- - How can I let the user rename a node? 
+ * Is there any way I can edit the node text within a Blazor TreeView?
+ * How can I let the user rename a node? 
 
 ## Solution
 

@@ -15,11 +15,11 @@ One of the key features of Telerik UI for Blazor Grid component is its ability t
 
 In this article:
 
-- [Rebind Method](#rebind-method)
-- [Observable Data](#observable-data)
-- [New Collection Reference](#new-collection-reference)
-- [Call OnRead](#call-onread)
-- [Entity Framework Data](#entity-framework-data)
+* [Rebind Method](#rebind-method)
+* [Observable Data](#observable-data)
+* [New Collection Reference](#new-collection-reference)
+* [Call OnRead](#call-onread)
+* [Entity Framework Data](#entity-framework-data)
 
 ## Rebind Method
 

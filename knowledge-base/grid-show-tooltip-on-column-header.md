@@ -27,9 +27,9 @@ When the column headers in a [Telerik Grid for Blazor](slug:grid-overview) are t
 
 This knowledge-base article also answers the following questions:
 
-- How to add Tooltip to Grid column header in Blazor?
-- How to show Tooltip only for truncated column headers in a Blazor Grid?
-- How to customize Grid column headers in Blazor?
+* How to add Tooltip to Grid column header in Blazor?
+* How to show Tooltip only for truncated column headers in a Blazor Grid?
+* How to customize Grid column headers in Blazor?
 
 ## Solution
 
@@ -139,7 +139,7 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 
 ## See Also
 
-- [Grid Column Header Template Documentation](slug:grid-templates-column-header#column-header-template)
-- [Telerik Tooltip Overview](slug:tooltip-overview)
-- [Hide the Tooltip Callout or Change Its Position](slug:tooltip-kb-callout-position)
-- [Show Tooltip in Grid](slug:tooltip-kb-in-grid)
+* [Grid Column Header Template Documentation](slug:grid-templates-column-header#column-header-template)
+* [Telerik Tooltip Overview](slug:tooltip-overview)
+* [Hide the Tooltip Callout or Change Its Position](slug:tooltip-kb-callout-position)
+* [Show Tooltip in Grid](slug:tooltip-kb-in-grid)

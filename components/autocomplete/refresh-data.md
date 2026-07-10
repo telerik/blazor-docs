@@ -16,9 +16,9 @@ components: ["autocomplete"]
 
 In this article:
 
-- [Rebind Method](#rebind-method)
-- [Observable Data](#observable-data)
-- [New Collection Reference](#new-collection-reference)
+* [Rebind Method](#rebind-method)
+* [Observable Data](#observable-data)
+* [New Collection Reference](#new-collection-reference)
 
 ## Rebind Method
 

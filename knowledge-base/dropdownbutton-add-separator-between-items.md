@@ -57,5 +57,5 @@ To create a visual separator between items in a DropDownButton, apply a custom c
 
 ## See Also
 
-- [DropDownButton Overview](slug:dropdownbutton-overview)
-- [Customizing the Appearance of Telerik UI for Blazor Components](slug:themes-override)
+* [DropDownButton Overview](slug:dropdownbutton-overview)
+* [Customizing the Appearance of Telerik UI for Blazor Components](slug:themes-override)

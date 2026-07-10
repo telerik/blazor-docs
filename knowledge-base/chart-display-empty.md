@@ -97,5 +97,5 @@ To display an empty Chart when there is no data, [override the default theme sty
 
 ## See Also
 
-- [Blazor Charts Overview](slug:components/chart/overview)
-- [Override Theme Styles](slug:themes-override)
+* [Blazor Charts Overview](slug:components/chart/overview)
+* [Override Theme Styles](slug:themes-override)
