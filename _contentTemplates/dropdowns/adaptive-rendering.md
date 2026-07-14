@@ -3,5 +3,5 @@ The component supports different popup rendering depending on the screen size. [
 #end
 
 #value-changed
-> If [`AdaptiveRendering`](slug:adaptive-rendering) is enabled, on small and medium devices `ValueChanged` will fire only when the user clicks the confirmation button in the action sheet.
+> If [`AdaptiveRendering`](slug:adaptive-rendering) is enabled, on small and medium devices `ValueChanged` fires only when the user clicks the confirmation button in the action sheet.
 #end
