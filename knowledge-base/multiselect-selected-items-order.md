@@ -122,5 +122,5 @@ Optionally, use the [MultiSelect `OnChange` or `ValueChanged` events](slug:multi
 
 ## See Also
 
-* [Data binding a MultiSelect](slug:multiselect-databind)
-* [Pre-select MultiSelect items](slug:multiselect-pre-select-items)
+* [MultiSelect Data Binding](slug:multiselect-databind)
+* [MultiSelect Item Selection](slug:multiselect-item-selection)
