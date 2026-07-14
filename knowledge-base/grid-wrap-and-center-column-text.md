@@ -5,8 +5,8 @@ type: how-to
 page_title: How to wrap and center the Grid Column Header text
 slug: grid-kb-wrap-and-center-column-header-text
 position: 
-tags: telerik, blazor, grid, column, header, wrap, center
-ticketid: 1507250
+tags: telerik, blazor, grid, styles
+ticketid: 1507250, 1716715
 res_type: kb
 components: ["grid"]
 ---
@@ -58,11 +58,19 @@ For older product versions, or to target all columns, use `.k-header` instead of
 </TelerikGrid>
 
 <style>
-    .k-grid th.center-wrap {
+    .k-grid .k-grid-header th.center-wrap {
         justify-content: center;
         text-align: center;
         white-space: normal;
-        vertical-align: middle;
+        vertical-align: top; /* or use bottom */
+    }
+
+    .k-grid th.center-wrap .k-cell-inner {
+        align-items: flex-start; /* or use flex-end */
+    }
+
+    .k-grid th.center-wrap .k-grid-header-menu {
+        margin-block: calc(var(--kendo-spacing-2\.5) + 1px); /* matches the vertical header cell padding */
     }
 
     .k-grid th.center-wrap .k-column-title {
@@ -71,7 +79,7 @@ For older product versions, or to target all columns, use `.k-header` instead of
 </style>
 
 @code {
-    List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
     protected override void OnInitialized()
     {
