@@ -107,7 +107,7 @@ The Select All functionality applies only to the currently rendered items, which
 
 * The state of the **Select All** toggle button depends on whether all currently rendered items are selected.
 * If [MultiSelect filtering](slug:multiselect-filter) is active, users select or deselect only the filtered items. The selection state of all other items remains unchanged.
-* If [MultiSelect virtual scrolling](slug:multiselect-virtualization) is enabled, users select or deselect the currently rendered chunk of items. Their number depends on the `PageSize`. Scrolling does not affect the selected items. To select all items in the data source in virtual scenarios, use the [`OnSelectAll` event](slug:multiselect-events#onselectall).
+* If [MultiSelect virtual scrolling](slug:multiselect-virtualization) is enabled, users select or deselect the currently rendered chunk of items. Their number depends on the `PageSize`. Scrolling does not affect the selected items. To select all items in the data source in virtual scenarios, use the [`OnSelectAll` event and set `args.Items` to all data items](slug:multiselect-virtualization#remote-data-example).
 
 >caption Using MultiSelect SelectAll parameter and OnSelectAll event
 

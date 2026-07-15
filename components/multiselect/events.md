@@ -364,7 +364,7 @@ Find out how to [get the applied filtering and grouping criteria](slug:common-fe
 
 ## OnSelectAll
 
-The MultiSelect `OnSelectAll` event fires when the user clicks on the **Select All** toggle button in the dropdown. The event handler receives a generic [`MultiSelectSelectAllEventArgs<TItem>`](slug:Telerik.Blazor.Components.MultiSelectSelectAllEventArgs-1) argument with an `Items` property that exposes the currently rendered items in the dropdown. These items may be subject to selection or deselection, depending on the current MultiSelect `Value` and the **Select All** toggle button state. `OnSelectAll` fires before [`ValueChanged`](#valuechanged).
+The MultiSelect `OnSelectAll` event fires when the user clicks on the [**Select All** toggle button](slug:multiselect-item-selection#select-all-items) in the dropdown. The event handler receives a generic [`MultiSelectSelectAllEventArgs<TItem>`](slug:Telerik.Blazor.Components.MultiSelectSelectAllEventArgs-1) argument with an `Items` property that exposes the currently rendered items in the dropdown. These items may be subject to selection or deselection, depending on the current MultiSelect `Value` and the **Select All** toggle button state. `OnSelectAll` fires before [`ValueChanged`](#valuechanged).
 
 Using `OnSelectAll` requires the [MultiSelect `EnableSelectAll` parameter value to be `true`](slug:multiselect-item-selection#select-all-items).
 

@@ -42,39 +42,36 @@ The MultiSelect @[template](/_contentTemplates/common/dropdowns-virtualization.m
 ## Local Data Example
 
 ````RAZOR
-Number of selected items: @SelectedValues?.Count
-<br />
+<p>Number of selected items: @MultiSelectValue?.Count</p>
+
 <TelerikMultiSelect Data="@Data"
+                    @bind-Value="@MultiSelectValue"
 
                     ScrollMode="@DropDownScrollMode.Virtual"
                     ItemHeight="30"
                     PageSize="20"
 
                     AutoClose="false"
-                    TextField="@nameof(Person.Name)"
-                    ValueField="@nameof(Person.Id)"
-                    @bind-Value="@SelectedValues"
-                    Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-    <MultiSelectSettings>
-        <MultiSelectPopupSettings Height="200px" />
-    </MultiSelectSettings>
+                    
+                    Filterable="true"
+                    FilterOperator="@StringFilterOperator.Contains">
 </TelerikMultiSelect>
 
 @code {
-    List<int> SelectedValues { get; set; }
-    List<Person> Data { get; set; }
+    private List<Person> Data { get; set; } = new();
+    private List<int> MultiSelectValue { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        Data = Enumerable.Range(1, 12345).Select(x => new Person { Id = x, Name = $"Name {x}" }).ToList();
+        Data = Enumerable.Range(1, 12345).Select(x => new Person { Value = x, Text = $"Name {x}" }).ToList();
 
         base.OnInitialized();
     }
 
     public class Person
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int Value { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
@@ -86,91 +83,121 @@ Number of selected items: @SelectedValues?.Count
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-mapper-in-remote-example)
 
+* An optional [`OnSelectAll` event handler](slug:multiselect-events#onselectall) that toggles all items in the data, rather than just the currently rendered chunk. When filtering is active, the `OnSelectAll` handler should apply the filter criteria to the full data collection before selecting or deselecting items.
+
 Run this and see how you can display, scroll and filter over 10k records in the MultiSelect without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
 ````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-Number of selected items: @SelectedValues?.Count
-<br />
-<TelerikMultiSelect TItem="@Person" TValue="@int"
+<p>Number of selected items: @MultiSelectValue?.Count</p>
+
+<TelerikMultiSelect OnRead="@OnMultiSelectRead"
+                    @bind-Value="@MultiSelectValue"
+                    TItem="@Person"
+                    TValue="@int"
+
                     ScrollMode="@DropDownScrollMode.Virtual"
-                    OnRead="@GetRemoteData"
-                    ValueMapper="@GetModelFromValue"
+                    ValueMapper="@GetItemsFromValue"
                     ItemHeight="30"
+                    PageSize="20"
                     
                     AutoClose="false"
-                    PageSize="20"
-                    TextField="@nameof(Person.Name)"
-                    ValueField="@nameof(Person.Id)"
-                    @bind-Value="@SelectedValues"
-                    Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-    <MultiSelectSettings>
-        <MultiSelectPopupSettings Height="200px" />
-    </MultiSelectSettings>
+                    
+                    Filterable="true"
+                    FilterOperator="@StringFilterOperator.Contains"
+                    PersistFilterOnSelect="false"
+                    
+                    EnableSelectAll="true"
+                    OnSelectAll="@((MultiSelectSelectAllEventArgs<Person> args) => OnMultiSelectAll(args))">
 </TelerikMultiSelect>
 
 @code{
-    List<int> SelectedValues { get; set; } = new List<int> { 4, 1234 }; // pre-select an item to showcase the value mapper
+    private List<int> MultiSelectValue { get; set; } = new List<int> { 4, 1234 };
 
-    async Task GetRemoteData(MultiSelectReadEventArgs args)
+    private IList<IFilterDescriptor>? FiltersForSelectAll { get; set; }
+
+    private async Task OnMultiSelectRead(MultiSelectReadEventArgs args)
     {
+        // Save the active filter for the OnSelectAll handler.
+        FiltersForSelectAll = args.Request.Filters;
+
         DataEnvelope<Person> result = await MyService.GetItems(args.Request);
 
         args.Data = result.Data;
         args.Total = result.Total;
     }
 
-    async Task<List<Person>> GetModelFromValue(List<int> selectedValues)
+    private async Task<List<Person>> GetItemsFromValue(List<int> selectedValues)
     {
-        // return a model that matches the selected value so the component can get its text
         return await MyService.GetItemsFromValue(selectedValues);
     }
 
-    // mimics a real service in terms of API appearance, refactor as necessary for your app
+    private async Task OnMultiSelectAll(MultiSelectSelectAllEventArgs<Person> args)
+    {
+        // When the user clicks on "Select All", select or deselect all items instead of just the current chunk.
+
+        List<int> valuesToToggle = args.Items.Select(x => x.Value).ToList();
+
+        if (!valuesToToggle.All(x => MultiSelectValue.Contains(x)))
+        {
+            DataSourceRequest requestForSelectAll = new DataSourceRequest()
+            {
+                Filters = FiltersForSelectAll
+            };
+
+            DataEnvelope<Person> envelopeForAllItems = await MyService.GetItems(requestForSelectAll);
+            args.Items = envelopeForAllItems.Data;
+        }
+        else
+        {
+            args.Items = Enumerable.Empty<Person>();
+        }
+    }
+
     public static class MyService
     {
-        static List<Person> AllData { get; set; }
+        static List<Person>? AllData { get; set; }
 
         public static async Task<DataEnvelope<Person>> GetItems(DataSourceRequest request)
         {
             if (AllData == null)
             {
-                AllData = Enumerable.Range(1, 12345).Select(x => new Person { Id = x, Name = $"Name {x}" }).ToList();
+                AllData = Enumerable.Range(1, 12345).Select(x => new Person { Value = x, Text = $"Name {x}" }).ToList();
             }
 
-            await Task.Delay(400); // simulate real network and database delays. Remove in a real app
+            await Task.Delay(400); // Simulate network delay
 
-            var result = await AllData.ToDataSourceResultAsync(request);
+            DataSourceResult result = await AllData.ToDataSourceResultAsync(request);
             DataEnvelope<Person> dataToReturn = new DataEnvelope<Person>
             {
                 Data = result.Data.Cast<Person>().ToList(),
                 Total = result.Total
             };
 
-            return await Task.FromResult(dataToReturn);
+            return dataToReturn;
         }
 
         public static async Task<List<Person>> GetItemsFromValue(List<int> selectedValues)
         {
-            await Task.Delay(400); // simulate real network and database delays. Remove in a real app
+            await Task.Delay(400); // Simulate network delay
 
-            return await Task.FromResult(AllData.Where(x => selectedValues.Contains(x.Id)).ToList());
+            return AllData?.Where(x => selectedValues.Contains(x.Value)).ToList() ?? new List<Person>();
         }
     }
 
-    // used to showcase how you could simplify the return of more than one value from the service
+    // Optional. Shows how to simplify the return of more than one value from the service.
     public class DataEnvelope<T>
     {
         public int Total { get; set; }
-        public List<T> Data { get; set; }
+        public List<T> Data { get; set; } = new List<T>();
     }
 
     public class Person
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int Value { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
