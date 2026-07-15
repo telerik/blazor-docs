@@ -154,7 +154,7 @@ liquid-output-delimiter-left: "{{"
 liquid-output-delimiter-right: "}}"
 liquid:
   uiForBlazorLatestVersion: "14.1.0"
-  themesVersion: "14.1.0"
+  themesVersion: "14.3.0"
 
 ai-chat-prompt-suggestions:
   - "How to set up my Telerik license key?"
