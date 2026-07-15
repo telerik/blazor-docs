@@ -155,7 +155,7 @@ This solution relies on disabling the built-in Tooltip and adding a custom one, 
 1. Disable the built-in Tooltip by setting the Gantt `ShowTooltip` parameter to `false`.
 1. Use a [`TaskTemplate`](slug:gantt-task-template) to render a unique `id` attribute to each task.
 1. Add a [TelerikTooltip](slug:tooltip-overview) in the `TaskTemplate`.
-1. Set the Tooltip's [`TargetSelector`](slug:tooltip-overview#tooltip-parameters) to point to the task wrapper unique `id`.
+1. Set the Tooltip's [`TargetSelector`](slug:tooltip-overview#tooltip-api) to point to the task wrapper unique `id`.
 1. Access the model from the `context` of the `TaskTemplate` and get the needed properties to display in the Tooltip.
 
 > This approach renders a dedicated Tooltip for each task. This makes it useful if you don't have too many tasks - otherwise, you may face performance issues. In this case, either use the [above approach](#get-the-gantt-data-item-from-context-properties) or [add only one Tooltip instance as shown here](slug:tooltip-kb-in-grid).
