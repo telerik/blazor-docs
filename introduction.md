@@ -94,21 +94,21 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Color Picker" href="slug:colorpicker-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Flat Color Picker" href="slug:flatcolorpicker-overview"></IntroTableAnchor>
       <IntroTableAnchor title="ComboBox" href="slug:components/combobox/overview"></IntroTableAnchor>
-      <IntroTableAnchor title="MultiColumnComboBox" href="slug:multicolumncombobox-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Date Input" href="slug:components/dateinput/overview"></IntroTableAnchor>
       <IntroTableAnchor title="Date Picker" href="slug:components/datepicker/overview"></IntroTableAnchor>
       <IntroTableAnchor title="Time Picker" href="slug:components/timepicker/overview"></IntroTableAnchor>
       <IntroTableAnchor title="DateTime Picker" href="slug:components/datetimepicker/overview"></IntroTableAnchor>
-      <IntroTableAnchor title="DateRange Picker" href="slug:daterangepicker-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Date Range Picker" href="slug:daterangepicker-overview"></IntroTableAnchor>
       <IntroTableAnchor title="DropDownList" href="slug:components/dropdownlist/overview"></IntroTableAnchor>
       <IntroTableAnchor title="DropDownTree" href="slug:dropdowntree-overview"></IntroTableAnchor>
       <IntroTableAnchor title="HTML Editor" href="slug:editor-overview"></IntroTableAnchor>
       <IntroTableAnchor title="ListBox" href="slug:listbox-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Masked Textbox" href="slug:maskedtextbox-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="MultiColumnComboBox" href="slug:multicolumncombobox-overview"></IntroTableAnchor>
       <IntroTableAnchor title="MultiSelect" href="slug:multiselect-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Numeric Textbox" href="slug:components/numerictextbox/overview"></IntroTableAnchor>
       <IntroTableAnchor title="Radio Button Group" href="slug:radiogroup-overview"></IntroTableAnchor>
-      <IntroTableAnchor title="RangeSlider" href="slug:rangeslider-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Range Slider" href="slug:rangeslider-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Signature" href="slug:signature-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Slider" href="slug:slider-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Switch" href="slug:switch-overview"></IntroTableAnchor>
@@ -117,7 +117,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Validation Tools" href="slug:validation-tools-overview"></IntroTableAnchor>
     </IntroTableSection>
     <IntroTableSection title="Labels">
-      <IntroTableAnchor title="FloatingLabel" href="slug:floatinglabel-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Floating Label" href="slug:floatinglabel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Badge" href="slug:badge-overview"></IntroTableAnchor>
     </IntroTableSection>
   </IntroTableColumn>
@@ -126,7 +126,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Calendar" href="slug:components/calendar/overview"></IntroTableAnchor>
       <IntroTableAnchor title="Gantt" href="slug:gantt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Scheduler" href="slug:scheduler-overview"></IntroTableAnchor>
-      <IntroTableAnchor title="TaskBoard" href="slug:taskboard-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Task Board" href="slug:taskboard-overview"></IntroTableAnchor>
     </IntroTableSection>
     <IntroTableSection title="Charts">
       <IntroTableAnchor title="Charts Overview" href="slug:components/chart/overview"></IntroTableAnchor>
@@ -160,8 +160,8 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
   </IntroTableColumn>
   <IntroTableColumn>
     <IntroTableSection title="Layout">
-      <IntroTableAnchor title="AppBar" href="slug:appbar-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Animation Container" href="slug:components/animationcontainer/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="AppBar" href="slug:appbar-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Card" href="slug:card-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Carousel" href="slug:carousel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Dialog" href="slug:dialog-overview"></IntroTableAnchor>
@@ -178,15 +178,15 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
     <IntroTableSection title="Interactivity and UX">
       <IntroTableAnchor title="AIPrompt" href="slug:aiprompt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Chat" href="slug:chat-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Chunk Progress Bar" href="slug:chunkprogressbar-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Loader" href="slug:loader-overview"></IntroTableAnchor>
       <IntroTableAnchor title="LoaderContainer" href="slug:loadercontainer-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Skeleton" href="slug:skeleton-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Notification" href="slug:notification-overview"></IntroTableAnchor>
-      <IntroTableAnchor title="Progress Bar" href="slug:progressbar-overview"></IntroTableAnchor>
-      <IntroTableAnchor title="Chunk Progress Bar" href="slug:chunkprogressbar-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Popover" href="slug:popover-overview"></IntroTableAnchor>
-      <IntroTableAnchor title="Tooltip" href="slug:tooltip-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Popup" href="slug:popup-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Progress Bar" href="slug:progressbar-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Tooltip" href="slug:tooltip-overview"></IntroTableAnchor>
     </IntroTableSection>
     <IntroTableSection title="Documents">
       <IntroTableAnchor title="Document Processing" href="slug:dpl-in-blazor"></IntroTableAnchor>

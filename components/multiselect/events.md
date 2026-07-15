@@ -13,47 +13,38 @@ components: ["multiselect"]
 
 This article explains the events available in the Telerik MultiSelect for Blazor:
 
-* [ValueChanged](#valuechanged)
-* [OnChange](#onchange)
-* [OnRead](#onread)
-* [OnOpen](#onopen)
-* [OnClose](#onclose)
-* [OnItemRender](#onitemrender)
-* [OnBlur](#onblur)
+* [`OnBlur`](#onblur)
+* [`OnChange`](#onchange)
+* [`OnClose`](#onclose)
+* [`OnItemRender`](#onitemrender)
+* [`OnOpen`](#onopen)
+* [`OnRead`](#onread)
+* [`OnSelectAll`](#onselectall)
+* [`ValueChanged`](#valuechanged)
 
-## ValueChanged
+## OnBlur
 
-The `ValueChanged` event fires when the user selection changes (the user adds or removes items). The type of the argument in the lambda expression must match the `Value` type of the component.
+The `OnBlur` event fires when the component loses focus.
 
-@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#value-changed)
-
->caption Handle MultiSelect ValueChanged
+>caption Handle the OnBlur event
 
 ````RAZOR
-Selected items count: @( MultiValues?.Count ?? 0 ) <br />
+@* You do not have to use OnChange to react to loss of focus *@
 
-<TelerikMultiSelect Data="@MultiData"
-                    Value="@MultiValues"
-                    ValueChanged="@( (List<string> newValues) => OnMultiValueChanged(newValues) )">
+<TelerikMultiSelect @bind-Value="@TheValues" Data="@Options"
+                    OnBlur="@OnBlurHandler">
 </TelerikMultiSelect>
 
 @code{
-    private List<string> MultiData { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
-    };
-
-    private List<string> MultiValues { get; set; } = new List<string>() { "Developer" };
-
-    private void OnMultiValueChanged(List<string> newValues)
+    async Task OnBlurHandler()
     {
-        MultiValues = newValues;
+        Console.WriteLine($"BLUR fired, current selections count is {TheValues.Count}.");
     }
+
+    List<string> TheValues { get; set; } = new List<string>();
+    List<string> Options { get; set; } = new List<string> { "one", "two", "three" };
 }
 ````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 ## OnChange
 
@@ -92,6 +83,151 @@ from the model:
     List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
+}
+````
+
+## OnClose
+
+The `OnClose` event fires before the MultiSelect popup closes.
+
+The event handler receives as an argument an `MultiSelectCloseEventArgs` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````RAZOR
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikMultiSelect Data="@Items"
+                    OnClose="@OnMultiSelectPopupClose"
+                    ValueField="@nameof(ItemDescriptor.ItemId)"
+                    TextField="@nameof(ItemDescriptor.ItemText)"
+                    @bind-Value="@MultiSelectValue">
+</TelerikMultiSelect>
+
+@code {
+    private List<int> MultiSelectValue { get; set; } = new();
+
+    private void OnMultiSelectPopupClose(MultiSelectCloseEventArgs args)
+    {
+        // cancel the OnClose event based on a condition
+        if (MultiSelectValue.Any(x => x == 2))
+        {
+            args.IsCancelled = true;
+        }
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
+}
+````
+
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the MultiSelect dropdown renders. 
+
+The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TItem>` object that contains:
+
+| Property | Description |
+| --- | --- |
+| `Item`   | The current item that renders in the MultiSelect. |
+| `Class`  | The custom CSS class that will be added to the item.     |
+
+````RAZOR
+@* Customize an item in the MultiSelect *@
+
+<style>
+    .customized-item {
+        font-weight:bold;
+        color: white;
+        background-color: blue;
+    }
+</style>
+
+<TelerikMultiSelect Data="@Options"
+                    OnItemRender="@OnItemRenderHandler"
+                    @bind-Value="@MultiSelectValues"
+                    TextField="StringRepresentation"
+                    ValueField="UniqueIdentifier" />
+
+@code {
+    private List<int> MultiSelectValues { get; set; }
+
+    private void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
+    {
+        OptionsModel currentItem = args.Item;
+
+        if (currentItem.StringRepresentation == "third" && currentItem.UniqueIdentifier == 3)
+        {
+            args.Class = "customized-item";
+        }
+    }
+
+    private List<OptionsModel> Options { get; set; } = new List<OptionsModel>
+    {
+        new OptionsModel { StringRepresentation = "first",  UniqueIdentifier = 1 },
+        new OptionsModel { StringRepresentation = "second", UniqueIdentifier = 2 },
+        new OptionsModel { StringRepresentation = "third",  UniqueIdentifier = 3 }
+    };
+
+    public class OptionsModel
+    {
+        public string StringRepresentation { get; set; }
+        public int UniqueIdentifier { get; set; } 
+    }
+}
+````
+
+## OnOpen
+
+The `OnOpen` event fires before the MultiSelect popup renders. 
+
+The event handler receives as an argument an `MultiSelectOpenEventArgs` object that contains:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````RAZOR
+<TelerikMultiSelect Data="@Items"
+                    @bind-Value="@MultiSelectValue"
+                    ValueField="@nameof(ItemDescriptor.ItemId)"
+                    TextField="@nameof(ItemDescriptor.ItemText)"
+                    OnOpen="@OnMultiSelectPopupOpen">
+</TelerikMultiSelect>
+
+@code {
+    private List<int> MultiSelectValue { get; set; } = new();
+
+    private void OnMultiSelectPopupOpen(MultiSelectOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the OnOpen event
+        args.IsCancelled = false;
+    }
+
+    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
+        {
+            ItemId = x,
+            ItemText = $"Item {x}"
+        }).ToList();
+
+    public class ItemDescriptor
+    {
+        public int ItemId { get; set; }
+        public string ItemText { get; set; }
+    }
 }
 ````
 
@@ -226,174 +362,111 @@ Find out how to [get the applied filtering and grouping criteria](slug:common-fe
 }
 ````
 
-## OnOpen
+## OnSelectAll
 
-The `OnOpen` event fires before the MultiSelect popup renders. 
+The MultiSelect `OnSelectAll` event fires when the user clicks on the [**Select All** toggle button](slug:multiselect-item-selection#select-all-items) in the dropdown. The event handler receives a generic [`MultiSelectSelectAllEventArgs<TItem>`](slug:Telerik.Blazor.Components.MultiSelectSelectAllEventArgs-1) argument with an `Items` property that exposes the currently rendered items in the dropdown. These items may be subject to selection or deselection, depending on the current MultiSelect `Value` and the **Select All** toggle button state. `OnSelectAll` fires before [`ValueChanged`](#valuechanged).
 
-The event handler receives as an argument an `MultiSelectOpenEventArgs` object that contains:
+Using `OnSelectAll` requires the [MultiSelect `EnableSelectAll` parameter value to be `true`](slug:multiselect-item-selection#select-all-items).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property | Description |
-| --- | --- |
-| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+>caption Using the MultiSelect OnSelectAll event
 
 ````RAZOR
-<TelerikMultiSelect Data="@Items"
-                    @bind-Value="@MultiSelectValue"
-                    ValueField="@nameof(ItemDescriptor.ItemId)"
-                    TextField="@nameof(ItemDescriptor.ItemText)"
-                    OnOpen="@OnMultiSelectPopupOpen">
-</TelerikMultiSelect>
+<p><code>OnSelectAll</code> Log: @OnSelectAllLog</p>
 
-@code {
-    private List<int> MultiSelectValue { get; set; } = new();
-
-    private void OnMultiSelectPopupOpen(MultiSelectOpenEventArgs args)
-    {
-        //set the IsCancelled to true to cancel the OnOpen event
-        args.IsCancelled = false;
-    }
-
-    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
-        {
-            ItemId = x,
-            ItemText = $"Item {x}"
-        }).ToList();
-
-    public class ItemDescriptor
-    {
-        public int ItemId { get; set; }
-        public string ItemText { get; set; }
-    }
-}
-````
-
-## OnClose
-
-The `OnClose` event fires before the MultiSelect popup closes.
-
-The event handler receives as an argument an `MultiSelectCloseEventArgs` object that contains:
-
-| Property | Description |
-| --- | --- |
-| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
-
-````RAZOR
-@* Cancel the OnClose event based on a condition *@
-
-<TelerikMultiSelect Data="@Items"
-                    OnClose="@OnMultiSelectPopupClose"
-                    ValueField="@nameof(ItemDescriptor.ItemId)"
-                    TextField="@nameof(ItemDescriptor.ItemText)"
-                    @bind-Value="@MultiSelectValue">
-</TelerikMultiSelect>
-
-@code {
-    private List<int> MultiSelectValue { get; set; } = new();
-
-    private void OnMultiSelectPopupClose(MultiSelectCloseEventArgs args)
-    {
-        // cancel the OnClose event based on a condition
-        if (MultiSelectValue.Any(x => x == 2))
-        {
-            args.IsCancelled = true;
-        }
-    }
-
-    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
-        {
-            ItemId = x,
-            ItemText = $"Item {x}"
-        }).ToList();
-
-    public class ItemDescriptor
-    {
-        public int ItemId { get; set; }
-        public string ItemText { get; set; }
-    }
-}
-````
-
-## OnItemRender
-
-The `OnItemRender` event fires when each item in the MultiSelect dropdown renders. 
-
-The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TItem>` object that contains:
-
-| Property | Description |
-| --- | --- |
-| `Item`   | The current item that renders in the MultiSelect. |
-| `Class`  | The custom CSS class that will be added to the item.     |
-
-````RAZOR
-@* Customize an item in the MultiSelect *@
-
-<style>
-    .customized-item {
-        font-weight:bold;
-        color: white;
-        background-color: blue;
-    }
-</style>
-
-<TelerikMultiSelect Data="@Options"
-                    OnItemRender="@OnItemRenderHandler"
+<TelerikMultiSelect Data="@ListItems"
                     @bind-Value="@MultiSelectValues"
-                    TextField="StringRepresentation"
-                    ValueField="UniqueIdentifier" />
+                    AutoClose="false"
+                    EnableSelectAll="true"
+                    Filterable="true"
+                    FilterOperator="@StringFilterOperator.Contains"
+                    OnSelectAll="@((MultiSelectSelectAllEventArgs<ListItem> args) => OnMultiSelectAll(args))" />
 
 @code {
-    private List<int> MultiSelectValues { get; set; }
+    private List<ListItem> ListItems { get; set; } = new();
 
-    private void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
+    private List<int> MultiSelectValues { get; set; } = new() { 1, 3 };
+
+    private string OnSelectAllLog { get; set; } = string.Empty;
+
+    private void OnMultiSelectAll(MultiSelectSelectAllEventArgs<ListItem> args)
     {
-        OptionsModel currentItem = args.Item;
+        List<int> itemValues = args.Items.Select(x => x.Value).ToList();
+        string action = itemValues.All(x => MultiSelectValues.Contains(x)) ? "Deselected" : "Selected";
 
-        if (currentItem.StringRepresentation == "third" && currentItem.UniqueIdentifier == 3)
-        {
-            args.Class = "customized-item";
-        }
+        OnSelectAllLog = $"{action} {args.Items.Count()} items at {DateTime.Now.ToString("HH:mm:ss")}.";
     }
 
-    private List<OptionsModel> Options { get; set; } = new List<OptionsModel>
+    protected override void OnInitialized()
     {
-        new OptionsModel { StringRepresentation = "first",  UniqueIdentifier = 1 },
-        new OptionsModel { StringRepresentation = "second", UniqueIdentifier = 2 },
-        new OptionsModel { StringRepresentation = "third",  UniqueIdentifier = 3 }
-    };
+        ListItems = new List<ListItem>();
 
-    public class OptionsModel
+        for (int i = 1; i <= 32; i++)
+        {
+            ListItems.Add(new ListItem()
+            {
+                Value = i,
+                Text = $"{i} {GetRandomChars(3)}"
+            });
+        }
+
+        base.OnInitialized();
+    }
+
+    private string GetRandomChars(int? length = 1)
     {
-        public string StringRepresentation { get; set; }
-        public int UniqueIdentifier { get; set; } 
+        string result = string.Empty;
+
+        for (int i = 0; i < length; i++)
+        {
+            result += (char)Random.Shared.Next(65, 91);
+        }
+
+        return result;
+    }
+
+    public class ListItem
+    {
+        public int Value { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
 
-## OnBlur
+## ValueChanged
 
-The `OnBlur` event fires when the component loses focus.
+The `ValueChanged` event fires when the user selection changes (the user adds or removes items). The type of the argument in the lambda expression must match the `Value` type of the component.
 
->caption Handle the OnBlur event
+`ValueChanged` fires after [`OnSelectAll`](#onselectall).
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#value-changed)
+
+>caption Handle MultiSelect ValueChanged
 
 ````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
+Selected items count: @( MultiValues?.Count ?? 0 ) <br />
 
-<TelerikMultiSelect @bind-Value="@TheValues" Data="@Options"
-                    OnBlur="@OnBlurHandler">
+<TelerikMultiSelect Data="@MultiData"
+                    Value="@MultiValues"
+                    ValueChanged="@( (List<string> newValues) => OnMultiValueChanged(newValues) )">
 </TelerikMultiSelect>
 
 @code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current selections count is {TheValues.Count}.");
-    }
+    private List<string> MultiData { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
+    };
 
-    List<string> TheValues { get; set; } = new List<string>();
-    List<string> Options { get; set; } = new List<string> { "one", "two", "three" };
+    private List<string> MultiValues { get; set; } = new List<string>() { "Developer" };
+
+    private void OnMultiValueChanged(List<string> newValues)
+    {
+        MultiValues = newValues;
+    }
 }
 ````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 ## See Also
 
