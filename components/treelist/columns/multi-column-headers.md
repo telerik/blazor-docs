@@ -147,4 +147,4 @@ The following code snippet shows how you can group columns in the Treelist in mu
 
 ## See Also
 
-  * [Live Demo: Multi-Column Headers](https://demos.telerik.com/blazor-ui/treelist/multi-column-headers)
+* [Live Demo: Multi-Column Headers](https://demos.telerik.com/blazor-ui/treelist/multi-column-headers)

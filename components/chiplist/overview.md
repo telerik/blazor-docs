@@ -95,5 +95,5 @@ The table below lists the ChipList parameters. Also check the [ChipList API Refe
 
 ## See Also
 
-  * [Live Demo: ChipList Overview](https://demos.telerik.com/blazor-ui/chiplist/overview)
-  * [ChipList API Reference](slug:Telerik.Blazor.Components.TelerikChipList-1)
+* [Live Demo: ChipList Overview](https://demos.telerik.com/blazor-ui/chiplist/overview)
+* [ChipList API Reference](slug:Telerik.Blazor.Components.TelerikChipList-1)

@@ -469,6 +469,7 @@ To create an important note, use the `caution` prefix.
 ![Adding an important note](/images/important-in-markdown.png)
 
 ## Prepositions
+
 ### IN
 
 * (Do something) In a command mode

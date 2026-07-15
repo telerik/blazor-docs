@@ -26,8 +26,8 @@ components: ["tooltip"]
 ## Description
 
 This KB article answers the following question:
- - How to add Tooltips for elements in a Grid column? 
- - How to load Tooltip content on demand?
+ * How to add Tooltips for elements in a Grid column? 
+ * How to load Tooltip content on demand?
 
 ## Solution
 

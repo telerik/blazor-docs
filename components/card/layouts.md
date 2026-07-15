@@ -160,4 +160,4 @@ Add the `k-card-group` class to the wrapping container of the Cards to organize 
 
 ## See Also
 
-  * [Live Demo: Card Layouts](https://demos.telerik.com/blazor-ui/card/layouts)
+* [Live Demo: Card Layouts](https://demos.telerik.com/blazor-ui/card/layouts)

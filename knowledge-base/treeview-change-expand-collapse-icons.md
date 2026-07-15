@@ -26,8 +26,8 @@ components: ["treeview"]
 I want to customize the icons used for expanding and collapsing items in the [TreeView for Blazor](slug:treeview-overview). 
 
 This knowledge base article answers the following questions:
-- How can I use custom icons for the TreeView expand and collapse functionality?
-- Is it possible to change the default expand and collapse icons in the TreeView for Blazor?
+* How can I use custom icons for the TreeView expand and collapse functionality?
+* Is it possible to change the default expand and collapse icons in the TreeView for Blazor?
 
 ## Solution
 
@@ -134,5 +134,5 @@ You can change the expand/collapse icons in the TreeView by overriding the built
 ````
 ## See Also
 
-- [TreeView Overview](slug:treeview-overview) 
-- [Telerik Icons List](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/)
+* [TreeView Overview](slug:treeview-overview) 
+* [Telerik Icons List](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/)

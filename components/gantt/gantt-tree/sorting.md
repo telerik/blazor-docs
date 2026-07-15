@@ -127,5 +127,5 @@ Click a column header to sort by its data
 
 ## See Also
 
-  * [Live Demo: Gantt Sorting](https://demos.telerik.com/blazor-ui/gantt/sorting)
+* [Live Demo: Gantt Sorting](https://demos.telerik.com/blazor-ui/gantt/sorting)
    

@@ -14,9 +14,9 @@ components: ["treelist"]
 @[template](/_contentTemplates/common/observable-data.md#intro)
 
 In this article:
-- [Rebind Method](#rebind-method)
-- [Observable Data](#observable-data)
-- [New Collection Reference](#new-collection-reference)
+* [Rebind Method](#rebind-method)
+* [Observable Data](#observable-data)
+* [New Collection Reference](#new-collection-reference)
 
 
 ## Rebind Method
@@ -341,6 +341,6 @@ In this article:
 
 ## See Also
 
-  * [ObservableCollection](slug:common-features-observable-data)
-  * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
-  * [Live Demos](https://demos.telerik.com/blazor-ui)
+* [ObservableCollection](slug:common-features-observable-data)
+* [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
+* [Live Demos](https://demos.telerik.com/blazor-ui)

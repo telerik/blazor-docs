@@ -70,5 +70,5 @@ You can nest a Wizard in a Wizard step by using the step's `Content` render frag
 
 ## See Also
 
-- [Wizard Overview](slug:wizard-overview)
-- [Wizard Stepper Settings](slug:wizard-structure-stepper)
+* [Wizard Overview](slug:wizard-overview)
+* [Wizard Stepper Settings](slug:wizard-structure-stepper)

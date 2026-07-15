@@ -68,6 +68,6 @@ This piece of code renders just below the items, but within the main listview wr
 
 ## See Also
 
-  * [Live Demo: ListView Templates](https://demos.telerik.com/blazor-ui/listview/templates)
+* [Live Demo: ListView Templates](https://demos.telerik.com/blazor-ui/listview/templates)
    
   

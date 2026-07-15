@@ -25,9 +25,9 @@ components: ["form"]
 
 This knowledge base article answers the following questions:
 
-- How to detect unsaved changes in a Blazor TelerikForm?
-- How to prompt users before navigating away from unsaved changes in Form?
-- How to conditionally navigate away from a form?
+* How to detect unsaved changes in a Blazor TelerikForm?
+* How to prompt users before navigating away from unsaved changes in Form?
+* How to conditionally navigate away from a form?
 
 ## Solution
 
@@ -156,5 +156,5 @@ To prompt the users with a warning message when they attempt to navigate away fr
 
 ## See Also
 
-- [Blazor Form Overview](slug:form-overview)
-- [Blazor Dialog Overview](slug:dialog-overview)
+* [Blazor Form Overview](slug:form-overview)
+* [Blazor Dialog Overview](slug:dialog-overview)

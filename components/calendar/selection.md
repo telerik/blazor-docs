@@ -230,4 +230,4 @@ With `Single` and `Multiple` selection, the user can't select these dates. With 
 
 ## See Also
 
-  * [Live Demo: Calendar Selection](https://demos.telerik.com/blazor-ui/calendar/selection)
+* [Live Demo: Calendar Selection](https://demos.telerik.com/blazor-ui/calendar/selection)

@@ -126,6 +126,6 @@ If you try to use an aggregate that is not defined, or an aggregate over an unsu
 
 ## See Also
 
-  * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
+* [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
    
   

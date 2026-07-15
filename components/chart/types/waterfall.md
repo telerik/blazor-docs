@@ -177,4 +177,4 @@ The color of a series is controlled through the `Color` property that can take a
 
 ## See Also
 
-  * [Live Demo: Waterfall Chart](https://demos.telerik.com/blazor-ui/chart/waterfall-chart)
+* [Live Demo: Waterfall Chart](https://demos.telerik.com/blazor-ui/chart/waterfall-chart)

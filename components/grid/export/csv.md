@@ -19,9 +19,9 @@ When you click the Export button, your browser will receive the resulting file.
 
 #### In This Article
 
-  - [Basics](#basics)
-  - [Programmatic Export](#programmatic-export)
-  - [Customization](#customization)
+  * [Basics](#basics)
+  * [Programmatic Export](#programmatic-export)
+  * [Customization](#customization)
 
 ## Basics
 

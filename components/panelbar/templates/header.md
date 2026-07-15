@@ -127,5 +127,5 @@ If the `Level` parameter of the `PanelBarBinding` is not set, the `HeaderTemplat
 
 ## See Also
 
-  * [Data Binding a PanelBar](slug:panelbar-data-binding-overview)
-  * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)
+* [Data Binding a PanelBar](slug:panelbar-data-binding-overview)
+* [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)

@@ -26,9 +26,9 @@ components: ["tilelayout"]
 I have nested TileLayout components and I want both instances to be resizable and reorderable. The problem is that when I enable these features, the TileLayout does not behave well&mdash;for example, the reorder in the child component will also reorder the parent component with the same order.
 
 This KB article answers the following questions:
-- How can I enable resizing for nested TileLayout components without affecting the parent component?
-- What is the best practice for managing nested TileLayout components in Blazor?
-- How to prevent nested TileLayout components from resizing or reordering their parent in Blazor?
+* How can I enable resizing for nested TileLayout components without affecting the parent component?
+* What is the best practice for managing nested TileLayout components in Blazor?
+* How to prevent nested TileLayout components from resizing or reordering their parent in Blazor?
 
 ## Solution
 
@@ -162,6 +162,6 @@ To manage nested TileLyouts with resizing and reordering:
 
 ## See Also
 
-- [TileLayout Overview](slug:tilelayout-overview)
-- [TileLayout Reorderable Documentation](slug:tilelayout-reorder)
-- [TileLayout Resizable Documentation](slug:tilelayout-resize)
+* [TileLayout Overview](slug:tilelayout-overview)
+* [TileLayout Reorderable Documentation](slug:tilelayout-reorder)
+* [TileLayout Resizable Documentation](slug:tilelayout-resize)

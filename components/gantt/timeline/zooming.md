@@ -247,4 +247,4 @@ The `RangeSnapTo` parameter receives an argument of type `GanttRangeSnapTo` whic
 
 ## See Also
 
-  * [Live Demo: Gantt Zooming](https://demos.telerik.com/blazor-ui/gantt/zooming)
+* [Live Demo: Gantt Zooming](https://demos.telerik.com/blazor-ui/gantt/zooming)

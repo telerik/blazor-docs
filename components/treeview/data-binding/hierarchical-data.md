@@ -181,7 +181,7 @@ Experiment with the `TreeLevels`, `RootItems` and `ItemsPerLevel` values below.
 
 ## See Also
 
-  * [TreeView Data Binding Basics](slug:components/treeview/data-binding/overview)
-  * [Live Demo: TreeView Hierarchical Data](https://demos.telerik.com/blazor-ui/treeview/hierarchical-data)
-  * [Binding to Flat Data](slug:components/treeview/data-binding/flat-data)
-  * [Load on Demand](slug:components/treeview/data-binding/load-on-demand)
+* [TreeView Data Binding Basics](slug:components/treeview/data-binding/overview)
+* [Live Demo: TreeView Hierarchical Data](https://demos.telerik.com/blazor-ui/treeview/hierarchical-data)
+* [Binding to Flat Data](slug:components/treeview/data-binding/flat-data)
+* [Load on Demand](slug:components/treeview/data-binding/load-on-demand)

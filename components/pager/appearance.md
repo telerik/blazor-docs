@@ -49,4 +49,4 @@ You can increase or decrease the size of the Pager by setting the `Size` paramet
 
 ## See Also
 
-  * [Live Demo: Pager Appearance](https://demos.telerik.com/blazor-ui/pager/appearance)
+* [Live Demo: Pager Appearance](https://demos.telerik.com/blazor-ui/pager/appearance)

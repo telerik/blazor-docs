@@ -258,4 +258,4 @@ By default columns display the name of the corresponding field or their `Title` 
 
 ## See Also
 
-  * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
+* [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)

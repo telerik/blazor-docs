@@ -26,10 +26,10 @@ components: ["tooltip"]
 When an HTML element is disabled, providing additional information via a Tooltip can be challenging since disabled elements do not respond to mouse events. Hence, the Tooltip cannot detect when the user hovers over a disabled element.
 
 This knowledge base article also answers the following questions:
-- How can I display a tooltip over a disabled HTML element in Blazor?
-- How to display a tooltip over a disabled button?
-- What is the workaround for showing tooltips on disabled elements in Blazor?
-- Can a tooltip be associated with a disabled element in Blazor applications?
+* How can I display a tooltip over a disabled HTML element in Blazor?
+* How to display a tooltip over a disabled button?
+* What is the workaround for showing tooltips on disabled elements in Blazor?
+* Can a tooltip be associated with a disabled element in Blazor applications?
 
 ## Solution
 
@@ -55,5 +55,5 @@ Here's an example demonstrating how to implement this solution:
 
 ## See Also
 
-- [Tooltip Component Overview](slug:tooltip-overview)
-- [Button Component Overview](slug:components/button/overview)
+* [Tooltip Component Overview](slug:tooltip-overview)
+* [Button Component Overview](slug:components/button/overview)

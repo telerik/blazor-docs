@@ -99,6 +99,6 @@ The available views are:
 
 ## See Also
 
-  * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
-  * [Day View](slug:scheduler-views-day)
+* [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
+* [Day View](slug:scheduler-views-day)
 

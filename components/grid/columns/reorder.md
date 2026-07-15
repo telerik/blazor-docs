@@ -72,5 +72,5 @@ To prevent the user from moving a certain column, set the column's `Reorderable`
 
 ## See Also
 
-  * [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/grid/column-reordering)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/grid/column-reordering)
+* [Blazor Grid](slug:grid-overview)

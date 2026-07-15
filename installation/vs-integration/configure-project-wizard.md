@@ -18,8 +18,8 @@ To open the Project Configuration Wizard, click **Extensions** > **Telerik** > *
 ![Telerik UI for Blazor Visual Studio 2022 Extensions menu](../vs-integration/images/configure-project-open.png)
 
 The configuration wizard handles the following tasks:  
-- [Theme selection](#theme-selection)
-- [Project settings configuration](#project-settings)
+* [Theme selection](#theme-selection)
+* [Project settings configuration](#project-settings)
 
 ## Theme Selection
 

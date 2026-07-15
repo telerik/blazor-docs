@@ -172,6 +172,6 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 
 ## See Also
 
-  * [Live Demo: ComboBox Virtualization](https://demos.telerik.com/blazor-ui/combobox/virtualization)
+* [Live Demo: ComboBox Virtualization](https://demos.telerik.com/blazor-ui/combobox/virtualization)
    
   

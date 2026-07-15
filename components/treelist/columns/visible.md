@@ -431,4 +431,4 @@ This example shows hiding a column based on a simple condition in its data. You 
 
 ## See Also
 
-  * [Live Demo: TreeList Columns](https://demos.telerik.com/blazor-ui/treelist/columns)
+* [Live Demo: TreeList Columns](https://demos.telerik.com/blazor-ui/treelist/columns)

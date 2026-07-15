@@ -19,11 +19,11 @@ The Grid exports its raw data to PDF and does not export the full HTML. This beh
 
 #### In This Article
 
-  - [Basics](#basics)
-  - [Limitations](#limitations)
-  - [Programmatic Export](#programmatic-export)
-  - [Customization](#customization)
-  - [Custom Export](#custom-export)
+  * [Basics](#basics)
+  * [Limitations](#limitations)
+  * [Programmatic Export](#programmatic-export)
+  * [Customization](#customization)
+  * [Custom Export](#custom-export)
 
 ## Basics
 

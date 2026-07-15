@@ -160,5 +160,5 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 ## See Also
 
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
+* [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
 

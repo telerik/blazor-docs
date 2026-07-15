@@ -27,8 +27,8 @@ In a NumericTextBox with enabled arrows, I want to disable the down arrow progra
 
 This KB article answers the following questions:
 
-- How can I disable the NumericTextBox increment and decrement buttons based on the value?
-- How can I conditionally disable the NumericTextBox arrows when reaching specified value limits?
+* How can I disable the NumericTextBox increment and decrement buttons based on the value?
+* How can I conditionally disable the NumericTextBox arrows when reaching specified value limits?
 
 ## Solution
 

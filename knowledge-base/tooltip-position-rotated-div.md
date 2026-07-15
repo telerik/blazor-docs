@@ -29,9 +29,9 @@ components: ["tooltip"]
 When rotating `<div>` elements that have an associated [Tooltip](slug:tooltip-overview) to display additional information, the Tooltip might not align correctly with the target element. The goal is to adjust the Tooltip's position so it aligns appropriately with the center of the rotated `<div>`, and optionally, remove the Tooltip's callout pointer for a cleaner appearance.
 
 This KB article also answers the following questions:
-- How to correctly position a Tooltip on a rotated `<div>` in Blazor?
-- How can I hide the callout pointer of a Tooltip in Blazor?
-- Is there a way to dynamically adjust Tooltip positioning based on element rotation in Blazor?
+* How to correctly position a Tooltip on a rotated `<div>` in Blazor?
+* How can I hide the callout pointer of a Tooltip in Blazor?
+* Is there a way to dynamically adjust Tooltip positioning based on element rotation in Blazor?
 
 ## Solution
 
@@ -134,6 +134,6 @@ Calculate the necessary offset for the Tooltip and apply it as a margin style. A
 
 ## See Also
 
-- [Telerik Blazor Tooltip - Overview](slug:tooltip-overview)
-- [Hide the Tooltip Callout or Change Its Position](slug:tooltip-kb-callout-position)
-- [Custom ToolTip Styles and Colors](slug:tooltip-kb-custom-styles)
+* [Telerik Blazor Tooltip - Overview](slug:tooltip-overview)
+* [Hide the Tooltip Callout or Change Its Position](slug:tooltip-kb-callout-position)
+* [Custom ToolTip Styles and Colors](slug:tooltip-kb-custom-styles)

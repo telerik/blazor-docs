@@ -167,5 +167,5 @@ The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customi
 
 ## See Also
 
-  * [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
-  * [ToolBar Overview](slug:toolbar-overview)
+* [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
+* [ToolBar Overview](slug:toolbar-overview)

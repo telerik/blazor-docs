@@ -38,4 +38,4 @@ To enable Linear flow of the Stepper, set its `Linear` parameter to `true`. By d
 
 ## See Also
 
-  * [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)
+* [Live Demo: Stepper Configuration](https://demos.telerik.com/blazor-ui/stepper/configuration)

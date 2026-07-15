@@ -111,5 +111,5 @@ Without a Level, the ContentTemplate will be applied to all items that have no c
 
 ## See Also
 
-  * [Data Binding a PanelBar](slug:panelbar-data-binding-overview)
-  * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)
+* [Data Binding a PanelBar](slug:panelbar-data-binding-overview)
+* [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)

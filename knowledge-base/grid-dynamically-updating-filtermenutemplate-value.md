@@ -203,5 +203,5 @@ public class Product
 `````
 ## See Also
 
-- [Grid Filter Templates](slug:grid-templates-filter)
-- [Filtering in Grid](slug:components/grid/filtering)
+* [Grid Filter Templates](slug:grid-templates-filter)
+* [Filtering in Grid](slug:components/grid/filtering)

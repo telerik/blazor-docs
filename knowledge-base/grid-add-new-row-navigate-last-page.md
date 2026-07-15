@@ -103,5 +103,5 @@ Below is an example demonstrating this approach:
 
 ## See Also
 
-- [Grid Overview](https://docs.telerik.com/blazor-ui/components/grid/overview)
-- [Grid Paging](https://docs.telerik.com/blazor-ui/components/grid/paging)
+* [Grid Overview](https://docs.telerik.com/blazor-ui/components/grid/overview)
+* [Grid Paging](https://docs.telerik.com/blazor-ui/components/grid/paging)

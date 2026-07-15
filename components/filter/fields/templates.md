@@ -139,5 +139,5 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
 
 ## See Also
 
-  * [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/templates)
-  * [FilterField: Overview](slug:filter-fields)
+* [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/templates)
+* [FilterField: Overview](slug:filter-fields)

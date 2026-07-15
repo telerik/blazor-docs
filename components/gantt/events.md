@@ -285,4 +285,4 @@ The `OnCollapse` event fires as a response to the user collapsing an item of the
 
 ## See Also
 
-  * [Live Demo: Gantt Events](https://demos.telerik.com/blazor-ui/gantt/events)
+* [Live Demo: Gantt Events](https://demos.telerik.com/blazor-ui/gantt/events)

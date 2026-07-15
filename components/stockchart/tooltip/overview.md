@@ -543,5 +543,5 @@ The available series data point information in the `context` is:
 
 ## See Also
 
-  * [Stock Chart Overview](slug:stockchart-overview)
-  * [Stock Chart Shared Tooltip](slug:stockchart-tooltip-shared)
+* [Stock Chart Overview](slug:stockchart-overview)
+* [Stock Chart Shared Tooltip](slug:stockchart-tooltip-shared)

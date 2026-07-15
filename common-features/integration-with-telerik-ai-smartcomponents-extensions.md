@@ -14,9 +14,9 @@ The `Telerik.AI.SmartComponents.Extensions` library provides AI-powered function
 
 ## Prerequisites
 
-- .NET 8.0 or later
-- Azure OpenAI or OpenAI API access
-- ASP.NET Core (for web API scenarios)
+* .NET 8.0 or later
+* Azure OpenAI or OpenAI API access
+* ASP.NET Core (for web API scenarios)
 
 ## Installation
 
@@ -218,14 +218,14 @@ public async Task<GridAIResponse> ProcessGridRequest(GridAIRequest request)
 
 The library supports various filter operators:
 
-- `equalto`: Exact match
-- `contains`: Contains substring
-- `startswith`: Starts with text
-- `endswith`: Ends with text
-- `greaterthan`: Greater than (numeric)
-- `lessthan`: Less than (numeric)
-- `greaterthanorequal`: Greater than or equal
-- `lessthanorequal`: Less than or equal
+* `equalto`: Exact match
+* `contains`: Contains substring
+* `startswith`: Starts with text
+* `endswith`: Ends with text
+* `greaterthan`: Greater than (numeric)
+* `lessthan`: Less than (numeric)
+* `greaterthanorequal`: Greater than or equal
+* `lessthanorequal`: Less than or equal
 
 ## Best Practices
 

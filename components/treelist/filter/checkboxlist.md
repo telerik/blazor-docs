@@ -243,6 +243,6 @@ In this sample the Team column lets you filter only by the CEO Team settings, or
 
 ## See Also
 
-  * [Treelist Filtering Overview](slug:treelist-filtering)
-  * [Live Demo: Treelist CheckBox List Filter](https://demos.telerik.com/blazor-ui/treelist/filter-checkboxlist)
+* [Treelist Filtering Overview](slug:treelist-filtering)
+* [Live Demo: Treelist CheckBox List Filter](https://demos.telerik.com/blazor-ui/treelist/filter-checkboxlist)
   

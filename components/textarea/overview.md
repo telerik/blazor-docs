@@ -109,5 +109,5 @@ The TextArea provides a `FocusAsync` method that allows the application to focus
 
 ## See Also
 
-  * [Live TextArea Demos](https://demos.telerik.com/blazor-ui/textarea/overview)
-  * [TextArea API Reference](slug:Telerik.Blazor.Components.TelerikTextArea)
+* [Live TextArea Demos](https://demos.telerik.com/blazor-ui/textarea/overview)
+* [TextArea API Reference](slug:Telerik.Blazor.Components.TelerikTextArea)

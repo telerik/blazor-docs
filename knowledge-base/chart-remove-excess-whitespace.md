@@ -25,9 +25,9 @@ components: ["charts"]
 
 This KB article answers the following questions:
 
-- How to adjust the padding of a Chart in Blazor?
-- How to reduce white space around the Chart that is within a Telerik Card?
-- How to make the Chart more compact?
+* How to adjust the padding of a Chart in Blazor?
+* How to reduce white space around the Chart that is within a Telerik Card?
+* How to make the Chart more compact?
 
 ## Solution
 
@@ -84,5 +84,5 @@ To reduce the whitespace around a Chart, use the `Padding` parameter of the Char
 
 ## See Also
 
-- [ChartSeries API Documentation](https://docs.telerik.com/blazor-ui/api/telerik.blazor.components.chartseries)
-- [Chart for Blazor Overview](slug:components/chart/overview)
+* [ChartSeries API Documentation](https://docs.telerik.com/blazor-ui/api/telerik.blazor.components.chartseries)
+* [Chart for Blazor Overview](slug:components/chart/overview)

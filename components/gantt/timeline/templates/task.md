@@ -176,5 +176,5 @@ The `TaskTemplate` is of type `RenderFragment<TItem>`, so the `context` has the 
 
 ## See Also
 
-  * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
-  * [How to set different colors for the Gantt tasks](slug:gantt-kb-different-colors-for-tasks)
+* [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
+* [How to set different colors for the Gantt tasks](slug:gantt-kb-different-colors-for-tasks)

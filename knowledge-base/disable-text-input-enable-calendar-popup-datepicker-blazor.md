@@ -21,9 +21,9 @@ components: ["general"]
 I want to disable the text input so that users can only enter dates through the calendar and not by typing in the text box. Additionally, I need the calendar to open when clicking anywhere on the text box, not just the calendar icon.
 
 This KB article also answers the following questions:
-- How can I disable typing in the Telerik DatePicker component?
-- How do I open the DatePicker calendar by clicking on the textbox area?
-- Is it possible to prevent text input in the DatePicker and still use the calendar for date selection?
+* How can I disable typing in the Telerik DatePicker component?
+* How do I open the DatePicker calendar by clicking on the textbox area?
+* Is it possible to prevent text input in the DatePicker and still use the calendar for date selection?
 
 ## Solution
 
@@ -66,5 +66,5 @@ To disable text input in the [DatePicker](https://docs.telerik.com/blazor-ui/com
 
 ## See Also
 
-- [Telerik DatePicker Overview](https://docs.telerik.com/blazor-ui/components/datepicker/overview)
-- [Telerik DatePicker Methods](https://docs.telerik.com/blazor-ui/components/datepicker/overview#datepicker-reference-and-methods)
+* [Telerik DatePicker Overview](https://docs.telerik.com/blazor-ui/components/datepicker/overview)
+* [Telerik DatePicker Methods](https://docs.telerik.com/blazor-ui/components/datepicker/overview#datepicker-reference-and-methods)

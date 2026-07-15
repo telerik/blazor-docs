@@ -201,6 +201,6 @@ The CUD operations are implemented through dedicated events that let you alter t
 
 ## See Also
 
-  * [ListView Overview](slug:listview-overview)
+* [ListView Overview](slug:listview-overview)
    
   

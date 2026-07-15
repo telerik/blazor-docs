@@ -15,11 +15,11 @@ One of the key features of Telerik UI for Blazor Grid component is its ability t
 
 In this article:
 
-- [Rebind Method](#rebind-method)
-- [Observable Data](#observable-data)
-- [New Collection Reference](#new-collection-reference)
-- [Call OnRead](#call-onread)
-- [Entity Framework Data](#entity-framework-data)
+* [Rebind Method](#rebind-method)
+* [Observable Data](#observable-data)
+* [New Collection Reference](#new-collection-reference)
+* [Call OnRead](#call-onread)
+* [Entity Framework Data](#entity-framework-data)
 
 ## Rebind Method
 
@@ -375,8 +375,8 @@ This means that you need to ensure that the view-model will be updated as well, 
 
 ## See Also
 
-  * [ObservableCollection](slug:common-features-observable-data)
-  * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
-  * [Live Demos](https://demos.telerik.com/blazor-ui)
-  * [Knowledge Base: Force a Grid to Refresh](slug:grid-force-refresh)
-  * [Blazor Grid](slug:grid-overview)
+* [ObservableCollection](slug:common-features-observable-data)
+* [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
+* [Live Demos](https://demos.telerik.com/blazor-ui)
+* [Knowledge Base: Force a Grid to Refresh](slug:grid-force-refresh)
+* [Blazor Grid](slug:grid-overview)

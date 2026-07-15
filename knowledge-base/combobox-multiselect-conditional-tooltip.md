@@ -29,9 +29,9 @@ components: ["combobox"]
 I want to display tooltips for the [ComboBox](slug:components/combobox/overview) and [MultiSelect](slug:multiselect-overview) components in my Blazor application only when the text is ellipsed due to dynamic widths. If there’s enough space for the text to be fully visible, the tooltip should not appear. 
 
 This knowledge base article also answers the following questions:
-- How to show tooltips for ellipsed text in ComboBox and MultiSelect?
-- How to use JavaScript to check text overflow in Blazor components?
-- How to implement dynamic tooltips based on [`clientWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth) and [`scrollWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth)?
+* How to show tooltips for ellipsed text in ComboBox and MultiSelect?
+* How to use JavaScript to check text overflow in Blazor components?
+* How to implement dynamic tooltips based on [`clientWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth) and [`scrollWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth)?
 
 ## Solution
 
@@ -216,13 +216,13 @@ To ensure tooltips are displayed only when text is ellipsed, use JavaScript to c
 
 ### Notes
 
-- Move custom JavaScript functions to your static assets directory in production.
-- Ensure the tooltip `TargetSelector` only matches elements with overflow.
+* Move custom JavaScript functions to your static assets directory in production.
+* Ensure the tooltip `TargetSelector` only matches elements with overflow.
 
 ## See Also
 
-- [ComboBox Overview](slug:components/combobox/overview)
-- [MultiSelect Overview](slug:multiselect-overview)
-- [Tooltip Overview](slug:tooltip-overview)
-- [JavaScript scrollWidth Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth)
-- [JavaScript clientWidth Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)
+* [ComboBox Overview](slug:components/combobox/overview)
+* [MultiSelect Overview](slug:multiselect-overview)
+* [Tooltip Overview](slug:tooltip-overview)
+* [JavaScript scrollWidth Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollWidth)
+* [JavaScript clientWidth Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)

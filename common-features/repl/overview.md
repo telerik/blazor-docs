@@ -17,13 +17,13 @@ previous_url: /getting-started/repl, /getting-started/repl/overview
 
 The <a href = "https://blazorrepl.telerik.com/" target = "_blank">Telerik REPL for Blazor application</a> interface consists of five main sections:
 
-- [Telerik REPL for Blazor Overview](#telerik-repl-for-blazor-overview)
-  - [Toolbar](#toolbar)
-  - [Sidebar](#sidebar)
-  - [Editor](#editor)
-  - [Result View](#result-view)
-  - [Error List](#error-list)
-  - [See Also](#see-also)
+* [Telerik REPL for Blazor Overview](#telerik-repl-for-blazor-overview)
+  * [Toolbar](#toolbar)
+  * [Sidebar](#sidebar)
+  * [Editor](#editor)
+  * [Result View](#result-view)
+  * [Error List](#error-list)
+  * [See Also](#see-also)
 
 <!-- ![Overview](images/repl-overview.png) -->
 

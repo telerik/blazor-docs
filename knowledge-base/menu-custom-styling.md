@@ -24,9 +24,9 @@ components: ["menu"]
 ## Description
 
 This KB article answers the following questions:
-- How do I change the font color and weight of the top-level menu items in a Blazor application?
-- How can I customize the background color of dropdown menus in a Blazor application?
-- What CSS selectors are needed to style the Telerik Menu in Blazor?
+* How do I change the font color and weight of the top-level menu items in a Blazor application?
+* How can I customize the background color of dropdown menus in a Blazor application?
+* What CSS selectors are needed to style the Telerik Menu in Blazor?
 
 ## Solution
 
@@ -116,5 +116,5 @@ To customize the appearance of the Menu items:
 
 ## See Also
 
-- [Telerik Blazor Menu - Overview](slug:components/menu/overview)
-- [Telerik Blazor Styling and Themes - Override Theme Styles](slug:themes-override)
+* [Telerik Blazor Menu - Overview](slug:components/menu/overview)
+* [Telerik Blazor Styling and Themes - Override Theme Styles](slug:themes-override)

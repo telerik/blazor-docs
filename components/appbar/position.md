@@ -39,4 +39,4 @@ The `PositionMode` parameter accepts a member of the `AppBarPositionMode` enum a
 
 ## See Also
 
-  * [Live Demo: AppBar Position](https://demos.telerik.com/blazor-ui/appbar/position)
+* [Live Demo: AppBar Position](https://demos.telerik.com/blazor-ui/appbar/position)

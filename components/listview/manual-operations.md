@@ -159,5 +159,5 @@ The example below shows a relatively simple way to filter and sort over all data
 
 ## See Also
 
-  * [Live Demo: ListView Filtering](https://demos.telerik.com/blazor-ui/listview/filtering)
-  * [Live Demo: ListView Sorting](https://demos.telerik.com/blazor-ui/listview/sorting)
+* [Live Demo: ListView Filtering](https://demos.telerik.com/blazor-ui/listview/filtering)
+* [Live Demo: ListView Sorting](https://demos.telerik.com/blazor-ui/listview/sorting)

@@ -551,5 +551,5 @@ This approach can work for both numerical and categorical axes. The example belo
 
 ## See Also
 
-  * [Data Binding a Chart](slug:components/chart/databind)
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)
+* [Data Binding a Chart](slug:components/chart/databind)
+* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)

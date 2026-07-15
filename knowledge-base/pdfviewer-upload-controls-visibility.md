@@ -27,9 +27,9 @@ When using the [TelerikPdfViewer](https://docs.telerik.com/blazor-ui/components/
 
 This knowledge base article also answers the following questions:
 
-- How to prevent interaction with Upload component while a PDF is loading in TelerikPdfViewer?
-- How to hide Upload and DropZone components in TelerikPdfViewer until the PDF file is fully loaded?
-- How to use custom CSS with TelerikPdfViewer to hide Upload component?
+* How to prevent interaction with Upload component while a PDF is loading in TelerikPdfViewer?
+* How to hide Upload and DropZone components in TelerikPdfViewer until the PDF file is fully loaded?
+* How to use custom CSS with TelerikPdfViewer to hide Upload component?
 
 ## Solution
 
@@ -65,5 +65,5 @@ To control the visibility of Upload component and its dropzone in the `TelerikPd
 
 ## See Also
 
-- [TelerikPdfViewer Overview](slug:pdfviewer-overview)
-- [TelerikPdfViewer Events](slug:pdfviewer-events)
+* [TelerikPdfViewer Overview](slug:pdfviewer-overview)
+* [TelerikPdfViewer Events](slug:pdfviewer-events)

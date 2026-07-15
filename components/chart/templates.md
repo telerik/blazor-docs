@@ -84,6 +84,6 @@ Starting in **version 7.0.0**, when all Chart series have no data to show, a def
 
 ## See Also
 
- * [Live Demo: Chart - No Data Template](https://demos.telerik.com/blazor-ui/chart/no-data-template)
- * [How to Show Empty Chart Instead the Default No Data Template](slug:chart-kb-display-empty-chart)
+* [Live Demo: Chart - No Data Template](https://demos.telerik.com/blazor-ui/chart/no-data-template)
+* [How to Show Empty Chart Instead the Default No Data Template](slug:chart-kb-display-empty-chart)
 

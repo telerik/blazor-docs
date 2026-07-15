@@ -25,9 +25,9 @@ components: ["treeview"]
 
 This knowledge base article answers the following questions:
 
-- How to display Tooltip for Telerik TreeView items in Blazor?
-- How to customize Tooltip for parent items in Telerik TreeView?
-- How to use ItemTemplate in Telerik TreeView to show Tooltip?
+* How to display Tooltip for Telerik TreeView items in Blazor?
+* How to customize Tooltip for parent items in Telerik TreeView?
+* How to use ItemTemplate in Telerik TreeView to show Tooltip?
 
 ## Solution
 
@@ -151,6 +151,6 @@ To show Tooltip for Telerik TreeView parent items, use the [`ItemTemplate`](slug
 
 ## See Also
 
-- [TreeView Templates Documentation](slug:components/treeview/templates)
-- [Telerik Tooltip Overview](slug:tooltip-overview)
-- [TreeView Component Overview](slug:treeview-overview)
+* [TreeView Templates Documentation](slug:components/treeview/templates)
+* [Telerik Tooltip Overview](slug:tooltip-overview)
+* [TreeView Component Overview](slug:treeview-overview)

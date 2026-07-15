@@ -15,14 +15,14 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
 
 #### In This Article
 
-  - [OnBeforeExport](#onbeforeexport)
-    - [For Excel Export](#for-excel-export)
-    - [For CSV Export](#for-csv-export)
-    - [For PDF Export](#for-pdf-export)
-  - [OnAfterExport](#onafterexport)
-    - [For Excel Export](#for-excel-export-1)
-    - [For CSV Export](#for-csv-export-1)
-    - [For PDF Export](#for-pdf-export-1)
+  * [OnBeforeExport](#onbeforeexport)
+    * [For Excel Export](#for-excel-export)
+    * [For CSV Export](#for-csv-export)
+    * [For PDF Export](#for-pdf-export)
+  * [OnAfterExport](#onafterexport)
+    * [For Excel Export](#for-excel-export-1)
+    * [For CSV Export](#for-csv-export-1)
+    * [For PDF Export](#for-pdf-export-1)
 
 ## OnBeforeExport
 

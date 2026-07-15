@@ -249,4 +249,4 @@ In the Editor Template, you can data bind components to the current context, whi
 
 ## See Also
 
-  * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
+* [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
