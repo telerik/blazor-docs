@@ -27,8 +27,8 @@ To control whether a newly added item appears at the top or bottom of the Gantt 
 
 The `NewRowPosition` parameter accepts values from the `GanttTreeListNewRowPosition` enum:
 
-- `Top` (default)&mdash;Inserts the new item at the top of the view.
-- `Bottom`&mdash;Inserts the new item at the bottom of the view.
+* `Top` (default)&mdash;Inserts the new item at the top of the view.
+* `Bottom`&mdash;Inserts the new item at the bottom of the view.
 
 >caption The Command buttons and the Gantt events let you handle data operations in Inline edit mode.
 
@@ -261,5 +261,5 @@ The `NewRowPosition` parameter accepts values from the `GanttTreeListNewRowPosit
 
 ## See Also
 
-  * [Live Demo: Gantt Inline Editing](https://demos.telerik.com/blazor-ui/gantt/editing-inline)
+* [Live Demo: Gantt Inline Editing](https://demos.telerik.com/blazor-ui/gantt/editing-inline)
    

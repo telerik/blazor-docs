@@ -27,9 +27,9 @@ components: ["grid"]
 When the TelerikGrid is used with ContextMenu for various row actions, there is a noticeable delay between selecting an action and its execution. This delay could be due to data retrieval or data manipulation. The goal is to display a loading notice to the user while the data loads and the result is not yet visible.
 
 This knowledge base article also answers the following questions:
-- How to use the TelerikLoaderContainer during data fetch operations in Blazor?
-- How to show a loading indicator while waiting for an action?
-- How to improve user experience during delayed operations in TelerikGrid with ContextMenu in Blazor?
+* How to use the TelerikLoaderContainer during data fetch operations in Blazor?
+* How to show a loading indicator while waiting for an action?
+* How to improve user experience during delayed operations in TelerikGrid with ContextMenu in Blazor?
 
 ## Solution
 

@@ -30,9 +30,9 @@ components: ["dialog"]
 When using the [Dialog](https://www.telerik.com/blazor-ui/documentation/components/dialog/overview) component in Blazor, you may encounter an issue where a predefined confirmation dialog appears beneath an already open modal dialog. This can occur when handling logic in the `VisibleChanged` event of the main dialog, such as displaying a confirmation prompt before closing the modal. The root cause is related to the `z-index` of the dialog components.
 
 This knowledge base article also answers the following questions:
-- How can I ensure the predefined dialog appears above the modal dialog?
-- What workaround addresses z-index issues with predefined dialogs?
-- How to prevent predefined dialogs from rendering behind other components?
+* How can I ensure the predefined dialog appears above the modal dialog?
+* What workaround addresses z-index issues with predefined dialogs?
+* How to prevent predefined dialogs from rendering behind other components?
 
 ## Solution
 
@@ -152,6 +152,6 @@ function bringDialogToTop() {
 
 ## See Also
 
-- [Dialog Overview](slug:dialog-overview)
-- [VisibleChanged Event](slug:dialog-events#visiblechanged)
-- [Predefined Dialogs](slug:dialog-predefined)
+* [Dialog Overview](slug:dialog-overview)
+* [VisibleChanged Event](slug:dialog-events#visiblechanged)
+* [Predefined Dialogs](slug:dialog-predefined)

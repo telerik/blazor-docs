@@ -107,6 +107,6 @@ The example below shows how you can customize the appearance of elements in the 
 
 ## See Also
 
-  * [Editor Overview](slug:editor-overview)
-  * [Editor Toolbar](slug:editor-toolbar)
+* [Editor Overview](slug:editor-overview)
+* [Editor Toolbar](slug:editor-toolbar)
 

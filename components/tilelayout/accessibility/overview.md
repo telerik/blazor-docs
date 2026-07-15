@@ -201,4 +201,5 @@ The following example demonstrates the [accessibility compliance of the TileLayo
 ````
 
 ## See also
+
  * [Live demo: TileLayout Resizing](https://demos.telerik.com/blazor-ui/tilelayout/resizing)

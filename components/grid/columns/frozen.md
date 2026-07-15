@@ -23,6 +23,7 @@ This article you can observe Freezing different columns. The examples are separa
 
 
 ## Frozen first and last columns
+
 >caption Use static markup to Freeze the first and last columns in a Grid
 
 ![gif of statically locked first and last columns](images/frozen-first-last.gif)
@@ -175,5 +176,6 @@ The frozen columns pose some requirements:
 
 
 ## See also
+
  * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/frozen-columns)
  * [Blazor Grid](slug:grid-overview)

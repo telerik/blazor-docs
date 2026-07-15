@@ -76,4 +76,4 @@ The Stepper component allows you to set labels for the corresponding step indica
 
 ## See Also
 
-  * [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
+* [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)

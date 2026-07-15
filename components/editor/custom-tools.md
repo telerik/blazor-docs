@@ -174,7 +174,7 @@ The [blazor-ui repo]() contains more exmaples of creating custom tools - they al
 
 ## See Also
 
-  * [Editor Overview](slug:editor-overview)
-  * [Built-in Tools](slug:editor-built-in-tools)
-  * [Toolbar](slug:editor-toolbar)
+* [Editor Overview](slug:editor-overview)
+* [Built-in Tools](slug:editor-built-in-tools)
+* [Toolbar](slug:editor-toolbar)
 

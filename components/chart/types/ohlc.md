@@ -127,4 +127,4 @@ The <a href="https://www.telerik.com/blazor-ui/ohlc-chart" target="_blank">OHLC 
 
 ## See Also
 
- * [Live Demo: OHLC Chart](https://demos.telerik.com/blazor-ui/chart/ohlc-chart)
+* [Live Demo: OHLC Chart](https://demos.telerik.com/blazor-ui/chart/ohlc-chart)

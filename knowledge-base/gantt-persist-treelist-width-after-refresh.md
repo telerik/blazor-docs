@@ -209,4 +209,4 @@ To persist the current TreeList width, follow the steps below:
 
 ## See Also
 
-- [Gantt Overview - Telerik UI for Blazor](slug:gantt-overview)
+* [Gantt Overview - Telerik UI for Blazor](slug:gantt-overview)

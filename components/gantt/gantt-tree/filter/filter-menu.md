@@ -234,5 +234,5 @@ You can customize the default Filter Menu behavior for each column through the f
 
 ## See Also
 
-  * [Gantt Filtering Overview](slug:gantt-filtering-overview)
-  * [Live Demo: Gantt Filter Menu](https://demos.telerik.com/blazor-ui/gantt/filter-menu)
+* [Gantt Filtering Overview](slug:gantt-filtering-overview)
+* [Live Demo: Gantt Filter Menu](https://demos.telerik.com/blazor-ui/gantt/filter-menu)

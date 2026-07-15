@@ -101,5 +101,5 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 
 ## See Also
   
-  * [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/actions)
+* [Live Demo: Card](https://demos.telerik.com/blazor-ui/card/actions)
   

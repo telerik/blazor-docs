@@ -39,15 +39,15 @@ The Telerik MaskedTextbox provides a set of built-in rules that it recognizes as
 
 >caption List of Rules (special characters) that define a mask behavior
 
-- `0` - Digit (0-9)
-- `9` - Digit (0-9) or `space`
-- `#` - Digit (0-9), `space`, plus (`+`) and minus (`-`) signs
-- `L` - Letter (a-Z)
-- `?` - Letter (a-Z) or `space`
-- `A` - Alphanumeric (0-9, a-Z)
-- `a` - Alphanumeric (0-9, a-Z) or `space`
-- `&` - Character (excluding `space`)
-- `C` - Character or `space`
+* `0` - Digit (0-9)
+* `9` - Digit (0-9) or `space`
+* `#` - Digit (0-9), `space`, plus (`+`) and minus (`-`) signs
+* `L` - Letter (a-Z)
+* `?` - Letter (a-Z) or `space`
+* `A` - Alphanumeric (0-9, a-Z)
+* `a` - Alphanumeric (0-9, a-Z) or `space`
+* `&` - Character (excluding `space`)
+* `C` - Character or `space`
 
 >tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks](slug:maskedtextbox-overview#mask-examples) section of the documentation.
 

@@ -65,6 +65,6 @@ The properties of a Gantt Tree item match directly to a field of the model the t
 
 ## See Also
 
-  * [Binding to Flat Data](slug:gantt-data-binding-flat-data)
-  * [Binding to Hierarchical Data](slug:gantt-data-binding-hierarchical-data)
+* [Binding to Flat Data](slug:gantt-data-binding-flat-data)
+* [Binding to Hierarchical Data](slug:gantt-data-binding-hierarchical-data)
   

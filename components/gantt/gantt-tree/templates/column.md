@@ -256,4 +256,4 @@ The example below shows how to:
 
 ## See Also
 
-  * [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)
+* [Live Demo: Gantt Templates](https://demos.telerik.com/blazor-ui/gantt/templates)

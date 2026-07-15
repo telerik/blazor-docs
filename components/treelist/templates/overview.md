@@ -35,6 +35,6 @@ You must make sure to provide valid HTML in the templates.
 
 ## See Also
 
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
+* [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
  
 

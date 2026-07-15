@@ -103,7 +103,7 @@ Using a self-referencing flat data source for the menu
 
 ## See Also
 
-  * [Menu Data Binding Basics](slug:components/menu/data-binding/overview)
-  * [Live Demo: Menu Flat Data](https://demos.telerik.com/blazor-ui/menu/flat-data)
-  * [Binding to Hierarchical Data](slug:components/menu/data-binding/hierarchical-data)
+* [Menu Data Binding Basics](slug:components/menu/data-binding/overview)
+* [Live Demo: Menu Flat Data](https://demos.telerik.com/blazor-ui/menu/flat-data)
+* [Binding to Hierarchical Data](slug:components/menu/data-binding/hierarchical-data)
 

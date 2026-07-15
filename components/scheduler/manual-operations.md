@@ -197,7 +197,7 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 
 ## See Also
 
-  * [CRUD Operations Overview](slug:grid-editing-overview)
-  * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
-  * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
+* [CRUD Operations Overview](slug:grid-editing-overview)
+* [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
+* [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
   

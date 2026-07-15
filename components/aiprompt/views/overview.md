@@ -74,9 +74,9 @@ By default, the AIPrompt will always render both the Prompt and the Output view.
 
 ## See Also
 
-  * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
-  * [Prompt View](slug:aiprompt-views-prompt)
-  * [Output View](slug:aiprompt-views-output)
-  * [Commands View](slug:aiprompt-views-commands)
-  * [Views Templates](slug:aiprompt-views-templates)
+* [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
+* [Prompt View](slug:aiprompt-views-prompt)
+* [Output View](slug:aiprompt-views-output)
+* [Commands View](slug:aiprompt-views-commands)
+* [Views Templates](slug:aiprompt-views-templates)
 

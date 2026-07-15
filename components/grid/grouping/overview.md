@@ -156,8 +156,8 @@ The following articles and sample projects can be helpful when implementing grou
 
 ## See Also
 
-  * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
-  * [Grid Aggregates](slug:grid-aggregates)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
+* [Grid Aggregates](slug:grid-aggregates)
+* [Blazor Grid](slug:grid-overview)
    
   

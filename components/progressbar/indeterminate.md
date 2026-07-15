@@ -41,7 +41,7 @@ To put the ProgressBar in Indeterminate state set the `Indeterminate`, `boolean`
 
 ## See Also
 
-  * [Live Demo: ProgressBar Overview](https://demos.telerik.com/blazor-ui/loader/overview)
-  * [Overview](slug:progressbar-overview)
-  * [Labels](slug:progressbar-label)
+* [Live Demo: ProgressBar Overview](https://demos.telerik.com/blazor-ui/loader/overview)
+* [Overview](slug:progressbar-overview)
+* [Labels](slug:progressbar-label)
   

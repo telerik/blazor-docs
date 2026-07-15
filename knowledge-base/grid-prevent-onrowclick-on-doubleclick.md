@@ -109,5 +109,5 @@ Here is a code example demonstrating the approach:
 
 ## See Also
 
-- [Grid Events](slug:grid-events)
-- [Timer Class in .NET](https://docs.microsoft.com/en-us/dotnet/api/system.timers.timer)
+* [Grid Events](slug:grid-events)
+* [Timer Class in .NET](https://docs.microsoft.com/en-us/dotnet/api/system.timers.timer)

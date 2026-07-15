@@ -125,7 +125,7 @@ When you set up the Column Chooser Template, the list of columns that are render
 
 ## See Also
 
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
- * [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)
- * [Live Demo: TreeList Custom Column Menu](https://demos.telerik.com/blazor-ui/treelist/custom-column-menu)
- * [Columns Menu](slug:treelist-column-menu)
+* [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
+* [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)
+* [Live Demo: TreeList Custom Column Menu](https://demos.telerik.com/blazor-ui/treelist/custom-column-menu)
+* [Columns Menu](slug:treelist-column-menu)

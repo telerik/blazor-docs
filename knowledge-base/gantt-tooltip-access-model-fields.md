@@ -273,5 +273,5 @@ This solution relies on disabling the built-in Tooltip and adding a custom one, 
 
 ## See Also
 
-- [Gantt Overview - Telerik UI for Blazor](slug:gantt-overview)
-- <a href="https://demos.telerik.com/blazor-ui/gantt/templates" target="_blank">Live Demo: Gantt Templates</a>
+* [Gantt Overview - Telerik UI for Blazor](slug:gantt-overview)
+* <a href="https://demos.telerik.com/blazor-ui/gantt/templates" target="_blank">Live Demo: Gantt Templates</a>

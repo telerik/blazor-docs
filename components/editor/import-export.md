@@ -20,4 +20,4 @@ Allowing the application to decide how to import and export the content makes th
 
 ## See Also
 
-  * [Editor Overview](slug:editor-overview)
+* [Editor Overview](slug:editor-overview)

@@ -25,9 +25,9 @@ components: ["dropdownlist"]
 
 This knowledge base answers the following questions:
 
-- How can I add a reset functionality to the [DropDownList for Blazor](slug:components/dropdownlist/overview)?
-- Is it possible to integrate a clear button within the DropDownList for Blazor?
-- What is the approach to clear the selected item in DropDownList for Blazor?
+* How can I add a reset functionality to the [DropDownList for Blazor](slug:components/dropdownlist/overview)?
+* Is it possible to integrate a clear button within the DropDownList for Blazor?
+* What is the approach to clear the selected item in DropDownList for Blazor?
 
 ## Solution
 
@@ -77,5 +77,5 @@ To add a clear button inside the DropDownList component, follow the steps below:
 
 ## See Also
 
-- [Blazor DropDownList Overview](slug:components/dropdownlist/overview)
-- [Blazor Button Overview](slug:components/button/overview)
+* [Blazor DropDownList Overview](slug:components/dropdownlist/overview)
+* [Blazor Button Overview](slug:components/button/overview)

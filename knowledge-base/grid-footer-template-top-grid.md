@@ -25,8 +25,8 @@ components: ["grid"]
 
 This KB article answers the following questions:
 
-- How to move the Footer Template to the top of the Grid?
-- How can I display the aggregate results at the top of the Grid in Blazor?
+* How to move the Footer Template to the top of the Grid?
+* How can I display the aggregate results at the top of the Grid in Blazor?
 
 ## Solution
 
@@ -101,5 +101,5 @@ To reposition the `FooterTemplate` to appear at the top of the Grid, apply custo
 
 ## See Also
 
-- [Grid Overview](https://docs.telerik.com/blazor-ui/components/grid/overview)
-- [Grid Footer Template](https://docs.telerik.com/blazor-ui/components/grid/templates/column-footer)
+* [Grid Overview](https://docs.telerik.com/blazor-ui/components/grid/overview)
+* [Grid Footer Template](https://docs.telerik.com/blazor-ui/components/grid/templates/column-footer)

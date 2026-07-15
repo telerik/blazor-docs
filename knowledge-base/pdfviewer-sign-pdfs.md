@@ -148,10 +148,10 @@ The PdfViewer does not currently have the capability to manage digital signature
 
 ## Notes
 
-- You can use Telerik PdfProcessing to digitally sign the PDF on the server side.
-- The web application cannot access the user's guest operating system's X509 Certificate Store due to security restrictions in modern web browsers. Your application will only have access to X509 certificates installed on the server side. 
+* You can use Telerik PdfProcessing to digitally sign the PDF on the server side.
+* The web application cannot access the user's guest operating system's X509 Certificate Store due to security restrictions in modern web browsers. Your application will only have access to X509 certificates installed on the server side. 
 
 ## See Also
 
-- [PdfViewer - Overview](https://docs.telerik.com/blazor-ui/components/pdfviewer/overview)
-- [Document Processing Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/digital-signature)
+* [PdfViewer - Overview](https://docs.telerik.com/blazor-ui/components/pdfviewer/overview)
+* [Document Processing Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/digital-signature)

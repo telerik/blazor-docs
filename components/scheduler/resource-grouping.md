@@ -37,6 +37,7 @@ The settings tag will have the following Parameters:
 * `Orientation(SchedulerGroupOrientation)` - has two values: `Horizontal` (default) and `Vertical`. Determines the direction in which the resource tables are rendered.
 
 ## Examples
+
 The examples below showcase [resource grouping by one resource](#resource-grouping-by-one-resource) and [resource grouping by multiple resources](#resource-grouping-by-multiple-resources) respectively.
 
 ### Resource Grouping by one resource

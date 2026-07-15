@@ -72,8 +72,8 @@ By default, the Output view is rendered and is part of the predefined views. How
 
 ## See Also
 
-  * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
-  * [Views Overview](slug:aiprompt-views-overview)
-  * [Prompt View](slug:aiprompt-views-prompt)
-  * [Commands View](slug:aiprompt-views-commands)
-  * [Views Templates](slug:aiprompt-views-templates)
+* [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
+* [Views Overview](slug:aiprompt-views-overview)
+* [Prompt View](slug:aiprompt-views-prompt)
+* [Commands View](slug:aiprompt-views-commands)
+* [Views Templates](slug:aiprompt-views-templates)

@@ -26,9 +26,9 @@ components: ["charts"]
 I need to configure a ScatterLine Chart so I can control the marker used for each data point independently. I want to mark some points as "special". 
 
 This KB article answers the following questions:
-- How to mark specific data points in a ScatterLine Chart as special?
-- How to customize separate markers in a Blazor ScatterLine Chart?
-- How to use different markers for special data points in a ScatterLine Chart?
+* How to mark specific data points in a ScatterLine Chart as special?
+* How to customize separate markers in a Blazor ScatterLine Chart?
+* How to use different markers for special data points in a ScatterLine Chart?
 
 ## Solution
 

@@ -169,4 +169,4 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
 
 ## See Also
 
-  * [Live Demo: Avatar Appearance](https://demos.telerik.com/blazor-ui/avatar/appearance)
+* [Live Demo: Avatar Appearance](https://demos.telerik.com/blazor-ui/avatar/appearance)

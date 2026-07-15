@@ -96,6 +96,6 @@ The ComboBox component allows you to change what is rendered in its items, heade
 
 ## See Also
 
-  * [Live Demo: ComboBox Templates](https://demos.telerik.com/blazor-ui/combobox/templates)
+* [Live Demo: ComboBox Templates](https://demos.telerik.com/blazor-ui/combobox/templates)
    
   

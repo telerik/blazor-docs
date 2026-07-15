@@ -76,6 +76,6 @@ The table below lists the ListView parameters. For a full list of the ListView A
 
 ## See Also
 
-  * [Live ListView Demos](https://demos.telerik.com/blazor-ui/listview/overview)
-  * [ListView API Reference](slug:Telerik.Blazor.Components.TelerikListView-1)
+* [Live ListView Demos](https://demos.telerik.com/blazor-ui/listview/overview)
+* [ListView API Reference](slug:Telerik.Blazor.Components.TelerikListView-1)
 

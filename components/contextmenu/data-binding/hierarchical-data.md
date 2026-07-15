@@ -116,7 +116,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 ## See Also
 
-  * [Context Menu Data Binding Basics](slug:contextmenu-data-binding-overview)
-  * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)
-  * [Binding to Flat Data](slug:contextmenu-data-binding-flat-data)
+* [Context Menu Data Binding Basics](slug:contextmenu-data-binding-overview)
+* [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)
+* [Binding to Flat Data](slug:contextmenu-data-binding-flat-data)
 

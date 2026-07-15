@@ -106,6 +106,7 @@ The following example demonstrates the [accessibility compliance of the Gantt co
 ````
 
 ## See also
+
  * [Live demo: Gantt Accessibility](https://demos.telerik.com/blazor-ui/gantt/keyboard-navigation)
  * [Live demo: Gantt Overview](https://demos.telerik.com/blazor-ui/gantt/overview)
  * [Live demo: Blazor Accessibility](https://docs.telerik.com/blazor-ui/accessibility/overview)

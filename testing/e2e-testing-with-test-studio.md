@@ -48,10 +48,10 @@ Any of these can be switched on/off from the <a href="https://docs.telerik.com/t
 
 <a href="https://docs.telerik.com/teststudio/getting-started/first-test#start-a-recording-session" target="_blank">Start a recording session</a> against the Blazor application you need to automate. <a href="https://docs.telerik.com/teststudio/features/recorder/compact-recording-toolbar#hover-over-highlighting" target="_blank">Enable the highlighting</a> from the Compact recording tool and hover over the mouse on a given Blazor control in the page - a specific purple highlighting border appears around the element, along with a context menu indicating more specific translator in progressive order. You can see the translators for a Grid cell shown below, the menu items are:
 
-- TelerikBlazorGridDataCell
-- TelerikBlazorGridDataItem
-- HTMLTable
-- TelerikBlazorGrid
+* TelerikBlazorGridDataCell
+* TelerikBlazorGridDataItem
+* HTMLTable
+* TelerikBlazorGrid
 
 ![test-studio-grid-translator-options](images/test-studio-grid-translator-options.png)
 

@@ -49,9 +49,9 @@ When using `Columns`, you can also define arbitrary space between the rows with 
 
 ## See Also
 
-  * [Overview](slug:form-overview)
-  * [FormItems](slug:form-formitems)
-  * [FormGroups](slug:form-formgroups)
-  * [Orientation](slug:form-orientation)
-  * [Events](slug:form-events)
+* [Overview](slug:form-overview)
+* [FormItems](slug:form-formitems)
+* [FormGroups](slug:form-formgroups)
+* [Orientation](slug:form-orientation)
+* [Events](slug:form-events)
    

@@ -325,6 +325,6 @@ For more details and examples, see the [Treeview Drag and Drop](slug:treeview-dr
 
 ## See Also
 
-  * [TreeView Overview](slug:treeview-overview)
-  * [TreeView Selection](slug:treeview-selection-overview)
-  * [TreeView CheckBoxes](slug:treeview-checkboxes-overview)
+* [TreeView Overview](slug:treeview-overview)
+* [TreeView Selection](slug:treeview-selection-overview)
+* [TreeView CheckBoxes](slug:treeview-checkboxes-overview)

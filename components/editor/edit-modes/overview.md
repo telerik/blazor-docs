@@ -37,8 +37,8 @@ The key difference is that the `Iframe` mode creates a separate HTML document fo
 
 ## See Also
 
-  * [Div Mode](slug:editor-edit-modes-div)
-  * [Iframe Mode](slug:editor-edit-modes-iframe)
-  * [Editor Overview](slug:editor-overview)
-  * [Editor Toolbar](slug:editor-toolbar)
+* [Div Mode](slug:editor-edit-modes-div)
+* [Iframe Mode](slug:editor-edit-modes-iframe)
+* [Editor Overview](slug:editor-overview)
+* [Editor Toolbar](slug:editor-toolbar)
 

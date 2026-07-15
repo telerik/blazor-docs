@@ -46,5 +46,5 @@ You can visually separate the items in the Telerik ToolBar for Blazor. Depending
 
 ## See Also
 
-  * [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
-  * [ToolBar Overview](slug:toolbar-overview)
+* [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
+* [ToolBar Overview](slug:toolbar-overview)

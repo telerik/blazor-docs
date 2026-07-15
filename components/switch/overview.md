@@ -108,6 +108,7 @@ The Switch is a generic component and its type comes from the model field it is 
 * [Handle the Switch events](slug:switch-events)
 
 ## See Also
+
 * [Live Demo: Switch](https://demos.telerik.com/blazor-ui/switch/overview)
 * [Switch Events](slug:switch-events)
 * [Switch API Reference](slug:Telerik.Blazor.Components.TelerikSwitch-1)

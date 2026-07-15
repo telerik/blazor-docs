@@ -142,4 +142,4 @@ You can set the `Visible` parameter of individual buttons to `false` to hide the
 
 ## See Also
 
-  * [Live Demo: Button Types](https://demos.telerik.com/blazor-ui/buttongroup/button-types)
+* [Live Demo: Button Types](https://demos.telerik.com/blazor-ui/buttongroup/button-types)

@@ -26,9 +26,9 @@ components: ["grid"]
 I want to group data programmatically in the Telerik Grid for Blazor by one column. The group order must match a specific sequence rather than the default ascending or descending order. I need to sort groups in a custom way, based on a predefined order of the data, or a custom pattern.
 
 This KB article answers the following questions:
-- How can I apply custom sorting to groups in the Grid for Blazor?
-- What is the approach to sort Grid groups in a non-standard order?
-- Can I define a custom sequence for grouped data in the Grid for Blazor?
+* How can I apply custom sorting to groups in the Grid for Blazor?
+* What is the approach to sort Grid groups in a non-standard order?
+* Can I define a custom sequence for grouped data in the Grid for Blazor?
 
 ## Solution
 
@@ -169,6 +169,6 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 
 ## See Also
 
-- [OnRead Data Binding](https://docs.telerik.com/blazor-ui/common-features/data-binding/onread)
-- [Manual Operations - Grouping with OnRead](https://docs.telerik.com/blazor-ui/components/grid/manual-operations#grouping-with-onread)
-- [AggregateFunctionsGroup Class](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.AggregateFunctionsGroup)
+* [OnRead Data Binding](https://docs.telerik.com/blazor-ui/common-features/data-binding/onread)
+* [Manual Operations - Grouping with OnRead](https://docs.telerik.com/blazor-ui/components/grid/manual-operations#grouping-with-onread)
+* [AggregateFunctionsGroup Class](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.AggregateFunctionsGroup)

@@ -186,4 +186,5 @@ The following example demonstrates the [accessibility compliance of the Splitter
 ````
 
 ## See also
+
  * [Live demo: Splitter Accessibility](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)

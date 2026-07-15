@@ -590,6 +590,6 @@ There are a few considerations to keep in mind with the CUD operations of the tr
 
 ## See Also
 
-  * [Live Demo: Gantt Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
-  * [Live Demo: Gantt Popup Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
-  * [Live Demo: Gantt InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
+* [Live Demo: Gantt Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
+* [Live Demo: Gantt Popup Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
+* [Live Demo: Gantt InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)

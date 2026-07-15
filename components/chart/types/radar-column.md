@@ -81,4 +81,4 @@ The color of a series is controlled through the `Color` property that can take a
 
 ## See Also
 
-  * [Live Demo: Radar Column Chart](https://demos.telerik.com/blazor-ui/chart/radar-column-chart)
+* [Live Demo: Radar Column Chart](https://demos.telerik.com/blazor-ui/chart/radar-column-chart)

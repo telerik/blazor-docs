@@ -26,9 +26,9 @@ components: ["treelist"]
 In the Telerik TreeList for Blazor, I load the TreeList in a collapsed mode. I need to programmatically expand and collapse TreeList nodes.
 
 This KB article also answers the following questions:
-- How can I control the expanded state of TreeList nodes in code?
-- Is it possible to expand a TreeList nodes without user interaction?
-- What approach should I take to programmatically adjust the visibility of TreeList nodes?
+* How can I control the expanded state of TreeList nodes in code?
+* Is it possible to expand a TreeList nodes without user interaction?
+* What approach should I take to programmatically adjust the visibility of TreeList nodes?
 
 ## Solution
 
@@ -182,5 +182,5 @@ Below is an example demonstrating how to use the TreeList State to expand or col
 
 ## See Also
 
-- [TreeList State Documentation](slug:treelist-state)
-- [TreeList Overview](slug:treelist-overview)
+* [TreeList State Documentation](slug:treelist-state)
+* [TreeList Overview](slug:treelist-overview)

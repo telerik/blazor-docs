@@ -72,4 +72,4 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 ## See Also
 
-  * [Live Demo: MultiSelect Grouping](https://demos.telerik.com/blazor-ui/multiselect/grouping)
+* [Live Demo: MultiSelect Grouping](https://demos.telerik.com/blazor-ui/multiselect/grouping)

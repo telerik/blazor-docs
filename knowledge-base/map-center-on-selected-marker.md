@@ -103,6 +103,6 @@ To center the map on a specific marker's coordinates, use a variable to bind the
 
 ## See Also
 
-- [Map Overview](https://docs.telerik.com/blazor-ui/components/map/overview)
-- [Map Markers](https://docs.telerik.com/blazor-ui/components/map/layers/marker)
-- [DropDownList Overview](https://docs.telerik.com/blazor-ui/components/dropdownlist/overview)
+* [Map Overview](https://docs.telerik.com/blazor-ui/components/map/overview)
+* [Map Markers](https://docs.telerik.com/blazor-ui/components/map/layers/marker)
+* [DropDownList Overview](https://docs.telerik.com/blazor-ui/components/dropdownlist/overview)
