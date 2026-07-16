@@ -37,7 +37,7 @@ The [changes in the `ThemeColor` parameter availability and theme color values](
 
 To apply a theme color to a Window or Dialog component:
 
-1. Implement a CSS rule that applies `color` and `background-color` styles to `.k-window-titlebar`. The styles can use the built-in [Telerik CSS theme color variables](slug:themes-custom#setting-theme-variables). There is no need to override the variable values.
+1. Implement a CSS rule that applies `color` and `background-color` styles to `.k-window-titlebar`. The styles can use the built-in [Telerik CSS theme color variables](slug:themes-customize#setting-theme-variables). There is no need to override the variable values.
     ````CSS.skip-repl
     .window-primary .k-window-titlebar {
         color: var(--kendo-color-on-primary);

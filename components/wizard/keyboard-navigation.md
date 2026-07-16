@@ -55,7 +55,7 @@ Set the `Dictionary` to the Wizard `CustomKeyboardShortcuts` parameter.
 
 ### Keyboard Command
 
-The [`WizardKeyboardCommand`](slug:Telerik.Blazor.WizardKeyboardCommand) enum represents a user action, for example, `NavigateToNextStep`.
+The [`WizardKeyboardCommand`](slug:Telerik.Blazor.Components.WizardKeyboardCommand) enum represents a user action, for example, `NavigateToNextStep`.
 
 You can define multiple keyboard shortcuts that execute the same keyboard command. If a Wizard keyboard command has no custom key, the component uses the default key. To disable a built-in keyboard command for a specific key, use `null`.
 
