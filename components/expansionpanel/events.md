@@ -60,4 +60,4 @@ Make sure to update the value of the `Expanded` parameter by using the boolean a
 
 ## See Also
 
-* [ExpansionPanel API Reference](slug:Telerik.Blazor.Components.ExpansionPanel)
+* [ExpansionPanel API Reference](slug:Telerik.Blazor.Components.TelerikExpansionPanel)

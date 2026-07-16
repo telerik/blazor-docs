@@ -54,7 +54,7 @@ Set the `Dictionary` to the Window `CustomKeyboardShortcuts` parameter.
 
 ### Keyboard Command
 
-The [`WindowKeyboardCommand`](slug:Telerik.Blazor.WindowKeyboardCommand) enum represents a user action, for example, `Minimize`, `Close`, and others.
+The [`WindowKeyboardCommand`](slug:Telerik.Blazor.Components.WindowKeyboardCommand) enum represents a user action, for example, `Minimize`, `Close`, and others.
 
 You can define multiple keyboard shortcuts that execute the same keyboard command. If a Window keyboard command has no custom key, the component uses the default key. To disable a built-in keyboard command for a specific key, use `null`.
 
