@@ -88,4 +88,4 @@ Do not use `SubTitle` and `SubTitleTemplate` at the same time. If the app define
 ## See Also
 
 * [Live Demo: ExpansionPanel](https://demos.telerik.com/blazor-ui/expansionpanel/overview)
-* [ExpansionPanel API Reference](slug:Telerik.Blazor.Components.ExpansionPanel)
+* [ExpansionPanel API Reference](slug:Telerik.Blazor.Components.TelerikExpansionPanel)

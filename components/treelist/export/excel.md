@@ -29,7 +29,9 @@ To enable the Excel export in the TreeList:
 
 1. [Add the Export Tool](#add-the-export-tool)
 1. [Configure the Export Settings](#configure-the-export-settings)
-1. [Set the Columns Width in Pixels](#set-the-columns-width-in-pixels)
+1. [Set the Column Widths in Pixels](#set-the-column-widths-in-pixels)
+
+If the TreeList has a column with an `Expandable="true"` setting, this column must be the first one during export. Otherwise, the cell colspans and cell layout in the exported Excel file will be incorrect.
 
 ### Add the Export Tool
 
@@ -63,7 +65,7 @@ To configure the Excel export settings, add the `TreeListExcelExport` tag under 
 
 For further customizations, use the `TreeListExcelExport` tag to subscribe to the [TreeList export events](slug:treelist-export-events).
 
-### Set the Columns Width in Pixels
+### Set the Column Widths in Pixels
 
 The export to Excel does not require that all columns have explicit widths set. However, if you do set the column widths, ensure you use only `px`. 
 
@@ -206,8 +208,8 @@ You can programmatically invoke the export feature of the TreeList, by using the
 
 | Method | Type | Description |
 | --- | --- | --- |
-| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported Excel file to the browser for download. You can pass [`TreeListExcelExportOptions`](slug:Telerik.Blazor.Components.TreeList.TreeListExcelExportOptions) to customize the export. |
-| `ExportToExcelAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`TreeListExcelExportOptions`](slug:Telerik.Blazor.Components.TreeList.TreeListExcelExportOptions) to customize the export. |
+| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported Excel file to the browser for download. You can pass [`TreeListExcelExportOptions`](slug:Telerik.Blazor.Components.TreeListExcelExportOptions) to customize the export. |
+| `ExportToExcelAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`TreeListExcelExportOptions`](slug:Telerik.Blazor.Components.TreeListExcelExportOptions) to customize the export. |
 
 When exporting programmatically with a `TreeListExcelExportOptions` argument, the `Columns` and `Data` properties of `TreeListExcelExportOptions` are required.
 
