@@ -68,7 +68,7 @@ To reproduce, double click quickly a row in the `Role` column.
 
     public void UpdateHandler(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as Employee;
+        var argsItem = args.Items.First() as Employee;
         var index = GridData.FindIndex(i => i.EmployeeId == argsItem.EmployeeId);
         if (index != -1)
         {
@@ -165,7 +165,7 @@ The sample below demonstrates how to achieve the desired behavior by using the `
 
     public void UpdateHandler(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as Employee;
+        var argsItem = args.Items.First() as Employee;
         var index = GridData.FindIndex(i => i.EmployeeId == argsItem.EmployeeId);
         if (index != -1)
         {

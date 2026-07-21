@@ -124,7 +124,7 @@ Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example b
 
     public void UpdateHandler(GridCommandEventArgs args)
     {
-        var model = (IModel)args.Item;
+        var model = (IModel)args.Items.First();
 
         var matchingItem = GridData.FirstOrDefault(c => c.Id == model.Id);
 
@@ -136,14 +136,14 @@ Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example b
 
     public void DeleteHandler(GridCommandEventArgs args)
     {
-        var model = (IModel)args.Item;
+        var model = (IModel)args.Items.First();
 
         GridData.Remove(model);
     }
 
     public void CreateHandler(GridCommandEventArgs args)
     {
-        var model = (IModel)args.Item;
+        var model = (IModel)args.Items.First();
 
         model.Id = GridData.Max(d => d.Id) + 1;
 

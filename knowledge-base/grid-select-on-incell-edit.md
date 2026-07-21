@@ -93,7 +93,7 @@ Use the [Grid events](slug:grid-events#cud-events) to update the `SelectedItems`
 
     public void EditHandler(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
         AddToSelectedCollection(item);
     }
 
@@ -111,7 +111,7 @@ Use the [Grid events](slug:grid-events#cud-events) to update the `SelectedItems`
 
     public void UpdateItem(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
         int index = GridData.FindIndex(x => item.ProductId == x.ProductId);
         var currentSelectedItems = new List<Product>(SelectedItems);
         int selectedItemIndex = currentSelectedItems.FindIndex(x => x.ProductId == item.ProductId);
@@ -209,7 +209,7 @@ Use the [Grid events](slug:grid-events#cud-events) to update the `SelectedItems`
 @code {
     public void EditHandler(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
         AddToSelectedCollection(item);
     }
 
@@ -227,7 +227,7 @@ Use the [Grid events](slug:grid-events#cud-events) to update the `SelectedItems`
 
     public void UpdateItem(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
         int index = GridData.FindIndex(x => item.ProductId == x.ProductId);
         var currentSelectedItems = new List<Product>(SelectedItems);
         int selectedItemIndex = currentSelectedItems.FindIndex(x => x.ProductId == item.ProductId);

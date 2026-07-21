@@ -81,7 +81,7 @@ See the following example for reference:
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData itemToUpdate = args.Item as SampleData;
+        SampleData itemToUpdate = args.Items.First() as SampleData;
         int itemIndex = MyData.IndexOf(itemToUpdate);
         if (itemIndex > -1)
         {

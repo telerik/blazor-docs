@@ -153,7 +153,7 @@ All events in the [Events table](#events), except `OnModelInit`, provide a [`Gri
 | `Field` | `string` | The [column `Field` name](slug:components/grid/columns/bound#data-binding). Applicable only for [in-cell edit mode](slug:grid-editing-incell). |
 | `IsCancelled` | `bool` | Defines if the user action should be prevented. See the [Events table](#events) for details. |
 | `IsNew` | `bool` | Defines if `Item` is a newly added row or an existing row. |
-| `Item` | `object` | The data item, which the user is adding, deleting, or editing. Cast it to the Grid model type. |
+| `Items` | `IEnumerable<object>` | The data items, which the user is adding, deleting, or editing. Cast the collection to the Grid model type. Until [batch editing](https://feedback.telerik.com/blazor/1428492-batch-editing) is implemented, only [delete operations](#delete-operations) can provide multiple items in the event argument, which can happen if users [delete multiple selected rows with the `GridToolBarDeleteTool`](slug:components/grid/features/toolbar#toolbar-tools-configuration). |
 | `Value` | `object` | The data item value, which the user is editing. You can cast it to the correct type, based on the `Field`. Applicable only for [in-cell edit mode](slug:grid-editing-incell). |
 
 ## Column Editors

@@ -89,7 +89,7 @@ Note the usage of [`OnModelInit`](slug:treelist-events#onmodelinit) in the examp
 
     public void UpdateHandler(TreeListCommandEventArgs args)
     {
-        var model = (IModel)args.Item;
+        var model = (IModel)args.Items.First();
 
         var matchingItem = TreeListData.FirstOrDefault(c => c.Id == model.Id);
 
@@ -101,14 +101,14 @@ Note the usage of [`OnModelInit`](slug:treelist-events#onmodelinit) in the examp
 
     public void DeleteHandler(TreeListCommandEventArgs args)
     {
-        var model = (IModel)args.Item;
+        var model = (IModel)args.Items.First();
 
         TreeListData.Remove(model);
     }
 
     public void CreateHandler(TreeListCommandEventArgs args)
     {
-        var model = (IModel)args.Item;
+        var model = (IModel)args.Items.First();
 
         model.Id = TreeListData.Max(d => d.Id) + 1;
 

@@ -238,7 +238,7 @@ The following example demonstrates all options.
 
     private void OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (GridItem)args.Item;
+        var updatedItem = (GridItem)args.Items.First();
 
         DataItem.Active = updatedItem.Active;
         DataItem.Description = updatedItem.Description;

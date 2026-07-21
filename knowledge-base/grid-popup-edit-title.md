@@ -70,14 +70,14 @@ How to dynamically set the Grid popup edit Window title?
 
     private void OnGridEdit(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
 
         PopupTitle = "Editing " + item.Name;
     }
 
     private void OnGridUpdate(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
 
         var index = GridData.FindIndex(i => i.Id == item.Id);
         if (index != -1)
@@ -88,7 +88,7 @@ How to dynamically set the Grid popup edit Window title?
 
     private void OnGridCreate(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
 
         item.Id = GridData.Count + 1;
 

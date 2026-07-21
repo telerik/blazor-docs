@@ -109,7 +109,7 @@ There are three approaches you can take:
     {
         if(CurrentlyEditedEmployee is null)
         {
-            CurrentlyEditedEmployee = args.Item as SampleData;
+            CurrentlyEditedEmployee = args.Items.First() as SampleData;
         }
         await CascadeSecondList(null);
     }
@@ -119,7 +119,7 @@ There are three approaches you can take:
 
     public void UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         //perform actual data source operations here
 

@@ -113,7 +113,7 @@ This KB answers the following questions:
 
     private void OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (OrderDelivery)args.Item;
+        var createdItem = (OrderDelivery)args.Items.First();
 
         createdItem.Id = ++LastId;
 
@@ -122,7 +122,7 @@ This KB answers the following questions:
 
     private void OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (OrderDelivery)args.Item;
+        var updatedItem = (OrderDelivery)args.Items.First();
         var originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
 
         if (originalItemIndex != -1)

@@ -296,7 +296,7 @@ There are a few ways to implement the scenario:
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        Product updatedItem = (Product)args.Item;
+        Product updatedItem = (Product)args.Items.First();
         int indexToUpdate = Products.FindIndex(x => x.Id == updatedItem.Id);
         if (indexToUpdate != -1)
         {
@@ -307,14 +307,14 @@ There are a few ways to implement the scenario:
 
     private async Task OnGridCreate(GridCommandEventArgs args)
     {
-        Product createdItem = (Product)args.Item;
+        Product createdItem = (Product)args.Items.First();
         await Task.Delay(100); // simulate async operation
         Products.Insert(0, createdItem);
     }
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        Product itemToDelete = (Product)args.Item;
+        Product itemToDelete = (Product)args.Items.First();
         await Task.Delay(100); // simulate async operation
         Products.Remove(Products.First(x => x.Id == itemToDelete.Id));
     }
