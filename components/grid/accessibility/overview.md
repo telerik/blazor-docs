@@ -353,7 +353,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
     // CUD operations for the grid
     private void CreateItem(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as SampleData;
+        var argsItem = args.Items.First() as SampleData;
 
         // call the actual data service here
 
@@ -373,7 +373,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
 
     private void UpdateHandler(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as SampleData;
+        var argsItem = args.Items.First() as SampleData;
 
         // call the actual data service here
 

@@ -54,7 +54,7 @@ Without using the above command buttons, the application can:
 
     private async Task OnTreeListCreate(TreeListCommandEventArgs args)
     {
-        var createdItem = (Employee)args.Item;
+        var createdItem = (Employee)args.Items.First();
         var parentItem = (Employee?)args.ParentItem;
 
         await TreeListEmployeeService.Create(createdItem, parentItem);
@@ -64,7 +64,7 @@ Without using the above command buttons, the application can:
 
     private async Task OnTreeListDelete(TreeListCommandEventArgs args)
     {
-        var deletedItem = (Employee)args.Item;
+        var deletedItem = (Employee)args.Items.First();
 
         await TreeListEmployeeService.Delete(deletedItem);
 
@@ -73,7 +73,7 @@ Without using the above command buttons, the application can:
 
     private async Task OnTreeListUpdate(TreeListCommandEventArgs args)
     {
-        var updatedItem = (Employee)args.Item;
+        var updatedItem = (Employee)args.Items.First();
 
         await TreeListEmployeeService.Update(updatedItem);
 

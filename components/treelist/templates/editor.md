@@ -69,7 +69,7 @@ The TreeList row creates an `EditContext` and passes it to the `EditorTemplate`.
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Update(item);

@@ -122,7 +122,7 @@ Install the [`Blazilla` NuGet package](https://www.nuget.org/packages/Blazilla) 
 
     private async Task OnTreeListCreate(TreeListCommandEventArgs args)
     {
-        var createdItem = (Employee)args.Item;
+        var createdItem = (Employee)args.Items.First();
         var parentItem = (Employee?)args.ParentItem;
 
         await TreeListEmployeeService.Create(createdItem, parentItem);
@@ -132,7 +132,7 @@ Install the [`Blazilla` NuGet package](https://www.nuget.org/packages/Blazilla) 
 
     private async Task OnTreeListUpdate(TreeListCommandEventArgs args)
     {
-        var updatedItem = (Employee)args.Item;
+        var updatedItem = (Employee)args.Items.First();
 
         await TreeListEmployeeService.Update(updatedItem);
 

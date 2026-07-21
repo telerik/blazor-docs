@@ -14,7 +14,7 @@ Without using the above command buttons, the application can:
 #end
 
 #basic-example-description
-* Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
+* Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source. Item deletion relies on **Delete** command buttons and the `OnDelete` handler receives one data item in its event argument. [When using the `GridToolBarDeleteTool`](slug:components/grid/features/toolbar#toolbar-tools-configuration) with multiple [row selection](slug:grid-selection-row), the `OnDelete` handler may receive multiple data items for deletion.
 * Rebind the Grid automatically through the `OnRead` event after the create, delete, or update operation is complete. When [using the `Data` parameter, you must either query the data source again, or modify the local `Data` collection manually](#advanced).
 * Use `DataAnnotations` validation for some model class properties.
 #end
@@ -39,14 +39,14 @@ Without using the above command buttons, the application can:
 
     private async Task OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         await GridProductService.Create(createdItem);
     }
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        var deletedItem = (Product)args.Item;
+        var deletedItem = (Product)args.Items.First();
 
         await GridProductService.Delete(deletedItem);
     }
@@ -62,7 +62,7 @@ Without using the above command buttons, the application can:
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
 
         await GridProductService.Update(updatedItem);
     }
@@ -170,7 +170,7 @@ Without using the above command buttons, the application can:
 #end
 
 #advanced-example-description
-* Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
+* Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source. Item deletion relies on **Delete** command buttons and the `OnDelete` handler receives one data item in its event argument. [When using the `GridToolBarDeleteTool`](slug:components/grid/features/toolbar#toolbar-tools-configuration) with multiple [row selection](slug:grid-selection-row), the `OnDelete` handler may receive multiple data items for deletion.
 * Use the `OnModelInit` event to provide [model instances](slug:grid-editing-overview#item-instances) with some default values before add and edit operations start.
 * Use the `OnAdd` event to provide some default values before add operations start.
 * Use the `NewRowPosition` parameter to set there new rows are added to the existing data.
@@ -260,7 +260,7 @@ Without using the above command buttons, the application can:
             args.IsCancelled = true;
         }
 
-        var newItem = (Product)args.Item;
+        var newItem = (Product)args.Items.First();
         newItem.Name = "Value from OnAdd";
     }
 
@@ -279,7 +279,7 @@ Without using the above command buttons, the application can:
 
     private async Task OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         // Create the item in the database.
         int newItemIndex = GridNewRowPosition == GridNewRowPosition.Bottom ? Math.Min(GridPageSize * GridPage - 1, GridData.Count) : 0;
@@ -295,7 +295,7 @@ Without using the above command buttons, the application can:
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        var deletedItem = (Product)args.Item;
+        var deletedItem = (Product)args.Items.First();
 
         // Delete the item in the database.
         await GridProductService.Delete(deletedItem);
@@ -322,7 +322,7 @@ Without using the above command buttons, the application can:
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
 
         // Update the item in the database.
         bool success = await GridProductService.Update(updatedItem);

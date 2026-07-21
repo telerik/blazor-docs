@@ -374,7 +374,7 @@ This example shows how to:
 
     async Task UpdateHandler(TreeListCommandEventArgs e)
     {
-        var item = e.Item as Employee;
+        var item = e.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Update(item);

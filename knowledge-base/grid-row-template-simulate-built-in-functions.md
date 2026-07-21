@@ -202,7 +202,7 @@ To implement a custom command column:
 
     private void OnCreateHandler(GridCommandEventArgs args)
     {
-        var createdItem = (ArticleDto)args.Item;
+        var createdItem = (ArticleDto)args.Items.First();
         createdItem.Id = Guid.NewGuid();
         var rnd = new Random();
         createdItem.ImageUrl = $"https://demos.telerik.com/blazor-ui/images/photos/{rnd.Next(1, 30) % 7 + 1}.jpg";
@@ -226,7 +226,7 @@ To implement a custom command column:
 
     private void OnUpdateHandler(GridCommandEventArgs args)
     {
-        var updatedItem = (ArticleDto)args.Item;
+        var updatedItem = (ArticleDto)args.Items.First();
         var index = GridData.FindIndex(i => i.Id == updatedItem.Id);
         if (index != -1)
         {

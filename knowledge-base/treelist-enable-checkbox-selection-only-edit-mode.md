@@ -91,7 +91,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
     #region CUD operations
     private async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         await MyService.Update(item);
 
@@ -103,7 +103,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
 
     private async Task CreateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
         var parentItem = args.ParentItem as Employee;
 
         await MyService.Create(item, parentItem);
@@ -116,7 +116,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
 
     private async Task DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         await MyService.Delete(item);
 
@@ -128,7 +128,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
         //Show CheckboxColumn
         SelectionEnabled = true;
 
-        Employee empl = args.Item as Employee;
+        Employee empl = args.Items.First() as Employee;
 
         //Check if the item is already selected, so you do not clear its selection in the OnCancel
         if (SelectedItems.Any(x => x.Id == empl.Id))
@@ -149,7 +149,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
 
     private async Task OnCancelHandler(TreeListCommandEventArgs args)
     {
-        Employee empl = args.Item as Employee;
+        Employee empl = args.Items.First() as Employee;
 
         //Check if the user selected the item during the last edit and cancel it. Leave the selection if the item was previously selected
         if (!ItemAlreadySelected && SelectedItems.Any(x => x.Id == empl.Id))

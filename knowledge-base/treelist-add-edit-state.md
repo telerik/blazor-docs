@@ -292,7 +292,7 @@ All these operations can also be used for [`Incell`](slug:treelist-editing-incel
 
     private async Task OnTreeListInlineCreate(TreeListCommandEventArgs args)
     {
-        var createdItem = (Employee)args.Item;
+        var createdItem = (Employee)args.Items.First();
         var parentItem = (Employee?)args.ParentItem;
 
         await TreeListEmployeeInlineService.Create(createdItem, parentItem);
@@ -302,7 +302,7 @@ All these operations can also be used for [`Incell`](slug:treelist-editing-incel
 
     private async Task OnTreeListInlineUpdate(TreeListCommandEventArgs args)
     {
-        var updatedItem = (Employee)args.Item;
+        var updatedItem = (Employee)args.Items.First();
 
         await TreeListEmployeeInlineService.Update(updatedItem);
 
@@ -315,7 +315,7 @@ All these operations can also be used for [`Incell`](slug:treelist-editing-incel
 
     private async Task OnTreeListIncellCreate(TreeListCommandEventArgs args)
     {
-        var createdItem = (Employee)args.Item;
+        var createdItem = (Employee)args.Items.First();
         var parentItem = (Employee?)args.ParentItem;
 
         await TreeListEmployeeIncellService.Create(createdItem, parentItem);
@@ -325,7 +325,7 @@ All these operations can also be used for [`Incell`](slug:treelist-editing-incel
 
     private async Task OnTreeListIncellUpdate(TreeListCommandEventArgs args)
     {
-        var updatedItem = (Employee)args.Item;
+        var updatedItem = (Employee)args.Items.First();
 
         await TreeListEmployeeIncellService.Update(updatedItem);
 
