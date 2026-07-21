@@ -41,14 +41,14 @@ The fastest way to set up your Telerik development environment is to use the [Te
     telerik setup blazor
     ````
 
-The `setup` command performs multiple actions at once to configure your Telerik development environment:
+The [`setup` command performs multiple actions](slug:installation-cli#set-up-telerik-environment) to configure your Telerik development environment:
 
-* Log in to your [Telerik account](https://www.telerik.com/account).
-* Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have an active commercial license or trial.
-* [Download a Telerik license key](slug:installation-license-key) that includes all your licenses and trials.
-* [Configure a Telerik NuGet package source](slug:installation-nuget).
-* [Install MCP servers](slug:ai-overview).
-* [Install Telerik UI for Blazor project templates](slug:installation-project-templates).
+* Create your Telerik account or log in if you already have one.
+* Activate a Telerik UI for Blazor trial if you don't have an active license.
+* Download your Telerik license key.
+* Configure the Telerik NuGet package source.
+* Install the Telerik UI for Blazor MCP server.
+* Install the Telerik UI for Blazor project templates.
 
 ## Create New Blazor App
 
@@ -95,9 +95,13 @@ telerik create blazor
 
 > To manually add Telerik UI for Blazor to an existing Blazor app, follow the [Workflow Details](slug:getting-started-workflow-details) article.
 
+Upon successful run in a web browser, the new Telerik Blazor app looks like this:
+
+![Telerik UI for Blazor app screenshot](./images/telerik-blazor-app-screenshot.png)
+
 ## Add Telerik Component
 
-Run the new Blazor app in the browser. Then, add a new Telerik component. For example, add a `TelerikButton` component in `Home.razor`:
+Add a `TelerikButton` component in `Home.razor`:
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
