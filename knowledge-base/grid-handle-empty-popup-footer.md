@@ -156,7 +156,7 @@ To display custom buttons in the footer and handle form submission, follow these
 
     private void DeleteItem(GridCommandEventArgs args)
     {
-        DeletePerson(args.Item as Person);
+        DeletePerson(args.Items.First() as Person);
 
         LoadData();
     }
@@ -364,7 +364,7 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
 
     private void DeleteItem(GridCommandEventArgs args)
     {
-        DeletePerson(args.Item as Person);
+        DeletePerson(args.Items.First() as Person);
 
         LoadData();
     }

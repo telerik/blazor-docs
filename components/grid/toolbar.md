@@ -62,7 +62,8 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 >caption Grid Toolbar Tools
 
 ````RAZOR
-<TelerikGrid Data=@GridData
+<TelerikGrid Data="@GridData"
+             ConfirmDelete="true"
              EditMode="@GridEditMode.Inline"
              FilterMode="GridFilterMode.FilterMenu"
              Groupable="true"
@@ -70,10 +71,10 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
              Pageable="true"
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedItems="@SelectedPeople"
-             AdaptiveMode="AdaptiveMode.Auto"
-             OnUpdate=@UpdateItem
-             OnCreate=@CreateItem
-             OnDelete="@DeleteItem">
+             AdaptiveMode="@AdaptiveMode.Auto"
+             OnUpdate="@UpdateItem"
+             OnCreate="@CreateItem"
+             OnDelete="@DeleteItems">
     <GridSettings>
         <GridToolBarSettings OverflowMode="GridToolBarOverflowMode.Scroll"
                              ScrollButtonsPosition="GridToolBarScrollButtonsPosition.Start"
@@ -103,10 +104,10 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
         <GridToolBarSearchBoxTool />
     </GridToolBar>
     <GridColumns>
-        <GridColumn Field=@nameof(Person.EmployeeId) Editable="false" Visible="true" Width="200px" />
-        <GridColumn Field=@nameof(Person.Name) Width="200px" />
-        <GridColumn Field=@nameof(Person.AgeInYears) Title="Age" Visible="false" Width="240px" />
-        <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" Width="230px" />
+        <GridColumn Field="@nameof(Person.EmployeeId)" Editable="false" Visible="true" Width="200px" />
+        <GridColumn Field="@nameof(Person.Name)" Width="200px" />
+        <GridColumn Field="@nameof(Person.AgeInYears)" Title="Age" Visible="false" Width="240px" />
+        <GridColumn Field="@nameof(Person.HireDate)" Title="Hire Date" Width="230px" />
         <GridCommandColumn Width="200px">
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil"></GridCommandButton>
             <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true"></GridCommandButton>
@@ -141,7 +142,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
     private void CreateItem(GridCommandEventArgs args)
     {
-        var createdItem = (Person)args.Item;
+        var createdItem = (Person)args.Items.First();
 
         createdItem.EmployeeId = GridData.Count + 1;
 
@@ -150,7 +151,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
     private void UpdateItem(GridCommandEventArgs args)
     {
-        var updatedItem = (Person)args.Item;
+        var updatedItem = (Person)args.Items.First();
         var itemForEdit = GridData.FirstOrDefault(i => i.EmployeeId == updatedItem.EmployeeId);
 
         if (itemForEdit != null)
@@ -161,13 +162,16 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
         }
     }
     
-    private void DeleteItem(GridCommandEventArgs args)
+    private void DeleteItems(GridCommandEventArgs args)
     {
-        var deletedItem = (Person)args.Item;
+        var deletedItems = args.Items.Cast<Person>();
 
-        if (GridData.Contains(deletedItem))
+        foreach (Person personToDelete in deletedItems)
         {
-            GridData.Remove(deletedItem);
+            if (GridData.Contains(personToDelete))
+            {
+                GridData.Remove(personToDelete);
+            }
         }
     }
 

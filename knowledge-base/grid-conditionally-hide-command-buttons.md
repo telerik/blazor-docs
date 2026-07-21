@@ -72,17 +72,17 @@ To conditionally show or hide command buttons in a Grid, use the context paramet
 
     private async Task HandleCustomSave(GridCommandEventArgs args)
     {
-        SampleData theUpdatedItem = args.Item as SampleData;
+        SampleData theUpdatedItem = args.Items.First() as SampleData;
     }
 
     private async Task HandleCustomButtonClick(GridCommandEventArgs args)
     {
-        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Item as SampleData).ID));
+        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Items.First() as SampleData).ID));
     }
 
     private async Task HandleUpdate(GridCommandEventArgs args)
     {
-        SampleData theUpdatedItem = args.Item as SampleData;
+        SampleData theUpdatedItem = args.Items.First() as SampleData;
 
         await MyService.Update(theUpdatedItem);
 
@@ -178,17 +178,17 @@ If you prefer not to remove the button from the DOM but simply hide it, you can 
 
     private async Task HandleCustomSave(GridCommandEventArgs args)
     {
-        SampleData theUpdatedItem = args.Item as SampleData;
+        SampleData theUpdatedItem = args.Items.First() as SampleData;
     }
 
     private async Task HandleCustomButtonClick(GridCommandEventArgs args)
     {
-        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Item as SampleData).ID));
+        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Items.First() as SampleData).ID));
     }
 
     private async Task HandleUpdate(GridCommandEventArgs args)
     {
-        SampleData theUpdatedItem = args.Item as SampleData;
+        SampleData theUpdatedItem = args.Items.First() as SampleData;
 
         await MyService.Update(theUpdatedItem);
 

@@ -117,7 +117,7 @@ To achieve automatic expansion of a detail template for the edited or newly inse
     // When a row enters edit mode, expand it
     private async Task OnEdit(GridCommandEventArgs args)
     {
-        var editedItem = (Product)args.Item;
+        var editedItem = (Product)args.Items.First();
 
         var state = GridRef.GetState();
         state.ExpandedItems = new List<Product> { editedItem }; // collapse all others
@@ -127,7 +127,7 @@ To achieve automatic expansion of a detail template for the edited or newly inse
     #region CRUD Operations for Main Grid
     private void UpdateProduct(GridCommandEventArgs args)
     {
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
         var index = GridData.FindIndex(x => x.ProductId == item.ProductId);
         if (index != -1)
         {
@@ -137,7 +137,7 @@ To achieve automatic expansion of a detail template for the edited or newly inse
 
     private void CreateProduct(GridCommandEventArgs args)
     {
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
         item.ProductId = ++LastId;
         GridData.Insert(0, item);
         item.OrderDetails = GenerateOrderDetails(item);
@@ -156,7 +156,7 @@ To achieve automatic expansion of a detail template for the edited or newly inse
 
     private void DeleteProduct(GridCommandEventArgs args)
     {
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
         GridData.Remove(item);
     }
     #endregion
@@ -164,7 +164,7 @@ To achieve automatic expansion of a detail template for the edited or newly inse
     #region CRUD for Details Grid
     private void UpdateOrder(Product product, GridCommandEventArgs args)
     {
-        var item = (OrderDetails)args.Item;
+        var item = (OrderDetails)args.Items.First();
         var data = product.OrderDetails;
         int index = data.FindIndex(x => x.OrderId == item.OrderId);
         if (index != -1)
@@ -175,7 +175,7 @@ To achieve automatic expansion of a detail template for the edited or newly inse
 
     private void CreateOrder(GridCommandEventArgs args, Product product)
     {
-        var item = (OrderDetails)args.Item;
+        var item = (OrderDetails)args.Items.First();
         var data = product.OrderDetails;
         item.OrderId = data.Count + 1;
         data.Insert(0, item);
@@ -183,7 +183,7 @@ To achieve automatic expansion of a detail template for the edited or newly inse
 
     private void DeleteOrder(GridCommandEventArgs args, Product product)
     {
-        var item = (OrderDetails)args.Item;
+        var item = (OrderDetails)args.Items.First();
         var data = product.OrderDetails;
         data.Remove(item);
     }

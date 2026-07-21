@@ -110,7 +110,7 @@ Use a [Predefined Confirm Dialog](slug:dialog-predefined#confirm) with the desir
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
 
         bool cancelled = await ShouldCancel("Updating", updatedItem.Name);
         if (cancelled)
@@ -129,7 +129,7 @@ Use a [Predefined Confirm Dialog](slug:dialog-predefined#confirm) with the desir
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        var deletedItem = (Product)args.Item;
+        var deletedItem = (Product)args.Items.First();
 
         bool cancelled = await ShouldCancel("Deleting", deletedItem.Name);
         if (cancelled)
@@ -249,7 +249,7 @@ Using the [Dialog component](slug:dialog-overview) will let you have fully custo
 
     private void OnGridSave(GridCommandEventArgs args)
     {
-        var itemToUpdate = (Product)args.Item;
+        var itemToUpdate = (Product)args.Items.First();
         ItemToUpdate = itemToUpdate;
 
         DialogContent = new MarkupString($"<p>Saving product <strong>{ItemToUpdate.Name}</strong>. <br /> Do you want to continue?</p>");
@@ -258,7 +258,7 @@ Using the [Dialog component](slug:dialog-overview) will let you have fully custo
 
     private void OnGridDelete(GridCommandEventArgs args)
     {
-        var deletedItem = (Product)args.Item;
+        var deletedItem = (Product)args.Items.First();
         ItemToDelete = deletedItem;
 
         DialogContent = new MarkupString($"<p>Deleting product <strong>{ItemToDelete.Name}</strong>. <br /> Do you want to continue?</p>");

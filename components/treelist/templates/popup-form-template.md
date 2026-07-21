@@ -160,7 +160,7 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
 
     private void DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as HierarchicalModel;
+        var item = args.Items.First() as HierarchicalModel;
 
         RemoveChildRecursive(Data, item);
     }

@@ -81,7 +81,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
 
     public void UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         //perform actual data source operations here
         //if you have a context added through an @inject statement, you could call its SaveChanges() method
@@ -192,7 +192,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
     {
         isEditable = true; // this is the flag that we use for the Editable property
 
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         //perform actual data source operations here
         //if you have a context added through an @inject statement, you could call its SaveChanges() method

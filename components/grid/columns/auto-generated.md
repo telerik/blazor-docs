@@ -284,7 +284,7 @@ This example shows how to:
     #region CUD operations
     async Task UpdateItem(GridCommandEventArgs args)
     {
-        GridDataModel item = (GridDataModel)args.Item;
+        GridDataModel item = (GridDataModel)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -295,7 +295,7 @@ This example shows how to:
 
     async Task DeleteItem(GridCommandEventArgs args)
     {
-        GridDataModel item = (GridDataModel)args.Item;
+        GridDataModel item = (GridDataModel)args.Items.First();
 
         // perform actual data source operation here through your service
         await MyService.Delete(item);
@@ -306,7 +306,7 @@ This example shows how to:
 
     async Task CreateItem(GridCommandEventArgs args)
     {
-        GridDataModel item = (GridDataModel)args.Item;
+        GridDataModel item = (GridDataModel)args.Items.First();
 
         // perform actual data source operation here through your service
         await MyService.Create(item);

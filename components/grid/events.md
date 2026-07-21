@@ -112,7 +112,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -123,7 +123,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task DeleteHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         await MyService.Delete(item);
 
@@ -134,7 +134,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task CreateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operation here through your service
         await MyService.Create(item);
@@ -145,7 +145,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     void CancelHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
     }
 
     protected override async Task OnInitializedAsync()
@@ -243,7 +243,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -254,7 +254,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task DeleteHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         await MyService.Delete(item);
 
@@ -265,7 +265,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task CreateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operation here through your service
         await MyService.Create(item);
@@ -276,7 +276,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     void CancelHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
     }
 
     protected override async Task OnInitializedAsync()
@@ -380,7 +380,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -391,7 +391,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task DeleteHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         await MyService.Delete(item);
 
@@ -402,7 +402,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     async Task CreateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operation here through your service
         await MyService.Create(item);
@@ -413,7 +413,7 @@ Read more about them and find code examples in the [Grid Export Events](slug:gri
 
     void CancelHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
     }
 
     protected override async Task OnInitializedAsync()

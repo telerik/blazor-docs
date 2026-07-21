@@ -224,7 +224,7 @@ All these operations can also be used for [`Incell`](slug:grid-editing-incell). 
 
     private void OnGridInlineUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
         var index = GridInlineData.FindIndex(i => i.Id == updatedItem.Id);
         if (index != -1)
         {
@@ -234,7 +234,7 @@ All these operations can also be used for [`Incell`](slug:grid-editing-incell). 
 
     private void OnGridInlineCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
         createdItem.Id = Guid.NewGuid();
         GridInlineData.Insert(0, createdItem);
     }
@@ -245,7 +245,7 @@ All these operations can also be used for [`Incell`](slug:grid-editing-incell). 
 
     private void OnGridIncellUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
         var index = GridIncellData.FindIndex(i => i.Id == updatedItem.Id);
         if (index != -1)
         {
@@ -255,7 +255,7 @@ All these operations can also be used for [`Incell`](slug:grid-editing-incell). 
 
     private void OnGridIncellCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
         createdItem.Id = Guid.NewGuid();
         GridIncellData.Insert(0, createdItem);
     }

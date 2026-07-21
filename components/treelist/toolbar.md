@@ -126,7 +126,7 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar,
 
     private void UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as HierarchicalModel;
+        var item = args.Items.First() as HierarchicalModel;
 
         var foundItem = FindItemRecursive(Data, item.Id);
         if (foundItem != null)
@@ -162,7 +162,7 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar,
 
     private void DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as HierarchicalModel;
+        var item = args.Items.First() as HierarchicalModel;
 
         RemoveChildRecursive(Data, item);
     }
@@ -191,7 +191,7 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar,
 
     private void CreateItem(TreeListCommandEventArgs args)
     {
-        var argsItem = args.Item as HierarchicalModel;
+        var argsItem = args.Items.First() as HierarchicalModel;
 
         argsItem.Id = LastId++;
 
@@ -267,7 +267,7 @@ When using a `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navig
     private string result;
     private async Task MyCommandFromToolbar(TreeListCommandEventArgs args)
     {
-        //note - the args.Item object is null because the command item is not associated with an item
+        //note - args.Items is null because the command item is not associated with an item
 
         result = "my custom toolbar command fired at " + DateTime.Now.ToString();
     }
