@@ -129,7 +129,7 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
     private void UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as HierarchicalModel;
+        var item = args.Items.First() as HierarchicalModel;
 
         var foundItem = FindItemRecursive(Data, item.Id);
         if (foundItem != null)
@@ -165,7 +165,7 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
     private void DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as HierarchicalModel;
+        var item = args.Items.First() as HierarchicalModel;
 
         RemoveChildRecursive(Data, item);
     }
@@ -194,7 +194,7 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
     private void CreateItem(TreeListCommandEventArgs args)
     {
-        var argsItem = args.Item as HierarchicalModel;
+        var argsItem = args.Items.First() as HierarchicalModel;
 
         argsItem.Id = LastId++;
 

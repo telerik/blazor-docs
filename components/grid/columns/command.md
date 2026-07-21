@@ -143,7 +143,7 @@ The following code example demonstrates declarations and handling.
 
     private async Task CustomSaveOnClickHandler(GridCommandEventArgs args)
     {
-        SampleData theUpdatedItem = args.Item as SampleData;
+        SampleData theUpdatedItem = args.Items.First() as SampleData;
         // any custom logic
         if (theUpdatedItem.Name.Contains("3"))
         {
@@ -156,7 +156,7 @@ The following code example demonstrates declarations and handling.
     MarkupString CustomCommandResult;
     private async Task MyCustomCommandOnClickHandler(GridCommandEventArgs args)
     {
-        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Item as SampleData).ID));
+        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", (args.Items.First() as SampleData).ID));
 
         Console.WriteLine("The Custom command fired. Please wait for the long operation to finish");
 
@@ -166,7 +166,7 @@ The following code example demonstrates declarations and handling.
 
     private async Task MyOnUpdateHandler(GridCommandEventArgs args)
     {
-        SampleData theUpdatedItem = args.Item as SampleData;
+        SampleData theUpdatedItem = args.Items.First() as SampleData;
 
         // perform actual data source operations here through your service
         await MyService.Update(theUpdatedItem);

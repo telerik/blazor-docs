@@ -47,7 +47,7 @@ The `HeaderTemplate` of the Grid command column enables you to customize the hea
 
     private async Task OnUpdateHandler(GridCommandEventArgs args)
     {
-        var updatedItem = args.Item as Product;
+        var updatedItem = args.Items.First() as Product;
         var index = GridData.FindIndex(p => p.Id == updatedItem.Id);
         if (index != -1)
         {

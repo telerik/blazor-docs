@@ -165,7 +165,7 @@ The following sample shows how to:
 
     private void OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         createdItem.Id = ++LastId;
 
@@ -174,7 +174,7 @@ The following sample shows how to:
 
     private void OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
         var originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
 
         if (originalItemIndex != -1)

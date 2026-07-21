@@ -129,7 +129,7 @@ The Grid will save changes and close the current edit row (or edit cell) when th
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
         var index = Products.FindIndex(x => x.Id == item.Id);
 
         Products[index] = item;
@@ -196,7 +196,7 @@ The Grid will save changes and close the current edit row (or edit cell) when th
 
     public async Task UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -322,7 +322,7 @@ Also check the [Grid Foreign Key Column](slug:grids-foreign-key) knowledge base 
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        Employee item = (Employee)args.Item;
+        Employee item = (Employee)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);

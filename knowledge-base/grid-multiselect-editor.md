@@ -88,7 +88,7 @@ Add the [Multi Select component](slug:multiselect-overview) to the [EditorTempla
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        Team item = (Team)args.Item;
+        Team item = (Team)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);

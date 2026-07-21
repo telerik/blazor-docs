@@ -103,12 +103,12 @@ The key points in the required implementation are:
 
     private async Task OnGridEdit(GridCommandEventArgs args)
     {
-        GridEditItem = (IDictionary<string, object>)args.Item;
+        GridEditItem = (IDictionary<string, object>)args.Items.First();
     }
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var item = (IDictionary<string, object>)args.Item;
+        var item = (IDictionary<string, object>)args.Items.First();
 
         // There are two ways to update the data item:
         // Store its instance in OnEdit, or find it in the Grid Data via search by Id.
@@ -148,7 +148,7 @@ The key points in the required implementation are:
 
     private async Task OnGridCreate(GridCommandEventArgs args)
     {
-        var item = args.Item as ExpandoObject;
+        var item = args.Items.First() as ExpandoObject;
 
         ((IDictionary<string, object>)item)["Id"] = ++LastId;
 
@@ -157,7 +157,7 @@ The key points in the required implementation are:
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        var item = args.Item as ExpandoObject;
+        var item = args.Items.First() as ExpandoObject;
 
         GridData.Remove(item);
     }
@@ -548,7 +548,7 @@ The following example demonstrates how the Grid can edit, filter, and group null
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var item = (IDictionary<string, object>)args.Item;
+        var item = (IDictionary<string, object>)args.Items.First();
 
         var originalItem = GridData.First(x =>
             {

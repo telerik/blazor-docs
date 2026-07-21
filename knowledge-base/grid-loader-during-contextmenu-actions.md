@@ -173,7 +173,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
 
     private async Task CreateItem(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as SampleData;
+        var argsItem = args.Items.First() as SampleData;
 
         argsItem.ID = GridData.Count + 1;
 
@@ -182,7 +182,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
 
     private async Task UpdateHandler(GridCommandEventArgs args)
     {
-        var argsItem = args.Item as SampleData;
+        var argsItem = args.Items.First() as SampleData;
 
         var index = GridData.ToList().FindIndex(i => i.ID == argsItem.ID);
         if (index != -1)

@@ -115,7 +115,7 @@ Install the [`Blazilla` NuGet package](https://www.nuget.org/packages/Blazilla) 
 
     private void OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         createdItem.Id = ++LastId;
 
@@ -124,7 +124,7 @@ Install the [`Blazilla` NuGet package](https://www.nuget.org/packages/Blazilla) 
 
     private void OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
         int originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
 
         if (originalItemIndex != -1)

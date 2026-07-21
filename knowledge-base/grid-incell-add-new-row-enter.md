@@ -171,7 +171,7 @@ function getLastKey() {
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
         var index = GridData.FindIndex(i => i.Id == item.Id);
 
         if (index != -1)
@@ -187,7 +187,7 @@ function getLastKey() {
 
     private void OnGridCreate(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
         item.Id = ++LastId;
 
         GridData.Insert(0, item);
@@ -195,7 +195,7 @@ function getLastKey() {
 
     private void OnGridDelete(GridCommandEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = args.Items.First() as Product;
 
         GridData.Remove(item);
     }

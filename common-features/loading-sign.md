@@ -133,7 +133,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     {
         await Task.Delay(2000); // artificial delay to showcase the concept
 
-        GridData.Remove(e.Item as SampleData);
+        GridData.Remove((SampleData)e.Items.First());
     }
 
     public class SampleData

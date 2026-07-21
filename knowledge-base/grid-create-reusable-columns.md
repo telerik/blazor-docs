@@ -51,7 +51,7 @@ To create a reusable `GridColumn` component with templates, follow these steps:
 
     private async Task UpdateHandler(GridCommandEventArgs args)
     {
-        Employee item = (Employee)args.Item;
+        Employee item = (Employee)args.Items.First();
 
         await MyService.Update(item);
 

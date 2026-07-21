@@ -75,7 +75,7 @@ To control how each enum value will show in the filtering DropDownList, decorate
 
     private void UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         //update the view-model
         var index = MyData.FindIndex(i => i.ID == item.ID);

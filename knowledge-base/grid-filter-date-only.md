@@ -254,7 +254,7 @@ This approach is suitable for both filter menu and filter row modes. It has the 
 
     void OnGridUpdate(GridCommandEventArgs args)
     {
-        var item = args.Item as GridItem;
+        var item = args.Items.First() as GridItem;
         var index = GridData.FindIndex(x => x.Id == item.Id);
         GridData[index] = item;
     }

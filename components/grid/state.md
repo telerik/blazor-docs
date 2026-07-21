@@ -320,7 +320,7 @@ Find out how to [get the applied filtering, sorting and grouping criteria](slug:
 
     private void OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
         var originalItemIndex = GridData.FindIndex(x => x.Id == updatedItem.Id);
 
         GridData[originalItemIndex] = updatedItem;
@@ -328,7 +328,7 @@ Find out how to [get the applied filtering, sorting and grouping criteria](slug:
 
     private void OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         GridData.Insert(0, createdItem);
     }

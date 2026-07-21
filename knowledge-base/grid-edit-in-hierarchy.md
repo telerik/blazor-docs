@@ -125,7 +125,7 @@ Grid <code>EditMode</code>:
     {
         // perform actual data source operations here through your service
 
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
         var index = GridData.FindIndex(x => x.ProductId == item.ProductId);
         if (index != -1)
         {
@@ -136,7 +136,7 @@ Grid <code>EditMode</code>:
     {
         // perform actual data source operations here through your service
 
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
 
         item.ProductId = ++LastId;
 
@@ -148,7 +148,7 @@ Grid <code>EditMode</code>:
     {
         // perform actual data source operations here through your service
 
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
 
         GridData.Remove(item);
     }
@@ -161,7 +161,7 @@ Grid <code>EditMode</code>:
     {
         // perform actual data source operations here through your service
 
-        var item = (OrderDetails)args.Item;
+        var item = (OrderDetails)args.Items.First();
         var data = product.OrderDetails;
         int index = data.FindIndex(x => x.OrderId == item.OrderId);
         if (index != -1)
@@ -174,7 +174,7 @@ Grid <code>EditMode</code>:
     {
         // perform actual data source operations here through your service
 
-        var item = (OrderDetails)args.Item;
+        var item = (OrderDetails)args.Items.First();
         var data = product.OrderDetails;
 
         item.OrderId = data.Count + 1;
@@ -186,7 +186,7 @@ Grid <code>EditMode</code>:
     {
         // perform actual data source operations here through your service
 
-        var item = (OrderDetails)args.Item;
+        var item = (OrderDetails)args.Items.First();
         var data = product.OrderDetails;
 
         data.Remove(item);

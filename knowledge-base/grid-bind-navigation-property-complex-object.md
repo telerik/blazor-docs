@@ -194,7 +194,7 @@ The example below demonstrates all three options. Pick one, according to your pr
 
     private void OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (SampleComplexObject)args.Item;
+        var updatedItem = (SampleComplexObject)args.Items.First();
         var originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
 
         if (originalItemIndex != -1)
@@ -205,7 +205,7 @@ The example below demonstrates all three options. Pick one, according to your pr
 
     private void OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (SampleComplexObject)args.Item;
+        var createdItem = (SampleComplexObject)args.Items.First();
 
         createdItem.Id = ++LastId;
         GridData.Insert(0, createdItem);

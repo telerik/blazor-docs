@@ -60,7 +60,7 @@ To autofill a default value in the cell on double-click during inline editing, u
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var item = (Product)args.Item;
+        var item = (Product)args.Items.First();
         var index = Products.FindIndex(x => x.Id == item.Id);
 
         Products[index] = item;

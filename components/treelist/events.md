@@ -232,7 +232,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -243,7 +243,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task CreateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
         var parentItem = args.ParentItem as Employee;
 
         // perform actual data source operations here through your service
@@ -255,7 +255,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Delete(item);
@@ -268,7 +268,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task OnCancelHandler(TreeListCommandEventArgs args)
     {
-        Employee empl = args.Item as Employee;
+        Employee empl = args.Items.First() as Employee;
         // if necessary, perform actual data source operation here through your service
     }
 
@@ -486,7 +486,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -497,7 +497,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task CreateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
         var parentItem = args.ParentItem as Employee;
 
         // perform actual data source operations here through your service
@@ -509,7 +509,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Delete(item);
@@ -522,7 +522,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task OnCancelHandler(TreeListCommandEventArgs args)
     {
-        Employee empl = args.Item as Employee;
+        Employee empl = args.Items.First() as Employee;
         // if necessary, perform actual data source operation here through your service
     }
 
@@ -750,7 +750,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
     // Sample CUD operations for the local data
     async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -761,7 +761,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task CreateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
         var parentItem = args.ParentItem as Employee;
 
         // perform actual data source operations here through your service
@@ -773,7 +773,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         // perform actual data source operations here through your service
         await MyService.Delete(item);
@@ -786,7 +786,7 @@ Visit the [TreeList Cell Selection article to see an example](slug:treelist-sele
 
     async Task OnCancelHandler(TreeListCommandEventArgs args)
     {
-        Employee empl = args.Item as Employee;
+        Employee empl = args.Items.First() as Employee;
         // if necessary, perform actual data source operation here through your service
     }
 

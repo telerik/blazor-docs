@@ -524,7 +524,7 @@ The following example demonstrates the [accessibility compliance of the TreeList
     #region TreeList CUD
     private async Task UpdateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         await MyService.Update(item);
 
@@ -533,7 +533,7 @@ The following example demonstrates the [accessibility compliance of the TreeList
 
     private async Task CreateItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
         var parentItem = args.ParentItem as Employee;
 
         await MyService.Create(item, parentItem);
@@ -543,7 +543,7 @@ The following example demonstrates the [accessibility compliance of the TreeList
 
     private async Task DeleteItem(TreeListCommandEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = args.Items.First() as Employee;
 
         await MyService.Delete(item);
 
@@ -552,12 +552,12 @@ The following example demonstrates the [accessibility compliance of the TreeList
 
     private async Task OnEditHandler(TreeListCommandEventArgs args)
     {
-        Employee empl = args.Item as Employee;
+        Employee empl = args.Items.First() as Employee;
     }
 
     private async Task OnCancelHandler(TreeListCommandEventArgs args)
     {
-        Employee empl = args.Item as Employee;
+        Employee empl = args.Items.First() as Employee;
     }
     #endregion
 

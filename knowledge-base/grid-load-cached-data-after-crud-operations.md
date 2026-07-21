@@ -69,7 +69,7 @@ Use the [Grid CUD event arguments](slug:grid-editing-overview#events) to update 
 
     private async Task OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         int createdItemId = await GridProductService.Create(createdItem);
         createdItem.Id = createdItemId;
@@ -78,7 +78,7 @@ Use the [Grid CUD event arguments](slug:grid-editing-overview#events) to update 
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        var deletedItem = (Product)args.Item;
+        var deletedItem = (Product)args.Items.First();
 
         await GridProductService.Delete(deletedItem);
 
@@ -87,7 +87,7 @@ Use the [Grid CUD event arguments](slug:grid-editing-overview#events) to update 
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
 
         await GridProductService.Update(updatedItem);
 
@@ -256,7 +256,7 @@ Use the [Grid CUD event arguments](slug:grid-editing-overview#events) to update 
 
     private async Task OnGridCreate(GridCommandEventArgs args)
     {
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         int createdItemId = await GridProductService.Create(createdItem);
 
@@ -268,7 +268,7 @@ Use the [Grid CUD event arguments](slug:grid-editing-overview#events) to update 
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        var deletedItem = (Product)args.Item;
+        var deletedItem = (Product)args.Items.First();
 
         await GridProductService.Delete(deletedItem);
 
@@ -304,7 +304,7 @@ Use the [Grid CUD event arguments](slug:grid-editing-overview#events) to update 
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
 
         await GridProductService.Update(updatedItem);
 

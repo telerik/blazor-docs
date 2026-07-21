@@ -176,7 +176,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
     {
         await Task.Delay(1); // simulate network delay
 
-        var updatedItem = (Product)args.Item;
+        var updatedItem = (Product)args.Items.First();
         var originalItemIndex = GridData.FindIndex(x => x.Id == updatedItem.Id);
         if (originalItemIndex >= 0)
         {
@@ -188,7 +188,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
     {
         await Task.Delay(100); // simulate network delay
 
-        var addedItem = (Product)args.Item;
+        var addedItem = (Product)args.Items.First();
 
         addedItem.Id = ++LastId;
     }
@@ -197,14 +197,14 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
     {
         await Task.Delay(100); // simulate network delay
 
-        var createdItem = (Product)args.Item;
+        var createdItem = (Product)args.Items.First();
 
         GridData.Insert(0, createdItem);
     }
 
     private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        var itemToDelete = (Product)args.Item;
+        var itemToDelete = (Product)args.Items.First();
         var originalItemIndex = GridData.FindIndex(x => x.Id == itemToDelete.Id);
         if (originalItemIndex >= 0)
         {

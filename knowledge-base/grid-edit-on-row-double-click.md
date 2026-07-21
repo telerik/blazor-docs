@@ -72,7 +72,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
     async Task UpdateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operations here through your service
         await MyService.Update(item);
@@ -83,7 +83,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
     async Task DeleteHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operation here through your service
         await MyService.Delete(item);
@@ -94,7 +94,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
     async Task CreateHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         // perform actual data source operation here through your service
         await MyService.Create(item);
