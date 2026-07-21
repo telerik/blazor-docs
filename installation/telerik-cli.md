@@ -154,13 +154,13 @@ telerik license get-key --no-update-check
 
 ## Log In
 
-Most Telerik CLI commands are related to your Telerik identity. It's recommended to log in first, so that all the other commands work without the need for additional authentication:
+Most Telerik CLI commands are related to your [Telerik identity](https://www.telerik.com/account). It's recommended to log in first, so that all the other commands work without the need for additional authentication:
 
 ````SH.skip-repl
 telerik login
 ````
 
-The `login` command opens `https://identity.telerik.com` in a browser window where you need to provide your Telerik account credentials. Then the browser makes of couple of redirects. If this process does not succeed, see [Manual Authentication](#manual-authentication) above.
+The `login` command opens `https://identity.telerik.com` in a browser window where you need to provide your Telerik account credentials or create a new Telerik account. Then the browser makes of couple of redirects. If this process does not succeed, see [Manual Authentication](#manual-authentication) above.
 
 The Telerik CLI stores a session token in:
 
@@ -200,6 +200,8 @@ telerik license get-key
 The `license get-key` command downloads your up-to-date Telerik license key and creates a `telerik-license.txt` file in your [operating system user's folder](slug:installation-license-key#manual-installation).
 
 ## Set Up NuGet Feed
+
+>tip This documentation section applies to Telerik UI for Blazor versions **13.3.0** and older. All packages required by newer versions are [available on nuget.org](https://www.nuget.org/profiles/Progress).
 
 To [add the Telerik NuGet server to your package sources](slug:installation-nuget), use the `nuget config` command:
 
@@ -270,11 +272,12 @@ You can use the `create` command with the following options:
 
 The `setup` command performs multiple actions at once to configure your Telerik development environment:
 
-* [Log in](#log-in)
-* [Download license key](#get-license-key)
-* [Configure NuGet package source](#set-up-nuget-feed)
-* [Install MCP server(s)](#install-mcp-server)
-* [Install Telerik UI for Blazor project templates](slug:installation-project-templates)
+* [Create your Telerik account or log in](#log-in) if you already have an account.
+* Activate a [Telerik UI for Blazor trial](https://www.telerik.com/try/ui-for-blazor) if you don't have an active commercial license or trial.
+* [Download a license key](#get-license-key) that includes all your product licenses and trials.
+* [Configure the Telerik NuGet package source](#set-up-nuget-feed).
+* [Install the Telerik MCP server(s)](#install-mcp-server).
+* Install the [Telerik UI for Blazor project templates](slug:installation-project-templates).
 
 ````SH.skip-repl
 telerik setup blazor
