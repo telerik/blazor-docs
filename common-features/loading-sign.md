@@ -55,7 +55,7 @@ The following list shows the components that have a built-in loading sign for da
 
 * **Upload** - in addition to the progress bar for each individual file in the file list, the entire component shows a loading sign and message in its header while a file is uploading.
 
-If the components are bound to `IQueriable` data which takes a long time to return, the loading signs will also be shown (e.g., as if the `OnRead` or `OnExpand` events are used). Note that this can only work in a server-side Blazor app where the query will be resolved against the real database.
+If a component is bound to an `IQueryable` and the query takes a long time to execute, the component displays a loading indicator. This is similar to using the `OnRead` or `OnExpand` events. The behavior is supported only in server-side Blazor applications, where the query can be executed against the database.
 
 ## Notes
 
@@ -514,4 +514,3 @@ In some situations, performing a certain action will show a loading indicator th
     ````C#.skip-repl Enable
         services.AddServerSideBlazor(opts => opts.DetailedErrors = true);
     ````
-
