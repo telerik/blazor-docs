@@ -5,10 +5,7 @@
 
 #prerequisites-download
 
-To successfully complete the steps in this tutorial:
-
-1. Install a [supported .NET version](slug:system-requirements#supported-net-versions).
-1. Create a [Telerik user account](https://www.telerik.com/account) if you haven't one.
+To successfully complete the steps in this tutorial, install a [supported .NET version](slug:system-requirements#supported-net-versions).
 
 #end
 
