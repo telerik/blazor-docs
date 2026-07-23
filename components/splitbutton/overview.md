@@ -5,6 +5,7 @@ description: Overview of the SplitButton for Blazor. Description of the componen
 slug: splitbutton-overview
 tags: telerik,blazor,splitbutton
 published: True
+tag: updated
 position: 0
 components: ["splitbutton"]
 ---
@@ -131,40 +132,37 @@ The following table lists the `SplitButtonItem` parameters, except those related
 
 ## SplitButton Reference and Methods
 
-The SplitButton exposes a `FocusAsync` method to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Be aware of the Blazor life cycle if you want to [focus the component on page load](slug:inputs-kb-focus#focus-on-page-load).
+The [SplitButton exposes methods](slug:Telerik.Blazor.Components.TelerikSplitButton#methods) for programmatic operation. To use them, capture the component instance with the `@ref` attribute. The `OnAfterRender` and `OnAfterRenderAsync` life-cycle events are the earliest time when the component instance is available. Also see how to [focus the SplitButton on page load](slug:inputs-kb-focus#focus-on-page-load).
 
 >caption Get a reference to the SplitButton and execute methods
 
 ````RAZOR
-<TelerikSplitButton @ref="@SplitButtonRef" OnClick="@OnReply">
+<TelerikButton OnClick="@FocusSplitButton">Focus</TelerikButton>
+or
+<TelerikButton OnClick="@OpenSplitButton">Open</TelerikButton>
+SplitButton
+
+<br /><br />
+
+<TelerikSplitButton @ref="@SplitButtonRef">
     <SplitButtonContent>Reply</SplitButtonContent>
     <SplitButtonItems>
-        <SplitButtonItem OnClick="@OnReplyAll">Reply All</SplitButtonItem>
+        <SplitButtonItem>Reply All</SplitButtonItem>
+        <SplitButtonItem>Forward</SplitButtonItem>
     </SplitButtonItems>
 </TelerikSplitButton>
 
-<TelerikButton OnClick="@FocusSplitButton">Focus SplitButton</TelerikButton>
-
-Last action clicked: <strong> @LastActionClicked </strong>
-
 @code {
-    TelerikSplitButton SplitButtonRef { get; set; }
+    private TelerikSplitButton? SplitButtonRef;
 
-    string LastActionClicked { get; set; }
-
-    async Task FocusSplitButton()
+    private async Task FocusSplitButton()
     {
-        await SplitButtonRef.FocusAsync();
+        await SplitButtonRef!.FocusAsync();
     }
 
-    void OnReply()
+    private async Task OpenSplitButton()
     {
-        LastActionClicked = "Reply";
-    }
-
-    void OnReplyAll()
-    {
-        LastActionClicked = "Reply All";
+        await SplitButtonRef!.OpenAsync();
     }
 }
 ````
