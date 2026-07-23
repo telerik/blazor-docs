@@ -30,7 +30,7 @@ The Grid checkbox column has the following exclusive parameters. For other avail
 | `SelectAllMode` | `GridSelectAllMode` enum <br /> (`Current`) | Determines if the header cell checkbox selects all rows on the current page, or all rows in the Grid. `Current` selects the visible rows on the current page. `All` selects all the data items, including ones that may be currently filtered out. `All` requires the [Grid to be data-bound via its `Data` parameter, and not `OnRead`](slug:common-features-data-binding-overview#how-to-provide-data). When using `OnRead`, the two `SelectAllMode`s behave identically, because the Grid controls only one page of items. |
 | `Title` | `string` | The text in the checkbox column's header. The title renders only when `SelectAll` is `false`. |
 
->note  If the Grid is bound to `IQueriable`, a header checkbox with an `All` option will execute the query over all the data. This may be a performance hit.
+>note If the Grid is bound to an `IQueryable`, selecting the header checkbox with the `All` option executes a query against all data. For large data sets, this can affect performance.
 
 ## Header Template
 
@@ -188,4 +188,3 @@ The example below doesn't take into account sorting, filtering and paging. If th
 * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/row-selection)
 * [Grid Selection Overview](slug:grid-selection-overview)
 * [Blazor Grid](slug:grid-overview)
-
