@@ -25,36 +25,38 @@ In this article:
 
 ## Basics
 
-To enable validation in the Telerik Form for Blazor add the `<FormValidation>` tag inside the `<TelerikForm>`. The `<FormValidation>` is used to provide validation configuration such as a validator (for example the `<DataAnnotationsValidator>`) and other validation settings like `ValidationSummary`.
+To enable validation in the Telerik Form for Blazor, add the `<FormValidation>` tag inside the `<TelerikForm>`. The `<FormValidation>` provides validation configuration such as a validator (for example, `<DataAnnotationsValidator>`) and validation message UI like the [`<TelerikValidationSummary>`](slug:validation-tools-summary).
 
 >caption Enable validation in the Telerik Form for Blazor
 
 ````RAZOR
-@* Basic validation in the Form component *@
-
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm Model="@person">
+<TelerikForm Model="@FormModel">
     <FormValidation>
         <DataAnnotationsValidator />
+        <TelerikValidationSummary />
     </FormValidation>
 </TelerikForm>
 
 @code {
-    public Person person = new Person();
+    private Person FormModel { get; set; } = new Person();
 
     public class Person
     {
-        [Range(100, 1000, ErrorMessage ="The Id must be between 100 and 1000")]
-        public int Id { get; set; }
         [Required]
-        [MaxLength(20, ErrorMessage ="The first name should be maximum 20 characters long")]
+        [MaxLength(20, ErrorMessage ="The First Name cannot exceed 20 characters")]
         public string FirstName { get; set; }
+
         [Required]
-        [MaxLength(25, ErrorMessage = "The last name should be maximum 25 characters long")]
+        [MaxLength(25, ErrorMessage = "The Last Name cannot exceed 25 characters")]
         public string LastName { get; set; }
-        [Required]
-        public DateTime? DOB { get; set; }
+
+        [Required(ErrorMessage = "The Birth Date is required")]
+        public DateTime? BirthDate { get; set; }
+
+        [Range(30, 250, ErrorMessage ="The Height must be between 30 and 250 cm")]
+        public int Height { get; set; }
     }
 }
 ````
@@ -65,8 +67,8 @@ To enable validation in the Telerik Form for Blazor add the `<FormValidation>` t
 
 When you provide an `EditContext` to the form, you can use its [`EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontextdataannotationsextensions.enabledataannotationsvalidation?view=aspnetcore-8.0#microsoft-aspnetcore-components-forms-editcontextdataannotationsextensions-enabledataannotationsvalidation(microsoft-aspnetcore-components-forms-editcontext-system-iserviceprovider)) method to add the data annotation validation instead of using the markup. This is useful in the following cases:
 
-* When the model the form is bound to changes at runtime. For example, when you [have a reset button](slug:form-formitems-buttons#how-to-add-a-reset-clear-button-to-the-form).
-* When you need to re-attach the validation after changing the `Model`. In this case you need to use the [reference to the Form component](slug:form-overview#form-reference-and-methods)&mdash;`TheFormReference.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`.
+* When the Form `Model` changes at runtime. For example, when you [have a reset button](slug:form-formitems-buttons#how-to-add-a-reset-clear-button-to-the-form).
+* When you need to re-attach the validation after changing the `Model`. In this case you need to use the [Form component reference](slug:form-overview#form-reference-and-methods)&mdash;`FormRef.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`.
 
 Telerik Blazor input components automatically display an invalid state when their value does not match the Form validation rules. This behavior depends on the input's `ValueExpression`. See how to [set the `ValueExpression` correctly when the input is nested in a child component of the Form](slug:inputs-kb-validate-child-component).
 
@@ -80,157 +82,24 @@ With the `ValidationMessageType` parameter of the Telerik Form for Blazor you ca
 * `Inline` - the standard display of messages in text after the input. This is the default value.
 * `None` - no validation messages will be rendered. The user will be notified that certain field is incorrect by a red border around the associated editor. 
 
->caption Change the type of the validation message to tooltip
+>caption Display validation messages in tooltips
 
-````RAZOR
-@* Set the FormValidationMessageType to Tooltip *@ 
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@person" ValidationMessageType="@FormValidationMessageType.Tooltip">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-    </FormValidation>
-</TelerikForm>
-
-@code {
-    public Person person = new Person();
-
-    public class Person
-    {
-        [Required]
-        public int? Id { get; set; }
-        [Required(ErrorMessage = "Enter your first name")]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = "Enter your last name")]
-        public string LastName { get; set; }
-        [Required(ErrorMessage = "Enter your date of birth")]
-        public DateTime? DOB { get; set; }
-    }
-}
+````RAZOR.skip-repl
+<TelerikForm ValidationMessageType="@FormValidationMessageType.Tooltip" />
 ````
-
-![Validation Tooltip Message](images/validation-tooltip-example.png)
 
 ## Examples
 
-This section provides the following examples:
+This section discusses the following validation scenarios:
 
-* [Validate a Model](#validate-a-model)
-* [Validate a Complex Model](#validate-a-complex-model)
 * [Fluent Validation](#fluent-validation)
+* [Validate Nested Properties or Collections](#validate-a-nested-property-or-collection)
 
 Also check the following pages for information on how to:
 
 * [Trigger Form validation programmatically](slug:form-overview#form-reference-and-methods)
 * [Use custom DataAnnotations validation](slug:validation-kb-custom-dataannotations-validator)
 * [Apply invalid state to an editor that is inside a child component](slug:inputs-kb-validate-child-component)
-
-### Validate a Model
-
-You can use the built-in `DataAnnotationsValidator` that comes with the Blazor framework.
-
-````RAZOR
-@* Use the Telerik Edit Form for Blazor to Validate a model *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@person">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-    </FormValidation>
-</TelerikForm>
-
-@code {
-    public Person person { get; set; } = new Person();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "The First name is required")]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = "The Last name is required")]
-        public string LastName { get; set; }
-        [Required(ErrorMessage ="Enter the name of the company you work for")]
-        public string CompanyName { get; set; }
-        [Required(ErrorMessage ="Enter your position")]
-        [MaxLength(25, ErrorMessage ="The position can be maximum 25 characters long")]
-        public string Position { get; set; }
-    }
-}
-````
-
-### Validate a Complex Model
-
-You can use the <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation?view=aspnetcore-8.0#nested-models-collection-types-and-complex-types" target="_blank">ObjectGraphDataAnnotationsValidator</a> inside the Telerik Form for Blazor to validate a nested model.
-
-When using a model with nested objects and fields, specify their `Field` settings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
-
-````RAZOR.skip-repl
-@using System.Dynamic
-@using System.ComponentModel.DataAnnotations
-
-<div class="mt-4" style="margin: 0 auto;">
-    <TelerikForm Model="@MyModel">
-        <FormValidation>
-            <ObjectGraphDataAnnotationsValidator></ObjectGraphDataAnnotationsValidator>
-        </FormValidation>
-        <FormItems>
-            <FormItem Field="StringProperty"></FormItem>
-            <FormItem Field="Child.StringProperty" />
-            <FormItem Field="Child.Child.StringProperty" />
-            <FormItem Field="Child.Child.IntProperty" />
-            <FormItem Field="Child.Child.BoolProperty" />
-            <FormItem Field="Child.Child.DateTimeProperty" />
-        </FormItems>
-    </TelerikForm>
-</div>
-@code {
-    TestModel MyModel { get; set; } = new TestModel();
-
-    abstract class TestBaseClass
-    {
-        [Required(ErrorMessage = "String prop is required")]
-        public string StringProperty { get; set; }
-
-        [Required(ErrorMessage = "Int prop is required")]
-        public int? IntProperty { get; set; }
-
-        [Range(typeof(bool), "true", "true", ErrorMessage = "You must accept.")]
-        public bool BoolProperty { get; set; }
-
-        [Required]
-        public DateTime? DateTimeProperty { get; set; }
-    }
-
-    class TestGrandChildModel : TestBaseClass
-    {
-    }
-
-    class TestChildModel : TestBaseClass
-    {
-        [ValidateComplexType]
-        public TestGrandChildModel Child { get; set; }
-
-        public TestChildModel()
-        {
-            Child = new TestGrandChildModel();
-        }
-    }
-
-    class TestModel : TestBaseClass
-    {
-        public int Id { get; set; }
-
-        [ValidateComplexType]
-        public TestChildModel Child { get; set; }
-
-        public TestModel()
-        {
-            Child = new TestChildModel();
-        }
-    }
-}
-````
 
 ### Fluent Validation
 
@@ -354,6 +223,196 @@ The example below:
             await ValueChanged.InvokeAsync(newValue);
         }
     }
+}
+````
+
+### Validate Nested Properties or Collections
+
+Refer to the [Microsoft documentation about validating nested objects and collection types](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation).
+
+When using a model with nested objects and properties, [specify their `Field` settings as dot-separate strings](slug:grid-use-navigation-properties). Do not use a single `nameof()` operator, because it does not return the full name of the nested property.
+
+The example below demonstrates how to validate a nested property `Product.Category.Id` and a collection `Product.Ingredients`. The sample code assumes that:
+
+* The project name and root namespace is `TelerikBlazorApp`.
+* The model classes belong to the `TelerikBlazorApp.Data` namespace.
+
+<div class="skip-repl">
+
+````RAZOR Home.razor
+<TelerikForm Model="@ProductModel"
+             Orientation="@FormOrientation.Horizontal"
+             Width="480px">
+    <FormValidation>
+        <DataAnnotationsValidator />
+        <TelerikValidationSummary />
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Product.Name)" LabelText="Product Name"></FormItem>
+        <FormItem Field="@($"{nameof(Product.Category)}.{nameof(Category.Id)}")" LabelText="Category">
+            <Template>
+                <label for="category" class="k-label k-form-label">Category</label>
+                <div class="k-form-field-wrap">
+                    <TelerikDropDownList @bind-Value="@ProductModel.Category.Id"
+                                         DefaultText="Select Category"
+                                         Data="@Categories"
+                                         TextField="@nameof(Category.Name)"
+                                         ValueField="@nameof(Category.Id)"
+                                         Id="category">
+                        <DropDownListSettings>
+                            <DropDownListPopupSettings Height="auto" />
+                        </DropDownListSettings>
+                    </TelerikDropDownList>
+                    <TelerikValidationMessage For="@(() => ProductModel.Category.Id)" />
+                </div>
+            </Template>
+        </FormItem>
+        <FormItem Field="@nameof(Product.ReleaseDate)" LabelText="Release Date"></FormItem>
+        <FormItem Field="@nameof(Product.Ingredients)">
+            <Template>
+                <label class="k-label k-form-label ingredients-label">Ingredients</label>
+                <div class="k-form-field-wrap ingredients-wrap">
+                    <div class="ingredients">
+                        <TelerikValidationMessage For="@(() => ProductModel.Ingredients)" />
+                        @foreach (Ingredient ingredient in ProductModel.Ingredients ?? new List<Ingredient>())
+                        {
+                            <div>
+                                <div class="ingredient">
+                                    <label>Name</label>
+                                    <TelerikTextBox @bind-Value="@ingredient.Name" />
+                                    <TelerikButton Icon="@SvgIcon.Trash"
+                                                OnClick="@(() => OnRemoveIngredient(ingredient))" />
+                                </div>
+                                <div>
+                                    <TelerikValidationMessage For="@(() => ingredient.Name)" />
+                                </div>
+                            </div>
+                        }
+                        <div class="add-ingredient">
+                            <TelerikButton Icon="@SvgIcon.Plus"
+                                           OnClick="@OnAddIngredient">
+                                Add Ingredient
+                            </TelerikButton>
+                        </div>
+                    </div>
+                </div>
+            </Template>
+        </FormItem>
+    </FormItems>
+</TelerikForm>
+
+<style>
+    .ingredients-label {
+        margin-top: var(--kendo-spacing-3\.5);
+    }
+
+    .ingredients-wrap {
+        border: 1px solid var(--kendo-color-border);
+        padding: 1em;
+        border-radius: var(--kendo-border-radius-md);
+    }
+
+    .ingredients {
+        display: flex;
+        flex-direction: column;
+        gap: var(--kendo-spacing-4);
+    }
+
+    .ingredient {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin-bottom: var(--kendo-spacing-4);
+    }
+
+    .ingredient > label {
+        flex: 1 1 40%;
+    }
+
+    .ingredient + .add-ingredient {
+        margin-top: var(--kendo-spacing-4);
+    }
+
+    div.ingredient:has(.k-invalid) label {
+        color: var(--kendo-color-error-on-surface);
+    }
+</style>
+
+@code {
+    private Product ProductModel { get; set; } = new();
+    private readonly Category[] Categories = new Category[]
+    {
+        new Category { Id = 1, Name = "First Category" },
+        new Category { Id = 2, Name = "Second Category" },
+        new Category { Id = 3, Name = "Third Category" }
+    };
+
+    private void OnAddIngredient()
+    {
+        ProductModel.Ingredients ??= new List<Ingredient>();
+        ProductModel.Ingredients.Add(new Ingredient());
+    }
+
+    private void OnRemoveIngredient(Ingredient ingredient)
+    {
+        ProductModel.Ingredients?.Remove(ingredient);
+
+        if (ProductModel.Ingredients?.Count == 0)
+        {
+            ProductModel.Ingredients = default;
+        }
+    }
+}
+````
+````C# Program.cs
+builder.Services.AddValidation();
+````
+````C# Category.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace TelerikBlazorApp.Data;
+
+public class Category
+{
+    [Required(ErrorMessage = "Category is required.")]
+    public int? Id { get; set; }
+
+    public string Name { get; set; } = string.Empty;
+}
+````
+````C# Product.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace TelerikBlazorApp.Data;
+
+[ValidatableType]
+public class Product
+{
+    public string Id { get; set; } = Guid.NewGuid().ToString();
+
+    [Required(ErrorMessage = "Product Name is required.")]
+    public string Name { get; set; } = string.Empty;
+
+    public Category Category { get; set; } = new Category();
+
+    [Required(ErrorMessage = "Release Date is required.")]
+    public DateTime? ReleaseDate { get; set; }
+
+    [Required(ErrorMessage = "At least one ingredient is required.")]
+    public List<Ingredient>? Ingredients { get; set; }
+}
+````
+````C# Ingredient.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace TelerikBlazorApp.Data;
+
+public class Ingredient
+{
+    public string Id { get; set; } = Guid.NewGuid().ToString();
+
+    [Required(ErrorMessage = "Ingredient Name is required.")]
+    public string Name { get; set; } = string.Empty;
 }
 ````
 
