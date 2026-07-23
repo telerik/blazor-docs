@@ -37,7 +37,7 @@ To add a Tooltip for the pointer of the Gauge:
 
 1. Set the [`Color` of the Gauge Pointer](slug:arc-gauge-pointers#color).
 1. Declare [`TelerikTooltip`](slug:tooltip-overview) component instance.
-1. Set the [`TargetSelector`](slug:tooltip-overview#tooltip-parameters) of the Tooltip to a specific path element within the SVG rendered by the Gauge. Use the specified pointer color in the selector.
+1. Set the [`TargetSelector`](slug:tooltip-overview#tooltip-api) of the Tooltip to a specific path element within the SVG rendered by the Gauge. Use the specified pointer color in the selector.
 
 The example below demonstrates how to add a Tooltip to the Arc Gauge. The same approach applies to all other Gauge types.
 
