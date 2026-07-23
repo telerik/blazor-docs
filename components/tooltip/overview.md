@@ -40,6 +40,10 @@ The Blazor Tooltip will automatically display the value of `title` and `alt` att
 ````
 
 >tip For better performance, use one single Tooltip instance for multiple targets, especially if the targets are similar and a lot in number.
+>
+>tip To have the tooltip stretch according to its content, leave **both** the `Width` and `Height` parameters empty. If one of them has a value, the HTML element will have some layout and you may get unexpected results in terms of size and position.
+>
+> If you will be [loading large content on demand](slug:tooltip-template#separate-component-and-load-on-demand), you should set dimensions that will accommodate the expected content and layout.
 
 ## Position and Collision
 
@@ -56,10 +60,6 @@ The Blazor Tooltip accepts a nested `<Template>` tag, which is a standard Blazor
 ## Tooltip API
 
 Get familiar with all Tooltip parameters, methods, events, and nested tags in the [Tooltip API Reference](slug:Telerik.Blazor.Components.TelerikTooltip).
-
->tip To have the tooltip stretch according to its content, leave **both** the `Width` and `Height` parameters empty. If one of them has a value, the HTML element will have some layout and you may get unexpected results in terms of size and position.
->
-> If you will be [loading large content on demand](slug:tooltip-template#separate-component-and-load-on-demand), you should set dimensions that will accommodate the expected content and layout.
 
 ## Next Steps
 
