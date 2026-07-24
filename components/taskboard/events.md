@@ -217,9 +217,7 @@ Also see the [runnable example](#example) below.
 
 ## OnColumnReorder
 
-The TaskBoard `OnColumnReorder` event fires when the user drags a column to another position. The event handler receives a generic [`TaskBoardColumnReorderEventArgs<TColumn>`](slug:Telerik.Blazor.Components.TaskBoardColumnReorderEventArgs-1) argument that exposes information about the dragged column and its old and new order index.
-
-If the Column should not be moved, the event can be cancelled. Otherwise the reorder operation is successfully completed without additional coding.
+The TaskBoard `OnColumnReorder` event fires when the user drags a column to another position. The event handler receives a generic [`TaskBoardColumnReorderEventArgs<TColumn>`](slug:Telerik.Blazor.Components.TaskBoardColumnReorderEventArgs-1) argument that exposes information about the dragged column and its old and new order index. The `ColumnData` collection updates automatically, but you may need to update the original data source in order to persist the change for other users and future sessions. If the Column should not be moved, cancel the event.
 
 >caption Using the TaskBoard OnColumnReorder event
 
@@ -231,7 +229,12 @@ If the Column should not be moved, the event can be cancelled. Otherwise the reo
 @code {
     private void OnTaskBoardColumnReorder(TaskBoardColumnReorderEventArgs<TaskBoardColumn> args)
     {
+        // If the user action is not valid
         //args.IsCancelled = true;
+
+        // OR
+
+        // Update the original column data source
 
         Console.WriteLine($"Reordered column {args.Item.Title} from index {args.OldIndex} to index {args.NewIndex}");
     }
