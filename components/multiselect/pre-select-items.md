@@ -93,19 +93,19 @@ and
 
 ## Select All Items
 
-Telerik UI for Blazor 14.1.0 and newer versions allow users to select or deselect all rendered items through a ToggleButton in the dropdown. To enable the feature, set the `EnableSelectAll` parameter to `true`:
+Telerik UI for Blazor 14.1.0 and newer versions allow users to select or deselect all rendered items. To enable the feature, set the `EnableSelectAll` parameter to `true`:
 
 ````RAZOR.skip-repl
 <TelerikMultiSelect EnableSelectAll="true" />
 ````
 
-In this case, the MultiSelect appearance and behavior also depend on the [`TagMode`](slug:multiselect-tag-mode) and [`MaxAllowedTags`](slug:multiselect-tag-mode#summarized-tags-based-on-the-number-of-selections)  settings.
+When `EnableSelectAll` is `true`, the MultiSelect appearance and behavior also depend on the [`TagMode`](slug:multiselect-tag-mode), [`MaxAllowedTags`](slug:multiselect-tag-mode#summarized-tags-based-on-the-number-of-selections), and [`EnableCheckBoxes`](slug:multiselect-overview#checkboxes) settings.
 
-Clicking the **Select All** toggle button fires the [`OnSelectAll` event](slug:multiselect-events#onselectall).
+Clicking the **Select All** toggle fires the [`OnSelectAll` event](slug:multiselect-events#onselectall).
 
 The Select All functionality applies only to the currently rendered items, which means:
 
-* The state of the **Select All** toggle button depends on whether all currently rendered items are selected.
+* The state of the **Select All** toggle button or tri-state checkbox depends on whether all, some, or none of the currently rendered items are selected.
 * If [MultiSelect filtering](slug:multiselect-filter) is active, users select or deselect only the filtered items. The selection state of all other items remains unchanged.
 * If [MultiSelect virtual scrolling](slug:multiselect-virtualization) is enabled, users select or deselect the currently rendered chunk of items. Their number depends on the `PageSize`. Scrolling does not affect the selected items. To select all items in the data source in virtual scenarios, use the [`OnSelectAll` event and set `args.Items` to all data items](slug:multiselect-virtualization#remote-data-example).
 
@@ -116,6 +116,7 @@ The Select All functionality applies only to the currently rendered items, which
     <TelerikMultiSelect Data="@ListItems"
                     @bind-Value="@MultiSelectValues"
                     AutoClose="false"
+                    EnableCheckBoxes="@MultiSelectEnableCheckBoxes"
                     EnableSelectAll="true"
                     Filterable="true"
                     FilterOperator="@StringFilterOperator.Contains"
@@ -135,6 +136,13 @@ The Select All functionality applies only to the currently rendered items, which
                 <TelerikNumericTextBox @bind-Value="@MultiSelectMaxAllowedTags"
                                     Min="1"
                                     Max="@ListItems.Count" />
+            </label>
+        </p>
+
+        <p>
+            <label>
+                <TelerikCheckBox @bind-Value="@MultiSelectEnableCheckBoxes" />
+                <code>EnableCheckBoxes</code>
             </label>
         </p>
 
@@ -161,6 +169,7 @@ The Select All functionality applies only to the currently rendered items, which
 
     private MultiSelectTagMode MultiSelectTagMode { get; set; } = MultiSelectTagMode.Multiple;
     private int MultiSelectMaxAllowedTags { get; set; } = 3;
+    private bool MultiSelectEnableCheckBoxes { get; set; }
 
     protected override void OnInitialized()
     {
