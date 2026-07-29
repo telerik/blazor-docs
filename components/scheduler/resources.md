@@ -45,6 +45,8 @@ To use resources:
 1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
     * If you don't want any resource in the appointment, define a resource with empty strings in its `Value` and `Color` fields, and a suitable `Text`.
 
+If an appointment has multiple resources, the color of the first resource in `<SchedulerResources>` takes precedence.
+
 >tip To style the appointments, you can also use their [template](slug:scheduler-templates-appointment) and the [ItemRender event](slug:scheduler-events#itemrender).
 
 ## Examples
