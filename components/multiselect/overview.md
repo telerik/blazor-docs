@@ -4,6 +4,7 @@ page_title: MultiSelect Overview
 description: Discover the Blazor MultiSelect for Blazor and explore the examples.
 slug: multiselect-overview
 tags: telerik,blazor,multiselect,overview
+tag: updated
 published: True
 position: 0
 components: ["multiselect"]
@@ -20,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 1. Set the `TextField` parameter to point to the object property that holds the user-readable value.
 1. Set the `ValueField` parameter to point to the object property that holds the data item value.
 1. [Bind the `Value` of the component](slug:common-features-data-binding-overview#data-binding-vs-value-binding) to a collection of the same type as the type defined by the `ValueField` parameter.
-1. (optional) Configure additional features like `AutoClose`, `Placeholder`, or `ShowClearButton`.
+1. (optional) Configure additional features like `AutoClose`, `EnableCheckBoxes`, `Placeholder`, or `ShowClearButton`.
 
 >caption Basic Blazor MultiSelect two-way value binding, main features, and simple [data binding](slug:multiselect-databind)
 
@@ -39,6 +40,21 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#filt
 The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiSelect grouping...](slug:components/multiselect/grouping)
 
 @[template](/_contentTemplates/common/inputs.md#adornments)
+
+## Checkboxes
+
+The MultiSelect can render an optional checkbox for each dropdown item and for the [**Select All** toggle](slug:multiselect-item-selection#select-all-items). This visual enhancement helps users to have:
+
+* One more way to identify the selected items.
+* One more visual clue where to click to select an item.
+
+To render checkboxes in the MultiSelect dropdown, set `EnableCheckBoxes="true"`:
+
+````RAZOR.skip-repl
+<TelerikMultiSelect EnableCheckBoxes="true" />
+````
+
+When `EnableCheckBoxes="true"` is combined with [`EnableSelectAll="true"`](slug:multiselect-item-selection#select-all-items), the MultiSelect renders a tri-state checkbox instead of a **Select All** ToggleButton.
 
 ## Templates
 
@@ -73,7 +89,8 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
 | `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the component is enabled. |
-| `EnableSelectAll` | `bool` | Whether the component renders a [**Select All** toggle button](slug:multiselect-item-selection#select-all-items) in at the top of the dropdown. |
+| `EnableCheckBoxes` | `bool` | Whether the component renders a [checkbox](#checkboxes) for each dropdown item and the optional [**Select All** toggle](slug:multiselect-item-selection#select-all-items). |
+| `EnableSelectAll` | `bool` | Whether the component renders a [**Select All** toggle](slug:multiselect-item-selection#select-all-items) in at the top of the dropdown. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Filterable` | `bool` | Whether [filtering](slug:multiselect-filter) is enabled for the end user (suggestions will get narrowed down as they type). |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering](slug:multiselect-filter). |

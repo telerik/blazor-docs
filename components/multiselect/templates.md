@@ -27,6 +27,8 @@ The MultiSelect component allows you to change what is rendered in its items, he
 
 @[template](/_contentTemplates/dropdowns/templates.md#item-template)
 
+Using a MultiSelect `ItemTemplate` together with [`EnableCheckBoxes="true"`](slug:multiselect-overview#checkboxes) does not remove the built-in item checkboxes.
+
 ## Tag Template
 
 @[template](/_contentTemplates/dropdowns/templates.md#tag-template)
