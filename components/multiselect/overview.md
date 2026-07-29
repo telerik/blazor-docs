@@ -89,7 +89,7 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
 | `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the component is enabled. |
-| `EnableCheckBoxes` | `bool` | Whether the component renders a [checkbox](#checkboxes) for each dropdown item and the [**Select All** toggle](slug:multiselect-item-selection#select-all-items). |
+| `EnableCheckBoxes` | `bool` | Whether the component renders a [checkbox](#checkboxes) for each dropdown item and the optional [**Select All** toggle](slug:multiselect-item-selection#select-all-items). |
 | `EnableSelectAll` | `bool` | Whether the component renders a [**Select All** toggle](slug:multiselect-item-selection#select-all-items) in at the top of the dropdown. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Filterable` | `bool` | Whether [filtering](slug:multiselect-filter) is enabled for the end user (suggestions will get narrowed down as they type). |
