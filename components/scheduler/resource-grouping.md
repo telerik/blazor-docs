@@ -11,533 +11,300 @@ components: ["scheduler"]
 
 # Scheduler Resource Grouping
 
-The feature allows grouping Scheduler events by one or more resources. All available supported views: `Day`, `Week`, `MultiDay` and `Month` can render both `horizontal` and `vertical` grouping.
+The Telerik Scheduler for Blazor can group appointments by one or more resources. All available [Scheduler views](slug:scheduler-views-overview) support horizontal and vertical grouping, except the Agenda view, which only uses vertical grouping.
 
-This article contains the following sections:
-
-* [Basics](#basics)
-    * [Define Settings](#define-settings)
-* [Examples](#examples)
-    * [Resource Grouping by one resource](#resource-grouping-by-one-resource)
-    * [Resource Grouping by multiple resources](#resource-grouping-by-multiple-resources)
+>tip This article requires familiarity with [Scheduler Resources](slug:scheduler-resources).
 
 ## Basics
 
-In the grouping rendering in both horizontal and vertical orientation, the view tables are rendered next to each other. 
+When Scheduler grouping is active, the component renders multiple view tables in horizontal and vertical orientation. The date or hour headers repeat for each group.
 
-Moving an appointment between the resource tables is allowed, and upon dropping, the appointment resource changes alongside the start date.
+Moving an appointment from one group to another is allowed. On drop, the appointment resource changes alongside the start date and the app should persist these changes in the [`OnUpdate` event handler](slug:scheduler-appointments-edit).
 
-### Define Settings
+To configure group rendering, use the `<SchedulerGroupSettings>` tag inside `<SchedulerSettings>`.
 
-To configure the group rendering, define the `SchedulerGroupSettings` tag inside the `SchedulerSettings` tag.
+The group settings tag exposes the following parameters:
 
-The settings tag will have the following Parameters:
+* `Resources` expects a `List<string>` of one or more resource names that match property names in the Scheduler model class.
+* `Orientation` determines the orientation as an [`SchedulerGroupOrientation`](slug:telerik.blazor.schedulergrouporientation) enum. The default is `Horizontal`.
 
-* `Resources(List<string>)` - provides a list of one or more resource names, which will be used to group the events.
-* `Orientation(SchedulerGroupOrientation)` - has two values: `Horizontal` (default) and `Vertical`. Determines the direction in which the resource tables are rendered.
+>caption Scheduler Group Settings
 
-## Examples
+````RAZOR.skip-repl
+<TelerikScheduler>
+    <SchedulerSettings>
+        <SchedulerGroupSettings Orientation="@SchedulerGroupOrientation.Horizontal"
+                                Resources="@GroupingResources" />
+    </SchedulerSettings>
+</TelerikScheduler>
 
-The examples below showcase [resource grouping by one resource](#resource-grouping-by-one-resource) and [resource grouping by multiple resources](#resource-grouping-by-multiple-resources) respectively.
-
-### Resource Grouping by one resource
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
-
-### Resource Grouping by multiple resources
-
->caption Declare multiple resources.
-
-<div class="skip-repl"></div>
-````RAZOR SchedulerResourceGrouping.razor
-@* The example showcases Resource Grouping by two resources. *@
-
-@using System.Collections.Generic
-
-@inject AppointmentService appointmentService
-
-@inject ResourceService resourceService
-
-<div class="example-wrapper">
-    <TelerikScheduler @bind-Date="@SelectedDate" Height="600px" Data="@Data"
-                      OnCreate="@AddAppointment"
-                      OnUpdate="@UpdateAppointment"
-                      OnDelete="@DeleteAppointment"
-                      AllowDelete="true"
-                      AllowUpdate="true"
-                      AllowCreate="true"
-                      OnCancel="@(() => Console.WriteLine("CANCEL"))">
-        <SchedulerSettings>
-            <SchedulerGroupSettings Resources="@GroupingResources" Orientation="@SchedulerGroupOrientation.Horizontal"></SchedulerGroupSettings>
-        </SchedulerSettings>
-        <SchedulerViews>
-            <SchedulerDayView></SchedulerDayView>
-            <SchedulerWeekView></SchedulerWeekView>
-            <SchedulerMultiDayView></SchedulerMultiDayView>
-            <SchedulerMonthView></SchedulerMonthView>
-            <SchedulerAgendaView></SchedulerAgendaView>
-        </SchedulerViews>
-        <SchedulerResources>
-            <SchedulerResource Field="Manager" Title="Manager" Data="@SchedulerManagers"></SchedulerResource>
-            <SchedulerResource Field="Room" Title="Edit Room" Data="@SchedulerResources"></SchedulerResource>
-        </SchedulerResources>
-    </TelerikScheduler>
-</div>
-
-@code
-{
-    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
-    List<Appointment> Data = new List<Appointment>();
-    List<Resource> SchedulerResources = new List<Resource>();
-    List<Resource> SchedulerManagers = new List<Resource>();
-    List<Resource> SchedulerDirectors = new List<Resource>();
-
-    List<string> GroupingResources = new List<string> { "Room", "Manager" };
-
-    protected override async Task OnInitializedAsync()
+@code {
+    private readonly List<string> GroupingResources = new()
     {
-        SchedulerDirectors = await resourceService.GetDirectorsAsync();
-        SchedulerResources = await resourceService.GetResourcesAsync();
-        SchedulerManagers = await resourceService.GetManagersAsync();
-        Data = await appointmentService.GetAppointmentsAsync();
-    }
+        nameof(Appointment.Room),
+        nameof(Appointment.Manager)
+    };
+}
+````
 
-    void UpdateAppointment(SchedulerUpdateEventArgs args)
-    {
-        Appointment item = (Appointment)args.Item;
+## Example
 
-        var matchingItem = Data.FirstOrDefault(a => a.Id == item.Id);
+>caption Scheduler Resource Grouping
 
-        if (matchingItem != null)
+````RAZOR
+<p>
+    <label class="k-checkbox-label">
+        <TelerikCheckBox @bind-Value="@GroupByRoom" />
+        Group by Room
+    </label>
+    <label class="k-checkbox-label">
+        <TelerikCheckBox @bind-Value="@GroupByManager" />
+        Group by Manager
+    </label>
+</p>
+
+<TelerikScheduler Data="@SchedulerData"
+                  @bind-Date="@SchedulerDate"
+                  @bind-View="@SchedulerView"
+                  AllowCreate="true"
+                  AllowUpdate="true"
+                  AllowDelete="true"
+                  OnCreate="@OnSchedulerCreate"
+                  OnUpdate="@OnSchedulerUpdate"
+                  OnDelete="@OnSchedulerDelete"
+                  Width="96vw"
+                  Height="80vh">
+    <SchedulerSettings>
+        <SchedulerGroupSettings Orientation="@SchedulerGroupOrientation.Horizontal"
+                                Resources="@GroupingResources" />
+    </SchedulerSettings>
+    <SchedulerViews>
+        <SchedulerDayView StartTime="@StartTime" EndTime="@EndTime" WorkDayStart="@StartTime" WorkDayEnd="@EndTime" />
+        <SchedulerWeekView StartTime="@StartTime" EndTime="@EndTime" WorkDayStart="@StartTime" WorkDayEnd="@EndTime" />
+        <SchedulerMonthView />
+        <SchedulerAgendaView />
+    </SchedulerViews>
+    <SchedulerResources>
+        @if (GroupByRoom)
         {
-            matchingItem.Title = item.Title;
-            matchingItem.Description = item.Description;
-            matchingItem.Start = item.Start;
-            matchingItem.End = item.End;
-            matchingItem.IsAllDay = item.IsAllDay;
-            matchingItem.Room = item.Room;
-            matchingItem.Manager = item.Manager;
+            <SchedulerResource Data="@SchedulerRooms"
+                            Field="@nameof(Appointment.Room)"
+                            Title="Room" />
+        }
+        @if (GroupByManager)
+        {
+            <SchedulerResource Data="@SchedulerManagers"
+                               Field="@nameof(Appointment.Manager)"
+                               Title="Manager" />
+        }
+    </SchedulerResources>
+</TelerikScheduler>
+
+@code {
+    #nullable enable
+
+    private AppointmentService appointmentService = new();
+    private ResourceService resourceService = new();
+
+    private DateTime SchedulerDate { get; set; } = DateTime.Today;
+    private DateTime StartTime { get; set; } = DateTime.Today.AddHours(10);
+    private DateTime EndTime { get; set; } = DateTime.Today.AddHours(18);
+    private SchedulerView SchedulerView { get; set; } = SchedulerView.Day;
+
+    private List<Appointment> SchedulerData { get; set; } = new List<Appointment>();
+    private List<Resource> SchedulerRooms { get; set; } = new List<Resource>();
+    private List<Resource> SchedulerManagers { get; set; } = new List<Resource>();
+
+    private List<string> GroupingResources => GroupByManager && GroupByRoom ?
+        new List<string> { nameof(Appointment.Room), nameof(Appointment.Manager) } :
+        GroupByManager ?
+        new List<string> { nameof(Appointment.Manager) } :
+        GroupByRoom ?
+        new List<string> { nameof(Appointment.Room) } :
+        new List<string>();
+
+    private bool GroupByManager { get; set; }
+    private bool GroupByRoom { get; set; } = true;
+
+    private void OnSchedulerUpdate(SchedulerUpdateEventArgs args)
+    {
+        Appointment itemToUpdate = (Appointment)args.Item;
+        Appointment? originalItem = SchedulerData.Find(a => a.Id == itemToUpdate.Id);
+
+        if (originalItem is not null)
+        {
+            originalItem.Title = itemToUpdate.Title;
+            originalItem.Description = itemToUpdate.Description;
+            originalItem.Start = itemToUpdate.Start;
+            originalItem.End = itemToUpdate.End;
+            originalItem.IsAllDay = itemToUpdate.IsAllDay;
+            originalItem.Room = itemToUpdate.Room;
+            originalItem.Manager = itemToUpdate.Manager;
         }
     }
 
-    void AddAppointment(SchedulerCreateEventArgs args)
+    private void OnSchedulerCreate(SchedulerCreateEventArgs args)
     {
-        Appointment item = args.Item as Appointment;
+        Appointment itemToCreate = (Appointment)args.Item;
 
-        Data.Add(item);
+        SchedulerData.Add(itemToCreate);
     }
 
-    void DeleteAppointment(SchedulerDeleteEventArgs args)
+    private void OnSchedulerDelete(SchedulerDeleteEventArgs args)
     {
-        Appointment item = (Appointment)args.Item;
+        Appointment itemToDelete = (Appointment)args.Item;
 
-        Data.Remove(item);
-    }
-}
-````
-````C# AppointmentService.cs
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-public class AppointmentService
-{
-    public async Task<List<Appointment>> GetAppointmentsAsync()
-    {
-        await Task.Delay(0);
-
-        return GetAppointments();
+        SchedulerData.Remove(itemToDelete);
     }
 
-    public List<Appointment> GetAppointments()
+    protected override async Task OnInitializedAsync()
     {
-        List<Appointment> data = new List<Appointment>();
-        DateTime baselineTime = GetStartTime();
+        SchedulerRooms = await resourceService.GetRoomsAsync();
+        SchedulerManagers = await resourceService.GetManagersAsync();
+        SchedulerData = await appointmentService.GetAppointmentsAsync();
 
-        data.Add(new Appointment
-        {
-            Title = "Vet visit",
-            Description = "The cat needs vaccinations and her teeth checked.",
-            Start = baselineTime.AddHours(2),
-            End = baselineTime.AddHours(2).AddMinutes(30)
-        });
-        data.Add(new Appointment
-        {
-            Title = "Trip to Hawaii",
-            Description = "An unforgettable holiday!",
-            IsAllDay = true,
-            Start = baselineTime.AddDays(-10),
-            End = baselineTime.AddDays(-2)
-        });
-        data.Add(new Appointment
-        {
-            Title = "Jane's birthday party",
-            Description = "Make sure to get her fresh flowers in addition to the gift.",
-            Start = baselineTime.AddDays(5).AddHours(10),
-            End = baselineTime.AddDays(5).AddHours(18),
-        });
-        data.Add(new Appointment
-        {
-            Title = "One-on-one with the manager",
-            Start = baselineTime.AddDays(2).AddHours(3).AddMinutes(30),
-            End = baselineTime.AddDays(2).AddHours(3).AddMinutes(45),
-        });
-        data.Add(new Appointment
-        {
-            Title = "Brunch with HR",
-            Description = "Performance evaluation of the new recruit.",
-            Start = baselineTime.AddDays(3).AddHours(3),
-            End = baselineTime.AddDays(3).AddHours(3).AddMinutes(45)
-        });
-        data.Add(new Appointment
-        {
-            Title = "Interview with new recruit",
-            Description = "See if John will be a suitable match for our team.",
-            Start = baselineTime.AddDays(3).AddHours(1).AddMinutes(30),
-            End = baselineTime.AddDays(3).AddHours(2).AddMinutes(30)
-        });
-        data.Add(new Appointment
-        {
-            Title = "Conference",
-            Description = "The big important work conference. Don't forget to practice your presentation.",
-            Start = baselineTime.AddDays(6),
-            End = baselineTime.AddDays(11),
-            IsAllDay = true
-        });
-        data.Add(new Appointment
-        {
-            Title = "New Project Kickoff",
-            Description = "Everyone assemble! We will also have clients on the call from a later time zone.",
-            Start = baselineTime.AddDays(3).AddHours(8).AddMinutes(30),
-            End = baselineTime.AddDays(3).AddHours(11).AddMinutes(30)
-        });
-        data.Add(new Appointment
-        {
-            Title = "Get photos",
-            Description = "Get the printed photos from last week's holiday. It's on the way from the vet to work.",
-            Start = baselineTime.AddHours(2).AddMinutes(15),
-            End = baselineTime.AddHours(2).AddMinutes(30)
-        });
-
-        var rng = new Random();
-        var startDate = new DateTime(2019, 11, 10);
-
-        data.Add(new Appointment()
-        {
-            Title = "AllDay 1.0-1.0",
-            Start = startDate.AddDays(5),
-            End = startDate.AddDays(5),
-            IsAllDay = true
-        });
-        data.Add(new Appointment()
-        {
-            Title = "AllDay 1.2-1.2",
-            Start = startDate.AddDays(5).AddHours(2),
-            End = startDate.AddDays(5).AddHours(2),
-            IsAllDay = true
-        });
-        data.Add(new Appointment()
-        {
-            Title = "AllDay 1.0-2.0",
-            Start = startDate.AddDays(5),
-            End = startDate.AddDays(6),
-            IsAllDay = true
-        });
-        data.Add(new Appointment()
-        {
-            Title = "S AllDay",
-            Start = startDate,
-            End = startDate.AddDays(1)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "S AllDay 2",
-            Start = startDate,
-            End = startDate.AddDays(1)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "S AllDay 3",
-            Start = startDate.AddDays(-1),
-            End = startDate.AddDays(1)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "S AllDay 4",
-            Start = startDate.AddDays(1),
-            End = startDate.AddDays(2)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "S AllDay span 3",
-            Start = startDate.AddDays(1),
-            End = startDate.AddDays(4)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "At Start",
-            Start = startDate,
-            End = startDate.AddHours(1)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Middle",
-            Start = startDate.AddHours(9),
-            End = startDate.AddHours(10)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Before Start",
-            Start = startDate.AddDays(1).AddHours(5),
-            End = startDate.AddDays(1).AddHours(10)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "After End",
-            Start = startDate.AddHours(16),
-            End = startDate.AddHours(19)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Two Day",
-            Start = startDate.AddDays(1).AddHours(22),
-            End = startDate.AddDays(2).AddHours(3)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Three Day",
-            Start = startDate.AddDays(2).AddHours(4),
-            End = startDate.AddDays(5).AddHours(23)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Not exact",
-            Start = startDate.AddDays(5).AddHours(8).AddMinutes(11),
-            End = startDate.AddDays(5).AddHours(9).AddMinutes(11)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Not exact end",
-            Start = startDate.AddDays(5).AddHours(10),
-            End = startDate.AddDays(5).AddHours(10).AddMinutes(11)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Not exact start",
-            Start = startDate.AddDays(5).AddHours(12).AddMinutes(11),
-            End = startDate.AddDays(5).AddHours(13)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "At End",
-            Start = startDate.AddDays(6).AddHours(23),
-            End = startDate.AddDays(6).AddHours(24)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 1",
-            Start = startDate.AddDays(2).AddHours(9),
-            End = startDate.AddDays(2).AddHours(12)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 2",
-            Start = startDate.AddDays(2).AddHours(10),
-            End = startDate.AddDays(2).AddHours(11)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 2",
-            Start = startDate.AddDays(2).AddHours(11),
-            End = startDate.AddDays(2).AddHours(12)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 2",
-            Start = startDate.AddDays(2).AddHours(11),
-            End = startDate.AddDays(2).AddHours(12)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 11",
-            Start = startDate.AddDays(3).AddHours(9),
-            End = startDate.AddDays(3).AddHours(12)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 12",
-            Start = startDate.AddDays(3).AddHours(9),
-            End = startDate.AddDays(3).AddHours(10)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 13",
-            Start = startDate.AddDays(3).AddHours(9),
-            End = startDate.AddDays(3).AddHours(11)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 14",
-            Start = startDate.AddDays(3).AddHours(11).AddMinutes(30),
-            End = startDate.AddDays(3).AddHours(13)
-        });
-        data.Add(new Appointment()
-        {
-            Title = "Same Slot 15",
-            Start = startDate.AddDays(3).AddHours(11),
-            End = startDate.AddDays(3).AddHours(12)
-        });
-
-
-        return data;
+        SchedulerDate = appointmentService.GetStartTime().Date;
     }
 
-    public DateTime GetStartTime()
+    public class AppointmentService
     {
-        DateTime dt = new DateTime(2019, 12, 11);
-        int daysSinceMonday = dt.DayOfWeek - DayOfWeek.Monday;
-
-        return new DateTime(dt.Year, dt.Month, dt.Day - daysSinceMonday, 8, 0, 0);
-    }
-}
-````
-````C# ResourceService.cs
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-public class ResourceService
-{
-    public async Task<List<Resource>> GetResourcesAsync()
-    {
-        await Task.Delay(0);
-
-        return GetResources();
-    }
-
-    public List<Resource> GetResources()
-    {
-        List<Resource> result = new List<Resource>();
-
-        result.Add(new Resource()
+        public async Task<List<Appointment>> GetAppointmentsAsync()
         {
-            Text = "None",
-            Value = "",
-            Color = ""
-        });
-        result.Add(new Resource()
+            await Task.Delay(100);
+
+            List<Appointment> data = new List<Appointment>();
+            DateTime baselineTime = GetStartTime();
+
+            data.Add(new Appointment
+            {
+                Title = "Weekly Monday Sync",
+                Description = "Planning sync",
+                Start = baselineTime.AddHours(0),
+                End = baselineTime.AddHours(0).AddMinutes(30),
+                Room = "1",
+                Manager = "1"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Cross-team meeting",
+                Description = "Product and design sync",
+                Start = baselineTime.AddHours(1),
+                End = baselineTime.AddHours(2),
+                Room = "2",
+                Manager = "2"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Support Meeting",
+                Description = "Discuss feature requests, bugs, tickets",
+                Start = baselineTime.AddHours(3),
+                End = baselineTime.AddHours(3).AddMinutes(30),
+                Room = "1",
+                Manager = "2"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Table Tennis",
+                Description = "Sports and fun",
+                Start = baselineTime.AddHours(4),
+                End = baselineTime.AddHours(4).AddMinutes(30),
+                Room = "2",
+                Manager = "1"
+            });
+            data.Add(new Appointment
+            {
+                Title = "One-on-one with the manager",
+                Start = baselineTime.AddHours(5),
+                End = baselineTime.AddHours(5).AddMinutes(30),
+                Room = "1",
+                Manager = "1"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Cheer the wins",
+                Description = "Recap and snacks",
+                Start = baselineTime.AddHours(6),
+                End = baselineTime.AddHours(7),
+                Room = "2",
+                Manager = "2"
+            });
+
+            return data;
+        }
+
+        public DateTime GetStartTime()
         {
-            Text = "Small meeting room",
-            Value = "1",
-            Color = "#66ccff"
-        });
-        result.Add(new Resource()
-        {
-            Text = "Big meeting room",
-            Value = "2",
-            Color = "#0066ff"
-        });
+            DateTime today = DateTime.Today;
+            int daysSinceMonday = today.DayOfWeek - DayOfWeek.Monday;
 
-        return result;
-    }
-
-    public async Task<List<Resource>> GetManagersAsync()
-    {
-        await Task.Delay(0);
-
-        return GetManagers();
-    }
-
-    public List<Resource> GetManagers()
-    {
-        List<Resource> result = new List<Resource>();
-
-        result.Add(new Resource()
-        {
-            Text = "Alex",
-            Value = "1",
-            Color = "#99ffcc"
-        });
-        result.Add(new Resource()
-        {
-            Text = "Bob",
-            Value = "2",
-            Color = "#47d147"
-        });
-        result.Add(new Resource()
-        {
-            Text = "Charlie",
-            Value = "3",
-            Color = "#336600"
-        });
-
-        return result;
+            return new DateTime(today.Year, today.Month, today.Day, 10, 0, 0).AddDays(-daysSinceMonday);
+        }
     }
 
-    public async Task<List<Resource>> GetDirectorsAsync()
+    public class ResourceService
     {
-        await Task.Delay(0);
+        public async Task<List<Resource>> GetRoomsAsync()
+        {
+            await Task.Delay(100);
 
-        return GetDirectors();
+            List<Resource> result = new List<Resource>();
+
+            result.Add(new Resource()
+            {
+                Text = "Small Room",
+                Value = "1",
+                Color = "var(--kendo-color-success-subtle)"
+            });
+            result.Add(new Resource()
+            {
+                Text = "Big Room",
+                Value = "2",
+                Color = "var(--kendo-color-info-subtle)"
+            });
+
+            return result;
+        }
+
+        public async Task<List<Resource>> GetManagersAsync()
+        {
+            await Task.Delay(100);
+
+            List<Resource> result = new List<Resource>();
+
+            result.Add(new Resource()
+            {
+                Text = "Alex",
+                Value = "1",
+                Color = "var(--kendo-color-warning-subtle)"
+            });
+            result.Add(new Resource()
+            {
+                Text = "Bob",
+                Value = "2",
+                Color = "var(--kendo-color-error-subtle)"
+            });
+
+            return result;
+        }
     }
 
-    public List<Resource> GetDirectors()
+    public class Appointment
     {
-        List<Resource> result = new List<Resource>();
-
-        result.Add(new Resource()
-        {
-            Text = "Mr. Director",
-            Value = "1",
-            Color = ""
-        });
-        result.Add(new Resource()
-        {
-            Text = "Mrs. Director",
-            Value = "2",
-            Color = ""
-        });
-
-        return result;
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Title { get; set; } = string.Empty;
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public bool IsAllDay { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public string Room { get; set; } = string.Empty;
+        public string Manager { get; set; } = string.Empty;
     }
-}
-````
-````C# Resource.cs
-public class Resource
-{
-    public string Text { get; set; }
 
-    public string Value { get; set; }
-
-    public string Color { get; set; }
-}
-````
-````C# Appointment.cs
-using System;
-
-public class Appointment
-{
-    public Guid Id { get; set; }
-
-    public string Title { get; set; }
-
-    public DateTime Start { get; set; }
-
-    public DateTime End { get; set; }
-
-    public bool IsAllDay { get; set; }
-
-    public string Description { get; set; }
-
-    public string Room { get; set; }
-
-    public string Manager { get; set; }
-
-    public Appointment()
+    public class Resource
     {
-        var rand = new Random();
-        Id = Guid.NewGuid();
-        Room = rand.Next(1, 3).ToString();
-        Manager = rand.Next(1, 4).ToString();
+        public string Text { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+        public string Color { get; set; } = string.Empty;
     }
 }
 ````
