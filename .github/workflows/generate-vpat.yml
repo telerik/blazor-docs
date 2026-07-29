@@ -1,0 +1,83 @@
+name: Generate VPAT
+
+on:
+  push:
+    branches:
+      - 'vpat'
+      - 'vpat/**'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Product version for the report'
+        required: true
+      vpat_ref:
+        description: 'Branch of vpat-generator to use'
+        required: false
+        default: 'develop'
+
+jobs:
+  generate:
+    uses: telerik/vpat-generator/.github/workflows/generate-vpat.yml@develop
+    permissions:
+      id-token: write
+      contents: read
+    with:
+      product: blazor
+      vpat_ref: ${{ github.event.inputs.vpat_ref || 'develop' }}
+      product_version: ${{ github.event.inputs.version || '14.1.0' }}
+      themes_ref: develop
+    secrets: inherit
+
+  commit:
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: telerik/actions/checkout@master
+
+      - uses: telerik/actions/download-artifact@master
+        with:
+          name: vpat-report-blazor
+          path: vpat/
+
+      - name: Rename VPAT files
+        run: |
+          cd vpat/
+          for file in vpat-report.*; do
+            if [ -f "$file" ]; then
+              ext="${file##*.}"
+              mv "$file" "telerik-ui-for-blazor-acr-vpat.${ext}"
+            fi
+          done
+
+      - name: Copy VPAT PDF to accessibility assets
+        run: |
+          cp vpat/telerik-ui-for-blazor-acr-vpat.pdf accessibility/assets/telerik-ui-for-blazor-acr-vpat.pdf
+
+      - name: Create PR with VPAT report
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "kendo-bot"
+          git config user.email "kendouiteam@progress.com"
+          VERSION="${{ github.event.inputs.version || '14.1.0' }}"
+          BRANCH="vpat-report/${VERSION}"
+
+          # Delete existing remote branch if it exists
+          git push origin --delete "$BRANCH" 2>/dev/null || true
+
+          git checkout -b "$BRANCH"
+          git add accessibility/assets/telerik-ui-for-blazor-acr-vpat.pdf
+          git commit -m "chore: update VPAT report for v${VERSION}"
+          git push -u origin "$BRANCH"
+
+          # Create PR only if it doesn't already exist
+          if ! gh pr list --head "$BRANCH" --json number -q '.[0].number' | grep -q .; then
+            gh pr create \
+              --title "Update VPAT report for v${VERSION}" \
+              --body "Auto-generated VPAT report for v${VERSION}."
+          else
+            echo "PR already exists for branch $BRANCH, skipping PR creation"
+          fi
