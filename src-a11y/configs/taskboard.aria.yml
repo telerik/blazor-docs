@@ -1,0 +1,14 @@
+title: Wai-Aria Support
+component: TaskBoard
+from: /aria/tabstrip_aria.md
+dest: ../components/taskboard/accessibility/wai-aria-support.md
+slug: taskboard-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the TabStrip keyboard navigation works, refer to the [Blazor TabStrip Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/taskboard/keyboard-navigation).
+
+    ## See Also
+
+    * [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)
