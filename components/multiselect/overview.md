@@ -41,7 +41,7 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grou
 
 @[template](/_contentTemplates/common/inputs.md#adornments)
 
-## CheckBoxes
+## Checkboxes
 
 The MultiSelect can render an optional checkbox for each dropdown item and for the [**Select All** toggle](slug:multiselect-item-selection#select-all-items). This visual enhancement helps users to have:
 
