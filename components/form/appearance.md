@@ -15,52 +15,77 @@ This article outlines the available Form parameters, which control its appearanc
 
 ## Size
 
-You can increase or decrease the size of the Form by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Form.Size` class:
+You can increase or decrease the Form dimensions with the `Size` parameter, which affects the font size, margins, and paddings in the Form. The parameter also influences the nested Telerik components that are not part of a [`Template`](slug:form-formitems-template).
 
->The `Size` configuration of the Form affects the padding of all the editors and buttons.
+For a valid and readable Form configuration, set the `Size` to a `string` member of the static [`ThemeConstants.Form.Size`](slug:Telerik.Blazor.ThemeConstants.Form.Size) class. The following code snippets are equivalent:
 
-| Class members | Manual declarations |
-|---------------|--------|
-| `Small`   |`sm`|
-| `Medium`<br /> default value   |`md`|
-| `Large`   |`lg`|
+>caption Setting the Form Size Parameter
 
->caption The built-in sizes
+````RAZOR.skip-repl
+<TelerikForm Size="@ThemeConstants.Form.Size.Small" />
+
+<TelerikForm Size="sm" />
+````
+
+## Example
+
+>caption All Built-in Form Sizes
 
 ````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Form.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
+@using System.ComponentModel.DataAnnotations
 
-    foreach (var field in fields)
+Form <code>Size</code>:
+<TelerikRadioGroup Data="@FormSizes"
+                   @bind-Value="@FormSize"
+                   Layout="@RadioGroupLayout.Horizontal" />
+
+<TelerikForm Model="@FormModel"
+             Size="@FormSize"
+             Width="300px">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <TelerikValidationSummary />
+    </FormValidation>
+    <FormItems>
+        <FormItem Field="@nameof(Product.Name)" />
+        <FormItem Field="@nameof(Product.Price)" />
+        <FormItem Field="@nameof(Product.Quantity)" />
+        <FormItem Field="@nameof(Product.Released)" LabelText="Release Date" />
+        <FormItem Field="@nameof(Product.Discontinued)" />
+    </FormItems>
+</TelerikForm>
+
+@code {
+    private Product FormModel { get; set; } = new();
+
+    private readonly string[] FormSizes = new[]
     {
-        string size = field.GetValue(null).ToString();
+        ThemeConstants.Form.Size.Small,
+        ThemeConstants.Form.Size.Medium,
+        ThemeConstants.Form.Size.Large
+    };
 
-        <div style="float:left; margin: 20px;">
-            <TelerikForm Model="@TestUser"
-                         Size="@size">
-                <FormItems>
-                    <FormItem Field="@nameof(User.FirstName)"></FormItem>
-                    <FormItem Field="@nameof(User.LastName)"></FormItem>
-                </FormItems>
-            </TelerikForm>
-        </div>
-    }
+    private string FormSize { get; set; } = ThemeConstants.Form.Size.Medium;
 
-    @code {
+    public class Product
+    {
+        public int Id { get; set; }
 
-        public User TestUser { get; set; } = new User() {
-            FirstName = "Johny",
-            LastName = "Doe"
-        };
+        [Required]
+        [MinLength(3)]
+        [MaxLength(24)]
+        public string Name { get; set; } = string.Empty;
+        
+        [Range(0, (double)decimal.MaxValue)]
+        public decimal Price { get; set; }
 
-        public class User
-        {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-        }
+        [Range(0, int.MaxValue)]
+        public int Quantity { get; set; }
+
+        [Required]
+        public DateTime? Released { get; set; }
+
+        public bool Discontinued { get; set; }
     }
 }
 ````
@@ -68,4 +93,3 @@ You can increase or decrease the size of the Form by setting the `Size` paramete
 ## See Also
 
 * [Live Demo: Form Appearance](https://demos.telerik.com/blazor-ui/form/appearance)
-
