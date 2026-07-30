@@ -116,7 +116,7 @@ Skills are triggered automatically when your agent recognizes a relevant prompt.
 | **telerik-blazor-layout** | `/telerik-blazor-plugin:telerik-blazor-layout` | Retrieves Kendo Design System CSS utility classes for layout, spacing, and responsive behavior. Call before writing custom CSS. |
 | **telerik-blazor-style** | `/telerik-blazor-plugin:telerik-blazor-style` | Generates CSS variables and custom themes from a natural language description of the desired visual style. |
 | **telerik-blazor-icon** | `/telerik-blazor-plugin:telerik-blazor-icon` | Searches the Telerik icon library by name, action, or concept and returns matching icons with usage details. |
-| **telerik-blazor-licensing** | `/telerik-blazor-plugin:telerik-blazor-licensing` | Describes how the Telerik license verification works in Blazor apps and how to set up the Telerik license key. |
+| **telerik-blazor-licensing** | `/telerik-blazor-plugin:telerik-blazor-licensing` | Describes how the Telerik license verification works in Blazor apps, how to set up the Telerik license key, and how to troubleshoot potential issues. |
 | **telerik-blazor-version-upgrade** | `/telerik-blazor-plugin:telerik-blazor-version-upgrade ` | Guides Telerik UI for Blazor version upgrades, including breaking changes, rendering changes, framework compatibility, and safe upgrade planning. |
 
 #### Layout
