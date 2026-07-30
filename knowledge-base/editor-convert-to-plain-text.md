@@ -34,9 +34,9 @@ Here are the required steps:
 
 1. Add the [`Telerik.Documents.Core` and `Telerik.Documents.Flow`](slug:dpl-in-blazor) NuGet packages to your project.
 1. Import the required namespaces:
-    * `Telerik.Windows.Documents.Flow.FormatProviders.Html`
-    * `Telerik.Windows.Documents.Flow.FormatProviders.Txt`
-    * `Telerik.Windows.Documents.Flow.Model`
+    * `Telerik.Documents.Flow.FormatProviders.Html`
+    * `Telerik.Documents.Flow.FormatProviders.Txt`
+    * `Telerik.Documents.Flow.Model`
 1. Create an [`HtmlFormatProvider`](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/html/htmlformatprovider) instance.
 1. Use the HTML provider's **`Import`** method to create a `RadFlowDocument` from the Editor's HTML value.
 1. Create a [`TxtFormatProvider`](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/plain-text/txt-txtformatprovider) instance.
@@ -49,11 +49,11 @@ To export to another format, use the corresponding namespace and format provider
 <div class="skip-repl"></div>
 ````RAZOR
 @*TxtFormatProvider*@
-@using Telerik.Windows.Documents.Flow.FormatProviders.Txt;
+@using Telerik.Documents.Flow.FormatProviders.Txt;
 @*HtmlFormatProvider*@
-@using Telerik.Windows.Documents.Flow.FormatProviders.Html;
+@using Telerik.Documents.Flow.FormatProviders.Html;
 @*RadFlowDocument*@
-@using Telerik.Windows.Documents.Flow.Model;
+@using Telerik.Documents.Flow.Model;
 
 <TelerikEditor @bind-Value="@HtmlValue" />
 

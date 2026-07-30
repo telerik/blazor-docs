@@ -47,8 +47,8 @@ To change the CSV value delimiter:
 1. Pass that `MemoryStream` to the `Stream` property of the `GridAfterCsvExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
 ````RAZOR.skip-repl
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv
-@using Telerik.Windows.Documents.Spreadsheet.Model
+@using Telerik.Documents.Spreadsheet.FormatProviders.TextBased.Csv
+@using Telerik.Documents.Spreadsheet.Model
 @using System.IO
 
 <TelerikGrid Data="@GridData"
@@ -144,4 +144,3 @@ To change the CSV value delimiter:
 * [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
 * [Configure Document Processing Libraries](slug:getting-started-vs-integration-dpl)
 * [Grid Overview](slug:grid-overview)
-

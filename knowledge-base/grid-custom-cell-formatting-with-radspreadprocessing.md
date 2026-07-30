@@ -61,10 +61,10 @@ To customize the cell format of the exported file before it reaches the client, 
 
 @using Telerik.Documents.Media
 @using Telerik.Documents.Common.Model
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv
-@using Telerik.Windows.Documents.Spreadsheet.Model
+@using Telerik.Documents.Spreadsheet.FormatProviders
+@using Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
+@using Telerik.Documents.Spreadsheet.FormatProviders.TextBased.Csv
+@using Telerik.Documents.Spreadsheet.Model
 
 <TelerikGrid Data="@GridData" Pageable="true">
     <GridToolBarTemplate>

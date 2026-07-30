@@ -42,7 +42,7 @@ To format numeric and date cells of the exported file before it reaches the clie
 
 1. Use a `CsvFormatProvider` instance to [import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
 
-1. Create an instance of [CellValueFormat](https://docs.telerik.com/devtools/document-processing/api/telerik.windows.documents.spreadsheet.model.cellvalueformat) for each desired format you want to use. [Read more for the available numeric formats...](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats).
+1. Create an instance of [CellValueFormat](https://docs.telerik.com/devtools/document-processing/api/telerik.documents.spreadsheet.model.cellvalueformat) for each desired format you want to use. [Read more for the available numeric formats...](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/number-formats).
 
 1. Select the desired cells - you can create a [CellSelection](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet) or target whole columns by their index.
 
@@ -55,8 +55,8 @@ To format numeric and date cells of the exported file before it reaches the clie
 ````RAZOR.skip-repl
 @*Use RadSpreadProcessing to format numeric data in the exported CSV file*@
 
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv
-@using Telerik.Windows.Documents.Spreadsheet.Model
+@using Telerik.Documents.Spreadsheet.FormatProviders.TextBased.Csv
+@using Telerik.Documents.Spreadsheet.Model
 @using System.IO
 
 <TelerikGrid Data="@GridData" Pageable="true">

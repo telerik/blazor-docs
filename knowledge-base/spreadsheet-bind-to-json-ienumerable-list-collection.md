@@ -47,9 +47,9 @@ The approach requires [Telerik Document Processing](slug:dpl-in-blazor) to creat
 @using System.Reflection
 
 @using Telerik.Documents.Common.Model
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
-@using Telerik.Windows.Documents.Spreadsheet.Model
+@using Telerik.Documents.Spreadsheet.FormatProviders
+@using Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
+@using Telerik.Documents.Spreadsheet.Model
 
 <h1>Bind Spreadsheet to <code>IEnumerable</code></h1>
 
