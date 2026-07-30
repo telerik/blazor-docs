@@ -11,404 +11,327 @@ components: ["scheduler"]
 
 # Scheduler Resources
 
-The Scheduler lets you associate appointments with a shared resource (such as meeting room, person, equipment) and display the appointments in color that corresponds to the related resource. This article describes how to set up the Scheduler and its data to work with resources.
+The Scheduler lets you associate appointments with shared resources (such as meeting rooms, people, equipment) and display the appointments in the corresponding resource color. This article describes how to set up the Scheduler and its data to work with resources.
 
 ## Basics
 
-Resources are not required, so you can define no resources, one type of resource, or more than one type of resource. 
-
-The color of the appointment is determined by the first matched resource, so the order in which you declare the collections of resources is important. 
-
-If resources are used, all appointments must be associated with a resource, so if it is not required, you should add a "None" item to the resource list that will be the default, whose `Value` is an empty string and its color is also an empty string so the default theme color is used by the appointment.
-
-When the user opens an appointment for editing, they will have a dropdown for each type of resource so they can choose. The order of declaration of the resource types also determines the order in which their editors show up.
-
-## Define Resources
+Resources are optional. You can define no resources, one type of resource, or multiple types of resources. When the user opens an appointment for editing, they will have a DropDownList for each type of resource.
 
 To use resources:
 
-1. Under the `SchedulerResources` tag, define a `SchedulerResource` for each type of resource you will be using.
-    * Set its `Field` parameter to a string that will point to the name of the field in the appointment that associated appointments with the resource type.
-    * The `Title` parameter defines the text shown for its dropdown in the [edit form](slug:scheduler-appointments-edit).
-1. Provide a collection of resource entries for each type of resource you will use to the `Data` parameter of the resource.
-    * The `ColorField`, `ValueField` and `TextField` let you specify field names in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively. If you use them, you don't need to explicitly specify them in the markup.
-1. Define appointments [as usual](slug:scheduler-appointments-databinding). Add a `string` field to them for each resources type they will require. The name of this field must match the value of the `Field` parameter of the resource declaration.
-    * If you are using multiple resource types, you will need a field for each resource.
-1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
-    * If you don't want any resource in the appointment, define a resource with empty strings in its `Value` and `Color` fields, and a suitable `Text`.
+1. Define a resource class with a name of your choice and `string` properties for the resource name, value, and color. The following snippet uses the default expected property names, which do not require additional Scheduler configuration (`Color`, `Text`, `Value`). You can also use custom names and specify them in each `<SchedulerResource>` definition.
+    ````C#.skip-repl
+    public class Resource
+    {
+        public string Color { get; set; } = string.Empty;
+        public string Text { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+    }
+    ````
+1. Define one or more collections of resources.
+    ````C#.skip-repl
+        private List<Resource> Rooms { get; set; } = new List<Resource>()
+            {
+                new Resource()
+                {
+                    Text = "Small Room",
+                    Value = "1",
+                    Color = "lime"
+                },
+                new Resource()
+                {
+                    Text = "Big Room",
+                    Value = "2",
+                    Color = "orange"
+                }
+            };
+    ````
+1. Add a `string` property to the Scheduler model for each resource.
+    ````C#.skip-repl
+    public class Appointment
+    {
+        public string Room { get; set; } = string.Empty;
+    }
+    ````
+1. Add one `<SchedulerResource>` tag for each resource type.
+    * Set the `Data` parameter to the resource collection of that type.
+    * Set the `Field` parameter to the property name for the same resource in the Scheduler model.
+    * If the resource class uses custom property names, specify them with the `ColorField`, `TextField`, and `ValueField` parameters.
+    ````RAZOR.skip-repl
+    <TelerikScheduler>
+        <SchedulerResources>
+            <SchedulerResource Data="@Rooms"
+                               Field="@nameof(Appointment.Room)"
+                               Title="Room" />
+        </SchedulerResources>
+    </TelerikScheduler>
+    ````
 
-If an appointment has multiple resources, the color of the first resource in `<SchedulerResources>` takes precedence.
+The resource definition order in the `<SchedulerResources>` collection matters:
 
->tip To style the appointments, you can also use their [template](slug:scheduler-templates-appointment) and the [ItemRender event](slug:scheduler-events#itemrender).
+* It determines the order of the resource selection dropdowns in the [Scheduler edit form](slug:scheduler-appointments-edit).
+* The background color of each appointment depends on the first matched resource.
 
-## Examples
+>tip Other ways to style the appointments are the [`ItemTemplate`](slug:scheduler-templates-appointment) and the [`OnItemRender` event](slug:scheduler-events#onitemrender).
 
-The examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resources) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
+## Example
 
->tip The examples below hardcode the resource collections for brevity. In a real case you might be fetching them from asynchronous API. If so, initialize the resource collections to avoid null references while the scheduler is initializing, something like `List<SchedulerResource> Managers { get; set; } = new List<SchedulerResource>();`.
-
-### One Resource
-
-#### Single Resource type in the scheduler using the default fields for the resource model
-
-The field names used for the resource model (`Text`, `Value` and `Color`) are the default ones, so you don't need to explicitly define them in the markup.
+>caption Using Scheduler resources with default property names
 
 ````RAZOR
-@* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
-    Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
+<p>
+    Enable or disable resources to see their respective dropdowns in the popup edit form:
+    <br />
+    <label class="k-checkbox-label">
+        <TelerikCheckBox @bind-Value="@EnableRoomResource"
+                         OnChange="@(() => SchedulerRef?.Refresh())" />
+        Use Room Resource
+    </label>
+    <label class="k-checkbox-label">
+        <TelerikCheckBox @bind-Value="@EnableManagerResource"
+                         OnChange="@(() => SchedulerRef?.Refresh())" />
+        Use Manager Resource
+    </label>
+</p>
 
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px"
-                  AllowUpdate="true" AllowCreate="true">
-    <SchedulerResources>
-        <SchedulerResource Field="ManagerName" Title="Manager Name" Data="@Managers" />
-    </SchedulerResources>
+<TelerikScheduler @ref="@SchedulerRef"
+                  Data="@SchedulerData"
+                  @bind-Date="@SchedulerDate"
+                  @bind-View="@SchedulerView"
+                  AllowCreate="true"
+                  AllowUpdate="true"
+                  OnCreate="@OnSchedulerCreate"
+                  OnUpdate="@OnSchedulerUpdate"
+                  Height="70vh">
     <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" />
-        <SchedulerWeekView StartTime="@DayStart" />
-        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
+        <SchedulerDayView StartTime="@StartTime"
+                          EndTime="@EndTime"
+                          WorkDayStart="@StartTime"
+                          WorkDayEnd="@EndTime" />
+        <SchedulerWeekView StartTime="@StartTime"
+                           EndTime="@EndTime"
+                           WorkDayStart="@StartTime"
+                           WorkDayEnd="@EndTime" />
+        <SchedulerMonthView />
+        <SchedulerTimelineView NumberOfDays="1"
+                               StartTime="@StartTime"
+                               EndTime="@EndTime"
+                               WorkDayStart="@StartTime"
+                               WorkDayEnd="@EndTime" />
+        <SchedulerAgendaView />
     </SchedulerViews>
+    <SchedulerResources>
+        @if (EnableRoomResource)
+        {
+            <SchedulerResource Data="@Rooms"
+                                Field="@nameof(Appointment.Room)"
+                                Title="Room" />
+        }
+        @if (EnableManagerResource)
+        {
+            <SchedulerResource Data="@Managers"
+                                Field="@nameof(Appointment.Manager)"
+                                Title="Manager" />
+        }
+    </SchedulerResources>
     <SchedulerSettings>
-        <SchedulerPopupEditSettings MaxHeight="99vh" />
+        <SchedulerPopupEditSettings MaxHeight="90vh" />
     </SchedulerSettings>
 </TelerikScheduler>
 
 @code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
-    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    private TelerikScheduler<Appointment>? SchedulerRef;
+
+    private List<Appointment> SchedulerData { get; set; } = new List<Appointment>();
+    private DateTime SchedulerDate { get; set; } = DateTime.Today;
+    private SchedulerView SchedulerView { get; set; } = SchedulerView.Day;
+    private DateTime StartTime { get; set; } = DateTime.Today.AddHours(10);
+    private DateTime EndTime { get; set; } = DateTime.Today.AddHours(18);
+    private List<Resource> Rooms { get; set; } = new List<Resource>();
+    private List<Resource> Managers { get; set; } = new List<Resource>();
+
+    private bool EnableRoomResource { get; set; } = true;
+    private bool EnableManagerResource { get; set; }
+
+    private void OnSchedulerUpdate(SchedulerUpdateEventArgs args)
     {
-        new SchedulerAppointment
-        {
-            ManagerName = "", //this appointment does not need a manager
-            Title = "Vet visit",
-            Description = "The cat needs vaccinations and her teeth checked.",
-            Start = new DateTime(2019, 11, 26, 11, 30, 0),
-            End = new DateTime(2019, 11, 26, 12, 0, 0)
-        },
+        Appointment itemToUpdate = (Appointment)args.Item;
+        Appointment? originalItem = SchedulerData.Find(a => a.Id == itemToUpdate.Id);
 
-        new SchedulerAppointment
+        if (originalItem is not null)
         {
-            ManagerName = "1", // matches the Value field of the corresponding resource
-            Title = "Planning meeting",
-            Description = "Kick off the new project.",
-            Start = new DateTime(2019, 11, 25, 9, 30, 0),
-            End = new DateTime(2019, 11, 25, 12, 45, 0)
-        },
-
-        new SchedulerAppointment
-        {
-            ManagerName = "3",
-            Title = "Board meeting",
-            Description = "Q4 is coming to a close, review the details.",
-            Start = new DateTime(2019, 11, 28, 10, 00, 0),
-            End = new DateTime(2019, 11, 28, 11, 30, 0)
-        },
-    };
-
-    List<Resource> Managers { get; set; } = new List<Resource>()
-    {
-        new Resource // empty resource for appointments that don't require one
-        {
-            Text = "Noone", // can say anything you like, it's just another resource entry
-            Value = "",
-            Color = ""
-        },
-
-        new Resource
-        {
-            Text = "Alex",
-            Value = "1",
-            Color = "purple"
-        },
-        new Resource
-        {
-            Text = "Bob",
-            Value = "2",
-            Color = "#51a0ed"
-        },
-        new Resource
-        {
-            Text = "Sarah",
-            Value = "3",
-            Color = "#56ca85"
+            originalItem.Title = itemToUpdate.Title;
+            originalItem.Description = itemToUpdate.Description;
+            originalItem.Start = itemToUpdate.Start;
+            originalItem.End = itemToUpdate.End;
+            originalItem.IsAllDay = itemToUpdate.IsAllDay;
+            originalItem.Room = itemToUpdate.Room;
+            originalItem.Manager = itemToUpdate.Manager;
         }
-    };
-
-    public class Resource
-    {
-        // these are the default field names
-        public string Text { get; set; }
-        public string Value { get; set; }
-        public string Color { get; set; } // must be a valid CSS string
     }
 
-    public class SchedulerAppointment
+    private void OnSchedulerCreate(SchedulerCreateEventArgs args)
     {
-        public string ManagerName { get; set; } //field that matches the resource declaration Field
-        public string Title { get; set; }
-        public string Description { get; set; }
+        Appointment itemToCreate = (Appointment)args.Item;
+
+        SchedulerData.Add(itemToCreate);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Rooms = await ResourceService.GetRoomsAsync();
+        Managers = await ResourceService.GetManagersAsync();
+        SchedulerData = await AppointmentService.GetAppointmentsAsync();
+
+        SchedulerDate = AppointmentService.GetStartDateTime().Date;
+    }
+
+    public static class AppointmentService
+    {
+        public static async Task<List<Appointment>> GetAppointmentsAsync()
+        {
+            await Task.Delay(100);
+
+            List<Appointment> data = new List<Appointment>();
+            DateTime baseDateTime = GetStartDateTime();
+
+            data.Add(new Appointment
+            {
+                Title = "Weekly Monday Sync",
+                Description = "Planning sync",
+                Start = baseDateTime.AddHours(0),
+                End = baseDateTime.AddHours(0).AddMinutes(30),
+                Room = "1",
+                Manager = "1"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Cross-Team Meeting",
+                Description = "Product and design sync",
+                Start = baseDateTime.AddHours(1),
+                End = baseDateTime.AddHours(2),
+                Room = "2",
+                Manager = "2"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Support Meeting",
+                Description = "Discuss feature requests, bugs, tickets",
+                Start = baseDateTime.AddHours(3),
+                End = baseDateTime.AddHours(3).AddMinutes(30),
+                Room = "1",
+                Manager = "2"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Table Tennis",
+                Description = "Sports and fun",
+                Start = baseDateTime.AddHours(4),
+                End = baseDateTime.AddHours(4).AddMinutes(30),
+                Room = "2",
+                Manager = "1"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Team Lead 1:1",
+                Start = baseDateTime.AddHours(5),
+                End = baseDateTime.AddHours(5).AddMinutes(30),
+                Room = "1",
+                Manager = "1"
+            });
+            data.Add(new Appointment
+            {
+                Title = "Cheer the Wins",
+                Description = "Recap and snacks",
+                Start = baseDateTime.AddHours(6),
+                End = baseDateTime.AddHours(7),
+                Room = "2",
+                Manager = "2"
+            });
+
+            return data;
+        }
+
+        public static DateTime GetStartDateTime()
+        {
+            DateTime today = DateTime.Today;
+            int daysSinceMonday = today.DayOfWeek - DayOfWeek.Monday;
+
+            return new DateTime(today.Year, today.Month, today.Day, 10, 0, 0).AddDays(-daysSinceMonday);
+        }
+    }
+
+    public static class ResourceService
+    {
+        public static async Task<List<Resource>> GetRoomsAsync()
+        {
+            await Task.Delay(100);
+
+            List<Resource> result = new List<Resource>();
+
+            result.Add(new Resource()
+            {
+                Text = "Small Room",
+                Value = "1",
+                Color = "var(--kendo-color-success-subtle)"
+            });
+            result.Add(new Resource()
+            {
+                Text = "Big Room",
+                Value = "2",
+                Color = "var(--kendo-color-info-subtle)"
+            });
+
+            return result;
+        }
+
+        public static async Task<List<Resource>> GetManagersAsync()
+        {
+            await Task.Delay(100);
+
+            List<Resource> result = new List<Resource>();
+
+            result.Add(new Resource()
+            {
+                Text = "Team Lead",
+                Value = "1",
+                Color = "var(--kendo-color-warning-subtle)"
+            });
+            result.Add(new Resource()
+            {
+                Text = "Senior Manager",
+                Value = "2",
+                Color = "var(--kendo-color-error-subtle)"
+            });
+
+            return result;
+        }
+    }
+
+    public class Appointment
+    {
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Title { get; set; } = string.Empty;
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public string Room { get; set; } = string.Empty;
+        public string Manager { get; set; } = string.Empty;
     }
-}
-````
-
-#### Single Resource type in the scheduler using different than the default fields for the resource model
-
-The field names used for the resource model (`Name`, `Id` and `Shade`) are different than the default ones, therefore should be specified in the markup, so that the `TextField`, `ValueField` and `ColorField` will point to them.
-
-````RAZOR
-
-@* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
-   Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
-
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px"
-                  AllowUpdate="true" AllowCreate="true">
-    <SchedulerResources>
-        <SchedulerResource TextField="Name" ValueField="Id" ColorField="Shade"
-                           Field="ManagerName" Title="Manager Name" Data="@Managers" />
-    </SchedulerResources>
-    <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" />
-        <SchedulerWeekView StartTime="@DayStart" />
-        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
-    </SchedulerViews>
-    <SchedulerSettings>
-        <SchedulerPopupEditSettings MaxHeight="99vh" />
-    </SchedulerSettings>
-</TelerikScheduler>
-
-@code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
-    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-        new SchedulerAppointment
-        {
-            ManagerName = "", //this appointment does not need a manager
-            Title = "Vet visit",
-            Description = "The cat needs vaccinations and her teeth checked.",
-            Start = new DateTime(2019, 11, 26, 11, 30, 0),
-            End = new DateTime(2019, 11, 26, 12, 0, 0)
-        },
-
-        new SchedulerAppointment
-        {
-            ManagerName = "1", // matches the Value field of the corresponding resource
-            Title = "Planning meeting",
-            Description = "Kick off the new project.",
-            Start = new DateTime(2019, 11, 25, 9, 30, 0),
-            End = new DateTime(2019, 11, 25, 12, 45, 0)
-        },
-
-        new SchedulerAppointment
-        {
-            ManagerName = "3",
-            Title = "Board meeting",
-            Description = "Q4 is coming to a close, review the details.",
-            Start = new DateTime(2019, 11, 28, 10, 00, 0),
-            End = new DateTime(2019, 11, 28, 11, 30, 0)
-        },
-    };
-
-    List<Resource> Managers { get; set; } = new List<Resource>()
-    {
-        new Resource // empty resource for appointments that don't require one
-        {
-            Name = "Noone", // can say anything you like, it's just another resource entry
-            Id = "",
-            Shade = ""
-        },
-
-        new Resource
-        {
-            Name = "Alex",
-            Id = "1",
-            Shade = "purple"
-        },
-        new Resource
-        {
-            Name = "Bob",
-            Id = "2",
-            Shade = "#51a0ed"
-        },
-        new Resource
-        {
-            Name = "Sarah",
-            Id = "3",
-            Shade = "#56ca85"
-        }
-    };
 
     public class Resource
     {
-        // these are the default field names
-        public string Name { get; set; }
-        public string Id { get; set; }
-        public string Shade { get; set; } // must be a valid CSS string
-    }
-
-    public class SchedulerAppointment
-    {
-        public string ManagerName { get; set; } //field that matches the resource declaration Field
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+        public string Color { get; set; } = string.Empty;
     }
 }
 ````
-
-### Multiple Resources
-
->caption Declare multiple resources
-
-````RAZOR
-@* This example shows how to declare multiple resources and how their order is importnat when their are being matched with appointments, both for the edit form, and for the appointment color.
-Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like. *@
-
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px"
-                  AllowUpdate="true" AllowCreate="true">
-    <SchedulerResources>
-        <SchedulerResource Field="RoomId" Title="Meeting Room" Data="@Rooms" />
-        <SchedulerResource Field="ManagerName" Title="Manager Name" Data="@Managers" />
-    </SchedulerResources>
-    <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" />
-        <SchedulerWeekView StartTime="@DayStart" />
-        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
-    </SchedulerViews>
-    <SchedulerSettings>
-        <SchedulerPopupEditSettings MaxHeight="99vh" />
-    </SchedulerSettings>
-</TelerikScheduler>
-
-@code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
-    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-        new SchedulerAppointment
-        {
-            // this appointment does not need any resources
-            ManagerName = "",
-            RoomId = "",
-
-            Title = "Vet visit",
-            Description = "The cat needs vaccinations and her teeth checked.",
-            Start = new DateTime(2019, 11, 26, 11, 30, 0),
-            End = new DateTime(2019, 11, 26, 12, 0, 0)
-        },
-
-        new SchedulerAppointment
-        {
-            // matches the Value field of the corresponding resource
-            ManagerName = "3",
-            RoomId = "2",
-
-            Title = "Planning meeting",
-            Description = "Kick off the new project.",
-            Start = new DateTime(2019, 11, 25, 9, 30, 0),
-            End = new DateTime(2019, 11, 25, 12, 45, 0)
-        },
-
-        new SchedulerAppointment
-        {
-            ManagerName = "", // not all resources need to be matched or used
-            RoomId = "1",
-
-            Title = "Board meeting",
-            Description = "Q4 is coming to a close, review the details.",
-            Start = new DateTime(2019, 11, 28, 10, 00, 0),
-            End = new DateTime(2019, 11, 28, 11, 30, 0)
-        },
-    };
-
-    List<Resource> Managers { get; set; } = new List<Resource>()
-    {
-        new Resource // empty resource for appointments that don't require one
-        {
-            Text = "Noone", // can say anything you like, it's just another resource entry
-            Value = "",
-            Color = ""
-        },
-
-        new Resource
-        {
-            Text = "Alex",
-            Value = "1",
-            Color = "purple"
-        },
-        new Resource
-        {
-            Text = "Bob",
-            Value = "2",
-            Color = "#51a0ed"
-        },
-        new Resource
-        {
-            Text = "Sarah",
-            Value = "3",
-            Color = "#56ca85"
-        }
-    };
-
-    List<Resource> Rooms { get; set; } = new List<Resource>()
-    {
-        new Resource // empty resource for appointments that don't require one
-        {
-            Text = "None", // can say anything you like, it's just another resource entry
-            Value = "",
-            Color = ""
-        },
-
-        // we will see these colors first because the rooms resource is declared first
-        new Resource
-        {
-            Text = "Big Room",
-            Value = "1",
-            Color = "orange"
-        },
-        new Resource
-        {
-            Text = "Small Room",
-            Value = "2",
-            Color = "crimson"
-        },
-    };
-
-    public class Resource
-    {
-        // these are the default field names
-        public string Text { get; set; }
-        public string Value { get; set; }
-        public string Color { get; set; } // must be a valid CSS string
-    }
-
-    public class SchedulerAppointment
-    {
-        // fields that match the resource declaration Field
-        public string ManagerName { get; set; }
-        public string RoomId { get; set; }
-        // the rest of the standard appointment fields
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
-
 
 ## See Also
 
 * [Live Demo: Scheduler Resources](https://demos.telerik.com/blazor-ui/scheduler/resources)
-* [Scheduler Overview](slug:scheduler-overview)
-* [Scheduler Data Binding](slug:scheduler-appointments-databinding)
+* [Scheduler Resource Grouping](slug:scheduler-resource-grouping)
 * [Scheduler Appointment Editing](slug:scheduler-appointments-edit)
+* [Scheduler Data Binding](slug:scheduler-appointments-databinding)

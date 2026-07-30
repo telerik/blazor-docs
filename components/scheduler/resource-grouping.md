@@ -17,29 +17,29 @@ The Telerik Scheduler for Blazor can group appointments by one or more resources
 
 ## Basics
 
-When Scheduler grouping is active, the component renders multiple view tables in horizontal and vertical orientation. The date or hour headers repeat for each group.
+When Scheduler grouping is active, the component renders multiple view tables in horizontal and vertical orientation. The date or hour headers repeat for each group (resource value).
 
 Moving an appointment from one group to another is allowed. On drop, the appointment resource changes alongside the start date and the app should persist these changes in the [`OnUpdate` event handler](slug:scheduler-appointments-edit).
 
-To configure group rendering, use the `<SchedulerGroupSettings>` tag inside `<SchedulerSettings>`.
+To configure resource display in groups:
 
-The group settings tag exposes the following parameters:
-
-* `Resources` expects a `List<string>` of one or more resource names that match property names in the Scheduler model class.
-* `Orientation` determines the orientation as an [`SchedulerGroupOrientation`](slug:telerik.blazor.schedulergrouporientation) enum. The default is `Horizontal`.
+1. [Configure the Scheduler component to work with resources](slug:scheduler-resources).
+1. Add the `<SchedulerGroupSettings>` tag inside `<SchedulerSettings>`.
+1. Set the `Resources` parameter to a `List<string>` of one or more resource names that match property names in the Scheduler model class.
+1. (optional) Set the `Orientation` parameter to a member of the [`SchedulerGroupOrientation`](slug:telerik.blazor.schedulergrouporientation) enum. The default value is `Horizontal`.
 
 >caption Scheduler Group Settings
 
 ````RAZOR.skip-repl
 <TelerikScheduler>
     <SchedulerSettings>
-        <SchedulerGroupSettings Orientation="@SchedulerGroupOrientation.Horizontal"
-                                Resources="@GroupingResources" />
+        <SchedulerGroupSettings Orientation="@SchedulerGroupOrientation.Vertical"
+                                Resources="@GroupResources" />
     </SchedulerSettings>
 </TelerikScheduler>
 
 @code {
-    private readonly List<string> GroupingResources = new()
+    private readonly List<string> GroupResources = new()
     {
         nameof(Appointment.Room),
         nameof(Appointment.Manager)
@@ -53,6 +53,8 @@ The group settings tag exposes the following parameters:
 
 ````RAZOR
 <p>
+    Enable or disable single or multiple resource grouping:
+    <br />
     <label class="k-checkbox-label">
         <TelerikCheckBox @bind-Value="@GroupByRoom" />
         Group by Room
@@ -63,59 +65,66 @@ The group settings tag exposes the following parameters:
     </label>
 </p>
 
+<p>
+    Group orientation:
+    <TelerikRadioGroup Data="@GroupOrientations"
+                       @bind-Value="@GroupOrientation"
+                       Layout="@RadioGroupLayout.Horizontal" />
+</p>
+
 <TelerikScheduler Data="@SchedulerData"
                   @bind-Date="@SchedulerDate"
                   @bind-View="@SchedulerView"
                   AllowCreate="true"
                   AllowUpdate="true"
-                  AllowDelete="true"
                   OnCreate="@OnSchedulerCreate"
                   OnUpdate="@OnSchedulerUpdate"
-                  OnDelete="@OnSchedulerDelete"
-                  Width="96vw"
-                  Height="80vh">
+                  Height="70vh">
     <SchedulerSettings>
-        <SchedulerGroupSettings Orientation="@SchedulerGroupOrientation.Horizontal"
-                                Resources="@GroupingResources" />
+        <SchedulerGroupSettings Orientation="@GroupOrientation"
+                                Resources="@GroupResources" />
+        <SchedulerPopupEditSettings MaxHeight="90vh" />
     </SchedulerSettings>
     <SchedulerViews>
-        <SchedulerDayView StartTime="@StartTime" EndTime="@EndTime" WorkDayStart="@StartTime" WorkDayEnd="@EndTime" />
-        <SchedulerWeekView StartTime="@StartTime" EndTime="@EndTime" WorkDayStart="@StartTime" WorkDayEnd="@EndTime" />
+        <SchedulerDayView StartTime="@StartTime"
+                          EndTime="@EndTime"
+                          WorkDayStart="@StartTime"
+                          WorkDayEnd="@EndTime" />
+        <SchedulerWeekView StartTime="@StartTime"
+                           EndTime="@EndTime"
+                           WorkDayStart="@StartTime"
+                           WorkDayEnd="@EndTime" />
         <SchedulerMonthView />
+        <SchedulerTimelineView NumberOfDays="1"
+                               StartTime="@StartTime"
+                               EndTime="@EndTime"
+                               WorkDayStart="@StartTime"
+                               WorkDayEnd="@EndTime" />
         <SchedulerAgendaView />
     </SchedulerViews>
     <SchedulerResources>
-        @if (GroupByRoom)
-        {
-            <SchedulerResource Data="@SchedulerRooms"
-                            Field="@nameof(Appointment.Room)"
-                            Title="Room" />
-        }
-        @if (GroupByManager)
-        {
-            <SchedulerResource Data="@SchedulerManagers"
-                               Field="@nameof(Appointment.Manager)"
-                               Title="Manager" />
-        }
+        <SchedulerResource Data="@Rooms"
+                           Field="@nameof(Appointment.Room)"
+                           Title="Room" />
+        <SchedulerResource Data="@Managers"
+                           Field="@nameof(Appointment.Manager)"
+                           Title="Manager" />
     </SchedulerResources>
 </TelerikScheduler>
 
 @code {
-    #nullable enable
-
-    private AppointmentService appointmentService = new();
-    private ResourceService resourceService = new();
-
+    private List<Appointment> SchedulerData { get; set; } = new List<Appointment>();
     private DateTime SchedulerDate { get; set; } = DateTime.Today;
+    private SchedulerView SchedulerView { get; set; } = SchedulerView.Day;
     private DateTime StartTime { get; set; } = DateTime.Today.AddHours(10);
     private DateTime EndTime { get; set; } = DateTime.Today.AddHours(18);
-    private SchedulerView SchedulerView { get; set; } = SchedulerView.Day;
+    private List<Resource> Rooms { get; set; } = new List<Resource>();
+    private List<Resource> Managers { get; set; } = new List<Resource>();
 
-    private List<Appointment> SchedulerData { get; set; } = new List<Appointment>();
-    private List<Resource> SchedulerRooms { get; set; } = new List<Resource>();
-    private List<Resource> SchedulerManagers { get; set; } = new List<Resource>();
+    private bool GroupByRoom { get; set; } = true;
+    private bool GroupByManager { get; set; }
 
-    private List<string> GroupingResources => GroupByManager && GroupByRoom ?
+    private List<string> GroupResources => GroupByManager && GroupByRoom ?
         new List<string> { nameof(Appointment.Room), nameof(Appointment.Manager) } :
         GroupByManager ?
         new List<string> { nameof(Appointment.Manager) } :
@@ -123,8 +132,12 @@ The group settings tag exposes the following parameters:
         new List<string> { nameof(Appointment.Room) } :
         new List<string>();
 
-    private bool GroupByManager { get; set; }
-    private bool GroupByRoom { get; set; } = true;
+    private readonly List<SchedulerGroupOrientation> GroupOrientations = new()
+        {
+            SchedulerGroupOrientation.Horizontal,
+            SchedulerGroupOrientation.Vertical
+        };
+    private SchedulerGroupOrientation GroupOrientation { get; set; } = SchedulerGroupOrientation.Horizontal;
 
     private void OnSchedulerUpdate(SchedulerUpdateEventArgs args)
     {
@@ -150,46 +163,39 @@ The group settings tag exposes the following parameters:
         SchedulerData.Add(itemToCreate);
     }
 
-    private void OnSchedulerDelete(SchedulerDeleteEventArgs args)
-    {
-        Appointment itemToDelete = (Appointment)args.Item;
-
-        SchedulerData.Remove(itemToDelete);
-    }
-
     protected override async Task OnInitializedAsync()
     {
-        SchedulerRooms = await resourceService.GetRoomsAsync();
-        SchedulerManagers = await resourceService.GetManagersAsync();
-        SchedulerData = await appointmentService.GetAppointmentsAsync();
+        Rooms = await ResourceService.GetRoomsAsync();
+        Managers = await ResourceService.GetManagersAsync();
+        SchedulerData = await AppointmentService.GetAppointmentsAsync();
 
-        SchedulerDate = appointmentService.GetStartTime().Date;
+        SchedulerDate = AppointmentService.GetStartDateTime().Date;
     }
 
-    public class AppointmentService
+    public static class AppointmentService
     {
-        public async Task<List<Appointment>> GetAppointmentsAsync()
+        public static async Task<List<Appointment>> GetAppointmentsAsync()
         {
             await Task.Delay(100);
 
             List<Appointment> data = new List<Appointment>();
-            DateTime baselineTime = GetStartTime();
+            DateTime baseDateTime = GetStartDateTime();
 
             data.Add(new Appointment
             {
                 Title = "Weekly Monday Sync",
                 Description = "Planning sync",
-                Start = baselineTime.AddHours(0),
-                End = baselineTime.AddHours(0).AddMinutes(30),
+                Start = baseDateTime.AddHours(0),
+                End = baseDateTime.AddHours(0).AddMinutes(30),
                 Room = "1",
                 Manager = "1"
             });
             data.Add(new Appointment
             {
-                Title = "Cross-team meeting",
+                Title = "Cross-Team Meeting",
                 Description = "Product and design sync",
-                Start = baselineTime.AddHours(1),
-                End = baselineTime.AddHours(2),
+                Start = baseDateTime.AddHours(1),
+                End = baseDateTime.AddHours(2),
                 Room = "2",
                 Manager = "2"
             });
@@ -197,8 +203,8 @@ The group settings tag exposes the following parameters:
             {
                 Title = "Support Meeting",
                 Description = "Discuss feature requests, bugs, tickets",
-                Start = baselineTime.AddHours(3),
-                End = baselineTime.AddHours(3).AddMinutes(30),
+                Start = baseDateTime.AddHours(3),
+                End = baseDateTime.AddHours(3).AddMinutes(30),
                 Room = "1",
                 Manager = "2"
             });
@@ -206,25 +212,25 @@ The group settings tag exposes the following parameters:
             {
                 Title = "Table Tennis",
                 Description = "Sports and fun",
-                Start = baselineTime.AddHours(4),
-                End = baselineTime.AddHours(4).AddMinutes(30),
+                Start = baseDateTime.AddHours(4),
+                End = baseDateTime.AddHours(4).AddMinutes(30),
                 Room = "2",
                 Manager = "1"
             });
             data.Add(new Appointment
             {
-                Title = "One-on-one with the manager",
-                Start = baselineTime.AddHours(5),
-                End = baselineTime.AddHours(5).AddMinutes(30),
+                Title = "Team Lead 1:1",
+                Start = baseDateTime.AddHours(5),
+                End = baseDateTime.AddHours(5).AddMinutes(30),
                 Room = "1",
                 Manager = "1"
             });
             data.Add(new Appointment
             {
-                Title = "Cheer the wins",
+                Title = "Cheer the Wins",
                 Description = "Recap and snacks",
-                Start = baselineTime.AddHours(6),
-                End = baselineTime.AddHours(7),
+                Start = baseDateTime.AddHours(6),
+                End = baseDateTime.AddHours(7),
                 Room = "2",
                 Manager = "2"
             });
@@ -232,7 +238,7 @@ The group settings tag exposes the following parameters:
             return data;
         }
 
-        public DateTime GetStartTime()
+        public static DateTime GetStartDateTime()
         {
             DateTime today = DateTime.Today;
             int daysSinceMonday = today.DayOfWeek - DayOfWeek.Monday;
@@ -241,9 +247,9 @@ The group settings tag exposes the following parameters:
         }
     }
 
-    public class ResourceService
+    public static class ResourceService
     {
-        public async Task<List<Resource>> GetRoomsAsync()
+        public static async Task<List<Resource>> GetRoomsAsync()
         {
             await Task.Delay(100);
 
@@ -265,7 +271,7 @@ The group settings tag exposes the following parameters:
             return result;
         }
 
-        public async Task<List<Resource>> GetManagersAsync()
+        public static async Task<List<Resource>> GetManagersAsync()
         {
             await Task.Delay(100);
 
@@ -273,13 +279,13 @@ The group settings tag exposes the following parameters:
 
             result.Add(new Resource()
             {
-                Text = "Alex",
+                Text = "Team Lead",
                 Value = "1",
                 Color = "var(--kendo-color-warning-subtle)"
             });
             result.Add(new Resource()
             {
-                Text = "Bob",
+                Text = "Senior Manager",
                 Value = "2",
                 Color = "var(--kendo-color-error-subtle)"
             });
