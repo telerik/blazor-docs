@@ -118,6 +118,7 @@ Also check the [notes below the table](#accessibility-compliance-notes).
 | SvgIcon | N/A | N/A | N/A |
 | Switch | AA | [Enhanced](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation) | [Documentation](slug:switch-wai-aria-support) |
 | TabStrip | AA | [Enhanced](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation) | [Documentation](slug:tabstrip-wai-aria-support) |
+| TaskBoard | AA | [Enhanced](https://demos.telerik.com/blazor-ui/taskboard/keyboard-navigation) | [Documentation](slug:taskboard-wai-aria-support) |
 | TextArea | AAA | [Standard](https://demos.telerik.com/blazor-ui/textarea/overview) | [Documentation](slug:textarea-wai-aria-support) |
 | TextBox | AA | [Standard](https://demos.telerik.com/blazor-ui/textbox/overview) | [Documentation](slug:textbox-wai-aria-support) |
 | TileLayout | AAA | [Enhanced](https://demos.telerik.com/blazor-ui/tilelayout/overview) | [Documentation](slug:tilelayout-wai-aria-support) |
