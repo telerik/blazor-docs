@@ -76,5 +76,4 @@ For details on how the TreeView keyboard navigation works, refer to the [Blazor 
 
 ## See Also
 
-* [TreeView Overview](slug:treeview-overview)
 * [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)
