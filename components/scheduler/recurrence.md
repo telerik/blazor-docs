@@ -38,6 +38,8 @@ A single Scheduler data item defines one series of recurring appointments. Set t
 * The `RecurrenceId` property of each exception must be equal to `Id` value of the recurring appointment.
 * The `RecurrenceExceptions` property of the recurring appointment must contain the `Start` values of all occurrences, which are exceptions to the recurrence rule. The correct values are the original start `DateTime` values of the occurrences, which would apply if there were no exceptions.
 
+[Telerik UI for Blazor version 15.0.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/progress-telerik-ui-for-blazor-15-0-0-changelog) introduced a revised built-in recurrence editing UI.
+
 ## Example
 
 >caption Bind Scheduler to recurring appointments and recurrence exceptions
@@ -223,14 +225,10 @@ A single Scheduler data item defines one series of recurring appointments. Set t
 
 ## Handling Recurring Appointments in CRUD Events
 
-When users edit, update, or delete a recurring appointment, the Scheduler prompts them to choose whether to modify only the current occurrence or the entire series. This choice is reflected in the `EditMode` property of the event arguments.
+When users edit, update, or delete a recurring appointment, the Scheduler prompts them to choose whether to modify only the current occurrence or the entire series. The `OnEdit`, `OnUpdate`, and `OnDelete` event handlers receive event arguments that include a `EditMode` property. This property indicates the user's choice when interacting with recurring appointments:
 
-### RecurrenceEditMode Property
-
-The `OnEdit`, `OnUpdate`, and `OnDelete` event handlers receive event arguments that include a `EditMode` property. This property indicates the user's choice when interacting with recurring appointments:
-
-* `SchedulerRecurrenceEditMode.Series` - The user chose to edit or delete the entire series of recurring appointments.
-* `SchedulerRecurrenceEditMode.Occurrence` - The user chose to edit or delete only a single occurrence of the recurring appointment.
+* `SchedulerRecurrenceEditMode.Series`&mdash;The user chose to edit or delete the entire series of recurring appointments.
+* `SchedulerRecurrenceEditMode.Occurrence`&mdash;The user chose to edit or delete only a single occurrence of the recurring appointment.
 
 ### Example
 
@@ -394,7 +392,7 @@ You can use the `EditMode` property to implement different logic based on whethe
 
 ## Recurrence Editor Components
 
-Telerik UI for Blazor provides standalone components that you can use to edit recurring appointments outside the Scheduler or in a [custom Scheduler popup edit form](slug:scheduler-kb-custom-edit-form).
+Telerik UI for Blazor provides standalone components that you can use to edit recurring appointments outside the Scheduler or in a [custom Scheduler popup edit form](slug:scheduler-kb-custom-edit-form). [Telerik UI for Blazor version 15.0.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/progress-telerik-ui-for-blazor-15-0-0-changelog) introduced a revised built-in recurrence editing UI, but the previously exposed standalone recurrence editors continued working as before.
 
 The Telerik Blazor recurrence editor components include:
 

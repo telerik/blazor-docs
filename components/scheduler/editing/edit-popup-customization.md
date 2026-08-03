@@ -21,9 +21,7 @@ The `SchedulerPopupEditSettings` nested tag exposes the following parameters to 
 
 ### Edit Form Customization
 
-The `SchedulerPopupEditFormSettings` nested tag exposes the following parameters to allow edit form customization:
-
-@[template](/_contentTemplates/common/popup-edit-customization.md#edit-form-settings)
+The `SchedulerPopupEditFormSettings` nested tag exposes a `ButtonsLayout` parameter of type [`FormButtonsLayout`](slug:telerik.blazor.formbuttonslayout) that controls the horizontal alignment of the edit form buttons. The default value is `End`.
 
 >caption Customize the popup edit form
 
