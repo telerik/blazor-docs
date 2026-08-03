@@ -46,18 +46,18 @@ This KB article answers the following questions:
 1. [Iterate the cell range](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/iterating-used-cells).
 1. Get each cell value (`ICellValue` object), cell value type (`CellValueType` object), and cell format (`CellValueFormat` object) to know more about the cell content.
 1. Use `ICellValue.RawValue` or `ICellValue.GetResultValueAsString(CellValueFormat cellFormat)` to obtain the actual cell content.
-1. [Excel stores dates as numbers](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/cell-value-types). Use [`FormatHelper.ConvertDoubleToDateTime(Convert.ToDouble(ICellValue.RawValue))`](https://docs.telerik.com/devtools/document-processing/api/telerik.windows.documents.spreadsheet.formatting.formathelper) to retrieve any `DateTime` values.
+1. [Excel stores dates as numbers](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/cell-value-types). Use [`FormatHelper.ConvertDoubleToDateTime(Convert.ToDouble(ICellValue.RawValue))`](https://docs.telerik.com/devtools/document-processing/api/telerik.documents.spreadsheet.formatting.formathelper) to retrieve any `DateTime` values.
 
 >caption Iterate the Spreadsheet cells and get their values
 
 <div class="skip-repl"></div>
 
 ````RAZOR
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
-@using Telerik.Windows.Documents.Spreadsheet.Formatting
-@using Telerik.Windows.Documents.Spreadsheet.Formatting.FormatStrings
-@using Telerik.Windows.Documents.Spreadsheet.Model
+@using Telerik.Documents.Spreadsheet.FormatProviders
+@using Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
+@using Telerik.Documents.Spreadsheet.Formatting
+@using Telerik.Documents.Spreadsheet.Formatting.FormatStrings
+@using Telerik.Documents.Spreadsheet.Model
 
 <p>
     <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"

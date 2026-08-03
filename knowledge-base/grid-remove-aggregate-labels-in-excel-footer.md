@@ -52,8 +52,8 @@ This KB article answers the following questions:
 >caption Remove aggregate labels from footer cells in the exported Excel file by the Grid
 
 ````RAZOR.skip-repl
-@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
-@using Telerik.Windows.Documents.Spreadsheet.Model
+@using Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
+@using Telerik.Documents.Spreadsheet.Model
 
 @using Telerik.Blazor.Services
 @inject ITelerikStringLocalizer TelerikLocalizer

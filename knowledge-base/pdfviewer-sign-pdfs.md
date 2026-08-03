@@ -96,7 +96,7 @@ The PdfViewer does not currently have the capability to manage digital signature
 
         // The Signature object is added to a signature field, so we can add a visualization to it.
         var signatureField = new SignatureField(signatureName);
-        signatureField.Signature = new Telerik.Windows.Documents.Fixed.Model.DigitalSignatures.Signature(certificate);
+        signatureField.Signature = new Telerik.Documents.Fixed.Model.DigitalSignatures.Signature(certificate);
 
         // Close the local cert store now that you're done
         x509Store.Close();
@@ -110,7 +110,7 @@ The PdfViewer does not currently have the capability to manage digital signature
         RadFixedPage page = document.Pages.AddPage();
 
         // This is the Form XObject element that represents the contents of the signature field.
-        var form = new Telerik.Windows.Documents.Fixed.Model.Objects.Form
+        var form = new Telerik.Documents.Fixed.Model.Objects.Form
         {
             FormSource = new FormSource { Size = new Size(220, 220) }
         };
@@ -136,7 +136,7 @@ The PdfViewer does not currently have the capability to manage digital signature
         editor.DrawForm(form.FormSource);
         document.AcroForm.FormFields.Add(signatureField);
         widget.RecalculateContent();
-        widget.AppearanceCharacteristics.Background = new Telerik.Windows.Documents.Fixed.Model.ColorSpaces.RgbColor(255, 0, 0);
+        widget.AppearanceCharacteristics.Background = new Telerik.Documents.Fixed.Model.ColorSpaces.RgbColor(255, 0, 0);
 
         // **** PHASE 4 - EXPORT DOCUMENT **** //
         byte[] signedDocBytes = new PdfFormatProvider().Export(document);

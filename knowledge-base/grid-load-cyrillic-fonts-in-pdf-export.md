@@ -38,8 +38,8 @@ The snippet below shows how to load an example Cyrillic font, so the Grid can pr
 ````RAZOR
 @using System.Globalization
 @using Telerik.Documents.Core.Fonts
-@using Telerik.Windows.Documents.Extensibility
-@using Telerik.Windows.Documents.Core.Fonts
+@using Telerik.Documents.Extensibility
+@using Telerik.Documents.Core.Fonts
 
 @inject IWebHostEnvironment HostEnvironment
 
