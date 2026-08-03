@@ -18,7 +18,7 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 * [OnItemClick](#onitemclick)
 * [OnItemDoubleClick](#onitemdoubleclick)
 * [OnItemContextMenu](#onitemcontextmenu)
-* [ItemRender](#itemrender)
+* [OnItemRender](#onitemrender)
 * [OnCellRender](#oncellrender)
 * [DateChanged](#datechanged)
 * [ViewChanged](#viewchanged)
@@ -835,7 +835,7 @@ It provides a `SchedulerItemContextMenuEventArgs` object to the event handler an
 }
 ````
 
-## ItemRender
+## OnItemRender
 
 The `OnItemRender` event fires when an appointment is going to be rendered in the scheduler. It fires one for every appointment, including all-day appointments that span several days/slots, and the class is rendered on all elements.
 

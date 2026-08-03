@@ -118,7 +118,7 @@ The Scheduler can display and edit [recurring appointments and recurrence except
 
 ## Templates
 
-You can [customize the appointment appearance and content via Scheduler templates](slug:scheduler-templates-appointment). Another option is to use the [Scheduler `OnItemRender` event](slug:scheduler-events#itemrender).
+You can [customize the appointment appearance and content via Scheduler templates](slug:scheduler-templates-appointment). Another option is to use the [Scheduler `OnItemRender` event](slug:scheduler-events#onitemrender).
 
 
 ## Events
