@@ -5,7 +5,6 @@ description: Telerik REPL for Blazor allows you to write, compile, execute, and 
 slug: blazor-repl
 tags: telerik,blazor,repl
 published: True
-tag: updated
 position: 1
 previous_url: /getting-started/repl, /getting-started/repl/overview
 ---

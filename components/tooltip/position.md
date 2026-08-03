@@ -4,6 +4,7 @@ page_title: Tooltip - Position and Collision
 description: Choose the position of the Tooltip for Blazor relative to its target. Configure what happens if the Tooltip overflows the browser viewport boundaries.
 slug: tooltip-position
 tags: telerik,blazor,upload,async,validate,validation
+tag: updated
 published: true
 position: 2
 components: ["tooltip"]

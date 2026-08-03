@@ -5,7 +5,6 @@ description: Find the default keyboard shortcuts of the Grid for Blazor. Learn h
 slug: grid-keyboard-navigation
 tags: telerik,blazor,grid,keyboard
 published: True
-tag: new
 position: 95
 components: ["grid"]
 ---

@@ -5,7 +5,6 @@ description: Find the default keyboard shortcuts of the ContextMenu for Blazor. 
 slug: contextmenu-keyboard-navigation
 tags: telerik,blazor,contextmenu,keyboard
 published: True
-tag: new
 position: 90
 components: ["contextmenu"]
 ---

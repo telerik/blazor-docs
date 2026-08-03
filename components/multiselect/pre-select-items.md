@@ -4,6 +4,7 @@ page_title: MultiSelect - Item Selection
 description: Learn how to pre-select items for the user or enable Select All with practical examples.
 slug: multiselect-item-selection
 tags: telerik,blazor,multiselect,select
+tag: updated
 published: True
 position: 8
 components: ["multiselect"]
