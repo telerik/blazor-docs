@@ -44,7 +44,7 @@ The following table lists the default property names and explains how the Schedu
 | `Start` | `DateTime` | The date and time at which the appointment starts. |
 | `End` | `DateTime` | The date and time at which the appointment ends. |
 | `IsAllDay` | `bool` | Defines whether the appointment shows in the all-day slot of the applicable view. Such events are not rendered in a specific time interval (slot), but are always shown when their day is visible. |
-| `ReadOnly` | `bool` | Defines whether the appointment allows selection, dragging, resizing, and editing. |
+| `ReadOnly` | `bool` | Defines whether the appointment disables selection, dragging, resizing, and editing. Read-only appointments display in different color. |
 | `RecurrenceRule` | `string` | The recurrence rule for a recurring appointment according to the [RFC5545 standard](https://tools.ietf.org/html/rfc5545#section-3.3.10). Present only for a recurring appointment, but not for an exception from it. In the data source, there is only one item that determines a recurring event, and the Scheduler expands it to render the necessary number of appointments in the UI. |
 | `RecurrenceExceptions` | `List<DateTime>` | A list of exceptions for a recurring appointment. It tells the Scheduler when to skip rendering a recurring appointment because its instance is explicitly changed or removed (deleted), and so it is an exception to the recurrence rule. **Also see the note below.** |
 | `RecurrenceId` | `object` | The unique identifier of the recurring appointment to which the current appointment is an exception. Must be of the same type as the `Id` field (e.g., a `Guid`). Present only for an exception from a recurrence, but not for the recurring appointment itself. |
