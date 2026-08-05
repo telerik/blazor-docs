@@ -26,246 +26,84 @@ It provides ready-made building blocks for visualizing agent execution, multi-st
 
 ## Combined Example
 
-The following example demonstrates all LLM Kit components working together in an agent workflow. A user submits a question, the agent reasons through it, plans tool usage, requests approval, and displays the result with inline citations.
+The following example demonstrates all LLM Kit components together. It shows a completed agent workflow — reasoning, chain of thought, a tool call, and a response with an inline citation and a checkpoint.
 
 ````RAZOR
-@using System.Timers
-@implements IDisposable
-
 <div style="max-width: 680px; display: flex; flex-direction: column; gap: 12px; padding-top: 8px;">
 
-    <TelerikPromptBox Value="@Prompt"
-                      ReadOnly="true"
-                      IsLoading="@Running"
-                      EnableSpeechToText="false"
-                      OnPromptAction="@HandlePromptAction" />
+    <TelerikReasoning Label="Thought"
+                      SecondaryLabel="for 5s"
+                      Icon="@SvgIcon.Brain"
+                      Expandable="true"
+                      Expanded="false"
+                      Completed="true">
+        <Content>
+            <p>I need to sum revenue per customer for Q1 2025 and return the top 5 results ordered descending.</p>
+        </Content>
+    </TelerikReasoning>
 
-    @if (Stage >= WorkflowStage.Reasoning)
-    {
-        <TelerikReasoning Label="@(Stage >= WorkflowStage.ChainOfThought ? "Thought" : "Thinking")"
-                          SecondaryLabel="@(Stage >= WorkflowStage.ChainOfThought ? "for 5s" : null)"
-                          Icon="@SvgIcon.Brain"
-                          Expandable="true"
-                          Expanded="@IsReasoningExpanded"
-                          ExpandedChanged="@((bool v) => IsReasoningExpanded = v)"
-                          Completed="@(Stage >= WorkflowStage.ChainOfThought)">
-            <Content>
-                @if (Stage >= WorkflowStage.ReasoningText1)
-                {
-                    <p>I need to identify the correct table and apply a quarterly date filter. Revenue should be summed per customer and sorted descending.</p>
-                }
-                @if (Stage >= WorkflowStage.ReasoningText2)
-                {
-                    <p>I'll use query_database with a GROUP BY on customer_name and limit to 5 results.</p>
-                }
-            </Content>
-        </TelerikReasoning>
-    }
+    <TelerikChainOfThought TItem="CotStep"
+                           Label="Thought"
+                           SecondaryLabel="for 3s"
+                           Icon="@SvgIcon.Brain"
+                           Expandable="true"
+                           Expanded="false"
+                           Completed="true"
+                           Data="@Steps">
+        <ThoughtTemplate Context="step">
+            <div style="display: flex; align-items: flex-start; gap: 8px; padding: 2px 0;">
+                <TelerikSvgIcon Icon="@step.Icon" Size="@ThemeConstants.SvgIcon.Size.Small" />
+                <span>@step.Text</span>
+            </div>
+        </ThoughtTemplate>
+    </TelerikChainOfThought>
 
-    @if (Stage >= WorkflowStage.ChainOfThought)
-    {
-        <TelerikChainOfThought TItem="CotStep"
-                               Label="@(Stage >= WorkflowStage.ToolCall ? "Thought" : "Thinking through request")"
-                               SecondaryLabel="@(Stage >= WorkflowStage.ToolCall ? "for 3s" : null)"
-                               Icon="@SvgIcon.Brain"
-                               Expandable="true"
-                               Expanded="@IsCotExpanded"
-                               ExpandedChanged="@((bool v) => IsCotExpanded = v)"
-                               Completed="@(Stage >= WorkflowStage.ToolCall)"
-                               Data="@CotSteps">
-            <ThoughtTemplate Context="step">
-                <div style="display: flex; align-items: flex-start; gap: 8px; padding: 2px 0;">
-                    <TelerikSvgIcon Icon="@step.Icon" Size="@ThemeConstants.SvgIcon.Size.Small" />
-                    <span>@step.Text</span>
-                </div>
-            </ThoughtTemplate>
-        </TelerikChainOfThought>
-    }
+    <TelerikToolCall Label="query_database"
+                     SecondaryLabel="analytics · db · 120ms"
+                     State="ToolCallState.Completed"
+                     Expandable="true"
+                     Expanded="false"
+                     Parameters="@ToolParameters" />
 
-    @if (Stage >= WorkflowStage.ToolCall)
-    {
-        <TelerikToolCall Label="query_database"
-                         SecondaryLabel="@(ToolApproved ? "analytics · db · 120ms" : null)"
-                         State="@ToolState"
-                         Expandable="true"
-                         Expanded="@IsToolCallExpanded"
-                         ExpandedChanged="@((bool v) => IsToolCallExpanded = v)"
-                         Parameters="@ToolParameters"
-                         Result="@(ToolApproved ? AsciiTableResult : null)"
-                         ErrorText="@(ToolRejected ? "Request rejected — using cached data instead" : null)"
-                         ApprovalText="This will run a SELECT query on the analytics database. No data will be modified."
-                         OnAction="@HandleToolCallAction" />
-    }
+    <TelerikCheckpoint State="CheckpointState.StartOver"
+                       StateChanged="@OnStartOver" />
 
-    @if (ShowResult)
-    {
-        <TelerikCheckpoint State="CheckpointState.StartOver"
-                           StateChanged="@OnStartOver" />
-        <div>
-            <p>Your top 5 customers by revenue in Q1 2025:</p>
-            <ol>
-                <li>Acme Corp — $142,000</li>
-                <li>TechStart Inc — $98,500</li>
-                <li>Meridian Labs — $87,200</li>
-                <li>Nova Systems — $76,400</li>
-                <li>Brightpath Co — $61,100</li>
-            </ol>
-            <p>Together they account for $465,200 — approximately 67% of total quarterly revenue.
-                <TelerikCitation Data="@Sources" TItem="RevenueSource" Label="acme-corp.com" />
-            </p>
-        </div>
-    }
+    <div>
+        <p>Your top 5 customers by revenue in Q1 2025:</p>
+        <ol>
+            <li>Acme Corp — $142,000</li>
+            <li>TechStart Inc — $98,500</li>
+            <li>Meridian Labs — $87,200</li>
+            <li>Nova Systems — $76,400</li>
+            <li>Brightpath Co — $61,100</li>
+        </ol>
+        <p>Together they account for $465,200 — approximately 67% of total quarterly revenue.
+            <TelerikCitation Data="@Sources" TItem="RevenueSource" Label="acme-corp.com" />
+        </p>
+    </div>
 
 </div>
 
 @code {
-    private enum WorkflowStage
+    private List<CotStep> Steps { get; set; } = new()
     {
-        Initial, Reasoning, ReasoningText1, ReasoningText2,
-        ChainOfThought, ToolCall, Done
-    }
-
-    private WorkflowStage Stage { get; set; } = WorkflowStage.Initial;
-    private bool IsReasoningExpanded { get; set; } = true;
-    private bool IsCotExpanded { get; set; } = true;
-    private bool IsToolCallExpanded { get; set; } = true;
-    private bool ToolApproved { get; set; }
-    private bool ToolRejected { get; set; }
-    private bool Running { get; set; }
-    private bool ShowResult { get; set; }
-    private string Prompt { get; set; } = "What are our top customers by revenue this quarter?";
-    private int Tick { get; set; }
-    private Timer? DemoTimer { get; set; }
-
-    private ToolCallState ToolState => ToolApproved
-        ? ToolCallState.Completed
-        : ToolRejected
-            ? ToolCallState.Error
-            : ToolCallState.AwaitingApproval;
-
-    private static readonly string AsciiTableResult =
-        "| Customer       | Revenue  |\n" +
-        "|----------------|----------|\n" +
-        "| Acme Corp      | $142,000 |\n" +
-        "| TechStart Inc  |  $98,500 |\n" +
-        "| Meridian Labs  |  $87,200 |\n" +
-        "| Nova Systems   |  $76,400 |\n" +
-        "| Brightpath Co  |  $61,100 |";
+        new CotStep { Icon = SvgIcon.Search, Text = "Searched for analytics tools" },
+        new CotStep { Icon = SvgIcon.DataSql, Text = "Found query_database — supports GROUP BY and aggregation" }
+    };
 
     private object ToolParameters { get; } = new
     {
         database = "analytics",
-        query = "SELECT customer_name, SUM(revenue) AS total\nFROM orders\nWHERE quarter = 'Q1 2025'\nGROUP BY customer_name\nORDER BY total DESC\nLIMIT 5"
+        query = "SELECT customer_name, SUM(revenue) AS total FROM orders WHERE quarter = 'Q1 2025' GROUP BY customer_name ORDER BY total DESC LIMIT 5"
     };
-
-    private List<CotStep> CotSteps { get; set; } = new();
 
     private List<RevenueSource> Sources { get; } = new()
     {
         new RevenueSource { Title = "Acme Corp Q1 2025 Revenue Report", Url = "https://acme-corp.com/reports/q1-2025" },
-        new RevenueSource { Title = "TechStart Inc Financial Summary", Url = "https://techstart.com/financials/2025" },
-        new RevenueSource { Title = "Meridian Labs Quarterly Results", Url = "https://meridian-labs.com/results/q1" },
-        new RevenueSource { Title = "Nova Systems Revenue Dashboard", Url = "https://nova-systems.com/dashboard" },
-        new RevenueSource { Title = "Brightpath Co Earnings Report", Url = "https://brightpath.co/earnings/2025" }
+        new RevenueSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
     };
 
-    private static readonly (int Tick, WorkflowStage Stage)[] Schedule =
-    {
-        (0, WorkflowStage.Reasoning),
-        (2, WorkflowStage.ReasoningText1),
-        (4, WorkflowStage.ReasoningText2),
-        (6, WorkflowStage.ChainOfThought),
-        (8, WorkflowStage.ToolCall)
-    };
-
-    private void HandlePromptAction(PromptBoxActionButtonEventArgs args)
-    {
-        if (Running) return;
-        Running = true;
-        Stage = WorkflowStage.Initial;
-        ToolApproved = false;
-        ToolRejected = false;
-        ShowResult = false;
-        IsReasoningExpanded = true;
-        IsCotExpanded = true;
-        IsToolCallExpanded = true;
-        CotSteps = new();
-        Tick = 0;
-        DemoTimer?.Stop();
-        DemoTimer?.Dispose();
-        DemoTimer = new Timer(700) { AutoReset = true };
-        DemoTimer.Elapsed += OnTick;
-        DemoTimer.Start();
-    }
-
-    private void OnTick(object? sender, ElapsedEventArgs e)
-    {
-        Tick++;
-        foreach (var (tick, stage) in Schedule)
-        {
-            if (Tick >= tick && Stage < stage)
-            {
-                if (stage == WorkflowStage.ChainOfThought)
-                {
-                    IsReasoningExpanded = false;
-                    CotSteps = new List<CotStep>
-                    {
-                        new CotStep { Icon = SvgIcon.Search, Text = "Searched for analytics tools" },
-                        new CotStep { Icon = SvgIcon.DataSql, Text = "Found query_database — supports GROUP BY and aggregation" }
-                    };
-                }
-                else if (stage == WorkflowStage.ToolCall)
-                {
-                    IsCotExpanded = false;
-                }
-                Stage = stage;
-            }
-        }
-        if (Stage >= WorkflowStage.ToolCall)
-        {
-            DemoTimer?.Stop();
-        }
-        InvokeAsync(StateHasChanged);
-    }
-
-    private async void HandleToolCallAction(ToolCallAction action)
-    {
-        if (action == ToolCallAction.Approve)
-        {
-            ToolApproved = true;
-        }
-        else
-        {
-            ToolRejected = true;
-        }
-        IsToolCallExpanded = false;
-        Running = false;
-        ShowResult = true;
-        await InvokeAsync(StateHasChanged);
-    }
-
-    private void OnStartOver(CheckpointState _)
-    {
-        Stage = WorkflowStage.Initial;
-        ToolApproved = false;
-        ToolRejected = false;
-        ShowResult = false;
-        Running = false;
-        IsReasoningExpanded = true;
-        IsCotExpanded = true;
-        IsToolCallExpanded = true;
-        CotSteps = new();
-        Tick = 0;
-        DemoTimer?.Stop();
-        DemoTimer?.Dispose();
-        DemoTimer = null;
-    }
-
-    public void Dispose()
-    {
-        DemoTimer?.Stop();
-        DemoTimer?.Dispose();
-    }
+    private void OnStartOver(CheckpointState _) { }
 
     public class CotStep
     {

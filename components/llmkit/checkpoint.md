@@ -20,54 +20,31 @@ To use the Checkpoint component:
 1. Set the `State` parameter to a `CheckpointState` value.
 1. Subscribe to the `StateChanged` event to handle the user action, for example resetting the workflow.
 
->caption Checkpoint that lets the user restart the agent workflow
+>caption Checkpoint placed above an AI-generated response
 
 ````RAZOR
-@if (ShowResult)
-{
-    <TelerikCheckpoint State="CheckpointState.StartOver"
-                       StateChanged="@OnStartOver" />
+<TelerikCheckpoint State="CheckpointState.StartOver"
+                   StateChanged="@OnStartOver" />
 
-    <div>
-        <p>Top 5 customers by revenue in Q1 2025:</p>
-        <ol>
-            <li>Acme Corp — $142,000</li>
-            <li>TechStart Inc — $98,500</li>
-            <li>Meridian Labs — $87,200</li>
-            <li>Nova Systems — $76,400</li>
-            <li>Brightpath Co — $61,100</li>
-        </ol>
-    </div>
-}
-else
-{
-    <TelerikButton OnClick="@ShowResponse">Show Response</TelerikButton>
-}
+<div>
+    <p>Your top 5 customers by revenue in Q1 2025:</p>
+    <ol>
+        <li>Acme Corp — $142,000</li>
+        <li>TechStart Inc — $98,500</li>
+        <li>Meridian Labs — $87,200</li>
+        <li>Nova Systems — $76,400</li>
+        <li>Brightpath Co — $61,100</li>
+    </ol>
+</div>
 
 @code {
-    private bool ShowResult { get; set; }
-
-    private void ShowResponse()
-    {
-        ShowResult = true;
-    }
-
-    private void OnStartOver(CheckpointState _)
-    {
-        ShowResult = false;
-    }
+    private void OnStartOver(CheckpointState _) { }
 }
 ````
 
-## Checkpoint Parameters
+## Checkpoint API
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default&nbsp;Value | Description |
-| --- | --- | --- |
-| `State` | `CheckpointState` | Defines the checkpoint action available to the user. Use `CheckpointState.StartOver` to show a restart control. |
-| `StateChanged` | `EventCallback<CheckpointState>` | Fires when the user activates the checkpoint. Use the handler to reset the workflow state. |
-| `Class` | `string` | An additional CSS class for the root element. |
+Get familiar with all Checkpoint parameters and events in the [Checkpoint API Reference](slug:Telerik.Blazor.Components.TelerikCheckpoint).
 
 ## Next Steps
 
@@ -78,4 +55,4 @@ else
 ## See Also
 
 * [LLM Kit Overview](slug:llmkit-overview)
-* [Live Demo: Checkpoint](https://demos.telerik.com/blazor-ui/llmkit/checkpoint)
+* [Checkpoint API Reference](slug:Telerik.Blazor.Components.TelerikCheckpoint)

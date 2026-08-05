@@ -60,28 +60,9 @@ To use the ChainOfThought component:
 }
 ````
 
-## ChainOfThought Parameters
+## ChainOfThought API
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default&nbsp;Value | Description |
-| --- | --- | --- |
-| `Data` | `IEnumerable<TItem>` | The collection of step items to render through the `ThoughtTemplate`. |
-| `TItem` | `Type` | The type of the step model. Required. |
-| `Label` | `string` | The primary label shown in the component header. |
-| `SecondaryLabel` | `string` | An additional label shown next to the primary label, for example a duration. |
-| `Icon` | `object` | An icon rendered in the header. |
-| `Expandable` | `bool` | Whether the content area can be collapsed by the user. |
-| `Expanded` | `bool` | Controls the expanded state of the content area. Supports two-way binding. |
-| `ExpandedChanged` | `EventCallback<bool>` | Fires when the user toggles the expanded state. |
-| `Completed` | `bool` | Marks the reasoning block as completed, which can update the visual state of the header. |
-| `Class` | `string` | An additional CSS class for the root element. |
-
-## ChainOfThought Templates
-
-| Template | Description |
-| --- | --- |
-| `ThoughtTemplate` | Defines how each step item is rendered. Exposes the current item through the `Context` parameter. |
+Get familiar with all ChainOfThought parameters, templates, and events in the [ChainOfThought API Reference](slug:Telerik.Blazor.Components.TelerikChainOfThought-1).
 
 ## Next Steps
 
@@ -93,4 +74,4 @@ To use the ChainOfThought component:
 ## See Also
 
 * [LLM Kit Overview](slug:llmkit-overview)
-* [Live Demo: ChainOfThought](https://demos.telerik.com/blazor-ui/llmkit/chain-of-thought)
+* [ChainOfThought API Reference](slug:Telerik.Blazor.Components.TelerikChainOfThought-1)

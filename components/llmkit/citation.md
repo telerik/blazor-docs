@@ -35,10 +35,7 @@ To use the Citation component:
     private List<RevenueSource> Sources { get; set; } = new()
     {
         new RevenueSource { Title = "Acme Corp Q1 2025 Revenue Report", Url = "https://acme-corp.com/reports/q1-2025" },
-        new RevenueSource { Title = "TechStart Inc Financial Summary", Url = "https://techstart.com/financials/2025" },
-        new RevenueSource { Title = "Meridian Labs Quarterly Results", Url = "https://meridian-labs.com/results/q1" },
-        new RevenueSource { Title = "Nova Systems Revenue Dashboard", Url = "https://nova-systems.com/dashboard" },
-        new RevenueSource { Title = "Brightpath Co Earnings Report", Url = "https://brightpath.co/earnings/2025" }
+        new RevenueSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
     };
 
     public class RevenueSource
@@ -49,16 +46,9 @@ To use the Citation component:
 }
 ````
 
-## Citation Parameters
+## Citation API
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default&nbsp;Value | Description |
-| --- | --- | --- |
-| `Data` | `IEnumerable<TItem>` | The collection of source items to display when the citation expands. |
-| `TItem` | `Type` | The type of the source model. Required. |
-| `Label` | `string` | The text shown for the inline citation marker. |
-| `Class` | `string` | An additional CSS class for the root element. |
+Get familiar with all Citation parameters, templates, and events in the [Citation API Reference](slug:Telerik.Blazor.Components.TelerikCitation-1).
 
 ## Next Steps
 
@@ -68,4 +58,4 @@ To use the Citation component:
 ## See Also
 
 * [LLM Kit Overview](slug:llmkit-overview)
-* [Live Demo: Citation](https://demos.telerik.com/blazor-ui/llmkit/citation)
+* [Citation API Reference](slug:Telerik.Blazor.Components.TelerikCitation-1)
