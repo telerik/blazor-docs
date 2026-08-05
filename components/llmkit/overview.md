@@ -113,8 +113,8 @@ The following example demonstrates all LLM Kit components together. It shows a c
 
     public class RevenueSource
     {
-        public string? Title { get; set; }
-        public string? Url { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
     }
 }
 ````
