@@ -37,9 +37,9 @@ The following example demonstrates all LLM Kit components together. It shows a c
                       Expandable="true"
                       Expanded="false"
                       Completed="true">
-        <Content>
+        <ContentTemplate>
             <p>I need to sum revenue per customer for Q1 2025 and return the top 5 results ordered descending.</p>
-        </Content>
+        </ContentTemplate>
     </TelerikReasoning>
 
     <TelerikChainOfThought TItem="CotStep"

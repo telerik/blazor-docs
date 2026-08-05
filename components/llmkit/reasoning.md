@@ -20,7 +20,7 @@ To use the Reasoning component:
 
 1. Add the `<TelerikReasoning>` tag.
 1. Set `Label` to a string such as `"Thinking"` or `"Thought"`.
-1. Define a `<Content>` child template with the agent's reasoning text.
+1. Define a `<ContentTemplate>` child template with the agent's reasoning text.
 1. (optional) Set `Expandable` and `Expanded` to control collapsibility.
 1. (optional) Set `Completed` to mark the reasoning phase as finished.
 1. (optional) Set `SecondaryLabel` to display metadata such as duration.
@@ -34,10 +34,10 @@ To use the Reasoning component:
                   Expandable="true"
                   Expanded="true"
                   Completed="true">
-    <Content>
+    <ContentTemplate>
         <p>I need to sum revenue per customer for Q1 2025 and return the top 5 results ordered descending.</p>
         <p>I'll use query_database with a GROUP BY on customer_name and limit to 5 results.</p>
-    </Content>
+    </ContentTemplate>
 </TelerikReasoning>
 ````
 
