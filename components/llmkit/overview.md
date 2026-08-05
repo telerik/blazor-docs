@@ -24,7 +24,7 @@ It provides ready-made building blocks for visualizing agent execution, multi-st
 | [ToolCall](slug:llmkit-tool-call) | Shows a tool invocation made by the agent, including its parameters and result. Supports an approval flow that lets users approve or reject the tool execution before it runs. |
 | [Reasoning](slug:llmkit-reasoning) | Renders a collapsible block of agent inner monologue or scratchpad content. Use it to expose the agent's raw thinking process. |
 
-## Combined Example
+## Example
 
 The following example demonstrates all LLM Kit components together. It shows a completed agent workflow — reasoning, chain of thought, a tool call, and a response with an inline citation and a checkpoint.
 
