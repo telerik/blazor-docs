@@ -11,7 +11,7 @@ components: ["diagram"]
 
 # Blazor Diagram Overview
 
-The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displays relationships between objects or concepts, for example, hierachy. The Diagram provides a variety of built-in shapes and horizontal and vertical layouts. The connections between the graph nodes can be one-directional, bi-directional, or non-directional. The component allows customizing the size, position, and geometric form of its elements.
+The [Blazor Diagram component](https://www.telerik.com/blazor-ui/diagram) displays relationships between objects or concepts, for example, hierachy. The Diagram provides a variety of built-in shapes and horizontal and vertical layouts. The connections between the graph nodes can be one-directional, bi-directional, or non-directional. The component allows customizing the size, position, geometric form, and content of its elements.
 
 ## Diagram Elements
 
