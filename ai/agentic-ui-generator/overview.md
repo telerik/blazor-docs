@@ -62,6 +62,11 @@ The Telerik Blazor MCP server uses an orchestration-first model, centered on the
         <ComponentTitle>Validator Assistant</ComponentTitle>
         </Component>
     </Column>
+    <Column count={[24,12,8]}>
+      <Component className="tile card-icon" href="#upgrade-assistant">
+        <ComponentTitle>Upgrade Assistant</ComponentTitle>
+        </Component>
+    </Column>
 </Row>
 
 The Agentic UI Generator orchestrates all assistants so you can build pages and components, apply styling and theming, and stay aligned with the design system in one seamless process. You can use the full end-to-end flow when you need complete page generation, or call a specific assistant directly when you need a focused change.
@@ -122,6 +127,10 @@ It is especially useful for interactive templates, complex component flows, and 
 ### Validator Assistant
 
 Not designed to be invoked manually. It is called automatically by the UI Generator Orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards.
+
+### Upgrade Assistant
+
+The Upgrade Assistant helps you migrate existing Blazor applications to newer versions of `Telerik.UI.for.Blazor`. It automates the detection and fixing of breaking API changes, NuGet version bumps, and CDN reference updates.
 
 ### When to Use Orchestrated vs Targeted Mode
 
