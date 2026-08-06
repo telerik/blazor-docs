@@ -26,7 +26,6 @@ In this article:
 
 * [Upgrade Process](#upgrade-process)
 * [Upgrade with Upgrade Wizard](#upgrade-wizard)
-* [Upgrade with Upgrade Assistant](#upgrade-assistant)
 * [Upgrade from Trial to Commercial](#upgrade-from-trial-to-commercial)
 * [Troubleshooting](#troubleshooting)
 
@@ -56,10 +55,6 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 ## Upgrade Wizard
 
 To upgrade the version of Telerik UI for Blazor you can use the [Upgrade Wizard](slug:getting-started-vs-integration-upgrade-project) that comes as part of the [Telerik UI for Blazor Visual Studio Extension](slug:getting-started-vs-integration-overview).
-
-## Upgrade Assistant
-
-The Upgrade Assistant helps you migrate existing Blazor applications to newer versions of `Telerik.UI.for.Blazor`. It automates the detection and fixing of breaking API changes, NuGet version bumps, and CDN reference updates.
 
 ## Upgrade from Trial to Commercial
 
