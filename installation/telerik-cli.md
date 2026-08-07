@@ -5,7 +5,7 @@ description: Learn about the Telerik .NET tool, how to install it, and how to us
 slug: installation-cli
 tags: cli
 published: True
-tag: new
+tag: updated
 position: 20
 ---
 

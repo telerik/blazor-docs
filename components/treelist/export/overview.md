@@ -4,6 +4,7 @@ page_title: TreeList - Export Overview
 description: Export basics for the TreeList for Blazor.
 slug: treelist-export-overview
 tags: telerik, blazor, treelist, export
+tag: new
 published: True
 position: 1
 components: ["treelist"]

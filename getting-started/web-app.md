@@ -6,7 +6,6 @@ description: Learn how to use the Telerik UI for Blazor components in a Blazor W
 slug: getting-started/web-app
 tags: get,started,first,steps,web,app,template
 published: true
-tag: new
 position: 5
 previous_url: /getting-started/server-blazor, /getting-started/client-blazor
 ---

@@ -6,7 +6,6 @@ slug: chat-endless-scrolling
 tags: telerik,blazor,chat,endless,scrolling,paging,virtual,load-more
 published: True
 position: 6
-tag: new
 components: ["chat"]
 ---
 

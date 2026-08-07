@@ -5,7 +5,6 @@ description: Learn how to install and use the .NET project templates that includ
 slug: installation-project-templates
 tags: project template
 published: True
-tag: new
 position: 45
 ---
 

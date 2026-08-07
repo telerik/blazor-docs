@@ -6,7 +6,6 @@ slug: tabstrip-state
 tags: telerik,blazor,tabstrip,state
 published: True
 position: 70
-tag: new
 components: ["tabstrip"]
 ---
 
