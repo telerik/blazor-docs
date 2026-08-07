@@ -338,42 +338,44 @@ Telerik UI for Blazor 15.0 adds the ability to declaratively enhance the default
 
 Each block child can contain text or an image, depening on the block child's `Type`, `Text`, and `Src` parameters. Multiple block children display on a single line if there is enough space. To separate children on multiple lines, insert a child with [`Type` `Break`](slug:Telerik.Blazor.DiagramShapeContentBlocksChildrenType) between them. To insert empty space between blocks, use `DiagramShapeContentMargin` and its `Top` or `Bottom` parameter.
 
-Declarative rich content is a simpler option to customize the Shape content, compared to [visual functions](#visual-function).
+Declarative rich content is a simpler option to customize the Shape content, compared to [visual functions](#visual-function). The advantage of visuals is the full control over the Shape content and layout, including the ability to place complex content blocks side by side.
+
+Rich content is also supported with [Diagram data binding](slug:diagram-data-bind).
 
 >caption Using declarative rich content in Diagram Shapes
 
 ````RAZOR
 <TelerikDiagram>
     <DiagramShapes>
-        <DiagramShape Width="300" Height="200" X="50" Y="50">
+        <DiagramShape Width="240" Height="160" X="50" Y="50">
             <DiagramShapeContent>
-                <DiagramShapeContentPadding Left="50" Top="20" />
-                <DiagramShapeContentMargin Bottom="30" />
+                <DiagramShapeContentPadding Left="0" Top="0" />
+                <DiagramShapeContentMargin Bottom="20" />
                 <DiagramShapeContentBlocks>
                     <DiagramShapeContentBlock>
                         <DiagramShapeContentBlockChildren>
                             <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Image"
                                                            Src="@Base64SvgImage" />
                             <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Text"
-                                                           Color="red"
+                                                           Color="var(--kendo-color-primary)"
                                                            Bold="true"
                                                            FontSize="18"
                                                            Italic="true"
-                                                           Text="Red Text"
+                                                           Text="Larger Title"
                                                            Underline="true" />
-                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Break" />
-                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Image"
-                                                           Height="50"
-                                                           Src="@Base64SvgImage"
-                                                           Width="50" />
                         </DiagramShapeContentBlockChildren>
                     </DiagramShapeContentBlock>
                     <DiagramShapeContentBlock>
                         <DiagramShapeContentBlockChildren>
+                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Image"
+                                                           Height="50"
+                                                           Src="@Base64SvgImage"
+                                                           Width="50" />
+                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Break" />
                             <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Text"
-                                                           Color="blue"
-                                                           FontSize="14"
-                                                           Text="Blue Text" />
+                                                           Color="var(--kendo-color-error)"
+                                                           FontSize="16"
+                                                           Text="Smaller Text" />
                         </DiagramShapeContentBlockChildren>
                     </DiagramShapeContentBlock>
                 </DiagramShapeContentBlocks>
