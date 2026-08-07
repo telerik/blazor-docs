@@ -225,7 +225,7 @@ A single Scheduler data item defines one series of recurring appointments. Set t
 
 ## Handling Recurring Appointments in CRUD Events
 
-When users edit, update, or delete a recurring appointment, the Scheduler prompts them to choose whether to modify only the current occurrence or the entire series. The `OnEdit`, `OnUpdate`, and `OnDelete` event handlers receive event arguments that include a `EditMode` property. This property indicates the user's choice when interacting with recurring appointments:
+When users edit, update, or delete a recurring appointment, the Scheduler prompts them to choose whether to modify only the current occurrence or the entire series. The `OnEdit`, `OnUpdate`, and `OnDelete` event handlers receive event arguments that include an `EditMode` property. This property indicates the user's choice when interacting with recurring appointments:
 
 * `SchedulerRecurrenceEditMode.Series`&mdash;The user chose to edit or delete the entire series of recurring appointments.
 * `SchedulerRecurrenceEditMode.Occurrence`&mdash;The user chose to edit or delete only a single occurrence of the recurring appointment.
