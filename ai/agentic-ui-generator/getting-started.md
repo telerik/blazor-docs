@@ -74,7 +74,7 @@ The `telerik-blazor-plugin` provides an alternative to setting up the Telerik MC
 <TabStrip>
 <TabStripTab title="VS Code Copilot">
 
-> Agent Plugins is a preview feature in VS Code. It requires **VS Code 1.100 or later** with the `chat.plugins.enabled: true` setting.
+> Agent Plugins are available in Visual Studio Code version **1.100 or later** and require the `chat.plugins.enabled: true` setting.
 
 To install the Telerik UI for Blazor AI Plugin:
 
