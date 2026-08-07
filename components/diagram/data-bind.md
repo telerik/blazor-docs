@@ -15,8 +15,8 @@ This article explains how to bind the Diagram component to a data source using d
 
 The Diagram supports binding to collections of shapes and connections through two main parameters:
 
-* `ShapesData`—accepts a `List<DiagramShapeDescriptor>` that defines the shapes and their properties.
-* `ConnectionsData`—accepts a `List<DiagramConnectionDescriptor>` that defines the connections between shapes and their properties.
+* `ShapesData`&mdash;accepts a `List<DiagramShapeDescriptor>` that defines the shapes and their properties.
+* `ConnectionsData`&mdash;accepts a `List<DiagramConnectionDescriptor>` that defines the connections between shapes and their properties.
 
 The descriptor classes mirror the properties of the declarative tags [`<DiagramShape>`](slug:diagram-shapes) and [`<DiagramConnection>`](slug:diagram-connections), allowing you to configure the Diagram elements programmatically.
 
@@ -25,15 +25,17 @@ The descriptor classes mirror the properties of the declarative tags [`<DiagramS
 
 The data binding mechanism uses descriptor classes that correspond to the declarative component tags. For each tag, there is a descriptor class with the same properties:
 
-* [`DiagramShapeDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeDescriptor)—corresponds to `<DiagramShape>` and contains properties like `Id`, `X`, `Y`, `Width`, `Height`, `Fill`, `Content`, and more.
-* [`DiagramConnectionDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionDescriptor)—corresponds to `<DiagramConnection>` and contains properties like `FromId`, `ToId`, `Stroke`, `Content`, and more.
+* [`DiagramShapeDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeDescriptor)&mdash;corresponds to `<DiagramShape>` and contains properties like `Id`, `X`, `Y`, `Width`, `Height`, `Fill`, `Content`, and more.
+* [`DiagramConnectionDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionDescriptor)&mdash;corresponds to `<DiagramConnection>` and contains properties like `FromId`, `ToId`, `Stroke`, `Content`, and more.
 
 Nested properties (such as `Fill`, `Stroke`, and `Content`) also have their own descriptor classes:
 
-* [`DiagramShapeFillDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeFillDescriptor)—defines the fill color and gradient of a shape.
-* [`DiagramShapeContentDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeContentDescriptor)—defines the text and text color displayed inside a shape.
-* [`DiagramConnectionStrokeDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionStrokeDescriptor)—defines the stroke color and width of a connection.
-* [`DiagramConnectionContentDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionContentDescriptor)—defines the text and text color displayed on a connection.
+* [`DiagramShapeFillDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeFillDescriptor)&mdash;defines the fill color and gradient of a shape.
+* [`DiagramShapeContentDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeContentDescriptor)&mdash;defines the text and text color displayed inside a shape.
+* [`DiagramShapeContentBlockDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeContentBlockDescriptor)&mdash;defines a block inside the Shape that can hold text or image children.
+* [`DiagramShapeContentBlockDescriptor`](slug:Telerik.Blazor.Components.DiagramShapeContentBlockChildDescriptor)&mdash;defines a single child within a Shape content block.
+* [`DiagramConnectionStrokeDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionStrokeDescriptor)&mdash;defines the stroke color and width of a connection.
+* [`DiagramConnectionContentDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionContentDescriptor)&mdash;defines the text and text color displayed on a connection.
 * [`DiagramConnectionEditableDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionEditableDescriptor)&mdash;configures connection editing behavior, including point editing, dragging, and removal.
 * [`DiagramConnectionEditablePointsDescriptor`](slug:Telerik.Blazor.Components.DiagramConnectionEditablePointsDescriptor)&mdash;configures connection point editing behavior, including enabling point editing and snap distance.
 
@@ -43,198 +45,113 @@ You can map data from your existing model classes to the descriptor classes. Thi
 
 The example below demonstrates how to:
 
-* Create custom model classes (`OrganizationNode` and `OrganizationConnection`).
+* Use a custom model class (`DiagramEmployee`).
 * Map the model data to `DiagramShapeDescriptor` and `DiagramConnectionDescriptor`.
 * Set shape and connection properties such as color, text, and position.
+* Use [rich content in the Shapes declaratively](slug:diagram-shapes#rich-content).
 
 >caption Binding the Diagram to data from custom models
 
 ````RAZOR
-<TelerikDiagram ShapesData="@ShapesData"
-                ConnectionsData="@ConnectionsData"
-                Height="600px">
-    <DiagramShapeDefaults />
-    <DiagramLayout HorizontalSeparation="140"
-                   VerticalSeparation="80" />
+<TelerikDiagram ShapesData="@EmployeeShapesData"
+                ConnectionsData="@EmployeeConnectionsData"
+                Height="400px"
+                Zoom="0.7"
+                MinZoom="0.3"
+                MaxZoom="1.5">
+    <DiagramLayout Type="@DiagramLayoutType.Tree"
+                   Subtype="@DiagramLayoutSubtype.Down" />
+    <DiagramConnectionDefaults FromConnector="@DiagramConnectionsFromConnector.Bottom"
+                               ToConnector="@DiagramConnectionsToConnector.Top" />
+    <DiagramShapeDefaults CornerRadius="6"
+                          Height="80"
+                          Width="300">
+        <DiagramShapeDefaultsContent Color="#212529" />
+    </DiagramShapeDefaults>
 </TelerikDiagram>
 
 @code {
-    private List<DiagramShapeDescriptor> ShapesData { get; set; } = new List<DiagramShapeDescriptor>();
-    private List<DiagramConnectionDescriptor> ConnectionsData { get; set; } = new List<DiagramConnectionDescriptor>();
+    private List<DiagramEmployee> Employees { get; set; } = new()
+    {
+        new() { Id = 1, Name = "Jane Simmons", Title = "CEO", BackgroundColor = "#d1e7dd", BorderColor = "#a3cfbb" },
+        new() { Id = 2, ParentId = 1, Name = "Liam Turner", Title = "General Manager", BackgroundColor = "#d1e7dd", BorderColor = "#a3cfbb" },
+        new() { Id = 3, ParentId = 2, Name = "Amelia Carter", Title = "HR Director", BackgroundColor = "#e2d9f3", BorderColor = "#c5b3e6" },
+        new() { Id = 4, ParentId = 3, Name = "Chandrakant Krishnan", Title = "HR Manager", BackgroundColor = "#cfe2ff", BorderColor = "#9ec5fe" },
+        new() { Id = 6, ParentId = 2, Name = "Noah Sullivan", Title = "UX Manager", BackgroundColor = "#e2d9f3", BorderColor = "#c5b3e6" },
+        new() { Id = 7, ParentId = 6, Name = "Isabella Hayes", Title = "UX Design Lead", BackgroundColor = "#cfe2ff", BorderColor = "#9ec5fe" },
+        new() { Id = 10, ParentId = 2, Name = "Zara Mitchell", Title = "Marketing Manager", BackgroundColor = "#e2d9f3", BorderColor = "#c5b3e6" },
+        new() { Id = 11, ParentId = 10, Name = "Leo Anderson", Title = "Marketing Lead", BackgroundColor = "#cfe2ff", BorderColor = "#9ec5fe" }
+    };
+
+    public List<DiagramShapeDescriptor> EmployeeShapesData { get; set; } = new List<DiagramShapeDescriptor>();
+    public List<DiagramConnectionDescriptor> EmployeeConnectionsData { get; set; } = new List<DiagramConnectionDescriptor>();
 
     protected override void OnInitialized()
     {
-        var nodes = GetOrganizationNodes();
+        InitializeEmployeeDiagram();
+    }
 
-        foreach (var node in nodes)
+    private void InitializeEmployeeDiagram()
+    {
+        foreach (DiagramEmployee employee in Employees)
         {
-            ShapesData.Add(new DiagramShapeDescriptor()
+            EmployeeShapesData.Add(new DiagramShapeDescriptor()
             {
-                Id = node.Id,
-                Width = node.Width,
-                Height = node.Height,
+                Id = $"shape-{employee.Id}",
                 Fill = new DiagramShapeFillDescriptor()
                 {
-                    Color = node.BackgroundColor
+                    Color = employee.BackgroundColor
+                },
+                Stroke = new DiagramShapeStrokeDescriptor()
+                {
+                    Color = employee.BorderColor,
+                    Width = 2
                 },
                 Content = new DiagramShapeContentDescriptor()
                 {
-                    Text = node.Label,
-                    Color = node.TextColor
+                    Blocks = new List<DiagramShapeContentBlockDescriptor>()
+                    {
+                        new DiagramShapeContentBlockDescriptor()
+                        {
+                            Children = new List<DiagramShapeContentBlockChildDescriptor>()
+                            {
+                                new DiagramShapeContentBlockChildDescriptor() { Type = DiagramShapeContentBlocksChildrenType.Image, Src = $"https://demos.telerik.com/blazor-ui/images/diagram/{employee.Id}.png", Width = 18, Height = 18 },
+                                new DiagramShapeContentBlockChildDescriptor() { Text = " ", FontSize = 20 },
+                                new DiagramShapeContentBlockChildDescriptor() { Text = employee.Name, FontSize = 20, Bold = true },
+                                new DiagramShapeContentBlockChildDescriptor() { Type = DiagramShapeContentBlocksChildrenType.Break },
+                                new DiagramShapeContentBlockChildDescriptor() { Text = employee.Title, FontSize = 16 }
+                            }
+                        }
+                    }
                 }
             });
-        }
 
-        var connections = GetOrganizationConnections();
-
-        foreach (var connection in connections)
-        {
-            ConnectionsData.Add(new DiagramConnectionDescriptor()
+            if (employee.ParentId is not null)
             {
-                FromId = connection.FromId,
-                ToId = connection.ToId,
-                Stroke = new DiagramConnectionStrokeDescriptor()
+                EmployeeConnectionsData.Add(new DiagramConnectionDescriptor()
                 {
-                    Color = connection.LineColor
-                },
-                Content = new DiagramConnectionContentDescriptor()
-                {
-                    Text = connection.Label,
-                    Color = connection.LabelColor
-                }
-            });
+                    FromId = $"shape-{employee.ParentId}",
+                    ToId = $"shape-{employee.Id}",
+                    Stroke = new DiagramConnectionStrokeDescriptor()
+                    {
+                        Color = "#666"
+                    }
+                });
+            }
         }
     }
 
-    private List<OrganizationNode> GetOrganizationNodes()
+    public class DiagramEmployee
     {
-        return new List<OrganizationNode>()
-        {
-            new OrganizationNode()
-            {
-                Id = "ceo",
-                Label = "CEO",
-                Width = 150,
-                Height = 70,
-                BackgroundColor = "#0078D4",
-                TextColor = "#FFFFFF"
-            },
-            new OrganizationNode()
-            {
-                Id = "cto",
-                Label = "CTO",
-                Width = 150,
-                Height = 70,
-                BackgroundColor = "#00BCF2",
-                TextColor = "#FFFFFF"
-            },
-            new OrganizationNode()
-            {
-                Id = "cfo",
-                Label = "CFO",
-                Width = 150,
-                Height = 70,
-                BackgroundColor = "#00BCF2",
-                TextColor = "#FFFFFF"
-            },
-            new OrganizationNode()
-            {
-                Id = "dev-manager",
-                Label = "Dev Manager",
-                Width = 150,
-                Height = 70,
-                BackgroundColor = "#8661C5",
-                TextColor = "#FFFFFF"
-            },
-            new OrganizationNode()
-            {
-                Id = "qa-manager",
-                Label = "QA Manager",
-                Width = 150,
-                Height = 70,
-                BackgroundColor = "#8661C5",
-                TextColor = "#FFFFFF"
-            },
-            new OrganizationNode()
-            {
-                Id = "finance-manager",
-                Label = "Finance Manager",
-                Width = 150,
-                Height = 70,
-                BackgroundColor = "#8661C5",
-                TextColor = "#FFFFFF"
-            }
-        };
-    }
-
-    private List<OrganizationConnection> GetOrganizationConnections()
-    {
-        return new List<OrganizationConnection>()
-        {
-            new OrganizationConnection()
-            {
-                FromId = "ceo",
-                ToId = "cto",
-                Label = "Supervises",
-                LineColor = "#0078D4",
-                LabelColor = "#0078D4"
-            },
-            new OrganizationConnection()
-            {
-                FromId = "ceo",
-                ToId = "cfo",
-                Label = "Supervises",
-                LineColor = "#0078D4",
-                LabelColor = "#0078D4"
-            },
-            new OrganizationConnection()
-            {
-                FromId = "cto",
-                ToId = "dev-manager",
-                Label = "Manages",
-                LineColor = "#00BCF2",
-                LabelColor = "#00BCF2"
-            },
-            new OrganizationConnection()
-            {
-                FromId = "cto",
-                ToId = "qa-manager",
-                Label = "Manages",
-                LineColor = "#00BCF2",
-                LabelColor = "#00BCF2"
-            },
-            new OrganizationConnection()
-            {
-                FromId = "cfo",
-                ToId = "finance-manager",
-                Label = "Manages",
-                LineColor = "#00BCF2",
-                LabelColor = "#00BCF2"
-            }
-        };
-    }
-
-    public class OrganizationNode
-    {
-        public string Id { get; set; }
-        public string Label { get; set; }
-        public double? Width { get; set; }
-        public double? Height { get; set; }
-        public string BackgroundColor { get; set; }
-        public string TextColor { get; set; }
-    }
-
-    public class OrganizationConnection
-    {
-        public string FromId { get; set; }
-        public string ToId { get; set; }
-        public string Label { get; set; }
-        public string LineColor { get; set; }
-        public string LabelColor { get; set; }
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string BorderColor { get; set; } = string.Empty;
+        public string BackgroundColor { get; set; } = string.Empty;
     }
 }
 ````
-
 
 ## Direct Descriptor Initialization
 
