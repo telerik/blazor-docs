@@ -32,6 +32,7 @@ This article contains the following sections:
 * [Set global icon type for the whole application](#set-global-blazor-icon-type)
 * [Complete list of built-in icons](#icons-list)
 * [How to use custom icons](#custom-blazor-icon-support)
+* [Change default icons](#change-default-svg-icons)
 
 {% if site.has_cta_panels == true %}
 {% include cta-panel-introduction.html %}
@@ -370,6 +371,100 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 
 [Using custom icons for the automatically rendered icons is not supported yet](https://feedback.telerik.com/blazor/1641361-ability-to-change-the-built-in-icons). For example, the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList.
 
+## Change Default SVG Icons
+
+Use the `ITelerikIconService` to replace built-in icons globally across the application. A replacement applies wherever the matching icon renders. Returning `null` keeps the original icon.
+
+1. In `Program.cs`, register your service implementation after `AddTelerikBlazor()`:
+
+>caption Register a custom icon service
+
+````C#
+builder.Services.AddTelerikBlazor();
+builder.Services.AddSingleton<ITelerikIconService, MyIconService>();
+````
+
+2. Implement the `ReplaceIcon` method. It receives an `IconInfo` object. Use `IconInfo.IconName` to identify the icon and compare it with `nameof(SvgIcon.X)` or `nameof(FontIcon.X)`. The method returns `object`, so the replacement can be:
+
+* A built-in Telerik SVG icon (a property of the `SvgIcon` static class).
+* A built-in Telerik font icon (a `FontIcon` enum value).
+* A custom SVG icon that derives from `SvgIconBase`.
+* A CSS class string for a custom font icon, such as Font Awesome.
+
+>caption Custom icon service implementation
+
+````C#
+using Telerik.Blazor.Services;
+using Telerik.SvgIcons;
+using Telerik.FontIcons;
+
+public class MyIconService : ITelerikIconService
+{
+    public object ReplaceIcon(IconInfo iconInfo)
+    {
+        // Replace with another built-in Telerik SVG icon
+        if (iconInfo.IconName == nameof(SvgIcon.Filter))
+            return SvgIcon.Plane;
+
+        // Replace a font icon with another built-in Telerik font icon
+        if (iconInfo.IconName == nameof(FontIcon.Save))
+            return FontIcon.Plane;
+
+        // Replace with a custom SVG icon (see the MoonIcon example below)
+        if (iconInfo.IconName == nameof(SvgIcon.Download))
+            return new MoonIcon();
+
+        // Replace with a CSS class string (for example, Font Awesome)
+        if (iconInfo.IconName == nameof(SvgIcon.Upload))
+            return "fa fa-upload";
+
+        // Return null to keep the original icon unchanged
+        return null;
+    }
+}
+````
+
+To use a CSS class string replacement, include the respective stylesheet that contains the font icons in your app:
+
+>caption Font Awesome stylesheet reference
+
+````HTML
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+````
+
+To use a custom SVG icon, define a class that derives from `SvgIconBase`:
+
+````C#
+using Telerik.SvgIcons;
+
+public sealed class MoonIcon : SvgIconBase
+{
+    public MoonIcon()
+    {
+        Name = "moon";
+        Content = "<path d=\"M8.85 16.5C4.43 16.5.85 12.92.85 8.5S4.43.5 8.85.5c.49 0 " +
+                  ".98.04 1.46.13-1.96 1.12-3.17 3.2-3.17 5.45 0 3.92 3.56 6.9 7.45 " +
+                  "6.15-1.49 2.81-4.35 4.27-5.74 4.27Z\" />";
+        ViewBox = "0 0 16 17";
+    }
+}
+````
+
+### ITelerikIconService API
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+**`IconInfo` properties**
+
+| Property | Type | Description |
+|---|---|---|
+| `IconName` | `string` | The name of the resolved icon. For built-in Telerik icons it matches `nameof(SvgIcon.X)` or `nameof(FontIcon.X)`. |
+
+**`ITelerikIconService` methods**
+
+| Method | Signature | Description |
+|---|---|---|
+| `ReplaceIcon` | `object ReplaceIcon(IconInfo iconInfo)` | Returns a replacement icon object, or `null` to preserve the default icon. |
 
 ## See Also
 
