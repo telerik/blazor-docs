@@ -370,11 +370,9 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 * [In the `FontIcon` component](#use-custom-font-icons).
 * In [Buttons](slug:button-icons), [Menu items](slug:menu-icons), [Drawer items](slug:drawer-icons) and other [navigation components](slug:blazor-overview#list-of-components).
 
-[Using custom icons for the automatically rendered icons is not supported yet](https://feedback.telerik.com/blazor/1641361-ability-to-change-the-built-in-icons). For example, the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList.
-
 ## Change Default SVG Icons
 
-Use the `ITelerikIconService` to replace built-in icons globally across the application. A replacement applies wherever the matching icon renders. Returning `null` keeps the original icon.
+Use the [`ITelerikIconService`](slug:Telerik.Blazor.Services.ITelerikIconService) to replace built-in icons globally across the application. A replacement applies wherever the matching icon renders. Returning `null` keeps the original icon.
 
 1. In `Program.cs`, register your service implementation after `AddTelerikBlazor()`:
 
@@ -385,7 +383,7 @@ builder.Services.AddTelerikBlazor();
 builder.Services.AddSingleton<ITelerikIconService, MyIconService>();
 ````
 
-2. Implement the `ReplaceIcon` method. It receives an `IconInfo` object. Use `IconInfo.IconName` to identify the icon and compare it with `nameof(SvgIcon.X)` or `nameof(FontIcon.X)`. The method returns `object`, so the replacement can be:
+2. Implement the [`ReplaceIcon`](slug:Telerik.Blazor.Services.ITelerikIconService) method. It receives an `IconInfo` object. Use `IconInfo.IconName` to identify the icon and compare it with `nameof(SvgIcon.X)` or `nameof(FontIcon.X)`. The method returns `object`, so the replacement can be:
 
 * A built-in Telerik SVG icon (a property of the `SvgIcon` static class).
 * A built-in Telerik font icon (a `FontIcon` enum value).
@@ -450,22 +448,6 @@ public sealed class MoonIcon : SvgIconBase
     }
 }
 ````
-
-### ITelerikIconService API
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-**`IconInfo` properties**
-
-| Property | Type | Description |
-|---|---|---|
-| `IconName` | `string` | The name of the resolved icon. For built-in Telerik icons it matches `nameof(SvgIcon.X)` or `nameof(FontIcon.X)`. |
-
-**`ITelerikIconService` methods**
-
-| Method | Signature | Description |
-|---|---|---|
-| `ReplaceIcon` | `object ReplaceIcon(IconInfo iconInfo)` | Returns a replacement icon object, or `null` to preserve the default icon. |
 
 ## See Also
 
