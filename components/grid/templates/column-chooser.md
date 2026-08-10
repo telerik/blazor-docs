@@ -16,68 +16,7 @@ When the Template is setup the list of columns, rendered by default, would not b
 
 >caption Use the Template to provide custom rendering
 
-````RAZOR
-@* Use the Template to render the list of columns and add some custom styles *@ 
-
-<TelerikGrid Data="@MyData"
-             Pageable="true"
-             PageSize="5"
-             Width="700px"
-             FilterMode="@GridFilterMode.FilterMenu"
-             Sortable="true"
-             ShowColumnMenu="true">
-    <GridSettings>
-        <GridColumnMenuSettings>
-            <GridColumnMenuChooser>
-                <Template>
-                    @{
-                        var columns = context.Columns;
-                        foreach (var column in columns)
-                        {
-                            <div style="border: solid 1px red">
-                                <GridColumnMenuChooserItem Title="@column.DisplayTitle" ColumnId="@column.Id" />
-                            </div>
-                        }
-                    }
-
-                </Template>
-            </GridColumnMenuChooser>
-        </GridColumnMenuSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" Title="Id" Id="id-column-id" />
-        <GridColumn Field="@(nameof(SampleData.FirstName))" Title="First Name" Id="firstname-column-id" />
-        <GridColumn Field="@(nameof(SampleData.LastName))" Title="Last Name" Id="lastname-column-id" />
-        <GridColumn Field="@(nameof(SampleData.CompanyName))" Title="Company" Id="companyname-column-id" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Id="team-column-id" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Id="hiredate-column-id" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public string TextboxValue { get; set; } = string.Empty;
-
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        FirstName = $"FirstName {x}",
-        LastName = $"LastName {x}",
-        CompanyName = $"Company {x}",
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string CompanyName { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/templates/column-chooser/" height="500"></demo>
 
 >caption The result from the code snippet above
 
@@ -89,4 +28,3 @@ When the Template is setup the list of columns, rendered by default, would not b
  * [Live Demo: Grid Custom Column Menu](https://demos.telerik.com/blazor-ui/grid/custom-column-menu)
  * [Columns Menu](slug:grid-column-menu)
  * [Blazor Grid](slug:grid-overview)
-

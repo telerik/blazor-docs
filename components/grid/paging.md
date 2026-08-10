@@ -29,20 +29,7 @@ The Grid component can page the entire data source automatically. Alternatively,
 
 >caption Enable paging in Telerik Grid
 
-````RAZOR
-Enable paging and start on the second page.
-
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-}
-````
+<demo metaUrl="client/grid/paging/basics/" height="500"></demo>
 
 >note If you want to bind the page index to a variable, you must use two-way binding - the `@bind-Page="@MyPageIndexVariable"` syntax. If you only use one-way binding -  `Page="@MyPageIndexVariable"` - the grid will reset to the value of that parameter on every re-render. If you choose to use one-way binding, you must update the field value in the [`PageChanged` event](slug:grid-events#pagechanged) to avoid that.
 
@@ -50,42 +37,7 @@ Here is one way to implement a page size choice that puts all records on one pag
 
 >caption Bind Page Size to a variable
 
-````RAZOR
-Dynamic page size change
-
-<select @onchange=@ChangePageSize>
-	@for (int i = 1; i < 4; i++)
-	{
-		<option value=@(i*10)>@(i * 10)</option>
-	}
-	<option value="all" selected>all</option>
-</select>
-
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="@PageSize">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-
-	protected int PageSize { get; set; } = 8;
-
-	protected void ChangePageSize(ChangeEventArgs e)
-	{
-		if (e.Value.ToString().ToLowerInvariant() == "all")
-		{
-			PageSize = MyData.Count();
-		}
-		else
-		{
-			PageSize = int.Parse(e.Value.ToString());
-		}
-	}
-}
-````
+<demo metaUrl="client/grid/paging/dynamic-page-size/" height="500"></demo>
 
 ## Events
 
@@ -101,32 +53,7 @@ In addition to `Page` and `PageSize`, the Grid provides advanced pager configura
 
 @[template](/_contentTemplates/common/pager-settings.md#pager-settings)
 
-````RAZOR
-@*Configure the Pager Settings*@
-
-<TelerikGrid Data="@MyData" Pageable="true" @bind-PageSize="@PageSize" @bind-Page="@CurrentPage">
-    <GridSettings>
-        <GridPagerSettings InputType="PagerInputType.Input"
-                           PageSizes="@PageSizes"
-                           ButtonCount="5"
-                           Responsive="true"
-                           Position="PagerPosition.Top">
-        </GridPagerSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="ID"></GridColumn>
-        <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-
-    int PageSize { get; set; } = 15;
-    int CurrentPage { get; set; } = 3;
-    protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
-}
-````
+<demo metaUrl="client/grid/paging/settings/" height="500"></demo>
 
 ## More Examples
 

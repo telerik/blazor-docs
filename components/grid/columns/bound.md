@@ -29,40 +29,7 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 >caption Provide data to the grid and choose which columns (fields) to see
 
-````RAZOR
-@* define data, model and columns for a grid *@
-
-@using System.ComponentModel.DataAnnotations
-@* This Using is for the model class attributes only *@
-
-<TelerikGrid Data="@MyData">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" />
-        <GridColumn Field="@(nameof(SampleData.Name))" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        [Display(Name = "Employee Name")]
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/columns/bound-data/" height="500"></demo>
 
 >tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`. The field name is, however, **case-sensitive**.
 

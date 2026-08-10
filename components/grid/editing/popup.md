@@ -81,28 +81,7 @@ The example below shows how to:
 
 >caption Basic Grid popup editing configuration
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikGrid OnRead="@OnGridRead"
-             TItem="@Product"
-             EditMode="@GridEditMode.Popup"
-@[template](/_contentTemplates/grid/editing.md#basic-example-parameters-columns)
-        <GridCommandColumn Width="180px">
-            <GridCommandButton Command="Edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete">Delete</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-@[template](/_contentTemplates/grid/editing.md#basic-example-code)
-
-@[template](/_contentTemplates/grid/editing.md#crud-service-and-model)
-}
-````
+<demo metaUrl="client/grid/editing/popup-basic/" height="500"></demo>
 
 ### Advanced
 
@@ -115,46 +94,7 @@ The example below shows how to:
 
 >caption Advanced Grid popup editing configuration
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikGrid Data="@GridData"
-             EditMode="@GridEditMode.Popup"
-@[template](/_contentTemplates/grid/editing.md#advanced-example-parameters)
-    <GridSettings>
-        <GridPopupEditSettings Width="600px" MaxWidth="90vw" Height="400px" MaxHeight="90vh" />
-        <GridPopupEditFormSettings Columns="2" ColumnSpacing="2em" ButtonsLayout="@FormButtonsLayout.Stretch" />
-    </GridSettings>
-@[template](/_contentTemplates/grid/editing.md#advanced-example-toolbar)
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Id)" Editable="false" Width="60px" />
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.Description)" EditorType="@GridEditorType.TextArea" Visible="false">
-            <Template>
-                @{ var dataItem = (Product)context; }
-                <div style="white-space:pre">@dataItem.Description</div>
-            </Template>
-        </GridColumn>
-@[template](/_contentTemplates/grid/editing.md#advanced-example-columns)
-        <GridCommandColumn Title="Commands" Width="180px">
-            @{ var dataItem = (Product)context; }
-            <GridCommandButton Command="Edit" ThemeColor="@AddEditButtonThemeColor">Edit</GridCommandButton>
-            @if (dataItem.Discontinued)
-            {
-                <GridCommandButton Command="Delete" ThemeColor="@DeleteButtonThemeColor">Delete</GridCommandButton>
-            }
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-@[template](/_contentTemplates/grid/editing.md#advanced-example-code)
-
-@[template](/_contentTemplates/grid/editing.md#crud-service-and-model)
-}
-````
+<demo metaUrl="client/grid/editing/popup-advanced/" height="500"></demo>
 
 ## See Also
 

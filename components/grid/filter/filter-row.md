@@ -22,48 +22,7 @@ Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterRow`
 
 >caption Filter Row in Telerik Grid
 
-````RAZOR
-@* Filter row mode *@
-
-<TelerikGrid Data=@GridData FilterMode="@GridFilterMode.FilterRow" Pageable="true" Height="400px">
-	<GridColumns>
-		<GridColumn Field=@nameof(Employee.Name) />
-		<GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
-		<GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-		<GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	public List<Employee> GridData { get; set; }
-
-	protected override void OnInitialized()
-	{
-		GridData = new List<Employee>();
-		var rand = new Random();
-		for (int i = 0; i < 100; i++)
-		{
-			GridData.Add(new Employee()
-			{
-				EmployeeId = i,
-				Name = "Employee " + i.ToString(),
-				AgeInYears = rand.Next(10, 80),
-				HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20)),
-				IsOnLeave = i % 3 == 0
-			});
-		}
-	}
-
-	public class Employee
-	{
-		public int? EmployeeId { get; set; }
-		public string Name { get; set; }
-		public int? AgeInYears { get; set; }
-		public DateTime HireDate { get; set; }
-		public bool IsOnLeave { get; set; }
-	}
-}
-````
+<demo metaUrl="client/grid/filter/filter-row/" height="500"></demo>
 
 
 ## Filter From Code
@@ -84,48 +43,7 @@ You can override the default Filter Row behavior for each column through the fol
 
 >caption Configure the Filter Row
 
-````RAZOR
-@*Customize the Filter Row*@
-
-@using Telerik.DataSource
-
-<TelerikGrid Data="@MyData"
-             Height="400px"
-             Pageable="true"
-             FilterMode="@GridFilterMode.FilterRow"
-             FilterRowDebounceDelay="200">
-    <GridColumns>
-        <GridColumn DefaultFilterOperator="FilterOperator.IsEqualTo"
-                    ShowFilterCellButtons="false"
-                    Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn DefaultFilterOperator="FilterOperator.StartsWith"
-                    ShowFilterCellButtons="false"
-                    Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn DefaultFilterOperator="FilterOperator.Contains"
-                    ShowFilterCellButtons="false" Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn DefaultFilterOperator="FilterOperator.IsGreaterThanOrEqualTo"
-                    ShowFilterCellButtons="false" Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-        {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/filter/filter-row-configuration/" height="500"></demo>
 
 ### Debouncing the Filtering
 

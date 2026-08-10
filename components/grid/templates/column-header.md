@@ -16,73 +16,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 >caption Sample Header Template
 
-````RAZOR
-@* Header templates override the built-in title but leave sorting indicators and filter menu icons *@
-
-<TelerikGrid Data="@MyData" Height="300px" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterMenu">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Title="This title will not be rendered">
-            <HeaderTemplate>
-                <span>Employee ID</span>
-            </HeaderTemplate>
-        </GridColumn>
-        <GridColumn Field="@(nameof(SampleData.Name))">
-            <HeaderTemplate>
-                Employee<br /><strong>Name</strong>
-            </HeaderTemplate>
-        </GridColumn>
-        <GridColumn Field="HireDate" Width="350px">
-            <HeaderTemplate>
-                <span @onclick:stopPropagation>
-                    Hire date<br />
-                    <TelerikButton OnClick="@DoSomething">Do something</TelerikButton>
-                </span>
-                <br />
-                @{
-                    if (!string.IsNullOrEmpty(result))
-                    {
-                        <span style="color:red;">@result</span>
-                    }
-                    else
-                    {
-                        <div>something will appear here if you click the button</div>
-                    }
-                }
-            </HeaderTemplate>
-        </GridColumn>
-        <GridColumn>
-            <HeaderTemplate>
-                <span>
-                    <TelerikSvgIcon Icon="@SvgIcon.Image" />
-                    Column with Icon
-                </span>
-            </HeaderTemplate>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    string result { get; set; }
-    void DoSomething()
-    {
-        result = $"button in header template clicked on {DateTime.Now}, something happened";
-    }
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        HireDate = DateTime.Now.AddDays(-x)
-    });
-}
-````
+<demo metaUrl="client/grid/templates/column-header/" height="500"></demo>
 
 >caption The result from the code snippet above
 

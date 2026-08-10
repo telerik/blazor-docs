@@ -29,20 +29,7 @@ You can prevent the user from sorting a certain field by setting `Sortable="fals
 
 >caption Enable Sorting in Telerik Grid
 
-````RAZOR
-Click a column header to sort by its data
-
-<TelerikGrid Data="@MyData" Sortable="true" Height="500px">
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-}
-````
+<demo metaUrl="client/grid/sorting/basics/" height="500"></demo>
 
 >caption The result from the code snippet above, after the user clicked on the "Employee Name" header to sort
 
@@ -57,46 +44,7 @@ To allow sorting on more than one column at a time, set the `SortMode` parameter
 
 >caption Enable multi column sorting
 
-````RAZOR
-@* Try sorting by Team, then by Name to see how the multiple sorts apply *@
-
-<TelerikGrid Data=@GridData Sortable="true" SortMode="@SortMode.Multiple"
-             Pageable="true" Height="400px">
-    <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<Employee> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3,
-                IsOnLeave = i % 2 == 0
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public bool IsOnLeave { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/sorting/multi-column/" height="500"></demo>
 
 >caption Numbers in the column headers indicate the order by which the grid is sorted
 

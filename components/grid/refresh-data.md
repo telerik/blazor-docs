@@ -24,83 +24,7 @@ In this article:
 
 You can refresh the Grid data by using the `Rebind` method exposed to the reference of the TelerikGrid. If you have manually defined the [OnRead event](slug:components/grid/manual-operations) the business logic defined in its event handler will be executed. 
 
-````RAZOR
-@* Clicking on the Rebind button will change the Name of the first item in the Grid and refresh the data *@
-
-<TelerikButton OnClick="@RebindGrid">Rebind the Grid</TelerikButton>
-
-@using Telerik.DataSource.Extensions
-
-<TelerikGrid TItem="@Employee" 
-             OnRead="@ReadItems"
-             FilterMode="@GridFilterMode.FilterRow"
-             Sortable="true" 
-             Pageable="true"
-             @ref="@GridRef">
-    <GridColumns>
-        <GridColumn Field=@nameof(Employee.ID) />
-        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
-        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private TelerikGrid<Employee> GridRef { get; set; }
-
-    private void RebindGrid()
-    {
-        if(SourceData.Count > 0)
-        {
-            Employee firstDataItem = SourceData.FirstOrDefault();
-
-            firstDataItem.Name = "Changed in the rebound method";
-        }
-
-        GridRef?.Rebind();
-    }
-
-    public List<Employee> SourceData { get; set; }
-
-    protected async Task ReadItems(GridReadEventArgs args)
-    {
-        await Task.Delay(1000); //simulate network delay from a real async call
-
-        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
-
-        args.Data = datasourceResult.Data;
-        args.Total = datasourceResult.Total;
-    }
-
-    protected override void OnInitialized()
-    {
-        SourceData = GenerateData();
-    }
-
-    private List<Employee> GenerateData()
-    {
-        var result = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 100; i++)
-        {
-            result.Add(new Employee()
-            {
-                ID = i,
-                Name = "Name " + i,
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
-            });
-        }
-
-        return result;
-    }
-
-    public class Employee
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/refresh/rebind/" height="500"></demo>
 
 @[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
@@ -114,63 +38,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 >caption Bind the Grid to an ObservableCollection, so it can react to collection changes.
 
-````RAZOR
-@* Add/remove employee to see the Blazor DataGrid live update in action. *@
-
-@using System.Collections.ObjectModel
-
-<TelerikButton OnClick="@AddEmployee">Add employee</TelerikButton>
-
-<TelerikButton OnClick="@RemoveEmployee">Remove last employee</TelerikButton>
-
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    void AddEmployee()
-    {
-        var x = MyData.Count + 1;
-        MyData.Add(new SampleData
-        {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
-    }
-
-    void RemoveEmployee()
-    {
-        if (MyData.Count>0)
-        {
-        MyData.RemoveAt(MyData.Count - 1);
-        }
-    } 
-
-    public ObservableCollection<SampleData> MyData = new ObservableCollection<SampleData>(Enumerable.Range(1, 5).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    }));
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/refresh/observable/" height="500"></demo>
 
 @[template](/_contentTemplates/common/observable-data.md#tip-for-new-collection)
 
@@ -180,80 +48,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 >caption Create new collection reference to refresh the Grid data.
 
-````RAZOR
-@* Add/remove employee to see how the Grid reacts to that change. *@
-
-<TelerikButton OnClick="@AddEmployee">Add employee</TelerikButton>
-
-<TelerikButton OnClick="@RemoveEmployee">Remove last employee</TelerikButton>
-
-<TelerikButton OnClick="@LoadNewData">Load new data</TelerikButton>
-
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    void AddEmployee()
-    {
-        var x = MyData.Count + 1;
-        MyData.Add(new SampleData
-        {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
-        MyData = new List<SampleData>(MyData);
-    }
-
-    void RemoveEmployee()
-    {
-        if (MyData.Count > 0)
-        {
-            MyData.RemoveAt(MyData.Count - 1);
-            MyData = new List<SampleData>(MyData);
-        }
-    }
-
-    void LoadNewData()
-    {
-        var newData = Enumerable.Range(6, 5).Select(x => new SampleData
-        {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        }).ToList();
-
-        MyData = new List<SampleData>(newData);
-
-        Console.WriteLine("New data collection loaded.");
-    }
-
-    public List<SampleData> MyData = Enumerable.Range(1, 5).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/refresh/new-collection-reference/" height="500"></demo>
 
 >note You can find some more explanations and examples for the Grid component in the [Force a Grid to Refresh](slug:grid-force-refresh) Knowledge Base article.
 
@@ -266,83 +61,7 @@ To make the Grid fire `OnRead`, execute its [`SetStateAsync` method](slug:grid-s
 
 >caption Make the grid call OnRead by using its state
 
-````RAZOR
-@using Telerik.DataSource.Extensions
-
-<TelerikButton OnClick="@RefreshThroughState">Call OnRead to refresh Grid</TelerikButton>
-<p>Monitor the <code>GeneratedAtMilliseconds</code> column values when you click the button</p>
-
-<TelerikGrid TItem="@Employee"
-             OnRead="@ReadItems"
-             @ref="@GridRef"
-             AutoGenerateColumns="true"
-             FilterMode="@GridFilterMode.FilterRow"
-             Sortable="true"
-             Pageable="true">
-</TelerikGrid>
-
-@code {
-    //make the grid call OnRead to request data again
-    TelerikGrid<Employee> GridRef { get; set; }
-    async Task RefreshThroughState()
-    {
-        await GridRef.SetStateAsync(GridRef.GetState());
-    }
-
-    //basic data generation follows
-    public List<Employee> SourceData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        SourceData = GenerateData();
-    }
-
-    protected async Task ReadItems(GridReadEventArgs args)
-    {
-        Console.WriteLine($"Fresh data requested at {DateTime.Now}");
-
-        // this is the standard data retrieval. Replace with your actual service
-        // see more at https://docs.telerik.com/blazor-ui/components/grid/manual-operations
-
-        // here we will regenerate the data to clearly show the Grid got new data
-        SourceData = GenerateData();
-
-        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
-
-        args.Data = (datasourceResult.Data as IEnumerable<Employee>).ToList();
-        args.Total = datasourceResult.Total;
-    }
-
-    //This sample implements only reading of the data. To add the rest of the CRUD operations see
-    //https://docs.telerik.com/blazor-ui/components/grid/editing/overview
-
-    private List<Employee> GenerateData()
-    {
-        var result = new List<Employee>();
-        var rand = new Random();
-        for (int i = 1; i <= 100; i++)
-        {
-            result.Add(new Employee()
-            {
-                GeneratedAtMilliseconds = DateTime.Now.Millisecond,
-                ID = i,
-                Name = "Name " + i,
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
-            });
-        }
-
-        return result;
-    }
-
-    public class Employee
-    {
-        public int GeneratedAtMilliseconds { get; set; }
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/refresh/on-read/" height="500"></demo>
 
 ## Entity Framework Data
 

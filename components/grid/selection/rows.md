@@ -30,55 +30,7 @@ To enable row selection:
 
 >caption Grid multiple row selection
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             SelectionMode="@GridSelectionMode.Multiple"
-             @bind-SelectedItems="@SelectedEmployees"
-             Pageable="true">
-    <GridColumns>
-        <GridCheckboxColumn SelectAll="true" CheckBoxOnlySelection="false" />
-        <GridColumn Field="@nameof(Employee.Name)" />
-        <GridColumn Field="@nameof(Employee.Team)" />
-    </GridColumns>
-</TelerikGrid>
-
-<h3>Selected Employees:</h3>
-
-<ul>
-    @foreach (Employee employee in SelectedEmployees)
-    {
-        <li>@employee.Name</li>
-    }
-</ul>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = $"Employee {i}",
-                Team = $"Team {i % 3 + 1}"
-            });
-        }
-
-        SelectedEmployees = new List<Employee>() { GridData.ElementAt(2) };
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/selection/rows/" height="500"></demo>
 
 ## SelectedItemsChanged Event
 
@@ -88,71 +40,7 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 >caption Using the Grid SelectedItemsChanged event
 
-````RAZOR
-@* Select rows and handle the SelectedItemsChanged event *@
-
-<TelerikGrid Data="@GridData"
-             SelectionMode="@GridSelectionMode.Multiple"
-             SelectedItems="@SelectedEmployees"
-             SelectedItemsChanged="@( (IEnumerable<Employee> newSelected) => OnRowSelect(newSelected) )"
-             Pageable="true">
-    <GridColumns>
-        <GridCheckboxColumn SelectAll="true" CheckBoxOnlySelection="false" />
-        <GridColumn Field="@nameof(Employee.Name)" />
-        <GridColumn Field="@nameof(Employee.Team)" />
-    </GridColumns>
-</TelerikGrid>
-
-<p><code>SelectedItemsChanged</code> fired at: @SelectedItemsChangedLog</p>
-
-<h3>Selected Employees:</h3>
-
-<ul>
-    @foreach (Employee employee in SelectedEmployees)
-    {
-        <li>@employee.Name</li>
-    }
-</ul>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
-
-    private string SelectedItemsChangedLog { get; set; } = string.Empty;
-
-    protected void OnRowSelect(IEnumerable<Employee> employees)
-    {
-        // Update the SelectedItems collection manually.
-        // When using two-way binding, this happens automatically.
-        SelectedEmployees = employees;
-
-        SelectedItemsChangedLog = DateTime.Now.ToLongTimeString();
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = $"Employee {i}",
-                Team = $"Team {i % 3 + 1}"
-            });
-        }
-
-        SelectedEmployees = new List<Employee>() { GridData.ElementAt(2) };
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/selection/rows-changed/" height="500"></demo>
 
 ## Selection When Data Changes
 

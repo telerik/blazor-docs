@@ -76,30 +76,7 @@ The example below shows how to:
 
 >caption Basic Grid inline editing configuration
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikGrid OnRead="@OnGridRead"
-             TItem="@Product"
-             EditMode="@GridEditMode.Inline"
-@[template](/_contentTemplates/grid/editing.md#basic-example-parameters-columns)
-        <GridCommandColumn Width="180px">
-            <GridCommandButton Command="Edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-            <GridCommandButton Command="Delete">Delete</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-@[template](/_contentTemplates/grid/editing.md#basic-example-code)
-
-@[template](/_contentTemplates/grid/editing.md#crud-service-and-model)
-}
-````
+<demo metaUrl="client/grid/editing/inline-basic/" height="500"></demo>
 
 ### Advanced
 
@@ -110,44 +87,7 @@ The example below shows how to:
 
 >caption Advanced Grid inline editing configuration
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikGrid Data="@GridData"
-             EditMode="@GridEditMode.Inline"
-@[template](/_contentTemplates/grid/editing.md#advanced-example-parameters)
-@[template](/_contentTemplates/grid/editing.md#advanced-example-toolbar)
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Id)" Editable="false" Width="60px" />
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.Description)" EditorType="@GridEditorType.TextArea">
-            <Template>
-                @{ var dataItem = (Product)context; }
-                <div style="white-space:pre">@dataItem.Description</div>
-            </Template>
-        </GridColumn>
-@[template](/_contentTemplates/grid/editing.md#advanced-example-columns)
-        <GridCommandColumn Title="Commands" Width="180px">
-            @{ var dataItem = (Product)context; }
-            <GridCommandButton Command="Edit" ThemeColor="@AddEditButtonThemeColor">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-            @if (dataItem.Discontinued)
-            {
-                <GridCommandButton Command="Delete" ThemeColor="@DeleteButtonThemeColor">Delete</GridCommandButton>
-            }
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-@[template](/_contentTemplates/grid/editing.md#advanced-example-code)
-
-@[template](/_contentTemplates/grid/editing.md#crud-service-and-model)
-}
-````
+<demo metaUrl="client/grid/editing/inline-advanced/" height="500"></demo>
 
 ## See Also
 

@@ -59,54 +59,7 @@ You can customize the filter editors declaratively for some data types. It is po
 | `FilterEditorType` | `GridFilterEditorType` enum | `DateTime` columns | The component, which the Grid will render for filtering (DatePicker or DateTimePicker). |
 | `FilterEditorFormat` | `string` | `DateTime` and numeric columns | The `Format` of the filtering component. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`). |
 
-````RAZOR
-@* Using FilterEditorType and FilterEditorFormat parameters *@
-
-<TelerikGrid Data=@GridData 
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
-             Pageable="true" 
-             Height="400px">
-    <GridColumns>
-        <GridColumn Field="@nameof(Employee.Name)" />
-        <GridColumn Field="@nameof(Employee.AgeInYears)" Title="Age" />
-        <GridColumn Field="@nameof(Employee.HireDate)" 
-                    FilterEditorType="@GridFilterEditorType.DateTimePicker"
-                    FilterEditorFormat="yyyy-MM-dd HH:mm"
-                    Title="Hire Date" />
-        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<Employee> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 100; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                AgeInYears = rand.Next(10, 80),
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20)),
-                IsOnLeave = i % 3 == 0
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int? EmployeeId { get; set; }
-        public string Name { get; set; }
-        public int? AgeInYears { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool IsOnLeave { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/filter/editor-customization/" height="500"></demo>
 
 ## Advanced Examples
 

@@ -493,58 +493,7 @@ The `OnRowClick` event handler receives a `GridRowClickEventArgs` argument, whic
 
 >caption Using the Grid OnRowClick event
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             OnRowClick="@OnGridRowClick"
-             Navigable="true">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Id)" />
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.Price)" />
-        <GridColumn Field="@nameof(Product.Quantity)" />
-    </GridColumns>
-</TelerikGrid>
-
-<p style="margin-top:1em;font-size:1.5em">@( (MarkupString)RowEventLog )</p>
-
-@code {
-    private List<Product> GridData { get; set; } = new();
-
-    private string RowEventLog { get; set; } = "Click a Grid cell or hit Enter while it's focused...";
-
-    private void OnGridRowClick(GridRowClickEventArgs args)
-    {
-        var dataItem = (Product)args.Item;
-        string columnField = args.Field;
-        string userAction = args.EventArgs is KeyboardEventArgs ? "key press" : "click";
-
-        RowEventLog = $@"<code>OnRowClick</code> event fired for <strong>{userAction}</strong> on
-            row <strong>{dataItem.Id}</strong> and column <strong>{columnField}</strong>";
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 5; i++)
-        {
-            GridData.Add(new Product()
-                {
-                    Id = i,
-                    Name = $"Name {i}",
-                    Price = Random.Shared.Next(1, 100) * 1.23m,
-                    Quantity = Random.Shared.Next(0, 1000)
-                });
-            }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/events/row-click/" height="500"></demo>
 
 ## OnRowDoubleClick
 
@@ -556,56 +505,7 @@ The `OnRowDoubleClick` event handler receives a `GridRowClickEventArgs` argument
 
 >caption Using the Grid OnRowDoubleClick event
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             OnRowDoubleClick="@OnGridRowDoubleClick">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Id)" />
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.Price)" />
-        <GridColumn Field="@nameof(Product.Quantity)" />
-    </GridColumns>
-</TelerikGrid>
-
-<p style="margin-top:1em;font-size:1.5em">@( (MarkupString)RowEventLog )</p>
-
-@code {
-    private List<Product> GridData { get; set; } = new();
-
-    private string RowEventLog { get; set; } = "Double-click a Grid cell...";
-
-    private void OnGridRowDoubleClick(GridRowClickEventArgs args)
-    {
-        var dataItem = (Product)args.Item;
-        string columnField = args.Field;
-
-        RowEventLog = $@"<code>OnRowDoubleClick</code> event fired for
-            row <strong>{dataItem.Id}</strong> and column <strong>{columnField}</strong>";
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 5; i++)
-        {
-            GridData.Add(new Product()
-                {
-                    Id = i,
-                    Name = $"Name {i}",
-                    Price = Random.Shared.Next(1, 100) * 1.23m,
-                    Quantity = Random.Shared.Next(0, 1000)
-                });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/events/row-double-click/" height="500"></demo>
 
 ## OnRowContextMenu
 
@@ -617,58 +517,7 @@ The `OnRowContextMenu` event handler receives a `GridRowClickEventArgs` argument
 
 >caption Using the Grid OnRowContextMenu event
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             OnRowContextMenu="@OnGridRowContextMenu"
-             Navigable="true">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Id)" />
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.Price)" />
-        <GridColumn Field="@nameof(Product.Quantity)" />
-    </GridColumns>
-</TelerikGrid>
-
-<p style="margin-top:1em;font-size:1.5em">@( (MarkupString)RowEventLog )</p>
-
-@code {
-    private List<Product> GridData { get; set; } = new();
-
-    private string RowEventLog { get; set; } = "Right-click a Grid cell or hit the context menu key while it's focused...";
-
-    private void OnGridRowContextMenu(GridRowClickEventArgs args)
-    {
-        var dataItem = (Product)args.Item;
-        string columnField = args.Field;
-        string userAction = args.EventArgs is KeyboardEventArgs ? "key press" : "click";
-
-        RowEventLog = $@"<code>OnRowContextMenu</code> event fired for <strong>{userAction}</strong> on
-            row <strong>{dataItem.Id}</strong> and column <strong>{columnField}</strong>";
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 5; i++)
-        {
-            GridData.Add(new Product()
-                {
-                    Id = i,
-                    Name = $"Name {i}",
-                    Price = Random.Shared.Next(1, 100) * 1.23m,
-                    Quantity = Random.Shared.Next(0, 1000)
-                });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/events/row-context-menu/" height="500"></demo>
 
 ## OnRowExpand
 
@@ -680,85 +529,7 @@ The event handler receives a `GridRowExpandEventArgs` object which provides the 
 
 >caption Use the OnRowExpand event to load detailed data on demand. Another approach can be found on our [public github repository](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy).
 
-````RAZOR
-@* Load data on demand for the expanded detail row.  *@
-
-<TelerikGrid Data="salesTeamMembers"
-             OnRowExpand="@OnRowExpandHandler">
-    <DetailTemplate>
-        @{
-            var employee = context as MainModel;
-            <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
-                <GridColumns>
-                    <GridColumn Field="OrderId"></GridColumn>
-                    <GridColumn Field="DealSize"></GridColumn>
-                </GridColumns>
-            </TelerikGrid>
-        }
-    </DetailTemplate>
-    <GridColumns>
-        <GridColumn Field="Id"></GridColumn>
-        <GridColumn Field="Name"></GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    async Task OnRowExpandHandler(GridRowExpandEventArgs args)
-    {
-        MainModel item = args.Item as MainModel;
-
-        if(item.Orders == null)
-        {
-            item.Orders = await GenerateOrdersData(item.Id);
-        }
-    }
-
-    async Task<List<DetailsModel>> GenerateOrdersData(int id)
-    {
-        var data = new List<DetailsModel>()
-        {
-            new DetailsModel()
-            {
-                OrderId = id,
-                DealSize = id * 1234,
-            }
-        };
-
-        return await Task.FromResult(data);
-    }
-
-    List<MainModel> salesTeamMembers { get; set; }
-
-    protected override void OnInitialized()
-    {
-        salesTeamMembers = GenerateData();
-    }
-
-    private List<MainModel> GenerateData()
-    {
-        List<MainModel> data = new List<MainModel>();
-        for (int i = 1; i <= 5; i++)
-        {
-            MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            data.Add(mdl);
-        }
-        return data;
-    }
-
-    public class MainModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public List<DetailsModel> Orders { get; set; }
-    }
-
-    public class DetailsModel
-    {
-        public int OrderId { get; set; }
-        public double DealSize { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/events/row-expand/" height="500"></demo>
 
 ## OnRowCollapse
 
@@ -770,74 +541,7 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 >caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
 
-````RAZOR
-@* Get the Id of the collapsed row *@
-
-<TelerikGrid Data="salesTeamMembers"
-             OnRowCollapse="@OnRowCollapseHandler">
-    <DetailTemplate>
-        @{
-            var employee = context as MainModel;
-            <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
-                <GridColumns>
-                    <GridColumn Field="OrderId"></GridColumn>
-                    <GridColumn Field="DealSize"></GridColumn>
-                </GridColumns>
-            </TelerikGrid>
-        }
-    </DetailTemplate>
-    <GridColumns>
-        <GridColumn Field="Id"></GridColumn>
-        <GridColumn Field="Name"></GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-<br />
-
-@logger
-
-@code {
-    void OnRowCollapseHandler(GridRowCollapseEventArgs args)
-    {
-        MainModel item = args.Item as MainModel;
-        logger = $"The collapsed row is with id: {item.Id}";
-    }
-
-    public string logger { get; set; } = String.Empty;
-    List<MainModel> salesTeamMembers { get; set; }
-
-    protected override void OnInitialized()
-    {
-        salesTeamMembers = GenerateData();
-    }
-
-    private List<MainModel> GenerateData()
-    {
-        List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 5; i++)
-        {
-            MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
-            data.Add(mdl);
-        }
-        return data;
-    }
-
-    public class MainModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public List<DetailsModel> Orders { get; set; }
-    }
-
-    public class DetailsModel
-    {
-        public int OrderId { get; set; }
-        public double DealSize { get; set; }
-    }
-}
-
-````
+<demo metaUrl="client/grid/events/row-collapse/" height="500"></demo>
 
 ## OnRowRender
 
@@ -855,67 +559,7 @@ This event fires when each Grid row renders. This can happen in the following ca
 
 >caption Use the OnRowRender event to apply custom styles to Grid rows based on certain condition
 
-````RAZOR
-<style>
-    /* Conditional row background */
-    .k-grid .k-master-row.myCustomRowFormatting {
-        background-color: #fda;
-    }
-    /* Conditional row hover background */
-    .k-grid .k-table-tbody>.k-table-row.myCustomRowFormatting:hover {
-        background-color: #fb8;
-    }
-
-    /* Conditional row background for frozen columns */
-    .k-grid .k-master-row.myCustomRowFormatting .k-table-td.k-grid-content-sticky,
-    .k-grid .k-master-row.myCustomRowFormatting.k-table-alt-row .k-table-td.k-grid-content-sticky {
-        background-color: inherit;
-    }
-</style>
-
-<TelerikGrid Data="@GridData"
-             Height="360px"
-             OnRowRender="@OnRowRenderHandler"
-             Pageable="true"
-             SelectionMode="@GridSelectionMode.Multiple"
-             @bind-SelectedItems="@GridSelectedItems"
-             Width="450px">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" Locked="true" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Width="200px" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Width="200px" Title="Team" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private IEnumerable<SampleData> GridSelectedItems { get; set; } = new List<SampleData>();
-
-    private void OnRowRenderHandler(GridRowRenderEventArgs args)
-    {
-        var item = args.Item as SampleData;
-
-        // Conditional row Class
-        if (item.Id % 3 == 0)
-        {
-            args.Class = "myCustomRowFormatting";
-        }
-    }
-
-    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
-        {
-            Id = x,
-            Name = $"Name {x}",
-            Team = $"Team {x % 5 + 1}"
-        });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/events/row-render/" height="500"></demo>
 
 ## OnRowDrop
 
@@ -928,52 +572,11 @@ The event fires when the user pages the grid.
 
 >caption Handle the PageChanged event to know when the user changes the page
 
-````RAZOR
-@result
-
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="30"
-    PageChanged="@PageChangedHandler" Height="300px">
-    <GridColumns>
-        <GridColumn Field="ID"></GridColumn>
-        <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    string result { get; set; }
-    async Task PageChangedHandler(int currPage)
-    {
-        result = $"the user is now on page {currPage}. Note - the indexes are 1-based, not 0-based";
-    }
-
-    public IEnumerable<object> MyData = Enumerable.Range(1, 150).Select(x => new { ID = x, TheName = "name " + x });
-}
-````
+<demo metaUrl="client/grid/events/page-changed/" height="500"></demo>
 
 >caption One-way binding of the Page parameter should be used with the PageChanged event to keep the view-model in sync
 
-````RAZOR
-@* Set initial page index, and keep it updated with the grid state to prevent it from resetting the grid page index on re-renders *@
-
-<TelerikGrid Data="@MyData" Pageable="true" PageSize="30" Height="300px"
-             PageChanged="@PageChangedHandler" Page="@PageIndex">
-    <GridColumns>
-        <GridColumn Field="ID"></GridColumn>
-        <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    int PageIndex { get; set; } = 2;
-    async Task PageChangedHandler(int currPage)
-    {
-        PageIndex = currPage;
-        // when using one-way binding for the Page parametr, make sure to update it in the PageChanged event
-    }
-
-    public IEnumerable<object> MyData = Enumerable.Range(1, 150).Select(x => new { ID = x, TheName = "name " + x });
-}
-````
+<demo metaUrl="client/grid/events/page-binding/" height="500"></demo>
 
 ## PageSizeChanged
 
@@ -985,36 +588,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````RAZOR
-<TelerikGrid
-            Data="@MyData"
-            Pageable="true"
-            PageSize="@PageSize"
-            @bind-Page="@CurrentPage"
-            PageSizeChanged="@PageSizeChangedHandler">
-	<GridSettings>
-		<GridPagerSettings PageSizes="@PageSizes" />
-	</GridSettings>
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-
-	int PageSize { get; set; } = 15;
-	int CurrentPage { get; set; } = 3;
-
-	protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
-
-    void PageSizeChangedHandler(int newPageSize)
-    {
-        PageSize = newPageSize;
-    }
-}
-````
+<demo metaUrl="client/grid/events/page-size-changed/" height="500"></demo>
 
 ## SelectedItemsChanged
 
