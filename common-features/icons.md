@@ -5,6 +5,7 @@ description: Blazor Icons are customizable, scalable icons for Blazor apps that 
 slug: common-features-icons
 tags: telerik,blazor,icon,font,built-in
 published: True
+tag: updated
 previous_url: /common-features/font-icons
 position: 20
 ---
