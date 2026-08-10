@@ -175,9 +175,14 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Stack Layout" href="slug:stacklayout-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Window" href="slug:window-overview"></IntroTableAnchor>
     </IntroTableSection>
-    <IntroTableSection title="Interactivity and UX">
+    <IntroTableSection title="Conversational UI">
       <IntroTableAnchor title="AIPrompt" href="slug:aiprompt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Chat" href="slug:chat-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="InlineAIPrompt" href="slug:inlineaiprompt-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="LLM Kit" href="slug:llmkit-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="PromptBox" href="slug:promptbox-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Interactivity and UX">
       <IntroTableAnchor title="Chunk Progress Bar" href="slug:chunkprogressbar-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Loader" href="slug:loader-overview"></IntroTableAnchor>
       <IntroTableAnchor title="LoaderContainer" href="slug:loadercontainer-overview"></IntroTableAnchor>
