@@ -120,7 +120,7 @@ The Shape `Path` parameter allows you to manually [define a custom Shape form](#
 
     public int GetShapeWidth(DiagramShapeType shapeType)
     {
-        return shapeType == DiagramShapeType.Terminator ? 300 : 150;
+        return shapeType == DiagramShapeType.Terminator ? 240 : 150;
     }
 }
 ````
