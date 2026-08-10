@@ -31,7 +31,7 @@ You can set different [Avatar types](slug:avatar-types) and customize its [size]
 @*Basic Avatar configuration*@
 
 <TelerikAvatar Type="AvatarType.Text"
-               ThemeColor="@Telerik.Blazor.ThemeConstants.Avatar.ThemeColor.Info">
+               ThemeColor="@Telerik.Blazor.ThemeConstants.Avatar.ThemeColor.Primary">
     JD
 </TelerikAvatar>
 ````
