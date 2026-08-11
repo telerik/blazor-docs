@@ -76,32 +76,32 @@ The example below shows how to apply initial sorting, filtering and grouping.
 <demo metaUrl="client/grid/state-init/" height="500"></demo>
 
 ### OnStateChanged
-
-`OnStateChanged` fires when the user performs an action that changes the value of a [property in the Grid state](#information-in-the-grid-state). The event argument is of type `GridStateEventArgs<TItem>` and exposes these properties:
-
-| Property | Type | Description |
-| --- | --- | --- |
-| `PropertyName` | `string` | Information about what changed in the Grid state. The possible values match the [property names of the `GridState` object](#information-in-the-grid-state). @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values) |
-| `GridState` | `GridState<TItem>` | The current (up-to-date) Grid state object. |
-
-Here is some additional information about certain `PropertyName` values:
-
-* `EditItem` is used when the user starts editing an existing item.
-* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It's [not applicable for `Incell` editing](slug:grid-editing-incell#events).
-* `OriginalEditItem` is used when the user exits edit or insert mode via save or cancel.
-* `ColumnStates` is used for several column actions such as hiding, showing, locking, reordering and resizing.
-
->tip Some user actions will trigger two `OnStateChanged` events with a different `PropertyName` each time. These include filtering, searching and grouping. For example, filtering resets the current page to 1. First, the event will fire with `PropertyName` equal to `"FilterDescriptors"`, and then `PropertyName` will be `"Page"`. However, the `GridState` property of the event argument will provide correct information about the overall Grid state in both event handler executions.
-
-> We recommend using an `async Task` handler for the `OnStateChanged` event, in order to reduce re-rendering and avoid blocking UI updates if the handler will wait for a service to save the Grid state somewhere.
-
-To observe the changes in the Grid state more easily, copy and run the following example in a local app and at full screen.
-
-Find out how to [get the applied filtering, sorting and grouping criteria](slug:common-features-descriptors).
-
->caption Using Grid OnStateChanged
-
 <demo metaUrl="client/grid/state-changed/" height="700"></demo>
+        var rnd = new Random();
+
+        for (int i = 1; i <= 12; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Product {i}",
+                Category = $"Category {i % 4 + 1}",
+                Stock = rnd.Next(0, 100),
+                Discontinued = i % 3 == 0
+            });
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
+        public int Stock { get; set; }
+        public bool Discontinued { get; set; }
+    }
+}
+````
 
 ## Methods
 
