@@ -153,8 +153,8 @@ excluded-files: ["**/src-a11y/**/*"]
 liquid-output-delimiter-left: "{{"
 liquid-output-delimiter-right: "}}"
 liquid:
-  uiForBlazorLatestVersion: "14.1.0"
-  themesVersion: "14.3.0"
+  uiForBlazorLatestVersion: "15.0.0"
+  themesVersion: "14.5.0"
 
 ai-chat-prompt-suggestions:
   - "How to set up my Telerik license key?"
