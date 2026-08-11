@@ -20,7 +20,7 @@ To use the ChainOfThought component:
 
 1. Add the `<TelerikChainOfThought>` tag.
 1. Set the `Data` parameter to a `List<TItem>`.
-1. Define a `<ThoughtTemplate>` with a `Context` parameter to render each step.
+1. Define a `<ItemTemplate>` with a `Context` parameter to render each step.
 1. (optional) Set `Label` and `SecondaryLabel` for the header text.
 1. (optional) Set `Expandable` and `Expanded` to control collapsibility.
 1. (optional) Set `Completed` to mark the block as finished.
