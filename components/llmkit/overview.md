@@ -24,7 +24,7 @@ The Telerik UI for Blazor LLM Kit is a collection of purpose-built components fo
 
 | Component | Description |
 | --- | --- |
-| [ChainOfThought](slug:llmkit-chain-of-thought) | Renders a sequential list of agent reasoning steps with icons, connectors, and optional chip tags. Use it to visualize how the agent searches for tools, evaluates options, and arrives at a decision. |
+| [ChainOfThought](slug:llmkit-chain-of-thought) | Renders a sequential list of agent analysis steps with icons, connectors, and optional chip tags. Use it to visualize how the agent searches for tools, evaluates options, and arrives at a decision. |
 | [Checkpoint](slug:llmkit-checkpoint) | Marks a recoverable point in an agent conversation. Lets users restart the workflow from that point without losing context. |
 | [Citation](slug:llmkit-citation) | Displays inline source references attached to AI-generated content. Users can expand the citation to review the underlying sources. |
 | [Reasoning](slug:llmkit-reasoning) | Renders a collapsible block of agent inner monologue or scratchpad content. Use it to expose the agent's raw thinking process. |
