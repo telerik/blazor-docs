@@ -26,7 +26,8 @@ To use the Citation component:
 
 ````RAZOR
 <p>
-    Together the top five customers account for $465,200 — approximately 67% of total quarterly revenue.<br />
+    Together the top five customers account for $465,200 — approximately 67% of total quarterly revenue.
+    <br />
     <TelerikCitation Data="@Sources" Label="acme-corp.com" />
 </p>
 
