@@ -44,7 +44,7 @@ To use the Checkpoint component:
 
     private void OnCheckpointClick()
     {
-        CheckpointState = CheckpointState.Saved;
+        CheckpointState = CheckpointState.Restore;
     }
 }
 ````

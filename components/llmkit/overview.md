@@ -112,7 +112,7 @@ The following example demonstrates all LLM Kit components together. It shows a c
 
     private void OnCheckpointClick()
     {
-        CheckpointState = CheckpointState.Saved;
+        CheckpointState = CheckpointState.Restore;
     }
 
     public class ThoughtStep
