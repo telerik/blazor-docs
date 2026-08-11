@@ -19,6 +19,10 @@ When the Template is setup the list of columns, rendered by default, would not b
 
 <demo metaUrl="client/grid/templates-column-chooser/" height="600"></demo>
 
+>caption The result from the code snippet above
+
+![templated column chooser example](images/templates-column-chooser-example.png)
+
 ## See Also
 
 * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)

@@ -30,7 +30,7 @@ The Grid component can page the entire data source automatically. Alternatively,
 
 >caption Enable paging in Telerik Grid
 
-<demo metaUrl="client/grid/paging/" height="600"></demo>
+<demo metaUrl="client/grid/paging/" height="550"></demo>
 
 >note If you want to bind the page index to a variable, you must use two-way binding - the `@bind-Page="@MyPageIndexVariable"` syntax. If you only use one-way binding -  `Page="@MyPageIndexVariable"` - the grid will reset to the value of that parameter on every re-render. If you choose to use one-way binding, you must update the field value in the [`PageChanged` event](slug:grid-events#pagechanged) to avoid that.
 
@@ -38,7 +38,7 @@ Here is one way to implement a page size choice that puts all records on one pag
 
 >caption Bind Page Size to a variable
 
-<demo metaUrl="client/grid/paging-page-size/" height="600"></demo>
+<demo metaUrl="client/grid/paging-page-size/" height="500"></demo>
 
 ## Events
 
@@ -54,7 +54,7 @@ In addition to `Page` and `PageSize`, the Grid provides advanced pager configura
 
 @[template](/_contentTemplates/common/pager-settings.md#pager-settings)
 
-<demo metaUrl="client/grid/paging-settings/" height="600"></demo>
+<demo metaUrl="client/grid/paging-settings/" height="500"></demo>
 
 ## More Examples
 

@@ -38,7 +38,11 @@ You can also use [aggregates](slug:grid-aggregates) for the grouped data.
 
 >caption Enable grouping in Telerik Grid
 
-<demo metaUrl="client/grid/grouping/" height="600"></demo>
+<demo metaUrl="client/grid/grouping/" height="500"></demo>
+
+>caption How grouping works in the Telerik grid
+
+![Blazor Grid Grouping Overview](images/grouping-overview.gif)
 
 ## Aggregates
 
@@ -69,7 +73,7 @@ You can group the Grid from your code through the [Grid state](slug:grid-state).
 
 The Grid provides grouping configuration options via the [`GridGroupableSettings` tag](slug:Telerik.Blazor.Components.GridGroupableSettings), which is nested inside `GridSettings`.
 
-<demo metaUrl="client/grid/grouping-settings/" height="600"></demo>
+<demo metaUrl="client/grid/grouping-settings/" height="450"></demo>
 
 ## More Examples
 
@@ -80,9 +84,3 @@ The following articles and sample projects can be helpful when implementing grou
 * [Server Grouping](slug:components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 
 * [Static group that is always present](slug:grid-kb-static-group)
-
-## See Also
-
-* [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
-* [Grid Aggregates](slug:grid-aggregates)
-* [Blazor Grid](slug:grid-overview)
