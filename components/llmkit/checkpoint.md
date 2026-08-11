@@ -12,19 +12,21 @@ position: 2
 
 The Checkpoint component marks a recoverable point in an agent conversation. It lets users restart the workflow from that point without losing prior context. Use the component alongside AI-generated responses to give users a clear way to go back and try a different path.
 
-## Creating the Checkpoint
+## Creating Blazor Checkpoint
 
 To use the Checkpoint component:
 
 1. Add the `<TelerikCheckpoint>` tag.
 1. Set the `State` parameter to a `CheckpointState` value.
-1. Subscribe to the `StateChanged` event to handle the user action, for example resetting the workflow.
+1. Set `Visible="true"` to keep the checkpoint always visible.
+1. Subscribe to the `OnClick` event to handle the user action, for example resetting the workflow.
 
 >caption Checkpoint placed above an AI-generated response
 
 ````RAZOR
-<TelerikCheckpoint State="CheckpointState.StartOver"
-                   StateChanged="@OnStartOver" />
+<TelerikCheckpoint State="@CheckpointState"
+                   Visible="true"
+                   OnClick="@OnCheckpointClick" />
 
 <div>
     <p>Your top 5 customers by revenue in Q1 2025:</p>
@@ -38,7 +40,12 @@ To use the Checkpoint component:
 </div>
 
 @code {
-    private void OnStartOver(CheckpointState _) { }
+    private CheckpointState CheckpointState { get; set; } = CheckpointState.StartOver;
+
+    private void OnCheckpointClick()
+    {
+        CheckpointState = CheckpointState.Saved;
+    }
 }
 ````
 

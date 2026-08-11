@@ -12,13 +12,13 @@ position: 0
 
 The Telerik UI for Blazor LLM Kit is a collection of purpose-built components for building transparent, interactive, and enterprise-ready AI agent experiences. Designed to work alongside any chat or agentic interface, the kit brings visibility, control, and human oversight to AI-powered workflows. The kit provides ready-made building blocks for:
 
-* visualizing agent execution
-* multi-step workflows
-* tool invocations
-* reasoning and decision points
-* inline citations
-* approvals
-* conversation checkpoints
+* Visualizing agent execution
+* Multi-step workflows
+* Tool invocations
+* Reasoning and decision points
+* Inline citations
+* Approvals
+* Conversation checkpoints
 
 ## LLM Kit Components
 
@@ -67,7 +67,7 @@ The following example demonstrates all LLM Kit components together. It shows a c
                      Expanded="false"
                      Parameters="@ToolParameters" />
 
-    <TelerikCheckpoint State="@CheckpointState" OnClick="@OnCheckpointClick" />
+    <TelerikCheckpoint State="@CheckpointState" Visible="true" OnClick="@OnCheckpointClick" />
 
     <div>
         <p>Your top 5 customers by revenue in Q1 2025:</p>
@@ -110,7 +110,7 @@ The following example demonstrates all LLM Kit components together. It shows a c
 
     private void OnCheckpointClick()
     {
-        CheckpointState = CheckpointState.StartOver;
+        CheckpointState = CheckpointState.Saved;
     }
 
     public class ThoughtStep

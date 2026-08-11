@@ -14,7 +14,7 @@ The ToolCall component shows a tool invocation made by the agent, including the 
 
 Use the component when an agent requests access to an external system such as a database, API, or file store, and you want to give users visibility and control over that action.
 
-## Creating the ToolCall
+## Creating Blazor ToolCall
 
 To use the ToolCall component:
 
@@ -43,6 +43,31 @@ To use the ToolCall component:
         database = "analytics",
         query = "SELECT customer_name, SUM(revenue) AS total FROM orders WHERE quarter = 'Q1 2025' GROUP BY customer_name ORDER BY total DESC LIMIT 5"
     };
+}
+````
+
+>caption ToolCall awaiting user approval before execution
+
+````RAZOR
+<TelerikToolCall Label="send_email"
+                 State="@ToolState"
+                 ApprovalText="Send a summary email to the top 5 customers."
+                 Parameters="@ToolParameters"
+                 OnAction="@OnToolAction" />
+
+@code {
+    private ToolCallState ToolState { get; set; } = ToolCallState.AwaitingApproval;
+
+    private object ToolParameters { get; } = new
+    {
+        recipients = "top-5-customers",
+        subject = "Q1 2025 Revenue Summary"
+    };
+
+    private void OnToolAction(ToolCallAction action)
+    {
+        ToolState = action == ToolCallAction.Approve ? ToolCallState.Completed : ToolCallState.Rejected;
+    }
 }
 ````
 

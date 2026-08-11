@@ -14,7 +14,7 @@ The Citation component displays an inline source reference attached to AI-genera
 
 The component accepts a strongly typed data collection through the `Data` parameter and renders a clickable label that expands to show each source.
 
-## Creating the Citation
+## Creating Blazor Citation
 
 To use the Citation component:
 
@@ -26,7 +26,7 @@ To use the Citation component:
 
 ````RAZOR
 <p>
-    Together the top five customers account for $465,200 — approximately 67% of total quarterly revenue.
+    Together the top five customers account for $465,200 — approximately 67% of total quarterly revenue.<br />
     <TelerikCitation Data="@Sources" Label="acme-corp.com" />
 </p>
 

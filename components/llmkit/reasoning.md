@@ -14,7 +14,7 @@ The Reasoning component renders a collapsible block that exposes the agent's raw
 
 Content inside the Reasoning block streams in progressively as the agent thinks, and the block can be marked as completed once the reasoning phase finishes.
 
-## Creating the Reasoning Component
+## Creating Blazor Reasoning
 
 To use the Reasoning component:
 
