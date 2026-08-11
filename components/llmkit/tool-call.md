@@ -53,9 +53,12 @@ To use the ToolCall component:
                  State="@ToolState"
                  ApprovalText="Send a summary email to the top 5 customers."
                  Parameters="@ToolParameters"
-                 OnAction="@OnToolAction" />
+                 OnAction="@OnToolAction"
+                 Expandable="true"
+                 Expanded="@Expanded" />
 
 @code {
+    private bool Expanded { get; set; } = true;
     private ToolCallState ToolState { get; set; } = ToolCallState.AwaitingApproval;
 
     private object ToolParameters { get; } = new
