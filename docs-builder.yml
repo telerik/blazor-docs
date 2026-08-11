@@ -273,6 +273,8 @@ meta:
     position: 10
   "*map":
     title: Map
+  "*components/llmkit":
+    title: LLM Kit
   "*loadercontainer":
     title: LoaderContainer
   "*loader":
