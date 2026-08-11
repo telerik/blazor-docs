@@ -62,7 +62,7 @@ The following example demonstrates all LLM Kit components together. It shows a c
 
     <TelerikToolCall Label="query_database"
                      SecondaryLabel="analytics · db · 120ms"
-                     State="ToolCallState.Completed"
+                     State="@ToolCallState.Completed"
                      Expandable="true"
                      Expanded="false"
                      Parameters="@ToolParameters" />
