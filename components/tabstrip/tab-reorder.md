@@ -6,7 +6,6 @@ slug: tabstrip-reordering-pinning
 tags: telerik,blazor,tabstrip,reorder,drag,drop
 published: True
 position: 40
-tag: new
 components: ["tabstrip"]
 ---
 

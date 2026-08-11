@@ -6,7 +6,6 @@ slug: tabstrip-scrolling-overflow
 tags: telerik,blazor,tab,strip,tabstrip,scroll,overflow,tabs
 published: True
 position: 20
-tag: updated
 components: ["tabstrip"]
 ---
 

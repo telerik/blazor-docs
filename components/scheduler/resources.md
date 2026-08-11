@@ -4,6 +4,7 @@ page_title: Scheduler - Resources
 description: Resources in the Scheduler for Blazor.
 slug: scheduler-resources
 tags: telerik,blazor,scheduler,resources
+tag: updated
 published: true
 position: 30
 components: ["scheduler"]

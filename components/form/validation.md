@@ -4,6 +4,7 @@ page_title: Form for Blazor - Validation
 description: Form for Blazor - Validation.
 slug: form-validation
 tags: telerik,blazor,form,edit,form,validation
+tag: updated
 published: True
 position: 5
 components: ["form"]

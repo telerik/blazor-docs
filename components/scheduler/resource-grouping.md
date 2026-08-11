@@ -4,6 +4,7 @@ page_title: Scheduler - Resource Grouping
 description: Group Resources in the Scheduler for Blazor.
 slug: scheduler-resource-grouping
 tags: telerik,blazor,scheduler,resource,grouping
+tag: updated
 published: true
 position: 33
 components: ["scheduler"]

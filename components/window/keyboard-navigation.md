@@ -5,7 +5,6 @@ description: Find the default keyboard shortcuts of the Window for Blazor. Learn
 slug: window-keyboard-navigation
 tags: telerik,blazor,window,keyboard
 published: True
-tag: new
 position: 19
 components: ["window"]
 ---

@@ -21,6 +21,7 @@ By default, the [Blazor Scheduler](slug:scheduler-overview) displays all its bui
 
 | Tool Tag | Description |
 | --- | --- |
+| `SchedulerToolBarNewEventTool` | A button that [opens the Scheduler edit form to add a new appointment](slug:scheduler-appointments-edit). |
 | `SchedulerToolBarNavigationTool` | A group of navigation buttons. They can navigate to the present day, to the previous period, and to the next period depending on the [Scheduler view](slug:scheduler-views-overview). |
 | `SchedulerToolBarCalendarTool` | A button that shows the start and the end of the current period. Upon click, you can select a new period via a calendar popup. |
 | `SchedulerToolBarViewsTool` | A button group or a dropdown (depending on the screen size) with all available views. |
@@ -47,6 +48,7 @@ Add a `<SchedulerToolBar>` tag inside `<TelerikScheduler>` to configure the tool
                   @bind-Date="@SchedulerStartDate"
                   Height="600px">
     <SchedulerToolBar>
+        <SchedulerToolBarNewEventTool />
         <SchedulerToolBarViewsTool />
         <SchedulerToolBarNavigationTool />
         <SchedulerToolBarSpacerTool />

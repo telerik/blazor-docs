@@ -7,7 +7,6 @@ tags: telerik,blazor,grid,grouping
 published: True
 previous_url: /components/grid/grouping
 position: 0
-tag: updated
 components: ["grid"]
 ---
 

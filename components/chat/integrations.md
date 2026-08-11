@@ -6,7 +6,6 @@ slug: chat-integrations
 tags: telerik,blazor,chat,integrations,ai,llm,chatbot
 published: True
 position: 7
-tag: updated
 components: ["chat"]
 ---
 

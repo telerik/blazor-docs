@@ -6,7 +6,6 @@ slug: chat-templates
 keywords: blazor, telerik, chat, templates, customization
 published: True
 position: 8
-tag: updated
 components: ["chat"]
 ---
 

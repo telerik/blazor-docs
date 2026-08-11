@@ -44,6 +44,7 @@ The following table lists the default property names and explains how the Schedu
 | `Start` | `DateTime` | The date and time at which the appointment starts. |
 | `End` | `DateTime` | The date and time at which the appointment ends. |
 | `IsAllDay` | `bool` | Defines whether the appointment shows in the all-day slot of the applicable view. Such events are not rendered in a specific time interval (slot), but are always shown when their day is visible. |
+| `ReadOnly` | `bool` | Defines whether the appointment disables selection, dragging, resizing, and editing. Read-only appointments display in different color. |
 | `RecurrenceRule` | `string` | The recurrence rule for a recurring appointment according to the [RFC5545 standard](https://tools.ietf.org/html/rfc5545#section-3.3.10). Present only for a recurring appointment, but not for an exception from it. In the data source, there is only one item that determines a recurring event, and the Scheduler expands it to render the necessary number of appointments in the UI. |
 | `RecurrenceExceptions` | `List<DateTime>` | A list of exceptions for a recurring appointment. It tells the Scheduler when to skip rendering a recurring appointment because its instance is explicitly changed or removed (deleted), and so it is an exception to the recurrence rule. **Also see the note below.** |
 | `RecurrenceId` | `object` | The unique identifier of the recurring appointment to which the current appointment is an exception. Must be of the same type as the `Id` field (e.g., a `Guid`). Present only for an exception from a recurrence, but not for the recurring appointment itself. |
@@ -91,7 +92,8 @@ The Scheduler edit form works with an instance that that the scheduler creates f
                 Title = "Board meeting",
                 Description = "Q4 is coming to a close, review the details.",
                 Start = new DateTime(2019, 12, 5, 10, 00, 0),
-                End = new DateTime(2019, 12, 5, 11, 30, 0)
+                End = new DateTime(2019, 12, 5, 11, 30, 0),
+                ReadOnly = true
             },
 
             new SchedulerAppointment
@@ -116,7 +118,8 @@ The Scheduler edit form works with an instance that that the scheduler creates f
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
                 Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 05)
+                End = new DateTime(2019, 12, 05),
+                ReadOnly = true
             },
 
             new SchedulerAppointment
@@ -137,6 +140,7 @@ The Scheduler edit form works with an instance that that the scheduler creates f
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
+        public bool ReadOnly { get; set; }
         public string RecurrenceRule { get; set; }
         public List<DateTime> RecurrenceExceptions { get; set; }
         public Guid? RecurrenceId { get; set; }
@@ -163,6 +167,7 @@ The Scheduler edit form works with an instance that that the scheduler creates f
                   EndField="@(nameof(SchedulerAppointment.EndTime))"
                   IsAllDayField="@(nameof(SchedulerAppointment.AllDayAppt))"
                   IdField="@(nameof(SchedulerAppointment.ID))"
+                  ReadOnlyField="@(nameof(SchedulerAppointment.Restricted))"
                   RecurrenceRuleField="@(nameof(SchedulerAppointment.RecurrenceString))"
                   RecurrenceExceptionsField="@(nameof(SchedulerAppointment.RecurrenceApptExceptions))"
                   RecurrenceIdField="@(nameof(SchedulerAppointment.RecurrenceAppointmentId))"
@@ -186,7 +191,8 @@ The Scheduler edit form works with an instance that that the scheduler creates f
                 AppointmentTitle = "Board meeting",
                 ApptDescription = "Q4 is coming to a close, review the details.",
                 StartTime = new DateTime(2019, 12, 5, 10, 00, 0),
-                EndTime = new DateTime(2019, 12, 5, 11, 30, 0)
+                EndTime = new DateTime(2019, 12, 5, 11, 30, 0),
+                Restricted = true
             },
 
             new SchedulerAppointment
@@ -211,7 +217,8 @@ The Scheduler edit form works with an instance that that the scheduler creates f
                 ApptDescription = "An unforgettable holiday!",
                 AllDayAppt = true,
                 StartTime = new DateTime(2019, 11, 27),
-                EndTime = new DateTime(2019, 12, 05)
+                EndTime = new DateTime(2019, 12, 05),
+                Restricted = true
             },
 
             new SchedulerAppointment
@@ -232,6 +239,7 @@ The Scheduler edit form works with an instance that that the scheduler creates f
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public bool AllDayAppt { get; set; }
+        public bool Restricted { get; set; }
         public string RecurrenceString { get; set; }
         public List<DateTime> RecurrenceApptExceptions { get; set; }
         public Guid? RecurrenceAppointmentId { get; set; }

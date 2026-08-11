@@ -5,7 +5,6 @@ description: Find the default keyboard shortcuts of the Wizard for Blazor. Learn
 slug: wizard-keyboard-navigation
 tags: telerik,blazor,wizard,keyboard
 published: True
-tag: new
 position: 90
 components: ["wizard"]
 ---
