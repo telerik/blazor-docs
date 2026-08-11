@@ -30,15 +30,18 @@ To use the Reasoning component:
 ````RAZOR
 <TelerikReasoning Label="Thought"
                   SecondaryLabel="for 5s"
-                  Icon="@SvgIcon.Brain"
                   Expandable="true"
-                  Expanded="true"
+                  @bind-Expanded="@IsExpanded"
                   Completed="true">
     <ContentTemplate>
         <p>I need to sum revenue per customer for Q1 2025 and return the top 5 results ordered descending.</p>
         <p>I'll use query_database with a GROUP BY on customer_name and limit to 5 results.</p>
     </ContentTemplate>
 </TelerikReasoning>
+
+@code {
+    private bool IsExpanded { get; set; } = true;
+}
 ````
 
 ## Reasoning API

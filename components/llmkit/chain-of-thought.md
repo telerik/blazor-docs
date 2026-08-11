@@ -30,31 +30,30 @@ To use the ChainOfThought component:
 
 ````RAZOR
 <TelerikChainOfThought TItem="ResearchStep"
+                       Data="@Steps"
                        Label="Thinking through request"
-                       Icon="@SvgIcon.Brain"
                        Expandable="true"
-                       Expanded="true"
-                       Data="@Steps">
-    <ThoughtTemplate Context="step">
+                       @bind-Expanded="@IsExpanded">
+    <ItemTemplate Context="step">
         <div style="display: flex; align-items: flex-start; gap: 8px; padding: 2px 0;">
-            <TelerikSvgIcon Icon="@step.Icon" Size="@ThemeConstants.SvgIcon.Size.Small" />
             <span>@step.Text</span>
         </div>
-    </ThoughtTemplate>
+    </ItemTemplate>
 </TelerikChainOfThought>
 
 @code {
+    private bool IsExpanded { get; set; } = true;
+
     private List<ResearchStep> Steps { get; set; } = new()
     {
-        new ResearchStep { Icon = SvgIcon.Search, Text = "Searched for analytics tools" },
-        new ResearchStep { Icon = SvgIcon.DataSql, Text = "Found query_database — supports GROUP BY, date filters, and aggregation" },
-        new ResearchStep { Icon = SvgIcon.Search, Text = "Searching for related work..." },
-        new ResearchStep { Icon = SvgIcon.DataSql, Text = "Found 3 related queries — revenue by month, top customers by order value, and invoice reconciliation report" }
+        new ResearchStep { Text = "Searched for analytics tools" },
+        new ResearchStep { Text = "Found query_database — supports GROUP BY, date filters, and aggregation" },
+        new ResearchStep { Text = "Searching for related work..." },
+        new ResearchStep { Text = "Found 3 related queries — revenue by month, top customers by order value, and invoice reconciliation report" }
     };
 
     public class ResearchStep
     {
-        public ISvgIcon Icon { get; set; } = SvgIcon.Search;
         public string Text { get; set; } = string.Empty;
     }
 }

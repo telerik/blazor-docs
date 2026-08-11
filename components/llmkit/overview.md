@@ -10,7 +10,7 @@ position: 0
 
 # Blazor LLM Kit Overview
 
-The Telerik UI for Blazor LLM Kit is a collection of purpose-built components for building transparent, interactive, and enterprise-ready AI agent experiences.
+The Telerik UI for Blazor LLM Kit is a collection of purpose-built components to create transparent, interactive, and enterprise-ready AI agent experiences.
 
 It provides ready-made building blocks for visualizing agent execution, multi-step workflows, tool invocations, reasoning and decision points, inline citations, approvals, and conversation checkpoints. Designed to work alongside any chat or agentic interface, the kit brings visibility, control, and human oversight to AI-powered workflows.
 
@@ -21,8 +21,8 @@ It provides ready-made building blocks for visualizing agent execution, multi-st
 | [ChainOfThought](slug:llmkit-chain-of-thought) | Renders a sequential list of agent reasoning steps with icons, connectors, and optional chip tags. Use it to visualize how the agent searches for tools, evaluates options, and arrives at a decision. |
 | [Checkpoint](slug:llmkit-checkpoint) | Marks a recoverable point in an agent conversation. Lets users restart the workflow from that point without losing context. |
 | [Citation](slug:llmkit-citation) | Displays inline source references attached to AI-generated content. Users can expand the citation to review the underlying sources. |
-| [ToolCall](slug:llmkit-tool-call) | Shows a tool invocation made by the agent, including its parameters and result. Supports an approval flow that lets users approve or reject the tool execution before it runs. |
 | [Reasoning](slug:llmkit-reasoning) | Renders a collapsible block of agent inner monologue or scratchpad content. Use it to expose the agent's raw thinking process. |
+| [ToolCall](slug:llmkit-tool-call) | Shows a tool invocation made by the agent, including its parameters and result. Supports an approval flow that lets users approve or reject the tool execution before it runs. |
 
 ## Example
 
@@ -31,11 +31,10 @@ The following example demonstrates all LLM Kit components together. It shows a c
 ````RAZOR
 <div style="max-width: 680px; display: flex; flex-direction: column; gap: 12px; padding-top: 8px;">
 
-    <TelerikReasoning Label="Thought"
-                      SecondaryLabel="for 5s"
-                      Icon="@SvgIcon.Brain"
+    <TelerikReasoning Label="Thinking"
+                      SecondaryLabel="for 8s"
                       Expandable="true"
-                      Expanded="false"
+                      @bind-Expanded="@ReasoningExpanded"
                       Completed="true">
         <ContentTemplate>
             <p>I need to sum revenue per customer for Q1 2025 and return the top 5 results ordered descending.</p>
@@ -43,19 +42,17 @@ The following example demonstrates all LLM Kit components together. It shows a c
     </TelerikReasoning>
 
     <TelerikChainOfThought TItem="CotStep"
+                           Data="@Steps"
                            Label="Thought"
                            SecondaryLabel="for 3s"
-                           Icon="@SvgIcon.Brain"
                            Expandable="true"
-                           Expanded="false"
-                           Completed="true"
-                           Data="@Steps">
-        <ThoughtTemplate Context="step">
+                           @bind-Expanded="@ChainExpanded"
+                           Completed="true">
+        <ItemTemplate Context="step">
             <div style="display: flex; align-items: flex-start; gap: 8px; padding: 2px 0;">
-                <TelerikSvgIcon Icon="@step.Icon" Size="@ThemeConstants.SvgIcon.Size.Small" />
                 <span>@step.Text</span>
             </div>
-        </ThoughtTemplate>
+        </ItemTemplate>
     </TelerikChainOfThought>
 
     <TelerikToolCall Label="query_database"
@@ -65,8 +62,7 @@ The following example demonstrates all LLM Kit components together. It shows a c
                      Expanded="false"
                      Parameters="@ToolParameters" />
 
-    <TelerikCheckpoint State="CheckpointState.StartOver"
-                       StateChanged="@OnStartOver" />
+    <TelerikCheckpoint @bind-State="@CheckpointState" />
 
     <div>
         <p>Your top 5 customers by revenue in Q1 2025:</p>
@@ -78,17 +74,21 @@ The following example demonstrates all LLM Kit components together. It shows a c
             <li>Brightpath Co — $61,100</li>
         </ol>
         <p>Together they account for $465,200 — approximately 67% of total quarterly revenue.
-            <TelerikCitation Data="@Sources" TItem="RevenueSource" Label="acme-corp.com" />
+            <TelerikCitation Data="@Sources" Label="acme-corp.com" />
         </p>
     </div>
 
 </div>
 
 @code {
+    private bool ReasoningExpanded { get; set; } = false;
+    private bool ChainExpanded { get; set; } = false;
+    private CheckpointState CheckpointState { get; set; } = CheckpointState.StartOver;
+
     private List<CotStep> Steps { get; set; } = new()
     {
-        new CotStep { Icon = SvgIcon.Search, Text = "Searched for analytics tools" },
-        new CotStep { Icon = SvgIcon.DataSql, Text = "Found query_database — supports GROUP BY and aggregation" }
+        new CotStep { Text = "Searched for analytics tools" },
+        new CotStep { Text = "Found query_database — supports GROUP BY and aggregation" }
     };
 
     private object ToolParameters { get; } = new
@@ -103,11 +103,8 @@ The following example demonstrates all LLM Kit components together. It shows a c
         new RevenueSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
     };
 
-    private void OnStartOver(CheckpointState _) { }
-
     public class CotStep
     {
-        public ISvgIcon Icon { get; set; } = SvgIcon.Search;
         public string Text { get; set; } = string.Empty;
     }
 
