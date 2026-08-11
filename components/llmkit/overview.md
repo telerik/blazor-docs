@@ -68,7 +68,7 @@ The following example demonstrates all LLM Kit components together. It shows a c
                      Expanded="false"
                      Parameters="@ToolParameters" />
 
-    <TelerikCheckpoint @bind-State="@CheckpointState" />
+    <TelerikCheckpoint State="@CheckpointState" OnClick="@OnCheckpointClick" />
 
     <div>
         <p>Your top 5 customers by revenue in Q1 2025:</p>
@@ -91,10 +91,10 @@ The following example demonstrates all LLM Kit components together. It shows a c
     private bool ChainExpanded { get; set; } = false;
     private CheckpointState CheckpointState { get; set; } = CheckpointState.StartOver;
 
-    private List<CotStep> Steps { get; set; } = new()
+    private List<ThoughtStep> Steps { get; set; } = new()
     {
-        new CotStep { Text = "Searched for analytics tools" },
-        new CotStep { Text = "Found query_database — supports GROUP BY and aggregation" }
+        new ThoughtStep { Text = "Searched for analytics tools" },
+        new ThoughtStep { Text = "Found query_database — supports GROUP BY and aggregation" }
     };
 
     private object ToolParameters { get; } = new
@@ -103,18 +103,23 @@ The following example demonstrates all LLM Kit components together. It shows a c
         query = "SELECT customer_name, SUM(revenue) AS total FROM orders WHERE quarter = 'Q1 2025' GROUP BY customer_name ORDER BY total DESC LIMIT 5"
     };
 
-    private List<RevenueSource> Sources { get; } = new()
+    private List<CitationSource> Sources { get; } = new()
     {
-        new RevenueSource { Title = "Acme Corp Q1 2025 Revenue Report", Url = "https://acme-corp.com/reports/q1-2025" },
-        new RevenueSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
+        new CitationSource { Title = "Acme Corp Q1 2025 Revenue Report", Url = "https://acme-corp.com/reports/q1-2025" },
+        new CitationSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
     };
 
-    public class CotStep
+    private void OnCheckpointClick()
+    {
+        CheckpointState = CheckpointState.StartOver;
+    }
+
+    public class ThoughtStep
     {
         public string Text { get; set; } = string.Empty;
     }
 
-    public class RevenueSource
+    public class CitationSource
     {
         public string Title { get; set; } = string.Empty;
         public string Url { get; set; } = string.Empty;

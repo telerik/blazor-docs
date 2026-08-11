@@ -28,17 +28,17 @@ To use the Citation component:
 ````RAZOR
 <p>
     Together the top five customers account for $465,200 — approximately 67% of total quarterly revenue.
-    <TelerikCitation Data="@Sources" TItem="RevenueSource" Label="acme-corp.com" />
+    <TelerikCitation Data="@Sources" TItem="CitationSource" Label="acme-corp.com" />
 </p>
 
 @code {
-    private List<RevenueSource> Sources { get; set; } = new()
+    private List<CitationSource> Sources { get; set; } = new()
     {
-        new RevenueSource { Title = "Acme Corp Q1 2025 Revenue Report", Url = "https://acme-corp.com/reports/q1-2025" },
-        new RevenueSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
+        new CitationSource { Title = "Acme Corp Q1 2025 Revenue Report", Url = "https://acme-corp.com/reports/q1-2025" },
+        new CitationSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
     };
 
-    public class RevenueSource
+    public class CitationSource
     {
         public string Title { get; set; } = string.Empty;
         public string Url { get; set; } = string.Empty;
