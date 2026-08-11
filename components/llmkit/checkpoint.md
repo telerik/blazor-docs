@@ -18,8 +18,8 @@ To use the Checkpoint component:
 
 1. Add the `<TelerikCheckpoint>` tag.
 1. Set the `State` parameter to a `CheckpointState` value.
-1. Set `Visible="true"` to keep the checkpoint always visible.
 1. Subscribe to the `OnClick` event to handle the user action, for example resetting the workflow.
+1. (optional) Set `Visible="true"` to keep the checkpoint always visible. Otherwise, it appears on hover.
 
 >caption Checkpoint placed above an AI-generated response
 
