@@ -19,7 +19,6 @@ The component accepts a strongly typed data collection through the `Data` parame
 To use the ChainOfThought component:
 
 1. Add the `<TelerikChainOfThought>` tag.
-1. Set `TItem` to your step model type.
 1. Set the `Data` parameter to a `List<TItem>`.
 1. Define a `<ThoughtTemplate>` with a `Context` parameter to render each step.
 1. (optional) Set `Label` and `SecondaryLabel` for the header text.
@@ -29,8 +28,7 @@ To use the ChainOfThought component:
 >caption ChainOfThought showing agent tool discovery steps
 
 ````RAZOR
-<TelerikChainOfThought TItem="ResearchStep"
-                       Data="@Steps"
+<TelerikChainOfThought Data="@Steps"
                        Label="Thinking through request"
                        Expandable="true"
                        @bind-Expanded="@IsExpanded">
