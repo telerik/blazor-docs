@@ -10,9 +10,15 @@ position: 0
 
 # Blazor LLM Kit Overview
 
-The Telerik UI for Blazor LLM Kit is a collection of purpose-built components to create transparent, interactive, and enterprise-ready AI agent experiences.
+The Telerik UI for Blazor LLM Kit is a collection of purpose-built components for building transparent, interactive, and enterprise-ready AI agent experiences. Designed to work alongside any chat or agentic interface, the kit brings visibility, control, and human oversight to AI-powered workflows. The kit provides ready-made building blocks for:
 
-It provides ready-made building blocks for visualizing agent execution, multi-step workflows, tool invocations, reasoning and decision points, inline citations, approvals, and conversation checkpoints. Designed to work alongside any chat or agentic interface, the kit brings visibility, control, and human oversight to AI-powered workflows.
+* visualizing agent execution
+* multi-step workflows
+* tool invocations
+* reasoning and decision points
+* inline citations
+* approvals
+* conversation checkpoints
 
 ## LLM Kit Components
 
