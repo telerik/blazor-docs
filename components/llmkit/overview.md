@@ -67,7 +67,9 @@ The following example demonstrates all LLM Kit components together. It shows a c
                      Expanded="false"
                      Parameters="@ToolParameters" />
 
-    <TelerikCheckpoint State="@CheckpointState" Visible="true" OnClick="@OnCheckpointClick" />
+    <TelerikCheckpoint State="@CheckpointState"
+                       OnClick="@OnCheckpointClick"
+                       Visible="true" />
 
     <div>
         <p>Your top 5 customers by revenue in Q1 2025:</p>
