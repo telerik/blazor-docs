@@ -66,7 +66,7 @@ To use the ToolCall component:
 
     private void OnToolAction(ToolCallAction action)
     {
-        ToolState = action == ToolCallAction.Approve ? ToolCallState.Completed : ToolCallState.Rejected;
+        ToolState = action == ToolCallAction.Approve ? ToolCallState.Completed : ToolCallState.Error;
     }
 }
 ````
