@@ -205,7 +205,7 @@ You can invoke the specialized assistants individually using their dedicated han
 | Icon Assistant | `#telerik_icon_assistant` | Searches and retrieves icons from the [Progress Design System Iconography](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) by name, category, or keywords. Use this assistant when you need to find and add specific icons for your UI components or design elements. |
 | Accessibility Assistant | `#telerik_accessibility_assistant` | Provides WCAG 2.2 Level AA guidance and component-specific accessibility implementation details. Use this assistant to ensure your UI meets compliance standards, implement correct ARIA roles, validate color contrast, and retrieve accessibility API references for Telerik UI for Blazor components. |
 | Validator Assistant | n/a | Not designed to be invoked manually. It is called automatically by the UI Generator Orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards. |
-| Upgrade Assistant | `#telerik_upgrade_assistant` | It helps migrate existing Blazor applications to newer versions of Telerik UI for Blazor by automating detection and fixing of breaking API changes, NuGet version bumps, and CDN reference updates. |
+| Upgrade Assistant | `#telerik_upgrade_assistant` | It helps migrate existing Blazor applications to newer versions of Telerik UI for Blazor by automating detection and resolution of [breaking API changes](slug:versions-with-breaking-changes), NuGet version bumps, and CDN reference updates. |
 
 #### Getting Started Assistant Prompts
 
