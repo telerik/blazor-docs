@@ -19,7 +19,6 @@ The component accepts a strongly typed data collection through the `Data` parame
 To use the Citation component:
 
 1. Add the `<TelerikCitation>` tag inline within text content.
-1. Set `TItem` to your source model type.
 1. Set the `Data` parameter to a `List<TItem>` of source objects.
 1. Set the `Label` parameter to the display text shown for the citation marker.
 
@@ -28,7 +27,7 @@ To use the Citation component:
 ````RAZOR
 <p>
     Together the top five customers account for $465,200 — approximately 67% of total quarterly revenue.
-    <TelerikCitation Data="@Sources" TItem="CitationSource" Label="acme-corp.com" />
+    <TelerikCitation Data="@Sources" Label="acme-corp.com" />
 </p>
 
 @code {

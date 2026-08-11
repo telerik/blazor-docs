@@ -47,8 +47,7 @@ The following example demonstrates all LLM Kit components together. It shows a c
         </ContentTemplate>
     </TelerikReasoning>
 
-    <TelerikChainOfThought TItem="CotStep"
-                           Data="@Steps"
+    <TelerikChainOfThought Data="@Steps"
                            Label="Thought"
                            SecondaryLabel="for 3s"
                            Expandable="true"
