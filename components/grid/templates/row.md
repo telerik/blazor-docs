@@ -23,41 +23,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 
 >caption Using a row template
 
-````RAZOR
-Render the entire row with your own code and logic
-
-<TelerikGrid Data=@MyData Height="500px">
-	<RowTemplate Context="employee">
-		<td>
-			<TelerikAvatar Type="AvatarType.Text">E @employee.ID</TelerikAvatar>
-			<strong>@employee.Name</strong>
-		</td>
-		<td>
-			Hired on: @(String.Format("{0:dd MMM yyyy}", employee.HireDate))
-		</td>
-	</RowTemplate>
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
-
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-		{
-			ID = x,
-			Name = "name " + x,
-			HireDate = DateTime.Now.AddDays(-x)
-		});
-}
-````
+<demo metaUrl="client/grid/templates-row/" height="550"></demo>
 
 ## Using Components in Grid Row Templates
 

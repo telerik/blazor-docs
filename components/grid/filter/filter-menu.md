@@ -49,63 +49,7 @@ To learn how to programmatically filter the Grid, refer to the [Grid State](slug
 
 >caption Using the Grid Filter Menu
 
-````RAZOR
-@using Telerik.DataSource
-
-<TelerikGrid Data="@GridData"
-             TItem="@Product"
-             FilterMode="GridFilterMode.FilterMenu"
-             FilterRowDebounceDelay="200"
-             Pageable="true"
-             Sortable="true"
-             Height="400px">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)"
-                    DefaultFilterOperator="@FilterOperator.Contains"
-                    ShowFilterCellButtons="false" />
-        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
-        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:n0}" />
-        <GridColumn Field="@nameof(Product.Released)"
-                    DisplayFormat="{0:d}"
-                    DefaultFilterOperator="@FilterOperator.IsGreaterThanOrEqualTo"
-                    FilterEditorFormat="d"
-                    FilterEditorType="@GridFilterEditorType.DatePicker" />
-        <GridColumn Field="@nameof(Product.Discontinued)" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Product> GridData { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        var rnd = Random.Shared;
-
-        for (int i = 1; i <= 27; i++)
-        {
-            GridData.Add(new Product()
-            {
-                Id = i,
-                Name = $"Name {i} {(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)}",
-                Price = rnd.Next(1, 100) * 1.23m,
-                Quantity = rnd.Next(0, 10000),
-                Released = DateTime.Today.AddDays(-rnd.Next(60, 1000)),
-                Discontinued = i % 4 == 0
-            });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public DateTime Released { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/filter-menu/" height="500"></demo>
 
 ## See Also
 

@@ -17,47 +17,7 @@ The Grid will also show its default or custom `NoDataTemplate` while loading its
 
 >caption Using NoDataTemplate
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             FilterMode="@GridFilterMode.FilterRow"
-             Height="400px"
-             Pageable="true">
-    <GridToolBarTemplate>
-        <GridCommandButton OnClick="@LoadData">Load Data</GridCommandButton>
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
-    </GridColumns>
-    <NoDataTemplate>
-        <p><strong style="color: var(--kendo-color-primary);">No Data Available.</strong></p>
-    </NoDataTemplate>
-</TelerikGrid>
-
-@code {
-    private IEnumerable<SampleData>? GridData { get; set; }
-
-    private void LoadData()
-    {
-        GridData = Enumerable.Range(1, 30).Select(x => new SampleData
-        {
-            Id = x,
-            Name = $"Name {x}",
-            Team = $"Team {x % 3 + 1}",
-            HireDate = DateTime.Today.AddMonths(-x)
-        });
-    }
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-        public DateTime HireDate { get; set; } = DateTime.Today;
-    }
-}
-````
+<demo metaUrl="client/grid/templates-no-data/" height="500"></demo>
 
 ## See Also
 

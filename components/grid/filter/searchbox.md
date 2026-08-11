@@ -43,45 +43,7 @@ The following example shows the first option in action, while the [customization
 
 >caption Grid SearchBox
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             Height="90vh"
-             Pageable="true">
-    <GridToolBar>
-        <GridToolBarSearchBoxTool Placeholder="Type a letter or digit..." Width="180px" />
-    </GridToolBar>
-    <GridColumns>
-        <GridColumn Field="@nameof(GridModel.Id)" />
-        <GridColumn Field="@nameof(GridModel.Name)" />
-        <GridColumn Field="@nameof(GridModel.Description)" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<GridModel> GridData { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        Random rnd = Random.Shared;
-        for (int i = 1; i <= 1000; i++)
-        {
-            GridData.Add(new GridModel()
-            {
-                Id = i,
-                Name = $"{(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)} {rnd.Next(10, 100)}",
-                Description = $"{(char)rnd.Next(97, 123)}{(char)rnd.Next(97, 123)} {rnd.Next(10, 100)}"
-            });
-        }
-    }
-
-    public class GridModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/filter-searchbox/" height="550"></demo>
 
 ## Search From Code
 
@@ -107,62 +69,7 @@ The example below demonstrates all SearchBox settings in action, and also how to
 
 >caption Grid SearchBox customizaton
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             Pageable="true"
-             PageSize="20"
-             Sortable="true"
-             Height="90vh">
-    <GridToolBarTemplate>
-        <span class="k-toolbar-spacer"></span>
-        <GridSearchBox Class="primary-searchbox"
-                       DebounceDelay="300"
-                       Fields="@SearchableFields"
-                       FillMode="@ThemeConstants.SearchBox.FillMode.Outline"
-                       Placeholder="Search Name Column..."
-                       Rounded="@ThemeConstants.SearchBox.Rounded.Large"
-                       Size="@ThemeConstants.SearchBox.Size.Small"
-                       Width="240px" />
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field="@nameof(GridModel.Name)" />
-        <GridColumn Field="@nameof(GridModel.Description)" />
-    </GridColumns>
-</TelerikGrid>
-
-<style>
-    .primary-searchbox {
-        color: var(--kendo-color-primary);
-    }
-</style>
-
-@code {
-    private List<GridModel> GridData { get; set; } = new();
-
-    private List<string> SearchableFields = new List<string> { nameof(GridModel.Name) };
-
-    protected override void OnInitialized()
-    {
-        Random rnd = Random.Shared;
-        for (int i = 1; i <= 1000; i++)
-        {
-            GridData.Add(new GridModel()
-            {
-                Id = i,
-                Name = $"{(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)} {rnd.Next(10, 100)}",
-                Description = $"{(char)rnd.Next(97, 123)}{(char)rnd.Next(97, 123)} {rnd.Next(10, 100)}"
-            });
-        }
-    }
-
-    public class GridModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/filter-searchbox-custom/" height="550"></demo>
 
 ## See Also
 
