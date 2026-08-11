@@ -12,7 +12,7 @@ position: 1
 
 The ChainOfThought component renders a sequential list of agent execution steps. Each step can include an icon, label text, optional chip tags, and a visual connector to the next step. Use the component to show how the agent searches for tools, evaluates options, and plans its next action.
 
-The component accepts a strongly typed data collection through the `Data` parameter and uses a `ThoughtTemplate` to control how each step renders.
+The component accepts a strongly typed data collection through the `Data` parameter and uses a `ItemTemplate` to control how each step renders.
 
 ## Creating the ChainOfThought
 
