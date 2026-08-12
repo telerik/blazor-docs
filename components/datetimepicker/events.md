@@ -13,12 +13,54 @@ components: ["datetimepicker"]
 
 This article explains the events available in the Telerik DateTimePicker for Blazor:
 
+* [FocusedDateChanged](#focuseddatechanged)
 * [OnBlur](#onblur)
 * [OnCalendarCellRender](#oncalendarcellrender)
 * [OnChange](#onchange)
 * [OnClose](#onclose)
 * [OnOpen](#onopen)
 * [ValueChanged](#valuechanged)
+
+
+## FocusedDateChanged
+
+The `FocusedDateChanged` event fires when the user:
+
+* Navigates to another month in the DatePicker popup Calendar.
+* Selects a date that doesn't match the current `FocusedDate` value.
+* Closes the Calendar popup without selecting a value, if the Calendar is not showing the current month.
+
+See [Focused Date](slug:components/datetimepicker/overview#focused-date) for additional information.
+
+>caption Using the DatePicker FocusedDateChanged event
+
+````RAZOR
+<p><code>FocusedDate</code>: @PickerFocusedDate.ToString("yyyy-MM-dd")</p>
+
+<p>Last <code>FocusedDateChanged</code> event at: @FocusedDateChangedLog</p>
+
+<TelerikDateTimePicker @bind-Value="@PickerValue"
+                       FocusedDate="@PickerFocusedDate"
+                       FocusedDateChanged="@PickerFocusedDateChanged"
+                       Width="360px" />
+
+
+@code {
+    private DateTime? PickerValue { get; set; } = DateTime.Now;
+
+    private DateTime PickerFocusedDate { get; set; } = DateTime.Today.AddDays(2);
+
+    private string FocusedDateChangedLog { get; set; } = string.Empty;
+
+    private void PickerFocusedDateChanged(DateTime newFocusedDate)
+    {
+        PickerFocusedDate = newFocusedDate;
+
+        FocusedDateChangedLog = DateTime.Now.ToString("HH:mm:ss");
+    }
+}
+
+````
 
 
 ## OnBlur
