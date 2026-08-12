@@ -130,7 +130,9 @@ Not designed to be invoked manually. It is called automatically by the UI Genera
 
 ### Upgrade Assistant
 
-Use the Upgrade Assistant to migrate existing Blazor applications to a newer version of Telerik UI for Blazor. It automates detection and resolution of [breaking API changes](slug:versions-with-breaking-changes), NuGet version bumps, and CDN reference updates.
+Use the Upgrade Assistant to migrate existing Blazor applications to the latest version of Telerik UI for Blazor. It automates detection and resolution of [breaking API changes](slug:versions-with-breaking-changes), NuGet version bumps, and CDN reference updates.
+
+For best results, use the Upgrade Assistant with the highest-tier model available in your AI client. More capable models reason more accurately over complex migration scenarios and produce more reliable file edits.
 
 ### When to Use Orchestrated vs Targeted Mode
 
