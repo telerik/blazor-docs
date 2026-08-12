@@ -13,19 +13,19 @@ tag: updated
 
 Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Tools and the Agentic UI Generator. The updates are structured in a chronological order with the newest ones appearing first.
 
-## August, 2026 Changelog
+## August, 2026
 
 ### Highlights
 
-* Added `telerik_upgrade_assistant` to Agentic UI Generator.
+* Added [`telerik_upgrade_assistant`](slug:ai-overview#upgrade-assistant) to Agentic UI Generator.
 
-## July, 2026 Changelog
+## July, 2026
 
 ### Highlights
 
 * Added `telerik-blazor-licensing` and `telerik-blazor-version-upgrade` skills to Telerik UI for Blazor AI Plugin.
 
-## June, 2026 Changelog
+## June, 2026
 
 ### Highlights
 
