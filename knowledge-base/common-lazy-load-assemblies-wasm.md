@@ -6,7 +6,7 @@ page_title: Telerik Blazor Components and WebAssembly Lazy Load of Assemblies
 slug: common-kb-lazy-load-assemblies-wasm
 position:
 tags:
-ticketid: 1628239, 1633572
+ticketid: 1628239, 1633572, 1717746
 res_type: kb
 components: ["general"]
 ---
@@ -52,11 +52,10 @@ All general guidance from the [Microsoft documentation](https://learn.microsoft.
     <BlazorWebAssemblyLazyLoad Include="Telerik.Zip.wasm" />
     <!-- PDF export (only for version 8.0.0 and above) -->
     <BlazorWebAssemblyLazyLoad Include="Telerik.Documents.Spreadsheet.FormatProviders.Pdf.wasm" />
-    <!-- Licensing (only for version 8.0.0 and above ) -->
-    <BlazorWebAssemblyLazyLoad Include="Telerik.Licensing.Runtime.wasm" />
 </ItemGroup>
 ````
 
+* If using Telerik UI for Blazor version 8 or above, reference the `Telerik.Licensing` NuGet package explicitly in the client project that uses Telerik UI for Blazor, and the main startup project. This assembly cannot be lazy loaded due to runtime license verification.
 * The assembly requirements depend on component usage, and not on feature usage. For example, both icon assemblies are always required, as our components render icons internally and must be aware of both types of icons. The assemblies, which are related to Excel and PDF export, are always required when using a Grid. `Telerik.Recurrence.wasm` is required only when using the Scheduler.
 * Move the [`<TelerikRootComponent>`](slug:rootcomponent-overview) to a layout that is used only on pages that have the Telerik assemblies loaded.
 * Lazy loading of assemblies does not support dynamic service injection. As a result, remove the Telerik service registration (`builder.Services.AddTelerikBlazor();`) from `Program.cs`. If you are using [localization for the Telerik Blazor components](slug:globalization-localization), define the the localization service for the Telerik components with the `Localizer` parameter of the `<TelerikRootComponent>`. The key thing is to instantiate the localization service inline. It cannot be injected as a variable from the `@code { }` block, because that will throw runtime errors.
