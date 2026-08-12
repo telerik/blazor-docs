@@ -340,7 +340,7 @@ Each block child can contain text or an image, depening on the block child's `Ty
 
 Declarative rich content is a simpler option to customize the Shape content, compared to [visual functions](#visual-function). The advantage of visuals is the full control over the Shape content and layout, including the ability to place complex content blocks side by side.
 
-Rich content is also supported with [Diagram data binding](slug:diagram-data-bind).
+Rich content is also supported with [Diagram data binding](slug:diagram-data-binding).
 
 >caption Using declarative rich content in Diagram Shapes
 
