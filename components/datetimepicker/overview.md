@@ -45,6 +45,21 @@ DateTimePicker.
 
 The DateTime Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DateTimePickerSteps` tag and its parameters. [Read more about the Blazor DateTime Picker increment steps...](slug:datetimepicker-steps)
 
+## Focused Date
+
+By default, the DateTimePicker Calendar shows:
+
+* The current month if no value is selected.
+* The month of the selected value.
+
+The `FocusedDate` parameter allows the app to open the DateTimePicker Calendar on a different month. The parameter value changes automatically to:
+
+* The currently displayed month during Calendar navigation.
+* The new selected value's date.
+* Today's date if the DateTimePicker popup is closed without selecting a value.
+
+In all the above cases, the component fires the [`FocusedDateChanged` event](slug:components/datetimepicker/events#focuseddatechanged). The focused date doesn't change during keyboard navigation within the same month.
+
 ## Events
 
 The Blazor DateTime Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor DateTime Picker events...](slug:components/datetimepicker/events).
@@ -80,6 +95,7 @@ The Blazor Date Time Picker provides various parameters that allow you to config
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Defines if the `DateTimePicker` is enabled |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
+| `FocusedDate` | `DateTime` | The [focused date in the popup Calendar](#focused-date) when open. |
 | `Format` | `string` <br /> (`FullDateTimePattern`) | The format of the DateTimePicker's DateInput. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported date formats by the DateInput](slug:components/dateinput/supported-formats). |
 | `Id` | `string` | The `id` HTML attribute of the `input` |
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |

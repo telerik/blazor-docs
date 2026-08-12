@@ -4,6 +4,7 @@ page_title: DatePicker Overview
 description: The Blazor DatePicker enables easy date selection in web applications with an interactive date input interface.
 slug: components/datepicker/overview
 tags: telerik,blazor,date,picker,datepicker,overview
+tag: updated
 published: True
 position: 0
 components: ["datepicker"]
@@ -12,7 +13,6 @@ components: ["datepicker"]
 # Blazor DatePicker Overview
 
 The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazor Date Picker component</a> allows the user to choose a date from a visual Gregorian [Telerik UI for Blazor Calendar](slug:components/calendar/overview) or type it into a [date input](slug:components/dateinput/overview) that can accept only dates. You can control the date format of the input, how the user navigates through the calendar, and which dates the user cannot select.
-
 
 ## Creating Blazor Date Picker
 
@@ -33,6 +33,21 @@ DatePicker.
 ## Increment Steps
 
 The Date Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DatePickerSteps` tag and its parameters. [Read more about the Blazor Date Picker increment steps...](slug:datepicker-steps)
+
+## Focused Date
+
+By default, the DatePicker Calendar shows:
+
+* The current month if no value is selected.
+* The month of the selected value.
+
+The `FocusedDate` parameter allows the app to open the DatePicker Calendar on a different month. The parameter value changes automatically to:
+
+* The currently displayed month during Calendar navigation.
+* The new selected value's date.
+* Today's date if the DatePicker popup is closed without selecting a value.
+
+In all the above cases, the component fires the [`FocusedDateChanged` event](slug:components/datepicker/events#focuseddatechanged). The focused date doesn't change during keyboard navigation within the same month.
 
 ## Events
 
@@ -67,6 +82,7 @@ The Blazor Date Picker provides various parameters that allow you to configure t
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected. |
 | `Enabled` | `bool` | Specifies whether typing in the input and clicking the button is allowed. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
+| `FocusedDate` | `DateTime` | The [focused date in the popup Calendar](#focused-date) when open. |
 | `Format` | `string` <br /> (`ShortDatePattern`) | The format of the DatePicker's DateInput. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported date formats by the DateInput](slug:components/dateinput/supported-formats). |
 | `Id` | `string` | The `id` attribute on the `<input />` element. Use it to attach a `<label for="">` to the input. |
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
