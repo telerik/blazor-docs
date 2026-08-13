@@ -84,3 +84,9 @@ The following articles and sample projects can be helpful when implementing grou
 * [Server Grouping](slug:components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 
 * [Static group that is always present](slug:grid-kb-static-group)
+
+## See Also
+
+* [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
+* [Grid Aggregates](slug:grid-aggregates)
+* [Blazor Grid](slug:grid-overview)
