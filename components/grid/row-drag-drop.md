@@ -33,13 +33,13 @@ To enable the Drag and Drop functionality:
 
 1. Use the `OnRowDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
 
-The row drag and drop functionality works with a dedicated column which is always rendered as the first column when the feature is enabled.  
+The row drag and drop functionality works with a dedicated column which is always rendered as the first column when the feature is enabled.
 
 If the user drags selected rows, the current row selection will be cleared on row drop.
 
 ## OnRowDrop Event
 
-The `OnRowDrop` event fires when the user drops a row into a new location. It allows you to manipulate your data collection based on where the user dropped the element. 
+The `OnRowDrop` event fires when the user drops a row into a new location. It allows you to manipulate your data collection based on where the user dropped the element.
 
 ### Event Arguments
 
@@ -59,7 +59,7 @@ The `OnRowDrop` event provides an object of type `GridRowDropEventArgs<T>` to it
 
 The `GridRowDraggableSettings` is a child tag under the `<GridSettings>`, which is a child tag of the `<TelerikGrid>`. It exposes the following parameters:
 
-* `DragClueField` - `string` - defines which field will be used to render the drag clue text. By default, this parameter will take the value of the first bound column of the first dragged row. 
+* `DragClueField` - `string` - defines which field will be used to render the drag clue text. By default, this parameter will take the value of the first bound column of the first dragged row.
 
 You can find examples of its usage below.
 
@@ -164,7 +164,70 @@ The functionality allows dragging items between Grid, [TreeList](slug:treelist-d
     {
         foreach (var item in args.Items)
         {
-            <demo metaUrl="client/grid/row-drag-drop-multiple/" height="500"></demo>
+            GridData.Remove(item);
+        }
+        if (args.DestinationComponentId == "TreeList1")
+        {
+            var destinationItem = (FlatItem)TreeListRef.GetItemFromDropIndex(args.DestinationIndex);
+            args.Items
+                .Select(item => new FlatItem() { StringProp = item.Name, Id = Guid.NewGuid() }).ToList()
+                .ForEach(item => UpdateTreeList(item, destinationItem, (TreeListRowDropPosition)(int)args.DropPosition));
+        }
+        else if (args.DestinationComponentId == "Grid1")
+        {
+            InsertItemsIntoGrid(args.Items, args.DestinationItem, args.DropPosition);
+        }
+    }
+    private void TreeListDrop(TreeListRowDropEventArgs<FlatItem> args)
+    {
+        var item = args.Item as FlatItem;
+        if (args.DestinationComponentId == "TreeList1")
+        {
+            var destinationItem = (FlatItem)TreeListRef.GetItemFromDropIndex(args.DestinationIndex);
+            UpdateTreeList(item, destinationItem, (TreeListRowDropPosition)(int)args.DropPosition);
+        }
+        else if (args.DestinationComponentId == "Grid1")
+        {
+            var sourceItems = TreeData
+            .Where(x => x.ParentId == item.Id)
+            .Select(item => new Person() { Name = item.StringProp, EmployeeId = GridData.Max(x => x.EmployeeId) + 1 });
+            TreeData.Remove(item);
+            var destinationItem = GridRef.GetItemFromDropIndex(args.DestinationIndex);
+            InsertItemsIntoGrid(sourceItems, destinationItem, (GridRowDropPosition)(int)args.DropPosition);
+            GridRef.Rebind();
+        }
+    }
+    private void InsertItemsIntoGrid(IEnumerable<Person> items, Person destinationItem, GridRowDropPosition dropPosition)
+    {
+        var destinationIndex = 0;
+        if (destinationItem != null)
+        {
+            destinationIndex = GridData.IndexOf(destinationItem);
+            if (dropPosition == GridRowDropPosition.After)
+            {
+                destinationIndex += 1;
+            }
+        }
+        GridData.InsertRange(destinationIndex, items);
+        TreeListRef.Rebind();
+    }
+    private void UpdateTreeList(FlatItem item, FlatItem destinationItem, TreeListRowDropPosition dropPosition)
+    {
+        var destinationIndex = 0;
+        if (destinationItem != null)
+        {
+            destinationIndex = TreeData.IndexOf(destinationItem);
+            if (dropPosition == TreeListRowDropPosition.Over)
+            {
+                item.ParentId = destinationItem.Id;
+            }
+            else if (dropPosition == TreeListRowDropPosition.After)
+            {
+                destinationIndex += 1;
+            }
+            else if (dropPosition == TreeListRowDropPosition.Before)
+            {
+                destinationIndex += 1;
             }
             TreeData.Insert(destinationIndex, item);
         }
