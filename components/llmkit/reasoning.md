@@ -6,6 +6,7 @@ slug: llmkit-reasoning
 tags: telerik,blazor,llmkit,reasoning,agent,ai,thinking,scratchpad
 published: True
 position: 5
+components: ["llmkit", "reasoning"]
 ---
 
 # Blazor LLM Kit Reasoning
