@@ -6,6 +6,7 @@ slug: llmkit-checkpoint
 tags: telerik,blazor,llmkit,checkpoint,agent,ai,restart
 published: True
 position: 2
+components: ["llmkit", "checkpoint"]
 ---
 
 # Blazor LLM Kit Checkpoint

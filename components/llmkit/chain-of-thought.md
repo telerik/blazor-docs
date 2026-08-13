@@ -6,6 +6,7 @@ slug: llmkit-chain-of-thought
 tags: telerik,blazor,llmkit,chain of thought,agent,ai,reasoning
 published: True
 position: 1
+components: ["llmkit", "chainofthought"]
 ---
 
 # Blazor LLM Kit ChainOfThought
