@@ -6,6 +6,7 @@ slug: llmkit-citation
 tags: telerik,blazor,llmkit,citation,ai,sources,references
 published: True
 position: 3
+components: ["llmkit", "citation"]
 ---
 
 # Blazor LLM Kit Citation
