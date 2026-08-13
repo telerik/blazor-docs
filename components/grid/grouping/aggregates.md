@@ -20,51 +20,51 @@ The Grid component provides built-in aggregates for column values based on [grou
 * [Where You Can Use Aggregates](#where-you-can-use-aggregates)
 * [How to Enable Aggregates](#how-to-enable-aggregates)
 * [Example](#example)
+* [Notes](#notes)
+
+## Available Aggregate Functions
+
+There are several available aggregate functions under the `Telerik.Blazor.GridAggregateType` enum:
+
+* `Average`
+* `Count`
+* `Max`
+* `Min`
+* `Sum`
+
+The `Count` aggregate can be applied to any type of field. The other aggregates can only be applied to numerical fields (e.g., `int`, `decimal`, `double`, etc.).
+
+## Where You Can Use Aggregates
+
+You can use aggregates in the following templates:
+
+* [`GroupFooterTemplate`](slug:grid-templates-column-group-footer) of a `GridColumn` - a footer in the respective column that renders when the grid is grouped.
+* [`GroupHeaderTemplate`](slug:grid-templates-group-header) of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
+* [`FooterTemplate`](slug:grid-templates-column-footer) of a `GridColumn` - a grand total row of footers for the entire grid.
+
+## Access The Aggregate Values
+
+You can access the aggregate values through the template `context`:
+
+* All templates expose the aggregate values for the current column.
+* The `context` of the `GroupHeaderTemplate` and the `GroupFooterTemplate` has an `AggregateResults` property of a type `Dictionary<string, GridGroupAggregateResult>`. This dictionary allows you to access the aggregates for the other columns in the Grid.
+
+## How to Enable Aggregates
+
+To enable aggregates:
+
+1. Under the `GridAggregates` tag, define the `GridAggregate` entries to enable the aggregations per field you want to use.
+1. If the Grid is bound to a [dynamic object (Expando)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/walkthrough-creating-and-using-dynamic-objects), set the `FieldType` attribute of the `GridAggregate` tag (it is of type `Type`).
+1. Set the grid's `Groupable` property to `true`.
+    * If you will be using only `FooterTemplate`s - grouping is not required.
+1. Group the grid to see the effect on group-specific templates.
+
+
+## Example
+
+>caption Use Aggregates in the Telerik Blazor Grid
+
 <demo metaUrl="client/grid/grouping-aggregates/" height="600"></demo>
-                <span>Total employees: @context.AggregateResults[nameof(Employee.Name)]?.Count</span>
-                <br />
-                <span>Average salary: @context.AggregateResults[nameof(Employee.Salary)]?.Average?.ToString("C0")</span>
-            </GroupFooterTemplate>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private void OnGridStateInit(GridStateEventArgs<Employee> args)
-    {
-        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
-            {
-                Member = nameof(Employee.Team)
-            });
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 5; i++)
-        {
-            GridData.Add(new Employee()
-                {
-                    EmployeeId = i,
-                    Name = $"Employee {i}",
-                    Team = $"Team {i % 2 + 1}",
-                    Salary = Random.Shared.Next(1000, 5000),
-                    ActiveProjects = i % 4 == 0 ? 2 : 5
-                });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public decimal Salary { get; set; }
-        public int ActiveProjects { get; set; }
-    }
-}
-````
 
 >caption The result of the code snippet above after the grid has been grouped by the `Team` and `Active Projects` columns
 
