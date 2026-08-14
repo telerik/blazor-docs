@@ -38,29 +38,11 @@ In this article:
 You can use a multiplier over the small step to set the large step, and to ensure that this can divide the difference between the min and max. This will provide the best possible appearance where ticks will be distributed evenly and you will be able to use the full range of the slider.
 
 
-````RAZOR
-@TheValue
-<br />
-<TelerikSlider @bind-Value="@TheValue" SmallStep="5m" LargeStep="15m" Min="5m" Max="50m">
-</TelerikSlider>
-
-@code{
-    decimal TheValue { get; set; } = 20m;
-}
-````
+<demo metaUrl="client/slider/steps-matching/" height="250"></demo>
 
 ### Not Matching Ticks Steps, Min, Max
 
 In this example, the max value does not match the large step, small step and the min, so the max value is not rendered and the user can only go up to `90` instead of `100`. The small and large steps match in this example, however, the only "issue" is the `Max` value.
 
 
-````RAZOR
-@TheValue
-<br />
-<TelerikSlider @bind-Value="@TheValue" SmallStep="15m" LargeStep="30m" Min="0m" Max="100m">
-</TelerikSlider>
-
-@code{
-    decimal TheValue { get; set; } = 12.3m;
-}
-````
+<demo metaUrl="client/slider/steps-not-matching/" height="250"></demo>
