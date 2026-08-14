@@ -25,22 +25,7 @@ The `OnChange` event does not prevent you from using two-way data binding.
 
 >caption Handle OnChange event
 
-````RAZOR
-@TextAreaValue
-<br />
-<TelerikTextArea @bind-Value="@TextAreaValue"
-                 OnChange="@OnChangeHandler">
-</TelerikTextArea>
-
-@code {
-    public string TextAreaValue { get; set; }
-
-    public void OnChangeHandler(object input)
-    {
-        Console.WriteLine($"The OnChange event fired with {input as string}");
-    }
-}
-````
+<demo metaUrl="client/textarea/events/on-change/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -50,24 +35,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 >caption Handle ValueChanged event
 
-````RAZOR
-@TextAreaValue
-<br />
-<TelerikTextArea Value="@TextAreaValue"
-                 ValueChanged="@ValueChangedHandler">
-</TelerikTextArea>
-
-@code {
-    public string TextAreaValue { get; set; }
-
-    public void ValueChangedHandler(string input)
-    {
-        // you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        TextAreaValue = input;
-        Console.WriteLine($"The ValueChange event fired with {input}");
-    }
-}
-````
+<demo metaUrl="client/textarea/events/value-changed/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -79,22 +47,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-<TelerikTextArea @bind-Value="@TheValue"
-                 OnBlur="OnBlurHandler">
-
-</TelerikTextArea>
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
-    }
-
-    string TheValue { get; set; }
-}
-````
+<demo metaUrl="client/textarea/events/on-blur/" height="250"></demo>
 
 
 ## See Also
