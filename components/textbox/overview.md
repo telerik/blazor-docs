@@ -22,15 +22,7 @@ You can control [various attributes](#textbox-parameters) of the `input` element
 
 >caption Basic TextBox with two-way value binding
 
-````RAZOR
-<p>TextBox value: @StringValue</p>
-
-<TelerikTextBox @bind-Value="@StringValue" />
-
-@code {
-    private string StringValue { get; set; }
-}
-````
+<demo metaUrl="client/textbox/overview/" height="220"></demo>
 
 > In a [Blazor Web App project template](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure#blazor-web-app), use the TextBox component only in [interactive render mode](slug:getting-started-workflow-details#interactive-render-mode). Static server-side rendering (static SSR) is not supported.
 
@@ -83,36 +75,13 @@ The TextBox provides a `FocusAsync` method that allows the application to focus 
 
 >caption Use TextBox methods
 
-````RAZOR
-<TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
-
-<TelerikTextBox @ref="@TextBoxRef"
-                @bind-Value="@TextBoxValue"
-                Width="200px" />
-
-@code {
-    private TelerikTextBox TextBoxRef { get; set; }
-
-    private string TextBoxValue { get; set; }
-
-    async Task FocusTextBox()
-    {
-        await TextBoxRef.FocusAsync();
-    }
-}
-````
+<demo metaUrl="client/textbox/methods/" height="220"></demo>
 
 ## Examples
 
 >caption Customized text box with input attributes
 
-````RAZOR
-<label for="email">Email</label>
-<TelerikTextBox Placeholder="john@smith.com" Title="write your email here"
-                TabIndex="3" Width="180px"
-                InputMode="email" Id="email" AutoComplete="email" Name="email">
-</TelerikTextBox>
-````
+<demo metaUrl="client/textbox/customized/" height="220"></demo>
 
 >caption Password type TextBox
 
@@ -120,25 +89,7 @@ See [Add Eye Icon to Reveal a TextBox Password](slug:textbox-kb-eye-reveal-passw
 
 >caption Programmatically change the TextBox value
 
-````RAZOR
-TextBox value: @StringValue
-<br />
-
-<TelerikButton OnClick="@ChangeValue">Change TextBox Value</TelerikButton>
-
-<br />
-
-<TelerikTextBox @bind-Value="@StringValue" />
-
-@code {
-    string StringValue { get; set; } = "lorem ipsum";
-
-    void ChangeValue()
-    {
-        StringValue = "New programmatic value";
-    }
-}
-````
+<demo metaUrl="client/textbox/programmatic/" height="250"></demo>
 
 ## Next Steps
 

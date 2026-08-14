@@ -32,28 +32,7 @@ You can increase or decrease the size of the TextBox by setting the `Size` param
 
 >caption Built-in TextBox sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.Size)
-        .GetFields(System.Reflection.BindingFlags.Public
-            | System.Reflection.BindingFlags.Static
-            | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <span style="margin-left: 2em;">Size <code>&quot;@size&quot;</code></span>
-        <TelerikTextBox @bind-Value="@TextBoxValue" Size="@size" Width="120px"></TelerikTextBox>
-    }
-}
-
-@code{
-    private string TextBoxValue { get; set; } = "TextBox Value";
-}
-````
+<demo metaUrl="client/textbox/appearance/size/" height="300"></demo>
 
 ## Rounded
 
@@ -68,29 +47,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the textbox to a
 
 >caption Built-in values of the TextBox Rounded parameter
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public
-            | System.Reflection.BindingFlags.Static
-            | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <TelerikTextBox @bind-Value="@TextBoxValue" Rounded="@rounded" Width="120px"></TelerikTextBox>
-        <span>Rounded <code>&quot;@rounded&quot;</code></span>
-        <br /><br />
-    }
-}
-
-@code{
-    private string TextBoxValue { get; set; } = "TextBox Value";
-}
-````
+<demo metaUrl="client/textbox/appearance/rounded/" height="300"></demo>
 
 ## FillMode
 
@@ -104,28 +61,6 @@ The `FillMode` controls how the TelerikTextBox is filled. You can set it to a me
 
 >caption Built-in TextBox fill modes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public
-            | System.Reflection.BindingFlags.Static
-            | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <TelerikTextBox @bind-Value="@TextBoxValue" FillMode="@fillMode" Width="120px"></TelerikTextBox>
-        <span>FillMode <code>&quot;@fillMode&quot;</code></span>
-        <br /><br />
-    }
-}
-
-@code{
-    private string TextBoxValue { get; set; } = "TextBox Value";
-}
-````
+<demo metaUrl="client/textbox/appearance/fill-mode/" height="300"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

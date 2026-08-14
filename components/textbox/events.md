@@ -23,25 +23,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the TextBox OnBlur event
 
-````RAZOR
-<TelerikTextBox @bind-Value="@TextBoxValue"
-                OnBlur="@OnTextBoxBlur" />
-
-<p>TextBoxValue: @TextBoxValue</p>
-
-<p>OnBlur log: @OnBlurLog</p>
-
-@code {
-    private string OnBlurLog { get; set; } = string.Empty;
-
-    private string TextBoxValue { get; set; } = "lorem ipsum";
-
-    private void OnTextBoxBlur()
-    {
-        OnBlurLog = $"OnBlur fired at {DateTime.Now.ToString("HH:mm:ss.fff")}.";
-    }
-}
-````
+<demo metaUrl="client/textbox/events/on-blur/" height="250"></demo>
 
 ## OnChange
 
@@ -51,25 +33,7 @@ The `OnChange` event represents a user action that confirms the current value. I
 
 >caption Handle the TextBox OnChange event and use two-way Value binding
 
-````RAZOR
-<TelerikTextBox @bind-Value="TextBoxValue"
-                OnChange="@OnTextBoxChange" />
-
-<p>TextBoxValue: @TextBoxValue</p>
-
-<p>OnChange log: @OnChangeLog</p>
-
-@code {
-    private string OnChangeLog { get; set; } = string.Empty;
-
-    private string TextBoxValue { get; set; } = "lorem ipsum";
-
-    private void OnTextBoxChange(object currentValue)
-    {
-        OnChangeLog = $"OnChange fired at {DateTime.Now.ToString("HH:mm:ss.fff")} with current value '{currentValue}'.";
-    }
-}
-````
+<demo metaUrl="client/textbox/events/on-change/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -79,26 +43,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 >caption Handle the TextBox ValueChanged event
 
-````RAZOR
-<TelerikTextBox Value="@TextBoxValue"
-                ValueChanged="@TextBoxValueChanged" />
-
-<p>TextBoxValue: @TextBoxValue</p>
-
-<p>ValueChanged log: @ValueChangedLog</p>
-
-@code {
-
-    private string TextBoxValue { get; set; } = "lorem ipsum";
-    private string ValueChangedLog { get; set; } = string.Empty;
-
-    private void TextBoxValueChanged(string newValue)
-    {
-        TextBoxValue = newValue;
-        ValueChangedLog = $"ValueChanged fired at {DateTime.Now.ToString("HH:mm:ss.fff")} with a new value '{newValue}'.";
-    }
-}
-````
+<demo metaUrl="client/textbox/events/value-changed/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
