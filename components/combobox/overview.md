@@ -23,28 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/combobox" target="_blank">Blazor 
 
 >caption Combobox [data binding](slug:components/combobox/databind) with two-way value binding
 
-````RAZOR
-Selected value: @selectedValue
-<br />
-
-<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
-                 Placeholder="Select an item..." ShowClearButton="true" Filterable="true">
-</TelerikComboBox>
-
-@code {
-    IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    int selectedValue { get; set; }    
-
-    //in a real case, the model is usually in a separate file
-    //the model type and value field type must be provided to the dropdpownlist
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-}
-````
+<demo metaUrl="client/combobox/overview/" height="250"></demo>
 
 ## Data Binding
 
@@ -119,26 +98,7 @@ The following parameters enable you to customize the [appearance](slug:combobox-
 
 The ComboBox exposes settings for its dropdown (popup). To configure the options, declare a  `<ComboBoxPopupSettings>` tag inside a `<ComboBoxSettings>` tag:
 
-````RAZOR
-<TelerikComboBox Data="@ComboBoxData"
-                     @bind-Value="@SelectedItem"
-                     Filterable="true"
-                     FilterOperator="@StringFilterOperator.Contains"
-                     Placeholder="Filter by digit or letter"
-                     Width="240px">
-    <ComboBoxSettings>
-        <ComboBoxPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
-    </ComboBoxSettings>
-</TelerikComboBox>
-
-@code {
-    private List<string> ComboBoxData { get; set; } = Enumerable.Range(1, 50)
-        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
-        .ToList();
-
-    private string SelectedItem { get; set; }
-}
-````
+<demo metaUrl="client/combobox/popup-settings/" height="300"></demo>
 
 The ComboBox provides the following popup settings:
 
@@ -151,31 +111,7 @@ Add a reference to the component instance to use the [ComboBox's methods](slug:T
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````RAZOR
-<TelerikComboBox @ref="@ComboBoxRef"
-                     Data="@Suggestions"
-                     @bind-Value="@ComboBoxValue" 
-                     Width="300px"/>
-
-<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
-
-@code {
-    private TelerikComboBox<string, string> ComboBoxRef { get; set; }
-
-    private string ComboBoxValue { get; set; }
-
-    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
-
-    private void OpenPopup()
-    {
-        ComboBoxRef.Open();
-        
-        ComboBoxValue = Suggestions.First();
-
-        ComboBoxRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/combobox/methods/" height="250"></demo>
 
 ## Selected Item
 
