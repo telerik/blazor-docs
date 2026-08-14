@@ -37,24 +37,7 @@ The PaletteView uses a [`TelerikColorPalette` component](slug:colorpalette-overv
 
 ## Example
 
-````RAZOR
-@* Blazor ColorPicker Views *@
-
-<TelerikColorPicker @bind-Value="@Color">
-    <ColorPickerViews>
-        <ColorPickerGradientView Format="ColorFormat.Hex"
-                                 ShowOpacityEditor="true" />
-        <ColorPickerPaletteView Colors="ColorPalettePresets.Basic"
-                                Columns="5"
-                                TileWidth="40px"
-                                TileHeight="40px" />
-    </ColorPickerViews>
-</TelerikColorPicker>
-
-@code {
-    string Color { get; set; }
-}
-````
+<demo metaUrl="client/colorpicker/views/" height="300"></demo>
 
 
 ## See Also

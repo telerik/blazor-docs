@@ -31,23 +31,7 @@ Note that the `OnChange` event may also fire when the actual selected color has 
 
 The event type is `EventCallback<object>`. The `OnChange` event does not prevent two-way binding for the `Value` attribute.
 
-````RAZOR
-@* Handle the ColorPicker OnChange event *@
-
-<p>@EventLog</p>
-
-<TelerikColorPicker @bind-Value="@Color" OnChange="@ColorPickerOnChange" />
-
-@code {
-    string Color { get; set; }
-    string EventLog { get; set; }
-
-    async Task ColorPickerOnChange(object newColor)
-    {
-        EventLog = string.Format("The selected color is: {0}", (string)newColor);
-    }
-}
-````
+<demo metaUrl="client/colorpicker/events/on-change/" height="220"></demo>
 
 ## ValueChanged
 
@@ -55,20 +39,7 @@ The `ValueChanged` event fires when the user selects a new color and the compone
 
 The event type is `EventCallback<string>`. Using `ValueChanged` requires one-way binding for the `Value` attribute and manual value update in the event handler.
 
-````RAZOR
-@* Handle the ColorPicker ValueChanged event *@
-
-<TelerikColorPicker Value="@Color" ValueChanged="@ColorPickerValueChanged" />
-
-@code {
-    string Color { get; set; }
-
-    async Task ColorPickerValueChanged(string newColor)
-    {
-        Color = newColor;
-    }
-}
-````
+<demo metaUrl="client/colorpicker/events/value-changed/" height="220"></demo>
 
 ## ViewChanged
 
@@ -76,21 +47,7 @@ The `ViewChanged` event fires when the user toggles between the popup views.
 
 The event type is `EventCallback<ColorPickerView>`. Using `ViewChanged` requires one-way binding for the `View` attribute and manual value update in the event handler.
 
-````RAZOR
-@* Handle the ColorPicker ViewChanged event *@
-
-<TelerikColorPicker @bind-Value="@Color" View="@View" ViewChanged="@ColorPickerViewChanged" />
-
-@code {
-    string Color { get; set; }
-    ColorPickerView View { get; set; }
-
-    async Task ColorPickerViewChanged(ColorPickerView newView)
-    {
-        View = newView;
-    }
-}
-````
+<demo metaUrl="client/colorpicker/events/view-changed/" height="220"></demo>
 
 ## OnOpen
 
@@ -104,19 +61,7 @@ The event handler receives as an argument an `ColorPickerOpenEventArgs` object t
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````RAZOR
-<TelerikColorPicker @bind-Value="@Color" OnOpen="@OnColorPickerPopupOpen" />
-
-@code {
-    private string Color { get; set; } = "rgb(40, 47, 137)";
-
-    private void OnColorPickerPopupOpen(ColorPickerOpenEventArgs args)
-    {
-        //set the IsCancelled to true to cancel the OnOpen event
-        args.IsCancelled = false;
-    }
-}
-````
+<demo metaUrl="client/colorpicker/events/on-open/" height="220"></demo>
 
 ## OnClose
 
@@ -128,24 +73,7 @@ The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs`
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````RAZOR
-@* Cancel the OnClose event based on a condition *@
-
-<TelerikColorPicker @bind-Value="@Color" OnClose="@OnColorPickerPopupClose" />
-
-@code {
-    private string Color { get; set; } = "rgba(40, 47, 137, 0)";
-
-    private void OnColorPickerPopupClose(ColorPickerCloseEventArgs args)
-    {
-        //cancel the OnClose event based on a condition
-        if (Color == "rgba(255, 255, 255, 0)")
-        {
-            args.IsCancelled = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/colorpicker/events/on-close/" height="220"></demo>
 
 ## See Also
 
