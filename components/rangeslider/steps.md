@@ -39,18 +39,7 @@ You can use a multiplier over the small step to set the large step, and to ensur
 
 ![matching ticks](images/rangeslider-matching-ticks.png)
 
-````RAZOR
-from @TheStartValue to @TheEndValue
-<br />
-<TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue"
-                    SmallStep="5m" LargeStep="15m" Min="5m" Max="50m">
-</TelerikRangeSlider>
-
-@code{
-    decimal TheStartValue { get; set; } = 20m;
-    decimal TheEndValue { get; set; } = 45m;
-}
-````
+<demo metaUrl="client/rangeslider/steps/matching/" height="250"></demo>
 
 ### Not Matching Ticks Steps, Min, Max
 
@@ -58,15 +47,4 @@ In this example, the max value does not match the large step, small step and the
 
 ![non-matching values](images/rangeslider-non-matching-ticks.png)
 
-````RAZOR
-from @TheStartValue to @TheEndValue
-<br />
-<TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue"
-                    SmallStep="15m" LargeStep="30m" Min="0m" Max="100m">
-</TelerikRangeSlider>
-
-@code{
-    decimal TheStartValue { get; set; } = 20m;
-    decimal TheEndValue { get; set; } = 45m;
-}
-````
+<demo metaUrl="client/rangeslider/steps/not-matching/" height="250"></demo>

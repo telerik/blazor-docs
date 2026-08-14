@@ -111,28 +111,7 @@ For a complete list of all FileSelect methods, see the [FileSelect API reference
 
 >caption Get reference to the FileSelect and execute methods
 
-````RAZOR
-<p>
-    <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
-    <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
-</p>
-
-<TelerikFileSelect @ref="@FileSelectRef" />
-
-@code {
-    private TelerikFileSelect FileSelectRef { get; set; }
-
-    private void SelectFiles()
-    {
-        FileSelectRef.OpenSelectFilesDialog();
-    }
-
-    private void Clear()
-    {
-        FileSelectRef.ClearFiles();
-    }
-}
-````
+<demo metaUrl="client/fileselect/methods/" height="250"></demo>
 
 
 ## Next Steps
