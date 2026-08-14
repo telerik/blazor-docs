@@ -35,59 +35,7 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 
 >caption Filtering in the AutoComplete
 
-````RAZOR
-<ul>
-    <li>
-        <label>
-            Filter operator:
-            <TelerikDropDownList @bind-Value="@FilterOperator"
-                                 Data="@FilterOperators"
-                                 Width="160px" />
-        </label>
-    </li>
-    <li>
-        <label>
-            Minimum string length before filtering:
-            <TelerikNumericTextBox @bind-Value="@FilterMinLength" Min="0" Width="100px" />
-        </label>
-    </li>
-    <li>
-        <label>
-            Debounce delay:
-            <TelerikNumericTextBox @bind-Value="@AutoCompleteDebounceDelay" Min="0" Width="120px" />
-        </label>
-    </li>
-</ul>
-
-<br />
-
-<TelerikAutoComplete Data="@Suggestions"
-                     @bind-Value="@AutoCompleteValue"
-                     Filterable="true"
-                     FilterOperator="@FilterOperator"
-                     MinLength="@FilterMinLength"
-                     DebounceDelay="@AutoCompleteDebounceDelay"
-                     Placeholder="Type 's' or 'a' to see the difference"
-                     ShowClearButton="true"
-                     Width="300px" />
-
-@code{
-    private string AutoCompleteValue { get; set; }
-
-    private List<StringFilterOperator> FilterOperators =>
-        Enum.GetValues(typeof(StringFilterOperator)).Cast<StringFilterOperator>().ToList();
-
-    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
-
-    private int FilterMinLength { get; set; } = 1;
-
-    private int AutoCompleteDebounceDelay { get; set; } = 150;
-
-    private List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
+<demo metaUrl="client/autocomplete/filter/" height="450"></demo>
 
 ## See Also
 

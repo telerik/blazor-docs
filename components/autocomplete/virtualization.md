@@ -40,39 +40,7 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 ## Local Data Example
 
 
-````RAZOR
-@SelectedValue
-<br />
-<TelerikAutoComplete Data="@Data"
-                     ScrollMode="@DropDownScrollMode.Virtual"
-                     ItemHeight="30"
-                     PageSize="20"
-
-                     @bind-Value="@SelectedValue"
-                     Filterable="true" FilterOperator="@StringFilterOperator.Contains">
-    <AutoCompleteSettings>
-        <AutoCompletePopupSettings Height="200px" />
-    </AutoCompleteSettings>
-</TelerikAutoComplete>
-
-@code {
-    string SelectedValue { get; set; }
-    List<string> Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Data = Enumerable.Range(1, 12345).Select(x => $"Name {x}").ToList();
-
-        base.OnInitialized();
-    }
-
-    public class Person
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/autocomplete/virtualization/local/" height="350"></demo>
 
 ## Remote Data Example
 
@@ -80,69 +48,7 @@ The AutoComplete @[template](/_contentTemplates/common/dropdowns-virtualization.
 
 Run this and see how you can display, scroll and filter over 10k records in the AutoComplete without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
-````RAZOR
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<p>@AutoCompleteValue</p>
-
-<TelerikAutoComplete TItem="@String"
-                     ScrollMode="@DropDownScrollMode.Virtual"
-                     ItemHeight="30"
-                     PageSize="20"
-                     OnRead="@GetRemoteData"
-                     @bind-Value="@AutoCompleteValue"
-                     Filterable="true"
-                     FilterOperator="@StringFilterOperator.Contains">
-    <AutoCompleteSettings>
-        <AutoCompletePopupSettings Height="300px" />
-    </AutoCompleteSettings>
-</TelerikAutoComplete>
-
-@code {
-    string AutoCompleteValue { get; set; } = "Name 1234"; // pre-select an item to showcase it works like in a regular textbox
-
-    async Task GetRemoteData(AutoCompleteReadEventArgs args)
-    {
-        DataEnvelope<string> result = await MyService.GetItems(args.Request);
-
-        args.Data = result.Data;
-        args.Total = result.Total;
-    }
-
-    // mimics a real service in terms of API appearance, refactor as necessary for your app
-    public static class MyService
-    {
-        static List<string> AllData { get; set; }
-
-        public static async Task<DataEnvelope<string>> GetItems(DataSourceRequest request)
-        {
-            if (AllData == null)
-            {
-                AllData = Enumerable.Range(1, 12345).Select(x => $"Name {x}").ToList();
-            }
-
-            await Task.Delay(400); // simulate real network and database delays. Remove in a real app
-
-            var result = await AllData.ToDataSourceResultAsync(request);
-            DataEnvelope<string> dataToReturn = new DataEnvelope<string>
-            {
-                Data = result.Data.Cast<string>().ToList(),
-                Total = result.Total
-            };
-
-            return await Task.FromResult(dataToReturn);
-        }
-    }
-
-    // used to showcase how you could simplify the return of more than one value from the service
-    public class DataEnvelope<T>
-    {
-        public int Total { get; set; }
-        public List<T> Data { get; set; }
-    }
-}
-````
+<demo metaUrl="client/autocomplete/virtualization/remote/" height="400"></demo>
 
 
 ## See Also
