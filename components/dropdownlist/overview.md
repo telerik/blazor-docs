@@ -98,26 +98,7 @@ The following parameters enable you to customize the [appearance](slug:dropdownl
 
 The DropDownList exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownListPopupSettings>` tag inside a `<DropDownListSettings>` tag:
 
-````RAZOR
-<TelerikDropDownList Data="@DropDownData"
-                     @bind-Value="@SelectedItem"
-                     Filterable="true"
-                     FilterOperator="@StringFilterOperator.Contains"
-                     FilterPlaceholder="Filter by digit or letter"
-                     Width="240px">
-    <DropDownListSettings>
-        <DropDownListPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
-    </DropDownListSettings>
-</TelerikDropDownList>
-
-@code {
-    private List<string> DropDownData { get; set; } = Enumerable.Range(1, 50)
-        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
-        .ToList();
-
-    private string SelectedItem { get; set; }
-}
-````
+<demo metaUrl="client/dropdownlist/popup-settings/" height="300"></demo>
 
 The DropDownList provides the following popup settings:
 
@@ -130,31 +111,7 @@ Add a reference to the component instance to use the [DropDownList's methods](sl
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````RAZOR
-<TelerikDropDownList @ref="@DropDownListRef"
-                     Data="@DropDownListData"
-                     @bind-Value="@DropDownListValue"
-                     Width="300px" />
-
-<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
-
-@code {
-    private TelerikDropDownList<string, string> DropDownListRef { get; set; }
-
-    private string DropDownListValue { get; set; }
-
-    private List<string> DropDownListData { get; set; } = new List<string> { "first", "second", "third" };
-
-    private void OpenPopup()
-    {
-        DropDownListRef.Open();
-        
-        DropDownListValue = DropDownListData.First();
-
-        DropDownListRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/dropdownlist/methods/" height="250"></demo>
 
 ## Selected Item and DefaultText
 
@@ -169,72 +126,12 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 >caption Default text (hint) to show when no actual item is selected
 
-````RAZOR
-@MyStringItem
-<TelerikDropDownList Data="@MyStringList" @bind-Value="@MyStringItem" DefaultText="Select something">
-</TelerikDropDownList>
-
-<br />
-<br />
-
-@MyIntItem
-<TelerikDropDownList Data="@MyIntList" @bind-Value="@MyIntItem" DefaultText="Select another thing">
-</TelerikDropDownList>
-
-@code {
-    protected List<string> MyStringList = new List<string>() { "first", "second", "third" };
-
-    //Current value is null (no item is sellected) which allows the DefaultText to be displayed.
-    protected string MyStringItem { get; set; }
-
-    protected List<int> MyIntList = new List<int>() { 1, 2, 3 };
-
-    //Current value is 0 (no item is sellected) which allows the DefaultText to be displayed.
-    protected int MyIntItem { get; set; }
-}
-````
+<demo metaUrl="client/dropdownlist/default-text/" height="300"></demo>
 
 
 >caption Get selected item from external code
 
-````RAZOR
-@result
-<br />
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField"
-                     @bind-Value="@DdlValue" DefaultText="Select something">
-</TelerikDropDownList>
-
-<TelerikButton OnClick="@GetSelectedItem">Get Selected Item</TelerikButton>
-
-@code {
-    string result;
-    int DdlValue { get; set; } = 5;
-    void GetSelectedItem()
-    {
-        // extract the data item from the data source by using the value
-        MyDdlModel selectedItem = myDdlData.Where(d => d.MyValueField == DdlValue).FirstOrDefault();
-        if (selectedItem != null)
-        {
-            result = selectedItem.MyTextField;
-        }
-        else
-        {
-            result = "no item selected";
-        }
-
-        StateHasChanged();
-    }
-
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-}
-````
+<demo metaUrl="client/dropdownlist/selected-item/" height="300"></demo>
 
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)

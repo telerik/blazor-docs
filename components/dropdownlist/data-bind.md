@@ -35,20 +35,7 @@ You can data bind the DropDownList to a collection of `string` or [value type](h
 
 >caption Data binding a DropDownList to strings
 
-````RAZOR
-<TelerikDropDownList Data="@DropDownListData" @bind-Value="DropDownListValue" />
-
-@code {
-    private List<string> DropDownListData = new List<string>() { "first", "second", "third" };
-
-    private string DropDownListValue { get; set; } = string.Empty;
-
-    protected override void OnInitialized()
-    {
-        DropDownListValue = "second";
-    }
-}
-````
+<demo metaUrl="client/dropdownlist/data-bind/simple/" height="220"></demo>
 
 ## Bind to a Model
 
@@ -64,30 +51,7 @@ To bind the DropDownList to a model:
 
 >caption Data binding a DropDownList to a model
 
-````RAZOR
-<TelerikDropDownList Data="@DropDownListData"
-                     @bind-Value="DropDownListValue"
-                     TextField="@nameof(DropDownListItem.Text)"
-                     ValueField="@nameof(DropDownListItem.Value)" />
-
-@code {
-    private int DropDownListValue { get; set; }
-
-    private IEnumerable<DropDownListItem> DropDownListData = Enumerable.Range(1, 20)
-        .Select(x => new DropDownListItem { Text = $"Item {x}", Value = x });
-
-    protected override void OnInitialized()
-    {
-        DropDownListValue = 3;
-    }
-
-    public class DropDownListItem
-    {
-        public int Value { get; set; }
-        public string Text { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/dropdownlist/data-bind/model/" height="250"></demo>
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
@@ -109,24 +73,7 @@ Handling such "unexpected" values is up to the application - for example, throug
 
 >caption DropDownList configuration if you cannot provide Value or Data
 
-````RAZOR
-<TelerikDropDownList Data="@DropDownListData"
-                     TItem="@DropDownListItem"
-                     TValue="@int"
-                     TextField="@nameof(DropDownListItem.Text)"
-                     ValueField="@nameof(DropDownListItem.Value)" />
-
-@code {
-    private IEnumerable<DropDownListItem> DropDownListData = Enumerable.Range(1, 20)
-        .Select(x => new DropDownListItem { Text = $"Item {x}", Value = x });
-
-    public class DropDownListItem
-    {
-        public int Value { get; set; }
-        public string Text { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/dropdownlist/data-bind/missing-value-data/" height="250"></demo>
 
 ## See Also
 
