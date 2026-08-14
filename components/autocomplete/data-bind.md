@@ -33,26 +33,7 @@ To bind the AutoComplete, you need to:
 
 >caption Data binding an AutoComplete to a simple data source
 
-````RAZOR
-@*Bind to an IEnumerable<string>*@
-
-User input 1: @FirstValue
-<br />
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@FirstValue" />
-
-<br />
-User input 2: @SecondValue
-<br />
-<TelerikAutoComplete Data="@ArraySuggestions" @bind-Value="@SecondValue" />
-
-@code{
-    private string FirstValue { get; set; }
-    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
-
-    private string SecondValue { get; set; }
-    private string[] ArraySuggestions = new string[] { "one", "two", "three" };
-}
-````
+<demo metaUrl="client/autocomplete/data-bind/simple/" height="300"></demo>
 
 ## Bind to a Model
 
@@ -66,30 +47,7 @@ To bind the AutoComplete to a model:
 
 >caption Data binding an AutoComplete to a model
 
-````RAZOR
-@AutoComplete
-<br />
-<TelerikAutoComplete Data="@Suggestions"
-                     @bind-Value="@AutoComplete"
-                     ValueField="@( nameof(SuggestionsModel.Suggestion) )" />
-
-@code{
-    private string AutoComplete { get; set; }
-
-    private List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
-    {
-        new SuggestionsModel { Suggestion = "first", SomeOtherField = 1 },
-        new SuggestionsModel { Suggestion = "second", SomeOtherField = 2 },
-        new SuggestionsModel { Suggestion = "third", SomeOtherField = 3 }
-    };
-
-    public class SuggestionsModel
-    {
-        public string Suggestion { get; set; }//the auto complete needs only the string field
-        public int SomeOtherField { get; set; }
-    }
-}
-````
+<demo metaUrl="client/autocomplete/data-bind/model/" height="300"></demo>
 
 ## Missing Data
 
@@ -97,15 +55,7 @@ The AutoComplete is, essentially, a textbox. This means that its `Value` is alwa
 
 >caption Minimal AutoComplete configuration for it to run
 
-````RAZOR
-@* If you cannot provide suggestions list, use an empty collection and the component will show "No Data" to the user in the suggestions list *@
-
-<TelerikAutoComplete Data="@Suggestions" />
-
-@code{
-    List<string> Suggestions { get; set; } = new List<string>();
-}
-````
+<demo metaUrl="client/autocomplete/data-bind/missing-data/" height="220"></demo>
 
 ## See Also
 
