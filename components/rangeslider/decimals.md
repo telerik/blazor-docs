@@ -27,4 +27,6 @@ The first slider in this example has a sufficient precision (`Decimals`) to prop
 
 To see the difference in how rounding can have issues with insufficient precision, try changing the values from each slider - you will see that the second slider does not respond "correctly" and as expected.
 
+![precision issues with wrong Decimals setting](images/rangeslider-precision-issue.gif)
+
 <demo metaUrl="client/rangeslider/decimals/" height="300"></demo>
