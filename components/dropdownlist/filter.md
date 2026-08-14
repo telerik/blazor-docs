@@ -37,73 +37,7 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 
 >caption Filtering in the DropDownList
 
-````RAZOR
-<ul>
-    <li>
-        <label>
-            Choose filter operator:
-            <select @bind="FilterOperator">
-                @foreach (var possibleFilter in Enum.GetValues(typeof(StringFilterOperator)))
-                {
-                    <option value="@possibleFilter">@possibleFilter</option>
-                }
-            </select>
-        </label>
-    </li>
-    <li>
-        <label>
-            Debounce delay:
-            <TelerikNumericTextBox @bind-Value="@DebounceDelay" Min="0" Width="120px" />
-        </label>
-    </li>
-</ul>
-
-<br />
-
-<TelerikDropDownList Data="@ProductList"
-                     @bind-Value="@SelectedProduct"
-                     TextField="@nameof(Product.Name)"
-                     ValueField="@nameof(Product.Id)"
-                     Filterable="true"
-                     FilterOperator="@FilterOperator"
-                     FilterDebounceDelay="@DebounceDelay"
-                     FilterPlaceholder="Search a product number..."
-                     DefaultText="Type digits to see filtering in action"
-                     Width="300px">
-</TelerikDropDownList>
-
-@code {
-    private List<Product> ProductList { get; set; }
-
-    private int? SelectedProduct { get; set; }
-
-    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
-
-    private int DebounceDelay { get; set; } = 150;
-
-    protected override void OnInitialized()
-    {
-        ProductList = new List<Product>();
-
-        for (int i = 1; i <= 30; i++)
-        {
-            ProductList.Add(new Product()
-                {
-                    Id = i,
-                    Name = $"{i} Product {i * 111}"
-                });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/dropdownlist/filter/" height="450"></demo>
 
 ## See Also
 

@@ -49,60 +49,7 @@ The `ValueTemplate` exposes a `context` which represents the selected item objec
 
 >caption Using AutoComplete Templates
 
-````RAZOR
-@* DropDownList component with ValueTemplate, HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
-
-<p>
-    <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
-    DropDownList has data
-</p>
-
-<TelerikDropDownList Data="@DropDownData" @bind-Value="@Role">
-    <ValueTemplate>
-        <strong>Selected role:</strong> @context
-    </ValueTemplate>
-    <HeaderTemplate>
-        <strong>Select one of the following:</strong>
-    </HeaderTemplate>
-    <ItemTemplate>
-        Are you a <strong>@context</strong>
-    </ItemTemplate>
-    <FooterTemplate>
-        <h6>Total Positions: @DropDownData.Count()</h6>
-    </FooterTemplate>
-    <NoDataTemplate>
-        <div class="no-data-template">
-            <TelerikSvgIcon Size="@ThemeConstants.SvgIcon.Size.Large" Icon="@SvgIcon.FilesError"></TelerikSvgIcon>
-            <p>No items available</p>
-        </div>
-    </NoDataTemplate>
-</TelerikDropDownList>
-
-@code {
-    private string Role { get; set; }
-
-    private bool IsDataAvailable { get; set; } = true;
-
-    private List<string> DropDownData { get; set; }
-
-    private List<string> SourceData { get; set; } = new List<string> { "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer" };
-
-    protected override void OnInitialized()
-    {
-        DropDownData = SourceData;
-    }
-
-    private void OnCheckBoxChangeHandler()
-    {
-        if (IsDataAvailable)
-        {
-            DropDownData = new List<string>(SourceData);
-        }else{
-            DropDownData = new List<string>();
-        }
-    }
-}
-````
+<demo metaUrl="client/dropdownlist/templates/" height="500"></demo>
 
 ## See Also
 

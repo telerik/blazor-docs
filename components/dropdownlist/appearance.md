@@ -30,45 +30,7 @@ You can increase or decrease the size of the DropDownList by setting the `Size` 
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DropDownList.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDropDownList Data="@myDdlData"
-                                 Size="@size"
-                                 TextField="MyTextField"
-                                 ValueField="MyValueField"
-                                 @bind-Value="selectedValue">
-            </TelerikDropDownList>
-        </div>
-    }
-}
-
-@code {
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    int selectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-}
-````
+<demo metaUrl="client/dropdownlist/appearance/size/" height="300"></demo>
 
 ## Rounded
 
@@ -83,47 +45,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the DropDownList
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DropDownList.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDropDownList Data="@myDdlData"
-                                 Rounded="@rounded"
-                                 TextField="MyTextField"
-                                 ValueField="MyValueField"
-                                 @bind-Value="selectedValue">
-            </TelerikDropDownList>
-        </div>
-    }
-}
-
-@code {
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    int selectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-}
-````
+<demo metaUrl="client/dropdownlist/appearance/rounded/" height="300"></demo>
 
 ## FillMode
 
@@ -137,47 +59,7 @@ The `FillMode` controls how the TelerikDropDownList is filled. You can set it to
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DropDownList.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDropDownList Data="@myDdlData"
-                                 FillMode="@fillMode"
-                                 TextField="MyTextField"
-                                 ValueField="MyValueField"
-                                 @bind-Value="selectedValue">
-            </TelerikDropDownList>
-        </div>
-    }
-}
-
-@code {
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
-    int selectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
-
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-}
-````
+<demo metaUrl="client/dropdownlist/appearance/fill-mode/" height="300"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
