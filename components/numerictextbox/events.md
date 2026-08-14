@@ -24,26 +24,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-@result
-
-<TelerikNumericTextBox @bind-Value="@NumericTextBoxValue"
-                       OnBlur="@OnBlurHandler">
-</TelerikNumericTextBox>
-
-@code {
-    private string result = string.Empty;
-
-    private decimal NumericTextBoxValue { get; set; } = 12.34m;
-
-    private void OnBlurHandler()
-    {
-        result = $"BLUR fired, current value is {NumericTextBoxValue}.";
-    }
-}
-````
+<demo metaUrl="client/numerictextbox/events/on-blur/" height="220"></demo>
 
 
 ## OnChange
@@ -56,29 +37,7 @@ The NumericTextBox is a generic component, so you must either provide a `Value`,
 
 >caption Handle OnChange and use two-way binding
 
-````RAZOR
-@result
-<br />
-model value: @NumericTextBoxValue
-<br />
-
-<TelerikNumericTextBox @bind-Value="@NumericTextBoxValue" 
-                       OnChange="@MyOnChangeHandler">
-</TelerikNumericTextBox>
-
-@code {
-    private string result = string.Empty;
-
-    private double NumericTextBoxValue { get; set; } = 1.2345;
-
-    private void MyOnChangeHandler(object userInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // when a Value is provided, the type is taken from it
-        result = string.Format("The user entered: {0}", (double)userInput);
-    }
-}
-````
+<demo metaUrl="client/numerictextbox/events/on-change/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -95,30 +54,7 @@ Using this event requires one-way binding for the `Value` parameter and manual u
 
 >caption Handle ValueChanged
 
-````RAZOR
-@result
-<br />
-<TelerikNumericTextBox Value="@NumericTextBoxValue"
-                       ValueChanged="@( (double newValue) => NumericValueChanged(newValue) )"
-                       Width="200px">
-</TelerikNumericTextBox>
-
-@code {
-    private string result { get; set; } = string.Empty;
-
-    private double NumericTextBoxValue { get; set; } = 1.23;
-
-    private void NumericValueChanged(double newValue)
-    {
-        // the handler receives a generic type <T>
-
-        // one-way binding requires manual value update
-        NumericTextBoxValue = newValue;
-
-        result = $"The new value is: {NumericTextBoxValue}";
-    }
-}
-````
+<demo metaUrl="client/numerictextbox/events/value-changed/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
