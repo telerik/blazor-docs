@@ -38,41 +38,7 @@ For brevity, the code below does not handle the selected file. See a full exampl
 
 >caption Telerik FileSelect file validation
 
-````RAZOR
-<TelerikFileSelect AllowedExtensions="@AllowedExtensions"
-                   MinFileSize="@MinSize"
-                   MaxFileSize="@MaxSize"
-                   Multiple="false"
-                   OnSelect="@OnFileSelect">
-</TelerikFileSelect>
-
-<div class="k-form-hint">
-    Expected files: JPG, PNG, SVG between 1 KB  and 4 MB.
-</div>
-
-@code {
-    private readonly List<string> AllowedExtensions = new List<string>() { ".jpg", ".jpeg", ".png", ".svg" };
-
-    private const int MinSize = 1024;
-
-    private const int MaxSize = 4 * 1024 * 1024;
-
-    private void OnFileSelect(FileSelectEventArgs args)
-    {
-        FileSelectFileInfo file = args.Files.First();
-
-        if (file.InvalidExtension || file.InvalidMaxFileSize || file.InvalidMinFileSize)
-        {
-            // Optionally, ignore the user action completely.
-            // The selected file(s) will not appear in the file list.
-            //args.IsCancelled = true;
-            return;
-        }
-
-        // Handle selected valid file...
-    }
-}
-````
+<demo metaUrl="client/fileselect/validation/" height="250"></demo>
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
 

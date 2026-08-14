@@ -24,56 +24,14 @@ The <a href="https://www.telerik.com/blazor-ui/rangeslider" target="_blank">Blaz
 
 >caption Basic setup of the Telerik RangeSlider using two-way data binding
 
-````RAZOR
-@* The user can choose decimal values range with a step of 5 and every 20 there will be a major tick. The label template is also used to add a currency symbol *@
-
-The user wants products between @MinPrice.ToString("C2") and @MaxPrice.ToString("C2")
-<br /><br />
-
-<TelerikRangeSlider @bind-StartValue="@MinPrice"
-                    @bind-EndValue="@MaxPrice"
-                    Min="@LowestPrice"
-                    Max="@HighestPrice"
-                    SmallStep="5m"
-                    LargeStep="20m"
-                    Width="550px">
-    <LabelTemplate>
-        @context.ToString("C2")
-    </LabelTemplate>
-</TelerikRangeSlider>
-
-@code {
-    decimal MinPrice { get; set; } = 20m;
-    decimal MaxPrice { get; set; } = 75m;
-    decimal LowestPrice { get; set; } = 10m;
-    decimal HighestPrice { get; set; } = 150m;
-}
-````
+<demo metaUrl="client/rangeslider/overview/" height="300"></demo>
 
 
 ## Component Reference
 
 The RangeSlider is a generic component that takes the type of the `StartValue` which can be a numerical type and is the same as the type of the `EndValue`.
 
-````RAZOR
-@code {
-    TelerikRangeSlider<decimal> TheRangeSlider { get; set; }
-
-    decimal MinPrice { get; set; } = 20m;
-    decimal MaxPrice { get; set; } = 75m;
-    decimal LowestPrice { get; set; } = 10m;
-    decimal HighestPrice { get; set; } = 150m;
-}
-
-<TelerikRangeSlider @bind-StartValue="@MinPrice"
-                    @bind-EndValue="@MaxPrice"
-                    @ref="@TheRangeSlider"
-                    Min="@LowestPrice"
-                    Max="@HighestPrice"
-                    SmallStep="5m"
-                    LargeStep="20m">
-</TelerikRangeSlider>
-````
+<demo metaUrl="client/rangeslider/reference/" height="250"></demo>
 
 ## Steps
 

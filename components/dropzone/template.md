@@ -17,20 +17,7 @@ The `Template` is a `RenderFragment` and allows you to add whatever custom conte
 
 >caption Use Template to add custom content in the DropZone
 
-````RAZOR
-<TelerikDropZone Id="@DropZoneId">
-    <Template>
-        <TelerikSvgIcon Icon="@SvgIcon.FileAdd" />
-        <span>Drop files here</span>
-    </Template>
-</TelerikDropZone>
-
-<TelerikFileSelect DropZoneId="@DropZoneId"  />
-
-@code {
-    private string DropZoneId => "my-dropzone";
-}
-````
+<demo metaUrl="client/dropzone/template/" height="260"></demo>
 
 ## See Also
 

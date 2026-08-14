@@ -29,28 +29,4 @@ To see the difference in how rounding can have issues with insufficient precisio
 
 ![precision issues with wrong Decimals setting](images/rangeslider-precision-issue.gif)
 
-````RAZOR
-@TheStartValue to @TheEndValue
-<br /><br />
-
-@* Sufficient precision for the selected values and steps *@
-
-<TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue" Decimals="3"
-                    SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
-</TelerikRangeSlider>
-
-<br /><br />
-
-@* Insufficient precision for the current values and steps
-    the labels texts will be off and the value will not change every time you move the handle
-    only when it reaches the threshold of the decimals which default to 2 for invariant and most cultures*@
-
-<TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue" Decimals="2"
-                    SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
-</TelerikRangeSlider>
-
-@code{
-    decimal TheStartValue { get; set; } = 0.015m;
-    decimal TheEndValue { get; set; } = 0.02m;
-}
-````
+<demo metaUrl="client/rangeslider/decimals/" height="300"></demo>

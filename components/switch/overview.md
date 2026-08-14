@@ -21,18 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 
 >caption Basic setup of the Telerik Switch using two-way data binding
 
-````RAZOR
-@* Basic setup of the Telerik Switch Component *@
-
-<label>
-    <TelerikSwitch @bind-Value="@isSelected" />
-    @( isSelected ? "Selected" : "Not selected" )
-</label>
-
-@code {
-    private bool isSelected { get; set; }
-}
-````
+<demo metaUrl="client/switch/overview/" height="220"></demo>
 
 >caption The result from the code snippet above
 
@@ -84,23 +73,7 @@ The Switch is a generic component and its type comes from the model field it is 
 | --- | --- |
 | `FocusAsync ` | programmatically focuses the Switch.
 
-````RAZOR
-@* Use the Switch reference to programmatically focus the component *@
-
-<TelerikButton OnClick="@FocusSwitch">Focus Switch</TelerikButton>
-
-<TelerikSwitch @bind-Value="@toggleSwitch" @ref="@SwitchRef" />
-
-@code {
-    bool toggleSwitch { get; set; } // the type of this field determines the type of the reference
-    TelerikSwitch<bool> SwitchRef { get; set; }
-
-    void FocusSwitch()
-    {
-        SwitchRef.FocusAsync();
-    }
-}
-````
+<demo metaUrl="client/switch/reference/" height="220"></demo>
 
 ## Next Steps
 

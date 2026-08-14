@@ -23,20 +23,7 @@ Make sure to update the currently selected item when using the event.
 
 >caption Handle ValueChanged
 
-````RAZOR
-<TelerikRating Value="@Value"
-               ValueChanged="@((double newRating) => ValueChangedHandler(newRating))">
-</TelerikRating>
-
-@code {
-    private double Value { get; set; } = 1;
-
-    private void ValueChangedHandler(double newRating)
-    {
-        Value = newRating;
-    }
-}
-````
+<demo metaUrl="client/rating/events/" height="220"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 

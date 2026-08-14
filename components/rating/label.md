@@ -15,14 +15,7 @@ The Rating allows you to display a label that shows the current value out of the
 
 You can set the desired label via the `Label` parameter value.
 
-````RAZOR
-<TelerikRating @bind-Value="@Value" Label="@Label" />
-
-@code {
-    private double Value { get; set; } = 1;
-    private string Label => $"{Value} out of 5";
-}
-````
+<demo metaUrl="client/rating/label/" height="220"></demo>
 
 ## See Also
 
