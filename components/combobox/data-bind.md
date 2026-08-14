@@ -37,23 +37,7 @@ To bind the combobox to string or value type data, you need to:
 
 >caption Data binding a ComboBox to string data
 
-````RAZOR
-<TelerikComboBox Data="@ComboBoxData"
-                 @bind-Value="ComboBoxValue">
-</TelerikComboBox>
-
-@code {
-    private List<string> ComboBoxData = new List<string>() { "first", "second", "third" };
-
-    private string ComboBoxValue { get; set; } = string.Empty;
-
-    //Define a preselected value when the component initializes
-    protected override void OnInitialized()
-    {
-        ComboBoxValue = "second";
-    }
-}
-````
+<demo metaUrl="client/combobox/data-bind/simple/" height="220"></demo>
 
 ## Bind to a Model
 
@@ -69,37 +53,7 @@ To bind the ComboBox to a model:
 
 >caption Data binding a ComboBox to a model
 
-````RAZOR
-@ComboBoxValue
-<br />
-<TelerikComboBox Data="@ComboBoxData"
-                 @bind-Value="ComboBoxValue"
-                 TextField="MyTextField"
-                 ValueField="MyValueField"
-                 Width="200px">
-</TelerikComboBox>
-
-@code {
-    private IEnumerable<ComboBoxItem> ComboBoxData = Enumerable.Range(1, 20)
-        .Select(x => new ComboBoxItem { MyTextField = $"Item {x}", MyValueField = x });
-
-    private int ComboBoxValue { get; set; }
-
-    //Define a preselected value when the component initializes
-    protected override void OnInitialized()
-    {
-        ComboBoxValue = 3;
-    }
-
-    //In a real case, the model is usually in a separate file.
-    //The model type and value field type must be provided to the ComboBox
-    public class ComboBoxItem
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/combobox/data-bind/model/" height="280"></demo>
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
@@ -125,30 +79,7 @@ In case you cannot provide strongly-typed `Value` or `Data` at compile time, you
 
 >caption ComboBox configuration if you cannot provide Value or Data
 
-````RAZOR
-@*How to declare the combobox if no Value or Data are provided*@
-
-<TelerikComboBox @ref="@ComboBoxRef"
-                 Data="@ComboBoxData"
-                 TItem="@ComboBoxItem"
-                 TValue="@int"
-                 TextField="@nameof(ComboBoxItem.MyTextField)"
-                 ValueField="@nameof(ComboBoxItem.MyValueField)">
-</TelerikComboBox>
-
-@code {
-    private TelerikComboBox<ComboBoxItem, int>? ComboBoxRef { get; set; }
-
-    private IEnumerable<ComboBoxItem> ComboBoxData = Enumerable.Range(1, 20)
-        .Select(x => new ComboBoxItem { MyTextField = "Item " + x, MyValueField = x });
-
-    public class ComboBoxItem
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/combobox/data-bind/missing-value-data/" height="250"></demo>
 
 
 ## See Also
