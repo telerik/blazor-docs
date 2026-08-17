@@ -21,43 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor 
 
 >caption Basic configuration of the Telerik AppBar
 
-````RAZOR
-<TelerikAppBar>
-    <AppBarSection>
-        <span>Company Logo</span>
-    </AppBarSection>
-
-    <AppBarSpacer></AppBarSpacer>
-
-    <AppBarSection>
-        <span>Our Products</span>
-    </AppBarSection>
-
-    <AppBarSeparator></AppBarSeparator>
-
-    <AppBarSection>
-        <span>Our Mission</span>
-    </AppBarSection>
-
-    <AppBarSeparator></AppBarSeparator>
-
-    <AppBarSection>
-        <span>Contact Us</span>
-    </AppBarSection>
-
-    <AppBarSpacer></AppBarSpacer>
-
-    <AppBarSection>
-        <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
-    </AppBarSection>
-
-    <AppBarSeparator></AppBarSeparator>
-
-    <AppBarSection>
-        <TelerikSvgIcon Icon="@SvgIcon.Logout"></TelerikSvgIcon>
-    </AppBarSection>
-</TelerikAppBar>
-````
+<demo metaUrl="client/appbar/overview/" height="300"></demo>
 
 ## AppBar Sections
 
@@ -103,22 +67,7 @@ To execute AppBar methods, obtain reference to the component instance with `@ref
 |---------|-------------|
 | `Refresh` | Use the method to programmatically re-render the AppBar. |
 
-<div class="skip-repl"></div>
-
-````RAZOR
-<TelerikButton OnClick="@RefreshAppBar">Refresh AppBar</TelerikButton>
-
-<TelerikAppBar @ref="AppBarRef" />
-
-@code {
-	private TelerikAppBar AppBarRef { get; set; }
-
-	private void RefreshAppBar()
-	{
-		AppBarRef.Refresh();
-	}
-}
-````
+<demo metaUrl="client/appbar/methods/" height="300"></demo>
 
 ## Next Steps
 

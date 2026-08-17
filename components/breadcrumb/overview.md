@@ -32,67 +32,12 @@ To use a Telerik Breadcrumb for Blazor:
 
 ![Breadcrumb for Blazor](images/breadcrumb-basic-example.png)
 
-````RAZOR
-@* This example demonstrates the basic configuration of the Breadcrumb*@
-
-<TelerikBreadcrumb Data="@Items">
-</TelerikBreadcrumb>
-
-@code {
-
-    public List<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<BreadcrumbItem>
-        {
-            new BreadcrumbItem { Text = "Home", Icon = SvgIcon.Home },
-            new BreadcrumbItem { Text = "Products"},
-            new BreadcrumbItem { Text = "Computer peripherals"},
-            new BreadcrumbItem { Text = "Keyboards"},
-            new BreadcrumbItem { Text = "Gaming keyboards"}
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public string Url { get; set; }
-    } 
-}
-````
+<demo metaUrl="client/breadcrumb/overview/" height="250"></demo>
 
 
 >caption Component namespace and reference
 
-````RAZOR
-<TelerikBreadcrumb @ref="theBreadcrumbRef" Data="@Items">
-</TelerikBreadcrumb>
-
-@code{
-    Telerik.Blazor.Components.TelerikBreadcrumb<BreadcrumbItem> theBreadcrumbRef { get; set; }
-
-    public IEnumerable<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<BreadcrumbItem>
-        {
-        new BreadcrumbItem { Text = "Item1"},
-        new BreadcrumbItem { Text = "Item2"},
-        new BreadcrumbItem { Text = "Item3"}
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public string Url { get; set; }
-    }
-}
-````
+<demo metaUrl="client/breadcrumb/reference/" height="250"></demo>
 
 ## Features
 

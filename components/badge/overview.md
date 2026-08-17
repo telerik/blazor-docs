@@ -23,12 +23,7 @@ The Badge comes with built-in customization features that allow the developer to
 
 >caption Basic configuration of the Blazor Badge
 
-````RAZOR
-<TelerikButton>
-    <TelerikBadge VerticalAlign="@BadgeVerticalAlign.Bottom">12</TelerikBadge>
-    Notifications
-</TelerikButton>
-````
+<demo metaUrl="client/badge/overview/" height="200"></demo>
 
 ## Positioning and Alignment
 

@@ -27,54 +27,7 @@ This template receives a `context` argument that is of the data model type and r
 ![Breadcrumb ItemTemplate](images/breadcrumb-item-template-example.png)
 
 
-````RAZOR
-@* Customize the rendering of the Breadcrumb items *@
-
-<TelerikBreadcrumb Data="@Items">
-    <ItemTemplate>
-        <span class="item">
-            @if (context.Text == "Item2")
-            {
-                <span>❕</span>
-            }
-            @context.Text
-        </span>
-    </ItemTemplate>
-</TelerikBreadcrumb>
-
-<style>
-    .item {
-        font-family: cursive;
-        font-size: 17px;
-        color: white !important;
-        background-color: #ff6358;
-        border-radius: 5px;
-        padding: 3px 5px;
-        cursor: pointer;
-    }
-</style>
-
-@code {
-    public IEnumerable<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<BreadcrumbItem>
-    {
-        new BreadcrumbItem { Text = "Item1", Details = "Info for Item 1"},
-        new BreadcrumbItem { Text = "Item2", Details = "Info for Item 2"},
-        new BreadcrumbItem { Text = "Item3", Details = "Info for Item 3"},
-        new BreadcrumbItem { Text = "Item4", Details = "Info for Item 4"}
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-        public string Details { get; set; }
-    }
-}
-````
+<demo metaUrl="client/breadcrumb/templates/" height="300"></demo>
 
 
 ## SeparatorTemplate
@@ -85,36 +38,7 @@ The `<SeparatorTemplate>` allows you to control the rendering of the Breadcrumb 
 
 ![Breadcrumb SeparatorTemplate](images/breadcrumb-separator-template-example.png)
 
-````RAZOR
-@* Customize the rendering of the Breadcrumb Separator *@
-
-<TelerikBreadcrumb Data="@Items">
-    <SeparatorTemplate>
-        <span>🔸</span>
-    </SeparatorTemplate>
-</TelerikBreadcrumb>
-
-@code {
-    public IEnumerable<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<BreadcrumbItem>
-    {
-        new BreadcrumbItem { Text = "Item1", Details = "Info for Item 1"},
-        new BreadcrumbItem { Text = "Item2", Details = "Info for Item 2"},
-        new BreadcrumbItem { Text = "Item3", Details = "Info for Item 3"},
-        new BreadcrumbItem { Text = "Item4", Details = "Info for Item 4"}
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-        public string Details { get; set; }
-    }
-}
-````
+<demo metaUrl="client/breadcrumb/templates/separator/" height="250"></demo>
 
 
 ## See Also

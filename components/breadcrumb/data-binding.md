@@ -68,52 +68,7 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
 
 ## Example - Data Binding to Non-Default Field Names
 
-````RAZOR
-@*This example shows how you can data bind the Breadcrumb and set the field names it will use from the model*@
-
-<TelerikBreadcrumb Data="@Items"
-                   TextField="ItemText"
-                   UrlField="ItemUrl"
-                   DisabledField="ItemDisabled">
-</TelerikBreadcrumb>
-
-@code {
-    public IEnumerable<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<BreadcrumbItem>
-        {
-            new BreadcrumbItem
-            {
-                ItemText = "Overview",
-                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/overview"
-            },
-            new BreadcrumbItem
-            { ItemText = "Navigation",
-                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/navigation",
-            },
-            new BreadcrumbItem
-            { ItemText = "Items",
-                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/items",
-                ItemDisabled = true
-            },
-            new BreadcrumbItem
-            {
-                ItemText = "Collapse Modes",
-                ItemUrl = "https://demos.telerik.com/blazor-ui/breadcrumb/collapse-modes"
-            }
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string ItemText { get; set; }
-        public string ItemUrl { get; set; }
-        public bool ItemDisabled { get; set; }
-    }
-}
-````
+<demo metaUrl="client/breadcrumb/data-binding/" height="250"></demo>
 
 
 ## See Also

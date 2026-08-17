@@ -26,33 +26,7 @@ The nested `AppBarSection` tag exposes parameters:
 
 >caption The Telerik AppBar sections with its parameter
 
-````RAZOR
-@* The AppBar sections with its parameters *@
-
-<style>
-    .products-section-class {
-        font-weight: bolder;
-    }
-</style>
-
-<TelerikButton OnClick="@(() => isSectionVisible = !isSectionVisible)">Toggle the visibility of the Our Mission section</TelerikButton>
-
-<br />
-
-<TelerikAppBar>
-    <AppBarSection Class="products-section-class">
-        <span>Our Products</span>
-    </AppBarSection>
-
-    <AppBarSection Visible="@isSectionVisible">
-        <span>Our Mission</span>
-    </AppBarSection>
-</TelerikAppBar>
-
-@code{
-    private bool isSectionVisible { get; set; } = true;
-}
-````
+<demo metaUrl="client/appbar/sections/" height="300"></demo>
 
 ## See Also
 

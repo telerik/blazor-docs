@@ -45,68 +45,7 @@ Refer to the [example](#example) below to customize the available parameters and
 
 The following example lets you experiment with the available settings that control the position and alignment of the Badge. It starts with the default component behavior.
 
-````RAZOR
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <label>
-                Position
-                <TelerikDropDownList Data="@Positions" @bind-Value="@Position"></TelerikDropDownList>
-            </label>
-        </div>
-        <div class="col-md-4">
-            <label>
-                Horizontal Alignment
-                <TelerikDropDownList Data="@BadgeHorizontalAlignSettings" @bind-Value="@BadgeHorizontalAlignSetting"></TelerikDropDownList>
-            </label>
-        </div>
-        <div class="col-md-4">
-            <label>
-                Vertical Alignment
-                <TelerikDropDownList Data="@BadgeVerticalAlignSettings" @bind-Value="@BadgeVerticalAlignSetting"></TelerikDropDownList>
-            </label>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-12 text-center">
-            <TelerikButton>
-                Notifications
-                <TelerikBadge Position="@Position"
-                              HorizontalAlign="@BadgeHorizontalAlignSetting"
-                              VerticalAlign="@BadgeVerticalAlignSetting">
-                    10
-                </TelerikBadge>
-            </TelerikButton>
-        </div>
-    </div>
-</div>
-
-@code {
-    private BadgePosition Position { get; set; } = BadgePosition.Edge;
-    private List<BadgePosition> Positions { get; set; } = new List<BadgePosition>()
-    {
-        BadgePosition.Edge,
-        BadgePosition.Inline,
-        BadgePosition.Inside,
-        BadgePosition.Outside
-    };
-
-    private BadgeHorizontalAlign BadgeHorizontalAlignSetting { get; set; } = BadgeHorizontalAlign.End;
-    private List<BadgeHorizontalAlign> BadgeHorizontalAlignSettings { get; set; } = new List<BadgeHorizontalAlign>()
-    {
-        BadgeHorizontalAlign.Start,
-        BadgeHorizontalAlign.End
-    };
-
-    private BadgeVerticalAlign BadgeVerticalAlignSetting { get; set; } = BadgeVerticalAlign.Top;
-    private List<BadgeVerticalAlign> BadgeVerticalAlignSettings { get; set; } = new List<BadgeVerticalAlign>()
-    {
-        BadgeVerticalAlign.Top,
-        BadgeVerticalAlign.Bottom
-    };
-}
-````
+<demo metaUrl="client/badge/position/" height="400"></demo>
 
 ## See Also
 
