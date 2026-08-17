@@ -23,7 +23,14 @@ To use a Telerik Breadcrumb for Blazor:
 
 >caption Basic Blazor Breadcrumb
 
+![Breadcrumb for Blazor](images/breadcrumb-basic-example.png)
+
 <demo metaUrl="client/breadcrumb/overview/" height="250"></demo>
+
+
+>caption Component namespace and reference
+
+<demo metaUrl="client/breadcrumb/reference/" height="250"></demo>
 
 ## Features
 

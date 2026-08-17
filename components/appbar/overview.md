@@ -67,18 +67,7 @@ To execute AppBar methods, obtain reference to the component instance with `@ref
 |---------|-------------|
 | `Refresh` | Use the method to programmatically re-render the AppBar. |
 
-````RAZOR.skip-repl
-<TelerikAppBar @ref="AppBarRef" />
-
-@code {
-    private TelerikAppBar? AppBarRef;
-
-    private void RefreshAppBar()
-    {
-        AppBarRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/appbar/methods/" height="300"></demo>
 
 ## Next Steps
 
