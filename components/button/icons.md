@@ -26,26 +26,7 @@ The `Icon` parameter type is `object` and it accepts:
 
 >caption How to use icons in Telerik Button
 
-````RAZOR
-<TelerikButton Icon="@SvgIcon.Export">SVG Icon</TelerikButton>
-
-<TelerikButton Icon="@FontIcon.Filter">Font Icon</TelerikButton>
-
-<TelerikButton Icon="@( "my-icon" )">Custom Icon</TelerikButton>
-
-<style>
-    .my-icon {
-        /* define a background image or a custom font icon here */
-        background: purple;
-        /* dimensions and other base styles will usually come from another class */
-        width: 1em;
-        height: 1em;
-        font-size: 16px;
-    }
-</style>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
-````
+<demo metaUrl="client/button/icons/" height="250"></demo>
 
 ## Notes
 

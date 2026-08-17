@@ -26,37 +26,7 @@ The `OnClick` event argument is of type [MouseEventArgs](https://docs.microsoft.
 
 >caption Handle the Button OnClick event in a ButtonGroup
 
-````RAZOR
-@* This example shows how to handle button clicks individually or with a shared event handler. *@
-
-<TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-    <ButtonGroupButton OnClick="@FirstClickHandler">Button 1</ButtonGroupButton>
-    <ButtonGroupButton OnClick="@( (MouseEventArgs args) => SharedClickHandler("Button 2", args) )">Button 2</ButtonGroupButton>
-    <ButtonGroupToggleButton OnClick="@( (MouseEventArgs args) => SharedClickHandler("Toggle Button 3", args) )">Toggle Button 3</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton OnClick="@ToggleButtonClickHandler">Toggle Button 4</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-<p>@EventLogger</p>
-
-@code{
-    private string EventLogger { get; set; }
-
-    private async Task FirstClickHandler(MouseEventArgs args)
-    {
-        EventLogger = $"Button 1 click at {DateTime.Now.Millisecond} ms. Ctrl or Cmd pressed: {args.CtrlKey || args.MetaKey}";
-    }
-
-    private async Task ToggleButtonClickHandler(MouseEventArgs args)
-    {
-        EventLogger = $"Toggle Button 4 click at {DateTime.Now.Millisecond} ms. Alt pressed: {args.AltKey}";
-    }
-
-    private async Task SharedClickHandler(string sender, MouseEventArgs args)
-    {
-        EventLogger = $"Shared handler: {sender} click at {DateTime.Now.Millisecond} ms. Shift pressed: {args.ShiftKey}";
-    }
-}
-````
+<demo metaUrl="client/buttongroup/events/on-click/" height="300"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -72,48 +42,7 @@ Normally, the `SelectedChanged` handler should update the `Selected` value of th
 
 >caption Handle the SelectedChanged event
 
-````RAZOR
-<TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-    <ButtonGroupToggleButton Selected="@FirstSelected"
-                             SelectedChanged="@FirstSelectedChanged">Button 1</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton Selected="@SecondSelected"
-                             SelectedChanged="@SecondSelectedChanged">Button 2</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-<p><label><TelerikCheckBox @bind-Value="@HandleEvents" /> Handle SelectedChanged</label></p>
-
-@code{
-    private bool FirstSelected { get; set; }
-    private bool SecondSelected { get; set; } = true;
-    private bool HandleEvents { get; set; } = true;
-
-    private void FirstSelectedChanged(bool newState)
-    {
-        if (HandleEvents)
-        {
-            FirstSelected = newState;
-            Console.WriteLine($"Button 1 Selected: {FirstSelected}");
-        }
-        else
-        {
-            Console.WriteLine($"Button 1 SelectedChanged cancelled.");
-        }
-    }
-
-    private void SecondSelectedChanged(bool newState)
-    {
-        if (HandleEvents)
-        {
-            SecondSelected = newState;
-            Console.WriteLine($"Button 2 Selected: {SecondSelected}");
-        }
-        else
-        {
-            Console.WriteLine($"Button 2 SelectedChanged cancelled.");
-        }
-    }
-}
-````
+<demo metaUrl="client/buttongroup/events/selected-changed/" height="250"></demo>
 
 ## See Also
 

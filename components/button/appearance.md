@@ -34,13 +34,7 @@ The `FillMode` parameter changes or removes the background and border of the But
 
 >caption Built-in Button FillMode Values
 
-````RAZOR
-<TelerikButton FillMode="@ThemeConstants.Button.FillMode.Clear">Clear</TelerikButton>
-<TelerikButton FillMode="@ThemeConstants.Button.FillMode.Flat">Flat</TelerikButton>
-<TelerikButton FillMode="@ThemeConstants.Button.FillMode.Link">Link</TelerikButton>
-<TelerikButton FillMode="@ThemeConstants.Button.FillMode.Outline">Outline</TelerikButton>
-<TelerikButton FillMode="@ThemeConstants.Button.FillMode.Solid">Solid (Default)</TelerikButton>
-````
+<demo metaUrl="client/button/appearance/fill-mode/" height="200"></demo>
 
 ## Rounded
 
@@ -55,12 +49,7 @@ The `Rounded` parameter applies a `border-radius` CSS style to the Button to cur
 
 >caption Built-in Button Rounded Values
 
-````RAZOR
-<TelerikButton Rounded="@ThemeConstants.Button.Rounded.Full">Full</TelerikButton>
-<TelerikButton Rounded="@ThemeConstants.Button.Rounded.Large">Large</TelerikButton>
-<TelerikButton Rounded="@ThemeConstants.Button.Rounded.Medium">Medium (Default)</TelerikButton>
-<TelerikButton Rounded="@ThemeConstants.Button.Rounded.Small">Small</TelerikButton>
-````
+<demo metaUrl="client/button/appearance/rounded/" height="200"></demo>
 
 ## Size
 
@@ -74,11 +63,7 @@ The `Size` parameter affects the Button dimensions, paddings, and font size. Set
 
 >caption Built-in Button Size Values
 
-````RAZOR
-<TelerikButton Size="@ThemeConstants.Button.Size.Large">Large</TelerikButton>
-<TelerikButton Size="@ThemeConstants.Button.Size.Medium">Medium (Default)</TelerikButton>
-<TelerikButton Size="@ThemeConstants.Button.Size.Small">Small</TelerikButton>
-````
+<demo metaUrl="client/button/appearance/size/" height="200"></demo>
 
 ## ThemeColor
 
@@ -99,19 +84,6 @@ The `ThemeColor` parameter controls the Button background, text, and border colo
 
 >caption Built-in Button ThemeColor Values
 
-````RAZOR
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Base">Base (Default)</TelerikButton>
-
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Primary</TelerikButton>
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Secondary">Secondary</TelerikButton>
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Tertiary">Tertiary</TelerikButton>
-
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Info">Info</TelerikButton>
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success">Success</TelerikButton>
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Warning">Warning</TelerikButton>
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Error">Error</TelerikButton>
-
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Inverse">Inverse</TelerikButton>
-````
+<demo metaUrl="client/button/appearance/theme-color/" height="300"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

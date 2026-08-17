@@ -34,24 +34,7 @@ The `FillMode` toggles the background and border of the TelerikButton. You can s
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    <TelerikButtonGroup>
-        @foreach (var field in fields)
-        {
-            string fillmode = field.GetValue(null).ToString();
-            <ButtonGroupButton FillMode="@fillmode">@fillmode</ButtonGroupButton>
-        }
-    </TelerikButtonGroup>
-}
-````
+<demo metaUrl="client/buttongroup/appearance/fill-mode/" height="200"></demo>
 
 ## Rounded
 
@@ -66,24 +49,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in rounded edges of the button.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    <TelerikButtonGroup>
-        @foreach (var field in fields)
-        {
-            string rounded = field.GetValue(null).ToString();
-            <ButtonGroupButton Rounded="@rounded">@rounded</ButtonGroupButton>
-        }
-    </TelerikButtonGroup>
-}
-````
+<demo metaUrl="client/buttongroup/appearance/rounded/" height="200"></demo>
 
 ## Size
 
@@ -97,22 +63,7 @@ You can increase or decrease the size of the button by setting the `Size` parame
 
 >caption The built-in button sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    <TelerikButtonGroup>
-        @foreach (var field in fields)
-        {
-            string size = field.GetValue(null).ToString();
-            <ButtonGroupButton Size="@size">@size</ButtonGroupButton>
-        }
-    </TelerikButtonGroup>
-}
-````
+<demo metaUrl="client/buttongroup/appearance/size/" height="200"></demo>
 
 ## ThemeColor
 
@@ -135,23 +86,6 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 
 >caption The built-in ThemeColors
 
-````RAZOR
-@* The built-in button colors *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Button.ThemeColor)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    <TelerikButtonGroup>
-        @foreach (var field in fields)
-        {
-            string themeColor = field.GetValue(null).ToString();
-            <ButtonGroupButton ThemeColor="@themeColor">@themeColor</ButtonGroupButton>
-        }
-    </TelerikButtonGroup>
-}
-````
+<demo metaUrl="client/buttongroup/appearance/theme-color/" height="300"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

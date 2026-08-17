@@ -29,24 +29,7 @@ The ButtonGroup component lets you [select one or more toggle buttons](slug:butt
 
 >caption Blazor ButtonGroup with regular buttons and toggle buttons, and their respective `OnClick` handlers
 
-````RAZOR
-<TelerikButtonGroup>
-    <ButtonGroupButton OnClick="@FirstClick">First button</ButtonGroupButton>
-    <ButtonGroupToggleButton OnClick="@SecondClick">Second button</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-@code{
-    async Task FirstClick()
-    {
-        Console.WriteLine("the first button was clicked.");
-    }
-
-    async Task SecondClick()
-    {
-        Console.WriteLine("the second button was clicked. It becomes selected when clicked.");
-    }
-}
-````
+<demo metaUrl="client/buttongroup/overview/" height="250"></demo>
 
 ## Buttons
 
@@ -90,30 +73,7 @@ You can style the individual buttons through their `Class` attribute to define y
 
 >caption Set CSS class to the button and change its appearance
 
-````RAZOR
-<TelerikButtonGroup>
-    <ButtonGroupToggleButton>Default</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton @bind-Selected="@IsSelected"
-                             Class="@( IsSelected ? "my-on-class" : "the-off-class" )">Styled - Selected: @IsSelected</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-@code {
-    bool IsSelected { get; set; }
-}
-
-<style>
-    .k-button-group button.k-button.my-on-class,
-    .k-button-group button.k-button.my-on-class:hover {
-        color: yellow;
-        font-weight: 700;
-    }
-
-    .k-button-group button.k-button.the-off-class,
-    .k-button-group button.k-button.the-off-class:hover {
-        color: pink;
-    }
-</style>
-````
+<demo metaUrl="client/buttongroup/custom-styling/" height="250"></demo>
 
 ## Next Steps
 

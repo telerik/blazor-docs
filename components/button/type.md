@@ -19,12 +19,7 @@ You can control the `type` attribute through the `ButtonType` property of the co
 * `Button` - Renders a `type="button"` attribute. Does not invoke form validation and submission.
 * `Reset` - Renders a `type="reset"` attribute. Can reset the current form.
 
-````RAZOR
-<TelerikButton>Implicit SUBMIT</TelerikButton>
-<TelerikButton ButtonType="@ButtonType.Submit">Explicit SUBMIT</TelerikButton>
-<TelerikButton ButtonType="@ButtonType.Button">BUTTON</TelerikButton>
-<TelerikButton ButtonType="@ButtonType.Reset">RESET</TelerikButton>
-````
+<demo metaUrl="client/button/type/" height="200"></demo>
 
 ## Form Parameter
 

@@ -26,30 +26,7 @@ The `ButtonGroupButton` inherits the parameters and behavior of the [Telerik UI 
 
 >caption Using Buttons in a group
 
-````RAZOR
-<TelerikButtonGroup>
-    <ButtonGroupButton OnClick="@OnButton1Click">Button 1</ButtonGroupButton>
-    <ButtonGroupButton OnClick="@OnButton2Click">Button 2</ButtonGroupButton>
-    <ButtonGroupButton OnClick="@OnButton3Click">Button 3</ButtonGroupButton>
-</TelerikButtonGroup>
-
-@code {
-    private void OnButton1Click()
-    {
-        // ...
-    }
-
-    private void OnButton2Click()
-    {
-        // ...
-    }
-
-    private void OnButton3Click()
-    {
-        // ...
-    }
-}
-````
+<demo metaUrl="client/buttongroup/buttons/regular/" height="200"></demo>
 
 ## ButtonGroup ToggleButton
 
@@ -59,37 +36,7 @@ The `ButtonGroupToggleButton` inherits the parameters and behavior of the [`Tele
 
 >caption Using ToogleButtons in a group
 
-````RAZOR
-<TelerikButtonGroup>
-    <ButtonGroupToggleButton OnClick="@OnToggleButton1Click"
-                             @bind-Selected="@ToggleButton1Selected">Toggle Button 1</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton OnClick="@OnToggleButton2Click"
-                             @bind-Selected="@ToggleButton2Selected">Toggle Button 2</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton OnClick="@OnToggleButton3Click"
-                             @bind-Selected="@ToggleButton3Selected">Toggle Button 3</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-@code {
-    private bool ToggleButton1Selected { get; set; } = true;
-    private bool ToggleButton2Selected { get; set; }
-    private bool ToggleButton3Selected { get; set; }
-
-    private void OnToggleButton1Click()
-    {
-        // ...
-    }
-
-    private void OnToggleButton2Click()
-    {
-        // ...
-    }
-
-    private void OnToggleButton3Click()
-    {
-        // ...
-    }
-}
-````
+<demo metaUrl="client/buttongroup/buttons/toggle/" height="200"></demo>
 
 ## Disabled State
 
@@ -97,20 +44,7 @@ To disable a button, set its `Enabled` attribute to `false`.
 
 >caption Disabled buttons in a ButtonGroup
 
-````RAZOR
-<TelerikButtonGroup>
-    <ButtonGroupButton>Enabled Button</ButtonGroupButton>
-    <ButtonGroupButton Enabled="false">Disabled Button</ButtonGroupButton>
-    <ButtonGroupToggleButton @bind-Selected="@ToggleButton1Selected">Enabled ToggleButton</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton @bind-Selected="@ToggleButton2Selected">Enabled ToggleButton</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton Enabled="false">Disabled ToggleButton</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-@code {
-    private bool ToggleButton1Selected { get; set; } = true;
-    private bool ToggleButton2Selected { get; set; }
-}
-````
+<demo metaUrl="client/buttongroup/buttons/disabled/" height="200"></demo>
 
 ## Visibility
 
@@ -118,27 +52,7 @@ You can set the `Visible` parameter of individual buttons to `false` to hide the
 
 >caption Hide buttons from a ButtonGroup
 
-````RAZOR
-<TelerikButtonGroup>
-    <ButtonGroupButton>Button</ButtonGroupButton>
-    <ButtonGroupButton Visible="@ShowHiddenButtons">Button Hidden</ButtonGroupButton>
-    <ButtonGroupToggleButton @bind-Selected="@ToggleButton1Selected">ToggleButton</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton @bind-Selected="@ToggleButton2Selected"
-                             Visible="@ShowHiddenButtons">ToggleButton Hidden</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-<br />
-<br />
-
-<TelerikToggleButton @bind-Selected="@ShowHiddenButtons">Show Hidden Buttons</TelerikToggleButton>
-
-@code {
-    private bool ShowHiddenButtons { get; set; }
-
-    private bool ToggleButton1Selected { get; set; } = true;
-    private bool ToggleButton2Selected { get; set; }
-}
-````
+<demo metaUrl="client/buttongroup/buttons/visibility/" height="250"></demo>
 
 ## See Also
 

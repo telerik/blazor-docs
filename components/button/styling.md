@@ -27,15 +27,4 @@ The Class attribute allows you to define custom CSS rules that apply to the HTML
 
 >caption Set CSS class to the button and change its appearance
 
-````RAZOR
-<TelerikButton Class="my-button">Large button with red text</TelerikButton>
-
-<style>
-    .my-button,
-    .my-button:hover {
-        color: red;
-        width: 200px;
-        height: 50px;
-    }
-</style>
-````
+<demo metaUrl="client/button/styling/" height="200"></demo>
