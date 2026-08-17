@@ -15,7 +15,12 @@ The Century Cell Template controls what the calendar will render in the `<td>` e
 
 The template receives the `DateTime` corresponding to its cell start year.
 
+>caption Mark some decades on the calendar century view
+
+![calendar century cell template](images/calendar-century-template.png)
+
 <demo metaUrl="client/calendar/templates/century-cell/" height="500"></demo>
+
 
 ## See Also
 
