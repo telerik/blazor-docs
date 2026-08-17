@@ -68,8 +68,6 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
 
 <demo metaUrl="client/breadcrumb/data-binding/" height="250"></demo>
 
-## Data Binding to Custom Field Names
-
 <demo metaUrl="client/breadcrumb/data-binding/" height="250"></demo>
 
 ## See Also
