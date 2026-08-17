@@ -25,30 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/calendar" target="_blank">Blazor 
 
 >caption Basic Calendar with its key features and ValueChanged event handling
 
-````RAZOR
-@* Main Calendar features, ValueChanged event handling. *@
-<br />
-
-<TelerikCalendar Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler" @bind-Date="@theDate">
-</TelerikCalendar>
-
-<br />
-The selected date is: @selectedDate
-
-@code {
-
-    private DateTime min = new DateTime(2015, 1, 1);
-    private DateTime max = new DateTime(2025, 12, 31);
-    private DateTime theDate { get; set; } = DateTime.Now;
-    private string selectedDate = "";
-
-    private void MyValueChangeHandler(DateTime newValue)
-    {
-        selectedDate = newValue.ToString("dd MMM yyyy");
-    }
-}
-
-````
+<demo metaUrl="client/calendar/overview/" height="500"></demo>
 
 ## Navigation
 
@@ -115,32 +92,7 @@ Add a reference to the component instance to use the [Blazor Calendar methods](s
 | `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
 | `Refresh` | Re-renders the Calendar. |
 
-````RAZOR
-<p>
-    <TelerikButton OnClick="@GoToPreviousMonth">Go To Previous Month</TelerikButton>
-    <TelerikButton OnClick="@GoToNextMonth">Go To Next Month</TelerikButton>
-</p>
-
-<TelerikCalendar @ref="@Calendar"
-                 @bind-Value="@CalendarValue"
-                 @bind-Date="@CalendarDate" />
-
-@code {
-    TelerikCalendar Calendar { get; set; }
-    DateTime CalendarValue { get; set; } = DateTime.Now;
-    DateTime CalendarDate { get; set; } = DateTime.Now;
-
-    void GoToPreviousMonth()
-    {
-        Calendar.NavigateTo(CalendarDate.AddMonths(-1), CalendarView.Month);
-    }
-
-    void GoToNextMonth()
-    {
-        Calendar.NavigateTo(CalendarDate.AddMonths(1), CalendarView.Month);
-    }
-}
-````
+<demo metaUrl="client/calendar/overview/methods/" height="500"></demo>
 
 ## Next Steps
 

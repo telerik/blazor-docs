@@ -54,46 +54,11 @@ You can find examples of both below.
 
 >caption Two-way binding for the selected date
 
-````RAZOR
-<TelerikCalendar @bind-Date="@startDate"
-                 @bind-Value="@SelectedDate"
-                 SelectionMode="@CalendarSelectionMode.Single">
-</TelerikCalendar>
-
-<p>
-    Selected Date: @SelectedDate
-</p>
-
-@code {
-    private DateTime SelectedDate { get; set; } = DateTime.Now.Date;
-    private DateTime startDate = DateTime.Now.Date;
-}
-````
+<demo metaUrl="client/calendar/selection/single-binding/" height="500"></demo>
 
 >caption Handle Single selection in the Calendar through an event
 
-````RAZOR
-<TelerikCalendar @bind-Date="@StartDate"
-                 SelectionMode="@CalendarSelectionMode.Single"
-                 Value="@SelectedDate"
-                 ValueChanged="SelectionHandler">
-</TelerikCalendar>
-
-<p>
-    Selected Date: @SelectedDate.ToShortDateString()
-</p>
-
-@code {
-    private DateTime SelectedDate { get; set; } = DateTime.Today;
-
-    private DateTime StartDate = DateTime.Today;
-
-    private void SelectionHandler(DateTime newDate)
-    {
-        SelectedDate = newDate;
-    }
-}
-````
+<demo metaUrl="client/calendar/selection/single-event/" height="500"></demo>
 
 
 ### Multiple Selection Mode
@@ -102,35 +67,7 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
 
 >caption Handle Multiple selection in the Calendar
 
-````RAZOR
-<TelerikCalendar @ref="@CalendarRef"
-                 SelectionMode="@CalendarSelectionMode.Multiple"
-                 ValueChanged="@OnCalendarValueChanged">
-</TelerikCalendar>
-
-@if (SelectedDates.Any())
-{
-    <ul>
-        @foreach (var date in SelectedDates)
-        {
-            <li>
-                @date.ToShortDateString()
-            </li>
-        }
-    </ul>
-}
-
-@code {
-    private List<DateTime> SelectedDates { get; set; } = new List<DateTime>();
-
-    private TelerikCalendar CalendarRef { get; set; }
-
-    private void OnCalendarValueChanged()
-    {
-        SelectedDates = CalendarRef.SelectedDates;
-    }
-}
-````
+<demo metaUrl="client/calendar/selection/multiple/" height="500"></demo>
 
 ### Range Selection Mode
 
@@ -146,39 +83,7 @@ With range selection mode, you have two options to get the user choice:
 
 >caption Range selection with two-way binding and AllowReverse
 
-````RAZOR
-@* This example shows how to handle Range selection through two-way binding *@
-
-<TelerikCheckBox Id="myCheckBox" @bind-Value="@AllowReverse" />
-<label for="myCheckBox">@(AllowReverse ? "Allowed reverse selection" : "Not allowed reverse selection")</label>
-
-<br />
-
-<TelerikCalendar Views="2"
-                 Date="@Date"
-                 @bind-RangeStart="@RangeStart"
-                 @bind-RangeEnd="@RangeEnd"
-                 SelectionMode="@CalendarSelectionMode.Range"
-                 ShowOtherMonthDays="false"
-                 AllowReverse="@AllowReverse">
-</TelerikCalendar>
-
-<p>
-    Start: @RangeStart
-    <br />
-    End: @RangeEnd
-</p>
-
-@code {
-    private DateTime Date { get; set; } = DateTime.Now.AddDays(-5);
-    private DateTime RangeStart { get; set; } = DateTime.Now.Date;
-    private DateTime RangeEnd { get; set; } = DateTime.Now.AddDays(15).Date;
-    private bool AllowReverse { get; set; }
-
-    // the RangeEnd value will be the default(DateTime) while the user is selecting a range
-    // that is, while they have clicked only once in the calendar
-}
-````
+<demo metaUrl="client/calendar/selection/range/" height="650"></demo>
 
 
 ## Disabled Dates
@@ -189,44 +94,7 @@ With `Single` and `Multiple` selection, the user can't select these dates. With 
 
 >caption Add Disabled dates to a Calendar with Multiple selection
 
-````RAZOR
-@* The user will not be able to select the first and second of April 2019. *@
-
-<TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple"
-                 ValueChanged="@MultipleSelectionChangeHandler"
-                 DisabledDates="@DisabledDates"
-                 @bind-Date="@startDate"
-                 @ref="multipleSelCalendar">
-</TelerikCalendar>
-<br />
-@if (chosenDates != null && chosenDates.Count > 0)
-{
-    <ul>
-        @foreach (DateTime date in chosenDates)
-        {
-            <li>@date.ToString("dd MMM yyyy")</li>
-        }
-    </ul>
-}
-
-@code {
-    private DateTime startDate = new DateTime(2019, 4, 1); // set the initial date of the calendar
-
-    // set dates the user can't select
-    private List<DateTime> DisabledDates = new List<DateTime>() { new DateTime(2019, 4, 1), new DateTime(2019, 4, 2) };
-
-    // fields to store and render the user selection
-    private List<DateTime> chosenDates { get; set; }
-
-    // reference used to obtain the selected dates from a multiple selection calendar
-    private Telerik.Blazor.Components.TelerikCalendar multipleSelCalendar;
-    private void MultipleSelectionChangeHandler()
-    {
-        //with multiple selection, get the selected dates from a component reference
-        chosenDates = multipleSelCalendar.SelectedDates;
-    }
-}
-````
+<demo metaUrl="client/calendar/selection/disabled-dates/" height="500"></demo>
 
 ## See Also
 

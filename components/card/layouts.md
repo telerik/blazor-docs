@@ -31,41 +31,7 @@ Add the `k-card-deck` class to the wrapping container of the Cards to organize t
 
 ![Deck layout](images/deck-layout-example.png)
 
-````RAZOR
-@*Cards with Deck Layout*@
-
-<div class="k-card-deck">
-
-    <TelerikCard Width="200px">
-        <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-        </CardHeader>
-        <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-        </CardBody>
-        <CardSeparator></CardSeparator>
-        <CardActions Layout="CardActionsLayout.Center">
-            <TelerikButton Class="k-flat">Action 1</TelerikButton>
-            <TelerikButton Class="k-flat">Action 2</TelerikButton>
-        </CardActions>
-    </TelerikCard>
-
-    <TelerikCard Width="200px">
-        <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-        </CardHeader>
-        <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-        </CardBody>
-        <CardSeparator></CardSeparator>
-        <CardActions Layout="CardActionsLayout.Center">
-            <TelerikButton Class="k-flat">Action 1</TelerikButton>
-            <TelerikButton Class="k-flat">Action 2</TelerikButton>
-        </CardActions>
-    </TelerikCard>
-    
-</div>
-````
+<demo metaUrl="client/card/layouts/deck/" height="450"></demo>
 
 
 ## Cards in List Layout
@@ -76,41 +42,7 @@ Add the `k-card-list` class to the wrapping container of the Cards to organize t
 
 ![List layout](images/list-layout-example.png)
 
-````RAZOR
-@*Cards with List Layout*@
-
-<div class="k-card-list">
-
-    <TelerikCard Width="200px">
-        <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-        </CardHeader>
-        <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-        </CardBody>
-        <CardSeparator></CardSeparator>
-        <CardActions Layout="CardActionsLayout.Center">
-            <TelerikButton Class="k-flat">Action 1</TelerikButton>
-            <TelerikButton Class="k-flat">Action 2</TelerikButton>
-        </CardActions>
-    </TelerikCard>
-
-    <TelerikCard Width="200px">
-        <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-        </CardHeader>
-        <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-        </CardBody>
-        <CardSeparator></CardSeparator>
-        <CardActions Layout="CardActionsLayout.Center">
-            <TelerikButton Class="k-flat">Action 1</TelerikButton>
-            <TelerikButton Class="k-flat">Action 2</TelerikButton>
-        </CardActions>
-    </TelerikCard>
-    
-</div>
-````
+<demo metaUrl="client/card/layouts/list/" height="650"></demo>
 
 
 ## Cards in Group Layout
@@ -121,41 +53,7 @@ Add the `k-card-group` class to the wrapping container of the Cards to organize 
 
 ![Group layout](images/group-layout-example.png)
 
-````RAZOR
-@*Cards with Group Layout*@
-
-<div class="k-card-group">
-
-    <TelerikCard Width="200px">
-        <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-        </CardHeader>
-        <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-        </CardBody>
-        <CardSeparator></CardSeparator>
-        <CardActions Layout="CardActionsLayout.Center">
-            <TelerikButton Class="k-flat">Action 1</TelerikButton>
-            <TelerikButton Class="k-flat">Action 2</TelerikButton>
-        </CardActions>
-    </TelerikCard>
-
-    <TelerikCard Width="200px">
-        <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-        </CardHeader>
-        <CardBody>
-            <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-        </CardBody>
-        <CardSeparator></CardSeparator>
-        <CardActions Layout="CardActionsLayout.Center">
-            <TelerikButton Class="k-flat">Action 1</TelerikButton>
-            <TelerikButton Class="k-flat">Action 2</TelerikButton>
-        </CardActions>
-    </TelerikCard>
-    
-</div>
-````
+<demo metaUrl="client/card/layouts/group/" height="450"></demo>
 
 
 ## See Also

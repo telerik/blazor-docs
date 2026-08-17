@@ -15,24 +15,7 @@ Every Blazor Card can have a dedicated area to render a card image that will fil
 
 >caption Use the CardImage building block to insert an image in the Card
 
-````RAZOR
-@* Insert an image in the Card *@
-
-<TelerikCard Width="200px">
-    <CardHeader>
-        <CardTitle>Bulgarian Mountains</CardTitle>
-        <CardSubTitle>Bulgaria, Europe</CardSubTitle>
-    </CardHeader>
-
-    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/bg/rila_lakes.jpg" Alt="Rila Lakes"></CardImage>
-
-    <CardActions Layout="CardActionsLayout.Stretch">
-        <TelerikButton Class="k-flat" Icon="@SvgIcon.HeartOutline" Title="Like"></TelerikButton>
-        <TelerikButton Class="k-flat" Icon="@SvgIcon.Comment" Title="Comment"></TelerikButton>
-        <TelerikButton Class="k-flat" Icon="@SvgIcon.Share" Title="Share"></TelerikButton>
-    </CardActions>
-</TelerikCard>
-````
+<demo metaUrl="client/card/image/" height="450"></demo>
 
 ## Features
 

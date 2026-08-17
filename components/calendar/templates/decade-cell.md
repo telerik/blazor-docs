@@ -19,26 +19,7 @@ The template receives the `DateTime` corresponding to its cell.
 
 ![calendar decade cell template](images/calendar-decade-template.png)
 
-````RAZOR
-@* This example adds an icon for certain years *@
-
-<TelerikCalendar @bind-Date="@startDate" @bind-View="@theView">
-    <DecadeCellTemplate>
-        @if (yearsWithEvents.Contains(context.Year))
-        {
-            <TelerikSvgIcon Icon="@SvgIcon.ExclamationCircle"></TelerikSvgIcon>
-        }
-        @context.Year
-    </DecadeCellTemplate>
-</TelerikCalendar>
-
-@code{
-    DateTime startDate { get; set; } = new DateTime(2021, 4, 1);
-
-    CalendarView theView { get; set; } = CalendarView.Decade;
-    List<int> yearsWithEvents { get; set; } = new List<int>() { 2020, 2021 };
-}
-````
+<demo metaUrl="client/calendar/templates/decade-cell/" height="500"></demo>
 
 
 ## See Also

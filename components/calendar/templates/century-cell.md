@@ -19,35 +19,7 @@ The template receives the `DateTime` corresponding to its cell start year.
 
 ![calendar century cell template](images/calendar-century-template.png)
 
-````RAZOR
-@* This example highlights certain decades *@
-
-<TelerikCalendar @bind-Date="@startDate" @bind-View="@theView">
-    <CenturyCellTemplate>
-        <span style="color: @( ShouldHighlight(context.Year) ? "red" : "inherit" )">
-            @(context.Year)s
-        </span>
-    </CenturyCellTemplate>
-</TelerikCalendar>
-
-@code{
-    DateTime startDate { get; set; } = new DateTime(2021, 4, 1);
-    CalendarView theView { get; set; } = CalendarView.Century;
-
-    List<int> yearsWithEvents { get; set; } = new List<int>() { 2020, 2021, 2055 };
-    bool ShouldHighlight(int decadeStart)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            if(yearsWithEvents.Contains(decadeStart + i))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-````
+<demo metaUrl="client/calendar/templates/century-cell/" height="500"></demo>
 
 
 ## See Also

@@ -24,35 +24,7 @@ The <a href = "https://www.telerik.com/blazor-ui/card" target="_blank">Card for 
 
 The below snippet demonstrates the setup of a Card component with all building blocks implemented. You don't have to use them all.
 
-````RAZOR
-@* Blazor Card with all building blocks included *@
-
-<TelerikCard Width="300px">
-    <CardHeader>
-        <CardTitle>Tourism</CardTitle>
-    </CardHeader>
-    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/places/rome.jpg"></CardImage>
-    <CardBody>
-        <CardTitle>Rome</CardTitle>
-        <CardSubTitle>Capital of Italy</CardSubTitle>
-        <CardSeparator></CardSeparator>
-        <p>
-            Rome is a sprawling, cosmopolitan city with nearly 3,000 years of globally influential art, architecture and culture on display.
-
-            Ancient ruins such as the Forum and the Colosseum evoke the power of the former Roman Empire.
-        </p>
-    </CardBody>
-    <CardActions Layout="@CardActionsLayout.Stretch">
-        <TelerikButton Class="k-flat" Icon="@SvgIcon.HeartOutline" Title="Like"></TelerikButton>
-        <TelerikButton Class="k-flat" Icon="@SvgIcon.Comment" Title="Comment"></TelerikButton>
-        <TelerikButton Class="k-flat">Read More</TelerikButton>
-    </CardActions>
-    <CardFooter>
-        <span style="float:left">Created by @@john</span>
-        <span style="float:right">March 05, 2021</span>
-    </CardFooter>
-</TelerikCard>
-````
+<demo metaUrl="client/card/overview/" height="650"></demo>
 
 ## Parameters
 

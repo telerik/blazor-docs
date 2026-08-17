@@ -24,24 +24,7 @@ A Card with horizontal orientation. The result from the snippet below.
 
 ![Card with horizontal orientation](images/horizontal-orientation-example.png)
 
-````RAZOR
-@* Change the orientation of the Card *@
-
-<TelerikCard Orientation="CardOrientation.Horizontal" Width="500px">
-    <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardSubTitle>Horizontal orientation</CardSubTitle>
-    </CardHeader>
-    <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-    <CardSeparator></CardSeparator>
-    <CardActions>
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-    </CardActions>
-</TelerikCard>
-````
+<demo metaUrl="client/card/orientation/horizontal/" height="450"></demo>
 
 
 ## Card with Vertical orientation
@@ -52,24 +35,7 @@ The result from the snippet below.
 
 ![Card with horizontal orientation](images/vertical-orientation-example.png)
 
-````RAZOR
-@* Change the orientation of the Card *@
-
-<TelerikCard Orientation="CardOrientation.Vertical" Width="200px">
-    <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardSubTitle>Vertical orientation</CardSubTitle>
-    </CardHeader>
-    <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-    <CardSeparator></CardSeparator>
-    <CardActions>
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-    </CardActions>
-</TelerikCard>
-````
+<demo metaUrl="client/card/orientation/vertical/" height="450"></demo>
 
 ## See Also
 

@@ -39,20 +39,7 @@ Use the `CardHeader` tag to render header area of the Card.
 
 ![Card Header](images/card-header-example.png)
 
-````RAZOR
-@* Card Header *@
-
-<TelerikCard Width="200px">
-
-    <CardHeader>
-        <strong>This is the Card Header.</strong>
-    </CardHeader>
-    
-    <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/header/" height="350"></demo>
 
 ## CardBody
 
@@ -62,17 +49,7 @@ Use the `CardBody` tag to render the body of the Card.
 
 ![Card Body](images/card-body-example.png)
 
-````RAZOR
-@* Card Body *@
-
-<TelerikCard Width="200px">
-
-    <CardBody>
-        <p><strong>This is the Card Body.</strong> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </CardBody>
-    
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/body/" height="300"></demo>
 
 ## CardFooter
 
@@ -82,20 +59,7 @@ Use the `CardFooter` tag to render the footer area of the Card.
 
 ![Card Footer](images/card-footer-example.png)
 
-````RAZOR
-@* Card Footer *@
-
-<TelerikCard Width="200px">
-    <CardBody>
-        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-    
-    <CardFooter>
-        <strong>This is the Card Footer.</strong>
-    </CardFooter>
-    
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/footer/" height="350"></demo>
 
 ## CardImage
 
@@ -105,19 +69,7 @@ Use the [`CardImage`](slug:card-image) tag to render the image section of the Ca
 
 ![Card Image](images/image-example.png)
 
-````RAZOR
-@*Card Image*@
-
-<TelerikCard Width="200px">
-    <CardHeader>
-        <CardTitle>Rome</CardTitle>
-        <CardSubTitle>Capital of Italy</CardSubTitle>
-    </CardHeader>
-    
-    <CardImage Src="https://demos.telerik.com/blazor-ui/images/cards/places/rome.jpg"></CardImage>
-    
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/image/" height="450"></demo>
 
 ## CardActions
 
@@ -127,22 +79,7 @@ Use the [`CardActions`](slug:card-actions) tag to render the actions area of the
 
 ![Card Actions](images/card-actions-example.png)
 
-````RAZOR
-@* Card Actions *@
-
-<TelerikCard Width="200px">
-    <CardBody>        
-        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>  
-    <CardSeparator></CardSeparator>
-    
-    <CardActions Layout="CardActionsLayout.Center">
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-    </CardActions>
-    
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/actions/" height="400"></demo>
 
 ## CardSeparator
 
@@ -152,29 +89,7 @@ Use the `CardActions` tag to render the actions area of the Card. An example of 
 
 ![Card Separator](images/card-separator-example.png)
 
-````RAZOR
-@* Card Separator *@
-
-<TelerikCard Width="200px">
-    <CardBody>        
-        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
-        
-        <CardSeparator></CardSeparator>
-        
-        <p>Some other text in the Card Body after the separator.</p>
-    </CardBody>
-    
-    <CardSeparator></CardSeparator>
-    
-    <CardActions Layout="CardActionsLayout.Center">
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        
-        <CardSeparator Orientation="CardOrientation.Vertical"></CardSeparator>
-        
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-    </CardActions>
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/separator/" height="450"></demo>
 
 ## CardTitle
 
@@ -184,22 +99,7 @@ Use the `CardTitle` tag to render a title (heading). Although the header area is
 
 ![Card Footer](images/card-title-example.png)
 
-````RAZOR
-@* Card Title *@
-
-<TelerikCard Width="200px">
-
-    <CardTitle>This is standalone Title </CardTitle>
-
-    <CardHeader>
-        <CardTitle>This is Title in the Card Header</CardTitle>
-    </CardHeader>
-    <CardBody>
-        <CardTitle>This is Title in the Card Body</CardTitle>
-        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/title/" height="400"></demo>
 
 
 ## CardSubTitle
@@ -210,24 +110,7 @@ Use the `CardSubTitle` tag to render sub title. Although the header area is suit
 
 ![Card Footer](images/card-subtitle-example.png)
 
-````RAZOR
-@* Card Subtitle *@
-
-<TelerikCard Width="200px">
-    <CardHeader>
-        <CardTitle>This is Title in the Card Header</CardTitle>
-        
-        <CardSubTitle>This is Subtitle in the Card Header along with Title</CardSubTitle>
-    
-    </CardHeader>
-    <CardBody>
-    
-        <CardSubTitle><strong>Just Subtitle in the Card Body</strong></CardSubTitle>
-    
-        <p> Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>  
-</TelerikCard>
-````
+<demo metaUrl="client/card/building-blocks/subtitle/" height="400"></demo>
 
 ## See Also
 

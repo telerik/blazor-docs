@@ -21,18 +21,7 @@ You can control how far the user can go by setting the `Min` and `Max` propertie
 
 >caption Previous and Next navigation is enabled by default. You can control the min and max range of dates the user can navigate through
 
-````RAZOR
-The user starts in April 2019 and can navigate between January 2019 and July 2019.
-<br />
-
-<TelerikCalendar @bind-Date="@startDate" @bind-View="@selectedView" Min="@minDate" Max="@maxDate"></TelerikCalendar>
-@code {
-    DateTime startDate = new DateTime(2019, 4, 1);
-    DateTime minDate = new DateTime(2019, 1, 1);
-    DateTime maxDate = new DateTime(2019, 7, 31);
-    CalendarView selectedView { get; set; } = CalendarView.Month;
-}
-````
+<demo metaUrl="client/calendar/navigation/range/" height="500"></demo>
 
 >caption The result from the code snippet above
 
@@ -55,29 +44,7 @@ To control how much detail the user can go into, set the [`BottomView` and `TopV
 
 >caption Control current view and how deep the user can go
 
-````RAZOR
-The user can only go down to years on both - TopView and BottomView.
-<br />
-
-<TelerikCalendar TopView="@CalendarView.Year" BottomView="@CalendarView.Year" @bind-View="@SelectedView"
-                 Min="@min" Max="@max" ValueChanged="@MyValueChangeHandler">
-</TelerikCalendar>
-
-<br />The selected date is: @selectedDate
-
-@code {
-    private DateTime min = new DateTime(2015, 1, 1);
-    private DateTime max = new DateTime(2025, 12, 31);
-    private CalendarView SelectedView { get; set; } = CalendarView.Decade;
-    private string selectedDate = "";
-
-    private void MyValueChangeHandler(DateTime newValue)
-    {
-        selectedDate = newValue.ToString();
-        StateHasChanged();
-    }
-}
-````
+<demo metaUrl="client/calendar/navigation/view-depth/" height="500"></demo>
 
 ## TopView and BottomView
 
@@ -91,28 +58,7 @@ You can make the Calendar component move to a certain date and view through its 
 
 >caption Navigate the Calendar to a date and view programmatically
 
-````RAZOR
-@* Programmatic Calendar navigation *@
-
-<TelerikCalendar @bind-Date="@startDate" @bind-View="@calendarView"
-                 Min="@min" Max="@max">
-</TelerikCalendar>
-<TelerikButton OnClick="@UpdateView">Update View</TelerikButton>
-
-@code {
-    CalendarView calendarView { get; set; } = CalendarView.Month;
-    DateTime startDate { get; set; } = new DateTime(2019, 5, 2);
-
-    DateTime min = new DateTime(2015, 1, 1);
-    DateTime max = new DateTime(2025, 12, 31);
-
-    protected void UpdateView()
-    {
-        calendarView = CalendarView.Year;
-        startDate = new DateTime(2018, 5, 2);
-    }
-}
-````
+<demo metaUrl="client/calendar/navigation/programmatic/" height="500"></demo>
 
 ## See Also
 
