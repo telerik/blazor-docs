@@ -23,7 +23,7 @@ The event handler can be synchronous (`void`) or asynchronous (`async Task`).
 
 >caption Handling the DropDownButton OnClick event
 
-<demo metaUrl="client/dropdownbutton/events/" height="360"></demo>
+<demo metaUrl="client/dropdownbutton/events/" height="300"></demo>
 
 
 ## See Also

@@ -28,7 +28,7 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 
 >caption Basic DropDownButton
 
-<demo metaUrl="client/dropdownbutton/overview/basic/" height="380"></demo>
+<demo metaUrl="client/dropdownbutton/overview/basic/" height="300"></demo>
 
 ## Icons
 
@@ -110,7 +110,7 @@ The DropDownButton exposes a `FocusAsync` method that allows you to focus it pro
 
 >caption Get a reference to the DropDownButton and execute methods
 
-<demo metaUrl="client/dropdownbutton/overview/focus/" height="360"></demo>
+<demo metaUrl="client/dropdownbutton/overview/focus/" height="300"></demo>
 
 ## Next Steps
 
