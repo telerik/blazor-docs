@@ -27,7 +27,9 @@ To use this mode, set the `EditMode` parameter of the editor to `EditorEditMode.
 
 >caption Use the `Div` edit mode
 
-<demo metaUrl="client/editor/edit-modes/div/basic/" height="450"></demo>
+````RAZOR
+<demo metaUrl="client/editor/edit-modes/div/basic/" height="300"></demo>
+````
 
 The example below shows how you can customize the appearance of elements in the editor. It showcases the following:
 
@@ -39,7 +41,7 @@ The example below shows how you can customize the appearance of elements in the 
 
 >caption Customize the content area appearance in Div mode
 
-<demo metaUrl="client/editor/edit-modes/div/customize-content/" height="500"></demo>
+<demo metaUrl="client/editor/edit-modes/div/customize-content/" height="850"></demo>
 
 ## See Also
 

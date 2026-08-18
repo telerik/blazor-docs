@@ -21,7 +21,7 @@ To configure the behavior of the Editor when content is pasted, set the desired 
 
 >caption Set pasting behaviors in the Telerik Editor
 
-<demo metaUrl="client/editor/paste-cleanup/" height="700"></demo>
+<demo metaUrl="client/editor/paste-cleanup/" height="500"></demo>
 
 
 ## Paste Settings

@@ -38,7 +38,7 @@ Here is a simple example that demonstrates how to use class names, command names
 
 >caption Use tool class names and command names with the Blazor Editor
 
-<demo metaUrl="client/editor/built-in-tools/use-tool-class-names/" height="480"></demo>
+<demo metaUrl="client/editor/built-in-tools/use-tool-class-names/" height="400"></demo>
 
 
 ## Built-in Tools and Commands
@@ -173,14 +173,14 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 >caption Customizing the Editor Color Tools
 
-<demo metaUrl="client/editor/built-in-tools/color-tool-customization/" height="480"></demo>
+<demo metaUrl="client/editor/built-in-tools/color-tool-customization/" height="400"></demo>
 
 
 ### Font Tool Customization
 
 The [`FontFamily`](slug:Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](slug:Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
 
-<demo metaUrl="client/editor/built-in-tools/font-tool-customization/" height="480"></demo>
+<demo metaUrl="client/editor/built-in-tools/font-tool-customization/" height="400"></demo>
 
 
 ## Block Tools
@@ -286,7 +286,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
 
 The [`Format` tool exposes a `Data` property](slug:Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
 
-<demo metaUrl="client/editor/built-in-tools/format-tool-customization/" height="480"></demo>
+<demo metaUrl="client/editor/built-in-tools/format-tool-customization/" height="400"></demo>
 
 
 ## Table Tools
@@ -410,7 +410,7 @@ In order to do so, you need to use the [Editor reference](slug:editor-overview#e
 
 >caption Execute commands from buttons outside the Editor
 
-<demo metaUrl="client/editor/built-in-tools/programmatic-execution/" height="560"></demo>
+<demo metaUrl="client/editor/built-in-tools/programmatic-execution/" height="400"></demo>
 
 
 ## See Also
