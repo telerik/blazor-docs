@@ -31,7 +31,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 
 >caption Get started with the Blazor Grid
 
-<demo metaUrl="client/grid/overview/" height="555"></demo>
+<demo metaUrl="client/grid/overview/" height="700"></demo>
 
 ## Blazor Grid Video Tutorial
 

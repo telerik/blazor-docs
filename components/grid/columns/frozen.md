@@ -21,22 +21,17 @@ This article you can observe Freezing different columns. The examples are separa
 * [Frozen first and last columns](#frozen-first-and-last-columns)
 * [Frozen column in the middle of the Grid](#frozen-column-in-the-middle-of-the-grid)
 
-
 ## Frozen first and last columns
 
 >caption Use static markup to Freeze the first and last columns in a Grid
 
-![gif of statically locked first and last columns](images/frozen-first-last.gif)
-
 <demo metaUrl="client/grid/columns-frozen-first-last/" height="500"></demo>
+
 ## Frozen column in the middle of the Grid
 
 >caption Observe the behavior of a locked column that is neither first, nor last
 
-![gif of two statically frozen columns](images/FrozenSimple.gif)
-
 <demo metaUrl="client/grid/columns-frozen-middle/" height="500"></demo>
-
 
 ## Limitations
 
@@ -46,8 +41,7 @@ The frozen columns pose some requirements:
 
 * When a column is frozen (it has `Locked="true"`), its `Width` **must** be in `px` units.
 
-
 ## See also
 
- * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/frozen-columns)
- * [Blazor Grid](slug:grid-overview)
+* [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/frozen-columns)
+* [Blazor Grid](slug:grid-overview)
