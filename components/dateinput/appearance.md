@@ -30,27 +30,7 @@ You can increase or decrease the size of the DateInput by setting the `Size` att
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DateInput.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDateInput @bind-Value="@DateValue" Size="@size"></TelerikDateInput>
-        </div>
-    }
-}
-
-@code {
-    private DateTime DateValue { get; set; } = DateTime.Now;
-}
-````
+<demo metaUrl="client/dateinput/appearance/size/" height="350"></demo>
 
 ## Rounded
 
@@ -65,29 +45,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the DateInput to
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DateInput.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDateInput @bind-Value="@DateValue" Rounded="@rounded"></TelerikDateInput>
-        </div>
-    }
-}
-
-@code {
-    private DateTime DateValue { get; set; } = DateTime.Now;
-} 
-````
+<demo metaUrl="client/dateinput/appearance/rounded/" height="350"></demo>
 
 ## FillMode
 
@@ -101,29 +59,7 @@ The `FillMode` controls how the TelerikDateInput is filled. You can set it to a 
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DateInput.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillmode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDateInput @bind-Value="@DateValue" FillMode="@fillmode"></TelerikDateInput>
-        </div>
-    }
-}
-
-@code {
-    private DateTime DateValue { get; set; } = DateTime.Now;
-}
-````
+<demo metaUrl="client/dateinput/appearance/fill-mode/" height="350"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

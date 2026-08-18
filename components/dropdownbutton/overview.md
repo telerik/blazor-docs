@@ -28,26 +28,7 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 
 >caption Basic DropDownButton
 
-````RAZOR
-<TelerikDropDownButton Icon="@SvgIcon.Share" OnClick="@(()=>OnItemClick("Primary"))">
-    <DropDownButtonContent>Share</DropDownButtonContent>
-
-    <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Facebook" OnClick="@(()=>OnItemClick("Facebook"))">Facebook</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Twitter" OnClick="@(()=>OnItemClick("Twitter"))">Twitter</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Linkedin" OnClick="@(()=>OnItemClick("Linkedin"))">Linkedin</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Reddit" OnClick="@(()=>OnItemClick("Reddit"))">Reddit</DropDownButtonItem>
-    </DropDownButtonItems>
-
-</TelerikDropDownButton>
-
-@code {
-    private void OnItemClick(string item)
-    {
-        Console.WriteLine($"User clicked {item} option.");
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/overview/basic/" height="300"></demo>
 
 ## Icons
 
@@ -139,31 +120,7 @@ The DropDownButton exposes a `FocusAsync` method that allows you to focus it pro
 
 >caption Get a reference to the DropDownButton and execute methods
 
-````RAZOR
-
-<TelerikButton OnClick="@FocusDropDownButton">Focus DropDownButton</TelerikButton>
-
-<TelerikDropDownButton @ref="@DropDownButtonRef" Icon="@SvgIcon.Share">
-    <DropDownButtonContent>Share</DropDownButtonContent>
-
-    <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Facebook">Facebook</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Twitter">Twitter</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Linkedin">Linkedin</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Reddit">Reddit</DropDownButtonItem>
-    </DropDownButtonItems>
-
-</TelerikDropDownButton>
-
-@code {
-    TelerikDropDownButton DropDownButtonRef;
-
-    async Task FocusDropDownButton()
-    {
-        await DropDownButtonRef.FocusAsync();
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/overview/focus/" height="300"></demo>
 
 ## Next Steps
 
