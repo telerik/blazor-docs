@@ -73,6 +73,12 @@ The properties of a menu item match directly to a field of the model the menu is
 
 <demo metaUrl="client/contextmenu/data-binding/custom-field-names/" height="300"></demo>
 
+>caption The result from the snippet above
+
+![context menu data binding example](images/context-menu-databinding-example.png)
+
+
+
 ## See Also
 
 * [Binding to Flat Data](slug:contextmenu-data-binding-flat-data)
