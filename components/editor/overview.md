@@ -90,27 +90,7 @@ The Editor provides methods for programmatic operation. To use them, obtain a re
 
 >caption Paste in the Editor at the cursor position
 
-````RAZOR
-@* This snippet shows how to insert a horizontal rule (<hr /> tag) at the cursor position.
-You can replace that string with any other content you can generate/obtain according to your application needs*@
-
-@using Telerik.Blazor.Components.Editor
-
-<TelerikButton OnClick="@InsertHr">insert hr</TelerikButton>
-
-<TelerikEditor @ref="@TheEditor" @bind-Value="@TheContent"></TelerikEditor>
-
-@code{
-    TelerikEditor TheEditor { get; set; }
-
-    string TheContent { get; set; } = "<p>Lorem ipsum.</p><p>Dolor sit amet.</p>";
-
-    async Task InsertHr()
-    {
-        await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", "<hr />"));
-    }
-}
-````
+<demo metaUrl="client/editor/overview/paste-in-editor/" height="400"></demo>
 
 ## Next Steps
 
