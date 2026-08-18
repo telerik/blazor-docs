@@ -12,7 +12,7 @@ position: 5
 
 This article explains some concepts and how to troubleshoot the most common errors related to setting up the Telerik NuGet packages for automated builds, CI and CD.
 
-> To successfully set up a CI/CD environment for Telerik Blazor apps, also refer to the article about [Telerik license keys in CI/CD](slug:deployment-license-key).
+> To successfully set up a CI/CD environment for Telerik Blazor apps, also refer to the article about [Telerik deployment keys in CI/CD](slug:deployment-license-key).
 
 Sections in this article:
 
@@ -137,7 +137,7 @@ RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
 
 ## Next Steps
 
-* [Set Up Telerik License Key in CI/CD Environment](slug:deployment-license-key)
+* [Set Up Telerik Deployment Key in CI/CD Environment](slug:deployment-license-key)
 
 
 ## Further Reading
@@ -147,7 +147,7 @@ RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
 
 ## See Also
 
-* [Install License Key in CI/CD Environment](slug:deployment-license-key)
+* [Use Deployment Key in CI/CD Environment](slug:deployment-license-key)
 * [Blog Post: Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
 * [DevOpsExamples repo by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
 * [Setup of the Telerik Online Private NuGet Feed](slug:installation-nuget)
