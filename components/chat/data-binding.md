@@ -19,46 +19,7 @@ To bind the Chat to data, set its `Data` parameter to an `IEnumerable<T>` where 
 
 >caption Chat basic data binding
 
-````RAZOR
-<TelerikChat Data="@ChatData"
-             AuthorId="@CurrentUserId"
-             OnSendMessage="@OnChatSendMessage"
-             Height="90vh">
-</TelerikChat>
-
-@code {
-    private List<Message> ChatData { get; set; } = new();
-    private string CurrentUserId { get; set; } = "user1";
-    
-    protected override void OnInitialized()
-    {
-        ChatData = new List<Message>();
-        
-        for (int i = 1; i <= 2; i++)
-        {
-            ChatData.Add(new Message 
-            { 
-                Text = i == 1 ? "Hello!" : "Hi there!", 
-                AuthorId = i == 1 ? CurrentUserId : "user2", 
-                Timestamp = DateTime.Now.AddMinutes(-5 + i)
-            });
-        }
-    }
-    
-    private void OnChatSendMessage(ChatSendMessageEventArgs args)
-    {
-        var newMessage = new Message
-        {
-            Text = args.Message,
-            AuthorId = CurrentUserId
-        };
-        
-        ChatData.Add(newMessage);
-    }
-
-@[template](/_contentTemplates/chat/general.md#messagecs)
-}
-````
+<demo metaUrl="client/chat/data-binding/basic/" height="600"></demo>
 
 ## Field Mapping
 
@@ -108,57 +69,7 @@ The Chat component provides field mapping parameters to work with different data
 
 The Chat component automatically reflects changes to the bound data collection. You can add, modify, or remove messages programmatically.
 
-````RAZOR
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-               OnClick="@OnAddSystemMessageClick">Add System Message</TelerikButton>
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-               OnClick="@OnClearMessagesClick">Clear All Messages</TelerikButton>
-
-<TelerikChat @ref="@ChatRef"
-             Data="@ChatData"
-             AuthorId="@CurrentUserId"
-             OnSendMessage="@OnChatSendMessage">
-</TelerikChat>
-
-@code {
-    private TelerikChat<Message>? ChatRef { get; set; }
-    
-    private List<Message> ChatData { get; set; } = new();
-    private string CurrentUserId { get; set; } = "user1";
-
-    private void OnChatSendMessage(ChatSendMessageEventArgs args)
-    {
-        var newMessage = new Message
-        {
-            AuthorId = CurrentUserId,
-            AuthorName = "User 1",
-            Text = args.Message
-        };
-
-        ChatData.Add(newMessage);
-    }
-
-    private void OnAddSystemMessageClick()
-    {
-        ChatData.Add(new Message
-        {
-            AuthorId = "system",
-            AuthorName = "System",
-            Text = "System notification: New user joined the chat"
-        });
-
-        ChatRef?.Refresh();
-    }
-
-    private void OnClearMessagesClick()
-    {
-        ChatData.Clear();
-        ChatRef?.Refresh();
-    }
-
-@[template](/_contentTemplates/chat/general.md#messagecs)
-}
-````
+<demo metaUrl="client/chat/data-binding/dynamic/" height="600"></demo>
 
 ## See Also
 

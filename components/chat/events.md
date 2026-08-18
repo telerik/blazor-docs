@@ -21,32 +21,7 @@ After the event handler executes, the Chat automatically scrolls down to the las
 
 >caption Handle the Chat OnSendMessage event
 
-````RAZOR
-<TelerikChat Data="@ChatData"
-             OnSendMessage="@OnChatSendMessage"
-             Height="90vh">
-</TelerikChat>
-
-@code {
-    private List<Message> ChatData { get; set; } = new();
-
-    private string CurrentUserId { get; set; } = "user1";
-
-    private void OnChatSendMessage(ChatSendMessageEventArgs args)
-    {
-        var newMessage = new ChatMessage
-        {
-            AuthorId = CurrentUserId,
-            Text = args.Message
-            
-        };
-
-        ChatData.Add(newMessage);
-    }
-
-@[template](/_contentTemplates/chat/general.md#messagecs)
-}
-````
+<demo metaUrl="client/chat/events/on-send-message/" height="600"></demo>
 
 ## OnResendMessage
 
@@ -54,59 +29,7 @@ The `OnResendMessage` event fires when a user clicks the resend button of a fail
 
 >caption Handle the Chat OnResendMessage event
 
-````Razor
-<TelerikChat Data="@ChatData"
-             @ref="@ChatRef"
-             AuthorId="@CurrentUserId"
-             IsFailedField="@nameof(ChatMessage.IsFailed)"
-             OnResendMessage="@OnChatResendMessage"
-             TextField="@nameof(ChatMessage.Content)">
-</TelerikChat>
-
-@code {
-    private TelerikChat<ChatMessage> ChatRef { get; set; }
-    private List<ChatMessage> ChatData { get; set; } = new();
-    private string CurrentUserId { get; set; } = "support";
-
-    private void OnChatResendMessage(ChatResendMessageEventArgs args)
-    {
-        var failedMessage = ChatData.FirstOrDefault(m => m.Id == args.MessageId);
-
-        if (failedMessage != null)
-        {
-            failedMessage.IsFailed = false;
-
-            ChatData.Remove(failedMessage);
-            ChatData.Add(failedMessage);
-        }
-    }
-
-    protected override void OnInitialized()
-    {
-        var failedMessage = new ChatMessage
-        {
-            Id = Guid.NewGuid().ToString(),
-            Content = "How can I help you?",
-            AuthorId = "support",
-            AuthorName = "Support Agent",
-            Timestamp = DateTime.Now,
-            IsFailed = true
-        };
-
-        ChatData.Add(failedMessage);
-    }
-
-    public class ChatMessage
-    {
-        public string Id { get; set; }
-        public string AuthorId { get; set; }
-        public string AuthorName { get; set; }
-        public string Content { get; set; }
-        public bool IsFailed { get; set; }
-        public DateTime Timestamp { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chat/events/on-resend-message/" height="600"></demo>
 
 ## OnSuggestionClick
 
@@ -116,57 +39,7 @@ If the handler adds new messages to the Chat, call the component `Refresh()` met
 
 >caption Handle Chat suggestion clicks
 
-````RAZOR
-<TelerikChat @ref="@ChatRef"
-             Data="@ChatData"
-             AuthorId="@CurrentUserId"
-             Suggestions="@ChatSuggestions"
-             OnSuggestionClick="@OnChatSuggestionClick"
-             Height="90vh">
-</TelerikChat>
-
-@code {
-    private TelerikChat<Message>? ChatRef { get; set; }
-    
-    private List<Message> ChatData { get; set; } = new();
-
-    private const string CurrentUserId = "user1";
-    
-    private List<string> ChatSuggestions { get; set; } = new();
-    
-    protected override void OnInitialized()
-    {
-        ChatData = new List<Message>();
-        
-        ChatSuggestions = new List<string>
-        {
-            "Request Project Status Update"
-        };
-    }
-
-    private void OnChatSuggestionClick(ChatSuggestionClickEventArgs args)
-    {
-        string responseMessage = string.Empty;
-
-        if (args.Suggestion == "Request Project Status Update")
-        {
-            responseMessage = "Please provide the current status of all ongoing projects.";
-        }
-
-        ChatData.Add(new Message
-        {
-            AuthorId = CurrentUserId,
-            AuthorName = "Jane Doe",
-            Text = responseMessage,
-            Status = "Sent"
-        });
-
-        ChatRef?.Refresh();
-    }
-
-@[template](/_contentTemplates/chat/general.md#messagecs)
-}
-````
+<demo metaUrl="client/chat/events/suggestion-click/" height="600"></demo>
 
 ## OnDownload
 

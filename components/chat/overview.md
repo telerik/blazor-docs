@@ -24,49 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/chat-(conversational-ui)" target=
 
 >caption Basic configuration of the Telerik Chat
 
-````razor
-<TelerikChat Data="@ChatData"
-             AuthorId="@CurrentUserId"
-             EnableSpeechToText="@ChatSpeechToTextEnabled"
-             OnSendMessage="@OnChatSendMessage"
-             Height="90vh"
-             Width="400px">
-</TelerikChat>
-
-@code {
-    private List<Message> ChatData { get; set; } = new();
-    private string CurrentUserId { get; set; } = "user1";
-    private bool ChatSpeechToTextEnabled { get; set; } = true;
-    
-    private async Task OnChatSendMessage(ChatSendMessageEventArgs args)
-    {
-        var newMessage = new Message
-        {
-            AuthorId = CurrentUserId,
-            Text = args.Message
-        };
-        
-        ChatData.Add(newMessage);
-    }
-
-    protected override void OnInitialized()
-    {
-        ChatData = new List<Message>();
-        
-        for (int i = 1; i <= 2; i++)
-        {
-            ChatData.Add(new Message
-            {
-                Text = i == 1 ? "Hello! How can I help you today?" : "Hi there! I'm looking for information about the new features.",
-                AuthorId = i == 1 ? "assistant" : "user1",
-                Timestamp = DateTime.Now.AddMinutes(-5 + i)
-            });
-        }
-    }
- 
-@[template](/_contentTemplates/chat/general.md#messagecs)
-}
-````
+<demo metaUrl="client/chat/overview/" height="600"></demo>
 
 ## Data Binding
 

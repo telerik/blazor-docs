@@ -41,103 +41,7 @@ When the user clicks on a Chat suggestion, the suggestion text may or may not ap
 
 >caption Using Chat Suggestions and SuggestionsLayoutMode
 
-````RAZOR
-<label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@EnabledSuggestionsHiding" Id="suggestionsHidingCheckBox" /> Hide Suggestions on Click</label>
-
-<TelerikChat @ref="@ChatRef"
-             Data="@ChatData"
-             AuthorId="@CurrentUserId"
-             InputValue="@ChatInputValue"
-             OnInputValueChanged="@((string newValue) => ChatInputValue = newValue)"
-             OnSendMessage="@OnChatSendMessage"
-             OnSuggestionClick="@OnChatSuggestionClick"
-             Suggestions="@ChatSuggestions"
-             SuggestionsLayoutMode="@ChatSuggestionsLayoutMode.Wrap"
-             Height="90vh"
-             Width="400px">
-</TelerikChat>
-
-@code {
-    private TelerikChat<Message>? ChatRef;
-    private const string CurrentUserId = "jane";
-    private string ChatInputValue { get; set; } = string.Empty;
-    private bool EnabledSuggestionsHiding { get; set; }
-
-    private List<string> ChatSuggestions = new List<string>
-    {
-        "Request quote",
-        "Schedule maintenance",
-        "Close Chat Session"
-    };
-
-    private List<Message> ChatData { get; set; } = new()
-    {
-       new Message()
-       {
-           AuthorId = "john",
-           AuthorName = "John Smith",
-           Text = "Hello and welcome to the Car Company support chat. Please select the desired topic of discussion.",
-           Status = "Seen"
-       }
-    };
-
-    private void OnChatSuggestionClick(ChatSuggestionClickEventArgs args)
-    {
-        if (args.Suggestion == ChatSuggestions.Last())
-        {
-            ChatInputValue = string.Empty;
-
-            // Prevent suggestion text from appearing in the Chat TextArea
-            args.IsCancelled = true;
-
-            ChatData.Clear();
-
-            return;
-        }
-
-        string messageText = string.Empty;
-
-        if (args.Suggestion == ChatSuggestions.First())
-        {
-            messageText = "To request a new car quote, please specify the model and trim level.";
-        }
-        else if (args.Suggestion == ChatSuggestions.ElementAt(1))
-        {
-            messageText = "To schedule maintenance for your car, please specify its model and year.";
-        }
-
-        ChatData.Add(new Message
-        {
-            AuthorId = "john",
-            AuthorName = "John Smith",
-            Text = messageText,
-            Status = "Seen"
-        });
-
-        ChatRef?.Refresh();
-
-        if (EnabledSuggestionsHiding)
-        {
-            // Hide suggestions on click
-            ChatSuggestions = new List<string>();
-        }
-    }
-
-    private void OnChatSendMessage(ChatSendMessageEventArgs args)
-    {
-        Message newMessage = new()
-        {
-            AuthorId = CurrentUserId,
-            AuthorName = "Jane Doe",
-            Text = args.Message
-        };
-
-        ChatData.Add(newMessage);
-    }
-
-@[template](/_contentTemplates/chat/general.md#messagecs)
-}
-````
+<demo metaUrl="client/chat/quick-actions/suggestions/" height="600"></demo>
 
 ### Custom Suggestion Templates
 
@@ -286,44 +190,7 @@ The `SuggestedActionsLayoutMode` parameter controls how suggested actions (quick
 
 >caption Using Chat SuggestedActions and SuggestedActionsLayoutMode
 
-````RAZOR
-<TelerikChat Data="@ChatData"
-             AuthorId="@CurrentUserId"
-             SuggestedActionsLayoutMode="@ChatSuggestedActionsLayoutMode.ScrollButtons"
-             OnSendMessage="@OnChatSendMessage"
-             Width="80vw">
-</TelerikChat>
-
-@code {
-    private const string CurrentUserId = "user1";
-
-    private List<Message> ChatData { get; set; } = new()
-    {
-        new Message
-        {
-            AuthorId = "bot",
-            Text = "How would you like to proceed?",
-            SuggestedActions = new List<string>
-            {
-                "Get detailed review",
-                "Schedule later",
-                "Request more info"
-            }
-        }
-    };
-    
-    private void OnChatSendMessage(ChatSendMessageEventArgs args)
-    {
-        ChatData.Add(new Message()
-        {
-            AuthorId = CurrentUserId,
-            Text = args.Message
-        });
-    }
-
-@[template](/_contentTemplates/chat/general.md#messagecs)
-}
-````
+<demo metaUrl="client/chat/quick-actions/suggested-actions/" height="500"></demo>
 
 ## Integration with AI Services
 

@@ -17,39 +17,7 @@ The nested `<Template>` tag of the `<TelerikCarousel>` represents a standard [`R
 
 The template exposes a `context` parameter, which allows access to the Carousel model and its properties. The context variable can assume a custom name, which is needed for nesting templates of different components.
 
-````RAZOR
-@* Blazor Carousel - template context usage *@
-
-<TelerikCarousel Data="@CarouselData"
-                 Width="400px" Height="200px">
-    <Template Context="carouselContext">
-        <div class="item">@carouselContext.Text</div>
-    </Template>
-</TelerikCarousel>
-
-<style>
-    .item {
-        background: #3d57d8;
-        color: #fff;
-        font: 36px/200px sans-serif;
-        text-align: center;
-    }
-</style>
-
-@code {
-    public IEnumerable<CarouselModel> CarouselData = Enumerable.Range(1, 5).Select(x => new CarouselModel
-    {
-        ID = x,
-        Text = "Text " + x
-    });
-
-    public class CarouselModel
-    {
-        public int ID { get; set; }
-        public string Text { get; set; }
-    }
-}
-````
+<demo metaUrl="client/carousel/template/" height="300"></demo>
 
 @[template](/_contentTemplates/carousel/general.md#carousel-item-class)
 
