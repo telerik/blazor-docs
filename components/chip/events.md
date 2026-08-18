@@ -33,39 +33,7 @@ The `SelectedChanged` event fires when the `Selectable` parameter is `true` and 
 
 >caption Handle the Chip events
 
-````RAZOR
-<TelerikChip Selected="@IsChipSelected"
-             SelectedChanged="@((bool value) => OnChipSelectedChanged(value))"
-             OnClick="@OnChipClick"
-             OnRemove="@OnChipRemove"
-             Removable="true"
-             Text="Audio">
-</TelerikChip>
-
-@(new MarkupString(Logger))
-
-@code {
-    private bool IsChipSelected { get; set; }
-    private string Logger { get; set; }
-
-    private void OnChipSelectedChanged(bool value)
-    {
-        IsChipSelected = value;
-    }
-
-    private void OnChipClick(ChipClickEventArgs args)
-    {
-        Logger += $"The User click on {args.Text} <br />";
-    }
-
-    private void OnChipRemove(ChipRemoveEventArgs args)
-    {
-        Logger += $"The User removed {args.Text} <br />";
-
-        args.IsCancelled = false; //set to true to cancel the event
-    }
-}
-````
+<demo metaUrl="client/chip/events/" height="300"></demo>
 
 ## See Also
 

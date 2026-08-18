@@ -28,55 +28,7 @@ The `SelectedItemsChanged` fires when the user selects a chip from the ChipList.
 
 >caption Handle the Blazor ChipList Events
 
-````RAZOR
-<TelerikChipList Data="@ChipListSource"
-                 SelectionMode="@ChipListSelectionMode.Multiple"
-                 SelectedItems="@ChipListSelectedItems"
-                 SelectedItemsChanged="@( (IEnumerable<ChipModel> selectedItems) => OnChipListSelectedItemsChanged(selectedItems) )"
-                 OnRemove="@OnChipRemove">
-</TelerikChipList>
-
-@code {
-    private IEnumerable<ChipModel> ChipListSelectedItems { get; set; } = new List<ChipModel>();
-
-    private void OnChipListSelectedItemsChanged(IEnumerable<ChipModel> items)
-    {
-        ChipListSelectedItems = items;
-    }
-
-    private void OnChipRemove(ChipListRemoveEventArgs args)
-    {
-        ChipModel removedChip = (ChipModel)args.Item;
-
-        args.IsCancelled = false; // false by default. Set to true to cancel chip removal.
-
-        ChipListSource.Remove(removedChip);
-    }
-
-    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
-    {
-        new ChipModel()
-        {
-            Text = "Audio",
-            Icon = SvgIcon.FileAudio,
-            Removable = true
-        },
-        new ChipModel()
-        {
-            Text = "Video",
-            Icon = SvgIcon.FileVideo,
-            Removable = true
-        }
-    };
-
-    public class ChipModel
-    {
-        public string Text { get; set; } = string.Empty;
-        public ISvgIcon? Icon { get; set; }
-        public bool Removable { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chiplist/events/" height="300"></demo>
 
 
 ## See Also

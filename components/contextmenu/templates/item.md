@@ -21,70 +21,7 @@ You can use the template to render arbitrary content according to your applicati
 
 >caption Use templates to implement custom navigation between views without the UrlField feature
 
-````RAZOR
-@* Use your own link elements for navigation instead of the built-in feature of the menu, and also customize the appearance of items based on some other conditions *@
-
-<div class="menuTarget">
-    right click this context menu target
-</div>
-
-<TelerikContextMenu Data="@MenuItems" Selector=".menuTarget">
-    <ItemTemplate>
-        @{
-            @if (!string.IsNullOrEmpty(context.Url))
-            {
-                <a href="@context.Url">Go to @context.Text</a>
-            }
-            else
-            {
-                <button @onclick="@( () => Console.WriteLine($"{context.Metadata} for {context.Text}") )">
-                    @context.Text
-                </button>
-            }
-        }
-    </ItemTemplate>
-</TelerikContextMenu>
-
-@code {
-    public List<ContextMenuItem> MenuItems { get; set; }
-    TelerikContextMenu<ContextMenuItem> TheContextMenu { get; set; }
-    
-    // generate sample data for the listview and the menu
-    protected override void OnInitialized()
-    {
-        MenuItems = new List<ContextMenuItem>()
-        {
-            new ContextMenuItem
-            {
-                Text = "More Info",
-                Url = "about"
-            },
-            new ContextMenuItem
-            {
-                Text = "Lorem Ipsum",
-                Metadata = "special"
-            }
-        };
-
-        base.OnInitialized();
-    }
-
-    public class ContextMenuItem
-    {
-        public string Text { get; set; }
-        public string Url { get; set; }
-        public string Metadata { get; set; }
-    }
-}
-
-<style>
-    .menuTarget{
-        width: 100px;
-        background: yellow;
-        margin: 50px;
-    }
-</style>
-````
+<demo metaUrl="client/contextmenu/templates/item/" height="300"></demo>
 
 
 ## See Also

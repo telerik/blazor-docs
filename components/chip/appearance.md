@@ -29,32 +29,7 @@ The `FillMode` affects the presence of a background and borders. You can set it 
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillmode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChip @bind-Selected="@IsChipSelected"
-                 FillMode="@fillmode"
-                 Text="Audio">
-            </TelerikChip>
-        </div>
-    }
-}
-
-@code {
-    private bool IsChipSelected { get; set; }
-}
-````
+<demo metaUrl="client/chip/appearance/fill-mode/" height="350"></demo>
 
 ## Rounded
 
@@ -68,32 +43,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the Chip to achi
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChip @bind-Selected="@IsChipSelected"
-                 Rounded="@rounded"
-                 Text="Audio">
-            </TelerikChip>
-        </div>
-    }
-}
-
-@code {
-    private bool IsChipSelected { get; set; }
-}
-````
+<demo metaUrl="client/chip/appearance/rounded/" height="350"></demo>
 
 ## Size
 
@@ -109,30 +59,7 @@ You can increase or decrease the size of the Chip by setting the `Size` attribut
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChip @bind-Selected="@IsChipSelected"
-                 Size="@size"
-                 Text="Audio">
-            </TelerikChip>
-        </div>
-    }
-}
-
-@code {
-    private bool IsChipSelected { get; set; }
-}
-````
+<demo metaUrl="client/chip/appearance/size/" height="350"></demo>
 
 ## ThemeColor
 
@@ -148,30 +75,7 @@ The `ThemeColor` parameter applies a predefined text color and background color.
 
 >caption The built-in ThemeColors
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.ThemeColor)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string themeColor = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChip @bind-Selected="@IsChipSelected"
-                 ThemeColor="@themeColor"
-                 Text="@themeColor">
-            </TelerikChip>
-        </div>
-    }
-}
-
-@code {
-    private bool IsChipSelected { get; set; }
-}
-````
+<demo metaUrl="client/chip/appearance/theme-color/" height="350"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
