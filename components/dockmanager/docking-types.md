@@ -32,46 +32,4 @@ To disable docking over a specific pane, set its `Dockable` parameter to `false`
 
 >caption DockManager with disabled docking option over some panes.
 
-`````RAZOR
-<TelerikDockManager Height="80vh">
-    <DockManagerPanes>
-
-        <DockManagerSplitPane>
-            <Panes>
-
-                <DockManagerContentPane HeaderText="Pane 1" Dockable="@Pane1Dockable">
-                    <Content>
-                        <TelerikToggleButton @bind-Selected="@Pane1Dockable">Enable Docking Over Pane 1</TelerikToggleButton>
-                    </Content>
-                </DockManagerContentPane>
-
-                <DockManagerContentPane HeaderText="Pane 2" Dockable="Pane2Dockable">
-                    <Content>
-                        <TelerikToggleButton @bind-Selected="@Pane2Dockable">Enable Docking Over Pane 2</TelerikToggleButton>
-                    </Content>
-                </DockManagerContentPane>
-
-            </Panes>
-        </DockManagerSplitPane>
-    </DockManagerPanes>
-
-    <DockManagerFloatingPanes>
-        <DockManagerSplitPane>
-            <Panes>
-
-                <DockManagerContentPane HeaderText="Floating Pane">
-                    <Content>
-                        Floating Pane Content
-                    </Content>
-                </DockManagerContentPane>
-
-            </Panes>
-        </DockManagerSplitPane>
-    </DockManagerFloatingPanes>
-</TelerikDockManager>
-
-@code {
-    private bool Pane1Dockable { get; set; } = true;
-    private bool Pane2Dockable { get; set; } = true;
-}
-`````
+<demo metaUrl="client/dockmanager/docking-types/" height="650"></demo>

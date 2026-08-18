@@ -23,33 +23,7 @@ The `Icon` parameter type is `object` and it accepts:
 
 >caption How to use icons in Telerik Blazor DropDownButton
 
-````RAZOR
-<TelerikDropDownButton Icon="@SvgIcon.User">
-    <DropDownButtonContent>SVG Icon</DropDownButtonContent>
-    <DropDownButtonItems>
-        <DropDownButtonItem Icon="@FontIcon.Gear">Font Icon</DropDownButtonItem>
-        <DropDownButtonItem Icon="@CustomIconClass">Custom Icon</DropDownButtonItem>
-        <DropDownButtonItem> <TelerikLoader /> Custom Markup </DropDownButtonItem>
-    </DropDownButtonItems>
-</TelerikDropDownButton>
-
-<style>
-    .my-icon {
-        /* define a background image or a custom font icon here */
-        background: purple;
-        /* dimensions and other base styles will usually come from another class */
-        width: 1em;
-        height: 1em;
-        font-size: 16px;
-    }
-</style>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
-
-@code {
-    private string CustomIconClass { get; set; } = "my-icon";
-}
-````
+<demo metaUrl="client/dropdownbutton/icons/" height="300"></demo>
 
 ## Best Practices for Custom Icons and Images
 
