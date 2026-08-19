@@ -96,56 +96,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
 >caption PDF Viewer reference and method usage
 
-````RAZOR
-<TelerikPdfViewer @ref="@PdfViewerRef"
-                  Data="@PdfSource">
-    <PdfViewerToolBar>
-        <PdfViewerToolBarCustomTool>
-            <TelerikButton OnClick="@OnButtonClick" Icon="@SvgIcon.ArrowRotateCw">Rebind PDF Viewer</TelerikButton>
-        </PdfViewerToolBarCustomTool>
-    </PdfViewerToolBar>
-</TelerikPdfViewer>
-
-@code {
-    private TelerikPdfViewer PdfViewerRef { get; set; }
-
-    private async Task OnButtonClick()
-    {
-        PdfViewerRef.Rebind();
-    }
-
-    private byte[] PdfSource
-    {
-        get
-        {
-            return System.Text.Encoding.UTF8.GetBytes(
-                PdfSourceRaw.Replace("...",
-                    PdfUpdateFlag ? "updated at " + DateTime.Now.ToLongTimeString() : "")
-            );
-        }
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        PdfSourceRaw = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(PdfBase64));
-
-        await Task.Delay(1000);
-
-        // PdfUpdateFlag is used in the PdfSource getter to make the document change more obvious
-        PdfUpdateFlag = true;
-
-        PdfViewerRef.Rebind();
-
-        await base.OnInitializedAsync();
-    }
-
-    private bool PdfUpdateFlag { get; set; }
-
-    private string PdfSourceRaw { get; set; }
-
-    private const string PdfBase64 = "JVBERi0xLjEKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDEvTWVkaWFCb3ggWy0zMCAtNjQgMjcwIDgwXSA+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjE8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMS9CYXNlRm9udC9BcmlhbD4+ID4+ID4+L0NvbnRlbnRzIDQgMCBSPj5lbmRvYmoKNCAwIG9iajw8L0xlbmd0aCA1OT4+CnN0cmVhbQpCVAovRjEgMTggVGYKMCAwIFRkCihQREYgRmlsZSAuLi4pIFRqCkVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmCjAwMDAwMDAwMjEgMDAwMDAgbgowMDAwMDAwMDg2IDAwMDAwIG4KMDAwMDAwMDE5NSAwMDAwMCBuCjAwMDAwMDA0OTAgMDAwMDAgbgp0cmFpbGVyIDw8ICAvUm9vdCAxIDAgUiAvU2l6ZSA1ID4+CnN0YXJ0eHJlZgo2MDkKJSVFT0Y=";
-}
-````
+<demo metaUrl="client/pdfviewer/reference-methods/" height="400"></demo>
 
 
 ## Next Steps

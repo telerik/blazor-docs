@@ -54,76 +54,7 @@ Casting the argument with `(decimal)newZoom` is safe after the initial render.
 
 >caption Handle or cancel Blazor PDF Viewer Events
 
-````RAZOR
-<p> Last event: @EventLog </p>
-
-<p><label> <TelerikCheckBox @bind-Value="@AllowDownloads" /> Allow Downloads </label></p>
-
-<TelerikPdfViewer Data="@PdfSource"
-                  Height="600px"
-                  OnDownload="@OnPdfDownload"
-                  OnError="@OnPdfError"
-                  OnOpen="@OnPdfOpen"
-                  Zoom="@PdfZoomLevel"
-                  ZoomChanged="@OnPdfZoomChanged">
-</TelerikPdfViewer>
-
-@code {
-    private byte[] PdfSource { get; set; }
-
-    private object PdfZoomLevel { get; set; } = PdfViewerZoomLevelType.FitToPage;
-
-    private bool AllowDownloads { get; set; } = true;
-
-    private string EventLog { get; set; } = "...";
-
-    private async Task OnPdfDownload(PdfViewerDownloadEventArgs args)
-    {
-        if (AllowDownloads)
-        {
-            args.FileName = "PDF-Viewer-Download";
-            EventLog = $"Download {args.FileName}.pdf";
-        }
-        else
-        {
-            args.IsCancelled = true;
-            EventLog = $"Download cancelled";
-        }
-    }
-
-    private async Task OnPdfError(PdfViewerErrorEventArgs args)
-    {
-        // To trigger the event, rename a random file to error.pdf and try to open it.
-        EventLog = "Error: " + args.Message;
-    }
-
-    private async Task OnPdfOpen(PdfViewerOpenEventArgs args)
-    {
-        var file = args.Files.FirstOrDefault();
-
-        if (file.Size > 1024 * 1024)
-        {
-            args.IsCancelled = true;
-            EventLog = $"Open cancelled conditionally. File {file.Name} ({file.Size} bytes) is larger than 1 MB.";
-        }
-        else
-        {
-            // Get the PDF file contents if necessary.
-            var buffer = new byte[file.Stream.Length];
-            await file.Stream.ReadAsync(buffer);
-
-            EventLog = $"Open {file.Name}, {file.Size} bytes";
-        }
-    }
-
-    private async Task OnPdfZoomChanged(object newZoom)
-    {
-        PdfZoomLevel = newZoom;
-
-        EventLog = "Zoom level changed.";
-    }
-}
-````
+<demo metaUrl="client/pdfviewer/events/" height="650"></demo>
 
 
 ## Next Steps
