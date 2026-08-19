@@ -13,9 +13,9 @@ tag: updated
 
 This article describes how to set up and activate your [Telerik UI for Blazor License](slug:installation-license-key) across a few popular cloud build and deployment services. Use [Deployment Keys](https://www.telerik.com/account/downloads/deployment-keys) for build pipelines and provide the key through an environment variable or a secure file.
 
-Deployment keys are a dedicated type of license key for build pipelines. They’re tied to a specific application and the set of products that the application uses. Deployment keys cannot be used for application development.
+Deployment keys are a dedicated type of license key for build pipelines. They’re tied to a specific application and the set of products that the application uses. Deployment keys cannot be used on personal computers for application development.
 
-> Developer license keys remain valid for CI/CD deployments, so existing pipelines do not need to be updated. For new pipelines, we recommend using deployment keys. For more information, see [the differences between developer license keys and deployment keys](slug:installation-license-key#what-is-the-difference-between-developer-license-keys-and-deployment-keys).
+> Developer license keys remain valid for CI/CD deployments, so existing pipelines do not need to be updated. For new pipelines, we recommend using deployment keys. For more information, see [the differences between developer license keys and deployment keys](slug:installation-license-key#what-is-the-difference-between-deployment-keys-and-developer-license-keys).
 
 @[template](/_contentTemplates/common/get-started.md#license-key-version)
 
@@ -37,13 +37,13 @@ To activate your license in a CI/CD environment:
   b. Select the type of application—public or private.
   c. Select the set of products used in the application.
 3. Copy the key value and store it securely.
-4. [Create an environment variable](#creating-an-environment-variable) named TELERIK_LICENSE and set it to the obtained key value. Alternatively, the key can be stored in a telerik-license.txt file, for example when using the [Azure Secure files approach](#use-telerik_license_path).
+4. [Create an environment variable](#creating-an-environment-variable) named `TELERIK_LICENSE` and set it to the obtained key value. Alternatively, the key can be stored in a `telerik-license.txt` file, for example when using the [Azure Secure files approach](#use-telerik_license_path).
 
 ## Creating an Environment Variable
 
 The recommended approach for providing your license key to the `Telerik.Licensing` NuGet package is to use environment variables. Each CI/CD platform has a different process for setting environment variables and this article lists only some of the most popular examples.
 
-Telerik Licensing environment variables:
+The Telerik Licensing environment variables are:
 
 * `TELERIK_LICENSE`&mdash;the value must be the Telerik deployment key string.
 * `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
@@ -66,7 +66,7 @@ Azure Pipelines provides built-in tools to store and use secret environment vari
 ### Use TELERIK_LICENSE
 
 1. Create a new [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables). Also check the separate article [Set Secret Variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables).
-1. Paste the deployment key file as a value of the secret variable.
+1. Paste the deployment key as a value of the secret variable.
 1. Map the secret variable to a new environment variable named `TELERIK_LICENSE`.
 1. Use the `TELERIK_LICENSE` environment variable in the tasks, steps, or scripts that build and publish the Blazor app. **Classic** pipelines may need to [set an output variable to share and consume the license key in multiple steps](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash#set-an-output-variable-for-use-in-future-jobs).
 

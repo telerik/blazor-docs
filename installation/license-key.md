@@ -100,11 +100,11 @@ A Telerik license key is required on all environments that build, test or publis
 
 >tip A license key is not required on the web server that hosts the already deployed web application.
 
-### What is the difference between developer license keys and deployment keys?
-
-Developer license keys remain valid for CI/CD deployments and can be used in multiple pipelines, builds, and environments. However, their larger size can exceed the environment-variable limits of some CI/CD services. If a developer license key is exposed, you cannot revoke it independently.
+### What is the difference between deployment keys and developer license keys?
 
 Deployment keys are application-specific keys designed for build pipelines. They are shorter than developer license keys, which helps avoid environment-variable limits, and you can remove a deployment key, if it has been exposed. For new CI/CD pipelines, we recommend using deployment keys.
+
+Developer license keys remain valid for CI/CD deployments and can be used in multiple pipelines, builds, and environments. However, their larger size can exceed the environment-variable limits of some CI/CD services. If a developer license key is exposed, you cannot revoke it independently.
 
 ### Does the license key expire?
 
