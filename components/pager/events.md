@@ -24,30 +24,7 @@ Make sure to update the current page index when using the event.
 
 >caption Handle PageChanged
 
-````RAZOR
-<TelerikPager Total="@TotalItems"
-              ButtonCount="@ButtonCount"
-              PageSize="@ItemsOnPage"
-              Page="@CurrentPage"
-              PageChanged="@PageChangedHandler">
-</TelerikPager>
-
-<div class="text-info">@Result</div>
-
-@code {
-    public int TotalItems { get; set; } = 80;
-    public int ButtonCount { get; set; } = 4;
-    public int ItemsOnPage { get; set; } = 10;
-    public int CurrentPage { get; set; } = 2;
-    public string Result { get; set; }
-
-    void PageChangedHandler(int newPage)
-    {
-        CurrentPage = newPage;
-        Result = $"Current page: {newPage}";
-    }
-}
-````
+<demo metaUrl="client/pager/events/page-changed/" height="250"></demo>
 >caption The result from the code snippet above
 
 ![config of the pager with one-way binding](images/pager-data-binding.gif)
@@ -62,28 +39,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````RAZOR
-<TelerikPager Total="@TotalItems"
-              Page="@CurrentPage"
-              PageSize="@ItemsOnPage"              
-              PageSizeChanged="@PageSizeChangedHandler">
-</TelerikPager>
-
-<div class="text-info">@Result</div>
-
-@code {
-    public int TotalItems { get; set; } = 80;
-    public int ItemsOnPage { get; set; } = 10;
-    public int CurrentPage { get; set; } = 2;
-    public string Result { get; set; }
-
-    void PageSizeChangedHandler(int newPageSize)
-    {
-        ItemsOnPage = newPageSize;
-        Result = $"Current page size: {newPageSize}";
-    }
-}
-````
+<demo metaUrl="client/pager/events/page-size-changed/" height="250"></demo>
 
 ## See Also
 
