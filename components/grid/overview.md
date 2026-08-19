@@ -31,7 +31,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 
 >caption Get started with the Blazor Grid
 
-<demo metaUrl="client/grid/overview/" height="700"></demo>
+<demo metaUrl="client/grid/overview/"/></demo>
 
 ## Blazor Grid Video Tutorial
 
@@ -142,7 +142,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 >caption How to obtain a Grid reference and call methods
 
-<demo metaUrl="client/grid/overview-ref/" height="450"></demo>
+<demo metaUrl="client/grid/overview-ref/"></demo>
 
 ## Next Steps
 

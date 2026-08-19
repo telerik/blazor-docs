@@ -64,12 +64,7 @@ To enable aggregates:
 
 >caption Use Aggregates in the Telerik Blazor Grid
 
-<demo metaUrl="client/grid/grouping-aggregates/" height="600"></demo>
-
->caption The result of the code snippet above after the grid has been grouped by the `Team` and `Active Projects` columns
-
-![Blazor Grid Aggregates Overview](images/grid-aggregates-overview.png)
-
+<demo metaUrl="client/grid/grouping-aggregates/"/></demo>
 
 ## Notes
 

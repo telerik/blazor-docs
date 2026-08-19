@@ -64,7 +64,7 @@ The following example enables both sticky group headers and sticky group footers
 
 >caption Grid with sticky group headers and footers
 
-<demo metaUrl="client/grid/grouping-sticky/" height="500"></demo>
+<demo metaUrl="client/grid/grouping-sticky/"></demo>
 
 ## Limitations
 

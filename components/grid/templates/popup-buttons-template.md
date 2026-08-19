@@ -15,7 +15,7 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
 >caption Modifying the buttons in the create/edit Popup by using a `ButtonsTemplate`.
 
-<demo metaUrl="client/grid/templates-popup-buttons/" height="600"></demo>
+<demo metaUrl="client/grid/templates-popup-buttons/"/></demo>
 
 ## See Also
 

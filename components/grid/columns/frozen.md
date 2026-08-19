@@ -25,13 +25,13 @@ This article you can observe Freezing different columns. The examples are separa
 
 >caption Use static markup to Freeze the first and last columns in a Grid
 
-<demo metaUrl="client/grid/columns-frozen-first-last/" height="500"></demo>
+<demo metaUrl="client/grid/columns-frozen-first-last/"></demo>
 
 ## Frozen column in the middle of the Grid
 
 >caption Observe the behavior of a locked column that is neither first, nor last
 
-<demo metaUrl="client/grid/columns-frozen-middle/" height="500"></demo>
+<demo metaUrl="client/grid/columns-frozen-middle/"></demo>
 
 ## Limitations
 

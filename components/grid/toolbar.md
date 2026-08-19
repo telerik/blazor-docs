@@ -61,7 +61,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
 >caption Grid Toolbar Tools
 
-<demo metaUrl="client/grid/toolbar-tools/" height="650"></demo>
+<demo metaUrl="client/grid/toolbar-tools/"/></demo>
 
 ## Adaptive Behavior
 
@@ -80,7 +80,7 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
 
 >caption Custom Grid Toolbar
 
-<demo metaUrl="client/grid/toolbar-custom/" height="650"></demo>
+<demo metaUrl="client/grid/toolbar-custom/"/></demo>
 
 ## Next Steps
 

@@ -37,7 +37,7 @@ You can see what the column menu can do and how to control its settings in the [
 
 >caption Enable the column menu for all Grid columns.
 
-<demo metaUrl="client/grid/columns-menu/" height="500"></demo>
+<demo metaUrl="client/grid/columns-menu/"></demo>
 
 ## Features
 
@@ -108,13 +108,13 @@ The following example shows the basic configuration of the `ColumnMenuSettings`.
 
 The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the Grid can use a `FilterRow`. The `Id` column has no Column Menu and the `HireDate` column is not visible in Column Chooser.
 
-<demo metaUrl="client/grid/columns-menu-configuration/" height="600"></demo>
+<demo metaUrl="client/grid/columns-menu-configuration/"/></demo>
 
 ### Column Menu Features Example
 
 >caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
 
-<demo metaUrl="client/grid/columns-menu-features/" height="550"></demo>
+<demo metaUrl="client/grid/columns-menu-features/"></demo>
 
 ## Notes
 

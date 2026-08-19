@@ -29,24 +29,11 @@ You will find the following sections in this article:
 
 The following code snippet shows how you can group columns in the Grid in multi-column headers. You can also use "regular" columns at the root level, not all of them have to be column groups.
 
->caption Multiple Column Headers in the Grid
-
-![multi-column headers example](images/multi-column-headers-overview.png)
-
-<demo metaUrl="client/grid/columns-multi-column-headers/" height="550"></demo>
-
-
-
-
+<demo metaUrl="client/grid/columns-multi-column-headers/"></demo>
 
 ## Behavior With Other Features
 
 @[template](/_contentTemplates/grid/common-link.md#multi-column-headers-feature-integration)
-
-
-
-
-
 
 ## See Also
 

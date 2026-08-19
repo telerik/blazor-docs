@@ -18,11 +18,7 @@ You can use [aggregates](slug:grid-aggregates) for the current field directly fr
 
 >caption Footer Template with grand total data
 
-<demo metaUrl="client/grid/templates-column-footer/" height="400"></demo>
-
->caption The result from the code snippet above
-
-![Blazor Grid Footer Template](images/footer-template.png)
+<demo metaUrl="client/grid/templates-column-footer/"/></demo>
 
 ## Using Components in Grid Column Footer Templates
 

@@ -15,11 +15,7 @@ When the grid is grouped, the columns can display a footer with information abou
 
 >caption Sample Column Group Footer Template
 
-<demo metaUrl="client/grid/templates-column-group-footer/" height="700"></demo>
-
->caption The result from the code snippet above after grouping by the `Team` column
-
-![Blazor Grid Column Group Footer Template](images/column-group-footer-template.png)
+<demo metaUrl="client/grid/templates-column-group-footer/"/></demo>
 
 ## Using Components in Grid Group Footer Templates
 

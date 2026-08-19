@@ -96,7 +96,7 @@ The following sample shows how to:
 
 >caption Using stacked data layout mode in the Blazor Grid
 
-<demo metaUrl="client/grid/columns-stacked/" height="650"></demo>
+<demo metaUrl="client/grid/columns-stacked/"/></demo>
 
 ## See also
 

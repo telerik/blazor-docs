@@ -52,7 +52,7 @@ The following list of resources provides examples for data binding a grid in var
 
 ## Binding to Interface
 
-Since version 2.27, the Grid supports binding to a collection of multiple model types that implement the same interface.
+The Grid supports binding to a collection of multiple model types that implement the same interface.
 
 Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example below. The event handler sets the model type to be used for new items in the Grid. One-type model creation is supported out-of-the-box. If you need to support adding instances of different types:
 
@@ -62,9 +62,7 @@ Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example b
 
 >caption Data Binding the Grid to an Interface
 
-<demo metaUrl="client/grid/data-binding-interface/" height="500"></demo>
-
->note Up to version 2.26, the `Data` collection of the Grid must contain instances of only one model type.
+<demo metaUrl="client/grid/data-binding-interface/"></demo>
 
 ## See Also
 

@@ -30,7 +30,7 @@ You can prevent the user from sorting a certain field by setting `Sortable="fals
 
 >caption Enable Sorting in the Telerik Blazor Grid
 
-<demo metaUrl="client/grid/sorting/" height="600"></demo>
+<demo metaUrl="client/grid/sorting/"/></demo>
 
 ### Multi Column Sorting
 
@@ -38,7 +38,7 @@ To allow sorting on more than one column at a time, set the Grid `SortMode` para
 
 >caption Enable multi column Grid sorting
 
-<demo metaUrl="client/grid/sorting-multiple/" height="600"></demo>
+<demo metaUrl="client/grid/sorting-multiple/"/></demo>
 
 ## Sort From Code
 
