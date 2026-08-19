@@ -42,51 +42,7 @@ The following runnable example demonstrates the Popup events in action.
 
 >caption Using the Popup events
 
-````RAZOR
-<p>Last Popup Event: @PopupEventLog</p>
-
-<TelerikPopup @ref="@PopupRef"
-              AnchorSelector=".popup-target"
-              HideOnOutsideClick="true"
-              OnHide="@OnPopupHide"
-              Width="200px"
-              Height="100px">
-    <div style="height: 100%; background: var(--kendo-color-primary-subtle);"></div>
-</TelerikPopup>
-
-<TelerikButton OnClick="@TogglePopup"
-               Class="popup-target">@ButtonText</TelerikButton>
-
-@code {
-    private TelerikPopup? PopupRef { get; set; }
-
-    private bool PopupVisible { get; set; }
-
-    private string ButtonText => PopupVisible ? "Hide Popup" : "Show Popup";
-
-    private string PopupEventLog { get; set; } = string.Empty;
-
-    private void OnPopupHide()
-    {
-        PopupVisible = false;
-        PopupEventLog = $"Popup OnHide event fired at {DateTime.Now.ToString("HH:mm:ss")}";
-    }
-
-    private void TogglePopup()
-    {
-        if (PopupVisible)
-        {
-            PopupRef?.Hide();
-        }
-        else
-        {
-            PopupRef?.Show();
-        }
-
-        PopupVisible = !PopupVisible;
-    }
-}
-````
+<demo metaUrl="client/popup/events/" height="300"></demo>
 
 ## See Also
 
