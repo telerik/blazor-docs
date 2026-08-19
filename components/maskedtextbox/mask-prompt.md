@@ -65,10 +65,6 @@ In some cases, you may want to include a literal that matches a Rule, however. T
 
 By default, the `Value` of the component only includes the rules from the mask. You can, however, also include the literal characters by setting the `IncludeLiterals` parameter to true.
 
->caption Adding the literals to the value
-
-![Include Literals behavior](images/include-literals.gif)
-
 <demo metaUrl="client/maskedtextbox/mask-prompt/include-literals/" height="250"></demo>
 
 ### Mask on Focus, FloatingLabel and Placeholder
@@ -77,12 +73,7 @@ The `MaskOnFocus` parameter lets you instruct the component to show the mask onl
 
 The [FloatingLabel](slug:floatinglabel-overview) will take precedence over the `Placeholder` if the MaskedTextBox is not focused. Neither will be shown if there is a `Value` already. You should use the `Placeholder` instead of a [FloatingLabel](slug:floatinglabel-overview) if you do not want the animated effect or the increased height it causes.
 
->caption Showing the mask on focus only
-
-![Show mask only when the input is focused](images/show-mask-on-focus-only.gif)
-
 <demo metaUrl="client/maskedtextbox/mask-prompt/mask-on-focus/" height="250"></demo>
-
 
 ## Prompt
 
@@ -99,10 +90,6 @@ To make the `Prompt` character invisible, set it to a space like this:
 When the user has not filled in all the blank spaces in the mask, the Telerik Masked Textbox will replace them with the `PromptPlaceholder` in the `Value` that it will set in the view-model. By default, the `char` that is used is a simple space (` `). If you don't want such characters in the `Value`, set `PromptPlaceholder="null"`. Note that HTML rendering combines spaces into one by default.
 
 The `PromptPlaceholder` is useful when you need to process the user input at a later stage. For example, when you can have input that can vary in length like a phone country code (that can be one to three digits and the rest can be empty or spaces). For such cases, the masked textbox provides you with the value where places where the user did not input anything are replaced with the `PromptPlaceholder` to facilitate post-processing and parsing. For example, with the default space for a placeholder, you could remove all spaces from the input to get only the meaningful digits of the phone number.
-
->caption Prompt and PromptPlacehlolder behavior
-
-![Prompt and PromptPlaceholder behavior](images/custom-promt-and-promptplaceholder.gif)
 
 <demo metaUrl="client/maskedtextbox/mask-prompt/prompt/" height="300"></demo>
 

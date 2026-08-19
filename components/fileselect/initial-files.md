@@ -40,45 +40,7 @@ The Initial Files feature of the FileSelect allows you to save a list of files t
 
 >caption How to load files and display them initially in the FileSelect
 
-```CSHTML
-
-@using System.IO;
-
-@if (InitialFiles != null)
-{
-    <TelerikFileSelect Files="@InitialFiles"
-                       OnSelect="@OnSelect" />
-}
-
-@code {
-    private List<FileSelectFileInfo> InitialFiles { get; set; }
-
-    private void OnSelect(FileSelectEventArgs args)
-    {
-        foreach (var file in args.Files)
-        {
-            //await SaveFileInfo(file); Here, you can store the file information it in a database, text file, or any other desired storage
-        }
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadFiles();
-    }
-
-    private async Task LoadFiles()
-    {
-        //Simulate files information loading
-        await Task.Delay(1000);
-        InitialFiles = new List<FileSelectFileInfo>()
-        {
-            new FileSelectFileInfo(){ Id="1", Name="Report", Extension=".pdf", Size = 1024 * 1024 * 2 }
-        };
-    }
-}
-
-```
-
+<demo metaUrl="client/fileselect/initialfiles/" height="250"></demo>
 
 ## See Also
 
