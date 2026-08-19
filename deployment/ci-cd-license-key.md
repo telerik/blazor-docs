@@ -1,38 +1,52 @@
 ---
-title: License Key
-page_title: Telerik License Key in CI/CD
-description: Learn how to create and install a Telerik license key file in continuous integration and continuous delivery (CI/CD) workflows and environments.
+title: Deployment Keys
+page_title: Telerik Deployment Keys in CI/CD
+description: Learn how to use deployment keys to securely activate your license in continuous integration and continuous delivery (CI/CD) workflows and environments.
 slug: deployment-license-key
 tags: installation, license, deployment
 published: True
 position: 7
+tag: updated
 ---
 
 # Telerik License Key in CI/CD Environment
 
-This article describes how to set up and activate your [Telerik UI for Blazor license key](slug:installation-license-key) across a few popular cloud build and deployment services. You can find guidance and examples on how to set environment variables for some of the most popular CI/CD platforms.
+This article describes how to set up and activate your [Telerik UI for Blazor License](slug:installation-license-key) across a few popular cloud build and deployment services. Use [Deployment Keys](https://www.telerik.com/account/downloads/deployment-keys) for build pipelines and provide the key through an environment variable or a secure file.
+
+Deployment keys are a dedicated type of license key for build pipelines. They’re tied to a specific application and the set of products that the application uses. Deployment keys cannot be used on personal computers for application development.
+
+> Developer license keys remain valid for CI/CD deployments, so existing pipelines do not need to be updated. For new pipelines, we recommend using deployment keys. For more information, see [the differences between developer license keys and deployment keys](slug:installation-license-key#what-is-the-difference-between-deployment-keys-and-developer-license-keys).
 
 @[template](/_contentTemplates/common/get-started.md#license-key-version)
 
 ## Basics
 
-A Telerik license key is required during application build. During application deployment, this includes all steps that:
+A Telerik deployment key is required during application build. During application deployment, this includes all steps that:
 
 * Build the app with `dotnet build`
 * Run unit tests, unless the `dotnet test` command uses the `--no-build` option
 * Publish the app, unless the `dotnet publish` command uses the `--no-build` option
 
->tip [A license key is not required on the web server that hosts the already deployed web application](slug:installation-license-key#where-do-i-need-to-install-a-license-key).
+>tip [A deployment key is not required on the web server that hosts the already deployed web application](slug:installation-license-key#where-do-i-need-to-install-a-license-key).
 
-The Telerik license activation process in CI/CD test, build, staging, and production environments involves the following steps:
+To activate your license in a CI/CD environment:
 
-1. Go to the [License Keys page](https://www.telerik.com/account/your-licenses/license-keys) in your Telerik account and download your license key.
-1. Set an environment variable with either of the following names:
-    * `TELERIK_LICENSE`&mdash;the value must be the Telerik license key string.
-    * `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
-1. (optional) [Fail the build and deployment](#abort-deployment-on-license-key-error) if there is an issue with the license key.
+1. Navigate to the [Deployment Keys](https://www.telerik.com/account/downloads/deployment-keys) page.
+2. Click `Add Application`. In the form that opens:
+  a. Add the application name.
+  b. Select the type of application—public or private.
+  c. Select the set of products used in the application.
+3. Copy the key value and store it securely.
+4. [Create an environment variable](#creating-an-environment-variable) named `TELERIK_LICENSE` and set it to the obtained key value. Alternatively, the key can be stored in a `telerik-license.txt` file, for example when using the [Azure Secure files approach](#use-telerik_license_path).
 
-In most cases, the recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environments is to use one of the available environment variables.
+## Creating an Environment Variable
+
+The recommended approach for providing your license key to the `Telerik.Licensing` NuGet package is to use environment variables. Each CI/CD platform has a different process for setting environment variables and this article lists only some of the most popular examples.
+
+The Telerik Licensing environment variables are:
+
+* `TELERIK_LICENSE`&mdash;the value must be the Telerik deployment key string.
+* `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
 
 > Treat the license key and the license file as secrets. Always store and retrieve them in a secure manner, according to the build platform's best practices.
 
@@ -43,8 +57,7 @@ The Telerik license key size depends on the number of licenses it includes, incl
 * Windows and Windows Server machines (up to 32,767 characters for all environment variables and much smaller limits for setting variables in the Registry or the system settings)
 * [GitLab](https://docs.gitlab.com/ci/variables/) (up to 10,000 characters)
 
-In such cases, use `TELERIK_LICENSE_PATH` or [only a license file](slug:installation-license-key#manual-installation) instead of `TELERIK_LICENSE`. The `TELERIK_LICENSE_PATH` variable must point to the Telerik license file location, including the `telerik-license.txt` file name itself. The license file must be stored and provided to the deployment pipeline in a secure manner.
-
+Deployment keys are shorter than developer license keys. Using deployment keys for CI/CD pipelines is recommended and helps avoid environment-variable limits.
 
 ## Azure Pipelines
 
@@ -53,7 +66,7 @@ Azure Pipelines provides built-in tools to store and use secret environment vari
 ### Use TELERIK_LICENSE
 
 1. Create a new [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables). Also check the separate article [Set Secret Variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables).
-1. Paste the contents of the license key file as a value of the secret variable.
+1. Paste the deployment key as a value of the secret variable.
 1. Map the secret variable to a new environment variable named `TELERIK_LICENSE`.
 1. Use the `TELERIK_LICENSE` environment variable in the tasks, steps, or scripts that build and publish the Blazor app. **Classic** pipelines may need to [set an output variable to share and consume the license key in multiple steps](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash#set-an-output-variable-for-use-in-future-jobs).
 
@@ -115,7 +128,7 @@ steps:
 ## GitHub Actions
 
 1. Create a new [Repository Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) or an [Organization Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization).
-1. Paste the contents of the license key file as a value of the GitHub secret.
+1. Paste the deployment key as a value of the GitHub secret.
 1. Assign the secret to an environment variable named `TELERIK_LICENSE`.
 1. Use the `TELERIK_LICENSE` environment variable in the steps, which build and publish the Blazor app.
 
