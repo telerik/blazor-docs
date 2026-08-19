@@ -41,71 +41,7 @@ The following example lets you experiment with the available settings that contr
 
 >caption Popover Position and Collision
 
-````RAZOR
-<div>
-    <label>
-        Popover Position
-        <TelerikDropDownList @bind-Value="@PopoverPositionType" Data="@PopoverPositions" Width="200px" />
-    </label>
-</div>
-<div>
-    <label>
-        Offset
-        <TelerikNumericTextBox @bind-Value="@PopoverOffset" Width="200px" />
-    </label>
-</div>
-<div>
-    <label>
-        Popover Collision Type
-        <TelerikDropDownList @bind-Value="@PopoverCollisionType" Data="@PopoverCollisionTypes" Width="200px" />
-    </label>
-</div>
-
-<TelerikPopover @ref="@PopoverRef"
-                AnchorSelector=".popover-target"
-                Collision="@PopoverCollisionType"
-                Offset="@PopoverOffset"
-                Position="@PopoverPositionType">
-    <PopoverContent>
-        I am a Telerik Popover
-    </PopoverContent>
-    <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverRef?.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
-    </PopoverActions>
-</TelerikPopover>
-
-<div class="popover-target styled-container" @onclick="@(_ => PopoverRef.Show())">
-    Popover target. Click in the element to show the Popover.
-</div>
-
-@code{
-    private TelerikPopover? PopoverRef { get; set; }
-    private PopoverCollision PopoverCollisionType { get; set; } = PopoverCollision.Fit;
-    private int PopoverOffset { get; set; } = 0;
-    private PopoverPosition PopoverPositionType { get; set; } = PopoverPosition.Top;
-
-    private List<PopoverPosition> PopoverPositions { get; set; } = new List<PopoverPosition>() {
-        PopoverPosition.Top,
-        PopoverPosition.Left,
-        PopoverPosition.Right,
-        PopoverPosition.Bottom,
-    };
-
-    private List<PopoverCollision> PopoverCollisionTypes { get; set; } = new List<PopoverCollision>() {
-        PopoverCollision.Fit,
-        PopoverCollision.Flip
-    };
-}
-
-<style>
-    .styled-container {
-        width: 300px;
-        height: 50px;
-        background-color: yellowgreen;
-        margin-top: 20px;
-    }
-</style>
-````
+<demo metaUrl="client/popover/position-collision/" height="520"></demo>
 
 ## See Also
 
