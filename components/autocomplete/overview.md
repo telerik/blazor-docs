@@ -22,25 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/autocomplete" target="_blank">Bla
 
 >caption AutoComplete with two-way value binding and data binding to collection of strings
 
-````RAZOR
-@* AutoComplete with two-way value binding and data binding to a collection of strings *@
-
-User input: @AutoCompleteValue
-<br />
-<TelerikAutoComplete Data="@Suggestions"
-                     @bind-Value="@AutoCompleteValue"
-                     Placeholder="Enter your role (can be free text)"
-                     ShowClearButton="true" />
-
-@code{
-    //Current value is null (no item is selected) which allows the Placeholder to be displayed.
-    private string AutoCompleteValue { get; set; }
-
-    private List<string> Suggestions { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
+<demo metaUrl="client/autocomplete/overview/" height="250"></demo>
 
 >tip If you want to get a value identifier for the items in the dropdown instead of their text, consider the [ComboBox component](slug:components/combobox/overview). The **AutoComplete** is a **free text** input that accepts any text the user writes, not just the suggestions from the dropdown. Thus, the `Value` of the AutoComplete is always a `string`, while the ComboBox can provide you with a `number` or a `Guid`, not only a `string`.
 
@@ -116,26 +98,7 @@ You can find more options for customizing the AutoComplete styling in the [Appea
 
 The AutoComplete exposes settings for its dropdown (popup). To configure the options, declare an  `<AutoCompletePopupSettings>` tag inside the `<AutoCompleteSettings>` tag:
 
-````RAZOR
-<TelerikAutoComplete Data="@AutoCompleteData"
-                     @bind-Value="@SelectedItem"
-                     Filterable="true"
-                     FilterOperator="@StringFilterOperator.Contains"
-                     Placeholder="Filter by digit or letter"
-                     Width="240px">
-    <AutoCompleteSettings>
-        <AutoCompletePopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
-    </AutoCompleteSettings>
-</TelerikAutoComplete>
-
-@code {
-    private List<string> AutoCompleteData { get; set; } = Enumerable.Range(1, 50)
-        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
-        .ToList();
-
-    private string SelectedItem { get; set; }
-}
-````
+<demo metaUrl="client/autocomplete/popup-settings/" height="300"></demo>
 
 The AutoComplete provides the following popup settings:
 
@@ -150,29 +113,7 @@ Add a reference to the component instance to use the [AutoComplete's methods](sl
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````RAZOR
-<TelerikAutoComplete @ref="@AutoCompleteRef"
-                     Data="@Suggestions"
-                     @bind-Value="@AutoCompleteValue" 
-                     Width="300px"/>
-
-<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
-
-@code {
-    private TelerikAutoComplete<string> AutoCompleteRef { get; set; }
-
-    private string AutoCompleteValue { get; set; }
-
-    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
-
-    private void OpenPopup()
-    {
-        AutoCompleteRef.Open();
-
-        AutoCompleteRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/autocomplete/methods/" height="250"></demo>
 
 
 ## Next Steps

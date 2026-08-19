@@ -36,66 +36,7 @@ The example below shows how to:
 
 >caption Using Grid cell (column) template
 
-````RAZOR
-<TelerikGrid Data="@GridData" Height="400px">
-    <GridColumns>
-        <GridColumn Field="@(nameof(FoodItem.Id))" Title="Image">
-            <Template>
-                @{
-                    var item = (FoodItem)context;
-                    <img src="@($"https://demos.telerik.com/blazor-ui/images/{item.Id}.jpg")"
-                         alt="Image of @item.Name" />
-                }
-            </Template>
-        </GridColumn>
-        <GridColumn Field="@(nameof(FoodItem.Name))">
-            <Template>
-                Food item name:
-                <br />
-                <strong>@((context as FoodItem).Name)</strong>
-            </Template>
-        </GridColumn>
-        <GridColumn Field="@nameof(FoodItem.BestBefore)" Title="Date - Default format">
-        </GridColumn>
-        <GridColumn Field="@nameof(FoodItem.BestBefore)" Title="Date - Custom format string">
-            <Template>
-                @((context as FoodItem).BestBefore.ToString("dd MMM yyyy"))
-            </Template>
-        </GridColumn>
-        <GridColumn Field="@nameof(FoodItem.Organic)">
-            <Template>
-                @{
-                    var item = (FoodItem)context;
-                }
-                Read-only Checkbox:
-                <TelerikCheckBox @bind-Value="@item.Organic" Enabled="false" />
-                <br />
-                or Icon:
-                <TelerikSvgIcon Icon="@( item.Organic ? SvgIcon.CheckboxChecked : SvgIcon.Checkbox )" />
-            </Template>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private IEnumerable<FoodItem> GridData = Enumerable.Range(1, 10).Select(x => new FoodItem
-        {
-            Id = x,
-            Name = "Food Item " + x,
-            BestBefore = DateTime.Now.AddDays(x),
-            Organic = x % 2 != 0
-        });
-
-    public class FoodItem
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Quantity { get; set; }
-        public DateTime BestBefore { get; set; }
-        public bool Organic { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/templates-column/" height="500"></demo>
 
 >tip The above example renders read-only checkboxes to display boolean values. You can also [use checkboxes in display mode and directly change the underlying data source values](slug:grid-kb-checkbox-editing). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
 

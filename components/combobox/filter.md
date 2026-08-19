@@ -33,73 +33,7 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 
 >caption Filtering in the ComboBox
 
-````RAZOR
-<ul>
-    <li>
-        <label>
-            Filter operator:
-            <TelerikDropDownList @bind-Value="@FilterOperator"
-                                 Data="@FilterOperators"
-                                 Width="160px" />
-        </label>
-    </li>
-    <li>
-        <label>
-            Debounce delay:
-            <TelerikNumericTextBox @bind-Value="@DebounceDelay" Min="0" Width="120px" />
-        </label>
-    </li>
-</ul>
-
-<br />
-
-<TelerikComboBox Data="@ProductList"
-                 @bind-Value="@SelectedProduct"
-                 TextField="@nameof(Product.Name)"
-                 ValueField="@nameof(Product.Id)"
-                 Filterable="true"
-                 FilterOperator="@FilterOperator"
-                 DebounceDelay="@DebounceDelay"
-                 Placeholder="Type digits to see filtering in action"
-                 ShowClearButton="true"
-                 Width="300px">
-</TelerikComboBox>
-
-@code{
-    private List<Product> ProductList { get; set; }
-
-    private int? SelectedProduct { get; set; }
-
-    private List<StringFilterOperator> FilterOperators =>
-        Enum.GetValues(typeof(StringFilterOperator)).Cast<StringFilterOperator>().ToList();
-
-    private StringFilterOperator FilterOperator { get; set; } = StringFilterOperator.StartsWith;
-
-    private int DebounceDelay { get; set; } = 150;
-
-    protected override void OnInitialized()
-    {
-        ProductList = new List<Product>();
-
-        for (int i = 1; i <= 30; i++)
-        {
-            ProductList.Add(new Product()
-            {
-                Id = i,
-                Name = $"{i} Product {i * 111}"
-            });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/combobox/filter/" height="400"></demo>
 
 ## See Also
 

@@ -19,51 +19,7 @@ To prevent the user from moving a certain column, set the column's `Reorderable`
 
 >caption Enable column reordering in Telerik Grid
 
-````RAZOR
-@* Drag a column header between other columns to change the columns positions. You cannot drag the command column. Note that actual CRUD operations and settings are not implemented here for brevity. *@
-
-<TelerikGrid Data="@GridData"
-             Reorderable="true"
-             Pageable="true" PageSize="10" Sortable="true" Height="300px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.Id) Title="Id" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="First Name" />
-        <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" />
-        <GridCommandColumn Width="100px" Reorderable="false">
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<SampleData> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = GetData();
-    }
-
-    private List<SampleData> GetData()
-    {
-        return Enumerable.Range(1, 50).Select(x => new SampleData
-        {
-            Id = x,
-            Name = $"name {x}",
-            LastName = $"Surname {x}"
-        }).ToList();
-    }
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/columns-reorder/" height="400"></demo>
 
 
 >caption How column reordering works in the Telerik grid

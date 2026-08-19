@@ -37,36 +37,10 @@ In this article:
 
 You can use a multiplier over the small step to set the large step, and to ensure that this can divide the difference between the min and max. This will provide the best possible appearance where ticks will be distributed evenly and you will be able to use the full range of the slider.
 
-![matching ticks](images/rangeslider-matching-ticks.png)
-
-````RAZOR
-from @TheStartValue to @TheEndValue
-<br />
-<TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue"
-                    SmallStep="5m" LargeStep="15m" Min="5m" Max="50m">
-</TelerikRangeSlider>
-
-@code{
-    decimal TheStartValue { get; set; } = 20m;
-    decimal TheEndValue { get; set; } = 45m;
-}
-````
+<demo metaUrl="client/rangeslider/steps/matching/" height="250"></demo>
 
 ### Not Matching Ticks Steps, Min, Max
 
 In this example, the max value does not match the large step, small step and the min, so the max value is not rendered and the user can only go up to `90` instead of `100`. The small and large steps match in this example, however, the only "issue" is the `Max` value.
 
-![non-matching values](images/rangeslider-non-matching-ticks.png)
-
-````RAZOR
-from @TheStartValue to @TheEndValue
-<br />
-<TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue"
-                    SmallStep="15m" LargeStep="30m" Min="0m" Max="100m">
-</TelerikRangeSlider>
-
-@code{
-    decimal TheStartValue { get; set; } = 20m;
-    decimal TheEndValue { get; set; } = 45m;
-}
-````
+<demo metaUrl="client/rangeslider/steps/not-matching/" height="250"></demo>

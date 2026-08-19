@@ -117,24 +117,7 @@ To use the [methods of the Blazor ColorPicker](slug:Telerik.Blazor.Components.Te
 | `FocusAsync` | Focuses the main element of the component. Always `await` this call, as it relies on `JSInterop`. |
 | `Open` | Opens the component popup. |
 
-````RAZOR
-<TelerikColorPicker @ref="@ColorPickerRef"
-                    @bind-Value="@Color" />
-
-<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
-
-
-@code {
-    private TelerikColorPicker ColorPickerRef { get; set; }
-
-    private string Color { get; set; } = "rgb(40, 47, 137)";
-
-    private void OpenPopup()
-    {
-        ColorPickerRef.Open();
-    }
-}
-````
+<demo metaUrl="client/colorpicker/methods/" height="220"></demo>
 
 ## Next Steps
 

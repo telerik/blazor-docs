@@ -30,28 +30,7 @@ You can increase or decrease the size of the NumericTextBox by setting the `Size
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.NumericTextBox.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikNumericTextBox @bind-Value="@NumericValue" Size="@size"></TelerikNumericTextBox>
-        </div>
-    }
-}
-
-@code{
-    private int NumericValue { get; set; }
-}
-````
+<demo metaUrl="client/numerictextbox/appearance/size/" height="250"></demo>
 
 ## Rounded
 
@@ -66,30 +45,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the textbox to a
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.NumericTextBox.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikNumericTextBox @bind-Value="@NumericValue" Rounded="@rounded"></TelerikNumericTextBox>
-        </div>
-    }
-}
-
-@code{
-    private int NumericValue { get; set; }
-}
-````
+<demo metaUrl="client/numerictextbox/appearance/rounded/" height="250"></demo>
 
 ## FillMode
 
@@ -103,29 +59,6 @@ The `FillMode` controls how the TelerikNumericTextBox is filled. You can set it 
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.NumericTextBox.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikNumericTextBox @bind-Value="@NumericValue" FillMode="@fillMode"></TelerikNumericTextBox>
-        </div>
-    }
-}
-
-@code{
-    private int NumericValue { get; set; }
-}
-````
+<demo metaUrl="client/numerictextbox/appearance/fill-mode/" height="250"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

@@ -30,28 +30,7 @@ You can increase or decrease the size of the ColorPicker by setting the `Size` a
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ColorPicker.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikColorPicker @bind-Value="@Color"
-                                Size="@size"/>
-        </div>
-    }
-}
-
-@code {
-    string Color { get; set; } = "rgb(40, 47, 137)";
-}
-````
+<demo metaUrl="client/colorpicker/appearance/size/" height="250"></demo>
 
 ## Rounded
 
@@ -66,30 +45,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the ColorPicker 
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ColorPicker.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikColorPicker @bind-Value="@Color"
-                                Rounded="@rounded"/>
-        </div>
-    }
-}
-
-@code {
-    string Color { get; set; } = "rgb(40, 47, 137)";
-}
-````
+<demo metaUrl="client/colorpicker/appearance/rounded/" height="250"></demo>
 
 ## FillMode
 
@@ -103,29 +59,6 @@ The `FillMode` controls how the TelerikColorPicker is filled. You can set it to 
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ColorPicker.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikColorPicker @bind-Value="@Color"
-                                FillMode="@fillMode"/>
-        </div>
-    }
-}
-
-@code {
-    string Color { get; set; } = "rgb(40, 47, 137)";
-}
-````
+<demo metaUrl="client/colorpicker/appearance/fill-mode/" height="250"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

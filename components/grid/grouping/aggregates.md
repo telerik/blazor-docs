@@ -64,126 +64,14 @@ To enable aggregates:
 
 >caption Use Aggregates in the Telerik Blazor Grid
 
-````RAZOR
-@using Telerik.DataSource
-
-<TelerikGrid Data=@GridData
-             Groupable="true"
-             OnStateInit="@( (GridStateEventArgs<Employee> args) => OnGridStateInit(args) )">
-    <GridAggregates>
-        <GridAggregate Field=@nameof(Employee.Name) Aggregate="@GridAggregateType.Count" />
-        <GridAggregate Field=@nameof(Employee.Team) Aggregate="@GridAggregateType.Count" />
-        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Max" />
-        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Sum" />
-        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Average" />
-        <GridAggregate Field=@nameof(Employee.ActiveProjects) Aggregate="@GridAggregateType.Sum" />
-    </GridAggregates>
-    <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) Groupable="false">
-            <FooterTemplate>
-                Total employees: @context.Count
-                <br />
-                @{
-                    // you can use aggregates for other fields/columns by extracting the desired one by its
-                    // field name and aggregate function from the AggregateResults collection
-                    // The type of its Value is determined by the type of its field - decimal for the Salary field here
-                    decimal? salaries = (decimal?)context.AggregateResults
-                    .FirstOrDefault(r => r.AggregateMethodName == nameof(GridAggregateType.Sum) && r.Member == nameof(Employee.Salary))?.Value;
-
-                    <span>Total salaries: @salaries?.ToString("C0")</span>
-                }
-            </FooterTemplate>
-        </GridColumn>
-        <GridColumn Field=@nameof(Employee.Team) Title="Team">
-            <GroupHeaderTemplate>
-                <span>
-                    @context.Value @* the default text you would get without the template *@
-                    with employee count: @context.Count
-                </span>
-            </GroupHeaderTemplate>
-            <GroupFooterTemplate>
-                Team Members: <strong>@context.Count</strong>
-            </GroupFooterTemplate>
-        </GridColumn>
-        <GridColumn Field=@nameof(Employee.Salary) Title="Salary" Groupable="false" DisplayFormat="{0:C0}">
-            <GroupFooterTemplate>
-                @* you can use a group footer for non-groupable columns as well *@
-                Total salaries: @context.Sum?.ToString("C0")
-                <br />
-                <span style="color: red;">Highest: @context.Max?.ToString("C0")</span>
-            </GroupFooterTemplate>
-        </GridColumn>
-        <GridColumn Field=@nameof(Employee.ActiveProjects) Title="Active Projects">
-            <GroupHeaderTemplate>
-                @{
-                    <span>Currently active projects: @context.Value</span>
-
-                    //sample of conditional logic in the group header
-                    if ((int)context.Value > 3) // in a real case, you may want to ensure type safety and add defensive checks
-                    {
-                        <strong style="color: red;">These people work on too many projects</strong>
-                    }
-                }
-            </GroupHeaderTemplate>
-            <GroupFooterTemplate>
-                @*access the aggregates of the ActiveProjects column*@
-                Active projects in team: @context.Sum
-
-                @* access the aggregates of the other columns if any *@
-                <br />
-                <span>Total teams: @context.AggregateResults[nameof(Employee.Team)]?.Count</span>
-                <br />
-                <span>Total employees: @context.AggregateResults[nameof(Employee.Name)]?.Count</span>
-                <br />
-                <span>Average salary: @context.AggregateResults[nameof(Employee.Salary)]?.Average?.ToString("C0")</span>
-            </GroupFooterTemplate>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private void OnGridStateInit(GridStateEventArgs<Employee> args)
-    {
-        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
-            {
-                Member = nameof(Employee.Team)
-            });
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 5; i++)
-        {
-            GridData.Add(new Employee()
-                {
-                    EmployeeId = i,
-                    Name = $"Employee {i}",
-                    Team = $"Team {i % 2 + 1}",
-                    Salary = Random.Shared.Next(1000, 5000),
-                    ActiveProjects = i % 4 == 0 ? 2 : 5
-                });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public decimal Salary { get; set; }
-        public int ActiveProjects { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/grouping-aggregates/" height="600"></demo>
 
 >caption The result of the code snippet above after the grid has been grouped by the `Team` and `Active Projects` columns
 
 ![Blazor Grid Aggregates Overview](images/grid-aggregates-overview.png)
 
 
-## Notes 
+## Notes
 
 * You should define only aggregates that you will use to avoid unnecessary calculations that may be noticeable on large data sets.
 

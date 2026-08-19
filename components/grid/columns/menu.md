@@ -37,41 +37,7 @@ You can see what the column menu can do and how to control its settings in the [
 
 >caption Enable the column menu for all Grid columns.
 
-````RAZOR
-@* Set the ShowColumnMenu parameter to true *@
-
-<TelerikGrid Data="@GridData"
-             Pageable="true"
-             PageSize="5"
-             FilterMode="@GridFilterMode.FilterMenu"
-             Sortable="true"
-             ShowColumnMenu="true">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/columns-menu/" height="500"></demo>
 
 ## Features
 
@@ -142,110 +108,13 @@ The following example shows the basic configuration of the `ColumnMenuSettings`.
 
 The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the Grid can use a `FilterRow`. The `Id` column has no Column Menu and the `HireDate` column is not visible in Column Chooser.
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             Pageable="true"
-             FilterMode="@GridFilterMode.FilterRow"
-             Sortable="true"
-             ShowColumnMenu="true">
-    <GridSettings>
-        <GridColumnMenuSettings Lockable="false"
-                                FilterMode="@ColumnMenuFilterMode.None">
-            <GridColumnMenuChooser>
-                <Template>
-                    <GridColumnMenuChooserGroup Title="Personal Information">
-                        <GridColumnMenuChooserItem ColumnId="firstname-column-id" />
-                        <GridColumnMenuChooserItem ColumnId="lastname-column-id" />
-                    </GridColumnMenuChooserGroup>
-                    <GridColumnMenuChooserGroup Title="Employee Information">
-                        <GridColumnMenuChooserItem ColumnId="companyname-column-id" />
-                        <GridColumnMenuChooserItem ColumnId="team-column-id" />
-                    </GridColumnMenuChooserGroup>
-                </Template>
-            </GridColumnMenuChooser>
-        </GridColumnMenuSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" ShowColumnMenu="false" />
-        <GridColumn Field="@(nameof(SampleData.FirstName))" Title="First Name" Id="firstname-column-id" />
-        <GridColumn Field="@(nameof(SampleData.LastName))" Title="Last Name" Id="lastname-column-id" />
-        <GridColumn Field="@(nameof(SampleData.CompanyName))" Title="Company" Id="companyname-column-id" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Id="team-column-id" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" VisibleInColumnChooser="false" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
-        {
-            Id = x,
-            FirstName = $"FirstName {x}",
-            LastName = $"LastName {x}",
-            CompanyName = $"Company {x}",
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string CompanyName { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/columns-menu-configuration/" height="600"></demo>
 
 ### Column Menu Features Example
 
 >caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
 
-````RAZOR
-@* Disable filtering and locking columns, hide a column from the chooser (Team), disable the menu for a column (Name). *@
-
-<TelerikGrid Data="@MyData"
-             Pageable="true"
-             PageSize="5"
-             Groupable="true"
-             FilterMode="@GridFilterMode.FilterMenu"
-             Sortable="true"
-             Reorderable="true"
-             ShowColumnMenu="true">
-    <GridSettings>
-        <GridColumnMenuSettings Lockable="false"
-                                Groupable="true"
-                                Reorderable="true"
-                                FilterMode="@ColumnMenuFilterMode.None">
-        </GridColumnMenuSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" ShowColumnMenu="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" VisibleInColumnChooser="false" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-        {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/columns-menu-features/" height="550"></demo>
 
 ## Notes
 

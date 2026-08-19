@@ -19,50 +19,7 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 >caption Grouping in the AutoComplete
 
-````RAZOR
-<TelerikAutoComplete Data="@Data"
-                 @bind-Value="@SelectedValue"
-                 GroupField="Category.CategoryName"
-                 ValueField="ProductName"
-                 Placeholder="Select a product">
-</TelerikAutoComplete>
-
-@code {
-    public List<Product> Data { get; set; }
-    public string SelectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                Category = new Category() { CategoryId = i % 5, CategoryName = $"Category {i % 5}" }
-            });
-        }
-
-        Data = products;
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public Category Category { get; set; }
-    }
-
-    public class Category
-    {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-    }
-}
-````
+<demo metaUrl="client/autocomplete/grouping/" height="350"></demo>
 
 # Notes
 

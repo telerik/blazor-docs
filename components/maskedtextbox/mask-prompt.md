@@ -59,44 +59,13 @@ In some cases, you may want to include a literal that matches a Rule, however. T
 
 >caption Literals and escaped rules as part of the mask
 
-````RAZOR
-@* The user will see "ABC---1209" in this example and only the part "12" is editable. The other symbols are escaped rules - "A", "C", "0" and "9" or literals - the "B" and the three dashes "-" *@
-
-@invoiceNumber
-
-<TelerikMaskedTextBox Mask="\AB\C---00\0\9" @bind-Value="@invoiceNumber"></TelerikMaskedTextBox>
-
-@code{
-    string invoiceNumber { get; set; } = "12";
-}
-````
+<demo metaUrl="client/maskedtextbox/mask-prompt/literals/" height="220"></demo>
 
 ### Include Literals in the Value
 
 By default, the `Value` of the component only includes the rules from the mask. You can, however, also include the literal characters by setting the `IncludeLiterals` parameter to true.
 
->caption Adding the literals to the value
-
-![Include Literals behavior](images/include-literals.gif)
-
-````RAZOR
-@* Toggle the checkbox to see the behavior *@
-
-<TelerikMaskedTextBox Mask="(+999) 000-0000"
-                      @bind-Value="@TheValue"
-                      IncludeLiterals="@ShouldAddLiterals">
-</TelerikMaskedTextBox>
-
-<span style="white-space: pre;">
-    @TheValue
-</span>
-<label><input type="checkbox" @bind="@ShouldAddLiterals" /> Include literals</label>
-
-@code{
-    string TheValue { get; set; } = "44 5556666"; // the space accounts for three-digit codes
-    bool ShouldAddLiterals { get; set; }
-}
-````
+<demo metaUrl="client/maskedtextbox/mask-prompt/include-literals/" height="250"></demo>
 
 ### Mask on Focus, FloatingLabel and Placeholder
 
@@ -104,28 +73,7 @@ The `MaskOnFocus` parameter lets you instruct the component to show the mask onl
 
 The [FloatingLabel](slug:floatinglabel-overview) will take precedence over the `Placeholder` if the MaskedTextBox is not focused. Neither will be shown if there is a `Value` already. You should use the `Placeholder` instead of a [FloatingLabel](slug:floatinglabel-overview) if you do not want the animated effect or the increased height it causes.
 
->caption Showing the mask on focus only
-
-![Show mask only when the input is focused](images/show-mask-on-focus-only.gif)
-
-````RAZOR
-@* This is the non-default behavior where the user first sees the FloatingLabel or Placeholder if there is no value *@
-
-@TheValue
-<br />
-
-<TelerikFloatingLabel Text="Credit Card Number:">
-    <TelerikMaskedTextBox MaskOnFocus="true"
-                          Mask="0000-0000-0000-0000" 
-                          @bind-Value="@TheValue">
-    </TelerikMaskedTextBox>
-</TelerikFloatingLabel>
-
-@code {
-    string TheValue { get; set; }
-}
-````
-
+<demo metaUrl="client/maskedtextbox/mask-prompt/mask-on-focus/" height="250"></demo>
 
 ## Prompt
 
@@ -143,30 +91,7 @@ When the user has not filled in all the blank spaces in the mask, the Telerik Ma
 
 The `PromptPlaceholder` is useful when you need to process the user input at a later stage. For example, when you can have input that can vary in length like a phone country code (that can be one to three digits and the rest can be empty or spaces). For such cases, the masked textbox provides you with the value where places where the user did not input anything are replaced with the `PromptPlaceholder` to facilitate post-processing and parsing. For example, with the default space for a placeholder, you could remove all spaces from the input to get only the meaningful digits of the phone number.
 
->caption Prompt and PromptPlacehlolder behavior
-
-![Prompt and PromptPlaceholder behavior](images/custom-promt-and-promptplaceholder.gif)
-
-````RAZOR
-@* Toggle the checkboxex and write a part of the card number to see the difference in the Value and input appearance *@
-
-<div style="white-space: pre; text-decoration: underline;font-family: 'Courier New';">@TheValue</div>
-<div>
-    <label><input type="checkbox" @bind="@CustomPrompt" />Use custom Prompt</label>
-    <br />
-    <label><input type="checkbox" @bind="@CustomPromptPlaceholder" />Use custom PromptPlaceholder</label>
-</div>
-<TelerikMaskedTextBox PromptPlaceholder="@( CustomPromptPlaceholder ? "a"[0] : ' ' )"
-                      Prompt="@( CustomPrompt ? "*"[0] : '_' )"
-                      Mask="0000-0000-0000-0000" @bind-Value="@TheValue">
-</TelerikMaskedTextBox>
-@code{
-    string TheValue { get; set; } 
-
-    bool CustomPrompt { get; set; }
-    bool CustomPromptPlaceholder { get; set; }
-}
-````
+<demo metaUrl="client/maskedtextbox/mask-prompt/prompt/" height="300"></demo>
 
 >tip You can see the behavior of the prompt features in the [Customization Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/customization).
 

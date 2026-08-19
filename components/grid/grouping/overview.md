@@ -38,45 +38,7 @@ You can also use [aggregates](slug:grid-aggregates) for the grouped data.
 
 >caption Enable grouping in Telerik Grid
 
-````RAZOR
-Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top
-
-<TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="400px">
-    <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) Groupable="false" />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<Employee> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3,
-                IsOnLeave = i % 2 == 0
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public bool IsOnLeave { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/grouping/" height="500"></demo>
 
 >caption How grouping works in the Telerik grid
 
@@ -111,37 +73,7 @@ You can group the Grid from your code through the [Grid state](slug:grid-state).
 
 The Grid provides grouping configuration options via the [`GridGroupableSettings` tag](slug:Telerik.Blazor.Components.GridGroupableSettings), which is nested inside `GridSettings`.
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             Groupable="true"
-             Sortable="true">
-    <GridSettings>
-        <GridGroupableSettings Reorderable="true"
-                               Sortable="true" />
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" />
-        <GridColumn Field="@(nameof(SampleData.Name))" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "Name " + x,
-        HireDate = DateTime.Today.AddDays(-x)
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/grouping-settings/" height="450"></demo>
 
 ## More Examples
 
@@ -158,5 +90,3 @@ The following articles and sample projects can be helpful when implementing grou
 * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
 * [Grid Aggregates](slug:grid-aggregates)
 * [Blazor Grid](slug:grid-overview)
-   
-  

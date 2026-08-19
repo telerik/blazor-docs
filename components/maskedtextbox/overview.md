@@ -23,18 +23,7 @@ You can also add standard attributes such as custom CSS classes, `name`, `placeh
 
 >caption Basic MaskedTextBox with two-way Value binding and a credit card mask
 
-````RAZOR
-<TelerikMaskedTextBox @bind-Value="@MaskedValue"
-                      Mask="0000-0000-0000-0000"
-                      Width="300px" />
-
-<br /><br />
-The component value is: @MaskedValue
-
-@code{
-    private string MaskedValue { get; set; }
-}
-````
+<demo metaUrl="client/maskedtextbox/overview/" height="250"></demo>
 
 @[template](/_contentTemplates/common/inputs.md#adornments)
 
@@ -99,25 +88,7 @@ The following parameters enable you to customize the [appearance](slug:maskedtex
 
 The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance through `#ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
-````RAZOR
-<TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
-
-<TelerikMaskedTextBox @ref="@MaskedTextBoxRef"
-                      @bind-Value="@MaskedValue"
-                      Mask="0000-0000-0000-0000"
-                      Width="300px" />
-
-@code{
-    private TelerikMaskedTextBox MaskedTextBoxRef { get; set; }
-
-    private string MaskedValue { get; set; }
-
-    private async Task FocusTextBox()
-    {
-        await MaskedTextBoxRef.FocusAsync();
-    }
-}
-````
+<demo metaUrl="client/maskedtextbox/methods/" height="250"></demo>
 
 ## Mask Examples
 
@@ -141,88 +112,15 @@ The examples below demonstrates how to create a few [masks](slug:maskedtextbox-m
 
 >caption Phone, credit card, SSN, UK post code, ZIP code, ZIP+4 code masks
 
-````RAZOR
-@* type in the inputs to see the result. Depending on what you want to get, you may want to set IncludeLiterals=tru like for the percentage example at the end *@
-
-<div style="white-space:pre;">
-    @Phone
-    @CardNumber
-    @SSN
-    @ZipCode
-    @ZipPlus4Code
-</div>
-
-<TelerikMaskedTextBox Mask="(+999) 000-0000" @bind-Value="@Phone"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="0000-0000-0000-0000" @bind-Value="@CardNumber"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="000-00-0000" @bind-Value="@SSN"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="L0L 0LL" @bind-Value="@UkPostcode"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="00000" @bind-Value="@ZipCode"></TelerikMaskedTextBox><br />
-<TelerikMaskedTextBox Mask="00000-0000" @bind-Value="@ZipPlus4Code"></TelerikMaskedTextBox><br />
-
-@code{
-    string Phone { get; set; }
-    string CardNumber { get; set; }
-    string SSN { get; set; }
-    string UkPostcode { get; set; }
-    string ZipCode { get; set; }
-    string ZipPlus4Code { get; set; }
-}
-````
+<demo metaUrl="client/maskedtextbox/masks/" height="400"></demo>
 
 >caption One way to get percentage input and values
 
-````RAZOR
-@* See the method that parses the string into the desired numerical value - you can customize that as needed by your app *@
-
-<div style="white-space:pre;">
-    @RawPercentage
-    @ActualPercentage
-</div>
-
-<TelerikMaskedTextBox Mask="@PercentageMask"
-                      IncludeLiterals="true"
-                      PromptPlaceholder="null"
-                      @bind-Value="@RawPercentage">
-</TelerikMaskedTextBox>
-
-@code{
-    string PercentageMask { get; set; } = $"00{System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}00%";
-    string RawPercentage { get; set; }
-    double? ActualPercentage => ParsePercentage();
-
-    //note: this parses the value exactly and will result in numbers that can be between 0 and 100
-    //and not like .NET usually treats percents as a value between 0 and 1
-    //you can implement any preferred logic
-    double? ParsePercentage()
-    {
-        if (string.IsNullOrEmpty(RawPercentage))
-        {
-            return null;
-        }
-        string trimmedValue = RawPercentage?.Replace("%", "").Replace(" ", "");
-        double result;
-        if(double.TryParse(trimmedValue, out result))
-        {
-            return result;
-        }
-        return null;
-    }
-}
-````
+<demo metaUrl="client/maskedtextbox/percentage/" height="300"></demo>
 
 >caption Custom mask that presets literals for the user
 
-````RAZOR
-@* This example requires an invoice number that starts with a letter, has a second character that is a letter or a number, then a dash, then has the numbers "900" and four more numbers. For example A4-900123 *@
-
-@invoiceNumber
-
-<TelerikMaskedTextBox Mask="LA-\9\0\00000" @bind-Value="@invoiceNumber" IncludeLiterals="true"></TelerikMaskedTextBox>
-
-@code{
-    string invoiceNumber { get; set; }
-}
-````
+<demo metaUrl="client/maskedtextbox/custom-mask/" height="220"></demo>
 
 ## Next Steps
 

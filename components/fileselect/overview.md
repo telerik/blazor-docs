@@ -31,26 +31,7 @@ Steps 2 and 3 are optional, but strongly recommended.
 
 >caption Using the FileSelect
 
-````CS
-<TelerikFileSelect AllowedExtensions="@AllowedExtensions"
-                   MaxFileSize="@MaxFileSize"
-                   OnSelect="@OnSelectHandler" />
-
-@code {
-    List<string> AllowedExtensions { get; set; } = new List<string>() { ".docx", ".pdf" };
-    int MaxFileSize { get; set; } = 1024 * 1024; // 1 MB
-
-    async Task OnSelectHandler(FileSelectEventArgs args)
-    {
-        foreach (var file in args.Files)
-        {
-            var buffer = new byte[file.Stream.Length];
-            await file.Stream.ReadAsync(buffer);
-        }
-    }
-}
-````
-
+<demo metaUrl="client/fileselect/overview/" height="250"></demo>
 
 ## Large File Support
 
@@ -111,28 +92,7 @@ For a complete list of all FileSelect methods, see the [FileSelect API reference
 
 >caption Get reference to the FileSelect and execute methods
 
-````RAZOR
-<p>
-    <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
-    <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
-</p>
-
-<TelerikFileSelect @ref="@FileSelectRef" />
-
-@code {
-    private TelerikFileSelect FileSelectRef { get; set; }
-
-    private void SelectFiles()
-    {
-        FileSelectRef.OpenSelectFilesDialog();
-    }
-
-    private void Clear()
-    {
-        FileSelectRef.ClearFiles();
-    }
-}
-````
+<demo metaUrl="client/fileselect/methods/" height="250"></demo>
 
 
 ## Next Steps
