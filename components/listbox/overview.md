@@ -28,59 +28,7 @@ To use a Telerik ListBox for Blazor:
 
 >caption Basic Blazor ListBox
 
-````RAZOR
-@* ListBox with item selection and reordering *@
-
-<TelerikListBox @ref="@ListBoxRef"
-                Data="@ListBoxData"
-                TextField="@nameof(ListBoxModel.Name)"
-                SelectionMode="@ListBoxSelectionMode.Multiple"
-                @bind-SelectedItems="@ListBoxSelectedItems"
-                OnReorder="@( (ListBoxReorderEventArgs<ListBoxModel> args) => OnListBoxReorder(args) )"
-                Width="180px"
-                Height="auto">
-    <ListBoxToolBarSettings>
-        <ListBoxToolBar>
-            <ListBoxToolBarMoveUpTool />
-            <ListBoxToolBarMoveDownTool />
-        </ListBoxToolBar>
-    </ListBoxToolBarSettings>
-</TelerikListBox>
-
-@code {
-    private TelerikListBox<ListBoxModel> ListBoxRef { get; set; } = null!;
-
-    private List<ListBoxModel> ListBoxData { get; set; } = new List<ListBoxModel>();
-
-    private IEnumerable<ListBoxModel> ListBoxSelectedItems { get; set; } = new List<ListBoxModel>();
-
-    private void OnListBoxReorder(ListBoxReorderEventArgs<ListBoxModel> args)
-    {
-        ListBoxData.RemoveAll(x => args.Items.Contains(x));
-        ListBoxData.InsertRange(args.ToIndex, args.Items);
-
-        ListBoxRef.Rebind();
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 7; i++)
-        {
-            ListBoxData.Add(new ListBoxModel()
-            {
-                Id = i,
-                Name = $"ListBox Item {i}",
-            });
-        }
-    }
-
-    public class ListBoxModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/listbox/overview/basic/" height="300px"></demo>
 
 ## Data Binding
 
@@ -88,30 +36,7 @@ The ListBox supports [binding to a model class](#creating-blazor-listbox), which
 
 >caption Bind ListBox to List&lt;string&gt;
 
-````RAZOR
-<TelerikListBox Data="@ListBoxStrings"
-                @bind-SelectedItems="@ListBoxSelectedStrings"
-                SelectionMode="@ListBoxSelectionMode.Multiple"
-                Height="auto">
-    <ListBoxToolBarSettings>
-        <ListBoxToolBar Visible="false" />
-    </ListBoxToolBarSettings>
-</TelerikListBox>
-
-@code {
-    private List<string> ListBoxStrings { get; set; } = new List<string>();
-
-    private IEnumerable<string> ListBoxSelectedStrings { get; set; } = new List<string>();
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 7; i++)
-        {
-            ListBoxStrings.Add($"String {i}");
-        }
-    }
-}
-````
+<demo metaUrl="client/listbox/overview/string-binding/" height="300px"></demo>
 
 
 ## Toolbar
@@ -188,40 +113,7 @@ The ListBox exposes methods for programmatic operation. To use them, define a re
 
 >caption ListBox reference and method usage
 
-````RAZOR
-<TelerikListBox @ref="@ListBoxRef"
-                Data="@ListBoxData"
-                TextField="@nameof(ListBoxModel.Name)"
-                @bind-SelectedItems="@ListBoxSelectedItems">
-    <ListBoxToolBarSettings>
-        <ListBoxToolBar Visible="false" />
-    </ListBoxToolBarSettings>
-</TelerikListBox>
-
-<TelerikButton OnClick="@AddListBoxItem">Add ListBox Item</TelerikButton>
-
-@code {
-    private TelerikListBox<ListBoxModel> ListBoxRef { get; set; } = null!;
-
-    private List<ListBoxModel> ListBoxData { get; set; } = new List<ListBoxModel>();
-
-    private IEnumerable<ListBoxModel> ListBoxSelectedItems { get; set; } = new List<ListBoxModel>();
-
-    private void AddListBoxItem()
-    {
-        var newId = ListBoxData.Count + 1;
-        ListBoxData.Add(new ListBoxModel() { Id = newId, Name = $"Item {newId}" });
-
-        ListBoxRef.Rebind();
-    }
-
-    public class ListBoxModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/listbox/overview/reference-methods/" height="300px"></demo>
 
 
 ## Next Steps
