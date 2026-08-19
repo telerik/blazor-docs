@@ -143,7 +143,7 @@ This error can occur when a project references `Telerik.Licensing`, but not any 
 
 The error means that the license key is missing or not set up correctly. For example, the environment variable is not set or [the license file may be at the wrong place](slug:installation-license-key#manual-installation). The error can also occur if the environment variable or license file exists, but it is empty.
 
-[Install a license key](slug:installation-license-key) again. Also check how to [set up a license key in CI/CD environments](slug:deployment-license-key).
+[Install a license key](slug:installation-license-key) again. Also check how to [set up a deployment key in CI/CD environments](slug:deployment-license-key).
 
 ### Corrupted Telerik and Kendo UI License Key content (TKL003)
 
@@ -152,7 +152,7 @@ The license key is detected, but its value is invalid and cannot be decrypted. F
 * The `TELERIK_LICENSE` environment variable has the license file location as its value. In such cases, set the license key itself as the variable value. Alternatively, remove `TELERIK_LICENSE` and use the `TELERIK_LICENSE_PATH` environment variable instead.
 * The `TELERIK_LICENSE` environment variable was set through the Windows operating system's UI and the license key was truncated due to Windows limitations. In such cases, remove the environment variable and use a license key file instead.
 
-Follow the [automatic](slug:installation-license-key#automatic-installation) or [manual](slug:installation-license-key#manual-installation) installation steps from scratch. Also check how to [set up a license key in CI/CD environments](slug:deployment-license-key).
+Follow the [automatic](slug:installation-license-key#automatic-installation) or [manual](slug:installation-license-key#manual-installation) installation steps from scratch. Also check how to [set up a deployment key in CI/CD environments](slug:deployment-license-key).
 
 ### Unable to locate licenses for all products (TKL004)
 
@@ -190,4 +190,4 @@ If you see a warning Telerik license banner in the web browser, then refer to [U
 ## See Also
 
 * [Download and Install License Key](slug:installation-license-key)
-* [Use License Keys in CI/CD](slug:deployment-license-key)
+* [Use Deployment Keys in CI/CD](slug:deployment-license-key)

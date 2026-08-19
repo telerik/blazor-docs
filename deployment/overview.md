@@ -25,7 +25,7 @@ Refer to the Microsoft Blazor deployment documentation and make sure you can dep
 
 ## License Key
 
-Before building a Telerik Blazor app in a CI/CD environment, [set up a Telerik license key in CI/CD](slug:deployment-license-key). The process is different than in a [local development environment](slug:installation-license-key).
+Before building a Telerik Blazor app in a CI/CD environment, [set up a Telerik deployment key in CI/CD](slug:deployment-license-key). The process is different than in a [local development environment](slug:installation-license-key).
 
 ## Telerik Components
 

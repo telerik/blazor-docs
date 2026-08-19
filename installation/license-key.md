@@ -25,7 +25,7 @@ If you are new to Telerik UI for Blazor, [sign up for a free trial](https://www.
 
 The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:getting-started-workflow-details#nuget-packages). During project build, test and publish, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
 
-Follow the steps below for [automatic](#automatic-installation) or [manual](#manual-installation) license key installation in your local development environment. Then, find out [how to use a Telerik license key during application deployment](slug:deployment-license-key).
+Follow the steps below for [automatic](#automatic-installation) or [manual](#manual-installation) license key installation in your local development environment. Then, find out [how to use a Telerik deployment key during application deployment](slug:deployment-license-key).
 
 An [invalid or missing license key results in app build warnings](slug:troubleshooting-license-key-errors) and watermarks in the application UI.
 
@@ -60,7 +60,7 @@ The new license key includes information about all previous purchases. This proc
 
 * If you used [automatic license key installation](#automatic-installation), then open the tool that you used to download and install the license key file. You can also update the license key file by using the [manual steps above](#manual-installation).
 * If you used the [manual license key installation](#manual-installation), then repeat the same steps.
-* To [update your license key in CI/CD environments](slug:deployment-license-key), get your new license key and update the environment variable value.
+* To [update your deployment key in CI/CD environments](slug:deployment-license-key), get your new license key and update the environment variable value.
 
 ## Using Telerik Packages in Referenced Projects
 
@@ -99,6 +99,12 @@ A Telerik license key is required on all environments that build, test or publis
 * Environments that perform [deployment, continuous integration or continuous delivery](slug:deployment-license-key) (CI/CD) to run your apps on a test, staging or production environment. Such environments include Azure Pipelines, GitHub Actions, GitLab, Docker, Jenkins, and others.
 
 >tip A license key is not required on the web server that hosts the already deployed web application.
+
+### What is the difference between deployment keys and developer license keys?
+
+Deployment keys are application-specific keys designed for build pipelines. They are shorter than developer license keys, which helps avoid environment-variable limits, and you can remove a deployment key, if it has been exposed. For new CI/CD pipelines, we recommend using deployment keys.
+
+Developer license keys remain valid for CI/CD deployments and can be used in multiple pipelines, builds, and environments. However, their larger size can exceed the environment-variable limits of some CI/CD services. If a developer license key is exposed, you cannot revoke it independently.
 
 ### Does the license key expire?
 
@@ -165,7 +171,7 @@ To activate Telerik UI for Blazor:
 
 * [Every developer must be assigned their own license or seat](https://www.telerik.com/purchase/faq/licensing-purchasing).
 * Every developer must use a license key that is associated with their personal Telerik account.
-* You can use any of the available [license keys in cloud build CI/CD environments](slug:deployment-license-key).
+* You can use [deployment keys in cloud build CI/CD environments](slug:deployment-license-key).
 
 ### Are earlier Telerik UI for Blazor versions affected?
 
@@ -173,7 +179,7 @@ No, versions up to **7.1.0** released prior to February 2025 do not require a li
 
 ## Next Steps
 
-* [Install License Key in CI/CD Environment](slug:deployment-license-key)
+* [Use Deployment Key in CI/CD Environment](slug:deployment-license-key)
 * [Set Up the Telerik NuGet Feed](slug:installation-nuget)
 
 ## See Also
