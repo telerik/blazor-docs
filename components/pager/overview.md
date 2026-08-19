@@ -27,47 +27,7 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 
 >caption Use the TelerikPager to paginate your own data and content.
 
-````RAZOR
-<TelerikPager Total="@Games.Count" PageSize="@PageSize" @bind-Page="@Page"></TelerikPager>
-
-@{
-    // take and render the relevant data portion based on the pager info
-    var pageData = Games.Skip((Page - 1) * PageSize).Take(PageSize).ToList();
-
-    @foreach (Game game in pageData)
-    {
-        <div style="display: inline-block;border: solid;padding: 10px;margin: 10px">
-            @game.GameName
-        </div>
-    }
-}
-
-@code {
-    public int PageSize { get; set; } = 3;
-    public int Page { get; set; } = 1;
-
-    public List<Game> Games { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Games = new List<Game>();
-        for (int i = 1; i < 20; i++)
-        {
-            Games.Add(new Game()
-                {
-                    GameId = i,
-                    GameName = $"Game {i}"
-                });
-        }
-    }
-
-    public class Game
-    {
-        public int GameId { get; set; }
-        public string GameName { get; set; }
-    }
-}
-````
+<demo metaUrl="client/pager/overview/paginate-content/" height="400"></demo>
 
 ## Events
 
@@ -110,106 +70,13 @@ Loading all the data at once can be a costly operation. In such a case, use the 
 
 >caption Load paged data on demand
 
-````RAZOR
-@{
-    <div class="card-deck mb-2">
-        @foreach (Game game in PagedDataToRender)
-        {
-            <div class="card">
-                <div class="card-body">
-                    <h5>@game.GameName</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">@game.GameId</h6>
-                    <p class="card-text">
-                        Released on: @game.ReleaseDate.ToShortDateString()
-                    </p>
-                </div>
-            </div>
-        }
-    </div>
-}
-
-<TelerikPager Total="@TotalGames"
-              Page="@CurrPage"
-              PageChanged="@PageChangedHandler"
-              PageSize="@PageSize"
-              PageSizes="@GamesPerPage">
-</TelerikPager>
-
-@code {
-    int TotalGames { get; set; }
-    int CurrPage { get; set; } = 1; // page index is 1-based
-    int PageSize { get; set; } = 5;
-    public List<int?> GamesPerPage = new List<int?> { 5, 10, 20, null };
-
-    List<Game> PagedDataToRender { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadDataOnDemand();
-    }
-
-    async Task PageChangedHandler(int page)
-    {
-        CurrPage = page;
-        await LoadDataOnDemand();
-    }
-
-    async Task LoadDataOnDemand()
-    {
-        TotalGames = await GetCountFromService();
-        PagedDataToRender = await GetPagedDataFromService(CurrPage - 1, PageSize);
-    }
-
-    // simulate a service below
-    private List<Game> _allData { get; set; } = Enumerable.Range(1, 100).Select(x => new Game
-    {
-        GameName = $"Game {x}",
-        GameId = x,
-        ReleaseDate = DateTime.Now.AddDays(-x)
-    }).ToList();
-
-    public async Task<int> GetCountFromService()
-    {
-        return await Task.FromResult(_allData.Count);
-    }
-
-    public async Task<List<Game>> GetPagedDataFromService(int pageIndex, int pageSize)
-    {
-        var pagedData = _allData.Skip(pageIndex * pageSize).Take(pageSize);
-        return await Task.FromResult(pagedData.ToList());
-    }
-
-    // In real-case scenario this model should be in a separate file
-    public class Game
-    {
-        public int GameId { get; set; }
-        public string GameName { get; set; }
-        public DateTime ReleaseDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/pager/overview/load-on-demand/" height="550"></demo>
 
 ### Two-way Binding
 
 The `Page` parameter supports two-way binding so it can respond to changes from other element, and to also update other elements. This is the most straightforward use of the component. As an alternative, use the `PageChanged` event to implement additional logic when paging the data, such as [loading it on demand](#load-on-demand).
 
-````RAZOR
-@*This example showcases how the Pager reacts when the page is selected from an outside input.*@
-
-<div class="mb-3">
-    <label class="text-info">
-        Select a page:
-        <TelerikNumericTextBox @bind-Value="@Page" />
-    </label>
-</div>
-
-<TelerikPager Total="30" PageSize="@PageSize" @bind-Page="@Page" />
-
-@code {
-    public int PageSize { get; set; } = 3;
-    public int Page { get; set; } = 1;
-}
-````
+<demo metaUrl="client/pager/overview/two-way-binding/" height="250"></demo>
 
 ## Next Steps
 
