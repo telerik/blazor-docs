@@ -23,30 +23,7 @@ The event handler receives a [`NotificationCloseEventArgs`](slug:Telerik.Blazor.
 
 >caption Using the Notification OnClose event
 
-````RAZOR
-<TelerikButton OnClick="@ShowNotification">Show Notification</TelerikButton>
-
-<p>Last <code>OnClose</code> event: @NotificationEventLog</p>
-
-<TelerikNotification @ref="@NotificationRef"
-                     OnClose="@OnNotificationClose" />
-
-@code {
-    private TelerikNotification? NotificationRef;
-
-    private string NotificationEventLog { get; set; } = string.Empty;
-
-    private void OnNotificationClose(NotificationCloseEventArgs args)
-    {
-        NotificationEventLog = $"Fired at {DateTime.Now.ToString("HH:mm:ss.fff")}. Close action: {args.CloseAction}. Text: \"{args.Model.Text}\"";
-    }
-
-    private void ShowNotification()
-    {
-        NotificationRef?.Show($"Notification Text {Random.Shared.Next(1, 100)}", ThemeConstants.Notification.ThemeColor.Primary);
-    }
-}
-````
+<demo metaUrl="client/notification/events/on-close/" height="300"></demo>
 
 ## See Also
 

@@ -36,50 +36,13 @@ You can also [show all notifications for your app from a single instance](#show-
 
 If you do not need to customize the [closing](#close-and-hide) or the icon of the component you can quickly create them by passing only what text and [theme color](slug:notification-appearance#themecolor) should the Notification have.
 
-````RAZOR
-@* At minimum, you can pass a text message and a color to the Show() method *@
-
-<TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" />
-
-@code {
-    private TelerikNotification NotificationReference { get; set; }
-
-    private void OpenNotification()
-    {
-        NotificationReference.Show("My notification", "success");
-    }
-}
-````
+<demo metaUrl="client/notification/open-close-hide/open-text/" height="300"></demo>
 
 ### Pass a NotificationModel to the Method
 
 You can pass the entire [NotificationModel](slug:notification-overview#notificationmodel-class-properties) to provide detailed information for the component - whether it should be closable or specify the icon. 
 
-````RAZOR
-@* You can pass the entire NotificationModel with all its features for complete control over the message settings *@
-
-<TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" />
-
-@code {
-    private TelerikNotification NotificationReference { get; set; }
-
-    private void OpenNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "My Notification",
-            ThemeColor = "success",
-            ShowIcon = true,
-            Icon = SvgIcon.Star,
-            Closable = false
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/open-close-hide/open-model/" height="300"></demo>
 
 ### Show From Anywhere
 
@@ -100,29 +63,7 @@ You can also let the user dismiss a notification message before that timer elaps
 
 >caption Automatically Closing Notification
 
-````RAZOR
-@* By default, notification messages close on their own after 5 seconds *@
-
-<TelerikButton OnClick="@AddAutoClosingNotification">Add Auto closing notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" />
-
-@code {
-    private TelerikNotification NotificationReference { get; set; }
-
-    private void AddAutoClosingNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "My Notification",
-            ThemeColor = "success",
-            Closable = false,
-            CloseAfter = 2000,
-            Icon = SvgIcon.Star
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/open-close-hide/automatic/" height="300"></demo>
 
 ### Manually Closing a Notification
 
@@ -130,29 +71,7 @@ You can prevent the notification from closing automatically and let the user clo
 
 >caption Manually Closing Notification
 
-````RAZOR
-@* This notification will not disappear automatically, the user must close it on their own *@
-
-<TelerikButton OnClick="@AddManuallyClosingNotification">Add manually closing notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" />
-
-@code {
-    private TelerikNotification NotificationReference { get; set; }
-
-    private void AddManuallyClosingNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "My Notification",
-            ThemeColor = "success",
-            Closable = true,
-            CloseAfter = 0,
-            Icon = SvgIcon.Star
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/open-close-hide/manual/" height="300"></demo>
 
 ## Hide All Notifications
 
@@ -160,51 +79,7 @@ To hide all notifications, you use the `HideAll` method. This function enables y
 
 >caption Hide All Notifications
 
-````RAZOR
-@* Hide all the notifications at once *@
-
-<TelerikButton OnClick="@AddTwoNotifications">Add two notifications</TelerikButton>
-<TelerikButton OnClick="@HideAllNotification">Hide All Notifications</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" />
-
-@code {
-    private TelerikNotification NotificationReference { get; set; }
-
-    private void AddTwoNotifications()
-    {
-        AddFirstNotification();
-        AddSecondNotification();
-    }
-
-    private void HideAllNotification()
-    {
-        NotificationReference.HideAll();
-    }
-
-    private void AddFirstNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "My First Notification",
-            ThemeColor = "success",
-            Closable = true,
-            Icon = SvgIcon.Star
-        });
-    }
-
-    private void AddSecondNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "My Second Notification",
-            ThemeColor = "error",
-            Closable = true,
-            Icon = SvgIcon.Star
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/open-close-hide/hide-all/" height="300"></demo>
 
 ## See Also
 
