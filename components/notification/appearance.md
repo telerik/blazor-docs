@@ -44,26 +44,7 @@ You can see them in action in the [Notification Animation](https://demos.telerik
 
 ![notification animation types gif](images/notification-animationtype-gif.gif)
 
-````RAZOR
-@* This sample uses the ZoomOut animation, you can change it *@
-
-<TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" AnimationType="@AnimationType.ZoomOut"></TelerikNotification>
-
-@code {
-    public TelerikNotification NotificationReference { get; set; }
-
-    public void AddNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Auto Closable Notification",
-            ThemeColor = "primary"
-        });
-    }
-} 
-````
+<demo metaUrl="client/notification/appearance/animation-type/" height="300"></demo>
 
 ## Size
 
@@ -71,59 +52,7 @@ You can control the Size of the Notification by using CSS. To make the cascading
 
 >caption Change the Notification width and height
 
-````RAZOR
-<TelerikNotification @ref="@NotificationRef1"
-                     Class="large-notification-center">
-</TelerikNotification>
-
-<TelerikNotification @ref="@NotificationRef2"
-                     Class="large-notification-top">
-</TelerikNotification>
-
-Show a Notification and the content will be ...
-
-<TelerikButton OnClick="@( () => ShowNotification(NotificationRef1, "Vertically centered text") )">
-    Vertically Centered
-</TelerikButton>
-
-<TelerikButton OnClick="@( () => ShowNotification(NotificationRef2, "Text at the top") )">
-    At the Top
-</TelerikButton>
-
-<style>
-    /* for centered content */
-    .large-notification-center .k-notification,
-    /* for top content */
-    .large-notification-top .k-notification-content {
-        width: 300px;
-        height: 200px;
-    }
-
-    /* move close button up */
-    .large-notification-top .k-notification-actions,
-    /* move success icon up - for some ThemeColors only */
-    .large-notification-top .k-notification > .k-icon {
-        align-self: start;
-    }
-</style>
-
-@code {
-    private TelerikNotification NotificationRef1 { get; set; }
-
-    private TelerikNotification NotificationRef2 { get; set; }
-
-    private void ShowNotification(TelerikNotification notifRef, string text)
-    {
-        notifRef.Show(new NotificationModel()
-        {
-            Text = text,
-            ThemeColor = ThemeConstants.Notification.ThemeColor.Success,
-            Closable = true,
-            CloseAfter = 0
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/appearance/size/" height="500"></demo>
 
 ## ThemeColor
 
@@ -142,37 +71,7 @@ These predefined options match the main [Telerik Theme](slug:themes-overview) an
 
 There are built-in themes for the most common notifications such as Success, Info, Warning, Error, that also come with predefined icons, so you don't have to set them explicitly.
 
-````RAZOR
-@* This sample adds a notification with each built-in theme color *@
-
-<TelerikButton OnClick="@AddColoredNotifications">Add colored notifications</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" AnimationType="@AnimationType.ZoomOut"></TelerikNotification>
-
-@code {
-    public TelerikNotification NotificationReference { get; set; }
-
-    public void AddColoredNotifications()
-    {
-        var fields = typeof(Telerik.Blazor.ThemeConstants.Button.ThemeColor)
-                .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static |
-                   System.Reflection.BindingFlags.FlattenHierarchy)
-                .Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
-
-        for (int i = 0; i < fields.Count; i++)
-        {
-            var currentField = fields[i];
-            var color = currentField.GetValue(null).ToString();
-
-            NotificationReference.Show(new NotificationModel()
-                {
-                    Text = $"Notification with color theme - {color}",
-                    ThemeColor = $"{color}"
-                });
-        }
-    }
-}
-````
+<demo metaUrl="client/notification/appearance/theme-color/" height="420"></demo>
 
 The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS class on the specific notification HTML element and you can set it to a custom value to cascade through, and set the color to a setting of your own without customizing the entire theme.
 
@@ -180,32 +79,7 @@ The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS clas
 
 ![custom themecolor screenshot](images/notification-custom-themecolor-screenshot.png)
 
-````RAZOR
-@* Sample of using a custom notification theme color from your own styles *@
-
-<style>
-    .k-notification-custom-color {
-        background-color: cyan;
-    }
-</style>
-
-<TelerikButton OnClick="@AddNotification">Add a notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference"></TelerikNotification>
-
-@code {
-    public TelerikNotification NotificationReference { get; set; }
-
-    public void AddNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Auto Closable Notification",
-            ThemeColor = "custom-color"
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/appearance/custom-color/" height="300"></demo>
 
 ## Z-Index
 
@@ -219,51 +93,7 @@ You can use the `Class` of the notification to set a higher z-index for the noti
 
 ![notification z-index settings and behavior](images/notification-zindex.gif)
 
-````RAZOR
-@* Add a z-index to a notification so you can show them above layout elements with high z-index *@
-
-<style>
-    .high-zindex {
-        z-index: 654321;
-    }
-</style>
-
-<TelerikButton OnClick="@AddBasicNotification">Add a basic notification</TelerikButton>
-<TelerikButton OnClick="@AddZIndexNotification">Add a notification with a high z-index</TelerikButton>
-
-<TelerikNotification Class="high-zindex" @ref="@HighZIndexNotification"></TelerikNotification>
-
-<TelerikNotification @ref="@BasicNotification"></TelerikNotification>
-
-<div style="z-index: 1234; position: fixed; right: 0; bottom: 0; width: 200px; height: 200px; background: yellow">
-    imitate layout with a high z-index.
-</div>
-
-@code {
-    TelerikNotification HighZIndexNotification { get; set; }
-    TelerikNotification BasicNotification { get; set; }
-
-    void AddZIndexNotification()
-    {
-        HighZIndexNotification.Show(new NotificationModel()
-        {
-            Text = "High z-index shows it above other layout elements",
-            ThemeColor = "success",
-            CloseAfter = 0
-        });
-    }
-
-    void AddBasicNotification()
-    {
-        BasicNotification.Show(new NotificationModel()
-        {
-            Text = "Default behavior - will be hidden behind the \"layout\" element.",
-            ThemeColor = "dark",
-            CloseAfter = 0
-        });
-    }
-} 
-````
+<demo metaUrl="client/notification/appearance/z-index/" height="500"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
