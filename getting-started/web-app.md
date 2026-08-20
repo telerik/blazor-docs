@@ -1,18 +1,18 @@
 ---
-title: First Steps
-page_title: First Steps with Telerik UI for Blazor
-meta_title: First Steps with Telerik UI for Blazor | Telerik UI for Blazor.
-description: Learn how to use the Telerik UI for Blazor components in a Blazor Web App project template for .NET 8 or later.
+title: Quick Start
+page_title: Quick Start with Telerik UI for Blazor
+meta_title: Quick Start with Telerik UI for Blazor | Telerik UI for Blazor.
+description: Learn how to get started with Telerik UI for Blazor components in a Blazor Web App project template.
 slug: getting-started/web-app
-tags: get,started,first,steps,web,app,template
+tags: blazor, installation
 published: true
 position: 5
 previous_url: /getting-started/server-blazor, /getting-started/client-blazor
 ---
 
-# First Steps with Telerik UI for Blazor
+# Getting Started with Telerik UI for Blazor
 
-This article explains how to use the Telerik UI for Blazor components in web or hybrid Blazor applications. You will set up your Telerik development environment, create a new application from scratch, and finally, add a UI component to a Razor file.
+This article explains how to use the Telerik UI for Blazor components in a Blazor web applications. You will set up your Telerik development environment, create a new application from scratch, and finally, add a UI component to a Razor file.
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
