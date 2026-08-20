@@ -50,4 +50,4 @@ If you wish to learn more and continue with the video onboarding, [enroll in the
   
 ## See Also
 
-* [First Steps with Blazor Web App](slug:getting-started/web-app)
+* [Quick Start with Telerik UI for Blazor](slug:getting-started/web-app)
