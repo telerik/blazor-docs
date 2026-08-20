@@ -24,7 +24,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 
 >caption The built-in Size modes
 
-```CSHTML
+````CSHTML
 @* These are all built-in Size modes *@
 
 @{ 
@@ -51,7 +51,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 @code {
     private IEnumerable<object> GridData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 }
-```
+````
 
 ## Notes
 
@@ -61,7 +61,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 
 >caption Set GridCommandButton Size option
 
-```CSHTML
+````CSHTML
 <TelerikGrid Size="@ThemeConstants.Grid.Size.Small"
              Data="@GridData"
 			 Height="350px">
@@ -80,7 +80,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 @code {
 	private IEnumerable<object> GridData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 }
-```
+````
 
 ## See Also
 

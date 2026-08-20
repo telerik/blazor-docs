@@ -23,14 +23,14 @@ The `SelectFilesButtonTemplate` allows you to modify the **Select Files...** but
 
 >caption Using FileSelect SelectFilesButtonTemplate
 
-```CSHTML
+````CSHTML
 <TelerikFileSelect>
     <SelectFilesButtonTemplate>
         <TelerikSvgIcon Icon="@SvgIcon.Upload" />
         Click to Select Files for Upload
     </SelectFilesButtonTemplate>
 </TelerikFileSelect>
-```
+````
 
 ## FileTemplate
 
@@ -42,7 +42,7 @@ The example below demonstrates how to use the `RemoveFileAsync()` method to remo
 
 >caption Using FileSelect FileTemplate
 
-```CSHTML
+````CSHTML
 <TelerikFileSelect @ref="@FileSelectRef" Files="@InitialFiles">
     <FileTemplate Context="fileContext">
         <div class="custom-file-item">
@@ -106,7 +106,7 @@ The example below demonstrates how to use the `RemoveFileAsync()` method to remo
         FileSelectRef.RemoveFile(fileId);
     }
 }
-```
+````
 
 ## FileInfoTemplate
 
@@ -116,7 +116,7 @@ The `FileInfoTemplate` exposes a `context` of type `FileInfoTemplateContext` tha
 
 >caption Using FileSelect FileInfoTemplate
 
-```CSHTML
+````CSHTML
 <TelerikFileSelect Files="@InitialFiles">
     <FileInfoTemplate Context="fileContext">
         <strong>File Name:</strong> @fileContext.File.Name <br />
@@ -130,7 +130,7 @@ The `FileInfoTemplate` exposes a `context` of type `FileInfoTemplateContext` tha
         new FileSelectFileInfo(){ Id="1", Name="Report", Extension=".pdf", Size = 1024 * 1024 * 2 }
     };
 }
-```
+````
 
 ## See Also
 
