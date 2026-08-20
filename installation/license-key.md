@@ -185,5 +185,5 @@ No, versions up to **7.1.0** released prior to February 2025 do not require a li
 ## See Also
 
 * [Troubleshoot License Key Errors](slug:troubleshooting-license-key-errors)
-* [Get Started with a Blazor Web App](slug:getting-started/web-app)
+* [Get Started with Telerik UI for Blazor](slug:getting-started/web-app)
 * [Workflow Details for Telerik UI for Blazor](slug:getting-started-workflow-details)

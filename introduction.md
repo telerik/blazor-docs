@@ -24,7 +24,7 @@ Visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik UI
 
 ## Getting Started
 
-If you are new to Telerik UI for Blazor, start from the [First Steps with Telerik UI for Blazor tutorial](slug:getting-started/web-app).
+If you are new to Telerik UI for Blazor, start from the [Telerik UI for Blazor Quick Start Tutorial](slug:getting-started/web-app).
 
 Developers who are familiar with Blazor may prefer the [Workflow Details](slug:getting-started-workflow-details) article. It is a more advanced and flexible way to start using the Telerik components.
 
@@ -252,7 +252,7 @@ For questions and issues related to Telerik UI for Blazor, use any of the availa
 
 ## Next Steps
 
-* [First Steps with Telerik UI for Blazor](slug:getting-started/web-app)
+* [Quick Start with Telerik UI for Blazor](slug:getting-started/web-app)
 * [Blazor Hybrid Specifics](slug:getting-started/hybrid-blazor)
 * [Workflow Details for using the Telerik UI for Blazor components](slug:getting-started-workflow-details) (a concise version of the tutorials above)
 * Use guided wizards to generate new Telerik Projects in [Visual Studio](slug:getting-started-vs-integration-new-project) and [Visual Studio Code](slug:getting-started-vs-code-integration-overview).
