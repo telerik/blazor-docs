@@ -245,7 +245,7 @@ In the Editor Template, you can data bind components to the current context, whi
         return Data.Where(i => item.Id.Equals(i.ParentId));
     }
 }
-````
+`````
 
 ## See Also
 
