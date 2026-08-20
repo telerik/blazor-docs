@@ -66,7 +66,7 @@ Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a 
 
 >caption Export the Grid to Excel
 
-<demo metaUrl="client/grid/export-excel/"></demo>
+<demo metaUrl="client/grid/export-excel/" height="750"></demo>
 
 ## Programmatic Export
 
@@ -84,7 +84,7 @@ When exporting programmatically with a `GridExcelExportOptions` argument:
 
 >caption Invoke the export function from code
 
-<demo metaUrl="client/grid/export-excel-programmatic/"></demo>
+<demo metaUrl="client/grid/export-excel-programmatic/" height="750"></demo>
 
 ## Customization
 

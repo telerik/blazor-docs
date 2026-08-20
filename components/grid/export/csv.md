@@ -59,7 +59,7 @@ For further customizations, use the `GridExcelExport` tag to subscribe to the [G
 
 >caption Export the Grid to CSV
 
-<demo metaUrl="client/grid/export-csv/"></demo>
+<demo metaUrl="client/grid/export-csv/" height="750"></demo>
 
 ## Programmatic Export
 
@@ -77,7 +77,7 @@ When exporting programmatically with a `GridCsvExportOptions` argument:
 
 >caption Invoke the export function from code
 
-<demo metaUrl="client/grid/export-csv-programmatic/"></demo>
+<demo metaUrl="client/grid/export-csv-programmatic/" height="750"></demo>
 
 ## Customization
 

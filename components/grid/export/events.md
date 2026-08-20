@@ -46,7 +46,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 >caption Using the Grid OnBeforeExport with Excel export
 
-<demo metaUrl="client/grid/export-events-excel-before/"></demo>
+<demo metaUrl="client/grid/export-events-excel-before/" height="680"></demo>
 
 ### For CSV Export
 
@@ -61,7 +61,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 * `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` field to `true`.
 
-<demo metaUrl="client/grid/export-events-csv-before/"></demo>
+<demo metaUrl="client/grid/export-events-csv-before/" height="680"></demo>
 
 ### For PDF Export
 
@@ -80,7 +80,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 >caption Using the Grid OnBeforeExport with PDF export
 
-<demo metaUrl="client/grid/export-events-pdf-before/"></demo>
+<demo metaUrl="client/grid/export-events-pdf-before/" height="680"></demo>
 
 ## OnAfterExport
 
@@ -92,7 +92,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 >caption Get the stream of the exported Excel file
 
-<demo metaUrl="client/grid/export-events-excel-after/"></demo>
+<demo metaUrl="client/grid/export-events-excel-after/" height="680"></demo>
 
 ### For CSV Export
 
@@ -100,7 +100,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 >caption Get the stream of the exported CSV file
 
-<demo metaUrl="client/grid/export-events-csv-after/"></demo>
+<demo metaUrl="client/grid/export-events-csv-after/" height="680"></demo>
 
 ### For PDF Export
 
@@ -108,7 +108,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 >caption Get the stream of the exported PDF file
 
-<demo metaUrl="client/grid/export-events-pdf-after/"></demo>
+<demo metaUrl="client/grid/export-events-pdf-after/" height="680"></demo>
 
 ## See Also
 
@@ -119,5 +119,3 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 * [Custom cell formatting of the exported file with RadSpreadStreamProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadstreamprocessing)
 * [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
 * [Change the default CSV delimiter (comma) during Grid export](slug:grid-kb-csv-export-change-field-delimiter)
-* [Blazor Grid](slug:grid-overview)
-*

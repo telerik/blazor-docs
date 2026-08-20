@@ -52,7 +52,7 @@ If you have all the data at once, the Telerik .ToDataSourceResult(request) exten
 
 >caption Use Telerik .ToDataSourceResult() extension method to filter, sort and page data.
 
-<demo metaUrl="client/grid/manual-operations-data-source-result/"></demo>
+<demo metaUrl="client/grid/manual-operations-data-source-result/" height="700"></demo>
 
 ## Grouping with OnRead
 
@@ -62,7 +62,7 @@ When you bind the Grid with its `Data` parameter, or when [using `OnRead` with `
 
 >caption Grouping with OnRead
 
-<demo metaUrl="client/grid/manual-operations-grouping/"></demo>
+<demo metaUrl="client/grid/manual-operations-grouping/" height="650"></demo>
 
 >important This approach cannot work directly with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping by the Grid. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](slug:grid-kb-binding-to-expando-object) which are a bit more flexible and can be parsed to the needed grouping structure.
 
@@ -100,7 +100,7 @@ private async Task OnGridRead(GridReadEventArgs args)
 
 With a few simple loops, you can extract information from the DataSourceRequest object to use in your own API (such as filters, sorts, paging state). The [Grid SearchBox value](slug:grid-searchbox) can be extracted in two ways: from the last `CompositeFilterDescriptor` in the `args.Request.Filters` collection, or from the [`SearchFilter` property of the Grid state](slug:grid-state#information-in-the-grid-state).
 
-<demo metaUrl="client/grid/manual-operations-request/"></demo>
+<demo metaUrl="client/grid/manual-operations-request/" height="750"></demo>
 
 
 ## See Also

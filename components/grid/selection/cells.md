@@ -27,7 +27,7 @@ To enable cell selection:
 
 >caption Grid multiple cell selection
 
-<demo metaUrl="client/grid/selection-cells/"></demo>
+<demo metaUrl="client/grid/selection-cells/" height="700"></demo>
 
 ## SelectedCellsChanged Event
 
@@ -37,7 +37,7 @@ You can respond to user selection actions through the `SelectedCellsChanged` eve
 
 >caption Using the Grid SelectedCellsChanged event
 
-<demo metaUrl="client/grid/selection-cells-changed/"></demo>
+<demo metaUrl="client/grid/selection-cells-changed/" height="700"></demo>
 
 ## GridSelectedCellDescriptor
 

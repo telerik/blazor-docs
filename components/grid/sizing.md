@@ -24,34 +24,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 
 >caption The built-in Size modes
 
-```CSHTML
-@* These are all built-in Size modes *@
-
-@{ 
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Grid.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <TelerikGrid Size="@size"
-					 Data="@GridData"
-			 	     Height="350px">
-            <GridColumns>
-                <GridColumn Field="ID"></GridColumn>
-                <GridColumn Field="TheName" Title="Employee Name"></GridColumn>
-            </GridColumns>
-        </TelerikGrid>
-        <br />
-    }
-}
-@code {
-    private IEnumerable<object> GridData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-}
-```
+<demo metaUrl="client/grid/sizing-size/"></demo>
 
 ## Notes
 
@@ -61,26 +34,18 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 
 >caption Set GridCommandButton Size option
 
-```CSHTML
-<TelerikGrid Size="@ThemeConstants.Grid.Size.Small"
-             Data="@GridData"
-			 Height="350px">
+````RAZOR.skip-repl
+<TelerikGrid Size="@ThemeConstants.Grid.Size.Small">
     <GridToolBarTemplate>
-        <GridCommandButton Size="@ThemeConstants.Button.Size.Small">Custom Command</GridCommandButton>
+        <GridCommandButton Size="@ThemeConstants.Button.Size.Small">Small Button</GridCommandButton>
     </GridToolBarTemplate>
-	<GridColumns>
-		<GridColumn Field="ID"></GridColumn>
-		<GridColumn Field="TheName" Title="Employee Name"></GridColumn>
+    <GridColumns>
         <GridCommandColumn>
-            <GridCommandButton Size="@ThemeConstants.Button.Size.Small">Custom Command</GridCommandButton>
+            <GridCommandButton Size="@ThemeConstants.Button.Size.Small">Small Button</GridCommandButton>
         </GridCommandColumn>
-	</GridColumns>
+    </GridColumns>
 </TelerikGrid>
-
-@code {
-	private IEnumerable<object> GridData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
-}
-```
+````
 
 ## See Also
 

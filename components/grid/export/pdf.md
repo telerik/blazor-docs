@@ -71,7 +71,7 @@ The column widths for the PDF export can differ from the ones in the Grid config
 
 >caption Export the Grid to PDF
 
-<demo metaUrl="client/grid/export-pdf/"></demo>
+<demo metaUrl="client/grid/export-pdf/" height="750"></demo>
 
 ## Limitations
 
@@ -93,7 +93,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 >caption Invoke the PDF export function from code
 
-<demo metaUrl="client/grid/export-pdf-programmatic/"></demo>
+<demo metaUrl="client/grid/export-pdf-programmatic/" height="750"></demo>
 
 ## Customization
 

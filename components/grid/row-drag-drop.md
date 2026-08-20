@@ -90,7 +90,7 @@ The following example demonstrates both these options. You can also check how to
 
 >caption Drag and drop items between Grids
 
-<demo metaUrl="client/grid/row-drag-drop-between-grids/"></demo>
+<demo metaUrl="client/grid/row-drag-drop-between-grids/" height="800"></demo>
 
 ### Drag and Drop between Grid, TreeList, TreeView and Scheduler
 
