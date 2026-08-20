@@ -102,4 +102,4 @@ We don't recommend and don't officially support custom markup or custom componen
 
 ## See Also
 
-* [Add Telerik Blazor components to the Blazor Web App Template](slug:getting-started/web-app)
+* [Quick Start with Telerik UI for Blazor](slug:getting-started/web-app)
