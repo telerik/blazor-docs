@@ -52,17 +52,17 @@ Follow these steps to set up the Smart Extensions library in your .NET applicati
 
 Add the [`Telerik.AI.SmartComponents.Extensions` NuGet package](https://www.nuget.org/packages/Telerik.AI.SmartComponents.Extensions) to your project. It adds the following dependencies:
 
-```bash.skip-repl
+````bash.skip-repl
 dotnet add package Telerik.AI.SmartComponents.Extensions
 dotnet add package Microsoft.Extensions.AI
-```
+````
 
 Install your AI provider package. For Azure OpenAI:
 
-```bash.skip-repl
+````bash.skip-repl
 dotnet add package Azure.AI.OpenAI
 dotnet add package Microsoft.Extensions.AI.OpenAI
-```
+````
 
 ### Configure the AI Client
 

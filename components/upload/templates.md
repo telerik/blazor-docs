@@ -23,14 +23,14 @@ The `SelectFilesButtonTemplate` allows you to modify the **Select Files...** but
 
 >caption Using Upload SelectFilesButtonTemplate
 
-```RAZOR
+````RAZOR
 <TelerikUpload>
     <SelectFilesButtonTemplate>
         <TelerikSvgIcon Icon="@SvgIcon.Upload" />
         Click to Select Files for Upload
     </SelectFilesButtonTemplate>
 </TelerikUpload>
-```
+````
 
 ## FileTemplate
 
@@ -42,7 +42,7 @@ The example below demonstrates how to use the `RemoveFileAsync()` method to remo
 
 >caption Using Upload FileTemplate
 
-```RAZOR
+````RAZOR
 <TelerikUpload @ref="@UploadRef" Files="@InitialFiles">
     <FileTemplate Context="fileContext">
         <div class="custom-file-item">
@@ -105,7 +105,7 @@ The example below demonstrates how to use the `RemoveFileAsync()` method to remo
         UploadRef.RemoveFile(fileId);
     }
 }
-```
+````
 
 ## FileInfoTemplate
 
@@ -115,7 +115,7 @@ The `FileInfoTemplate` exposes a `context` of type `FileInfoTemplateContext` tha
 
 >caption Using Upload FileInfoTemplate
 
-```RAZOR
+````RAZOR
 <TelerikUpload Files="@InitialFiles">
     <FileInfoTemplate Context="fileContext">
         <strong>File Name:</strong> @fileContext.File.Name <br />
@@ -129,7 +129,7 @@ The `FileInfoTemplate` exposes a `context` of type `FileInfoTemplateContext` tha
         new UploadFileInfo(){ Id="1", Name="Report", Extension=".pdf", Size = 1024 * 1024 * 2 }
     };
 }
-```
+````
 
 ## See Also
 
