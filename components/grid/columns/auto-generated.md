@@ -87,7 +87,7 @@ This example shows how to:
 
 >caption Observe the behavior of auto-generated columns with [Editing operations](slug:grid-editing-overview), [Selection](slug:grid-selection-overview), [Paging](slug:components/grid/features/paging) and using the custom attributes.
 
-<demo metaUrl="client/grid/columns-auto-generated-crud/"/></demo>
+<demo metaUrl="client/grid/columns-auto-generated-crud/"></demo>
 
 ## Notes
 

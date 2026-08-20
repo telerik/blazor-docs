@@ -15,7 +15,7 @@ When the grid is grouped, the top row above the group provides information about
 
 >caption Sample Group Header Template
 
-<demo metaUrl="client/grid/templates-group-header/"/></demo>
+<demo metaUrl="client/grid/templates-group-header/"></demo>
 
 ## See Also
 

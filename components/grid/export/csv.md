@@ -77,7 +77,7 @@ When exporting programmatically with a `GridCsvExportOptions` argument:
 
 >caption Invoke the export function from code
 
-<demo metaUrl="client/grid/export-csv-programmatic/"/></demo>
+<demo metaUrl="client/grid/export-csv-programmatic/"></demo>
 
 ## Customization
 

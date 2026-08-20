@@ -101,7 +101,7 @@ Find out how to [get the applied filtering, sorting and grouping criteria](slug:
 
 >caption Using Grid OnStateChanged
 
-<demo metaUrl="client/grid/state-changed/"/></demo>
+<demo metaUrl="client/grid/state-changed/"></demo>
 
 ## Methods
 

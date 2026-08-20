@@ -93,7 +93,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 >caption Invoke the PDF export function from code
 
-<demo metaUrl="client/grid/export-pdf-programmatic/"/></demo>
+<demo metaUrl="client/grid/export-pdf-programmatic/"></demo>
 
 ## Customization
 

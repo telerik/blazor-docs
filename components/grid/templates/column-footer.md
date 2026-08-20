@@ -18,7 +18,7 @@ You can use [aggregates](slug:grid-aggregates) for the current field directly fr
 
 >caption Footer Template with grand total data
 
-<demo metaUrl="client/grid/templates-column-footer/"/></demo>
+<demo metaUrl="client/grid/templates-column-footer/"></demo>
 
 ## Using Components in Grid Column Footer Templates
 

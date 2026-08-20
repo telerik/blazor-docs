@@ -21,7 +21,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
 
 >caption Grid accessibility compliance example
 
-<demo metaUrl="client/grid/accessibility/"/></demo>
+<demo metaUrl="client/grid/accessibility/"></demo>
 
 ## See also
 

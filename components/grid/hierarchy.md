@@ -27,7 +27,7 @@ When a detail template is defined, an expand/collapse button is rendered at the 
 
 >caption Define a detail template to show hierarchical data from the model in a nested grid
 
-<demo metaUrl="client/grid/hierarchy/"/></demo>
+<demo metaUrl="client/grid/hierarchy/"></demo>
 
 >caption The result of the code snippet above, after expanding the second row
 

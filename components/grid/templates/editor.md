@@ -83,7 +83,7 @@ The Grid will save changes and close the current edit row (or edit cell) when th
 
 ## Limit the input options with a select element
 
-<demo metaUrl="client/grid/templates-editor-select/"/></demo>
+<demo metaUrl="client/grid/templates-editor-select/"></demo>
 
 ## Editor template for a foreign key column
 

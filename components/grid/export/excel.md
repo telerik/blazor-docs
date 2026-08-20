@@ -84,7 +84,7 @@ When exporting programmatically with a `GridExcelExportOptions` argument:
 
 >caption Invoke the export function from code
 
-<demo metaUrl="client/grid/export-excel-programmatic/"/></demo>
+<demo metaUrl="client/grid/export-excel-programmatic/"></demo>
 
 ## Customization
 

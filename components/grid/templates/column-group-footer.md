@@ -15,7 +15,7 @@ When the grid is grouped, the columns can display a footer with information abou
 
 >caption Sample Column Group Footer Template
 
-<demo metaUrl="client/grid/templates-column-group-footer/"/></demo>
+<demo metaUrl="client/grid/templates-column-group-footer/"></demo>
 
 ## Using Components in Grid Group Footer Templates
 

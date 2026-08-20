@@ -530,7 +530,7 @@ The event handler receives a `GridRowExpandEventArgs` object which provides the 
 
 >caption Use the OnRowExpand event to load detailed data on demand. Another approach can be found on our [public github repository](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy).
 
-<demo metaUrl="client/grid/events-row-expand/"/></demo>
+<demo metaUrl="client/grid/events-row-expand/"></demo>
 
 ## OnRowCollapse
 
@@ -542,7 +542,7 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 >caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
 
-<demo metaUrl="client/grid/events-row-collapse/"/></demo>
+<demo metaUrl="client/grid/events-row-collapse/"></demo>
 
 ## OnRowRender
 
@@ -573,11 +573,11 @@ The event fires when the user pages the grid.
 
 >caption Handle the PageChanged event to know when the user changes the page
 
-<demo metaUrl="client/grid/events-page-changed/"/></demo>
+<demo metaUrl="client/grid/events-page-changed/"></demo>
 
 >caption One-way binding of the Page parameter should be used with the PageChanged event to keep the view-model in sync
 
-<demo metaUrl="client/grid/events-page-binding/"/></demo>
+<demo metaUrl="client/grid/events-page-binding/"></demo>
 
 ## PageSizeChanged
 
