@@ -33,13 +33,13 @@ To enable the Drag and Drop functionality:
 
 1. Use the `OnRowDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
 
-The row drag and drop functionality works with a dedicated column which is always rendered as the first column when the feature is enabled.  
+The row drag and drop functionality works with a dedicated column which is always rendered as the first column when the feature is enabled.
 
 If the user drags selected rows, the current row selection will be cleared on row drop.
 
 ## OnRowDrop Event
 
-The `OnRowDrop` event fires when the user drops a row into a new location. It allows you to manipulate your data collection based on where the user dropped the element. 
+The `OnRowDrop` event fires when the user drops a row into a new location. It allows you to manipulate your data collection based on where the user dropped the element.
 
 ### Event Arguments
 
@@ -59,7 +59,7 @@ The `OnRowDrop` event provides an object of type `GridRowDropEventArgs<T>` to it
 
 The `GridRowDraggableSettings` is a child tag under the `<GridSettings>`, which is a child tag of the `<TelerikGrid>`. It exposes the following parameters:
 
-* `DragClueField` - `string` - defines which field will be used to render the drag clue text. By default, this parameter will take the value of the first bound column of the first dragged row. 
+* `DragClueField` - `string` - defines which field will be used to render the drag clue text. By default, this parameter will take the value of the first bound column of the first dragged row.
 
 You can find examples of its usage below.
 
@@ -74,61 +74,7 @@ This section contains the following examples:
 
 ### Drag and Drop a Row in the same Grid
 
-````RAZOR
-@* Drag a row and drop it in the Grid. *@
-
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true"
-             Resizable="true" 
-             Reorderable="true"
-             RowDraggable="true"
-             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
-    <GridSettings>
-        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
-    {
-        //The data manipulations in this example are to showcase a basic scenario.
-        //In your application you should implement them as per the needs of the project.
-
-        MyData.Remove(args.Item);
-
-        var destinationItemIndex = MyData.IndexOf(args.DestinationItem);
-
-        if (args.DropPosition == GridRowDropPosition.After)
-        {
-            destinationItemIndex++;
-        }
-
-        MyData.Insert(destinationItemIndex, args.Item);
-    }
-
-    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/row-drag-drop/"></demo>
 
 
 ### Drag and Drop a Row between Grids
@@ -144,108 +90,7 @@ The following example demonstrates both these options. You can also check how to
 
 >caption Drag and drop items between Grids
 
-````RAZOR
-<TelerikGrid @ref="@FirstGridRef"
-             Data="@MyData"
-             Pageable="true"
-             PageSize="5"
-             RowDraggable="true"
-             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
-    <GridSettings>
-        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
-    </GridColumns>
-</TelerikGrid>
-
-<TelerikGrid Data="@MySecondGridData"
-             Pageable="true"
-             PageSize="5"
-             RowDraggable="true"
-             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnSecondGridRowDropHandler(args))"
-             Height="300px">
-    <GridSettings>
-        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
-    </GridSettings>
-    <NoDataTemplate>
-        <div style="padding:85px 0">Drag and drop rows here...</div>
-    </NoDataTemplate>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private TelerikGrid<SampleData> FirstGridRef { get; set; }
-
-    private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
-    {
-        //The data manipulations in this example are to showcase a basic scenario.
-        //In your application you should implement them as per the needs of the project.
-
-        MyData.Remove(args.Item);
-        InsertItem(args);
-    }
-
-    private void OnSecondGridRowDropHandler(GridRowDropEventArgs<SampleData> args)
-    {
-        //The data manipulations in this example are to showcase a basic scenario.
-        //In your application you should implement them as per the needs of the project.
-
-        MySecondGridData.Remove(args.Item);
-        InsertItem(args);
-    }
-
-    private void InsertItem(GridRowDropEventArgs<SampleData> args)
-    {
-        var destinationData = args.DestinationGrid == FirstGridRef ? MyData : MySecondGridData;
-
-        var destinationIndex = 0;
-
-        if (args.DestinationItem != null)
-        {
-            destinationIndex = destinationData.IndexOf(args.DestinationItem);
-            if (args.DropPosition == GridRowDropPosition.After)
-            {
-                destinationIndex += 1;
-            }
-        }
-
-        destinationData.InsertRange(destinationIndex, args.Items);
-    }
-
-    private List<SampleData> MyData = Enumerable.Range(1, 12).Select(x => new SampleData
-    {
-        Id = 100 + x,
-        Name = "Name " + (100 + x),
-        Team = "Team " + (x % 5 + 1),
-        HireDate = DateTime.Now.AddDays(-x).Date
-    }).ToList();
-
-    private List<SampleData> MySecondGridData = Enumerable.Range(1, 3).Select(x => new SampleData
-    {
-        Id = 200 + x,
-        Name = "Name  " + (200 + x),
-        Team = "Team " + (x % 3 + 1),
-        HireDate = DateTime.Now.AddDays(-x * 2).Date
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/row-drag-drop-between-grids/"></demo>
 
 ### Drag and Drop between Grid, TreeList, TreeView and Scheduler
 
@@ -1696,70 +1541,7 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
-````RAZOR
-@* Select multiple rows and reorder them in the Grid. *@
-
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true"
-             Resizable="true" 
-             Reorderable="true"
-             SelectionMode="@GridSelectionMode.Multiple"
-             RowDraggable="true"
-             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
-    <GridSettings>
-        <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
-    {
-        //The data manipulations in this example are to showcase a basic scenario.
-        //In your application you should implement them as per the needs of the project.
-
-        if (args.Items.Contains(args.DestinationItem))
-        {
-            return;
-        }
-
-        foreach (var item in args.Items)
-        {
-            MyData.Remove(item);
-        }
-
-        var destinationItemIndex = MyData.IndexOf(args.DestinationItem);
-
-        if (args.DropPosition == GridRowDropPosition.After)
-        {
-            destinationItemIndex++;
-        }
-
-        MyData.InsertRange(destinationItemIndex, args.Items);
-    }
-
-    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/row-drag-drop-multiple/"></demo>
 
 ## Limitations
 

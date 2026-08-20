@@ -27,42 +27,7 @@ To hide a Grid column set its `Visible` parameter to `false`. To hide a column b
 
 >caption Hide a column from the Grid. Basic example.
 
-````RAZOR
-@* Hide the Hire Date Grid column by setting the Visible parameter to false *@
-
-<TelerikGrid Data="@MyData" 
-             Pageable="true"
-             PageSize="10">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Visible="false" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![visible parameter basic example screenshot](images/visible-parameter-basic-example.png)
+<demo metaUrl="client/grid/columns-visible/"></demo>
 
 ## Notes
 
@@ -74,7 +39,6 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 * [Templates](slug:components/grid/features/templates) will not be rendered.
     * When using [Row Template](slug:grid-templates-row) the visiblity of the column should be implemented by the application in the row template itself - the grid can only toggle the visibility of the header.
 * You can control the visibility of the column through the [Grid State](slug:grid-state).
-
 
 ## Examples
 
@@ -88,175 +52,19 @@ In this section you will find the following examples:
 
 The application can later the value of the `Visible` parameter and that will toggle the column.
 
-````RAZOR
-@* Toggling the visibily of a column keeps its original order in the Grid. *@
-
-<div>
-    <TelerikButton OnClick="@(() => isVisible = !isVisible)">Toggle the visibility of the Hire Date column</TelerikButton>
-</div>
-
-<br />
-
-<TelerikGrid Data=@MyData
-             Pageable="true"
-             PageSize="5"
-             Width="700px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" Visible="@isVisible" />
-        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public bool isVisible { get; set; } = true;
-
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public int Salary { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Name " + i.ToString(),
-                Salary = (i + 1) * 100,
-                HireDate = DateTime.Today.AddDays(-i)
-            });
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![toggle the visibility of a column gif](images/visible-parameter-toggle-column-visibility-example.gif)
+<demo metaUrl="client/grid/columns-visible-toggle/"></demo>
 
 ### Hidden Grid Column With Template
 
 When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visiblity there as well.
 
-````RAZOR
-@* The Template for the Salary column will not be rendered *@
-
-<TelerikGrid Data=@MyData
-             Pageable="true"
-             PageSize="5"
-             Width="700px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire date" />
-        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary" Visible="false">
-            <Template>
-                @{ 
-                    var item = context as SampleData;
-                    @item.Salary.ToString("C2");
-                }
-            </Template>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public int Salary { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Name " + i.ToString(),
-                Salary = (i + 1) * 100,
-                HireDate = DateTime.Today.AddDays(-i)
-            });
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![visible parameter column with template screenshot](images/visible-parameter-column-with-template-example.png)
+<demo metaUrl="client/grid/columns-visible-template/"></demo>
 
 ### Hide A Grid Column Based On A Condition
 
 This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
 
-````RAZOR
-@* The Name column is hidden, because the data for the grid contains "Name 2" *@
-
-<TelerikGrid Data=@MyData
-             Pageable="true"
-             PageSize="5"
-             Width="700px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" Visible="@((MyData.Any(x => x.Name.Contains("Name 2"))) ? false : true)" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire date" />
-        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public int Salary { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Name " + i.ToString(),
-                Salary = (i + 1) * 100,
-                HireDate = DateTime.Today.AddDays(-i)
-            });
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![visible parameter based on condition screenshot](images/visible-parameter-based-on-condition-example.png)
+<demo metaUrl="client/grid/columns-visible-condition/"></demo>
 
 ## See Also
 

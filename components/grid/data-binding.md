@@ -52,7 +52,7 @@ The following list of resources provides examples for data binding a grid in var
 
 ## Binding to Interface
 
-Since version 2.27, the Grid supports binding to a collection of multiple model types that implement the same interface.
+The Grid supports binding to a collection of multiple model types that implement the same interface.
 
 Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example below. The event handler sets the model type to be used for new items in the Grid. One-type model creation is supported out-of-the-box. If you need to support adding instances of different types:
 
@@ -62,97 +62,7 @@ Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example b
 
 >caption Data Binding the Grid to an Interface
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             FilterMode="GridFilterMode.FilterRow"
-             EditMode="GridEditMode.Inline"
-             OnUpdate="@UpdateHandler"
-             OnDelete="@DeleteHandler"
-             OnCreate="@CreateHandler"
-             OnModelInit="@(() => new Model1())">
-    <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</GridCommandButton>
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field="IntProperty" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public interface IModel
-    {
-        public int Id { get; set; }
-        public int IntProperty { get; set; }
-    }
-
-    public class Model1 : IModel
-    {
-        public int Id { get; set; }
-        public int IntProperty { get; set; }
-    }
-
-    public class Model2 : IModel
-    {
-        public int Id { get; set; }
-        public int IntProperty { get; set; }
-    }
-
-    List<IModel> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        var data = new List<IModel>();
-
-        data.Add(new Model1()
-        {
-            Id = 1,
-            IntProperty = 1
-        });
-        data.Add(new Model2()
-        {
-            Id = 2,
-            IntProperty = 2
-        });
-
-       GridData = data;
-    }
-
-    public void UpdateHandler(GridCommandEventArgs args)
-    {
-        var model = (IModel)args.Items.First();
-
-        var matchingItem = GridData.FirstOrDefault(c => c.Id == model.Id);
-
-        if (matchingItem != null)
-        {
-            matchingItem.IntProperty = model.IntProperty;
-        }
-    }
-
-    public void DeleteHandler(GridCommandEventArgs args)
-    {
-        var model = (IModel)args.Items.First();
-
-        GridData.Remove(model);
-    }
-
-    public void CreateHandler(GridCommandEventArgs args)
-    {
-        var model = (IModel)args.Items.First();
-
-        model.Id = GridData.Max(d => d.Id) + 1;
-
-        GridData.Insert(0, model);
-    }
-}
-````
-
->note Up to version 2.26, the `Data` collection of the Grid must contain instances of only one model type.
+<demo metaUrl="client/grid/data-binding-interface/"></demo>
 
 ## See Also
 
