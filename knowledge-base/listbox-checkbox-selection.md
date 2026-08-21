@@ -81,7 +81,7 @@ ListBox <code>SelectionMode</code>:
             <TelerikCheckBox Value="@( ListBoxSelectedItems.Contains(context) )"
                              ValueChanged="@( (bool newValue) => OnItemCheckBoxValueChanged(newValue, context) )" />
         </span>
-        <span>@context.Name</span>
+        @context.Name
     </ItemTemplate>
 </TelerikListBox>
 
