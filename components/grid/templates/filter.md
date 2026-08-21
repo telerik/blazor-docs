@@ -336,9 +336,12 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
         <GridColumn Field="Name" Title="Product Name" />
         <GridColumn Field="Price">
             <FilterMenuButtonsTemplate Context="filterContext">
-                <TelerikButton OnClick="@(async _ => await filterContext.FilterAsync())">Filter </TelerikButton>
-                <TelerikButton OnClick="@(() => SetPredefinedFilterAsync(filterContext))">Select >= 55</TelerikButton>
-                <TelerikButton OnClick="@(() => ClearFilterAsync(filterContext))">Clear</TelerikButton>
+                <TelerikButton ButtonType="@ButtonType.Button"
+                               OnClick="@(async _ => await filterContext.FilterAsync())">Filter </TelerikButton>
+                <TelerikButton ButtonType="@ButtonType.Button"
+                               OnClick="@(() => SetPredefinedFilterAsync(filterContext))">Select >= 55</TelerikButton>
+                <TelerikButton ButtonType="@ButtonType.Button"
+                               OnClick="@(() => ClearFilterAsync(filterContext))">Clear</TelerikButton>
             </FilterMenuButtonsTemplate>
         </GridColumn>
         <GridColumn Field="@nameof(Product.Released)" />
