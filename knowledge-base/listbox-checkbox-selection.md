@@ -6,7 +6,7 @@ page_title: How to Select ListBox Items with CheckBoxes
 slug: listbox-kb-checkbox-selection
 position: 
 tags: telerik, blazor, listbox, selection, checkbox
-ticketid: 
+ticketid: 1718138
 res_type: kb
 components: ["listbox"]
 ---
@@ -37,6 +37,7 @@ This KB article answers the following questions:
 1. The CheckBox `Value` must be `true` if the current item (`ItemTemplate` `context`) is a member of the ListBox `SelectedItems` collection.
 1. The CheckBox `ValueChanged` handler must add or remove the current ListBox item from the `SelectedItems` collection.
 1. Wrap the CheckBox component in a `<span @onclick:stopPropagation>`, so that the checkbox clicks do not interfere with the built-in ListBox selection feature.
+1. (optional) Use the [ListBox `SelectedItemsChanged` event](slug:listbox-events#selecteditemschanged) to toggle item selection without the need to hold the `Ctrl` key.
 1. (optional) Apply some padding on the `<span>` element, so that if the user clicks near the checkbox, but outside it, the ListBox `SelectedItems` collection doesn't reset to a single item.
 
 >caption Using checkboxes for ListBox selection
@@ -45,17 +46,29 @@ This KB article answers the following questions:
 ListBox <code>SelectionMode</code>:
 
 <TelerikRadioGroup Data="@RadioGroupData"
-                   @bind-Value="@RadioGroupValue" />
+                   @bind-Value="@RadioGroupValue"
+                   Layout="@RadioGroupLayout.Horizontal"
+                   OnChange="@((object currentValue) => ListBoxSelectedItems = new List<ListBoxModel>())" />
 
+<br />
+
+<label class="k-checkbox-label">
+    <TelerikCheckBox @bind-Value="@ShouldSelectWithoutCtrl" />
+    Item Text Click Toggles Selection Without <strong>Ctrl</strong> Key
+</label>
+
+<br />
 <br />
 
 <TelerikListBox @ref="@ListBoxRef"
                 Data="@ListBoxData"
+                TItem="@ListBoxModel"
                 TextField="@nameof(ListBoxModel.Name)"
                 SelectionMode="@RadioGroupValue"
-                @bind-SelectedItems="@ListBoxSelectedItems"
-                OnReorder="@( (ListBoxReorderEventArgs<ListBoxModel> args) => OnListBoxReorder(args) )"
-                Width="190px"
+                SelectedItems="@ListBoxSelectedItems"
+                SelectedItemsChanged="@ListBoxSelectedItemsChanged"
+                OnReorder="@OnListBoxReorder"
+                Width="240px"
                 Height="auto">
     <ListBoxToolBarSettings>
         <ListBoxToolBar>
@@ -66,9 +79,9 @@ ListBox <code>SelectionMode</code>:
     <ItemTemplate>
         <span @onclick:stopPropagation class="checkbox-wrapper">
             <TelerikCheckBox Value="@( ListBoxSelectedItems.Contains(context) )"
-                             ValueChanged="@( (bool newValue) => OnCheckBoxValueChanged(newValue, context) )" />
+                             ValueChanged="@( (bool newValue) => OnItemCheckBoxValueChanged(newValue, context) )" />
         </span>
-        @context.Name
+        <span>@context.Name</span>
     </ItemTemplate>
 </TelerikListBox>
 
@@ -91,8 +104,34 @@ ListBox <code>SelectionMode</code>:
     };
 
     private ListBoxSelectionMode RadioGroupValue { get; set; } = ListBoxSelectionMode.Multiple;
+    private bool ShouldSelectWithoutCtrl { get; set; } = true;
 
-    private void OnCheckBoxValueChanged(bool newValue, ListBoxModel item)
+    private void ListBoxSelectedItemsChanged(IEnumerable<ListBoxModel> newSelectedItems)
+    {
+        if (RadioGroupValue == ListBoxSelectionMode.Single || !ShouldSelectWithoutCtrl)
+        {
+            ListBoxSelectedItems = newSelectedItems;
+            return;
+        }
+
+        if (newSelectedItems.Count() == 1 && ListBoxSelectedItems.Count() > 0)
+        {
+            if (!ListBoxSelectedItems.Contains(newSelectedItems.First()))
+            {
+                ((List<ListBoxModel>)ListBoxSelectedItems).AddRange(newSelectedItems);
+            }
+            else
+            {
+                ((List<ListBoxModel>)ListBoxSelectedItems).RemoveAll(x => newSelectedItems.Contains(x));
+            }
+        }
+        else
+        {
+            ListBoxSelectedItems = newSelectedItems;
+        }
+    }
+
+    private void OnItemCheckBoxValueChanged(bool newValue, ListBoxModel item)
     {
         var currentSelection = new List<ListBoxModel>(ListBoxSelectedItems);
 
