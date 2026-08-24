@@ -27,29 +27,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes. This ha
 
 >caption Handle the ValueChanged
 
-````RAZOR
-@*This example showcases one-way data binding by using Value and ValueChanged*@
-
-@TheValue
-<br />
-<br />
-<TelerikSlider Value="@TheValue" ValueChanged="@( (int v) => ValueChangedHandler(v))"
-               SmallStep="5" LargeStep="20" Min="0" Max="100" Width="500px">
-</TelerikSlider>
-
-@code{
-    int TheValue { get; set; } = 30;
-
-    async Task ValueChangedHandler(int v)
-    {
-        // update the view-model to let the change render
-        // if you avoid that, you wil effectively cancel the event
-        TheValue = v;
-
-        Console.WriteLine($"The user has now chosen {v}");
-    }
-}
-````
+<demo metaUrl="client/slider/events/value-changed/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -69,31 +47,7 @@ If you use two-way binding, the [`ValueChanged`](#valuechanged) event will fire 
 
 >caption Handle the OnChange event
 
-````RAZOR
-@* This example showcases one-way data binding and handling the OnChange event to update the view-model.
-    If you want to update the value while the user drags the handle, you can additionally use two-way binding or handle the ValueChanged event.*@
-
-@result
-<br />
-<br />
-<TelerikSlider Value="@TheValue" OnChange="@OnChangeHandler"
-               SmallStep="5" LargeStep="20" Min="0" Max="100" Width="500px">
-</TelerikSlider>
-
-@code{
-    string result;
-
-    int TheValue { get; set; } = 30;
-
-    async Task OnChangeHandler(object value)
-    {
-        // update the view-model to let the change render.
-        // if you avoid that, you will effectively cancel the event
-        TheValue = (int)value;
-        result = $"The user selected: {(int)value}";
-    }
-}
-````
+<demo metaUrl="client/slider/events/on-change/" height="250"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 

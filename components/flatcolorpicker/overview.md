@@ -32,15 +32,7 @@ To use a Telerik FlatColorPicker for Blazor:
 
 Here is a simple FlatColorPicker declaration and the resulting UI.
 
-````RAZOR
-@* Blazor FlatColorPicker *@
-
-<TelerikFlatColorPicker @bind-Value="@Color" />
-
-@code {
-    string Color { get; set; } = "rgb(40, 47, 137)";
-}
-````
+<demo metaUrl="client/flatcolorpicker/overview/" height="250"></demo>
 
 ## Interface
 

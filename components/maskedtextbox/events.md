@@ -23,24 +23,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange and use two-way binding for the Value
 
-````RAZOR
-@TheValue
-<br />
-
-<TelerikMaskedTextBox Mask="0000-0000-0000-0000" @bind-Value="@TheValue"
-                      OnChange="@OnChangeHandler">
-</TelerikMaskedTextBox>
-
-@code{
-    string TheValue { get; set; }
-    async Task OnChangeHandler(object newVal)
-    {
-        // the handler receives an object that you may need to cast
-        
-        Console.WriteLine($"The user confirmed {newVal as string}");
-    }
-}
-````
+<demo metaUrl="client/maskedtextbox/events/on-change/" height="220"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -53,24 +36,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 >caption Handle ValueChanged
 
-````RAZOR
-@TheValue
-<br />
-
-<TelerikMaskedTextBox Mask="0000-0000-0000-0000" Value="@TheValue"
-                      ValueChanged="@ValueChangedHandler">
-</TelerikMaskedTextBox>
-
-@code{
-    string TheValue { get; set; }
-    void ValueChangedHandler(string newVal)
-    {
-        TheValue = newVal;
-
-        Console.WriteLine($"The user just entered {newVal}");
-    }
-}
-````
+<demo metaUrl="client/maskedtextbox/events/value-changed/" height="220"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -83,22 +49,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-<TelerikMaskedTextBox @bind-Value="@TheValue" Mask="0000-0000-0000-0000"
-                     OnBlur="@OnBlurHandler">
-</TelerikMaskedTextBox>
-
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
-    }
-
-    string TheValue { get; set; }
-}
-````
+<demo metaUrl="client/maskedtextbox/events/on-blur/" height="220"></demo>
 
 ## See Also
 

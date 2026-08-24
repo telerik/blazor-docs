@@ -23,19 +23,7 @@ This integration enables the users to drag and drop one or multiple files to a d
 1. (Optional) Add a note to the DropZone by using the `NoteText` setting.
 
 >caption Basic configuration of the DropZone with the FileSelect component.
-````RAZOR
-<TelerikDropZone Id="@DropZoneId" NoteText="@NoteText" />
-
-<TelerikFileSelect DropZoneId="@DropZoneId" AllowedExtensions="@AllowedExtensions" />
-
-@code {
-    private string DropZoneId => "my-dropzone";
-
-    private string NoteText => "Allowed file types: DOCX and PDF";
-
-    private List<string> AllowedExtensions { get; set; } = new List<string>() { ".docx", ".pdf" };
-}
-````
+<demo metaUrl="client/dropzone/overview/" height="260"></demo>
 
 ## Integration with the Upload and FileSelect
 

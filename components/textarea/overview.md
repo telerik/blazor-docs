@@ -22,17 +22,7 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 
 >caption Basic TextArea with two-way value binding
 
-````RAZOR
-<TelerikTextArea @bind-Value="@TextAreaValue"
-                 MaxLength="200"
-                 Rows="5" />
-
-<p>TextArea value: @TextAreaValue</p>
-
-@code {
-    public string TextAreaValue { get; set; }
-}
-````
+<demo metaUrl="client/textarea/overview/" height="300"></demo>
 
 ## Appearance
 

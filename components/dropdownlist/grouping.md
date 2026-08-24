@@ -19,51 +19,7 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 >caption Grouping in the DropDownList
 
-````RAZOR
-<TelerikDropDownList Data="@Data"
-                     @bind-Value="@SelectedValue"
-                     GroupField="Category.CategoryName"
-                     TextField="ProductName"
-                     ValueField="ProductId"
-                     DefaultText="Select a product">
-</TelerikDropDownList>
-
-@code {
-    public IEnumerable<Product> Data { get; set; }
-    public int SelectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 1; i <= 20; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                Category = new Category() { CategoryId = i % 5 + 1, CategoryName = $"Category {i % 5 + 1}" }
-            });
-        }
-
-        Data = products;
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public Category Category { get; set; }
-    }
-
-    public class Category
-    {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-    }
-}
-````
+<demo metaUrl="client/dropdownlist/grouping/" height="350"></demo>
 
 # Notes
 

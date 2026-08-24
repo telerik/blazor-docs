@@ -27,29 +27,4 @@ The first slider in this example has a sufficient precision (`Decimals`) to prop
 
 To see the difference in how rounding can have issues with insufficient precision, try changing the values from each slider - you will see that the second slider does not respond "correctly" and as expected.
 
-![precision issues with wrong Decimals setting](images/slider-precision-issue.gif)
-
-````RAZOR
-@TheValue
-<br /><br />
-
-@* Sufficient precision for the selected values and steps *@
-
-<TelerikSlider @bind-Value="@TheValue" Decimals="3"
-               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
-</TelerikSlider>
-
-<br /><br />
-
-@* Insufficient precision for the current values and steps
-    the labels texts will be off and the value will not change every time you move the handle
-    only when it reaches the threshold of the decimals which default to 2 for invariant and most cultures*@
-
-<TelerikSlider @bind-Value="@TheValue" Decimals="2"
-               SmallStep="0.005m" LargeStep="0.02m" Min="0m" Max="0.1m" Width="500px">
-</TelerikSlider>
-
-@code{
-    decimal TheValue { get; set; } = 0.015m;
-}
-````
+<demo metaUrl="client/slider/decimals/" height="300"></demo>

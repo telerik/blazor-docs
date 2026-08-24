@@ -32,28 +32,7 @@ You can increase or decrease the size of the TextArea by setting the `Size` attr
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.TextArea.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-        
-        <div style="float:left; margin: 20px;">
-            <TelerikTextArea @bind-Value="@TextAreaValue" Size="@size"></TelerikTextArea>
-        </div>
-    }
-}
-
-@code{
-    private string TextAreaValue { get; set; }
-}
-````
+<demo metaUrl="client/textarea/appearance/size/" height="300"></demo>
 
 ## Rounded
 
@@ -68,30 +47,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the TextArea to 
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.TextArea.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-        
-        <div style="float:left; margin: 20px;">
-            <TelerikTextArea @bind-Value="@TextAreaValue" Rounded="@rounded"></TelerikTextArea>
-        </div>
-    }
-}
-
-@code{
-    private string TextAreaValue { get; set; }
-}
-````
+<demo metaUrl="client/textarea/appearance/rounded/" height="300"></demo>
 
 ## FillMode
 
@@ -105,30 +61,6 @@ The `FillMode` controls how the TelerikTextArea is filled. You can set it to a m
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.TextArea.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-
-    @foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-        
-        <div style="float:left; margin: 20px;">
-            <span>@fillMode</span>
-            <TelerikTextArea @bind-Value="@TextAreaValue" FillMode="@fillMode"></TelerikTextArea>
-        </div>
-    }
-}
-
-@code{
-    private string TextAreaValue { get; set; }
-}
-````
+<demo metaUrl="client/textarea/appearance/fill-mode/" height="300"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

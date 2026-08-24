@@ -26,41 +26,7 @@ You can set the `Indeterminate` parameter to `true`, no matter if:
 
 >caption Using the CheckBox Indeterminate parameter
 
-````RAZOR
-<p>
-    <label class="k-checkbox-label">
-        <TelerikCheckBox @bind-Value="@CheckBoxValue1"
-                         @bind-Indeterminate="@CheckBoxIndeterminate1" />
-        <span>Toggle from @CheckBoxValue1 to @(!CheckBoxValue1)</span>
-    </label>
-</p>
-
-<p>
-    <label class="k-checkbox-label">
-        <TelerikCheckBox @bind-Value="@CheckBoxValue2"
-                         @bind-Indeterminate="@CheckBoxIndeterminate2" />
-        <span>Toggle from @CheckBoxValue2 to @(!CheckBoxValue2)</span>
-    </label>
-</p>
-
-<p>
-    <TelerikButton Enabled="@(!CheckBoxIndeterminate1 || !CheckBoxIndeterminate2)"
-                   OnClick="@OnButtonClick">Set Indeterminate</TelerikButton>
-</p>
-
-
-@code {
-    private bool CheckBoxValue1 { get; set; } = true;
-    private bool CheckBoxValue2 { get; set; } = false;
-    private bool CheckBoxIndeterminate1 { get; set; } = true;
-    private bool CheckBoxIndeterminate2 { get; set; } = true;
-
-    private void OnButtonClick() {
-        CheckBoxIndeterminate1 = true;
-        CheckBoxIndeterminate2 = true;
-    }
-}
-````
+<demo metaUrl="client/checkbox/indeterminate/" height="300"></demo>
 
 ## Examples
 
@@ -78,22 +44,7 @@ The following sample shows how to:
 
 >caption Using CheckBox Indeterminate when the Value is null
 
-````RAZOR
-<p><label class="k-checkbox-label">
-    <TelerikCheckBox Value="@CheckBoxValue"
-                     ValueChanged="@((bool? newVal) => CheckBoxValueChanged(newVal))"
-                     Indeterminate="@(CheckBoxValue == null)" />
-    <span>Toggle between <code>null</code>, <code>true</code>, and <code>false</code></span>
-</label></p>
-
-@code {
-    private bool? CheckBoxValue { get; set; }
-
-    private void CheckBoxValueChanged(bool? newValue) {
-        CheckBoxValue = CheckBoxValue == true ? false : (CheckBoxValue == false ? null : true);
-    }
-}
-````
+<demo metaUrl="client/checkbox/indeterminate-null-value/" height="220"></demo>
 
 ### Related CheckBoxes
 
@@ -101,55 +52,7 @@ The following sample shows how to set the `Indeterminate` parameter of a "parent
 
 >caption Using CheckBox Indeterminate with related CheckBoxes
 
-````RAZOR
-<ul>
-    <li>
-        <label class="k-checkbox-label">
-            <TelerikCheckBox Value="@Devices"
-                             ValueChanged="@((bool newVal) => ParentChanged(newVal))"
-                             Indeterminate="@DevicesIndeterminate" />
-            <span>Devices</span>
-        </label>
-        <ul>
-            @foreach (KeyValuePair<string, bool> device in ChildDevices) {
-                <li>
-                    <label class="k-checkbox-label">
-                        <TelerikCheckBox Value="@ChildDevices[device.Key]"
-                                         ValueChanged="@((bool newVal) => ChildChanged(device.Key, newVal))" />
-                        <span>@device.Key</span>
-                    </label>
-                </li>
-            }
-        </ul>
-    </li>
-</ul>
-
-@code {
-    private bool Devices { get; set; }
-
-    private Dictionary<string, bool> ChildDevices { get; set; } = new Dictionary<string, bool>
-    {
-        { "Laptops", false },
-        { "Tablets", false },
-        { "Phones", false }
-    };
-
-    private bool DevicesIndeterminate => !ChildDevices.Values.All(v => v) && !ChildDevices.Values.All(v => !v);
-
-    private void ParentChanged(bool newValue) {
-        Devices = newValue;
-    
-        foreach (string key in ChildDevices.Keys.ToList()) {
-            ChildDevices[key] = newValue;
-        }
-    }
-
-    private void ChildChanged(string key, bool newValue) {
-        ChildDevices[key] = newValue;
-        Devices = ChildDevices.Values.All(v => v);
-    }
-}
-````
+<demo metaUrl="client/checkbox/indeterminate-related/" height="350"></demo>
 
 ## See Also
 

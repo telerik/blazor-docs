@@ -21,16 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/rating" target="_blank">Blazor 
 
 >caption Basic configuration of the Blazor Rating
 
-````RAZOR
-<TelerikRating @bind-Value="@Value"
-               Label="@Label">
-</TelerikRating>
-
-@code {
-    private double Value { get; set; } = 1;
-    private string Label => $"{Value} / 5";
-}
-````
+<demo metaUrl="client/rating/overview/" height="220"></demo>
 
 ## Selection
 
