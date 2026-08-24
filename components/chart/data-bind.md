@@ -57,28 +57,7 @@ With this approach, the items in each series are independent from the other seri
 
 >caption Bind series independently of each other and of the category axis
 
-````RAZOR
-Independent data
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Series 1" Data="@data1">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Series 2" Data="@data2">
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-</TelerikChart>
-
-@code {
-	public List<object> data1 = new List<object>() { 1, 2, 3, 4 };
-	public List<object> data2 = new List<object>() { 2, 3, 4, 5 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/data-bind/independent-series/" height="420"></demo>
 
 ## Attach Series Items to Their Categories
 
@@ -93,112 +72,17 @@ With this, the items from the series will be matched to the items (categories) o
 
 >caption Bind the entire chart to a single collection. 
 
-````RAZOR
-One model for all the chart data
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
-                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
-                     Field="@nameof(MyDataModel.Product2)">
-        </ChartSeries>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    public class MyDataModel
-    {
-        public string MySharedCategories { get; set; }
-        public int Product1 { get; set; }
-        public int Product2 { get; set; }
-    }
-
-    public List<MyDataModel> chartData = new List<MyDataModel>()
-    {
-        new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
-        new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
-        new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
-        new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
-    };
-}
-````
+<demo metaUrl="client/chart/data-bind/single-collection/" height="420"></demo>
 
 >caption Unique categories are added independently.
 
-````RAZOR
-Separate fields for series categories
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
-                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
-                     Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-        </ChartSeries>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    public class MyDataModel
-    {
-        public string FirstSeriesCategories { get; set; }
-        public string SecondSeriesCategories { get; set; }
-        public int Product1 { get; set; }
-        public int Product2 { get; set; }
-    }
-
-    public List<MyDataModel> chartData = new List<MyDataModel>()
-    {
-        new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
-        new MyDataModel() { FirstSeriesCategories = "b",  SecondSeriesCategories = "f", Product1 = 2, Product2 = 3 },
-        new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
-        new MyDataModel() { FirstSeriesCategories = "d",  SecondSeriesCategories = "h", Product1 = 4, Product2 = 5 },
-    };
-}
-````
+<demo metaUrl="client/chart/data-bind/unique-categories/" height="420"></demo>
 
 >tip You can define [multiple x-axes](slug:components/chart/multiple-axes) to avoid this behavior and have each series populate its own x-axis.
 
 >caption If category values match, they will be combined
 
-````RAZOR
-Combining matching standalone categories
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
-                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData"
-                     Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
-        </ChartSeries>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    public class MyDataModel
-    {
-        public string FirstSeriesCategories { get; set; }
-        public string SecondSeriesCategories { get; set; }
-        public int Product1 { get; set; }
-        public int Product2 { get; set; }
-    }
-
-    public List<MyDataModel> chartData = new List<MyDataModel>()
-    {
-        new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
-
-        //the categories for both series match and both data points will be rendered on the same category
-        new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 3 },
-
-        new MyDataModel() { FirstSeriesCategories = "c",  SecondSeriesCategories = "g", Product1 = 3, Product2 = 4 },
-        new MyDataModel() { FirstSeriesCategories = "d",  SecondSeriesCategories = "h", Product1 = 4, Product2 = 5 },
-    };
-}
-````
+<demo metaUrl="client/chart/data-bind/matching-categories/" height="420"></demo>
 
 ## Mixed Data Source
 
@@ -208,87 +92,11 @@ For example, you can take the data for some series from a complex model, and the
 
 >caption Populate categories and one series from standalone data, other series from model
 
-````RAZOR
-Mixed data binding
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" Field="@nameof(MyDataModel.Product1)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" Field="@nameof(MyDataModel.Product2)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Series 3" Data="@standaloneData">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-</TelerikChart>
-
-@code {
-    public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-
-    public class MyDataModel
-    {
-        public string MySharedCategories { get; set; }
-        public int Product1 { get; set; }
-        public int Product2 { get; set; }
-    }
-
-    public List<MyDataModel> chartData = new List<MyDataModel>()
-    {
-        //you do not have to use all the fields, and you do not have to take the categories from this model
-        new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
-        new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
-        new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
-        new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
-    };
-}
-````
+<demo metaUrl="client/chart/data-bind/mixed-source-standalone-series/" height="420"></demo>
 
 >caption Populate categories from model, and some series from standalone data. Standalone categories are ignored.
 
-````RAZOR
-Standalone categories are ignored when there is category data binding to a model
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData"
-                     Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Standalone series" Data="@standaloneData">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-</TelerikChart>
-
-@code {
-    public List<object> standaloneData = new List<object>() { 3, 4, 5, 6 };
-
-    //the standalone categories will be ignored if they are data bound from a series configuration
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-
-    public class MyDataModel
-    {
-        public string MySharedCategories { get; set; }
-        public int Product1 { get; set; }
-        public int Product2 { get; set; }
-    }
-
-    public List<MyDataModel> chartData = new List<MyDataModel>()
-    {
-        new MyDataModel() { MySharedCategories = "a", Product1 = 1, Product2 = 2 },
-        new MyDataModel() { MySharedCategories = "b", Product1 = 2, Product2 = 3 },
-        new MyDataModel() { MySharedCategories = "c", Product1 = 3, Product2 = 4 },
-        new MyDataModel() { MySharedCategories = "d", Product1 = 4, Product2 = 5 },
-    };
-}
-````
+<demo metaUrl="client/chart/data-bind/mixed-source-standalone-categories-ignored/" height="420"></demo>
 
 ## Numerical Charts
 
@@ -300,133 +108,11 @@ This means that it is often suitable to provide each series with its own collect
 
 >caption Series with a different number of items can be easily used in numerical charts
 
-````RAZOR
-
-@* Standalone collections of the same model type are used for the different series without consideration for matching categories *@
-
-<TelerikChart>
-    <ChartTitle Text="Unrecoverable Errors Per Minute vs. Signal Level"></ChartTitle>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Scatter"
-                     Data="@Series1Data"
-                     Name="APSK modulation"
-                     XField="@nameof(ModelData.Strength)"
-                     YField="@nameof(ModelData.Errors)">
-        </ChartSeries>
-
-        <ChartSeries Type="ChartSeriesType.Scatter"
-                     Data="@Series2Data"
-                     Name="QAM modulation"
-                     XField="@nameof(ModelData.Strength)"
-                     YField="@nameof(ModelData.Errors)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartXAxes>
-        <ChartXAxis Max="-30" AxisCrossingValue="@(new object[] { -100 })">
-            <ChartXAxisTitle Text="Signal Strength, dBm"></ChartXAxisTitle>
-        </ChartXAxis>
-    </ChartXAxes>
-
-    <ChartYAxes>
-        <ChartYAxis>
-            <ChartYAxisTitle Text="Error count"></ChartYAxisTitle>
-        </ChartYAxis>
-    </ChartYAxes>
-</TelerikChart>
-
-@code {
-    public class ModelData
-    {
-        public double Strength { get; set; }
-        public double Errors { get; set; }
-    }
-
-    public List<ModelData> Series1Data = new List<ModelData>()
-    {
-       new ModelData { Strength = -82, Errors = 15  },
-       new ModelData { Strength = -79, Errors = 13  },
-       new ModelData { Strength = -77, Errors = 10  },
-       new ModelData { Strength = -74, Errors = 7  },
-       new ModelData { Strength = -70, Errors = 3  },
-       new ModelData { Strength = -65, Errors = 1  }
-    };
-
-    public List<ModelData> Series2Data = new List<ModelData>()
-    {
-       new ModelData { Strength = -80, Errors = 25  },
-       new ModelData { Strength = -76, Errors = 22  },
-       new ModelData { Strength = -73, Errors = 17  },
-       new ModelData { Strength = -70, Errors = 15  },
-       new ModelData { Strength = -65, Errors = 12  },
-       new ModelData { Strength = -61, Errors = 10  },
-       new ModelData { Strength = -55, Errors = 7  },
-       new ModelData { Strength = -50, Errors = 3  }
-    };
-}
-````
+<demo metaUrl="client/chart/data-bind/numerical-separate-collections/" height="460"></demo>
 
 >caption The same chart bound to a single model with fields for each series
 
-````RAZOR
-@* You can also have a different number of series item if you bind the entire chart to the same model *@
-
-<TelerikChart>
-    <ChartTitle Text="Unrecoverable Errors Per Minute vs. Signal Level"></ChartTitle>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Scatter"
-                     Data="@AllChartData"
-                     Name="APSK modulation"
-                     XField="@nameof(ModelData.ApskStrength)"
-                     YField="@nameof(ModelData.ApskErrors)">
-        </ChartSeries>
-
-        <ChartSeries Type="ChartSeriesType.Scatter"
-                     Data="@AllChartData"
-                     Name="QAM modulation"
-                     XField="@nameof(ModelData.QamStrength)"
-                     YField="@nameof(ModelData.QamErrors)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartXAxes>
-        <ChartXAxis Max="-30" AxisCrossingValue="@(new object[] { -100 })">
-            <ChartXAxisTitle Text="Signal Strength, dBm"></ChartXAxisTitle>
-        </ChartXAxis>
-    </ChartXAxes>
-
-    <ChartYAxes>
-        <ChartYAxis>
-            <ChartYAxisTitle Text="Error count"></ChartYAxisTitle>
-        </ChartYAxis>
-    </ChartYAxes>
-</TelerikChart>
-
-@code {
-    public class ModelData
-    {
-        public double ApskStrength { get; set; }
-        public double ApskErrors { get; set; }
-        public double QamStrength { get; set; }
-        public double QamErrors { get; set; }
-    }
-
-    public List<ModelData> AllChartData = new List<ModelData>()
-    {
-       new ModelData { QamStrength = -80, QamErrors = 25, ApskStrength = -82, ApskErrors = 15  },
-       new ModelData { QamStrength = -76, QamErrors = 22, ApskStrength = -79, ApskErrors = 13  },
-       new ModelData { QamStrength = -73, QamErrors = 17, ApskStrength = -77, ApskErrors = 10  },
-       new ModelData { QamStrength = -70, QamErrors = 15, ApskStrength = -74, ApskErrors = 7  },
-       new ModelData { QamStrength = -65, QamErrors = 12, ApskStrength = -70, ApskErrors = 3  },
-       new ModelData { QamStrength = -61, QamErrors = 10, ApskStrength = -65, ApskErrors = 1  },
-       new ModelData { QamStrength = -55, QamErrors = 7  },
-       new ModelData { QamStrength = -50, QamErrors = 3  }
-    };
-}
-
-````
+<demo metaUrl="client/chart/data-bind/numerical-single-collection/" height="460"></demo>
 
 ## Chart Model with JsonProperty
 
