@@ -29,68 +29,7 @@ To use a Chart component with Bubble series:
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
 
-````RAZOR
-<TelerikChart>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bubble"
-                     Data="@Series1Data"
-                     Name="North America"
-                     XField="@nameof(ModelData.LifeExpectancy)"
-                     YField="@nameof(ModelData.FertilityRate)"
-                     SizeField="@nameof(ModelData.PopulationChange)">
-            <ChartSeriesLabels Visible="true" Template="@labelTemplate"></ChartSeriesLabels>
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Bubble"
-                     Data="@Series2Data"
-                     Name="Europe"
-                     XField="@nameof(ModelData.LifeExpectancy)"
-                     YField="@nameof(ModelData.FertilityRate)"
-                     SizeField="@nameof(ModelData.PopulationChange)">
-            <ChartSeriesLabels Visible="true" Template="@labelTemplate"></ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartXAxes>
-        <ChartXAxis>
-            <ChartXAxisTitle Text="Life Expectancy (years)"></ChartXAxisTitle>
-        </ChartXAxis>
-    </ChartXAxes>
-
-    <ChartYAxes>
-        <ChartYAxis>
-            <ChartYAxisTitle Text="Fertility Rate (children per family)"></ChartYAxisTitle>
-        </ChartYAxis>
-    </ChartYAxes>
-
-    <ChartTitle Text="Life expectancy, fertility rate and projected population change" />
-
-</TelerikChart>
-
-@code {
-    string labelTemplate = "#=dataItem.Country#";
-
-    public class ModelData
-    {
-        public double LifeExpectancy { get; set; }
-        public double FertilityRate { get; set; }
-        public int PopulationChange { get; set; }
-        public string Country { get; set; }
-    }
-
-    public List<ModelData> Series1Data = new List<ModelData>()
-    {
-        new ModelData() { LifeExpectancy = 80.66, FertilityRate = 1.27, PopulationChange = 500000, Country = "Canada" },
-        new ModelData() { LifeExpectancy = 78.09, FertilityRate = 2.3, PopulationChange = 7600000, Country = "USA" }
-    };
-
-    public List<ModelData> Series2Data = new List<ModelData>()
-    {
-        new ModelData() { LifeExpectancy = 67.3, FertilityRate = 1.54, PopulationChange = 25000, Country = "Denmark" },
-        new ModelData() { LifeExpectancy = 74.3, FertilityRate = 1.85, PopulationChange = 3000000, Country = "Great Britain" }
-    };
-}
-````
+<demo metaUrl="client/chart/types/bubble/overview/" height="420"></demo>
 
 ## Bubble Sizing
 
@@ -115,66 +54,7 @@ If you need to [improve the bubble size comparability across several Charts](slu
 
 >caption Using default and custom Chart bubble sizes
 
-````RAZOR
-<TelerikChart Width="1000px" Height="420px">
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bubble"
-                     Data="@BubbleData"
-                     Name="Custom Sizes"
-                     XField="@nameof(BubbleModel.XValue)"
-                     YField="@nameof(BubbleModel.YValue1)"
-                     SizeField="@nameof(BubbleModel.SizeValue)"
-                     CategoryField="@nameof(BubbleModel.SizeValue)"
-                     MinSize="1"
-                     MaxSize="200">
-            <ChartSeriesLabels Visible="true">
-                <ChartSeriesLabelsMargin Top="24" />
-            </ChartSeriesLabels>
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Bubble"
-                     Data="@BubbleData"
-                     Name="Default Sizes"
-                     XField="@nameof(BubbleModel.XValue)"
-                     YField="@nameof(BubbleModel.YValue2)"
-                     SizeField="@nameof(BubbleModel.SizeValue)"
-                     CategoryField="@nameof(BubbleModel.SizeValue)">
-            <ChartSeriesLabels Visible="true">
-                <ChartSeriesLabelsMargin Bottom="30" />
-            </ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartLegend Position="@ChartLegendPosition.Top" />
-
-</TelerikChart>
-
-@code {
-    private List<BubbleModel> BubbleData { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        for (int i = 0; i <= 12; i++)
-        {
-            BubbleData.Add(new()
-            {
-                XValue = 3 + (int)Math.Pow(i, 2),
-                YValue1 = i + 2,
-                YValue2 = (i + 3) * 2,
-                SizeValue = (int)Math.Pow(2, i)
-            });
-        }
-    }
-
-    public class BubbleModel
-    {
-        public double XValue { get; set; }
-        public double YValue1 { get; set; }
-        public double YValue2 { get; set; }
-        public int SizeValue { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chart/types/bubble/bubble-sizing/" height="460"></demo>
 
 ## Bubble Chart Specific Appearance Settings
 
@@ -194,40 +74,7 @@ The size field should, generally, have positive values as it correlates to the p
 
 >caption Negative bubble size
 
-````RAZOR
-@* Negative bubble sizes can showcase decreases in values and can render in different color than the rest of the series *@
-
-<TelerikChart>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bubble"
-                     Data="@SeriesData"
-                     XField="@nameof(ModelData.X)"
-                     YField="@nameof(ModelData.Y)"
-                     SizeField="@nameof(ModelData.Size)">
-            <ChartSeriesNegativeValues Visible="true" Color="cyan"></ChartSeriesNegativeValues>
-            <ChartSeriesLabels Visible="true" Template="#=dataItem.MetaData#"></ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-</TelerikChart>
-
-@code {
-    public class ModelData
-    {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Size { get; set; }
-        public string MetaData { get; set; }
-    }
-
-    public List<ModelData> SeriesData = new List<ModelData>()
-    {
-        new ModelData() { X = 250, Y = 5000, Size = 50000 , MetaData = "positive size"},
-        new ModelData() { X = 500, Y = 1100, Size = -760000, MetaData = "negative size" }
-    };
-}
-````
+<demo metaUrl="client/chart/types/bubble/negative-values/" height="420"></demo>
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 

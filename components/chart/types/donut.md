@@ -28,50 +28,7 @@ If you use [simple data binding](slug:components/chart/databind#independent-seri
 
 >caption A donut chart that shows product revenues
 
-````RAZOR
-Donut series
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Donut" Data="@donutData"
-							Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartTitle Text="Revenue per product"></ChartTitle>
-
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public class MyDonutChartModel
-	{
-		public string SegmentName { get; set; }
-		public double SegmentValue { get; set; }
-		public bool ShouldShowInLegend { get; set; } = true;
-	}
-
-	public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
-	{
-		new MyDonutChartModel
-		{
-			SegmentName = "Product 1",
-			SegmentValue = 2
-		},
-		new MyDonutChartModel
-		{
-			SegmentName = "Product 2",
-			SegmentValue = 3
-		},
-		new MyDonutChartModel
-		{
-			SegmentName = "Product 3",
-			SegmentValue = 4
-		}
-	};
-}
-````
+<demo metaUrl="client/chart/types/donut/overview/" height="420"></demo>
 
 ## Donut Chart Specific Appearance Settings
 
@@ -93,58 +50,7 @@ By default, the first segment starts at the top. You can change that by using th
 
 You can control the color of the individual segments of the donut chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-````RAZOR
-@*Set color to the donut chart items*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Donut"
-                     Data="@donutData"
-                     
-                     ColorField="@nameof(MyDonutChartModel.SegmentColor)"
-
-                     Field="@nameof(MyDonutChartModel.SegmentValue)"
-                     CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartTitle Text="Revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public class MyDonutChartModel
-    {
-        public string SegmentName { get; set; }
-        public double SegmentValue { get; set; }
-        public string SegmentColor { get; set; }
-    }
-
-    public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
-    {
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 1",
-            SegmentValue = 2,
-            SegmentColor = "red"
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 2",
-            SegmentValue = 3,
-            SegmentColor = "#00ff00"
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 3",
-            SegmentValue = 4,
-            SegmentColor = "#00f"
-        }
-    };
-}
-````
+<demo metaUrl="client/chart/types/donut/color-field/" height="420"></demo>
 
 ### Exploded Segment
 
@@ -154,56 +60,7 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 
 >caption Exploded Items
 
-````RAZOR
-@*Separate items from the main body of the chart*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Donut"
-                     Data="@donutData"
-                     
-                     ExplodeField="@nameof(MyDonutChartModel.IsSeparated)"
-
-                     Field="@nameof(MyDonutChartModel.SegmentValue)"
-                     CategoryField="@nameof(MyDonutChartModel.SegmentValue)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartTitle Text="Revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public class MyDonutChartModel
-    {
-        public string SegmentName { get; set; }
-        public double SegmentValue { get; set; }
-        public bool? IsSeparated { get; set; }
-    }
-
-    public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
-    {
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 1",
-            SegmentValue = 2,
-            IsSeparated = true
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 2",
-            SegmentValue = 3
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 3",
-            SegmentValue = 4
-        }
-    };
-}
-````
+<demo metaUrl="client/chart/types/donut/exploded-segment/" height="420"></demo>
 
 ### Visible In Legend
 
@@ -211,110 +68,13 @@ You can hide certain segments from the legend (for example, if their contributio
 
 >caption Hide segments from the legend
 
-````RAZOR
-@*Show only some items in the legend*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Donut"
-                     Data="@donutData"
-                     
-                     VisibleInLegendField="@nameof(MyDonutChartModel.ShouldShowInLegend)"
-
-                     Field="@nameof(MyDonutChartModel.SegmentValue)" 
-                     CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartTitle Text="Revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public class MyDonutChartModel
-    {
-        public string SegmentName { get; set; }
-        public double SegmentValue { get; set; }
-        public bool ShouldShowInLegend { get; set; } = true;
-    }
-
-    public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
-    {
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 1",
-            SegmentValue = 2
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 2",
-            SegmentValue = 3
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product 3",
-            SegmentValue = 4
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Insignificant Product",
-            SegmentValue = 0.1,
-            ShouldShowInLegend = false
-        }
-    };
-}
-````
+<demo metaUrl="client/chart/types/donut/visible-in-legend/" height="420"></demo>
 
 ### Hole Size
 
 You can change the percentage that the hole in the middle takes from the entire diameter of the circle by setting the `HoleSize` property of the series. Setting `0` removes the hole, and `100` means the entire chart is the hole.
 
-````RAZOR
-Control the hole size of the donut chart
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Donut" Data="@donutData" HoleSize="90"
-							Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartTitle Text="Revenue per product"></ChartTitle>
-
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public class MyDonutChartModel
-	{
-		public string SegmentName { get; set; }
-		public double SegmentValue { get; set; }
-		public bool ShouldShowInLegend { get; set; } = true;
-	}
-
-	public List<MyDonutChartModel> donutData = new List<MyDonutChartModel>
-	{
-		new MyDonutChartModel
-		{
-			SegmentName = "Product 1",
-			SegmentValue = 2
-		},
-		new MyDonutChartModel
-		{
-			SegmentName = "Product 2",
-			SegmentValue = 3
-		},
-		new MyDonutChartModel
-		{
-			SegmentName = "Product 3",
-			SegmentValue = 4
-		}
-	};
-}
-````
+<demo metaUrl="client/chart/types/donut/hole-size/" height="420"></demo>
 
 ### Multiple Series
 
@@ -324,116 +84,7 @@ You can use multiple series to showcase relationships within a data set, or seve
 
 You can also use the `ColorField` property to define a field with the segments' colors. With this, you can color-code different series and their relationships to one another.
 
-````RAZOR
-@* You can bind the entire chart to one collection of data, even though this example shows separate collections for each series *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Donut" Data="@firstSeriesData"
-                     Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Donut" Data="@secondSeriesData"
-                     Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Donut" Data="@thirdSeriesData"
-                     Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Donut" Data="@fourthSeriesData"
-                     Field="@nameof(MyDonutChartModel.SegmentValue)" CategoryField="@nameof(MyDonutChartModel.SegmentName)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartTitle Text="Revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public class MyDonutChartModel
-    {
-        public string SegmentName { get; set; }
-        public double SegmentValue { get; set; }
-        public bool ShouldShowInLegend { get; set; } = true;
-    }
-
-    public List<MyDonutChartModel> firstSeriesData = new List<MyDonutChartModel>
-    {
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 1",
-            SegmentValue = 2
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 2",
-            SegmentValue = 3
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 3",
-            SegmentValue = 4
-        }
-    };
-
-    public List<MyDonutChartModel> secondSeriesData = new List<MyDonutChartModel>
-    {
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 1 - Product 1",
-            SegmentValue = 4
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 1 - Product 2",
-            SegmentValue = 7
-        }
-    };
-
-    public List<MyDonutChartModel> thirdSeriesData = new List<MyDonutChartModel>
-    {
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 2 - Product 1",
-            SegmentValue = 1
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 2 - Product 2",
-            SegmentValue = 5
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 2 - Product 3",
-            SegmentValue = 2
-        }
-    };
-
-    public List<MyDonutChartModel> fourthSeriesData = new List<MyDonutChartModel>
-    {
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 3 - Product 1",
-            SegmentValue = 6
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 3 - Product 2",
-            SegmentValue = 11
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 3 - Product 3",
-            SegmentValue = 2
-        },
-        new MyDonutChartModel
-        {
-            SegmentName = "Product Line 3 - Product 4",
-            SegmentValue = 20
-        }
-    };
-}
-````
+<demo metaUrl="client/chart/types/donut/multiple-series/" height="420"></demo>
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
@@ -441,122 +92,13 @@ You can also use the `ColorField` property to define a field with the segments' 
 
 >caption Customize Chart Title Margin, Series Label Font, and Borders
 
-````RAZOR
-@* Add margin to the Title, changing the Font and Borders of the labels. *@
-
-<TelerikChart>
-    <ChartTitle Text="What is you favourite sport?">
-        <ChartTitleMargin Bottom="20"></ChartTitleMargin>
-    </ChartTitle>
-    <ChartLegend Visible="true" Position="ChartLegendPosition.Top"></ChartLegend>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Donut"
-                     Data="@Data"
-                     Field="@nameof(ModelData.Value)"
-                     CategoryField="@nameof(ModelData.Category)">
-            <ChartSeriesLabels Position="ChartSeriesLabelsPosition.OutsideEnd"
-                               Visible="true"
-                               Background="transparent"
-                               Font="20px 'Helvetica'">
-                <ChartSeriesLabelsBorder Width="1"
-                                               Color="#0000FF"
-                                               DashType="DashType.LongDashDotDot">
-                </ChartSeriesLabelsBorder>
-            </ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-</TelerikChart>
-
-@code {
-    public class ModelData
-    {
-        public string Category { get; set; }
-        public Int32 Value { get; set; }
-    }
-
-    public List<ModelData> Data = new List<ModelData>()
-    {
-        new ModelData()
-        {
-            Category = "Football",
-            Value = 35
-        },
-        new ModelData()
-        {
-            Category = "Basketball",
-            Value = 25
-        },
-        new ModelData()
-        {
-            Category = "Volleyball",
-            Value = 20
-        },
-        new ModelData()
-        {
-            Category = "Rugby",
-            Value = 10
-        },
-        new ModelData()
-        {
-            Category = "Tennis",
-            Value = 10
-        },
-
-    };
-}
-````
+<demo metaUrl="client/chart/types/donut/title-label-border/" height="420"></demo>
 
 The following example shows how to use the Chart `Height`, Series `Size`, and Legend `Height` to arrange a layout with a larger number of donut segments.
 
 >caption Customize Donut Chart element dimensions
 
-````RAZOR
-<TelerikChart Height="360px">
-    <ChartSeriesItems>
-        <ChartSeries Data="@ChartData"
-                     Type="@ChartSeriesType.Donut"
-                     Field="@nameof(ChartModel.Value)"
-                     CategoryField="@nameof(ChartModel.Name)"
-                     Size="40">
-            <ChartSeriesLabels Visible="true"
-                               Position="@ChartSeriesLabelsPosition.OutsideEnd"
-                               Template="chartSeriesLabelTemplate">
-            </ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartTitle Text="Donut Chart"></ChartTitle>
-
-    <ChartLegend Orientation="@ChartLegendOrientation.Vertical"
-                 Position="@ChartLegendPosition.Bottom"
-                 Height="60" />
-</TelerikChart>
-
-<script suppress-error="BL9992">
-    function chartSeriesLabelTemplate(context) {
-        return context.category + " - " + context.value;
-    }
-</script>
-
-@code {
-    public class ChartModel
-    {
-        public string Name { get; set; } = string.Empty;
-        public double Value { get; set; }
-        public bool ShowInLegend { get; set; } = true;
-    }
-
-    private List<ChartModel> ChartData { get; set; } = Enumerable.Range(1, 9).Select(x =>
-        new ChartModel
-        {
-            Name = $"Name {x}",
-            Value = Random.Shared.Next(1, 100)
-        }
-    ).ToList();
-}
-````
+<demo metaUrl="client/chart/types/donut/element-dimensions/" height="460"></demo>
 
 ## See Also
 

@@ -31,62 +31,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Bar Chart bound to arrays
 
-````RAZOR
-<TelerikChart>
-    <ChartTitle Text="Sleep Hours by Age"></ChartTitle>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.RangeBar" Data="@SleepData">
-            <ChartSeriesLabels>
-                @* Show the From and To labels together *@
-
-                <ChartSeriesLabelsFrom Visible="false" />
-                <ChartSeriesLabelsTo Visible="true" />
-
-                @* OR show the From and To labels separately *@
-
-                @*<ChartSeriesLabelsFrom Visible="true" Template="#= dataItem[0] #" />
-                    <ChartSeriesLabelsTo Visible="true" Template="#= dataItem[1] #" />*@
-            </ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@Categories"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartValueAxes>
-        <ChartValueAxis Min="6"></ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartTooltip Visible="true">
-        <Template>
-            @{
-                var dataItem = (int[])context.DataItem;
-            }
-            <span>@dataItem[0] - @dataItem[1] hours</span>
-        </Template>
-    </ChartTooltip>
-
-</TelerikChart>
-
-@code {
-    private List<int[]> SleepData = new List<int[]>() {
-        new int[] { 7, 8 },
-        new int[] { 7, 9 },
-        new int[] { 8, 10 },
-        new int[] { 9, 12 },
-        new int[] { 10, 13 },
-        new int[] { 11, 14 },
-        new int[] { 12, 16 },
-        new int[] { 14, 17 },
-    };
-
-    private string[] Categories = new string[] {
-        "60+ y", "18-60 y", "13-18 y", "6-12 y", "3-5 y", "1-2 y", "4-12 m", "0–3 m"
-    };
-}
-````
+<demo metaUrl="client/chart/types/rangebar/array-binding/" height="460"></demo>
 
 ### Binding Range Column Series to Custom Objects
 
@@ -95,65 +40,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Bar Chart bound to custom objects
 
-````RAZOR
-<TelerikChart>
-    <ChartTitle Text="Sleep Hours by Age"></ChartTitle>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.RangeBar"
-                     Data="@SleepData"
-                     FromField="@(nameof(RangeBarModel.LowValue))"
-                     ToField="@(nameof(RangeBarModel.HighValue))"
-                     CategoryField="@(nameof(RangeBarModel.AgeGroup))">
-            <ChartSeriesLabels>
-                @* Show the From and To labels together *@
-
-                <ChartSeriesLabelsFrom Visible="false" />
-                <ChartSeriesLabelsTo Visible="true" />
-
-                @* OR show the From and To labels separately *@
-
-                @*<ChartSeriesLabelsFrom Visible="true" Template="#= dataItem.LowValue #" />
-                    <ChartSeriesLabelsTo Visible="true" Template="#= dataItem.HighValue #" />*@
-            </ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartValueAxes>
-        <ChartValueAxis Min="6"></ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartTooltip Visible="true">
-        <Template>
-            @{
-                var dataItem = (RangeBarModel)context.DataItem;
-            }
-            <span>@dataItem.LowValue - @dataItem.HighValue hours</span>
-        </Template>
-    </ChartTooltip>
-
-</TelerikChart>
-
-@code {
-    private List<RangeBarModel> SleepData = new List<RangeBarModel>() {
-        new RangeBarModel { LowValue = 7, HighValue = 8, AgeGroup = "60+ y" },
-        new RangeBarModel { LowValue = 7, HighValue = 9, AgeGroup = "18-60 y" },
-        new RangeBarModel { LowValue = 8, HighValue = 10, AgeGroup = "13-18 y" },
-        new RangeBarModel { LowValue = 9, HighValue = 12, AgeGroup = "6-12 y" },
-        new RangeBarModel { LowValue = 10, HighValue = 13, AgeGroup = "3-5 y" },
-        new RangeBarModel { LowValue = 11, HighValue = 14, AgeGroup = "1-2 y" },
-        new RangeBarModel { LowValue = 12, HighValue = 16, AgeGroup = "4-12 m" },
-        new RangeBarModel { LowValue = 14, HighValue = 17, AgeGroup = "0-3 m" }
-    };
-
-    public class RangeBarModel
-    {
-        public string AgeGroup { get; set; }
-        public int LowValue { get; set; }
-        public int HighValue { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chart/types/rangebar/custom-object-binding/" height="460"></demo>
 
 ## Range Bar Chart Specific Appearance Settings
 

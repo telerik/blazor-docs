@@ -29,35 +29,7 @@ The Bar Chart is similar to the [Range Bar Chart](slug:components/chart/types/ra
 
 >caption A bar chart that shows product revenues
 
-````RAZOR
-Bar series
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Bar"Name="Product 2" Data="@series2Data">
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-
-	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
-
-
+<demo metaUrl="client/chart/types/bar/overview/" height="420"></demo>
 
 ## Bar Chart Specific Appearance Settings
 
@@ -75,53 +47,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 >caption Configuring Label Template for the Value Axis and change the Font of the Category Axis.
 
-````RAZOR
-@* Add configuration settings for the Category and Value Axes *@
-
-<TelerikChart>
-    <ChartTitle Text="Site Visitors Stats"></ChartTitle>
-    <ChartLegend Visible="false"></ChartLegend>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Total Visits" Data="@Series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Unique visitors" Data="@Series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartValueAxes>
-        <ChartValueAxis Max="140000">
-            <ChartValueAxisLabels Template="#=value/1000#k"></ChartValueAxisLabels>
-        </ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@Categories">
-            <ChartCategoryAxisLabels Font="bold 14px 'Times New Roman'" />
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-</TelerikChart>
-
-@code {
-    public class ModelData
-    {
-        public int Value { get; set; }
-    }
-
-    public List<ModelData>
-    Data = new List<ModelData>()
-    {
-        new ModelData() { Value = 1 },
-        new ModelData() { Value = 3 },
-        new ModelData() { Value = 2 },
-        };
-
-    public List<object> Series1Data = new List<object>() { 56000, 63000, 74000, 91000, 117000, 138000 };
-    public List<object> Series2Data = new List<object>() { 52000, 34000, 23000, 48000, 67000, 83000 };
-    public string[] Categories = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun" };
-}
-````
+<demo metaUrl="client/chart/types/bar/value-axis-label-template/" height="420"></demo>
 
 ## See Also
 

@@ -29,34 +29,7 @@ Radar area charts are often used to make comparisons between several units that 
 
 >caption A radar area chart that shows comparison between character evaluations
 
-````RAZOR
-@* Radar Area series*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.RadarArea" Name="John Smith" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.RadarArea" Name="Jane Doe" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Candidate reviews and comparisons"></ChartTitle>
-
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 3, 3, 10, 2, 10 };
-    public List<object> series2Data = new List<object>() { 4, 10, 10, 5, 5, 4 };
-    public string[] xAxisItems = new string[] { "Experience", "Communication", "Friendliness", "Subject Knowledge", "Presentation", "Education" };
-}
-````
-
+<demo metaUrl="client/chart/types/radar-area/overview/" height="420"></demo>
 
 ## Radar Area Chart Specific Appearance Settings
 
@@ -93,40 +66,7 @@ You can render the lines between the points with different styles. The supported
 
 >caption Change the first series line settings, the Color and Font of the Category Axis Labels and the legend border
 
-````RAZOR
-@* Change the line of the series, the category labels and the legend border *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.RadarArea" Name="John Smith" Data="@series1Data">
-            <ChartSeriesLine Color="blue" Width="5" Style="@ChartSeriesLineStyle.Smooth"></ChartSeriesLine>
-        </ChartSeries>
-        <ChartSeries Type="@ChartSeriesType.RadarArea" Name="Jane Doe" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-            <ChartCategoryAxisLabels Color="#008000" Font="bold 12px 'Helvetica'"></ChartCategoryAxisLabels>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Candidate reviews and comparisons">
-    </ChartTitle>
-
-    <ChartLegend Position="@Telerik.Blazor.ChartLegendPosition.Right">
-        <ChartLegendBorder Color="red" DashType="@DashType.LongDashDotDot" Width="2"></ChartLegendBorder>
-    </ChartLegend>
-
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 8, null, 10, 2, 10 };
-    public List<object> series2Data = new List<object>() { 4, 10, 10, 5, 5, 4 };
-    public string[] xAxisItems = new string[] { "Experience", "Communication", "Friendliness", "Subject Knowledge", "Presentation", "Education" };
-}
-````
-
+<demo metaUrl="client/chart/types/radar-area/line-labels-legend/" height="460"></demo>
 
 ## See Also
 

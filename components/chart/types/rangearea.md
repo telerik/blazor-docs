@@ -35,79 +35,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Area Chart bound to arrays
 
-````RAZOR
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Name="Sydney"
-                     Data="@SydneyData"
-                     Type="ChartSeriesType.RangeArea">
-            <ChartSeriesLabels Visible="true" />
-        </ChartSeries>
-        <ChartSeries Name="Sofia"
-                     Data="@SofiaData"
-                     Type="ChartSeriesType.RangeArea">
-            @*<ChartSeriesLabels>
-                <ChartSeriesLabelsFrom Visible="true" />
-                <ChartSeriesLabelsTo Visible="false" />
-            </ChartSeriesLabels>*@
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@MonthNames" />
-    </ChartCategoryAxes>
-
-    <ChartValueAxes>
-        <ChartValueAxis AxisCrossingValue="@( new object[] { -60 } )" />
-    </ChartValueAxes>
-
-    <ChartTooltip Visible="true"></ChartTooltip>
-
-    <ChartTitle Text="Monthly Temperatures"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right"></ChartLegend>
-</TelerikChart>
-
-@code {
-    // The RangeArea series Data can be any collection of arrays
-
-    private List<double[]> SydneyData { get; set; } = new List<double[]>
-{
-        new double[] { 20, 27 },
-        new double[] { 19.9, 26.8 },
-        new double[] { 18.4, 25.7 },
-        new double[] { 15.3, 23.6 },
-        new double[] { 12.3, 20.9 },
-        new double[] { 10, 18.3 },
-        new double[] { 8.9, 17.9 },
-        new double[] { 9.7, 19.3 },
-        new double[] { 12.3, 21.6 },
-        new double[] { 14.6, 23.2 },
-        new double[] { 16.6, 24.2 },
-        new double[] { 18.4, 25.7 }
-    };
-
-    private double[][] SofiaData { get; set; } = new double[][]
-    {
-        new double[] { -3.8, 3.6 },
-        new double[] { -2.3, 6.5 },
-        new double[] { 1.1, 11.5 },
-        new double[] { 5.4, 16.7 },
-        new double[] { 9.9, 21.4 },
-        new double[] { 13.4, 25.3 },
-        new double[] { 15.3, 27.9 },
-        new double[] { 15.3, 28.4 },
-        new double[] { 11.1, 23.3 },
-        new double[] { 6.7, 17.6 },
-        new double[] { 2.2, 10.7 },
-        new double[] { -2.3, 4.6 }
-                };
-
-    private object[] MonthNames = new string[] {
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
-    };
-}
-````
+<demo metaUrl="client/chart/types/rangearea/array-binding/" height="460"></demo>
 
 ### Binding Range Area Series to Custom Objects
 
@@ -116,74 +44,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Area Chart bound to custom objects
 
-````RAZOR
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Name="Test Tube 1"
-                     Data="@Tube1Data"
-                     Type="ChartSeriesType.RangeArea"
-                     FromField="@nameof(AreaDataPoint.LowValue)"
-                     ToField="@nameof(AreaDataPoint.HighValue)"
-                     CategoryField="@nameof(AreaDataPoint.Hour)">
-            <ChartSeriesLabels Visible="true" />
-        </ChartSeries>
-        <ChartSeries Name="Test Tube 2"
-                     Data="@Tube2Data"
-                     Type="ChartSeriesType.RangeArea"
-                     FromField="@nameof(AreaDataPoint.LowValue)"
-                     ToField="@nameof(AreaDataPoint.HighValue)"
-                     CategoryField="@nameof(AreaDataPoint.Hour)">
-            @*<ChartSeriesLabels Visible="true">
-                    <ChartSeriesLabelsFrom Visible="true" />
-                    <ChartSeriesLabelsTo Visible="false" />
-                </ChartSeriesLabels>*@
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartTooltip Visible="true"></ChartTooltip>
-
-    <ChartTitle Text="Laboratory Measurements"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right"></ChartLegend>
-</TelerikChart>
-
-@code {
-    private List<AreaDataPoint> Tube1Data { get; set; } = new List<AreaDataPoint>();
-
-    private List<AreaDataPoint> Tube2Data { get; set; } = new List<AreaDataPoint>();
-
-    protected override void OnInitialized()
-    {
-        var rnd = new Random();
-        var dataPointCount = 10;
-
-        for (int i = 1; i <= dataPointCount; i++)
-        {
-            Tube1Data.Add(new AreaDataPoint()
-            {
-                Hour = i,
-                LowValue = rnd.Next(5 * i, 10 * i),
-                HighValue = rnd.Next(15 * i, 20 * i + 5)
-            });
-
-            Tube2Data.Add(new AreaDataPoint()
-            {
-                Hour = i,
-                LowValue = rnd.Next(5 * (dataPointCount + 1 - i), 10 * (dataPointCount + 1 - i)),
-                HighValue = rnd.Next(15 * (dataPointCount + 1 - i), 20 * (dataPointCount + 1 - i))
-            });
-        }
-    }
-
-    public class AreaDataPoint
-    {
-        public int Hour { get; set; }
-        public int LowValue { get; set; }
-        public int HighValue { get; set; }
-    }
-}
-````
-
+<demo metaUrl="client/chart/types/rangearea/custom-object-binding/" height="460"></demo>
 
 ## Range Area Chart Specific Appearance Settings
 
