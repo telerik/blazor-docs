@@ -62,84 +62,9 @@ The known limitations of the Autofit Columns feature include:
 
 ## Example
 
->caption How Column Resizing Works in the Telerik Grid
-
-![Blazor Grid Column Resize Preview](images/column-resize-preview.gif)
-
 >caption Grid Column Resizing and Autofitting
 
-````RAZOR
-<p>Resize the Grid columns and click the AutoFit buttons. The command column is not resizable by the user.</p>
-
-<TelerikButton OnClick="@AutoFitSingleColumn">AutoFit ID Column</TelerikButton>
-<TelerikButton OnClick="@AutoFitMultipleColumns">AutoFit String Columns</TelerikButton>
-<TelerikButton OnClick="@AutoFitAllColumns">AutoFit All Columns</TelerikButton>
-
-<TelerikGrid @ref="@GridRef"
-             Data="@GridData"
-             Resizable="true"
-             Pageable="true"
-             Sortable="true"
-             Height="300px">
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.Id) Title="ID" Id="@IdColumnId" />
-        <GridColumn Field=@nameof(SampleData.FirstName) Title="First Name" Id="@FirstNameColumnId" />
-        <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" Id="@LastNameColumnId" />
-        <GridCommandColumn Width="100px" Resizable="false">
-            <GridCommandButton Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public TelerikGrid<SampleData>? GridRef { get; set; }
-    public List<SampleData> GridData { get; set; } = new();
-
-    // Columns IDs used in the Grid column definitions and in the AutoFit methods.
-    private const string IdColumnId = "id-column";
-    private const string FirstNameColumnId = "first-name-column";
-    private const string LastNameColumnId = "last-name-column";
-
-    private async Task AutoFitSingleColumn()
-    {
-        await GridRef!.AutoFitColumnAsync(IdColumnId);
-    }
-
-    private async Task AutoFitMultipleColumns()
-    {
-        var columnIds = new List<string>() { FirstNameColumnId, LastNameColumnId };
-        await GridRef!.AutoFitColumnsAsync(columnIds);
-    }
-
-    private async Task AutoFitAllColumns()
-    {
-        await GridRef!.AutoFitAllColumnsAsync();
-    }
-
-    protected override void OnInitialized()
-    {
-        GridData = GetData();
-    }
-
-    private List<SampleData> GetData()
-    {
-        return Enumerable.Range(1, 50).Select(x => new SampleData
-        {
-            Id = x,
-            FirstName = $"Name {x}",
-            LastName = $"Surname {x}"
-        }).ToList();
-    }
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/columns-resize/"></demo>
 
 ## See Also
 

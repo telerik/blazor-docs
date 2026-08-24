@@ -64,76 +64,7 @@ The following example enables both sticky group headers and sticky group footers
 
 >caption Grid with sticky group headers and footers
 
-````RAZOR
-@using Telerik.DataSource
-
-<TelerikGrid Data="@GridData"
-             Groupable="true"
-             Pageable="true"
-             Height="400px"
-             OnStateInit="@OnGridStateInit">
-    <GridSettings>
-        <GridGroupableSettings StickyHeaders="true" StickyFooters="true" />
-    </GridSettings>
-    <GridAggregates>
-        <GridAggregate Field="@nameof(Employee.Name)" Aggregate="@GridAggregateType.Count" />
-        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Sum" />
-        <GridAggregate Field="@nameof(Employee.Salary)" Aggregate="@GridAggregateType.Max" />
-    </GridAggregates>
-    <GridColumns>
-        <GridColumn Field="@nameof(Employee.Name)" Groupable="false">
-            <GroupFooterTemplate>
-                Team Members: <strong>@context.Count</strong>
-            </GroupFooterTemplate>
-        </GridColumn>
-        <GridColumn Field="@nameof(Employee.Team)" Title="Team" />
-        <GridColumn Field="@nameof(Employee.Salary)" Title="Salary" DisplayFormat="{0:C0}" Groupable="false">
-            <GroupFooterTemplate>
-                Total salaries: @context.Sum?.ToString("C0")
-                <br />
-                Highest: <strong>@context.Max?.ToString("C0")</strong>
-            </GroupFooterTemplate>
-        </GridColumn>
-        <GridColumn Field="@nameof(Employee.IsOnLeave)" Title="On Vacation" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private void OnGridStateInit(GridStateEventArgs<Employee> args)
-    {
-        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
-        {
-            Member = nameof(Employee.Team)
-        });
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 30; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = $"Employee {i}",
-                Team = $"Team {i % 4}",
-                Salary = Random.Shared.Next(1000, 5000),
-                IsOnLeave = i % 3 == 0
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-        public decimal Salary { get; set; }
-        public bool IsOnLeave { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/grouping-sticky/"></demo>
 
 ## Limitations
 

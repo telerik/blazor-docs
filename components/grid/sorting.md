@@ -30,55 +30,7 @@ You can prevent the user from sorting a certain field by setting `Sortable="fals
 
 >caption Enable Sorting in the Telerik Blazor Grid
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             TItem="@Product"
-             Sortable="true"
-             Height="90vh">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.Category)" />
-        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
-        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:n0}" />
-        <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:d}" />
-        <GridColumn Field="@nameof(Product.Discontinued)" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Product> GridData { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        var rnd = Random.Shared;
-
-        for (int i = 1; i <= 20; i++)
-        {
-            GridData.Add(new Product()
-            {
-                Id = i,
-                Name = $"Name {i} {(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)}",
-                Category = $"Category {i % 3 + 1}",
-                Price = rnd.Next(1, 100) * 1.23m,
-                Quantity = rnd.Next(0, 10000),
-                Released = DateTime.Today.AddDays(-rnd.Next(60, 1000)),
-                Discontinued = i % 4 == 0
-            });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public DateTime Released { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/sorting/"></demo>
 
 ### Multi Column Sorting
 
@@ -86,56 +38,7 @@ To allow sorting on more than one column at a time, set the Grid `SortMode` para
 
 >caption Enable multi column Grid sorting
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             TItem="@Product"
-             Sortable="true"
-             SortMode="@SortMode.Multiple"
-             Height="90vh">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.CategoryA)" Title="Category A" />
-        <GridColumn Field="@nameof(Product.CategoryB)" Title="Category B" />
-        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
-        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:n0}" />
-        <GridColumn Field="@nameof(Product.Discontinued)" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Product> GridData { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        var rnd = Random.Shared;
-
-        for (int i = 1; i <= 20; i++)
-        {
-            GridData.Add(new Product()
-            {
-                Id = i,
-                Name = $"Name {i}",
-                CategoryA = $"A {rnd.Next(1, 4)}",
-                CategoryB = $"B {rnd.Next(1, 4)}",
-                Price = rnd.Next(10, 20),
-                Quantity = rnd.Next(0, 10),
-                Discontinued = i % 3 == 0
-            });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string CategoryA { get; set; } = string.Empty;
-        public string CategoryB { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/sorting-multiple/"></demo>
 
 ## Sort From Code
 

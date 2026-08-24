@@ -18,70 +18,7 @@ You can use [aggregates](slug:grid-aggregates) for the current field directly fr
 
 >caption Footer Template with grand total data
 
-````RAZOR
-@* grand total footer that is always visible *@
-
-<TelerikGrid Data=@GridData Pageable="true" Height="300px">
-    <GridAggregates>
-        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Max" />
-        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Sum" />
-        <GridAggregate Field=@nameof(Employee.EmployeeId) Aggregate="@GridAggregateType.Count" />
-    </GridAggregates>
-    <GridColumns>
-        <GridColumn Field=@nameof(Employee.Salary) Title="Salary">
-            <FooterTemplate>
-                Total salaries: @context.Sum?.ToString("C0")
-                <br />
-                Highest salary: @context.Max?.ToString("C0")
-            </FooterTemplate>
-        </GridColumn>
-        <GridColumn Field=@nameof(Employee.Name)>
-            <FooterTemplate>
-                @{
-                    // you can use aggregates for other fields/columns by extracting the desired one by its
-                    // field name and aggregate function from the AggregateResults collection
-                    // The type of its Value is determined by the type of its field - decimal for the Salary field or int for the count of IDs
-                    // Casts are towards nullable types to avoid errors when filering removes all items and aggregation
-                    int? headCount = (int?)context?.AggregateResults
-                        .FirstOrDefault(r => r.AggregateMethodName == "Count" && r.Member == nameof(Employee.EmployeeId))?.Value;
-                }
-                Total employees: @headCount
-            </FooterTemplate>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<Employee> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 15; i++)
-        {
-            Random rnd = new Random();
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Salary = rnd.Next(1000, 5000),
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public decimal Salary { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Grid Footer Template](images/footer-template.png)
+<demo metaUrl="client/grid/templates-column-footer/"></demo>
 
 ## Using Components in Grid Column Footer Templates
 

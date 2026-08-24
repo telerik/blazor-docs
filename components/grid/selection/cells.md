@@ -27,66 +27,7 @@ To enable cell selection:
 
 >caption Grid multiple cell selection
 
-````RAZOR
-<TelerikGrid Data="@GridData"
-             SelectionMode="@GridSelectionMode.Multiple"
-             @bind-SelectedCells="@SelectedCells"
-             Pageable="true">
-    <GridSettings>
-        <GridSelectionSettings SelectionType="@GridSelectionType.Cell" DragToSelect="true" />
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@nameof(Employee.Name)" />
-        <GridColumn Field="@nameof(Employee.Team)" />
-    </GridColumns>
-</TelerikGrid>
-
-<h3>Selected Cells:</h3>
-
-<ul>
-    @foreach (GridSelectedCellDescriptor cellDescriptor in SelectedCells)
-    {
-        <li>
-            Column <code>Field</code>: @cellDescriptor.ColumnField,
-            <code>EmployeeId</code>: @( ((Employee)cellDescriptor.DataItem).EmployeeId )
-        </li>
-    }
-</ul>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private IEnumerable<GridSelectedCellDescriptor> SelectedCells { get; set; } = Enumerable.Empty<GridSelectedCellDescriptor>();
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = $"Employee {i}",
-                Team = $"Team {i % 3 + 1}"
-            });
-        }
-
-        SelectedCells = new List<GridSelectedCellDescriptor>() {
-            new GridSelectedCellDescriptor()
-            {
-                DataItem = GridData.ElementAt(2),
-                ColumnField = nameof(Employee.Name)
-            }
-        };
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/selection-cells/" height="700"></demo>
 
 ## SelectedCellsChanged Event
 
@@ -96,82 +37,7 @@ You can respond to user selection actions through the `SelectedCellsChanged` eve
 
 >caption Using the Grid SelectedCellsChanged event
 
-````RAZOR
-@* Select cells and handle the SelectedCellsChanged event *@
-
-<TelerikGrid Data="@GridData"
-             SelectionMode="@GridSelectionMode.Multiple"
-             SelectedCells="@SelectedCells"
-             SelectedCellsChanged="@( (IEnumerable<GridSelectedCellDescriptor> newSelected) => OnCellSelect(newSelected) )"
-             Pageable="true">
-    <GridSettings>
-        <GridSelectionSettings SelectionType="@GridSelectionType.Cell" DragToSelect="true" />
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@nameof(Employee.Name)" />
-        <GridColumn Field="@nameof(Employee.Team)" />
-    </GridColumns>
-</TelerikGrid>
-
-<p><code>SelectedItemsChanged</code> fired at: @SelectedCellsChangedLog</p>
-
-<h3>Selected Cells:</h3>
-
-<ul>
-    @foreach (GridSelectedCellDescriptor cellDescriptor in SelectedCells)
-    {
-        <li>
-            Column <code>Field</code>: @cellDescriptor.ColumnField,
-            <code>EmployeeId</code>: @( ((Employee)cellDescriptor.DataItem).EmployeeId )
-        </li>
-    }
-</ul>
-
-@code {
-    private List<Employee> GridData { get; set; } = new();
-
-    private IEnumerable<GridSelectedCellDescriptor> SelectedCells { get; set; } = Enumerable.Empty<GridSelectedCellDescriptor>();
-
-    private string SelectedCellsChangedLog { get; set; } = string.Empty;
-
-    protected void OnCellSelect(IEnumerable<GridSelectedCellDescriptor> cellDescriptors)
-    {
-        // Update the SelectedCells collection manually.
-        // When using two-way binding, this happens automatically.
-        SelectedCells = cellDescriptors;
-
-        SelectedCellsChangedLog = DateTime.Now.ToLongTimeString();
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = $"Employee {i}",
-                Team = $"Team {i % 3 + 1}"
-            });
-        }
-
-        SelectedCells = new List<GridSelectedCellDescriptor>() {
-            new GridSelectedCellDescriptor()
-            {
-                DataItem = GridData.ElementAt(2),
-                ColumnField = nameof(Employee.Name)
-            }
-        };
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Team { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/grid/selection-cells-changed/" height="700"></demo>
 
 ## GridSelectedCellDescriptor
 

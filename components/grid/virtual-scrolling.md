@@ -95,99 +95,11 @@ You can [disable elastic scrolling with CSS](slug:grid-kb-negative-skip-value-vi
 
 Row virtualization is often used with a large number of data items that cannot be loaded in a single request. Thus, the example below uses the [Grid `OnRead` event](slug:components/grid/manual-operations) together with the [`ToDataSourceResultAsync()`](slug:common-features-data-binding-onread#todatasourceresult-method) method. You can also use the Grid `Data` parameter and load all data items with a single request. [Do not use `Data` and `OnRead` at the same time](slug:common-features-data-binding-overview#how-to-provide-data).
 
-If you use the `OnRead` event without `ToDataSourceResultAsync()`, then [use the `Skip` and `PageSize` values](slug:components/grid/manual-operations#virtual-scrolling-with-onread) of the [`DataSourceRequest` argument](slug:common-features-data-binding-onread#event-argument) to determine the Grid scroll offset and load the correct data items.
+If you use the `OnRead` event without `ToDataSourceResultAsync()`, then [use the `Skip` and `PageSize` values](slug:components/grid/manual-operations#virtual-scrolling-with-onread) of the [`DataSourceRequest` argument](slug:common-features-data-binding-onread#event-argument) to determine the Grid scroll offset and load the correct data items. When grouping is enabled, the `Skip` value is always `0` and the `DataSourceRequest` provides [information about the requested data in other properties](slug:grid-group-lod#server-operations).
 
 >caption Virtual Grid scrolling with optional OnRead event and grouping
 
-````RAZOR
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikGrid OnRead="@OnGridRead"
-             TItem="@Product"
-             FilterMode="GridFilterMode.FilterMenu"
-             Groupable="true"
-             Height="360px"
-             LoadGroupsOnDemand="true"
-             PageSize="20"
-             RowHeight="40"
-             ScrollMode="@GridScrollMode.Virtual"
-             Sortable="true">
-    <GridAggregates>
-        <GridAggregate Field="@nameof(Product.Name)"
-                       FieldType="@typeof(string)"
-                       Aggregate="@GridAggregateType.Count" />
-    </GridAggregates>
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)">
-            <FooterTemplate>
-                Count: @context.Count
-            </FooterTemplate>
-        </GridColumn>
-        <GridColumn Field="@nameof(Product.Category)" />
-        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
-        <GridColumn Field="@nameof(Product.Quantity)" />
-    </GridColumns>
-</TelerikGrid>
-
-<style>
-    div.k-grid-content {
-        overscroll-behavior: none;
-    }
-</style>
-
-<p style="margin-top: 1em; font-size: 1.5em;">
-    <code>DataSourceRequest.Skip</code> value
-    in the <code>OnRead</code> event argument: <strong>@GridSkip</strong>
-</p>
-
-@code {
-    private List<Product> GridData { get; set; } = new();
-
-    private int GridSkip { get; set; }
-
-    private async Task OnGridRead(GridReadEventArgs args)
-    {
-        // Use args.Request.Skip and args.Request.PageSize
-        // to load the correct data items without ToDataSourceResultAsync()
-        GridSkip = args.Request.Skip;
-
-        DataSourceResult result = await GridData.ToDataSourceResultAsync(args.Request);
-
-        args.Data = result.Data;
-        args.Total = result.Total;
-        args.AggregateResults = result.AggregateResults;
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 1000; i++)
-        {
-            GridData.Add(new Product()
-            {
-                Id = i,
-                Name = $"Name {i}",
-                Category = $"Category {i % 6 + 1}",
-                Price = Random.Shared.Next(1, 100) * 1.23m,
-                Quantity = Random.Shared.Next(0, 1000),
-                Release = DateTime.Now.AddDays(-Random.Shared.Next(60, 1000)),
-                Discontinued = i % 4 == 0
-            });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public DateTime Release { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/virtual-scrolling/"></demo>
 
 ## See Also
 

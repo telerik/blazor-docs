@@ -71,62 +71,7 @@ The column widths for the PDF export can differ from the ones in the Grid config
 
 >caption Export the Grid to PDF
 
-````RAZOR
-@* You can sort, group, filter, page the grid, resize and reorder its columns, and you can click the
-    Export button to save the current data *@
-
-<TelerikGrid Data="@GridData"
-             FilterMode="@GridFilterMode.FilterMenu"
-             Groupable="true"
-             Pageable="true"
-             Reorderable="true"
-             Resizable="true"
-             Sortable="true"
-             Width="700px">
-    <GridToolBar>
-        <GridToolBarPdfExportTool>
-            Export to PDF
-        </GridToolBarPdfExportTool>
-    </GridToolBar>
-
-    <GridExport>
-        <GridPdfExport FileName="telerik-grid-export"/>
-    </GridExport>
-
-    <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="200px" />
-        <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" Width="150px" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<SampleData> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-            {
-                ProductId = x,
-                ProductName = $"Product {x}",
-                UnitsInStock = x * 2,
-                Price = 3.15m * x,
-                Discontinued = x % 4 == 0,
-            }).ToList();
-    }
-
-    public class SampleData
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int UnitsInStock { get; set; }
-        public decimal Price { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/export-pdf/" height="750"></demo>
 
 ## Limitations
 
@@ -148,79 +93,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 >caption Invoke the PDF export function from code
 
-````RAZOR
-@* Send the exported file for download and get the exported data as a memory stream *@
-
-@using System.IO
-
-<TelerikButton OnClick="@(async () => await GridRef.SaveAsPdfFileAsync())">Download the PDF file</TelerikButton>
-<TelerikButton OnClick="@GetTheDataAsAStream">Get the Exported Data as a MemoryStream</TelerikButton>
-
-<TelerikGrid @ref="@GridRef"
-             Data="@GridData"
-             FilterMode="@GridFilterMode.FilterMenu"
-             Groupable="true"
-             Pageable="true"
-             Reorderable="true"
-             Resizable="true"
-             Sortable="true"            
-             Width="650px">
-    <GridToolBarTemplate>
-        <GridCommandButton Command="PdfExport" Icon="@SvgIcon.FilePdf">Export to PDF</GridCommandButton>
-        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBarTemplate>
-
-    <GridExport>
-        <GridPdfExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />
-    </GridExport>
-
-    <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="200px" />
-        <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" Width="150px" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
-
-    private MemoryStream ExportedPdfStream { get; set; }
-
-    private List<SampleData> GridData { get; set; }
-
-    private bool ExportAllPages { get; set; }
-
-    private async Task GetTheDataAsAStream()
-    {
-        MemoryStream finalizedStream = await GridRef.ExportToPdfAsync();
-
-        ExportedPdfStream = new MemoryStream(finalizedStream.ToArray());
-    }
-
-    protected override void OnInitialized()
-    {
-        GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-            {
-                ProductId = x,
-                ProductName = $"Product {x}",
-                UnitsInStock = x * 2,
-                Price = 3.15m * x,
-                Discontinued = x % 4 == 0,
-            }).ToList();
-    }
-
-    public class SampleData
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public int UnitsInStock { get; set; }
-        public decimal Price { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/grid/export-pdf-programmatic/" height="750"></demo>
 
 ## Customization
 
