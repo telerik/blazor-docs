@@ -32,45 +32,7 @@ You can set the aggregation function through the `Aggregate` property of the ser
 
 >caption Date Axis with month grouping and different aggregates on the series
 
-````RAZOR
-Grouping by month, aggregates
-
-<TelerikChart>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis BaseUnit="ChartCategoryAxisBaseUnit.Months" Type="ChartCategoryAxisType.Date"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-	
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1 (SUM)" Data="@chartData"
-							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)" Aggregate="ChartSeriesAggregate.Sum">
-			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2 (COUNT)" Data="@chartData"
-							Field="@nameof(MyDataModel.Product2)" Aggregate="ChartSeriesAggregate.Count">
-			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
-	
-</TelerikChart>
-
-@code {
-	public class MyDataModel
-	{
-		public DateTime MySharedCategories { get; set; }
-		public int Product1 { get; set; }
-		public int Product2 { get; set; }
-	}
-
-	public List<MyDataModel> chartData = new List<MyDataModel>()
-    {
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 11, 11), Product1 = 1, Product2 = 2 },
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 15), Product1 = 2, Product2 = 3 },
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 19), Product1 = 3, Product2 = 4 },
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 28), Product1 = 4, Product2 = 5 },
-	};
-}
-````
+<demo metaUrl="client/chart/date-axis/month-grouping/" height="420"></demo>
 
 ### Advanced Features
 
@@ -98,48 +60,7 @@ Each base unit has a default format for the date it displays. If you want to cha
 
 >caption Steps set to weeks, changed weeks start day to Monday and non-default label format
 
-````RAZOR
-Steps, custom label format, non-default start of week
-
-<TelerikChart>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis BaseUnit="ChartCategoryAxisBaseUnit.Weeks" WeekStartDay="1" Type="ChartCategoryAxisType.Date">
-			<ChartCategoryAxisLabels Format="{0:dd MMM}" />
-		</ChartCategoryAxis>
-	</ChartCategoryAxes>
-	
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1 (SUM)" Data="@chartData"
-							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.MySharedCategories)" 
-							Aggregate="ChartSeriesAggregate.Sum">
-			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2 (COUNT)" Data="@chartData"
-							Field="@nameof(MyDataModel.Product2)" Aggregate="ChartSeriesAggregate.Count">
-			<ChartSeriesLabels Visible="true"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
-
-</TelerikChart>
-
-@code {
-	public class MyDataModel
-	{
-		public DateTime MySharedCategories { get; set; }
-		public int Product1 { get; set; }
-		public int Product2 { get; set; }
-	}
-
-	public List<MyDataModel> chartData = new List<MyDataModel>()
-	{
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 11, 11), Product1 = 1, Product2 = 2 },
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 15), Product1 = 2, Product2 = 3 },
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 19), Product1 = 3, Product2 = 4 },
-		new MyDataModel() { MySharedCategories = new DateTime(2019, 12, 28), Product1 = 4, Product2 = 5 },
-	};
-}
-````
+<demo metaUrl="client/chart/date-axis/week-steps-format/" height="420"></demo>
 
 ## Numerical charts
 
@@ -167,111 +88,12 @@ For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning
 
 >caption ScatterLine chart with day and time values. Markers are rendered after the day labels to also respect the time values.
 
-````RAZOR
-@* ScatterLine chart with day and time values for the X-axis *@
-
-<div style="width:800px">
-    <TelerikChart>
-
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.ScatterLine"
-                         Data="@ChartData"
-                         Name="0.8C"
-                         XField="@nameof(ModelData.X)"
-                         YField="@nameof(ModelData.Y)">
-            </ChartSeries>
-        </ChartSeriesItems>
-
-        <ChartXAxes>
-            <ChartXAxis Type="date"
-                        BaseUnit="days"
-                        MajorUnit="1"
-                        Min="@( new DateTime(2021, 5, 23) )"
-                        Max="@( new DateTime(2021, 5, 31) )">
-                <ChartXAxisTitle Text="Time"></ChartXAxisTitle>
-                <ChartXAxisLabels Format="{0:dd MMM yy}"></ChartXAxisLabels>
-            </ChartXAxis>
-        </ChartXAxes>
-
-    </TelerikChart>
-</div>
-
-@code {
-
-    public class ModelData
-    {
-        public DateTime X { get; set; }
-        public int Y { get; set; }
-    }
-
-    public List<ModelData> ChartData = new List<ModelData>
-{
-        new ModelData() { X = new DateTime(2021, 5, 23, 10, 30, 0), Y = 20  },
-        new ModelData() { X = new DateTime(2021, 5, 24, 12, 0, 0), Y = 25  },
-        new ModelData() { X = new DateTime(2021, 5, 25, 0, 0, 0), Y = 40  },
-        new ModelData() { X = new DateTime(2021, 5, 26, 9, 0, 0), Y = 50  },
-        new ModelData() { X = new DateTime(2021, 5, 27, 14, 30, 0, 0), Y = 60  },
-        new ModelData() { X = new DateTime(2021, 5, 28, 18, 15, 0), Y = 65  },
-        new ModelData() { X = new DateTime(2021, 5, 29, 16, 20, 0), Y = 80  },
-        new ModelData() { X = new DateTime(2021, 5, 30, 15, 30, 0), Y = 90  },
-        new ModelData() { X = new DateTime(2021, 5, 31, 0, 0, 0), Y = 100 }
-    };
-}
-````
+<demo metaUrl="client/chart/date-axis/scatterline-day-time/" height="460"></demo>
 <br/>
 
 >caption ScatterLine chart with only days values. Markers are rendered exactly on the day labels. 
 
-````RAZOR
-@* ScatterLine chart with only day values for the X-axis *@
-
-<div style="width:800px">
-    <TelerikChart>
-
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.ScatterLine"
-                         Data="@ChartData"
-                         Name="0.8C"
-                         XField="@nameof(ModelData.X)"
-                         YField="@nameof(ModelData.Y)">
-            </ChartSeries>
-        </ChartSeriesItems>
-
-        <ChartXAxes>
-            <ChartXAxis Type="date"
-                        BaseUnit="days"
-                        MajorUnit="1"
-                        Min="@( new DateTime(2021, 5, 23) )"
-                        Max="@( new DateTime(2021, 5, 31) )">
-                <ChartXAxisTitle Text="Time"></ChartXAxisTitle>
-                <ChartXAxisLabels Format="{0:dd MMM yy}"></ChartXAxisLabels>
-            </ChartXAxis>
-        </ChartXAxes>
-
-    </TelerikChart>
-</div>
-@code {
-
-    public class ModelData
-    {
-        public DateTime X { get; set; }
-        public int Y { get; set; }
-    }
-
-    public List<ModelData> ChartData = new List<ModelData>
-{
-        new ModelData() { X = new DateTime(2021, 5, 23), Y = 20  },
-        new ModelData() { X = new DateTime(2021, 5, 24), Y = 25  },
-        new ModelData() { X = new DateTime(2021, 5, 25), Y = 40  },
-        new ModelData() { X = new DateTime(2021, 5, 26), Y = 50  },
-        new ModelData() { X = new DateTime(2021, 5, 27), Y = 60  },
-        new ModelData() { X = new DateTime(2021, 5, 28), Y = 65  },
-        new ModelData() { X = new DateTime(2021, 5, 29), Y = 80  },
-        new ModelData() { X = new DateTime(2021, 5, 30), Y = 90  },
-        new ModelData() { X = new DateTime(2021, 5, 31), Y = 100 }
-    };
-}
-````
+<demo metaUrl="client/chart/date-axis/scatterline-day-only/" height="460"></demo>
 
 ## See Also
 
