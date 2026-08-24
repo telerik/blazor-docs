@@ -95,11 +95,11 @@ You can [disable elastic scrolling with CSS](slug:grid-kb-negative-skip-value-vi
 
 Row virtualization is often used with a large number of data items that cannot be loaded in a single request. Thus, the example below uses the [Grid `OnRead` event](slug:components/grid/manual-operations) together with the [`ToDataSourceResultAsync()`](slug:common-features-data-binding-onread#todatasourceresult-method) method. You can also use the Grid `Data` parameter and load all data items with a single request. [Do not use `Data` and `OnRead` at the same time](slug:common-features-data-binding-overview#how-to-provide-data).
 
-If you use the `OnRead` event without `ToDataSourceResultAsync()`, then [use the `Skip` and `PageSize` values](slug:components/grid/manual-operations#virtual-scrolling-with-onread) of the [`DataSourceRequest` argument](slug:common-features-data-binding-onread#event-argument) to determine the Grid scroll offset and load the correct data items.
+If you use the `OnRead` event without `ToDataSourceResultAsync()`, then [use the `Skip` and `PageSize` values](slug:components/grid/manual-operations#virtual-scrolling-with-onread) of the [`DataSourceRequest` argument](slug:common-features-data-binding-onread#event-argument) to determine the Grid scroll offset and load the correct data items. When grouping is enabled, the `Skip` value is always `0` and the `DataSourceRequest` provides [information about the requested data in other properties](slug:grid-group-lod#server-operations).
 
 >caption Virtual Grid scrolling with optional OnRead event and grouping
 
-<demo metaUrl="client/grid/virtual-scrolling/" height="500"></demo>
+<demo metaUrl="client/grid/virtual-scrolling/"></demo>
 
 ## See Also
 

@@ -31,26 +31,7 @@ Steps 2 and 3 are optional, but strongly recommended.
 
 >caption Using the FileSelect
 
-````CS
-<TelerikFileSelect AllowedExtensions="@AllowedExtensions"
-                   MaxFileSize="@MaxFileSize"
-                   OnSelect="@OnSelectHandler" />
-
-@code {
-    List<string> AllowedExtensions { get; set; } = new List<string>() { ".docx", ".pdf" };
-    int MaxFileSize { get; set; } = 1024 * 1024; // 1 MB
-
-    async Task OnSelectHandler(FileSelectEventArgs args)
-    {
-        foreach (var file in args.Files)
-        {
-            var buffer = new byte[file.Stream.Length];
-            await file.Stream.ReadAsync(buffer);
-        }
-    }
-}
-````
-
+<demo metaUrl="client/fileselect/overview/" height="250"></demo>
 
 ## Large File Support
 

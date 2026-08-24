@@ -105,11 +105,7 @@ The following code example demonstrates declarations and handling.
 
 >caption Example of handling custom commands in a grid column
 
-<demo metaUrl="client/grid/columns-command/" height="600"></demo>
-
->caption The result from the code snippet above, after the custom command button was clicked on the first row, and after the user tried to edit the second row to put the number "3" in the Name column.
-
-![Blazor Grid Command Column Result](images/command-column-result.png)
+<demo metaUrl="client/grid/columns-command/"></demo>
 
 ## Using Components in Grid Command Column
 

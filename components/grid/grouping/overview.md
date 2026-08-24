@@ -38,11 +38,7 @@ You can also use [aggregates](slug:grid-aggregates) for the grouped data.
 
 >caption Enable grouping in Telerik Grid
 
-<demo metaUrl="client/grid/grouping/" height="500"></demo>
-
->caption How grouping works in the Telerik grid
-
-![Blazor Grid Grouping Overview](images/grouping-overview.gif)
+<demo metaUrl="client/grid/grouping/"></demo>
 
 ## Aggregates
 
@@ -73,7 +69,7 @@ You can group the Grid from your code through the [Grid state](slug:grid-state).
 
 The Grid provides grouping configuration options via the [`GridGroupableSettings` tag](slug:Telerik.Blazor.Components.GridGroupableSettings), which is nested inside `GridSettings`.
 
-<demo metaUrl="client/grid/grouping-settings/" height="450"></demo>
+<demo metaUrl="client/grid/grouping-settings/"></demo>
 
 ## More Examples
 

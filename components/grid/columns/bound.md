@@ -30,7 +30,7 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 >caption Provide data to the grid and choose which columns (fields) to see
 
-<demo metaUrl="client/grid/columns-bound/" height="500"></demo>
+<demo metaUrl="client/grid/columns-bound/"></demo>
 
 >tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`. The field name is, however, **case-sensitive**.
 
@@ -105,12 +105,13 @@ You can use the following properties on bound columns:
 
 * The `Field` of the column must point to a property in the model that has a public getter so that the grid can display data. For editing to be enabled, the property must have a public setter. For example:
 
-    **C#**
-        public class MyModel
-        {
-            public int WorkinProperty { get; set; } // has public getter and setter so it can be shown and edited
-            public int NonWorkingField // no public getter, so the grid cannot display this
-        }
+    ````C#
+    public class MyModel
+    {
+        public int WorkinProperty { get; set; } // has public getter and setter so it can be shown and edited
+        public int NonWorkingField // no public getter, so the grid cannot display this
+    }
+    ````
 
 * **Foreign Keys** - using foreign tables and keys is usually done through the grid templates. You can read more and find examples in the [Grid - Foreign Key](slug:grids-foreign-key) KnowledgeBase article.
 

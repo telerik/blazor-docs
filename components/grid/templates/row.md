@@ -23,7 +23,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 
 >caption Using a row template
 
-<demo metaUrl="client/grid/templates-row/" height="550"></demo>
+<demo metaUrl="client/grid/templates-row/"></demo>
 
 ## Using Components in Grid Row Templates
 

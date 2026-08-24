@@ -36,7 +36,7 @@ The example below shows how to:
 
 >caption Using Grid cell (column) template
 
-<demo metaUrl="client/grid/templates-column/" height="500"></demo>
+<demo metaUrl="client/grid/templates-column/"></demo>
 
 >tip The above example renders read-only checkboxes to display boolean values. You can also [use checkboxes in display mode and directly change the underlying data source values](slug:grid-kb-checkbox-editing). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
 

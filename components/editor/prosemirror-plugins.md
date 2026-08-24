@@ -48,7 +48,7 @@ The Editor will call this function and will pass an argument object that contain
 
 >caption Adding a Placeholder Plugin
 
-```CSHTML
+````CSHTML
 @using Telerik.Blazor.Components.Editor
 @inject IJSRuntime js
 
@@ -128,7 +128,7 @@ The Editor will call this function and will pass an argument object that contain
         head.appendChild(style);
     };
 </script>
-```
+````
 
 ## See Also
 

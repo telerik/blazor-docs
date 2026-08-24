@@ -17,7 +17,7 @@ The Grid will also show its default or custom `NoDataTemplate` while loading its
 
 >caption Using NoDataTemplate
 
-<demo metaUrl="client/grid/templates-no-data/" height="500"></demo>
+<demo metaUrl="client/grid/templates-no-data/"></demo>
 
 ## See Also
 
