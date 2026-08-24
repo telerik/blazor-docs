@@ -34,31 +34,7 @@ To enable tooltips for the data points of each individual series:
 
 >caption Enable the tooltip for a specific Chart Series
 
-````RAZOR
-@* Enable tooltip for a single Chart Series *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Series 1" Data="@data1">
-        </ChartSeries>
-
-        <ChartSeries Type="ChartSeriesType.Column" Name="Series 2" Data="@data2">
-            <ChartSeriesTooltip Visible="true"></ChartSeriesTooltip>
-        </ChartSeries>
-
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-</TelerikChart>
-
-@code {
-    public List<object> data1 = new List<object>() { 1, 2, 3, 4 };
-    public List<object> data2 = new List<object>() { 2, 3, 4, 5 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/tooltip/overview/single-series/" height="420"></demo>
 
 
 ## Common Tooltip
@@ -74,37 +50,7 @@ To enable the same tooltip for all series:
 
 >caption Set a Common Tooltip for all series at once
 
-````RAZOR
-@* This example shows you how to create a common tooltip for all data points *@
-
-<TelerikChart>
-
-    <ChartTooltip Visible="true">
-    </ChartTooltip>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/tooltip/overview/common-tooltip/" height="420"></demo>
 
 
 ## Customization
@@ -126,58 +72,7 @@ You can customize the appearance of the individual series tooltip by using:
 
 >caption Configuration of the tooltips with applied customization settings
 
-````RAZOR
-@* This example shows how to customize the tooltip *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)"
-                     Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-            <ChartSeriesTooltip Visible="true"
-                                Background="#0000FF"
-                                Color="#D3D3D3">
-            </ChartSeriesTooltip>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartValueAxes>
-        <ChartValueAxis Color="red"></ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public class MyDataModel
-    {
-        public int SecondSeriesValue { get; set; }
-        public string ExtraData { get; set; }
-
-    }
-
-    public List<MyDataModel> modelData = new List<MyDataModel>()
-    {
-        new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-        new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-        new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-        new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-    };
-
-    public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
-
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-
-````
+<demo metaUrl="client/chart/tooltip/overview/parameter-settings/" height="420"></demo>
 
 
 #### Common Tooltip Settings
@@ -206,59 +101,7 @@ The available series data point information in the `context` is:
 
 >caption Use the Tooltip Template and use the DataItem to get the value of the point and add additional information
 
-````RAZOR
-@* This example shows how to use the Template to provide an Icon and additional information from the model *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2 (bound to model)"
-                     Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
-            <ChartSeriesTooltip Visible="true">
-                <Template>
-                    <TelerikSvgIcon Icon="SvgIcon.InfoCircle" />
-                    @((context.DataItem as MyDataModel).SecondSeriesValue) for @((context.DataItem as MyDataModel).ExtraData)
-                </Template>
-            </ChartSeriesTooltip>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartValueAxes>
-        <ChartValueAxis Color="red"></ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public class MyDataModel
-    {
-        public int SecondSeriesValue { get; set; }
-        public string ExtraData { get; set; }
-
-    }
-
-    public List<MyDataModel> modelData = new List<MyDataModel>()
-    {
-        new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
-        new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
-        new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
-        new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
-    };
-
-    public List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
-
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/tooltip/overview/template/" height="420"></demo>
 
 
 ## See Also

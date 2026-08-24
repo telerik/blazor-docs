@@ -24,87 +24,7 @@ To perform zooming, do either of the following:
 
 >caption Zoomable Chart
 
-````RAZOR
-@* This code snippet showcases an example of zoomable Chart. *@
-<TelerikChart>
-    <ChartZoomable Enabled="true"></ChartZoomable>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.ScatterLine"
-                     Data="@Series1Data"
-                     Name="0.8C"
-                     XField="@nameof(ModelData.X)"
-                     YField="@nameof(ModelData.Y)">
-        </ChartSeries>
-
-        <ChartSeries Type="ChartSeriesType.ScatterLine"
-                     Data="@Series2Data"
-                     Name="1.6C"
-                     XField="@nameof(ModelData.X)"
-                     YField="@nameof(ModelData.Y)">
-        </ChartSeries>
-
-        <ChartSeries Type="ChartSeriesType.ScatterLine"
-                     Data="@Series3Data"
-                     Name="3.1C"
-                     XField="@nameof(ModelData.X)"
-                     YField="@nameof(ModelData.Y)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartXAxes>
-        <ChartXAxis Min="20" Max="50">
-            <ChartXAxisTitle Text="Time"></ChartXAxisTitle>
-            <ChartXAxisLabels Format="{0}m"></ChartXAxisLabels>
-        </ChartXAxis>
-    </ChartXAxes>
-
-    <ChartYAxes>
-        <ChartYAxis Min="20" Max="120">
-            <ChartYAxisTitle Text="Charge"></ChartYAxisTitle>
-            <ChartYAxisLabels Format="{0}%"></ChartYAxisLabels>
-        </ChartYAxis>
-    </ChartYAxes>
-</TelerikChart>
-
-@code {
-    public class ModelData
-    {
-        public int X { get; set; }
-        public int Y { get; set; }
-    }
-
-    public List<ModelData> Series1Data = new List<ModelData>()
-    {
-        new ModelData() { X = 10, Y = 10 },
-        new ModelData() { X = 15, Y = 20 },
-        new ModelData() { X = 20, Y = 25 },
-        new ModelData() { X = 32, Y = 40 },
-        new ModelData() { X = 43, Y = 50 },
-        new ModelData() { X = 55, Y = 60 },
-        new ModelData() { X = 60, Y = 70 },
-        new ModelData() { X = 70, Y = 80 },
-        new ModelData() { X = 90, Y = 100 },
-    };
-
-    public List<ModelData> Series2Data = new List<ModelData>()
-    {
-        new ModelData() { X = 10, Y = 40 },
-        new ModelData() { X = 17, Y = 50 },
-        new ModelData() { X = 18, Y = 70 },
-        new ModelData() { X = 35, Y = 90 },
-        new ModelData() { X = 47, Y = 95 },
-        new ModelData() { X = 60, Y = 100 },
-    };
-
-    public List<ModelData> Series3Data = new List<ModelData>()
-    {
-        new ModelData() { X = 10, Y = 70 },
-        new ModelData() { X = 13, Y = 90 },
-        new ModelData() { X = 25, Y = 100 },
-    };
-}
-````
+<demo metaUrl="client/chart/zoom/basic/" height="440"></demo>
 
 ### Mouse Wheel
 
@@ -118,62 +38,7 @@ To specify if users can zoom in and out on a selected area, set the boolean `Ena
 
 >caption Mouse wheel and selection zoom in the Chart
 
-````RAZOR
-@* This code snippet showcases an example of mouse wheel and selection zooming Chart. *@
-<TelerikChart>
-    <ChartZoomable Enabled="true">
-        <ChartZoomableMousewheel Enabled="true" Rate="0.4"></ChartZoomableMousewheel>
-        <ChartZoomableSelection Enabled="true"></ChartZoomableSelection>
-    </ChartZoomable>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column"
-                     Name="Product 1"
-                     Data="@Data"
-                     Field="@nameof(ChartSeriesData.ProductSales)"
-                     CategoryField="@nameof(ChartSeriesData.Year)">
-        </ChartSeries>
-
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Min="1" Max="5"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    List<ChartSeriesData> Data { get; set; } = new List<ChartSeriesData>();
-
-    protected override Task OnInitializedAsync()
-    {
-        Data = ChartSeriesData.GenerateData();
-        return base.OnInitializedAsync();
-    }
-
-    public class ChartSeriesData
-    {
-        public int ProductSales { get; set; }
-        public DateTime Year { get; set; }
-
-        public static List<ChartSeriesData> GenerateData()
-        {
-            List<ChartSeriesData> data = new List<ChartSeriesData>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                var dataItem = new ChartSeriesData
-                    {
-                        ProductSales = i,
-                        Year = new DateTime(2000 + i, 3, i),
-                    };
-
-                data.Add(dataItem);
-            }
-
-            return data;
-        }
-    }
-}
-````
+<demo metaUrl="client/chart/zoom/mousewheel-and-selection/" height="420"></demo>
 
 ### Specifying a Keyboard Key for Zooming
 
@@ -194,63 +59,7 @@ To specify an axis that users cannot zoom, use the `Lock` parameter within the `
 
 >caption Chart with specified zooming key and locked axis
 
-````RAZOR
-@* This code snippet showcases an example of mousewheel and selection zooming Chart with specified key. *@
-Press CTRL + Click and Drag.
-<TelerikChart>
-    <ChartZoomable Enabled="true">
-        <ChartZoomableMousewheel Lock="@ChartAxisLock.Y"></ChartZoomableMousewheel>
-        <ChartZoomableSelection Lock="@ChartAxisLock.Y" Key="@ChartZoomableSelectionKey.Ctrl"></ChartZoomableSelection>
-    </ChartZoomable>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column"
-                     Name="Product 1"
-                     Data="@Data"
-                     Field="@nameof(ChartSeriesData.ProductSales)"
-                     CategoryField="@nameof(ChartSeriesData.Year)">
-        </ChartSeries>
-
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Min="1" Max="5"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    List<ChartSeriesData> Data { get; set; } = new List<ChartSeriesData>();
-
-    protected override Task OnInitializedAsync()
-    {
-        Data = ChartSeriesData.GenerateData();
-        return base.OnInitializedAsync();
-    }
-
-    public class ChartSeriesData
-    {
-        public int ProductSales { get; set; }
-        public DateTime Year { get; set; }
-
-        public static List<ChartSeriesData> GenerateData()
-        {
-            List<ChartSeriesData> data = new List<ChartSeriesData>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                var dataItem = new ChartSeriesData
-                    {
-                        ProductSales = i,
-                        Year = new DateTime(2000 + i, 3, i),
-                    };
-
-                data.Add(dataItem);
-            }
-
-            return data;
-        }
-    }
-}
-````
+<demo metaUrl="client/chart/zoom/key-and-locked-axis/" height="420"></demo>
 
 ## See Also
 
