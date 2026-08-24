@@ -46,48 +46,7 @@ The structure of the nested tags is `<ChartSeriesLegend*Specifics*>`, where the 
 
 Customize the legend items by using nested tag settings.
 
-````RAZOR
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
-            <ChartSeriesLegendItem>
-                <ChartSeriesLegendItemMarkers Background="blue">
-                </ChartSeriesLegendItemMarkers>
-            </ChartSeriesLegendItem>
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
-            <ChartSeriesLegendItem Type="@ChartLegendItemType.Area">
-                <ChartSeriesLegendItemMarkers Background="#00ff00">
-                </ChartSeriesLegendItemMarkers>
-            </ChartSeriesLegendItem>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right" Visible="true">
-        <ChartLegendTitle Text="Revenue per product"
-                          Background="lightblue"
-                          Color="black">
-        </ChartLegendTitle>
-        <ChartLegendItem>
-            <ChartLegendItemMarkers Type="@ChartSeriesMarkersType.Cross"
-                                    Background="#00ff00">
-            </ChartLegendItemMarkers>
-        </ChartLegendItem>
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/legend/customization/" height="420"></demo>
 
 ## See Also
 
