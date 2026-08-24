@@ -29,59 +29,7 @@ To perform panning, do either of the following:
 
 >caption Chart with enabled panning
 
-````RAZOR
-@* This code snippet showcases an example of pannable Chart. *@
-<TelerikChart>
-    <ChartPannable Enabled="true"></ChartPannable>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column"
-                     Name="Product 1"
-                     Data="@Data"
-                     Field="@nameof(ChartSeriesData.ProductSales)"
-                     CategoryField="@nameof(ChartSeriesData.Year)">
-        </ChartSeries>
-
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Min="1" Max="5"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    List<ChartSeriesData> Data { get; set; } = new List<ChartSeriesData>();
-
-    protected override Task OnInitializedAsync()
-    {
-        Data = ChartSeriesData.GenerateData();
-        return base.OnInitializedAsync();
-    }
-
-    public class ChartSeriesData
-    {
-        public int ProductSales { get; set; }
-        public DateTime Year { get; set; }
-
-        public static List<ChartSeriesData> GenerateData()
-        {
-            List<ChartSeriesData> data = new List<ChartSeriesData>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                var dataItem = new ChartSeriesData
-                    {
-                        ProductSales = i,
-                        Year = new DateTime(2000 + i, 3, i),
-                    };
-
-                data.Add(dataItem);
-            }
-
-            return data;
-        }
-    }
-}
-````
+<demo metaUrl="client/chart/pan/basic/" height="420"></demo>
 
 ### Specifying a Keyboard Key for Panning
 
@@ -103,63 +51,7 @@ To specify an axis that user cannot pan, use the `Lock` parameter within the `Ch
 
 >caption Chart with specified panning keyboard key and locked axis
 
-````RAZOR
-@* This code snippet showcases an example of pannable Chart with specified modifier key and locked Axis. *@
-Press CTRL + Click and Drag.
-<TelerikChart>
-    <ChartPannable Enabled="true"
-                   Lock="@ChartAxisLock.Y"
-                   Key="@ChartPannableKey.Ctrl">
-    </ChartPannable>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column"
-                     Name="Product 1"
-                     Data="@Data"
-                     Field="@nameof(ChartSeriesData.ProductSales)"
-                     CategoryField="@nameof(ChartSeriesData.Year)">
-        </ChartSeries>
-
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Min="1" Max="5"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    List<ChartSeriesData> Data { get; set; } = new List<ChartSeriesData>();
-
-    protected override Task OnInitializedAsync()
-    {
-        Data = ChartSeriesData.GenerateData();
-        return base.OnInitializedAsync();
-    }
-
-    public class ChartSeriesData
-    {
-        public int ProductSales { get; set; }
-        public DateTime Year { get; set; }
-
-        public static List<ChartSeriesData> GenerateData()
-        {
-            List<ChartSeriesData> data = new List<ChartSeriesData>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                var dataItem = new ChartSeriesData
-                    {
-                        ProductSales = i,
-                        Year = new DateTime(2000 + i, 3, i),
-                    };
-
-                data.Add(dataItem);
-            }
-
-            return data;
-        }
-    }
-}
-````
+<demo metaUrl="client/chart/pan/key-and-locked-axis/" height="420"></demo>
 
 ## See Also
 
