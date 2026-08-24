@@ -24,7 +24,7 @@ Practically, the ColorPicker is identical to the [Telerik UI for Blazor FlatColo
 
 >caption A basic ColorPicker with two-way value binding
 
-```CSHTML
+````CSHTML
 <TelerikColorPicker @bind-Value="@MyColor" ValueFormat="ColorFormat.Hex"/>
 
 <p>Selected color: <span style="color: @MyColor">@MyColor</span></p>
@@ -32,7 +32,7 @@ Practically, the ColorPicker is identical to the [Telerik UI for Blazor FlatColo
 @code {
     string MyColor { get; set; }
 }
-```
+````
 
 ## Views
 

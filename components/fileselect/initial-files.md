@@ -17,7 +17,7 @@ To configure the initially displayed files, use the `Files` parameter of the Fil
 
 >caption Display initial files in FileSelect's list.
 
-```CSHTML
+````CSHTML
 
 <TelerikFileSelect Files="@InitialFiles" />
 
@@ -30,7 +30,7 @@ To configure the initially displayed files, use the `Files` parameter of the Fil
     };
 }
 
-```
+````
 
 ## Persist Selected Files
 
@@ -40,7 +40,7 @@ The Initial Files feature of the FileSelect allows you to save a list of files t
 
 >caption How to load files and display them initially in the FileSelect
 
-```CSHTML
+````CSHTML
 
 @using System.IO;
 
@@ -77,7 +77,7 @@ The Initial Files feature of the FileSelect allows you to save a list of files t
     }
 }
 
-```
+````
 
 
 ## See Also

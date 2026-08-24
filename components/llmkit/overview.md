@@ -6,6 +6,7 @@ slug: llmkit-overview
 tags: telerik,blazor,llmkit,ai,agent,chain of thought,tool call,reasoning,citation,checkpoint
 published: True
 position: 0
+components: ["llmkit", "chainofthought", "citation", "checkpoint", "reasoning", "toolcall"]
 ---
 
 # Blazor LLM Kit Overview

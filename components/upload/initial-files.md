@@ -17,7 +17,7 @@ To configure the initially displayed files, use the `Files` parameter of the Upl
 
 >caption Display initial files in Upload's list.
 
-```CSHTML
+````CSHTML
 
 <TelerikUpload Files="@InitialFiles" />
 
@@ -30,7 +30,7 @@ To configure the initially displayed files, use the `Files` parameter of the Upl
     };
 }
 
-```
+````
 
 ## Persist Selected Files
 
@@ -40,7 +40,7 @@ The Initial Files feature of the Upload allows you to save a list of files that 
 
 >caption How to load files and display them initially in the Upload
 
-```CSHTML
+````CSHTML
 
 @using System.IO;
 
@@ -78,7 +78,7 @@ The Initial Files feature of the Upload allows you to save a list of files that 
     }
 }
 
-```
+````
 
 
 ## See Also

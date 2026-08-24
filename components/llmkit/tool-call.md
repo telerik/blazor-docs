@@ -6,6 +6,7 @@ slug: llmkit-tool-call
 tags: telerik,blazor,llmkit,tool call,agent,ai,approval,human in the loop
 published: True
 position: 4
+components: ["toolcall"]
 ---
 
 # Blazor LLM Kit ToolCall

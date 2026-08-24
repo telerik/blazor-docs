@@ -45,6 +45,10 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
+
+@code {
+	private IEnumerable<object> GridData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
+}
 ````
 
 ## See Also
