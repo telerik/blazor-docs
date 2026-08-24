@@ -39,71 +39,7 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
 
 >caption A Heatmap Chart that shows commits made by developers
 
-````RAZOR
-@*Heatmap series*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.Heatmap"
-                     Name="Commits Made per developer"
-                     Data="@HeatmapData"
-                     XField="@(nameof(MyHeatmapDataModel.Week))"
-                     YField="@(nameof(MyHeatmapDataModel.Day))"
-                     Field="@(nameof(MyHeatmapDataModel.CommitsNumber))">
-
-        </ChartSeries>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    public List<MyHeatmapDataModel> HeatmapData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        HeatmapData = GetMyHeatmapData();
-    }
-
-    private List<MyHeatmapDataModel> GetMyHeatmapData()
-    {
-        List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {
-            new MyHeatmapDataModel("John", 14, 1, "Mon"),
-            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
-            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
-            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
-            new MyHeatmapDataModel("John", 7, 1, "Tue"),
-            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
-            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
-            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
-            new MyHeatmapDataModel("John", 10, 1, "Wed"),
-            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
-            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
-            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
-        };
-
-        return data;
-    }
-
-    public class MyHeatmapDataModel
-    {
-        public MyHeatmapDataModel() { }
-
-        public MyHeatmapDataModel(string devName, int commits, int week, string day)
-        {
-            DeveloperName = devName;
-            CommitsNumber = commits;
-            Week = week;
-            Day = day;
-        }
-
-        public string DeveloperName { get; set; }
-        public int CommitsNumber { get; set; }
-        public int Week { get; set; }
-        public string Day { get; set; }
-    }
-}
-````
-
+<demo metaUrl="client/chart/types/heatmap/overview/" height="420"></demo>
 
 ## Data Binding Notes
 
@@ -118,78 +54,8 @@ When you are data binding the Heatmap Chart you should have the following points
 ![problematic behavior](images/heatmap-problematic-behavior.png)
 
 
-````RAZOR
-@* Observe the behavior of the Heatmap chart when the values for the YAxis Categories does not match the values provided to the YField. The same behavior extends to the XAxis and XField. *@
+<demo metaUrl="client/chart/types/heatmap/categories-mismatch/" height="420"></demo>
 
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.Heatmap"
-                     Name="Commits Made per developer"
-                     Data="@HeatmapData"
-                     XField="@(nameof(MyHeatmapDataModel.Week))"
-                     YField="@(nameof(MyHeatmapDataModel.Day))"
-                     Field="@(nameof(MyHeatmapDataModel.CommitsNumber))">
-
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartYAxes>
-        <ChartYAxis Categories="@YAxisCategories"></ChartYAxis>
-    </ChartYAxes>
-</TelerikChart>
-
-@code {
-    public List<MyHeatmapDataModel> HeatmapData { get; set; }
-
-    //This line causes the problematic behavior. Change the values to Mon, Tue, Wed to fix that.
-    public object[] YAxisCategories { get; set; } = new object[] { "Monday", "Tuesday", "Wednesday" };
-
-    protected override void OnInitialized()
-    {
-        HeatmapData = GetMyHeatmapData();
-    }
-
-    private List<MyHeatmapDataModel> GetMyHeatmapData()
-    {
-        List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {       
-            new MyHeatmapDataModel("John", 14, 1, "Mon"),
-            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
-            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
-            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
-            new MyHeatmapDataModel("John", 7, 1, "Tue"),
-            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
-            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
-            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
-            new MyHeatmapDataModel("John", 10, 1, "Wed"),
-            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
-            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
-            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
-        };
-
-        return data;
-    }
-
-    public class MyHeatmapDataModel
-    {
-        public MyHeatmapDataModel() { }
-
-        public MyHeatmapDataModel(string devName, int commits, int week, string day)
-        {
-            DeveloperName = devName;
-            CommitsNumber = commits;
-            Week = week;
-            Day = day;
-        }
-
-        public string DeveloperName { get; set; }
-        public int CommitsNumber { get; set; }
-        public int Week { get; set; }
-        public string Day { get; set; }
-    }
-}
-````
- 
 ## Heatmap Chart Specific Appearance Settings
 
 
@@ -203,72 +69,7 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
 >caption Change the Type of the marker.
 
-````RAZOR
-@* Set the type of the marker to RoundedRect *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.Heatmap"
-                     Name="Commits Made per developer"
-                     Data="@HeatmapData"
-                     XField="@(nameof(MyHeatmapDataModel.Week))"
-                     YField="@(nameof(MyHeatmapDataModel.Day))"
-                     Field="@(nameof(MyHeatmapDataModel.CommitsNumber))">
-            <ChartSeriesMarkers Type="@ChartSeriesMarkersType.RoundedRect"
-                                BorderRadius="10">
-            </ChartSeriesMarkers>
-        </ChartSeries>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    public List<MyHeatmapDataModel> HeatmapData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        HeatmapData = GetMyHeatmapData();
-    }
-
-    private List<MyHeatmapDataModel> GetMyHeatmapData()
-    {
-        List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {       
-            new MyHeatmapDataModel("John", 14, 1, "Mon"),
-            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
-            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
-            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
-            new MyHeatmapDataModel("John", 7, 1, "Tue"),
-            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
-            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
-            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
-            new MyHeatmapDataModel("John", 10, 1, "Wed"),
-            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
-            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
-            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
-        };
-
-        return data;
-    }
-
-    public class MyHeatmapDataModel
-    {
-        public MyHeatmapDataModel() { }
-
-        public MyHeatmapDataModel(string devName, int commits, int week, string day)
-        {
-            DeveloperName = devName;
-            CommitsNumber = commits;
-            Week = week;
-            Day = day;
-        }
-
-        public string DeveloperName { get; set; }
-        public int CommitsNumber { get; set; }
-        public int Week { get; set; }
-        public string Day { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chart/types/heatmap/marker-type/" height="420"></demo>
 
 ### Color
 
@@ -276,70 +77,7 @@ The `Color` parameter controls the general color palette for the markers of the 
 
 >caption Change the Color of the Heatmap.
 
-````RAZOR
-@* Set the color of the Heatmap to blue. *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.Heatmap"
-                     Name="Commits Made per developer"
-                     Data="@HeatmapData"
-                     XField="@(nameof(MyHeatmapDataModel.Week))"
-                     YField="@(nameof(MyHeatmapDataModel.Day))"
-                     Field="@(nameof(MyHeatmapDataModel.CommitsNumber))"
-                     Color="blue">
-        </ChartSeries>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    public List<MyHeatmapDataModel> HeatmapData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        HeatmapData = GetMyHeatmapData();
-    }
-
-    private List<MyHeatmapDataModel> GetMyHeatmapData()
-    {
-        List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {       
-            new MyHeatmapDataModel("John", 14, 1, "Mon"),
-            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
-            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
-            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
-            new MyHeatmapDataModel("John", 7, 1, "Tue"),
-            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
-            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
-            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
-            new MyHeatmapDataModel("John", 10, 1, "Wed"),
-            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
-            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
-            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
-        };
-
-        return data;
-    }
-
-    public class MyHeatmapDataModel
-    {
-        public MyHeatmapDataModel() { }
-
-        public MyHeatmapDataModel(string devName, int commits, int week, string day)
-        {
-            DeveloperName = devName;
-            CommitsNumber = commits;
-            Week = week;
-            Day = day;
-        }
-
-        public string DeveloperName { get; set; }
-        public int CommitsNumber { get; set; }
-        public int Week { get; set; }
-        public string Day { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chart/types/heatmap/color/" height="420"></demo>
 
 ### ColorField
 
@@ -347,73 +85,7 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 >caption Provide a custom color to all markers in the Heatmap.
 
-````RAZOR
-@* Use the ColorField to provide custom color to each individual marker *@ 
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.Heatmap"
-                     Name="Commits Made per developer"
-                     Data="@HeatmapData"
-                     XField="@(nameof(MyHeatmapDataModel.Week))"
-                     YField="@(nameof(MyHeatmapDataModel.Day))"
-                     Field="@(nameof(MyHeatmapDataModel.CommitsNumber))"
-                     ColorField="@(nameof(MyHeatmapDataModel.Color))">
-        </ChartSeries>
-    </ChartSeriesItems>
-</TelerikChart>
-
-@code {
-    public List<MyHeatmapDataModel> HeatmapData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        HeatmapData = GetMyHeatmapData();
-    }
-
-    private List<MyHeatmapDataModel> GetMyHeatmapData()
-    {
-        List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {
-            new MyHeatmapDataModel("blue","John", 14, 1, "Mon"),
-            new MyHeatmapDataModel("darkblue", "Idell", 8, 2, "Mon"),
-            new MyHeatmapDataModel("blueviolet", "Ines", 13, 3, "Mon"),
-            new MyHeatmapDataModel("deepskyblue", "Stephen", 22, 4, "Mon"),
-            new MyHeatmapDataModel("green", "John", 7, 1, "Tue"),
-            new MyHeatmapDataModel("darkgreen", "Idell", 18, 2, "Tue"),
-            new MyHeatmapDataModel("darkolivegreen", "Ines", 2, 3, "Tue"),
-            new MyHeatmapDataModel("darkseagreen", "Stephen", 5, 4, "Tue"),
-            new MyHeatmapDataModel("orange", "John", 10, 1, "Wed"),
-            new MyHeatmapDataModel("orangered", "Idell", 11, 2, "Wed"),
-            new MyHeatmapDataModel("red", "Ines", 20, 3, "Wed"),
-            new MyHeatmapDataModel("darkred", "Stephen", 15, 4, "Wed")
-        };
-
-        return data;
-    }
-
-    public class MyHeatmapDataModel
-    {
-        public MyHeatmapDataModel() { }
-
-        public MyHeatmapDataModel(string color, string devName, int commits, int week, string day)
-        {
-            Color = color;
-            DeveloperName = devName;
-            CommitsNumber = commits;
-            Week = week;
-            Day = day;
-        }
-
-        public string Color { get; set; }
-        public string DeveloperName { get; set; }
-        public int CommitsNumber { get; set; }
-        public int Week { get; set; }
-        public string Day { get; set; }
-    }
-}
-````
-
+<demo metaUrl="client/chart/types/heatmap/color-field/" height="420"></demo>
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
@@ -421,81 +93,7 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 >caption Hide the Labels for both X and Y axes.
 
-````RAZOR
-@* Use the nested tag settings to hide the labels for both axes *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.Heatmap"
-                     Name="Commits Made per developer"
-                     Data="@HeatmapData"
-                     XField="@(nameof(MyHeatmapDataModel.Week))"
-                     YField="@(nameof(MyHeatmapDataModel.Day))"
-                     Field="@(nameof(MyHeatmapDataModel.CommitsNumber))">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartXAxes>
-        <ChartXAxis>
-            <ChartXAxisLabels Visible="false"></ChartXAxisLabels>
-        </ChartXAxis>
-    </ChartXAxes>
-
-    <ChartYAxes>
-        <ChartYAxis>
-            <ChartYAxisLabels Visible="false"></ChartYAxisLabels>
-        </ChartYAxis>
-    </ChartYAxes>
-</TelerikChart>
-
-@code {
-    public List<MyHeatmapDataModel> HeatmapData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        HeatmapData = GetMyHeatmapData();
-    }
-
-    private List<MyHeatmapDataModel> GetMyHeatmapData()
-    {
-        List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
-        {       
-            new MyHeatmapDataModel("John", 14, 1, "Mon"),
-            new MyHeatmapDataModel("Idell", 8, 2, "Mon"),
-            new MyHeatmapDataModel("Ines", 13, 3, "Mon"),
-            new MyHeatmapDataModel("Stephen", 22, 4, "Mon"),
-            new MyHeatmapDataModel("John", 7, 1, "Tue"),
-            new MyHeatmapDataModel("Idell", 18, 2, "Tue"),
-            new MyHeatmapDataModel("Ines", 2, 3, "Tue"),
-            new MyHeatmapDataModel("Stephen", 5, 4, "Tue"),
-            new MyHeatmapDataModel("John", 10, 1, "Wed"),
-            new MyHeatmapDataModel("Idell", 11, 2, "Wed"),
-            new MyHeatmapDataModel("Ines", 20, 3, "Wed"),
-            new MyHeatmapDataModel("Stephen", 15, 4, "Wed")
-        };
-
-        return data;
-    }
-
-    public class MyHeatmapDataModel
-    {
-        public MyHeatmapDataModel() { }
-
-        public MyHeatmapDataModel(string devName, int commits, int week, string day)
-        {
-            DeveloperName = devName;
-            CommitsNumber = commits;
-            Week = week;
-            Day = day;
-        }
-
-        public string DeveloperName { get; set; }
-        public int CommitsNumber { get; set; }
-        public int Week { get; set; }
-        public string Day { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chart/types/heatmap/hide-axis-labels/" height="420"></demo>
 
 ## See Also
 

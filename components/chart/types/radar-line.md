@@ -29,43 +29,7 @@ Radar line charts are often used to make comparisons between several units that 
 
 >caption A radar column chart that shows comparison between the nutritional composition of two foods
 
-````RAZOR
-@* Radar Line series*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.RadarLine" Name="Avg. High" Data="@series1Data" Color="red">
-        </ChartSeries>
-        <ChartSeries Type="@ChartSeriesType.RadarLine" Name="Avg. Low" Data="@series2Data" Color="blue">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartValueAxes>
-        <ChartValueAxis>
-            <ChartValueAxisLabels Format="{0} °C"></ChartValueAxisLabels>
-        </ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartTitle Text="Monthly temperatures in Rovaniemi (the Santa Claus village)">
-    </ChartTitle>
-
-    <ChartLegend Position="@Telerik.Blazor.ChartLegendPosition.Right">
-    </ChartLegend>
-
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { -8, -6, 0, 6, 13, 18, 22, 18, 13, 5, 0, -4 };
-    public List<object> series2Data = new List<object>() { -16, -14, -10, -3, 3, 8, 12, 9, 5, -1, -6, -11 };
-    public string[] xAxisItems = new string[] { "January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December" };
-}
-````
-
+<demo metaUrl="client/chart/types/radar-line/" height="460"></demo>
 
 ## Radar Line Chart Specific Appearance Settings
 

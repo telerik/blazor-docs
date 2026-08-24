@@ -31,34 +31,7 @@ The Area Chart is similar to the [Range Area Chart](slug:components/chart/types/
 
 >caption An area chart that shows product revenues
 
-````RAZOR
-@*Area series*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
-    public List<object> series2Data = new List<object>() { 5, 12, 8, 2 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
-
+<demo metaUrl="client/chart/types/area/overview/" height="420"></demo>
 
 ## Area Chart Specific Appearance Settings
 
@@ -93,36 +66,7 @@ You can render the lines between the points with different styles. The supported
 
 >caption Change the rendering Step, Color and Font of the Category Axis Labels
 
-````RAZOR
-@* Change the rendering Step, Color and Font of the Category Axis Labels *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Area" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-            <ChartCategoryAxisLabels Step="2" Color="#008000" Font="bold 12px 'Helvetica'"></ChartCategoryAxisLabels>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 7, 5 };
-    public List<object> series2Data = new List<object>() { 5, 12, 8, 2 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
-
+<demo metaUrl="client/chart/types/area/category-axis-labels/" height="420"></demo>
 
 ## See Also
 

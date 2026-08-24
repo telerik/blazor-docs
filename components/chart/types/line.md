@@ -27,35 +27,7 @@ The <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazo
 
 >caption A line chart that shows product revenues
 
-````RAZOR
-Line series
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@series1Data">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-
-	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
-
-
+<demo metaUrl="client/chart/types/line/overview/" height="420"></demo>
 
 ## Line Chart Specific Appearance Settings
 
@@ -81,38 +53,7 @@ If some values are missing from the series data (they are `null`), you can have 
 
 >caption A line chart that shows how to rotate the labels
 
-````RAZOR
-@* Change the rotation angle of the Labels *@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-            <ChartCategoryAxisLabels>
-                <ChartCategoryAxisLabelsRotation Angle="-45" />
-            </ChartCategoryAxisLabels>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
-
+<demo metaUrl="client/chart/types/line/label-rotation/" height="420"></demo>
 
 ## See Also
 

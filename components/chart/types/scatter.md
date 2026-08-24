@@ -28,72 +28,7 @@ Scatter charts are useful for showing the relation between different sets of dat
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
 
-````RAZOR
-@* Scatter Series *@
-
-<TelerikChart>
-    <ChartTitle Text="Unrecoverable Errors Per Minute vs. Signal Level"></ChartTitle>
-
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Scatter"
-                     Data="@Series1Data"
-                     Name="APSK modulation"
-                     XField="@nameof(ModelData.Strength)"
-                     YField="@nameof(ModelData.Errors)">
-        </ChartSeries>
-
-        <ChartSeries Type="ChartSeriesType.Scatter"
-                     Data="@Series2Data"
-                     Name="QAM modulation"
-                     XField="@nameof(ModelData.Strength)"
-                     YField="@nameof(ModelData.Errors)">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartXAxes>
-        <ChartXAxis Max="-30" AxisCrossingValue="@(new object[] { -100 })">
-            <ChartXAxisTitle Text="Signal Strength, dBm"></ChartXAxisTitle>
-        </ChartXAxis>
-    </ChartXAxes>
-
-    <ChartYAxes>
-        <ChartYAxis>
-            <ChartYAxisTitle Text="Error count"></ChartYAxisTitle>
-        </ChartYAxis>
-    </ChartYAxes>
-</TelerikChart>
-
-@code {
-    public class ModelData
-    {
-        public double Strength { get; set; }
-        public double Errors { get; set; }
-    }
-
-    public List<ModelData> Series1Data = new List<ModelData>()
-    {
-       new ModelData { Strength = -82, Errors = 15  },
-       new ModelData { Strength = -79, Errors = 13  },
-       new ModelData { Strength = -77, Errors = 10  },
-       new ModelData { Strength = -74, Errors = 7  },
-       new ModelData { Strength = -70, Errors = 3  },
-       new ModelData { Strength = -65, Errors = 1  }
-    };
-
-    public List<ModelData> Series2Data = new List<ModelData>()
-    {
-       new ModelData { Strength = -80, Errors = 25  },
-       new ModelData { Strength = -76, Errors = 22  },
-       new ModelData { Strength = -73, Errors = 17  },
-       new ModelData { Strength = -70, Errors = 15  },
-       new ModelData { Strength = -65, Errors = 12  },
-       new ModelData { Strength = -61, Errors = 10  },
-       new ModelData { Strength = -55, Errors = 7  },
-       new ModelData { Strength = -50, Errors = 3  }
-    };
-}
-````
-
+<demo metaUrl="client/chart/types/scatter/" height="460"></demo>
 
 ## Scatter Chart Specific Appearance Settings
 
