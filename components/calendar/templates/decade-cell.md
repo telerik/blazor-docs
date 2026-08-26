@@ -15,12 +15,7 @@ The Decade Cell Template controls what the calendar will render in the `<td>` el
 
 The template receives the `DateTime` corresponding to its cell.
 
->caption Mark some years on the calendar decade view
-
-![calendar decade cell template](images/calendar-decade-template.png)
-
 <demo metaUrl="client/calendar/templates/decade-cell/" height="500"></demo>
-
 
 ## See Also
 

@@ -15,12 +15,7 @@ The Month Cell Template controls what the calendar will render in the `<td>` ele
 
 The template receives the `DateTime` corresponding to its cell.
 
->caption Mark special days on the calendar month view
-
-![calendar month cell template](images/calendar-month-template.png)
-
 <demo metaUrl="client/calendar/templates/month-cell/" height="500"></demo>
-
 
 ## See Also
 

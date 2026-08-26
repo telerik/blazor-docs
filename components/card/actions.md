@@ -37,10 +37,6 @@ You can define the orientation of the buttons through the `Orientation` paramete
    * `Horizontal` - the default
    * `Vertical`
 
->caption Change the orientation of the action buttons. The result from the snippet below.
-
-![Vertical orientation of the action buttons](images/buttons-orientation-example.png)
-
 <demo metaUrl="client/card/actions/vertical/" height="400"></demo>
 
 
@@ -53,10 +49,6 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 * `End`
 * `Start`
 * `Stretch`
-
->caption Set stretched layout for the action buttons. The result from the snippet below.
-
-![Action buttons with stretched layout](images/buttons-layout-example.png)
 
 <demo metaUrl="client/card/actions/stretch/" height="400"></demo>
 

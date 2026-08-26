@@ -15,12 +15,7 @@ The Year Cell Template controls what the calendar will render in the `<td>` elem
 
 The template receives the `DateTime` corresponding to its cell.
 
->caption Mark some months on the calendar year view
-
-![calendar year cell template](images/calendar-year-template.png)
-
 <demo metaUrl="client/calendar/templates/year-cell/" height="500"></demo>
-
 
 ## See Also
 

@@ -18,22 +18,20 @@ You can define the Card orientation by setting its `Orientation` parameter to a 
    * [`Vertical`](#card-with-vertical-orientation) - the default
 
 
-## Card with Horizontal orientation
+## Card with Horizontal Orientation
 
-A Card with horizontal orientation. The result from the snippet below.
+Configure the Card to use horizontal orientation by setting the `Orientation` parameter.  
 
-![Card with horizontal orientation](images/horizontal-orientation-example.png)
+>caption Card with horizontal orientation
 
 <demo metaUrl="client/card/orientation/horizontal/" height="450"></demo>
 
 
-## Card with Vertical orientation
+## Card with Vertical Orientation
 
 Vertical orientation is the default orientation of the Card, so you don't need to explicitly define it. The below snippet demonstrates how to specify it for example purposes.
 
-The result from the snippet below.
-
-![Card with horizontal orientation](images/vertical-orientation-example.png)
+>caption Card with vertical orientation
 
 <demo metaUrl="client/card/orientation/vertical/" height="450"></demo>
 
