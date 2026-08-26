@@ -28,14 +28,11 @@ In some cases you might prefer to dynamically generate the breadcrumbs based on 
 
 Here is an example for such a configuration in our public repository - [SubScribeToLocationChanged](https://github.com/telerik/blazor-ui/tree/master/breadcrumb/subscribe-to-location-changed).
 
-
 ## Notes
 
 @[template](/_contentTemplates/common/navigation-components.md#navman-used)
 @[template](/_contentTemplates/common/navigation-components.md#double-navigation)
 
-
 ## See Also
 
 * [Live Demo: Breadcrumb Navigation](https://demos.telerik.com/blazor-ui/breadcrumb/navigation)
-

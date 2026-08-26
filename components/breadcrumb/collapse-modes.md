@@ -19,9 +19,7 @@ You can specify how the Breadcrumb items are visualized when their total width e
 
 * `None` — All items are expanded on a single row and a horizontal scrollbar will appear if needed.
 
->caption Set the Breadcrumb CollapseMode to `Wrap`. The result from the snippet below.
-
-![Breadcrumb CollapseMode Wrap](images/breadcrumb-collapse-modes-example.png)
+>caption Set the Breadcrumb CollapseMode to `Wrap`
 
 <demo metaUrl="client/breadcrumb/collapse-modes/" height="250"></demo>
 

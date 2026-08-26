@@ -13,31 +13,17 @@ components: ["breadcrumb"]
 
 The <a href="https://www.telerik.com/blazor-ui/breadcrumb" target="_blank">Blazor Breadcrumb component</a> allows navigation within a folder structure or web page. It provides an easy way to navigate backwards by one or multiple steps. In addition to built-in [navigation capabilities](slug:breadcrumb-navigation), you can browse through the items, define [templates](slug:breadcrumb-templates) for the individual nodes, render text and [icons](slug:breadcrumb-icons), and respond to [events](slug:breadcrumb-events).
 
->caption In this article:
-
-* [Basics](#basics)
-* [Features](#features)
-
-
-## Basics
+## Creating Blazor Breadcrumb
 
 To use a Telerik Breadcrumb for Blazor:
 
-1. add the `TelerikBreadcrumb` tag
-1. provide a collection of objects to its `Data` property (read more in the [Data Binding article](slug:breadcrumb-data-binding))
-1. match the fields in the model with the binding schema for the nodes
-    * In this example, we keep it simple by only providing text for the Breadcrumb items. See the [Navigation article](slug:breadcrumb-navigation) for more details on how to use the Breadcrumb for navigating through items.
+1. Add the `TelerikBreadcrumb` tag
+1. Provide a collection of objects to its `Data` property. Read more in the [Data Binding article](slug:breadcrumb-data-binding).
+1. Match the fields in the model with the binding schema for the nodes. In this example, we keep it simple by only providing text for the Breadcrumb items. See the [Navigation article](slug:breadcrumb-navigation) for more details on how to use the Breadcrumb for navigating through items.
 
->caption Basic Breadcrumb with data binding. The result from the snippet below.
-
-![Breadcrumb for Blazor](images/breadcrumb-basic-example.png)
+>caption Basic Blazor Breadcrumb
 
 <demo metaUrl="client/breadcrumb/overview/" height="250"></demo>
-
-
->caption Component namespace and reference
-
-<demo metaUrl="client/breadcrumb/reference/" height="250"></demo>
 
 ## Features
 

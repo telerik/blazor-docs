@@ -19,10 +19,7 @@ Furthermore, you can take full control over the Separator rendering with the [Se
 
 >caption Change the default Breadcrumb Separator. The result from the snippet below.
 
-![Breadcrumb Separator Icon](images/breadcrumb-separator-example.png)
-
 <demo metaUrl="client/breadcrumb/separator/" height="250"></demo>
-
 
 ## See Also
 

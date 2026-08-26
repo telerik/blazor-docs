@@ -21,10 +21,9 @@ If the icon property name in the Breadcrumb model is `Icon`, there is no need to
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
->caption How to use icons in Telerik Breadcrumb
+>caption Use Telerik Breadcrumb icons
 
 <demo metaUrl="client/breadcrumb/icons/" height="250"></demo>
-
 
 ## See Also
 

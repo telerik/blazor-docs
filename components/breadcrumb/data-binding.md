@@ -39,7 +39,6 @@ The Breadcrumb items provide the following features that you control through the
 
 The properties of a Breadcrumb item map directly to fields from the Breadcrumb model. You define that relationship by providing the names of the fields where the corresponding information is present. To do this, use the properties in the main `TelerikBreadcrumb` tag:
 
-
 * TextField => Text
 * TitleField => Title
 * IconField => Icon
@@ -47,29 +46,27 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
 * DisabledField => Disabled
 * ClassField => Class
 
-
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
 
 @[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
 
 >caption Default field names for Breadcrumb item bindings. If you use these, you don't have to specify them in the `TelerikBreadcrumb` tag explicitly.
 
-````RAZOR
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-        public string Title { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public string Url { get; set; }
-        public bool Disabled { get; set; }
-        public string Class { get; set; }
-    }
+````RAZOR.skip-repl
+public class BreadcrumbItem
+{
+    public string Class { get; set; }
+    public bool Disabled { get; set; }
+    public ISvgIcon Icon { get; set; }
+    public string Text { get; set; }
+    public string Title { get; set; }
+    public string Url { get; set; }
+}
 ````
 
-## Example - Data Binding to Non-Default Field Names
+## Data Binding to Custom Field Names
 
 <demo metaUrl="client/breadcrumb/data-binding/" height="250"></demo>
-
 
 ## See Also
 
