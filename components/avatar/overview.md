@@ -27,7 +27,7 @@ You can set different [Avatar types](slug:avatar-types) and customize its [size]
 
 >caption Basic Avatar with text and specified `ThemeColor`
 
-<demo metaUrl="client/avatar/overview/" height="200"></demo>
+<demo metaUrl="client/avatar/overview/" height="220"></demo>
 
 ## Types
 

@@ -79,7 +79,7 @@ Refer to the [example](#example) below to customize the available parameters and
 
 The following example lets you experiment with the available settings that control the appearance of the Badge. It starts with the default component behavior.
 
-<demo metaUrl="client/badge/appearance/" height="450"></demo>
+<demo metaUrl="client/badge/appearance/" height="400"></demo>
 
 ## See Also
 

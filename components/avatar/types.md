@@ -27,7 +27,7 @@ If the `Type` parameter value is not matching the type of the content, you will 
 
 >caption Different types of Avatar content
 
-<demo metaUrl="client/avatar/types/" height="200"></demo>
+<demo metaUrl="client/avatar/types/" height="220"></demo>
 
 ## Next Steps
 
