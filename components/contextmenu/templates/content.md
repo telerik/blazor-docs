@@ -23,10 +23,6 @@ You can use the template to render arbitrary content according to your applicati
 
 <demo metaUrl="client/contextmenu/templates/content/" height="450"></demo>
 
->caption The result from the snippet above
-
-![Context Menu Conditional Content Template with custom layout](images/content-template-in-action.gif)
-
 ## See Also
 
 * [Data Binding a Context Menu](slug:contextmenu-data-binding-overview)

@@ -19,15 +19,6 @@ Hierarchical data means that the collection of child items is provided in a fiel
 
 This approach of providing nodes lets you gather separate collections of data for certain sections or areas. Check out the [Know The Target And Adjust Items](slug:contextmenu-integration#know-the-target-and-adjust-items) example to see one way of altering the data (items) in the menu before showing it. 
 
->caption Example of using hierarchical data in a context menu
-
-<demo metaUrl="client/contextmenu/data-binding/hierarchical-data/" height="300"></demo>
-
->caption The result from the code snippet above, after hovering the "Company" item
-
-![Blazor Context Menu Hierarchical Data](images/context-menu-hierarchical-data-overview.png)
-
-
 ## See Also
 
 * [Context Menu Data Binding Basics](slug:contextmenu-data-binding-overview)
