@@ -14,8 +14,6 @@ components: ["grid"]
 
 This article provides a quick introduction to get your first <a href="https://demos.telerik.com/blazor-ui/grid/overview" target="_blank">Blazor data grid component</a> up and running. The article includes a video tutorial and a list of key features.
 
-Updated on August 16, 2026
-
 This article applies to Telerik UI for Blazor, .NET 8 and later, and the Grid component.
 
 <span class="cta-panel-big-module--container--c08a9 d-print-none "><span class="row align-items-center justify-content-center cta-panel-big-module--row--9b71a"><span class="col-auto"><img class="cta-panel-big-module--icon--a648c" src="/images/avatar-ninja.svg" alt="ninja-icon"></span><span class="col-12 col-sm"><span class="cta-panel-big-module--message--40a0f">Tired of reading docs? With our new AI Coding Assistants, you can add, configure, and troubleshoot Telerik UI for Blazor components—right inside your favorite AI-powered IDE: Visual Studio, VS Code, Cursor, and more. Start building faster, smarter, and with contextual intelligence powered by our docs/APIs:</span></span><span class="col-12 col-lg-auto"><a class="cta-panel-big-module--btnTrial--38b3e" href="https://www.telerik.com/blazor-ui/documentation/ai/overview?utm_source=ai-assistants-docs" target="_blank">Try AI Assistants</a></span></span></span>
@@ -143,24 +141,6 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 * [Explore Grid data binding](slug:grid-data-binding)
 * [Learn about Grid columns](slug:components/grid/columns/bound)
 * [Control the Grid with natural language prompts](slug:grid-ai-overview)
-
-## Frequently Asked Questions
-
-### Does the Telerik Blazor Grid require a license?
-
-Telerik UI for Blazor requires a commercial license or an active trial license. You can use the Grid during the [Telerik UI for Blazor free trial](https://www.telerik.com/blazor-ui/free-trial).
-
-### How do I bind data to the Blazor Grid?
-
-You can assign an `IEnumerable<T>` collection to the `Data` parameter for local data binding. For more control over data requests and operations, use the [`OnRead` event](slug:common-features-data-binding-onread). See [Grid data binding](slug:grid-data-binding) for a comparison of both approaches.
-
-### Which editing modes does the Blazor Grid support?
-
-The Grid supports [in-cell](slug:grid-editing-incell), [inline](slug:grid-editing-inline), and [popup](slug:grid-editing-popup) editing. Choose the mode that best matches the workflow in your application.
-
-### Does the Blazor Grid support AI-powered data operations?
-
-Yes. The Grid supports natural language commands for operations such as filtering, sorting, grouping, highlighting, selection, and exporting. See the [Grid Smart AI Features overview](slug:grid-ai-overview) for setup guidance and supported tools.
 
 ## See Also
 
