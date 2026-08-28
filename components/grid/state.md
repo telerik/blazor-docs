@@ -73,7 +73,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 
 >caption Using Grid OnStateInit
 
-<demo metaUrl="client/grid/state-init/"></demo>
+<demo metaUrl="client/grid/state-init/" height="600"></demo>
 
 ### OnStateChanged
 

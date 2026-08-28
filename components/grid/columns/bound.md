@@ -30,7 +30,7 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 >caption Provide data to the grid and choose which columns (fields) to see
 
-<demo metaUrl="client/grid/columns-bound/"></demo>
+<demo metaUrl="client/grid/columns-bound/" height="600"></demo>
 
 >tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<GridColumn Field="Id" />`. The field name is, however, **case-sensitive**.
 

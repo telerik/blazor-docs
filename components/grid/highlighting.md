@@ -35,7 +35,7 @@ See [Grid Highlighting API Reference](slug:telerik.blazor.components.Highlighted
 
 >caption Example of highlighting rows and cells in the Blazor Grid
 
-<demo metaUrl="client/grid/highlighting/"></demo>
+<demo metaUrl="client/grid/highlighting/" height="600"></demo>
 
 ## See Also
 

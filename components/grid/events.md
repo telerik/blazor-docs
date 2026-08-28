@@ -494,7 +494,7 @@ The `OnRowClick` event handler receives a `GridRowClickEventArgs` argument, whic
 
 >caption Using the Grid OnRowClick event
 
-<demo metaUrl="client/grid/events-row-click/"></demo>
+<demo metaUrl="client/grid/events-row-click/" height="600"></demo>
 
 ## OnRowDoubleClick
 
@@ -506,7 +506,7 @@ The `OnRowDoubleClick` event handler receives a `GridRowClickEventArgs` argument
 
 >caption Using the Grid OnRowDoubleClick event
 
-<demo metaUrl="client/grid/events-row-double-click/"></demo>
+<demo metaUrl="client/grid/events-row-double-click/" height="600"></demo>
 
 ## OnRowContextMenu
 
@@ -518,7 +518,7 @@ The `OnRowContextMenu` event handler receives a `GridRowClickEventArgs` argument
 
 >caption Using the Grid OnRowContextMenu event
 
-<demo metaUrl="client/grid/events-row-context-menu/"></demo>
+<demo metaUrl="client/grid/events-row-context-menu/" height="600"></demo>
 
 ## OnRowExpand
 
@@ -530,7 +530,7 @@ The event handler receives a `GridRowExpandEventArgs` object which provides the 
 
 >caption Use the OnRowExpand event to load detailed data on demand. Another approach can be found on our [public github repository](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy).
 
-<demo metaUrl="client/grid/events-row-expand/"></demo>
+<demo metaUrl="client/grid/events-row-expand/" height="600"></demo>
 
 ## OnRowCollapse
 
@@ -542,7 +542,7 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 >caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
 
-<demo metaUrl="client/grid/events-row-collapse/"></demo>
+<demo metaUrl="client/grid/events-row-collapse/" height="600"></demo>
 
 ## OnRowRender
 
@@ -560,7 +560,7 @@ This event fires when each Grid row renders. This can happen in the following ca
 
 >caption Use the OnRowRender event to apply custom styles to Grid rows based on certain condition
 
-<demo metaUrl="client/grid/events-row-render/"></demo>
+<demo metaUrl="client/grid/events-row-render/" height="600"></demo>
 
 ## OnRowDrop
 
@@ -573,11 +573,11 @@ The event fires when the user pages the grid.
 
 >caption Handle the PageChanged event to know when the user changes the page
 
-<demo metaUrl="client/grid/events-page-changed/"></demo>
+<demo metaUrl="client/grid/events-page-changed/" height="600"></demo>
 
 >caption One-way binding of the Page parameter should be used with the PageChanged event to keep the view-model in sync
 
-<demo metaUrl="client/grid/events-page-binding/"></demo>
+<demo metaUrl="client/grid/events-page-binding/" height="600"></demo>
 
 ## PageSizeChanged
 
@@ -589,7 +589,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-<demo metaUrl="client/grid/events-page-size-changed/"></demo>
+<demo metaUrl="client/grid/events-page-size-changed/" height="600"></demo>
 
 ## SelectedItemsChanged
 

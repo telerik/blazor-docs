@@ -17,7 +17,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 >caption Sample Header Template
 
-<demo metaUrl="client/grid/templates-column-header/"></demo>
+<demo metaUrl="client/grid/templates-column-header/" height="600"></demo>
 
 ## See Also
 

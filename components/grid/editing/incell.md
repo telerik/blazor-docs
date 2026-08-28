@@ -105,7 +105,7 @@ The example below shows how to:
 
 >caption Basic Grid in-cell editing configuration
 
-<demo metaUrl="client/grid/editing-incell-basic/"></demo>
+<demo metaUrl="client/grid/editing-incell-basic/" height="600"></demo>
 
 ### Advanced
 
@@ -116,7 +116,7 @@ The example below shows how to:
 
 >caption Advanced Grid in-cell editing configuration
 
-<demo metaUrl="client/grid/editing-incell-advanced/"></demo>
+<demo metaUrl="client/grid/editing-incell-advanced/" height="600"></demo>
 
 ## See Also
 

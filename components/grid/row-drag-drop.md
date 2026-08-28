@@ -74,7 +74,7 @@ This section contains the following examples:
 
 ### Drag and Drop a Row in the same Grid
 
-<demo metaUrl="client/grid/row-drag-drop/"></demo>
+<demo metaUrl="client/grid/row-drag-drop/" height="600"></demo>
 
 
 ### Drag and Drop a Row between Grids
@@ -1541,7 +1541,7 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
-<demo metaUrl="client/grid/row-drag-drop-multiple/"></demo>
+<demo metaUrl="client/grid/row-drag-drop-multiple/" height="600"></demo>
 
 ## Limitations
 
