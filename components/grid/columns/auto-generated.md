@@ -31,7 +31,7 @@ If you don't need explicitly declared columns (such as a command column or froze
 
 >caption Use the AutoGenerateColumns parameter to generate columns out of a model
 
-<demo metaUrl="client/grid/columns-auto-generated/"></demo>
+<demo metaUrl="client/grid/columns-auto-generated/" height="600"></demo>
 
 ### Declare Explicit Columns
 
@@ -48,7 +48,7 @@ By default the Automatically Generated Columns are rendered after the manually d
 
 >caption Observe the default positioning of the Automatically Generated Columns
 
-<demo metaUrl="client/grid/columns-auto-generated-default/"></demo>
+<demo metaUrl="client/grid/columns-auto-generated-default/" height="600"></demo>
 
 ### Define Explicit Column Order
 
@@ -58,7 +58,7 @@ To set explicit position of the Automatically Generated Columns you can use the 
 
 >caption Observe explicitly set position of the Automatically Generated Columns between a Checkbox and Command columns
 
-<demo metaUrl="client/grid/columns-auto-generated-explicit/"></demo>
+<demo metaUrl="client/grid/columns-auto-generated-explicit/" height="600"></demo>
 
 ## Customization
 
@@ -87,7 +87,7 @@ This example shows how to:
 
 >caption Observe the behavior of auto-generated columns with [Editing operations](slug:grid-editing-overview), [Selection](slug:grid-selection-overview), [Paging](slug:components/grid/features/paging) and using the custom attributes.
 
-<demo metaUrl="client/grid/columns-auto-generated-crud/"></demo>
+<demo metaUrl="client/grid/columns-auto-generated-crud/" height="600"></demo>
 
 ## Notes
 

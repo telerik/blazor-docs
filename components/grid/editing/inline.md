@@ -77,7 +77,7 @@ The example below shows how to:
 
 >caption Basic Grid inline editing configuration
 
-<demo metaUrl="client/grid/editing-inline-basic/"></demo>
+<demo metaUrl="client/grid/editing-inline-basic/" height="600"></demo>
 
 ### Advanced
 
@@ -88,7 +88,7 @@ The example below shows how to:
 
 >caption Advanced Grid inline editing configuration
 
-<demo metaUrl="client/grid/editing-inline-advanced/"></demo>
+<demo metaUrl="client/grid/editing-inline-advanced/" height="600"></demo>
 
 ## See Also
 

@@ -31,7 +31,7 @@ The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use featur
 
 >caption Get started with the Blazor Grid
 
-<demo metaUrl="client/grid/overview/"></demo>
+<demo metaUrl="client/grid/overview/" height="700"></demo>
 
 ## Blazor Grid Video Tutorial
 
@@ -134,7 +134,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 >caption How to obtain a Grid reference and call methods
 
-<demo metaUrl="client/grid/overview-ref/"></demo>
+<demo metaUrl="client/grid/overview-ref/" height="600"></demo>
 
 ## Next Steps
 

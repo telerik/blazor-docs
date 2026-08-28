@@ -27,7 +27,7 @@ When a detail template is defined, an expand/collapse button is rendered at the 
 
 >caption Define a detail template to show hierarchical data from the model in a nested grid
 
-<demo metaUrl="client/grid/hierarchy/"></demo>
+<demo metaUrl="client/grid/hierarchy/" height="600"></demo>
 
 >tip To have more levels, simply nest more grids and name the `context` variables. You can find an example in the [Multi-Level Hierarchy](slug:grid-three-level-hierarchy) KB article.
 

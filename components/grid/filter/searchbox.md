@@ -43,7 +43,7 @@ The following example shows the first option in action, while the [customization
 
 >caption Grid SearchBox
 
-<demo metaUrl="client/grid/filter-searchbox/"></demo>
+<demo metaUrl="client/grid/filter-searchbox/" height="600"></demo>
 
 ## Search From Code
 
@@ -69,7 +69,7 @@ The example below demonstrates all SearchBox settings in action, and also how to
 
 >caption Grid SearchBox customizaton
 
-<demo metaUrl="client/grid/filter-searchbox-custom/"></demo>
+<demo metaUrl="client/grid/filter-searchbox-custom/" height="600"></demo>
 
 ## See Also
 
