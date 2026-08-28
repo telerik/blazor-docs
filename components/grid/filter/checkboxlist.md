@@ -22,7 +22,7 @@ To enable the CheckBoxList filtering in the Telerik Grid for Blazor:
 
 >caption CheckList filter in the DataGrid
 
-<demo metaUrl="client/grid/filter-checkbox-list/"></demo>
+<demo metaUrl="client/grid/filter-checkbox-list/" height="600"></demo>
 
 ## Custom Data
 
@@ -42,7 +42,7 @@ To customize the CheckBoxList behavior, use the [Filter Menu Template](slug:grid
 
 >caption Provide all filtering options when using OnRead
 
-<demo metaUrl="client/grid/filter-checkbox-list-on-read/"></demo>
+<demo metaUrl="client/grid/filter-checkbox-list-on-read/" height="600"></demo>
 
 
 ## See Also

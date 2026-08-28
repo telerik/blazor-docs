@@ -24,7 +24,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 
 >caption The built-in Size modes
 
-<demo metaUrl="client/grid/sizing-size/"></demo>
+<demo metaUrl="client/grid/sizing-size/" height="600"></demo>
 
 ## Notes
 

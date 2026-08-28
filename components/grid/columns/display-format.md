@@ -18,7 +18,7 @@ components: ["grid"]
 
 >caption Use C# format strings in the grid through the component markup and a data annotation attribute in the model
 
-<demo metaUrl="client/grid/columns-display-format/"></demo>
+<demo metaUrl="client/grid/columns-display-format/" height="600"></demo>
 
 
 @[template](/_contentTemplates/grid/common-link.md#display-format-notes)

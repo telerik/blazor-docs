@@ -69,7 +69,7 @@ For predictable and user-friendly behavior, consider the following Grid configur
 
 >caption Apply a minimum width to the Grid table in a responsive layout
 
-<demo metaUrl="client/grid/columns-width/"></demo>
+<demo metaUrl="client/grid/columns-width/" height="600"></demo>
 
 # See Also
 

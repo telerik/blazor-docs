@@ -82,7 +82,7 @@ The example below shows how to:
 
 >caption Basic Grid popup editing configuration
 
-<demo metaUrl="client/grid/editing-popup-basic/"></demo>
+<demo metaUrl="client/grid/editing-popup-basic/" height="600"></demo>
 
 ### Advanced
 
@@ -95,7 +95,7 @@ The example below shows how to:
 
 >caption Advanced Grid popup editing configuration
 
-<demo metaUrl="client/grid/editing-popup-advanced/"></demo>
+<demo metaUrl="client/grid/editing-popup-advanced/" height="600"></demo>
 
 ## See Also
 

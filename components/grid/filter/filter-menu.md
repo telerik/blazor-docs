@@ -49,7 +49,7 @@ To learn how to programmatically filter the Grid, refer to the [Grid State](slug
 
 >caption Using the Grid Filter Menu
 
-<demo metaUrl="client/grid/filter-menu/"></demo>
+<demo metaUrl="client/grid/filter-menu/" height="600"></demo>
 
 ## See Also
 

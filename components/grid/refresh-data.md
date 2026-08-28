@@ -25,7 +25,7 @@ In this article:
 
 You can refresh the Grid data by using the `Rebind` method exposed to the reference of the TelerikGrid. If you have manually defined the [OnRead event](slug:components/grid/manual-operations) the business logic defined in its event handler will be executed. 
 
-<demo metaUrl="client/grid/refresh-rebind/"></demo>
+<demo metaUrl="client/grid/refresh-rebind/" height="600"></demo>
 
 @[template](/_contentTemplates/common/refresh-data-not-applicable.md#refresh-data-note)
 
@@ -39,7 +39,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 >caption Bind the Grid to an ObservableCollection, so it can react to collection changes.
 
-<demo metaUrl="client/grid/refresh-observable/"></demo>
+<demo metaUrl="client/grid/refresh-observable/" height="600"></demo>
 
 @[template](/_contentTemplates/common/observable-data.md#tip-for-new-collection)
 
@@ -49,7 +49,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 >caption Create new collection reference to refresh the Grid data.
 
-<demo metaUrl="client/grid/refresh-new-collection/"></demo>
+<demo metaUrl="client/grid/refresh-new-collection/" height="600"></demo>
 
 >note You can find some more explanations and examples for the Grid component in the [Force a Grid to Refresh](slug:grid-force-refresh) Knowledge Base article.
 
@@ -62,7 +62,7 @@ To make the Grid fire `OnRead`, execute its [`SetStateAsync` method](slug:grid-s
 
 >caption Make the grid call OnRead by using its state
 
-<demo metaUrl="client/grid/refresh-on-read/"></demo>
+<demo metaUrl="client/grid/refresh-on-read/" height="600"></demo>
 
 ## Entity Framework Data
 
