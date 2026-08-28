@@ -105,7 +105,7 @@ The following code example demonstrates declarations and handling.
 
 >caption Example of handling custom commands in a grid column
 
-<demo metaUrl="client/grid/columns-command/"></demo>
+<demo metaUrl="client/grid/columns-command/" height="600"></demo>
 
 ## Using Components in Grid Command Column
 

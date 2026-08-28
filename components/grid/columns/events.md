@@ -25,13 +25,13 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 
 >caption Use the OnCellRender event to apply custom format to Grid cells based on certain value
 
-<demo metaUrl="client/grid/columns-cell-render/"></demo>
+<demo metaUrl="client/grid/columns-cell-render/" height="600"></demo>
 
 >tip You can also pass lambda expressions to the OnCellRender parameter. Thus, you can provide additional meta data to the OnCellRender handler ( for example column title ) apart from the `GridCellRenderEventArgs` that it receives by default.
 
 >caption Use the OnCellRender event to apply custom format to Grid cells based on certain cell value and column name
 
-<demo metaUrl="client/grid/columns-cell-render-lambda/"></demo>
+<demo metaUrl="client/grid/columns-cell-render-lambda/" height="600"></demo>
 
 ## See Also
 

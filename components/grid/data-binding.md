@@ -62,7 +62,7 @@ Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example b
 
 >caption Data Binding the Grid to an Interface
 
-<demo metaUrl="client/grid/data-binding-interface/"></demo>
+<demo metaUrl="client/grid/data-binding-interface/" height="500"></demo>
 
 ## See Also
 

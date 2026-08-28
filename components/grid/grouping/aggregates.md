@@ -64,7 +64,7 @@ To enable aggregates:
 
 >caption Use Aggregates in the Telerik Blazor Grid
 
-<demo metaUrl="client/grid/grouping-aggregates/"></demo>
+<demo metaUrl="client/grid/grouping-aggregates/" height="600"></demo>
 
 ## Notes
 

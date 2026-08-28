@@ -48,7 +48,7 @@ You can find more examples in the [Live Demo: Custom Filter Row](https://demos.t
 
 >caption Custom Filter Row Template - Min and Max filters on OnChange
 
-<demo metaUrl="client/grid/templates-filter-row/"></demo>
+<demo metaUrl="client/grid/templates-filter-row/" height="600"></demo>
 
 ## Filter Menu Template
 
@@ -81,7 +81,7 @@ For an example with the CheckboxList Filter, see the [Custom Data](slug:grid-che
 
 >tip The grid can create a checkbox filter for you, see the [CheckBoxList Filtering](slug:grid-checklist-filter) article.
 
-<demo metaUrl="client/grid/templates-filter-menu/"></demo>
+<demo metaUrl="client/grid/templates-filter-menu/" height="600"></demo>
 
 ## Filter Menu Buttons Template
 
@@ -98,7 +98,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 
 >caption Using custom filter menu buttons
 
-<demo metaUrl="client/grid/templates-filter-buttons/"></demo>
+<demo metaUrl="client/grid/templates-filter-buttons/" height="600"></demo>
 
 ## See Also
 

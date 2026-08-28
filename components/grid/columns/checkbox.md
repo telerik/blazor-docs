@@ -42,7 +42,7 @@ The example below doesn't take into account sorting, filtering and paging. If th
 
 >caption Grid Checkbox Column Header Template
 
-<demo metaUrl="client/grid/columns-checkbox/"></demo>
+<demo metaUrl="client/grid/columns-checkbox/" height="600"></demo>
 
 ## See Also
 

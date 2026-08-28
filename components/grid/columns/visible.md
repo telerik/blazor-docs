@@ -27,7 +27,7 @@ To hide a Grid column set its `Visible` parameter to `false`. To hide a column b
 
 >caption Hide a column from the Grid. Basic example.
 
-<demo metaUrl="client/grid/columns-visible/"></demo>
+<demo metaUrl="client/grid/columns-visible/" height="600"></demo>
 
 ## Notes
 
@@ -52,19 +52,19 @@ In this section you will find the following examples:
 
 The application can later the value of the `Visible` parameter and that will toggle the column.
 
-<demo metaUrl="client/grid/columns-visible-toggle/"></demo>
+<demo metaUrl="client/grid/columns-visible-toggle/" height="600"></demo>
 
 ### Hidden Grid Column With Template
 
 When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visiblity there as well.
 
-<demo metaUrl="client/grid/columns-visible-template/"></demo>
+<demo metaUrl="client/grid/columns-visible-template/" height="600"></demo>
 
 ### Hide A Grid Column Based On A Condition
 
 This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
 
-<demo metaUrl="client/grid/columns-visible-condition/"></demo>
+<demo metaUrl="client/grid/columns-visible-condition/" height="600"></demo>
 
 ## See Also
 

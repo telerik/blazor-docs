@@ -40,7 +40,7 @@ Examples:
 
 >note The example below demonstrates how to use just Paging with a remote service. For a more complex setup including other Grid functionalities (such as sorting, filtering etc.) you can check [this project for using Telerik DataSourceRequest and DataSourceResult on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server) in our public repository.
 
-<demo metaUrl="client/grid/manual-operations-paging/"></demo>
+<demo metaUrl="client/grid/manual-operations-paging/" height="600"></demo>
 
 ## Telerik .ToDataSourceResult(request)
 

@@ -79,11 +79,11 @@ This section demonstrates different scenarios with the Editor Template:
 
 The Grid will save changes and close the current edit row (or edit cell) when the user hits Enter. To prevent this inside HTML Editor or TextArea components, stop the propagation of the `keydown` event:
 
-<demo metaUrl="client/grid/templates-editor-textarea/"></demo>
+<demo metaUrl="client/grid/templates-editor-textarea/" height="600"></demo>
 
 ## Limit the input options with a select element
 
-<demo metaUrl="client/grid/templates-editor-select/"></demo>
+<demo metaUrl="client/grid/templates-editor-select/" height="600"></demo>
 
 ## Editor template for a foreign key column
 
@@ -91,7 +91,7 @@ This example uses an ID that represents the foreign key for the grid column `Fie
 
 Also check the [Grid Foreign Key Column](slug:grids-foreign-key) knowledge base article.
 
-<demo metaUrl="client/grid/templates-editor-foreign-key/"></demo>
+<demo metaUrl="client/grid/templates-editor-foreign-key/" height="600"></demo>
 
 ## In-Cell Editor Templates
 

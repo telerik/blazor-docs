@@ -64,7 +64,7 @@ The known limitations of the Autofit Columns feature include:
 
 >caption Grid Column Resizing and Autofitting
 
-<demo metaUrl="client/grid/columns-resize/"></demo>
+<demo metaUrl="client/grid/columns-resize/" height="600"></demo>
 
 ## See Also
 

@@ -53,7 +53,7 @@ To learn how to programmatically filter the Grid, refer to the [Grid State](slug
 
 >caption Using the Grid Filter Row
 
-<demo metaUrl="client/grid/filter-row/"></demo>
+<demo metaUrl="client/grid/filter-row/" height="600"></demo>
 
 ## See Also
 
