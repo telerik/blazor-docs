@@ -23,7 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 >caption Basic Telerik Blazor DateInput
 
-<demo metaUrl="client/dateinput/overview/basic/" height="250"></demo>
+<demo metaUrl="client/dateinput/overview/basic/"></demo>
 
 
 ## Nullable DateTime

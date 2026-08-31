@@ -29,7 +29,7 @@ The DockManager is best suited for desktop-like interfaces and applications desi
 
 >caption Telerik Blazor DockManager
 
-<demo metaUrl="client/dockmanager/overview/" height="700"></demo>
+<demo metaUrl="client/dockmanager/overview/" height="650"></demo>
 
 ## State
 

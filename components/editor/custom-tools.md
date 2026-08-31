@@ -50,20 +50,20 @@ In this section you can find the following examples:
 
 >caption Custom tool that manipulates the Value to add a signature at the end
 
-<demo metaUrl="client/editor/custom-tools/change-value/" height="400"></demo>
+<demo metaUrl="client/editor/custom-tools/change-value/" height="480"></demo>
 
 
 ### Use Editor Commands
 
 >caption Custom Tool that uses the editor commands to alter the selected content
 
-<demo metaUrl="client/editor/custom-tools/use-editor-commands/" height="400"></demo>
+<demo metaUrl="client/editor/custom-tools/use-editor-commands/" height="480"></demo>
 
 ### Save Command
 
 You can call application code from the editor tools to, for example, save the current content.
 
-<demo metaUrl="client/editor/custom-tools/save-command/" height="400"></demo>
+<demo metaUrl="client/editor/custom-tools/save-command/" height="480"></demo>
 
 
 <!--

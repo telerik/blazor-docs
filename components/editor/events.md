@@ -23,7 +23,7 @@ When you use that event, you cannot use two-way binding and so you must update t
 
 >caption Handle the ValueChanged event
 
-<demo metaUrl="client/editor/events/value-changed/" height="300"></demo>
+<demo metaUrl="client/editor/events/value-changed/" height="660"></demo>
 
 
 ## See Also

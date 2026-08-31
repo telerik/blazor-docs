@@ -13,12 +13,12 @@ components: ["editor"]
 
 The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor HTML Editor component</a> enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
 
-## Creating Editor
+## Creating Blazor Editor
 
 1. Use the `TelerikEditor` tag to add the component to your razor page.
 1. Bind its `Value` to the `string` field you want to get the HTML content in.
 
-<demo metaUrl="client/editor/overview/" height="450"></demo>
+<demo metaUrl="client/editor/overview/" height="520"></demo>
 
 ## Get/Set Content
 
@@ -68,7 +68,7 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type and Default value | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 |-----------|------------------------|-------------|
 | `Value`  | `string` | The value of the component. It supports two-way binding or alternatively, use it with the [`ValueChanged` event](slug:editor-events#valuechanged). |
 | `DebounceDelay`  | `int` <br /> (`100`) | The time in milliseconds that passes between updates on the `Value`. The default is `100ms` and if that causes performance issues with many repaints on your view, you can increase it. Since the editor is expected to handle longer editing sessions and larger content than regular inputs, we added this parameter to debounce the view-model updates and events. |
@@ -90,7 +90,7 @@ The Editor provides methods for programmatic operation. To use them, obtain a re
 
 >caption Paste in the Editor at the cursor position
 
-<demo metaUrl="client/editor/overview/paste-in-editor/" height="400"></demo>
+<demo metaUrl="client/editor/overview/paste-in-editor/" height="560"></demo>
 
 ## Next Steps
 

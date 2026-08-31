@@ -28,7 +28,7 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 
 >caption Basic DropDownButton
 
-<demo metaUrl="client/dropdownbutton/overview/basic/" height="300"></demo>
+<demo metaUrl="client/dropdownbutton/overview/basic/" height="380"></demo>
 
 ## Icons
 
@@ -67,24 +67,14 @@ The following table lists the DropDownButton parameters, except those related to
 
 The DropDownButton exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownButtonPopupSettings>` tag inside a `<DropDownButtonSettings>` tag:
 
-````RAZOR
-<TelerikDropDownButton Icon="@SvgIcon.Share">
-    <DropDownButtonContent>Share</DropDownButtonContent>
-
+````RAZOR.skip-repl
+<TelerikDropDownButton>
     <DropDownButtonSettings>
-        <DropDownButtonPopupSettings Height="auto" MaxHeight="100px"/>
+        <DropDownButtonPopupSettings Height="auto" MaxHeight="160px" />
     </DropDownButtonSettings>
-
-    <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Facebook">Facebook</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Twitter">Twitter</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Linkedin">Linkedin</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Reddit">Reddit</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Pinterest">Pinterest</DropDownButtonItem>
-    </DropDownButtonItems>
-
 </TelerikDropDownButton>
 ````
+
 The DropDownButton provides the following popup settings:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
@@ -120,7 +110,7 @@ The DropDownButton exposes a `FocusAsync` method that allows you to focus it pro
 
 >caption Get a reference to the DropDownButton and execute methods
 
-<demo metaUrl="client/dropdownbutton/overview/focus/" height="300"></demo>
+<demo metaUrl="client/dropdownbutton/overview/focus/" height="360"></demo>
 
 ## Next Steps
 

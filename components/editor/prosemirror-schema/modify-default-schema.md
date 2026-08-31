@@ -37,9 +37,7 @@ The below example shows how to:
 
 >caption Modify the default ProseMirror Schema
 
-````RAZOR
-<demo metaUrl="client/editor/prosemirror-schema/modify-default-schema/" height="500"></demo>
-````
+<demo metaUrl="client/editor/prosemirror-schema/modify-default-schema/" height="450"></demo>
 
 ## See Also
 

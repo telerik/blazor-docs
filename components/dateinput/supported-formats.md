@@ -80,19 +80,19 @@ This behavior stems from the default framework string behavior for dates, time a
 
 >caption Example with default ToString() behavior of the framework
 
-````CS
+````CS.skip-repl
 DateTime date = new DateTime(2011,1,1,14,44,44);
-var culture = new CultureInfo("bg-BG"); // this culture does not have day periods
-//but we will set them here
+var culture = new CultureInfo("bg-BG"); // This culture does not have day periods...
+// ... but we will set them here:
 culture.DateTimeFormat.AMDesignator = "сутрин";
 culture.DateTimeFormat.PMDesignator = "следобед";
 		
 Console.WriteLine(date.ToString("hh:mm:ss tt", culture));		
-Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg")));
+Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-BG")));
 
 // Output 
 // 02:44:44 следобед
-// 02:44:44 
+// 02:44:44 PM
 ````
 
 
@@ -100,24 +100,11 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 
 >caption Standard format strings support in Telerik Date Input for Blazor
 
-<demo metaUrl="client/dateinput/supported-formats/standard/" height="700"></demo>
-
->caption The result from the code snippet above
-
-![Blazor Standard Format Strings](images/standard-format-strings.png)
-
-
+<demo metaUrl="client/dateinput/supported-formats/standard/" height="330"></demo>
 
 >caption Using supported .NET format specifiers to define relatively common date formats in the Telerik Date Input
 
-<demo metaUrl="client/dateinput/supported-formats/custom/" height="450"></demo>
-
->caption The result from the code snippet above
-
-![Blazor Custom Date Formats](images/custom-date-formats.png)
-
-
-
+<demo metaUrl="client/dateinput/supported-formats/custom/" height="500"></demo>
 
 
 ## See Also

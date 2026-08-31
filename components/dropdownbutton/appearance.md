@@ -32,7 +32,7 @@ The following two configurations will produce the same result.
 
 >caption Two ways to set DropDownButton appearance parameters
 
-<demo metaUrl="client/dropdownbutton/appearance/settings/" height="300"></demo>
+<demo metaUrl="client/dropdownbutton/appearance/settings/" height="320"></demo>
 
 
 ## FillMode
@@ -48,7 +48,7 @@ The `FillMode` parameter controls if the primary button of the DropDownButton co
 
 >caption DropDownButton FillMode example
 
-<demo metaUrl="client/dropdownbutton/appearance/fill-mode/" height="300"></demo>
+<demo metaUrl="client/dropdownbutton/appearance/fill-mode/" height="320"></demo>
 
 
 ## Rounded
@@ -64,7 +64,7 @@ The `Rounded` parameter affects the `border-radius` CSS styles of the DropDownBu
 
 >caption DropDownButton Rounded example
 
-<demo metaUrl="client/dropdownbutton/appearance/rounded/" height="300"></demo>
+<demo metaUrl="client/dropdownbutton/appearance/rounded/" height="320"></demo>
 
 ## Size
 
@@ -78,7 +78,7 @@ The `Size` parameter can change some dimensions of the DropDownButton's primary 
 
 >caption DropDownButton Size example
 
-<demo metaUrl="client/dropdownbutton/appearance/size/" height="300"></demo>
+<demo metaUrl="client/dropdownbutton/appearance/size/" height="320"></demo>
 
 
 ## ThemeColor
@@ -99,7 +99,7 @@ The `ThemeColor` parameter sets the background and text color of the DropDownBut
 
 >caption DropDownButton ThemeColor example
 
-<demo metaUrl="client/dropdownbutton/appearance/theme-color/" height="300"></demo>
+<demo metaUrl="client/dropdownbutton/appearance/theme-color/" height="320"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
