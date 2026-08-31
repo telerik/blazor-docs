@@ -356,3 +356,4 @@ Chart Legend Position
 ## See Also
 
 * [Live Demo: Pie Chart](https://demos.telerik.com/blazor-ui/chart/pie-chart)
+* [Hide Pie Chart Category on Legend Click](slug:chart-kb-toggle-category-on-legend-item-click)
