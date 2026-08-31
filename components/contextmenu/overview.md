@@ -25,77 +25,7 @@ To create the Context Menu:
 
 >caption A basic Context Menu with hierarchical data binding and an `OnClick` event handler
 
-````RAZOR
-@* Use a Context Menu to perform actions *@
-
-<div class="context-menu-target" style="width:200px; height: 100px; background: yellow; margin-bottom: 50px;">
-    Right-click (or tap and hold on a touch device) for a Context Menu.
-</div>
-
-<TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems"                       
-                    OnClick="@( (ContextMenuItem itm) => ClickHandler(itm) )">
-</TelerikContextMenu>
-
-@code {
-    public List<ContextMenuItem> MenuItems { get; set; }
-
-    async Task ClickHandler(ContextMenuItem clickedItem)
-    {
-        if (!string.IsNullOrEmpty(clickedItem.CommandName))
-        {
-            Console.WriteLine($"The programm will now perform the {clickedItem.CommandName} operation");
-        }
-    }
-
-    protected override void OnInitialized()
-    {
-
-        MenuItems = new List<ContextMenuItem>()
-        {
-            new ContextMenuItem
-            {
-                Text = "More Info",
-                Icon = SvgIcon.InfoCircle,
-                CommandName = "info"
-            },
-            new ContextMenuItem
-            {
-                Separator = true
-            },
-            new ContextMenuItem
-            {
-                Text = "Advanced",
-                Items = new List<ContextMenuItem>()
-                {
-                    new ContextMenuItem
-                    {
-                        Text = "Delete",
-                        Icon = SvgIcon.Trash,
-                        CommandName = "delete"
-                    },
-                    new ContextMenuItem
-                    {
-                        Text = "Report",
-                        Icon = SvgIcon.Cancel,
-                        CommandName = "report"
-                    }
-                }
-            }
-        };
-
-        base.OnInitialized();
-    }
-
-    public class ContextMenuItem
-    {
-        public string Text { get; set; }
-        public string CommandName { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public bool Separator { get; set; }
-        public List<ContextMenuItem> Items { get; set; }
-    }
-}
-````
+<demo metaUrl="client/contextmenu/overview/" height="300"></demo>
 
 ## Data Binding
 
@@ -139,12 +69,10 @@ The following table lists Context Menu parameters, which are not related to othe
 
 The popup of the component can be additionally customized via nested tags:
 
-<div class="skip-repl"></div>
-
-````RAZOR
-<TelerikContextMenu>
+````RAZOR.skip-repl
+<TelerikContextMenu TItem="object">
     <ContextMenuSettings>
-        <ContextMenuPopupSettings HorizontalCollision="..."/>
+        <ContextMenuPopupSettings HorizontalCollision="@PopupCollision.Fit" />
     </ContextMenuSettings>
 </TelerikContextMenu>
 ````
@@ -168,87 +96,7 @@ To use the [Blazor Context Menu methods](slug:Telerik.Blazor.Components.TelerikC
 | `HideAsync` | Programmatically hides the Context Menu. |
 | `Refresh` | Re-renders the component. |
 
-````RAZOR
-@* Open, close, and refresh the Context Menu programmatically *@
-
-<div @oncontextmenu:preventDefault="true"
-     @oncontextmenu="@( (MouseEventArgs e) => ShowContextMenu(e, false) )"
-     class="menuTarget">
-    normal target
-</div>
-
-<TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu">
-    <Template>
-        @{
-            var dataSource = context as List<ContextMenuItem>;
-            <p>We have this data:</p>
-            <ul>
-                @foreach (var item in dataSource)
-                {
-                    <li>@item.Text</li>
-                }
-            </ul>
-        }
-        <TelerikTextBox @bind-Value="@TextBoxValue" />
-        <br />
-        <TelerikButton OnClick="@HandleTextBoxReset">Reset textbox</TelerikButton>
-        <TelerikButton OnClick="@(async () => await TheContextMenu.HideAsync())">Close</TelerikButton>
-    </Template>
-</TelerikContextMenu>
-
-@code {
-    public List<ContextMenuItem> MenuItems { get; set; }
-    public string TextBoxValue { get; set; }
-
-    // The Context Menu is a generic component and its type depends on the model to which it binds.
-    TelerikContextMenu<ContextMenuItem> TheContextMenu { get; set; }
-
-    void HandleTextBoxReset()
-    {
-        TextBoxValue = "";
-        TheContextMenu.Refresh();
-    }
-
-    async Task ShowContextMenu(MouseEventArgs e, bool IsSpecial)
-    {
-        await TheContextMenu.ShowAsync(e.ClientX, e.ClientY);
-    }
-
-    // Generate sample data for the ListView and the Context Menu.
-    protected override void OnInitialized()
-    {
-        MenuItems = new List<ContextMenuItem>()
-    {
-            new ContextMenuItem
-            {
-                Text = "More Info",
-                Metadata = "info"
-            },
-            new ContextMenuItem
-            {
-                Text = "Special Command",
-                Metadata = "special"
-            }
-        };
-
-        base.OnInitialized();
-    }
-
-    public class ContextMenuItem
-    {
-        public string Text { get; set; }
-        public string Metadata { get; set; }
-    }
-}
-
-<style>
-    .menuTarget {
-        width: 100px;
-        background: yellow;
-        margin: 50px;
-    }
-</style>
-````
+<demo metaUrl="client/contextmenu/overview/methods/" height="450"></demo>
 
 ## Next Steps
 

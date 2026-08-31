@@ -15,41 +15,7 @@ The Month Cell Template controls what the calendar will render in the `<td>` ele
 
 The template receives the `DateTime` corresponding to its cell.
 
->caption Mark special days on the calendar month view
-
-![calendar month cell template](images/calendar-month-template.png)
-
-````RAZOR
-@* This example adds an icon for certain days *@
-
-<TelerikCalendar @bind-Date="@startDate">
-    <MonthCellTemplate>
-        @if (IsSpecialDay(context))
-        {
-            <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
-        }
-        @context.Day
-    </MonthCellTemplate>
-</TelerikCalendar>
-
-@code{
-    DateTime startDate { get; set; } = new DateTime(2021, 4, 1);
-    
-    List<DateTime> birthdays { get; set; } = new List<DateTime>()
-    {
-        new DateTime(2021, 4, 2),
-        new DateTime(2021, 4, 13),
-        new DateTime(2021, 4, 24),
-        new DateTime(2021, 4, 29)
-    };
-
-    bool IsSpecialDay(DateTime currDate)
-    {
-        return birthdays.Any(d => d.Year == currDate.Year && d.Month == currDate.Month && d.Day == currDate.Day);
-    }
-}
-````
-
+<demo metaUrl="client/calendar/templates/month-cell/" height="500"></demo>
 
 ## See Also
 

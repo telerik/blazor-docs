@@ -28,51 +28,7 @@ You can use the `OnItemClick` event to react to user choices in a Breadcrumb, an
 
 >caption Handle OnItemClick event of the Breadcrumb
 
-````RAZOR
-@* Handle the OnItemClick event of the Breadcrumb and cancel it for Item 3*@
-
-@logger
-
-<TelerikBreadcrumb OnItemClick="@ClickHandler"
-                   Data="@Items" >
-</TelerikBreadcrumb>
-
-@code {
-    string logger;
-
-    void ClickHandler(BreadcrumbItemClickEventArgs args)
-    {
-        var ClickedItem = args.Item as BreadcrumbItem;
-
-        logger = $"User clicked {ClickedItem.Text}";
-
-        if (ClickedItem.Text == "Item 3")
-        {
-            args.IsCancelled = true;
-            logger = $"OnItemClick is cancelled for {ClickedItem.Text}";
-        }
-    }
-
-    public IEnumerable<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<BreadcrumbItem>
-        {
-            new BreadcrumbItem { Text = "Item 1" },
-            new BreadcrumbItem { Text = "Item 2" },
-            new BreadcrumbItem { Text = "Item 3" },
-            new BreadcrumbItem { Text = "Item 4" },
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-    }
-}
-````
-
+<demo metaUrl="client/breadcrumb/events/" height="250"></demo>
 
 ## See Also
 

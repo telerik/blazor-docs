@@ -44,45 +44,7 @@ The nested `AppBarSpacer` tag exposes the following parameters:
 
 >caption The AppBar separators
 
-````RAZOR
-@* The AppBar content dividers with some of their parameters and values *@
-
-<style>
-    .k-appbar .k-appbar-separator.thick-separator {
-        border-width: 0 0 0 20px;
-    }
-</style>
-
-<TelerikAppBar>
-    <AppBarSection>
-        <span>Our Logo</span>
-    </AppBarSection>
-
-    <AppBarSpacer Size="25%"></AppBarSpacer>
-
-    <AppBarSection>
-        <span>Our Products</span>
-    </AppBarSection>
-
-    <AppBarSpacer Size="50px"></AppBarSpacer>
-
-    <AppBarSection>
-        <span>Our Mission</span>
-    </AppBarSection>
-
-    <AppBarSpacer></AppBarSpacer>
-
-    <AppBarSection>
-        <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
-    </AppBarSection>
-
-    <AppBarSeparator Class="thick-separator"></AppBarSeparator>
-
-    <AppBarSection>
-        <TelerikSvgIcon Icon="@SvgIcon.Logout"></TelerikSvgIcon>
-    </AppBarSection>
-</TelerikAppBar>
-````
+<demo metaUrl="client/appbar/separators/" height="300"></demo>
 
 
 ## See Also

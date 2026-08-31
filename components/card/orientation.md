@@ -18,58 +18,22 @@ You can define the Card orientation by setting its `Orientation` parameter to a 
    * [`Vertical`](#card-with-vertical-orientation) - the default
 
 
-## Card with Horizontal orientation
+## Card with Horizontal Orientation
 
-A Card with horizontal orientation. The result from the snippet below.
+Configure the Card to use horizontal orientation by setting the `Orientation` parameter.  
 
-![Card with horizontal orientation](images/horizontal-orientation-example.png)
+>caption Card with horizontal orientation
 
-````RAZOR
-@* Change the orientation of the Card *@
-
-<TelerikCard Orientation="CardOrientation.Horizontal" Width="500px">
-    <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardSubTitle>Horizontal orientation</CardSubTitle>
-    </CardHeader>
-    <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-    <CardSeparator></CardSeparator>
-    <CardActions>
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-    </CardActions>
-</TelerikCard>
-````
+<demo metaUrl="client/card/orientation/horizontal/" height="450"></demo>
 
 
-## Card with Vertical orientation
+## Card with Vertical Orientation
 
 Vertical orientation is the default orientation of the Card, so you don't need to explicitly define it. The below snippet demonstrates how to specify it for example purposes.
 
-The result from the snippet below.
+>caption Card with vertical orientation
 
-![Card with horizontal orientation](images/vertical-orientation-example.png)
-
-````RAZOR
-@* Change the orientation of the Card *@
-
-<TelerikCard Orientation="CardOrientation.Vertical" Width="200px">
-    <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardSubTitle>Vertical orientation</CardSubTitle>
-    </CardHeader>
-    <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-    <CardSeparator></CardSeparator>
-    <CardActions>
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-    </CardActions>
-</TelerikCard>
-````
+<demo metaUrl="client/card/orientation/vertical/" height="450"></demo>
 
 ## See Also
 

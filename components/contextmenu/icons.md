@@ -23,72 +23,7 @@ If the icon property name in the ContextMenu model is `Icon`, there is no need t
 
 >caption How to use icons in Telerik Context Menu
 
-````RAZOR
-<div class="context-menu-target" style="width:200px; height: 100px; background: yellow; margin-bottom: 50px;">
-    Right click (or tap-and-hold on a touch device) for a context menu.
-</div>
-
-<TelerikContextMenu Data="@MenuData"
-                    Selector=".context-menu-target"
-                    IconField="@(nameof(MenuItem.Icon))">
-</TelerikContextMenu>
-
-<style>
-    /* Third-party icon libraries should provide these styles out-of-the-box. */
-
-    /* base styles for all custom icons */
-    .my-icon {
-        /* Define size, position and font styles here. */
-        width: 1em;
-        height: 1em;
-        font-size: 16px;
-    }
-
-    /* styles for specific custom icons */
-    .my-icon-purple {
-        /* define a background image or a font icon glyph here */
-        background: purple;
-    }
-</style>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
-
-@code {
-    private List<MenuItem> MenuData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MenuData = new List<MenuItem>() {
-            new MenuItem()
-            {
-                Text = "SVG Icon",
-                Icon = SvgIcon.Envelope
-            },
-            new MenuItem()
-            {
-                Text = "Font Icon",
-                Icon = FontIcon.Wrench,
-            },
-            new MenuItem()
-            {
-                Text = "Custom Icon",
-                Icon = "my-icon my-icon-purple"
-            },
-            new MenuItem()
-            {
-                Text = "Empty Icon",
-                Icon = "my-icon"
-            }
-        };
-    }
-
-    public class MenuItem
-    {
-        public string Text { get; set; }
-        public object Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/contextmenu/icons/" height="350"></demo>
 
 ## See Also
 

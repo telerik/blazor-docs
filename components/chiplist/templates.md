@@ -19,42 +19,7 @@ The ChipList component allows you to change what is rendered in the chip. This a
 
 The `<ItemTemplate>` allows you to control the rendering of the chips in the ChipList. This template receives a `context` argument that represents the current item.
 
-````RAZOR
-<TelerikChipList Data="@ChipListSource">
-    <ItemTemplate>
-        @{
-            <div>
-                <TelerikSvgIcon Icon="@context.Icon"></TelerikSvgIcon>
-                Item: @context.Text
-            </div>
-        }
-    </ItemTemplate>
-</TelerikChipList>
-
-@code {
-    private IEnumerable<ChipModel> ChipListSelectedItems { get; set; } = new List<ChipModel>();
-
-    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
-    {
-        new ChipModel()
-        {
-            Text = "Audio",
-            Icon = SvgIcon.FileAudio
-        },
-        new ChipModel()
-        {
-            Text = "Video",
-            Icon = SvgIcon.FileVideo
-        }
-    };
-
-    public class ChipModel
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chiplist/templates/item/" height="250"></demo>
 ## See Also
 
 * [ChipList Overview](slug:chiplist-overview)

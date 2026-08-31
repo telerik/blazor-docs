@@ -23,24 +23,7 @@ To use a Telerik Chip for Blazor:
 
 >caption Basic Chip for Blazor
 
-````RAZOR
-<TelerikChip @bind-Selected="@Chip1Selected"
-             Text="Audio"
-             Icon="@SvgIcon.FileAudio">
-</TelerikChip>
-
-<TelerikChip @bind-Selected="@Chip2Selected">
-    <TelerikSvgIcon Icon="@SvgIcon.Gear" />
-    Chip ChildContent
-</TelerikChip>
-
-
-@code {
-    private bool Chip1Selected { get; set; } = true;
-
-    private bool Chip2Selected { get; set; }
-}
-````
+<demo metaUrl="client/chip/overview/" height="250"></demo>
 
 ## Events
 

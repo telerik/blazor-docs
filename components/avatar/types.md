@@ -27,25 +27,7 @@ If the `Type` parameter value is not matching the type of the content, you will 
 
 >caption Different types of Avatar content
 
-````RAZOR
-@*Avatar types*@
-
-<TelerikAvatar Type="AvatarType.Image">
-
-    <img src="https://demos.telerik.com/blazor-ui/images/panelbar/robert.jpg" />
-
-</TelerikAvatar>
-
-<TelerikAvatar Type="AvatarType.Text">
-    JD
-</TelerikAvatar>
-
-<TelerikAvatar Type="AvatarType.Icon">
-
-    <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
-
-</TelerikAvatar>
-````
+<demo metaUrl="client/avatar/types/" height="220"></demo>
 
 ## Next Steps
 

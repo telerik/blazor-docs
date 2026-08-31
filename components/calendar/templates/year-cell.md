@@ -15,31 +15,7 @@ The Year Cell Template controls what the calendar will render in the `<td>` elem
 
 The template receives the `DateTime` corresponding to its cell.
 
->caption Mark some months on the calendar year view
-
-![calendar year cell template](images/calendar-year-template.png)
-
-````RAZOR
-@* This example adds an icon for certain months *@
-
-<TelerikCalendar @bind-Date="@startDate" @bind-View="@theView">
-    <YearCellTemplate>
-        @if (monthsWithEvents.Contains(context.Month))
-        {
-            <TelerikSvgIcon Icon="@SvgIcon.RoundCorners"></TelerikSvgIcon>
-        }
-        @context.ToString("MMM")
-    </YearCellTemplate>
-</TelerikCalendar>
-
-@code{
-    DateTime startDate { get; set; } = new DateTime(2021, 4, 1);
-    CalendarView theView { get; set; } = CalendarView.Year;
-    
-    List<int> monthsWithEvents { get; set; } = new List<int>() { 3, 4, 12 };
-}
-````
-
+<demo metaUrl="client/calendar/templates/year-cell/" height="500"></demo>
 
 ## See Also
 

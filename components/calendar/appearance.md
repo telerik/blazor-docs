@@ -27,27 +27,7 @@ This configuration affects the size of the whole Calendar and its inner elements
 
 >caption The built-in Calendar sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Calendar.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikCalendar @bind-Value="@DateValue" Size="@size"></TelerikCalendar>
-        </div>
-    }
-}
-
-@code {
-    private DateTime DateValue { get; set; } = DateTime.Now;
-}
-````
+<demo metaUrl="client/calendar/appearance/" height="500"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

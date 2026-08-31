@@ -22,39 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/carousel" target="_blank">Carou
 
 >caption Carousel with 5 pages and some basic content
 
-````RAZOR
-@* Blazor Carousel *@
-
-<TelerikCarousel Data="@CarouselData"
-                 Width="400px" Height="200px">
-    <Template>
-        <div class="item">ID @(context.ID) : @(context.Text)</div>
-    </Template>
-</TelerikCarousel>
-
-<style>
-    .item {
-        background: #3d57d8;
-        color: #fff;
-        font: 36px/200px sans-serif;
-        text-align: center;
-    }
-</style>
-
-@code {
-    public IEnumerable<CarouselModel> CarouselData = Enumerable.Range(1, 5).Select(x => new CarouselModel
-    {
-        ID = x,
-        Text = "Text " + x
-    });
-
-    public class CarouselModel
-    {
-        public int ID { get; set; }
-        public string Text { get; set; }
-    }
-}
-````
+<demo metaUrl="client/carousel/overview/" height="300"></demo>
 
 @[template](/_contentTemplates/carousel/general.md#carousel-item-class)
 

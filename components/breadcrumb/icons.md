@@ -21,46 +21,9 @@ If the icon property name in the Breadcrumb model is `Icon`, there is no need to
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
->caption How to use icons in Telerik Breadcrumb
+>caption Use Telerik Breadcrumb icons
 
-````RAZOR
-<TelerikBreadcrumb Data="@Data"></TelerikBreadcrumb>
-
-<style>
-    .my-icon {
-        /* define a background image or a custom font icon here */
-        background: purple;
-        /* dimensions and other base styles will usually come from another class */
-        width: 1em;
-        height: 1em;
-        font-size: 16px;
-    }
-</style>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
-
-@code {
-    private IEnumerable<BreadcrumbItem> Data = new List<BreadcrumbItem>();
-
-    protected override void OnInitialized()
-    {
-        Data = new List<BreadcrumbItem>() {
-            new BreadcrumbItem() { Title = "Home", Icon = SvgIcon.Home },
-            new BreadcrumbItem() { Text = "Arts (SVG)", Icon = SvgIcon.Palette },
-            new BreadcrumbItem() { Text = "Photography (Font)", Icon = FontIcon.Photos },
-            new BreadcrumbItem() { Text = "(Custom)", Icon = "my-icon" }
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-        public string Title { get; set; }
-        public object Icon { get; set; }
-    }
-}
-````
-
+<demo metaUrl="client/breadcrumb/icons/" height="250"></demo>
 
 ## See Also
 

@@ -19,22 +19,7 @@ The example below also includes conditional logic to show different icons in the
 
 >caption How to use icons in the Telerik ButtonGroup Button
 
-````RAZOR
-<TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
-    <ButtonGroupToggleButton Icon="SvgIcon.VolumeDown"
-                             @bind-Selected="@SvgSelected">SVG Icon</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton Icon="@FontIcon.VolumeUp"
-                             @bind-Selected="@FontSelected">Font Icon</ButtonGroupToggleButton>
-</TelerikButtonGroup>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
-
-@code{
-    private bool SvgSelected { get; set; }
-
-    private bool FontSelected { get; set; }
-}
-````
+<demo metaUrl="client/buttongroup/icons/" height="200"></demo>
 
 ## Notes
 

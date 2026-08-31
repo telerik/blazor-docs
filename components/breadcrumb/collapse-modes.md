@@ -19,34 +19,9 @@ You can specify how the Breadcrumb items are visualized when their total width e
 
 * `None` — All items are expanded on a single row and a horizontal scrollbar will appear if needed.
 
->caption Set the Breadcrumb CollapseMode to `Wrap`. The result from the snippet below.
+>caption Set the Breadcrumb CollapseMode to `Wrap`
 
-![Breadcrumb CollapseMode Wrap](images/breadcrumb-collapse-modes-example.png)
-
-````RAZOR
-@* This example demonstrates how to change the default Breadcrumb CollapseMode to Wrap *@
-
-<div style="width:400px">
-    <TelerikBreadcrumb CollapseMode="@BreadcrumbCollapseMode.Wrap"
-                       Data="@Items">
-    </TelerikBreadcrumb>
-</div>
-
-@code {
-
-    public IEnumerable<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = Enumerable.Range(1, 10).Select(x => new BreadcrumbItem { Text = $"Item {x}" }).ToList();
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-    }
-}
-````
+<demo metaUrl="client/breadcrumb/collapse-modes/" height="250"></demo>
 
 ## See Also
 

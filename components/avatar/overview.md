@@ -27,14 +27,7 @@ You can set different [Avatar types](slug:avatar-types) and customize its [size]
 
 >caption Basic Avatar with text and specified `ThemeColor`
 
-````RAZOR
-@*Basic Avatar configuration*@
-
-<TelerikAvatar Type="AvatarType.Text"
-               ThemeColor="@Telerik.Blazor.ThemeConstants.Avatar.ThemeColor.Primary">
-    JD
-</TelerikAvatar>
-````
+<demo metaUrl="client/avatar/overview/" height="220"></demo>
 
 ## Types
 

@@ -34,25 +34,7 @@ You can increase or decrease the size of the Avatar by setting the `Size` parame
 
 >caption The built-in Avatar sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-        <TelerikAvatar Size="@size" Type="AvatarType.Text">
-            JD
-        </TelerikAvatar>
-        </div>
-    }
-}
-````
+<demo metaUrl="client/avatar/appearance/size/" height="250"></demo>
 
 ## Rounded
 
@@ -67,27 +49,7 @@ The `Rounded` parameter applies the `border-radius` CSS style to the Avatar to a
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in rounded options of the Avatar.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikAvatar Rounded="@rounded" Type="AvatarType.Text">
-                JD
-            </TelerikAvatar>
-        </div>
-    }
-}
-````
+<demo metaUrl="client/avatar/appearance/rounded/" height="250"></demo>
 
 ## FillMode
 
@@ -102,27 +64,7 @@ The `FillMode` controls whether the TelerikAvatar has background or is just outl
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes of the Avatar*@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillmode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikAvatar FillMode="@fillmode" Type="AvatarType.Text">
-                JD
-            </TelerikAvatar>
-        </div>
-    }
-}
-````
+<demo metaUrl="client/avatar/appearance/fill-mode/" height="250"></demo>
 
 ## ThemeColor
 
@@ -137,29 +79,7 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
 
 >caption Built-in Avatar ThemeColors
 
-````RAZOR
-<div style="display: flex; gap: 1em;">
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.ThemeColor)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string themeColor = field.GetValue(null).ToString();
-
-        <div style="text-align: center;">
-            <TelerikAvatar ThemeColor="@themeColor" Type="AvatarType.Text">
-                JD
-            </TelerikAvatar>
-            <br />
-            @themeColor
-        </div>
-    }
-}
-</div>
-````
+<demo metaUrl="client/avatar/appearance/theme-color/" height="250"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

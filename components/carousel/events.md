@@ -25,50 +25,7 @@ The `PageChanged` event fires when:
 
 The event can be used to implement custom business logic, or update the Carousel `Page` attribute value, when using one-way binding for it.
 
-````RAZOR
-@* Handle the Carousel PageChanged event *@
-
-<p>Page changed to index: @PageIndex</p>
-
-<TelerikCarousel Data="@CarouselData"
-                 PageChanged="@PageChangedHandler"
-                 Page="@PageIndex"
-                 Width="400px" Height="200px">
-    <Template>
-        <div class="item">ID @(context.ID) : @(context.Text)</div>
-    </Template>
-</TelerikCarousel>
-
-<style>
-    .item {
-        background: #3d57d8;
-        color: #fff;
-        font: 36px/200px sans-serif;
-        text-align: center;
-    }
-</style>
-
-@code {
-
-    public int PageIndex = 1;
-    public async Task PageChangedHandler(int newPage)
-    {
-        PageIndex = newPage;
-    }
-
-    public IEnumerable<CarouselModel> CarouselData = Enumerable.Range(1, 5).Select(x => new CarouselModel
-    {
-        ID = x,
-        Text = "Text " + x
-    });
-
-    public class CarouselModel
-    {
-        public int ID { get; set; }
-        public string Text { get; set; }
-    }
-}
-````
+<demo metaUrl="client/carousel/events/page-changed/" height="300"></demo>
 
 @[template](/_contentTemplates/carousel/general.md#carousel-item-class)
 

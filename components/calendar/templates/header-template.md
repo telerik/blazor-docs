@@ -17,40 +17,7 @@ The example below is using a [Calendar reference and methods](slug:components/ca
 
 >caption Use custom rendering in the Calendar header
 
-````RAZOR
-<TelerikCalendar @bind-Value="@CalendarValue" @bind-Date="@CalendarDate">
-    <HeaderTemplate>
-
-        <TelerikButton OnClick="@GoToPrevious" Icon="@SvgIcon.ArrowLeft" Title="Go to Previous Month"></TelerikButton>
-        <TelerikButton OnClick="@SelectToday">Today</TelerikButton>
-        <TelerikButton OnClick="@GoToNext" Icon="@SvgIcon.ArrowRight" Title="Go to Next Month"></TelerikButton>
-
-        <TelerikSvgIcon Icon="@SvgIcon.ParameterDateTime" /> @CalendarValue.ToShortDateString()
-
-    </HeaderTemplate>
-</TelerikCalendar>
-
-@code {
-    DateTime CalendarValue { get; set; } = DateTime.Now;
-    DateTime CalendarDate { get; set; } = DateTime.Now;
-
-    void GoToPrevious()
-    {
-        CalendarDate = CalendarDate.AddMonths(-1);
-    }
-
-    void SelectToday()
-    {
-        CalendarValue = DateTime.Today;
-        CalendarDate = DateTime.Today;
-    }
-
-    void GoToNext()
-    {
-        CalendarDate = CalendarDate.AddMonths(1);
-    }
-}
-````
+<demo metaUrl="client/calendar/templates/header-template/" height="500"></demo>
 
 
 ## See Also

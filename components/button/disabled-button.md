@@ -19,17 +19,4 @@ The following example demonstrates how to enable and disable the Button.
 
 >caption Toggle Telerik Button Enabled State
 
-````RAZOR
-<p>
-    <label>
-        <TelerikCheckBox @bind-Value="@ButtonIsEnabled" /> Toggle Button State
-    </label>
-</p>
-
-<TelerikButton Enabled="@ButtonIsEnabled">@ButtonText</TelerikButton>
-
-@code {
-    bool ButtonIsEnabled { get; set; } = false;
-    string ButtonText => ButtonIsEnabled ? "Enabled Button" : "Disabled Button";
-}
-````
+<demo metaUrl="client/button/disabled/" height="200"></demo>

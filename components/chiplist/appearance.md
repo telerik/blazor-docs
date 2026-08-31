@@ -34,51 +34,7 @@ You can also set `FillMode` separately for each chip in the ChipList through a [
 
 >caption Using ChipList FillMode
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillmode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChipList Data="@ChipListSource"
-                     FillMode="@fillmode">
-            </TelerikChipList>
-        </div>
-    }
-}
-
-@code {
-    private IEnumerable<ChipModel> ChipListSelectedItems { get; set; } = new List<ChipModel>();
-
-    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
-    {
-        new ChipModel()
-        {
-            Text = "Audio",
-            Icon = SvgIcon.FileAudio
-        },
-        new ChipModel()
-        {
-            Text = "Video",
-            Icon = SvgIcon.FileVideo
-        }
-    };
-
-    public class ChipModel
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chiplist/appearance/fill-mode/" height="350"></demo>
 
 ## Rounded
 
@@ -93,51 +49,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the chip to achi
 
 >caption Using ChipList Rounded
 
-````RAZOR
-@* The built-in rounded edges of the chip.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChipList Data="@ChipListSource"
-                     Rounded="@rounded">
-            </TelerikChipList>
-        </div>
-    }
-}
-
-@code {
-    private IEnumerable<ChipModel> ChipListSelectedItems { get; set; } = new List<ChipModel>();
-
-    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
-    {
-        new ChipModel()
-        {
-            Text = "Audio",
-            Icon = SvgIcon.FileAudio
-        },
-        new ChipModel()
-        {
-            Text = "Video",
-            Icon = SvgIcon.FileVideo
-        }
-    };
-
-    public class ChipModel
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chiplist/appearance/rounded/" height="350"></demo>
 
 ## Size
 
@@ -151,49 +63,7 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
 
 >caption Using ChipList Size
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChipList Data="@ChipListSource"
-                     Size="@size">
-            </TelerikChipList>
-        </div>
-    }
-}
-
-@code {
-    private IEnumerable<ChipModel> ChipListSelectedItems { get; set; } = new List<ChipModel>();
-
-    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
-    {
-        new ChipModel()
-        {
-            Text = "Audio",
-            Icon = SvgIcon.FileAudio
-        },
-        new ChipModel()
-        {
-            Text = "Video",
-            Icon = SvgIcon.FileVideo
-        }
-    };
-
-    public class ChipModel
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chiplist/appearance/size/" height="350"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

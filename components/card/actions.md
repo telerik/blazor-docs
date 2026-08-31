@@ -37,29 +37,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
    * `Horizontal` - the default
    * `Vertical`
 
->caption Change the orientation of the action buttons. The result from the snippet below.
-
-![Vertical orientation of the action buttons](images/buttons-orientation-example.png)
-
-````RAZOR
-@* Change the orientation of the action buttons *@
-
-<TelerikCard Width="200px">
-    <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-    </CardHeader>
-    <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-    <CardSeparator></CardSeparator>
-    
-    <CardActions Orientation="@CardOrientation.Vertical">
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-    </CardActions>
-    
-</TelerikCard>
-````
+<demo metaUrl="client/card/actions/vertical/" height="400"></demo>
 
 
 ## Layout
@@ -72,30 +50,7 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 * `Start`
 * `Stretch`
 
->caption Set stretched layout for the action buttons. The result from the snippet below.
-
-![Action buttons with stretched layout](images/buttons-layout-example.png)
-
-````RAZOR
-@* Change the layout of the action buttons *@
-
-<TelerikCard Width="600px">
-    <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-    </CardHeader>
-    <CardBody>
-        <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
-    </CardBody>
-    <CardSeparator></CardSeparator>
-    
-    <CardActions Layout="@CardActionsLayout.Stretch">
-        <TelerikButton Class="k-flat">Action 1</TelerikButton>
-        <TelerikButton Class="k-flat">Action 2</TelerikButton>
-        <TelerikButton Class="k-flat">Action 3</TelerikButton>
-    </CardActions>
-    
-</TelerikCard>
-````
+<demo metaUrl="client/card/actions/stretch/" height="400"></demo>
 
 >tip Icon buttons in the CardActions area will expand horizontally and vertically, if the `Layout` is `Stretch` or if the `Orientation` is `Vertical`. If this is not desired, check this knowledge base article: [CardAction Icon Buttons Are Too Big](slug:card-kb-icon-buttons-too-large).
 
