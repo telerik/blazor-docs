@@ -28,26 +28,7 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 
 >caption Basic DropDownButton
 
-````RAZOR
-<TelerikDropDownButton Icon="@SvgIcon.Share" OnClick="@(()=>OnItemClick("Primary"))">
-    <DropDownButtonContent>Share</DropDownButtonContent>
-
-    <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Facebook" OnClick="@(()=>OnItemClick("Facebook"))">Facebook</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Twitter" OnClick="@(()=>OnItemClick("Twitter"))">Twitter</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Linkedin" OnClick="@(()=>OnItemClick("Linkedin"))">Linkedin</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Reddit" OnClick="@(()=>OnItemClick("Reddit"))">Reddit</DropDownButtonItem>
-    </DropDownButtonItems>
-
-</TelerikDropDownButton>
-
-@code {
-    private void OnItemClick(string item)
-    {
-        Console.WriteLine($"User clicked {item} option.");
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/overview/basic/" height="380"></demo>
 
 ## Icons
 
@@ -86,24 +67,14 @@ The following table lists the DropDownButton parameters, except those related to
 
 The DropDownButton exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownButtonPopupSettings>` tag inside a `<DropDownButtonSettings>` tag:
 
-````RAZOR
-<TelerikDropDownButton Icon="@SvgIcon.Share">
-    <DropDownButtonContent>Share</DropDownButtonContent>
-
+````RAZOR.skip-repl
+<TelerikDropDownButton>
     <DropDownButtonSettings>
-        <DropDownButtonPopupSettings Height="auto" MaxHeight="100px"/>
+        <DropDownButtonPopupSettings Height="auto" MaxHeight="160px" />
     </DropDownButtonSettings>
-
-    <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Facebook">Facebook</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Twitter">Twitter</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Linkedin">Linkedin</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Reddit">Reddit</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Pinterest">Pinterest</DropDownButtonItem>
-    </DropDownButtonItems>
-
 </TelerikDropDownButton>
 ````
+
 The DropDownButton provides the following popup settings:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
@@ -139,31 +110,7 @@ The DropDownButton exposes a `FocusAsync` method that allows you to focus it pro
 
 >caption Get a reference to the DropDownButton and execute methods
 
-````RAZOR
-
-<TelerikButton OnClick="@FocusDropDownButton">Focus DropDownButton</TelerikButton>
-
-<TelerikDropDownButton @ref="@DropDownButtonRef" Icon="@SvgIcon.Share">
-    <DropDownButtonContent>Share</DropDownButtonContent>
-
-    <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Facebook">Facebook</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Twitter">Twitter</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Linkedin">Linkedin</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Reddit">Reddit</DropDownButtonItem>
-    </DropDownButtonItems>
-
-</TelerikDropDownButton>
-
-@code {
-    TelerikDropDownButton DropDownButtonRef;
-
-    async Task FocusDropDownButton()
-    {
-        await DropDownButtonRef.FocusAsync();
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/overview/focus/" height="360"></demo>
 
 ## Next Steps
 

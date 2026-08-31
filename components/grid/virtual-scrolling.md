@@ -99,7 +99,7 @@ If you use the `OnRead` event without `ToDataSourceResultAsync()`, then [use the
 
 >caption Virtual Grid scrolling with optional OnRead event and grouping
 
-<demo metaUrl="client/grid/virtual-scrolling/" height="600"></demo>
+<demo metaUrl="client/grid/virtual-scrolling/" height="500"></demo>
 
 ## See Also
 

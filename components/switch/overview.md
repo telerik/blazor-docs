@@ -23,6 +23,10 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 
 <demo metaUrl="client/switch/overview/" height="220"></demo>
 
+>caption The result from the code snippet above
+
+![Telerik Switch Component](images/swtich-first-look.gif)
+
 ## Labels
 
 The Switch has dedicated `On` and `Off` labels serving as text representation of the component value. [Read more about the Switch labels....](slug:switch-labels)

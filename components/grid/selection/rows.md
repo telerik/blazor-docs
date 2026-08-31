@@ -31,7 +31,7 @@ To enable row selection:
 
 >caption Grid multiple row selection
 
-<demo metaUrl="client/grid/selection-rows/" height="700"></demo>
+<demo metaUrl="client/grid/selection-rows/" height="500"></demo>
 
 ## SelectedItemsChanged Event
 
@@ -41,7 +41,7 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 >caption Using the Grid SelectedItemsChanged event
 
-<demo metaUrl="client/grid/selection-rows-changed/" height="700"></demo>
+<demo metaUrl="client/grid/selection-rows-changed/" height="550"></demo>
 
 ## Selection When Data Changes
 

@@ -38,38 +38,7 @@ Here is a simple example that demonstrates how to use class names, command names
 
 >caption Use tool class names and command names with the Blazor Editor
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-@* Avoid ambiguous reference with SVG icons *@
-@using EditorNS = Telerik.Blazor.Components.Editor;
-
-<TelerikButton OnClick="@InsertParagraph">Insert Paragraph in the Editor</TelerikButton>
-
-<TelerikEditor @ref="EditorRef"
-               Tools="@EditorTools"
-               @bind-Value="@EditorValue">
-</TelerikEditor>
-
-@code {
-    private TelerikEditor EditorRef { get; set; }
-
-    private string EditorValue { get; set; } = @"<p>foo</p><p>bar</p>";
-
-    // "Bold", "Italic" and "Underline" are class names
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() {
-        new EditorNS.Bold(),
-        new EditorNS.Italic(),
-        new EditorNS.Underline()
-    };
-
-    private async Task InsertParagraph()
-    {
-        // "insertHtml" is a command name
-        // HtmlCommandArgs is the ExecuteAsync argument
-        await EditorRef.ExecuteAsync(new HtmlCommandArgs("insertHtml", $"<p>baz {DateTime.Now.Millisecond}</p>"));
-    }
-}
-````
+<demo metaUrl="client/editor/built-in-tools/use-tool-class-names/" height="480"></demo>
 
 
 ## Built-in Tools and Commands
@@ -204,78 +173,14 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 >caption Customizing the Editor Color Tools
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-
-<TelerikEditor Tools="@EditorTools"
-               @bind-Value="@EditorValue">
-</TelerikEditor>
-
-@code {
-    private string EditorValue { get; set; }
-
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
-    {
-        new ForeColor()
-        {
-            Title = "Text Color",
-            Colors = new List<string> { "#f00", "#ff9900", "rgb(0, 128, 0)", "rgba(0, 0, 255, .8)" },
-            ValueFormat = ColorFormat.Hex
-        },
-        new BackgroundColor()
-        {
-            Title = "Background Color",
-            Colors = ColorPalettePresets.Basic,
-            ValueFormat = ColorFormat.Hex
-        }
-    };
-}
-````
+<demo metaUrl="client/editor/built-in-tools/color-tool-customization/" height="480"></demo>
 
 
 ### Font Tool Customization
 
 The [`FontFamily`](slug:Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](slug:Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-@* Avoid ambiguous reference with SVG icons *@
-@using EditorNS = Telerik.Blazor.Components.Editor;
-
-<TelerikEditor @bind-Value="@EditorValue"
-               Tools="@EditorTools">
-</TelerikEditor>
-
-@code {
-    private string EditorValue { get; set; } = string.Empty;
-
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
-    {
-        new EditorNS.FontFamily()
-        {
-            DefaultText = "Font",
-            Data = new List<EditorDropDownListItem>()
-            {
-                new EditorDropDownListItem("Georgia", "georgia"),
-                new EditorDropDownListItem("Lucida Console", "'lucida console'")
-            },
-            Width = "6em"
-        },
-        new EditorNS.FontSize()
-        {
-            DefaultText = "Text Size",
-            Data = new List<EditorDropDownListItem>()
-            {
-                new EditorDropDownListItem("Small", "12px"),
-                new EditorDropDownListItem("Medium", "16px"),
-                new EditorDropDownListItem("Large", "24px")
-            },
-            Width = "8em"
-
-        }
-    };
-}
-````
+<demo metaUrl="client/editor/built-in-tools/font-tool-customization/" height="480"></demo>
 
 
 ## Block Tools
@@ -381,29 +286,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
 
 The [`Format` tool exposes a `Data` property](slug:Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-
-<TelerikEditor @bind-Value="@EditorValue"
-               Tools="@EditorTools">
-</TelerikEditor>
-
-@code {
-    private string EditorValue { get; set; }
-
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
-    {
-        new Format()
-        {
-            Data = new List<EditorDropDownListItem>()
-            {
-                new EditorDropDownListItem("Paragraph", "p"),
-                new EditorDropDownListItem("Heading 1", "h1")
-            }
-        }
-    };
-}
-````
+<demo metaUrl="client/editor/built-in-tools/format-tool-customization/" height="480"></demo>
 
 
 ## Table Tools
@@ -527,50 +410,7 @@ In order to do so, you need to use the [Editor reference](slug:editor-overview#e
 
 >caption Execute commands from buttons outside the Editor
 
-````RAZOR
-@* Click on the buttons to execute the Editor tools *@
-
-@using Telerik.Blazor.Components.Editor
-
-<TelerikButton OnClick="@InsertHr">Insert hr</TelerikButton>
-<TelerikButton OnClick="@BoldText">Create bold text</TelerikButton>
-<TelerikButton OnClick="@InsertTable">Insert Table</TelerikButton>
-<TelerikButton OnClick="@InsertImage">Insert Image</TelerikButton>
-<TelerikButton OnClick="@InsertInlineText">Insert Inline Text</TelerikButton>
-
-<TelerikEditor @ref="@TheEditor" @bind-Value="@TheContent"></TelerikEditor>
-
-@code{
-    TelerikEditor TheEditor { get; set; }
-
-    string TheContent { get; set; } = "<p>Lorem ipsum.</p><p>Dolor sit amet.</p>";
-
-    async Task InsertHr()
-    {
-        await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", "<hr />"));
-    }
-
-    async Task InsertInlineText()
-    {
-        await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", "John Doe", true));
-    }
-
-    async Task InsertImage()
-    {
-        await TheEditor.ExecuteAsync(new ImageCommandArgs("https://demos.telerik.com/blazor-ui/images/articles/1-220x140.png", "the alt text", "220px", "140px"));
-    }
-
-    async Task BoldText()
-    {
-        await TheEditor.ExecuteAsync(new ToolCommandArgs("bold"));
-    }
-
-    async Task InsertTable()
-    {
-        await TheEditor.ExecuteAsync(new TableCommandArgs(4, 4));
-    }
-}
-````
+<demo metaUrl="client/editor/built-in-tools/programmatic-execution/" height="560"></demo>
 
 
 ## See Also

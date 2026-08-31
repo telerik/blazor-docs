@@ -32,27 +32,7 @@ The following two configurations will produce the same result.
 
 >caption Two ways to set DropDownButton appearance parameters
 
-````RAZOR
-<TelerikDropDownButton FillMode="@ThemeConstants.DropDownButton.FillMode.Solid"
-                       Rounded="@ThemeConstants.DropDownButton.Rounded.Large"
-                       Size="@ThemeConstants.DropDownButton.Size.Large"
-                       ThemeColor="@ThemeConstants.DropDownButton.ThemeColor.Primary">
-    <DropDownButtonContent> Foo </DropDownButtonContent>
-    <DropDownButtonItems>
-        <DropDownButtonItem> Bar </DropDownButtonItem>
-    </DropDownButtonItems>
-</TelerikDropDownButton>
-
-<TelerikDropDownButton FillMode="solid"
-                       Rounded="lg"
-                       Size="lg"
-                       ThemeColor="primary">
-    <DropDownButtonContent> Foo </DropDownButtonContent>
-    <DropDownButtonItems>
-        <DropDownButtonItem> Bar </DropDownButtonItem>
-    </DropDownButtonItems>
-</TelerikDropDownButton>
-````
+<demo metaUrl="client/dropdownbutton/appearance/settings/" height="320"></demo>
 
 
 ## FillMode
@@ -68,33 +48,7 @@ The `FillMode` parameter controls if the primary button of the DropDownButton co
 
 >caption DropDownButton FillMode example
 
-````RAZOR
-<p>DropDownButton FillMode</p>
-
-@foreach (var item in FillModes)
-{
-    var fillMode = item.GetValue(null).ToString();
-
-    <TelerikDropDownButton FillMode="@fillMode">
-        <DropDownButtonContent> @fillMode </DropDownButtonContent>
-        <DropDownButtonItems>
-            <DropDownButtonItem> secondary </DropDownButtonItem>
-        </DropDownButtonItems>
-    </TelerikDropDownButton>
-}
-
-@code {
-   private List<System.Reflection.FieldInfo> FillModes { get; set; }
-
-    protected override void OnInitialized()
-    {
-        FillModes = typeof(ThemeConstants.DropDownButton.FillMode)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/appearance/fill-mode/" height="320"></demo>
 
 
 ## Rounded
@@ -110,33 +64,7 @@ The `Rounded` parameter affects the `border-radius` CSS styles of the DropDownBu
 
 >caption DropDownButton Rounded example
 
-````RAZOR
-<p>DropDownButton Rounded</p>
-
-@foreach (var item in RoundedOptions)
-{
-    var rounded = item.GetValue(null).ToString();
-
-    <TelerikDropDownButton Rounded="@rounded">
-        <DropDownButtonContent> @rounded </DropDownButtonContent>
-        <DropDownButtonItems>
-            <DropDownButtonItem> secondary </DropDownButtonItem>
-        </DropDownButtonItems>
-    </TelerikDropDownButton>
-}
-
-@code {
-    private List<System.Reflection.FieldInfo> RoundedOptions { get; set; }
-
-    protected override void OnInitialized()
-    {
-        RoundedOptions = typeof(ThemeConstants.DropDownButton.Rounded)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/appearance/rounded/" height="320"></demo>
 
 ## Size
 
@@ -150,33 +78,7 @@ The `Size` parameter can change some dimensions of the DropDownButton's primary 
 
 >caption DropDownButton Size example
 
-````RAZOR
-<p>DropDownButton Size</p>
-
-@foreach (var item in Sizes)
-{
-    var size = item.GetValue(null).ToString();
-
-    <TelerikDropDownButton Size="@size">
-        <DropDownButtonContent> @size </DropDownButtonContent>
-        <DropDownButtonItems>
-            <DropDownButtonItem> secondary </DropDownButtonItem>
-        </DropDownButtonItems>
-    </TelerikDropDownButton>
-}
-
-@code {
-    private List<System.Reflection.FieldInfo> Sizes { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Sizes = typeof(ThemeConstants.DropDownButton.Size)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/appearance/size/" height="320"></demo>
 
 
 ## ThemeColor
@@ -197,33 +99,7 @@ The `ThemeColor` parameter sets the background and text color of the DropDownBut
 
 >caption DropDownButton ThemeColor example
 
-````RAZOR
-<p>DropDownButton ThemeColor</p>
-
-@foreach (var item in ThemeColors)
-{
-    var themeColor = item.GetValue(null).ToString();
-
-    <TelerikDropDownButton ThemeColor="@themeColor">
-        <DropDownButtonContent> @themeColor </DropDownButtonContent>
-        <DropDownButtonItems>
-            <DropDownButtonItem> secondary </DropDownButtonItem>
-        </DropDownButtonItems>
-    </TelerikDropDownButton>
-}
-
-@code {
-    private List<System.Reflection.FieldInfo> ThemeColors { get; set; }
-
-    protected override void OnInitialized()
-    {
-        ThemeColors = typeof(ThemeConstants.DropDownButton.ThemeColor)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/dropdownbutton/appearance/theme-color/" height="320"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

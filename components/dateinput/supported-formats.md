@@ -80,19 +80,19 @@ This behavior stems from the default framework string behavior for dates, time a
 
 >caption Example with default ToString() behavior of the framework
 
-````CS
+````CS.skip-repl
 DateTime date = new DateTime(2011,1,1,14,44,44);
-var culture = new CultureInfo("bg-BG"); // this culture does not have day periods
-//but we will set them here
+var culture = new CultureInfo("bg-BG"); // This culture does not have day periods...
+// ... but we will set them here:
 culture.DateTimeFormat.AMDesignator = "сутрин";
 culture.DateTimeFormat.PMDesignator = "следобед";
 		
 Console.WriteLine(date.ToString("hh:mm:ss tt", culture));		
-Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg")));
+Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-BG")));
 
 // Output 
 // 02:44:44 следобед
-// 02:44:44 
+// 02:44:44 PM
 ````
 
 
@@ -100,84 +100,11 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 
 >caption Standard format strings support in Telerik Date Input for Blazor
 
-````RAZOR
-@TheDate
-<br />
-
-<TelerikDateInput @bind-Value="TheDate" Format="d" />@TheDate.ToString("d")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="D" />@TheDate.ToString("D")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="f" />@TheDate.ToString("f")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="F" />@TheDate.ToString("F")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="g" />@TheDate.ToString("g")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="G" />@TheDate.ToString("G")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="m" />@TheDate.ToString("m")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="M" />@TheDate.ToString("M")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="r" />@TheDate.ToString("r")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="R" />@TheDate.ToString("R")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="s" />@TheDate.ToString("s")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="t" />@TheDate.ToString("t")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="T" />@TheDate.ToString("T")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="u" />@TheDate.ToString("u")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="y" />@TheDate.ToString("y")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="Y" />@TheDate.ToString("Y")
-
-@code {
-    DateTime TheDate { get; set; } = new DateTime(2019, 4, 27, 22, 03, 44);
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Standard Format Strings](images/standard-format-strings.png)
-
-
+<demo metaUrl="client/dateinput/supported-formats/standard/" height="330"></demo>
 
 >caption Using supported .NET format specifiers to define relatively common date formats in the Telerik Date Input
 
-````RAZOR
-@TheDate
-<br />
-
-<TelerikDateInput @bind-Value="TheDate" Format="dd MMM yyyy" /> @TheDate.ToString("dd MMM yyyy")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="dddd, dd MMM yyyy" /> @TheDate.ToString("dddd, dd MMM yyyy")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="HH:mm:ss" /> @TheDate.ToString("HH:mm:ss")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="dd MMM yyyy H:mm:ss" /> @TheDate.ToString("dd MMM yyyy H:mm:ss")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="dd MMMM yyyy HH:mm:ss" /> @TheDate.ToString("dd MMMM yyyy HH:mm:ss")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="dd-MM-yyyy" /> @TheDate.ToString("dd-MM-yyyy")
-<br />
-<TelerikDateInput @bind-Value="TheDate" Format="dd.MMM.yyyy" /> @TheDate.ToString("dd.MMM.yyyy")
-
-@code {
-    DateTime TheDate { get; set; } = new DateTime(2019, 11, 27, 02, 03, 44);
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Custom Date Formats](images/custom-date-formats.png)
-
-
-
+<demo metaUrl="client/dateinput/supported-formats/custom/" height="500"></demo>
 
 
 ## See Also

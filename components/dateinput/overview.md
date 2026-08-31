@@ -23,27 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 >caption Basic Telerik Blazor DateInput
 
-````RAZOR
-<TelerikDateInput @bind-Value="@DateValue"
-                  Format="dd MMMM yyyy"
-                  Min="@MinDate"
-                  Max="@MaxDate"
-                  AutoSwitchKeys="@AutoSwitchKeys"
-                  Width="200px">
-</TelerikDateInput>
-
-<p>DateValue is: @DateValue</p>
-
-@code {
-    private DateTime DateValue { get; set; } = DateTime.Now;
-
-    private DateTime MinDate { get; set; } = DateTime.Now.AddYears(-50);
-
-    private DateTime MaxDate { get; set; } = DateTime.Now.AddYears(50);
-
-    private List<object> AutoSwitchKeys { get; set; } = new List<object>() { ".", "/", " " };
-}
-````
+<demo metaUrl="client/dateinput/overview/basic/"></demo>
 
 
 ## Nullable DateTime
@@ -134,25 +114,7 @@ The Date Input exposes methods for programmatic operation. To use them, define a
 
 >caption Date Input reference and FocusAsync method usage
 
-````RAZOR
-<TelerikDateInput @ref="@DateInputRef"
-                  @bind-Value="@DateValue"
-                  Width="200px">
-</TelerikDateInput>
-
-<TelerikButton OnClick="@OnButtonClick">Focus DateInput</TelerikButton>
-
-@code {
-    private TelerikDateInput<DateTime> DateInputRef { get; set; }
-
-    private DateTime DateValue { get; set; } = DateTime.Now;
-
-    private async Task OnButtonClick()
-    {
-        await DateInputRef.FocusAsync();
-    }
-}
-````
+<demo metaUrl="client/dateinput/overview/focus/" height="250"></demo>
 
 
 ## Next Steps

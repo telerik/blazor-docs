@@ -74,7 +74,7 @@ This section contains the following examples:
 
 ### Drag and Drop a Row in the same Grid
 
-<demo metaUrl="client/grid/row-drag-drop/" height="600"></demo>
+<demo metaUrl="client/grid/row-drag-drop/" height="500"></demo>
 
 
 ### Drag and Drop a Row between Grids
@@ -90,7 +90,7 @@ The following example demonstrates both these options. You can also check how to
 
 >caption Drag and drop items between Grids
 
-<demo metaUrl="client/grid/row-drag-drop-between-grids/" height="800"></demo>
+<demo metaUrl="client/grid/row-drag-drop-between-grids/" height="700"></demo>
 
 ### Drag and Drop between Grid, TreeList, TreeView and Scheduler
 
@@ -1541,7 +1541,7 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
-<demo metaUrl="client/grid/row-drag-drop-multiple/" height="600"></demo>
+<demo metaUrl="client/grid/row-drag-drop-multiple/" height="500"></demo>
 
 ## Limitations
 

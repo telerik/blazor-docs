@@ -52,17 +52,21 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
 
 >caption Default field names for Breadcrumb item bindings. If you use these, you don't have to specify them in the `TelerikBreadcrumb` tag explicitly.
 
-````RAZOR.skip-repl
-public class BreadcrumbItem
-{
-    public string Class { get; set; }
-    public bool Disabled { get; set; }
-    public ISvgIcon Icon { get; set; }
-    public string Text { get; set; }
-    public string Title { get; set; }
-    public string Url { get; set; }
-}
+````RAZOR
+    public class BreadcrumbItem
+    {
+        public string Text { get; set; }
+        public string Title { get; set; }
+        public ISvgIcon Icon { get; set; }
+        public string Url { get; set; }
+        public bool Disabled { get; set; }
+        public string Class { get; set; }
+    }
 ````
+
+## Example - Data Binding to Non-Default Field Names
+
+<demo metaUrl="client/breadcrumb/data-binding/" height="250"></demo>
 
 ## Data Binding to Custom Field Names
 

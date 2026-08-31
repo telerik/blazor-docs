@@ -29,68 +29,7 @@ The DockManager is best suited for desktop-like interfaces and applications desi
 
 >caption Telerik Blazor DockManager
 
-````RAZOR
-<TelerikDockManager Height="90vh">
-    <DockManagerPanes>
-
-        <DockManagerSplitPane Orientation="@DockManagerPaneOrientation.Vertical"
-                              @bind-Size="@SplitPaneSize">
-            <Panes>
-
-                <DockManagerContentPane @bind-Size="@ContentPane1Size" HeaderText="Pane 1.1">
-                    <Content>
-                        First Content Pane in Split configuration
-                    </Content>
-                </DockManagerContentPane>
-
-                <DockManagerContentPane HeaderText="Pane 1.2">
-                    <Content>
-                        Second Content Pane in Split configuration
-                    </Content>
-                </DockManagerContentPane>
-
-            </Panes>
-        </DockManagerSplitPane>
-
-        <DockManagerTabGroupPane>
-            <Panes>
-
-                <DockManagerContentPane HeaderText="Tab 2.1">
-                    <Content>
-                        First Tab Content
-                    </Content>
-                </DockManagerContentPane>
-
-                <DockManagerContentPane HeaderText="Tab 2.2">
-                    <Content>
-                        Second Tab Content
-                    </Content>
-                </DockManagerContentPane>
-
-            </Panes>
-        </DockManagerTabGroupPane>
-    </DockManagerPanes>
-
-    <DockManagerFloatingPanes>
-        <DockManagerSplitPane>
-            <Panes>
-
-                <DockManagerContentPane HeaderText="Floating Pane">
-                    <Content>
-                        Floating Pane Content
-                    </Content>
-                </DockManagerContentPane>
-
-            </Panes>
-        </DockManagerSplitPane>
-    </DockManagerFloatingPanes>
-</TelerikDockManager>
-
-@code {
-    private string SplitPaneSize { get; set; } = "40%";
-    private string ContentPane1Size { get; set; } = "55%";
-}
-````
+<demo metaUrl="client/dockmanager/overview/" height="650"></demo>
 
 ## State
 

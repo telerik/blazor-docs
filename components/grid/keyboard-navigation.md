@@ -228,7 +228,7 @@ You can define multiple keyboard shortcuts that execute the same keyboard comman
 
 >caption Override Grid keyboard shortcuts
 
-<demo metaUrl="client/grid/keyboard-navigation-shortcuts/" height="660"></demo>
+<demo metaUrl="client/grid/keyboard-navigation-shortcuts/" height="450"></demo>
 
 ## See Also
 

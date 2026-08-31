@@ -42,7 +42,7 @@ The following example shows how to use the `All` toolset.
 
 >caption Use all built-in Editor tools
 
-<demo metaUrl="client/editor/builtintools/" height="420"></demo>
+<demo metaUrl="client/editor/builtintools/" height="480"></demo>
 
 ### Predefined Toolset Configurations
 
@@ -114,7 +114,7 @@ This example shows how to start from the existing `Default` toolbar collection o
 
 >caption Modify the Default toolset
 
-<demo metaUrl="client/editor/modifytools/" height="400"></demo>
+<demo metaUrl="client/editor/modifytools/" height="480"></demo>
 
 
 ### Create a Toolbar From Scratch
@@ -123,7 +123,7 @@ This example shows how you can keep adding tools to the toolbar to get the desir
 
 >caption Create your own toolbar
 
-<demo metaUrl="client/editor/createtoolbar/" height="400"></demo>
+<demo metaUrl="client/editor/createtoolbar/" height="480"></demo>
 
 
 ### Customize Built-in Tools
@@ -132,7 +132,7 @@ When adding a built-in tool to the collection, you can set various parameters to
 
 >caption Customize the default values of the built-in tools - tooltips, available items, class and appearance
 
-<demo metaUrl="client/editor/customizetools/" height="400"></demo>
+<demo metaUrl="client/editor/customizetools/" height="480"></demo>
 
 
 ## See Also

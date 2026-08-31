@@ -33,6 +33,8 @@ Vertical orientation is the default orientation of the Card, so you don't need t
 
 >caption Card with vertical orientation
 
+![Card with horizontal orientation](images/vertical-orientation-example.png)
+
 <demo metaUrl="client/card/orientation/vertical/" height="450"></demo>
 
 ## See Also

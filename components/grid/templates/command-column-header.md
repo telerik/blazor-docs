@@ -15,7 +15,7 @@ The `HeaderTemplate` of the Grid command column enables you to customize the hea
 
 >caption Grid Command Column Header Template
 
-<demo metaUrl="client/grid/templates-command-column-header/" height="600"></demo>
+<demo metaUrl="client/grid/templates-command-column-header/" height="500"></demo>
 
 ## See Also
 

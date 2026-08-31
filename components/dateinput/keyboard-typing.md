@@ -101,49 +101,7 @@ The following example lets you experiment with the Date Input typing settings. I
 
 >caption Configure the DateInput typing experience
 
-````RAZOR
-<ul>
-    <li><label> <TelerikCheckBox @bind-Value="@AllowCaretMode" /> AllowCaretMode </label></li>
-    <li><label> <TelerikCheckBox @bind-Value="@AutoCorrectParts" /> AutoCorrectParts </label></li>
-    <li><label> <TelerikCheckBox @bind-Value="@AutoSwitchParts" /> AutoSwitchParts </label></li>
-
-    <li>
-        <label>
-            <TelerikNumericTextBox @bind-Value="@TwoDigitYearMax" Min="0" Max="100" Width="80px" />
-            TwoDigitYearMax (0 - 100)
-        </label>
-    </li>
-
-    <li>
-        AutoSwitchKeys:
-        @foreach (var key in AutoSwitchKeys)
-        {
-            <text> &nbsp; '@key' </text>
-        }
-    </li>
-</ul>
-
-<TelerikDateInput @bind-Value="@DateValue"
-                  AllowCaretMode="@AllowCaretMode"
-                  AutoCorrectParts="@AutoCorrectParts"
-                  AutoSwitchKeys="@AutoSwitchKeys"
-                  AutoSwitchParts="@AutoSwitchParts"
-                  TwoDigitYearMax="@TwoDigitYearMax"
-                  Format="yy-MM-dd HH:mm:ss"
-                  Width="200px" />
-
-<p>DateValue: @DateValue.ToString("yyyy-MM-dd HH:mm:ss")</p>
-
-@code {
-    private DateTime DateValue { get; set; } = DateTime.Now;
-
-    private bool AllowCaretMode { get; set; } = false;
-    private bool AutoCorrectParts { get; set; } = true;
-    private List<object> AutoSwitchKeys { get; set; } = new List<object>() { ".", ",", "/", "-", ":", " " };
-    private bool AutoSwitchParts { get; set; } = true;
-    private int TwoDigitYearMax { get; set; } = 68;
-}
-````
+<demo metaUrl="client/dateinput/keyboard-typing/" height="450"></demo>
 
 
 ## Notes

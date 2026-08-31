@@ -21,6 +21,8 @@ You can specify how the Breadcrumb items are visualized when their total width e
 
 >caption Set the Breadcrumb CollapseMode to `Wrap`
 
+![Breadcrumb CollapseMode Wrap](images/breadcrumb-collapse-modes-example.png)
+
 <demo metaUrl="client/breadcrumb/collapse-modes/" height="250"></demo>
 
 ## See Also

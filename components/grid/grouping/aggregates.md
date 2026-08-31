@@ -66,6 +66,11 @@ To enable aggregates:
 
 <demo metaUrl="client/grid/grouping-aggregates/" height="600"></demo>
 
+>caption The result of the code snippet above after the grid has been grouped by the `Team` and `Active Projects` columns
+
+![Blazor Grid Aggregates Overview](images/grid-aggregates-overview.png)
+
+
 ## Notes
 
 * You should define only aggregates that you will use to avoid unnecessary calculations that may be noticeable on large data sets.

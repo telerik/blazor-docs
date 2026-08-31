@@ -50,119 +50,20 @@ In this section you can find the following examples:
 
 >caption Custom tool that manipulates the Value to add a signature at the end
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-
-<TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent">
-    <EditorCustomTools>
-        <EditorCustomTool Name="AddSignature">
-            <TelerikButton OnClick="@AddSignature">Add Signature</TelerikButton>
-        </EditorCustomTool>
-    </EditorCustomTools>
-</TelerikEditor>
-
-@code {
-    string TheEditorContent { get; set; } = "<h1>Lorem ipsum</h1><p>Dolor sit amet.</p>";
-    List<IEditorTool> Tools { get; set; }
-
-    protected override Task OnInitializedAsync()
-    {
-        Tools = new List<IEditorTool>();
-
-        // register the custom tool for the toolbar - it uses the Name parameter from the markup
-        Tools.Add(new CustomTool("AddSignature"));
-
-        return base.OnInitializedAsync();
-    }
-
-    async Task AddSignature()
-    {
-        string signature = "<div style=\"margin-top: 30px;border: 2px solid black;\">Regards,<br />John Smith,<br />ACME Corp.</div>";
-
-        // alter the Value of the editor
-        TheEditorContent += signature;
-    }
-}
-````
+<demo metaUrl="client/editor/custom-tools/change-value/" height="480"></demo>
 
 
 ### Use Editor Commands
 
 >caption Custom Tool that uses the editor commands to alter the selected content
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-
-<TelerikEditor @ref="@EditorRef" Tools="@Tools" @bind-Value="@TheEditorContent">
-    <EditorCustomTools>
-        <EditorCustomTool Name="ImportantFragment">
-            <TelerikButton OnClick="@MarkImportant" Icon="@SvgIcon.Star"></TelerikButton>
-        </EditorCustomTool>
-    </EditorCustomTools>
-</TelerikEditor>
-
-@code {
-    string TheEditorContent { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
-    TelerikEditor EditorRef { get; set; }
-    List<IEditorTool> Tools { get; set; }
-
-    protected override Task OnInitializedAsync()
-    {
-        Tools = new List<IEditorTool>();
-
-        // register the custom tool for the toolbar - it uses the Name parameter from the markup
-        Tools.Add(new CustomTool("ImportantFragment"));
-
-        return base.OnInitializedAsync();
-    }
-
-    async Task MarkImportant()
-    {
-        // you can use one or more commands from the editor
-        // this example makes the selected block element an <h1>  with yellow text on red background
-        await EditorRef.ExecuteAsync(new FormatCommandArgs("backColor", "red"));
-        await EditorRef.ExecuteAsync(new FormatCommandArgs("foreColor", "yellow"));
-        await EditorRef.ExecuteAsync(new FormatCommandArgs("format", "h1"));
-    }
-}
-````
+<demo metaUrl="client/editor/custom-tools/use-editor-commands/" height="480"></demo>
 
 ### Save Command
 
 You can call application code from the editor tools to, for example, save the current content.
 
-````RAZOR
-@using Telerik.Blazor.Components.Editor
-
-<TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent">
-    <EditorCustomTools>
-        <EditorCustomTool Name="Save">
-            <TelerikButton OnClick="@Save" Icon="@SvgIcon.Save" />
-        </EditorCustomTool>
-    </EditorCustomTools>
-</TelerikEditor>
-
-@code {
-    string TheEditorContent { get; set; } = "<h1>Lorem ipsum</h1><p>Dolor sit amet.</p>";
-    List<IEditorTool> Tools { get; set; }
-
-    protected override Task OnInitializedAsync()
-    {
-        Tools = new List<IEditorTool>();
-
-        // register the custom tool for the toolbar - it uses the Name parameter from the markup
-        Tools.Add(new CustomTool("Save"));
-
-        return base.OnInitializedAsync();
-    }
-
-    async Task Save()
-    {
-        // call the necessary logic here, such as saving the content
-        Console.WriteLine("Saving content: " + TheEditorContent);
-    }
-}
-````
+<demo metaUrl="client/editor/custom-tools/save-command/" height="480"></demo>
 
 
 <!--

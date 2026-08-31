@@ -37,7 +37,7 @@ You can see what the column menu can do and how to control its settings in the [
 
 >caption Enable the column menu for all Grid columns.
 
-<demo metaUrl="client/grid/columns-menu/" height="600"></demo>
+<demo metaUrl="client/grid/columns-menu/" height="500"></demo>
 
 ## Features
 
@@ -114,7 +114,7 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 >caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
 
-<demo metaUrl="client/grid/columns-menu-features/" height="600"></demo>
+<demo metaUrl="client/grid/columns-menu-features/" height="550"></demo>
 
 ## Notes
 

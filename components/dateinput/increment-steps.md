@@ -26,17 +26,7 @@ All values default to `1` to provide every possible option. If you set a value l
 
 >caption Change the steps (intervals) in the date input
 
-````RAZOR
-@selectedDateTime.ToString("yyyy MMM dd, HH:mm:ss tt")
-
-<TelerikDateInput Format="yyyy MMM dd, HH:mm:ss tt" @bind-Value="@selectedDateTime" Width="250px">
-    <DateInputSteps Year="10" Month="6" Day="3" Hour="4" Minute="10" Second="15" />
-</TelerikDateInput>
-
-@code {
-    DateTime selectedDateTime { get; set; } = DateTime.Now;
-}
-````
+<demo metaUrl="client/dateinput/increment-steps/"></demo>
 
 
 

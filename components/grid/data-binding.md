@@ -64,6 +64,8 @@ Note the usage of [`OnModelInit`](slug:grid-events#onmodelinit) in the example b
 
 <demo metaUrl="client/grid/data-binding-interface/" height="500"></demo>
 
+>note Up to version 2.26, the `Data` collection of the Grid must contain instances of only one model type.
+
 ## See Also
 
 * [Live Demo: Bind Grid to Observable Data](https://demos.telerik.com/blazor-ui/grid/observable-data)

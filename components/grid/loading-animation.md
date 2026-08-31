@@ -38,7 +38,7 @@ The following example binds the Grid with an [`OnRead` event handler](slug:commo
 
 >caption Using an external and the built-in Grid loading animation
 
-<demo metaUrl="client/grid/loading-animation/" height="600"></demo>
+<demo metaUrl="client/grid/loading-animation/" height="500"></demo>
 
 ## See Also
 

@@ -24,6 +24,9 @@ This template receives a `context` argument that is of the data model type and r
 
 >caption Use `ItemTemplate` to control the rendering of the items in the Breadcrumb. The result from the snippet below.
 
+![Breadcrumb ItemTemplate](images/breadcrumb-item-template-example.png)
+
+
 <demo metaUrl="client/breadcrumb/templates/" height="300"></demo>
 
 
@@ -33,7 +36,10 @@ The `<SeparatorTemplate>` allows you to control the rendering of the Breadcrumb 
 
 >caption Use `SeparatorTemplate` to customize the Breadcrumb Separator. The result from the snippet below.
 
+![Breadcrumb SeparatorTemplate](images/breadcrumb-separator-template-example.png)
+
 <demo metaUrl="client/breadcrumb/templates/separator/" height="250"></demo>
+
 
 ## See Also
 

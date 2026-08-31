@@ -25,6 +25,10 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 
 <demo metaUrl="client/switch/events/value-changed/" height="250"></demo>
 
+>caption The result from the code snippet above
+
+![valuechanged event example](images/switch-valuechanged-event-example.gif)
+
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
@@ -36,6 +40,12 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 >caption Handle OnChange
 
 <demo metaUrl="client/switch/events/on-change/" height="220"></demo>
+
+>caption The result from the code snippet above
+
+![onchange event example](images/switch-onchange-event-example.gif)
+
+
 
 ## OnBlur
 

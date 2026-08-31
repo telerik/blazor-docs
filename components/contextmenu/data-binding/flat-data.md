@@ -25,6 +25,11 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 
 <demo metaUrl="client/contextmenu/data-binding/flat-data/" height="300"></demo>
 
+>caption The result from the code snippet above, after hovering the "Roadmap" item
+
+![Blazor Context Menu Flat Data Overview](images/context-menu-flat-data-overview.png)
+
+
 ## See Also
 
 * [Menu Data Binding Basics](slug:components/menu/data-binding/overview)

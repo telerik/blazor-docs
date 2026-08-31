@@ -27,11 +27,15 @@ This article you can observe Freezing different columns. The examples are separa
 
 <demo metaUrl="client/grid/columns-frozen-first-last/" height="600"></demo>
 
+<demo metaUrl="client/grid/columns-frozen-first-last/" height="500"></demo>
 ## Frozen column in the middle of the Grid
 
 >caption Observe the behavior of a locked column that is neither first, nor last
 
-<demo metaUrl="client/grid/columns-frozen-middle/" height="600"></demo>
+![gif of two statically frozen columns](images/FrozenSimple.gif)
+
+<demo metaUrl="client/grid/columns-frozen-middle/" height="500"></demo>
+
 
 ## Limitations
 

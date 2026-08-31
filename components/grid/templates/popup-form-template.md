@@ -40,7 +40,7 @@ When using the template, the built-in popup form is replaced by the declared con
 
 Using a `FormTemplate` to modify the Edit/Create Popup window.
 
-<demo metaUrl="client/grid/templates-popup-form/" height="600"></demo>
+<demo metaUrl="client/grid/templates-popup-form/" height="700"></demo>
 
 ## See Also
 
