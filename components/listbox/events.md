@@ -139,7 +139,7 @@ Always [`Rebind()`](slug:listbox-overview#listbox-reference-and-methods) the Lis
 
 >caption Using ListBox events
 
-<demo metaUrl="client/listbox/events/" height="700px"></demo>
+<demo metaUrl="client/listbox/events/" height="620px"></demo>
 
 
 ## See Also

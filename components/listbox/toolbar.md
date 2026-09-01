@@ -56,7 +56,7 @@ The example below omits all required event handlers for brevity. Consult the [Li
 
 >caption Setting up the ListBox Toolbar
 
-<demo metaUrl="client/listbox/toolbar/" height="500px"></demo>
+<demo metaUrl="client/listbox/toolbar/" height="700px"></demo>
 
 > The `<ListBoxToolBar>` tag exposes `ChildContent` as a Blazor `RenderFragment`.
 >

@@ -37,7 +37,7 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
 
 >caption Using ListBox SelectionMode and Custom Deselect Tool
 
-<demo metaUrl="client/listbox/selection/" height="400px"></demo>
+<demo metaUrl="client/listbox/selection/" height="550px"></demo>
 
 
 ## Next Steps

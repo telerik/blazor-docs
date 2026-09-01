@@ -37,7 +37,7 @@ Always [`Rebind()`](slug:listbox-overview#listbox-reference-and-methods) the Lis
 
 >caption Using ListBox templates
 
-<demo metaUrl="client/listbox/templates/" height="350px"></demo>
+<demo metaUrl="client/listbox/templates/" height="400px"></demo>
 
 
 ## Next Steps

@@ -13,7 +13,6 @@ components: ["listbox"]
 
 The <a href = "https://www.telerik.com/blazor-ui/listbox" target="_blank">ListBox for Blazor</a> is an enhanced version of the HTML `<select multiple>` element. The ListBox provides many additional features such as item reordering, item removal, and moving items from one ListBox to another through toolbar buttons or drag-and-drop. The ListBox also allows single or multiple item selection and will show a vertical scrollbar automatically if the items don't fit. The component features templates to customize its rendering.
 
-
 ## Creating Blazor ListBox
 
 To use a Telerik ListBox for Blazor:
@@ -23,12 +22,12 @@ To use a Telerik ListBox for Blazor:
 1. Set `TextField` to the property name that holds the string values to display in the ListBox. Skip this step when [binding the component to a collection of strings or value type data](#data-binding).
 1. Set `SelectedItems` to an `IEnumerable<T>` to store or change the component selection. Optionally, [enable multiple selection](slug:listbox-selection).
 1. Configure the [ListBox toolbar](slug:listbox-toolbar) in `<ListBoxToolBarSettings>` and specify which buttons will be visible. By default, the toolbar shows all buttons. Each button requires an [event handler](slug:listbox-events) to work.
-1. (optional) Set the `Width` and `Height` parameters, based on the number of toolbar buttons and desired number of visible items. The component will automatically show a vertical scrollbar if needed. Long items will wrap.
+1. (optional) Set the `Width` and `Height` parameters, based on the number of toolbar buttons and desired number of visible items. The component automatically shows a vertical scrollbar if needed. Long items wrap.
 1. Set the `@ref` attribute and obtain [reference to the ListBox instance](#listbox-reference-and-methods). This is necessary to [`Rebind()` the component after programmatic data changes](slug:common-features-data-binding-overview#refresh-data).
 
 >caption Basic Blazor ListBox
 
-<demo metaUrl="client/listbox/overview/basic/" height="300px"></demo>
+<demo metaUrl="client/listbox/overview/basic/" height="400px"></demo>
 
 ## Data Binding
 
@@ -36,7 +35,7 @@ The ListBox supports [binding to a model class](#creating-blazor-listbox), which
 
 >caption Bind ListBox to List&lt;string&gt;
 
-<demo metaUrl="client/listbox/overview/string-binding/" height="300px"></demo>
+<demo metaUrl="client/listbox/overview/string-binding/" height="400px"></demo>
 
 
 ## Toolbar
@@ -113,7 +112,7 @@ The ListBox exposes methods for programmatic operation. To use them, define a re
 
 >caption ListBox reference and method usage
 
-<demo metaUrl="client/listbox/overview/reference-methods/" height="300px"></demo>
+<demo metaUrl="client/listbox/overview/reference-methods/" height="480px"></demo>
 
 
 ## Next Steps
