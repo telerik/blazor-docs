@@ -25,7 +25,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 
 >caption Basic Telerik Popover for Blazor
 
-<demo metaUrl="client/popover/overview/" height="320"></demo>
+<demo metaUrl="client/popover/overview/basic/"></demo>
 
 ## Popover Positioning and Collision
 

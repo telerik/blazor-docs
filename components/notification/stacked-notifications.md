@@ -15,9 +15,7 @@ When you invoke multiple notifications from the same component reference they wi
 
 >caption Stacked Notifications in Telerik UI for Blazor
 
-![stacked notifications](images/notification-stacked-notifications.png)
-
-<demo metaUrl="client/notification/stacked-notifications/" height="300"></demo>
+<demo metaUrl="client/notification/stacked-notifications/"></demo>
 
 >tip @[template](/_contentTemplates/notification/templates.md#one-instance-per-app-link)
 

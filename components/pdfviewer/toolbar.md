@@ -57,7 +57,7 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 
 >caption Customize the PDF Viewer toolbar
 
-<demo metaUrl="client/pdfviewer/toolbar/" height="500"></demo>
+<demo metaUrl="client/pdfviewer/toolbar/" height="560"></demo>
 
 
 ## Next Steps

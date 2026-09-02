@@ -22,10 +22,6 @@ If the `Level` parameter of the `PanelBarBinding` is not set, the `HeaderTemplat
 
 <demo metaUrl="client/panelbar/templates/header/" height="500"></demo>
 
->caption The result from the code snippet above
-
-![HeaderTemplate example](images/header-template-example.png)
-
 ## See Also
 
 * [Data Binding a PanelBar](slug:panelbar-data-binding-overview)

@@ -41,7 +41,7 @@ The following example lets you experiment with the available settings that contr
 
 >caption Popover Position and Collision
 
-<demo metaUrl="client/popover/position-collision/" height="520"></demo>
+<demo metaUrl="client/popover/position-collision/" height="400"></demo>
 
 ## See Also
 

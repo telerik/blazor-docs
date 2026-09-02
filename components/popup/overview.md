@@ -23,7 +23,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 
 >caption Basic Telerik Popup for Blazor
 
-<demo metaUrl="client/popup/overview/" height="300"></demo>
+<demo metaUrl="client/popup/overview/basic/"></demo>
 
 ## Positioning and Collision
 
@@ -77,7 +77,7 @@ To execute Popup methods, obtain a reference to the component instance with `@re
 | `Show` | Displays the Popup. |
 | `Hide` | Closes the Popup. |
 
-<demo metaUrl="client/popup/overview/methods/" height="260"></demo>
+<demo metaUrl="client/popup/overview/methods/"></demo>
 
 ## Next Steps
 

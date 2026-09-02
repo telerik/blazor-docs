@@ -24,10 +24,7 @@ Make sure to update the current page index when using the event.
 
 >caption Handle PageChanged
 
-<demo metaUrl="client/pager/events/page-changed/" height="250"></demo>
->caption The result from the code snippet above
-
-![config of the pager with one-way binding](images/pager-data-binding.gif)
+<demo metaUrl="client/pager/events/page-changed/"></demo>
 
 ## PageSizeChanged
 
@@ -39,7 +36,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-<demo metaUrl="client/pager/events/page-size-changed/" height="250"></demo>
+<demo metaUrl="client/pager/events/page-size-changed/"></demo>
 
 ## See Also
 

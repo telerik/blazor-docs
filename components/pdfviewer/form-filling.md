@@ -26,7 +26,7 @@ The PDFViewer supports the following form field types:
 
 >caption Edit form fields and download the updated PDF file
 
-<demo metaUrl="client/pdfviewer/form-filling/" height="760"></demo>
+<demo metaUrl="client/pdfviewer/form-filling/" height="1050"></demo>
 
 ## See Also
 

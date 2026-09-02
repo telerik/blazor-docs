@@ -21,11 +21,7 @@ The Notification component renders a brief message to the user which holds infor
 1. Obtain the component reference via `@ref`.
 1. Setup an instance of the [`NotificationModel` class](#notificationmodel-class-properties) (provided by the Telerik Blazor package), and pass it to the `Show()` method of the component instance.
 
-<demo metaUrl="client/notification/overview/" height="420"></demo>
-
->caption Simple Notification
-
-![notification overview](images/notification-overview-basic-example.gif)
+<demo metaUrl="client/notification/overview/basic/"></demo>
 
 ## Stacked Notifications
 

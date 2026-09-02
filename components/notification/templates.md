@@ -29,20 +29,20 @@ This section gives examples that show how to:
 
 ### Customize All Notifications From The Same Reference
 
-<demo metaUrl="client/notification/templates/same-reference/" height="300"></demo>
+<demo metaUrl="client/notification/templates/same-reference/"></demo>
 
 ### Use Different Templates
 
 When you are using different references in order to provide multiple templates the Notifications will not [stack](slug:notification-stacked-notifications).
 
-<demo metaUrl="client/notification/templates/different-references/" height="350"></demo>
+<demo metaUrl="client/notification/templates/different-references/"></demo>
 
 
 ### Get a Click Event for Notification Body
 
 You can handle events in the template of the notification like with any other Blazor template. This lets you achieve interactivity in the templates. For example, you can know when the user clicks the notification text.
 
-<demo metaUrl="client/notification/templates/click-event/" height="350"></demo>
+<demo metaUrl="client/notification/templates/click-event/"></demo>
 
 
 ## See Also

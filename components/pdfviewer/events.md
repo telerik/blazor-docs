@@ -54,7 +54,7 @@ Casting the argument with `(decimal)newZoom` is safe after the initial render.
 
 >caption Handle or cancel Blazor PDF Viewer Events
 
-<demo metaUrl="client/pdfviewer/events/" height="650"></demo>
+<demo metaUrl="client/pdfviewer/events/" height="750"></demo>
 
 
 ## Next Steps

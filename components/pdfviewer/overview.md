@@ -26,7 +26,7 @@ To use a Telerik [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfview
 
 >caption Basic Blazor PDF Viewer
 
-<demo metaUrl="client/pdfviewer/overview/" height="400"></demo>
+<demo metaUrl="client/pdfviewer/overview/" height="500"></demo>
 
 ## Toolbar
 
@@ -42,7 +42,7 @@ The Telerik PdfViewer supports built-in pinch-to-zoom gestures for touch devices
 
 Pinch-to-zoom complements the toolbar zoom tools and provides a more natural touch interaction than step-based zoom buttons. Gesture-based and toolbar zoom operations both respect the configured [`MinZoom`](#pdfviewer-parameters) and [`MaxZoom`](#pdfviewer-parameters) values.
 
-<demo metaUrl="client/pdfviewer/pinch-to-zoom/" height="800"></demo>
+<demo metaUrl="client/pdfviewer/pinch-to-zoom/" height="1000"></demo>
 
 ## Annotations
 
@@ -96,7 +96,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
 >caption PDF Viewer reference and method usage
 
-<demo metaUrl="client/pdfviewer/reference-methods/" height="400"></demo>
+<demo metaUrl="client/pdfviewer/reference-methods/" height="550"></demo>
 
 
 ## Next Steps

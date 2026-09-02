@@ -21,7 +21,7 @@ You must also provide the correct value for the `HasChildren` field - for items 
 
 >caption Example of flat data in a PanelBar
 
-<demo metaUrl="client/panelbar/data-binding/flat-data/" height="500"></demo>
+<demo metaUrl="client/panelbar/data-binding/flat-data/" height="450"></demo>
 
 
 ## See Also

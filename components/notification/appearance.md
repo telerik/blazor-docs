@@ -40,11 +40,7 @@ The `AnimationType` parameter controls the way the Notification will appear on t
 
 You can see them in action in the [Notification Animation](https://demos.telerik.com/blazor-ui/notification/animation) Live Demo.
 
->caption Set an animation for the Notification component
-
-![notification animation types gif](images/notification-animationtype-gif.gif)
-
-<demo metaUrl="client/notification/appearance/animation-type/" height="300"></demo>
+<demo metaUrl="client/notification/appearance/animation-type/"></demo>
 
 ## Size
 
@@ -77,8 +73,6 @@ The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS clas
 
 >caption Custom Notification color without customizing the Telerik Theme
 
-![custom themecolor screenshot](images/notification-custom-themecolor-screenshot.png)
-
 <demo metaUrl="client/notification/appearance/custom-color/" height="300"></demo>
 
 ## Z-Index
@@ -90,8 +84,6 @@ In some layouts you may have elements with a certain z-index and they will hide 
 You can use the `Class` of the notification to set a higher z-index for the notification according to your layout so it can show according to the desired stacking order - above some elements, perhaps behind others.
 
 >caption Set z-index to the notification so it is not shown behind other elements
-
-![notification z-index settings and behavior](images/notification-zindex.gif)
 
 <demo metaUrl="client/notification/appearance/z-index/" height="500"></demo>
 

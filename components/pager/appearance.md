@@ -25,7 +25,7 @@ You can increase or decrease the size of the Pager by setting the `Size` paramet
 
 >caption The built-in sizes
 
-<demo metaUrl="client/pager/appearance/sizes/" height="300"></demo>
+<demo metaUrl="client/pager/appearance/sizes/" height="600"></demo>
 
 ## See Also
 
