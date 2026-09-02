@@ -561,3 +561,4 @@ The following example shows how to use the Chart `Height`, Series `Size`, and Le
 ## See Also
 
 * [Live Demo: Donut Chart](https://demos.telerik.com/blazor-ui/chart/donut-chart)
+* [Hide Donut Chart Category on Legend Click](slug:chart-kb-toggle-category-on-legend-item-click)
