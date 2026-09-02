@@ -43,12 +43,12 @@ The `PageSize` parameter of the Grid accepts a non-nullable `int` by design. To 
 >caption Set "All" PageSize Option as Default
 
 ````RAZOR
-Page size: @PageSize
+<p>Grid <code>PageSize</code>: @PageSize</p>
 
 <TelerikGrid Data="@GridData"
              Pageable="true"
              @bind-PageSize="@PageSize"
-             Height="500px">
+             Height="80vh">
     <GridSettings>
         <GridPagerSettings InputType="PagerInputType.Buttons"
                            PageSizes="@PageSizes" 
