@@ -62,51 +62,7 @@ You can also set the chart size in percentage values so it occupies its containe
 
 >caption Change the 100% chart size dynamically to have a responsive chart
 
-````RAZOR
-You can make a responsive chart
-
-<TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
-
-<div style="border: 1px solid red;width:@ContainerWidth; height: @ContainerHeight">
-
-    <TelerikChart Width ="100%" Height="100%" @ref="theChart">
-
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@someData">
-            </ChartSeries>
-        </ChartSeriesItems>
-        <ChartCategoryAxes>
-            <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-        </ChartCategoryAxes>
-        <ChartTitle Text="Quarterly sales trend"></ChartTitle>
-
-    </TelerikChart>
-
-</div>
-
-@code {
-    string ContainerWidth { get; set; } = "400px";
-    string ContainerHeight { get; set; } = "300px";
-    Telerik.Blazor.Components.TelerikChart theChart { get; set; }
-
-    async Task ResizeChart()
-    {
-        //resize the container
-        ContainerHeight = "500px";
-        ContainerWidth = "800px";
-
-        //give time to the framework and browser to resize the actual DOM so the chart can use the expected size
-        await Task.Delay(20);
-
-        //redraw the chart
-        theChart.Refresh();
-    }
-
-    public List<object> someData = new List<object>() { 10, 2, 7, 5 };
-
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/overview/responsive-resize/" height="420"></demo>
 
 ## Styling with CSS Variables
 
@@ -114,80 +70,7 @@ The Chart allows various [customizations through child tags and parameters](#cha
 
 >caption Using CSS variables to customize the Chart appearance
 
-````RAZOR
-<style>
-    /* All Charts */
-    div.k-chart {
-        /* Chart background */
-        --kendo-chart-bg: #ffd;
-        /* Chart text */
-        --kendo-chart-text: #f00;
-        /* First series color. Supports up to --kendo-chart-series-30 */
-        --kendo-chart-series-1: #f93;
-    }
-
-    /* Charts with this CSS class */
-    div.lime-chart {
-        /* Chart background */
-        --kendo-chart-bg: #dfd;
-        /* Chart text */
-        --kendo-chart-text: #00f;
-        /* First series color. Supports up to --kendo-chart-series-30 */
-        --kendo-chart-series-1: #39f;
-    }
-</style>
-
-<div style="display: flex; gap: 2em;">
-    <TelerikChart Height="240px"
-                  Width="400px">
-        <ChartTitle Text="Chart" />
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.Column"
-                         Data="@ChartData"
-                         Field="@nameof(SalesData.Revenue)"
-                         CategoryField="@nameof(SalesData.Product)">
-            </ChartSeries>
-        </ChartSeriesItems>
-    </TelerikChart>
-
-    <TelerikChart Class="lime-chart"
-                  Height="240px"
-                  Width="400px">
-        <ChartTitle Text="Chart" />
-        <ChartSeriesItems>
-            <ChartSeries Type="ChartSeriesType.Column"
-                         Data="@ChartData"
-                         Field="@nameof(SalesData.Revenue)"
-                         CategoryField="@nameof(SalesData.Product)">
-            </ChartSeries>
-        </ChartSeriesItems>
-    </TelerikChart>
-</div>
-
-@code {
-    private List<SalesData> ChartData { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        var productCount = 3;
-
-        for (int i = 1; i <= productCount; i++)
-        {
-            ChartData.Add(new SalesData()
-            {
-                Product = $"Product {i}",
-                Revenue = i * 4
-            });
-        }
-    }
-
-    public class SalesData
-    {
-        public string Product { get; set; } = string.Empty;
-        public decimal Revenue { get; set; }
-    }
-}
-````
+<demo metaUrl="client/chart/overview/css-variables/" height="320"></demo>
 
 ## Chart Parameters
 

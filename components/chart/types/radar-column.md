@@ -29,41 +29,7 @@ Radar column charts are often used to make comparisons between several units tha
 
 >caption A radar column chart that shows comparison between the nutritional composition of two foods
 
-````RAZOR
-@* Radar Column series*@
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.RadarColumn" Name="Soybean" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="@ChartSeriesType.RadarColumn" Name="Lentils" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems">
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartValueAxes>
-        <ChartValueAxis Visible="false"></ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartTitle Text="Nutrients per 100g">
-    </ChartTitle>
-
-    <ChartLegend Position="@Telerik.Blazor.ChartLegendPosition.Right">
-    </ChartLegend>
-
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 36, 30, 20 };
-    public List<object> series2Data = new List<object>() { 9, 20, 0.4d };
-    public string[] xAxisItems = new string[] { "Protein", "Carbohydrates", "Fats" };
-}
-````
-
+<demo metaUrl="client/chart/types/radar-column/" height="460"></demo>
 
 ## Radar Column Chart Specific Appearance Settings
 

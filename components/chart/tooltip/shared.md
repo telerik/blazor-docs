@@ -32,34 +32,7 @@ To enable the shared tooltip:
 
 >caption Basic configuration of a Chart with Shared Tooltip
 
-````RAZOR
-@* This example shows how to enable a Shared Tooltip *@
-
-<TelerikChart>
-    <ChartTooltip Visible="true" Shared="true"></ChartTooltip>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/tooltip/shared/basic/" height="420"></demo>
 
 ## Customization
 
@@ -98,51 +71,7 @@ Each `Point` contains the following data:
 
 >caption Usage of the SharedTemplate
 
-````RAZOR
-@* This example shows how to use the SharedTemplate and extract information on the data points value, parse them to int and get the category from the context *@
-
-<TelerikChart>
-    <ChartTooltip Visible="true" Shared="true">
-        <SharedTemplate>
-            @{
-                var points = context.Points;
-
-                foreach (var point in points)
-                {
-                    <div>
-                        <TelerikSvgIcon Icon="SvgIcon.InfoCircle" />
-                        @*this example shows how to parse the FormattedValue to a int,*@
-                        @*but you can also parse it to any other type your data uses / has*@
-                        Point value: @(int.Parse(point.FormattedValue).ToString("C"))
-                        Category: @context.Category
-                    </div>
-                }
-            }
-        </SharedTemplate>
-    </ChartTooltip>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Bar" Name="Product 2" Data="@series2Data">
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/tooltip/shared/template/" height="420"></demo>
 
 ## See also
 

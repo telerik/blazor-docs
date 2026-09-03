@@ -31,37 +31,7 @@ To stack all series together, set the `Enabled` property to `true` in the `Chart
 
 >caption All series stacked together
 
-````RAZOR
-Basic stacking of series
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
-			<ChartSeriesStack Enabled="true"></ChartSeriesStack>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 3" Data="@series3Data">
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-
-	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-	public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/stacked-series/simple-stack/" height="420"></demo>
 
 ## Named Stack
 
@@ -69,39 +39,7 @@ You can choose which series to cluster together through the `Group` property of 
 
 >caption Stack certain series together in a separate group
 
-````RAZOR
-Stack clustering in groups
-
-<TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
-			<ChartSeriesStack Group="myStack"></ChartSeriesStack>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
-			<ChartSeriesStack Group="myStack"></ChartSeriesStack>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 3" Data="@series3Data">
-			<ChartSeriesStack Group="mySecondStack"></ChartSeriesStack>
-		</ChartSeries>
-	</ChartSeriesItems>
-
-	<ChartCategoryAxes>
-		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-	</ChartCategoryAxes>
-
-	<ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
-</TelerikChart>
-
-@code {
-	public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-	public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-	public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };
-	public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/stacked-series/named-stack/" height="420"></demo>
 
 ## Stack 100%
 
@@ -113,39 +51,7 @@ You can use separate groups, or you can stack all series together with just the 
 
 >caption Stack 100% with groups
 
-````RAZOR
-Stack to 100%
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">
-            <ChartSeriesStack Group="myStack" Type="Telerik.Blazor.ChartSeriesStackType.Stack100"></ChartSeriesStack>
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@series2Data">
-            <ChartSeriesStack Group="myStack"></ChartSeriesStack>
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Product 3" Data="@series3Data">
-            <ChartSeriesStack Group="mySecondStack"></ChartSeriesStack>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
-    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
-    public List<object> series3Data = new List<object>() { 15, 3, 8, 8 };
-    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/stacked-series/stack-100/" height="420"></demo>
 
 ## See Also
 
