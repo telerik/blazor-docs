@@ -35,7 +35,8 @@ To enable Virtualized Columns:
 
 >caption Basic setup of the Virtualized Columns
 
-<demo metaUrl="client/grid/columns-virtual/" height="600"></demo>
+<demo metaUrl="client/grid/columns-virtual/" height="550"></demo>
+>caption The result from the code snippet above - scrolling through the grid is the same as without virtual scrolling, but the rendering performance and responsiveness of all other actions will be improved.
 
 ## Notes
 
@@ -69,8 +70,8 @@ Column virtualization is commonly used when you have many columns. You may not h
 
 ## See also
 
- * [Live demo: Virtual Columns](https://demos.telerik.com/blazor-ui/grid/column-virtualization)
- * [Virtual Scrolling](slug:components/grid/virtual-scrolling)
- * [Grid Column Width Behavior](slug:grid-columns-width)
- * [Automatically Generated Columns](slug:grid-columns-automatically-generated)
- * [Blazor Grid](slug:grid-overview)
+* [Live demo: Virtual Columns](https://demos.telerik.com/blazor-ui/grid/column-virtualization)
+* [Virtual Scrolling](slug:components/grid/virtual-scrolling)
+* [Grid Column Width Behavior](slug:grid-columns-width)
+* [Automatically Generated Columns](slug:grid-columns-automatically-generated)
+* [Blazor Grid](slug:grid-overview)

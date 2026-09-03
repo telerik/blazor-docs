@@ -48,7 +48,7 @@ By default the Automatically Generated Columns are rendered after the manually d
 
 >caption Observe the default positioning of the Automatically Generated Columns
 
-<demo metaUrl="client/grid/columns-auto-generated-default/" height="600"></demo>
+<demo metaUrl="client/grid/columns-auto-generated-default/" height="550"></demo>
 
 ### Define Explicit Column Order
 
