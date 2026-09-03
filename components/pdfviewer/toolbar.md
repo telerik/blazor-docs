@@ -57,40 +57,7 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 
 >caption Customize the PDF Viewer toolbar
 
-````RAZOR
-<TelerikPdfViewer Data="@PdfSource">
-    <PdfViewerToolBar>
-        <PdfViewerToolBarCustomTool>
-            <TelerikButton OnClick="@OnPdfCustomClick">Custom PDF Tool</TelerikButton>
-        </PdfViewerToolBarCustomTool>
-
-        <PdfViewerToolBarSeparator />
-
-        <PdfViewerToolBarOpenTool />
-        <PdfViewerToolBarDownloadTool />
-        <PdfViewerToolBarPrintTool />
-
-        <PdfViewerToolBarSpacer />
-
-        <PdfViewerToolBarPagerTool />
-
-        <PdfViewerToolBarSpacer />
-
-        <PdfViewerToolBarZoomTool />
-        <PdfViewerToolBarSelectionTool />
-        <PdfViewerToolBarSearchTool />
-    </PdfViewerToolBar>
-</TelerikPdfViewer>
-
-@code {
-    private byte[] PdfSource { get; set; }
-
-    private async Task OnPdfCustomClick()
-    {
-        Console.WriteLine("Custom PDF tool clicked");
-    }
-}
-````
+<demo metaUrl="client/pdfviewer/toolbar/" height="560"></demo>
 
 
 ## Next Steps

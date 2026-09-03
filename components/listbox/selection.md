@@ -37,75 +37,7 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
 
 >caption Using ListBox SelectionMode and Custom Deselect Tool
 
-````RAZOR
-@* Resetting ListBoxSelectedItems on SelectionMode change is optional *@
-
-<TelerikRadioGroup Data="@RadioGroupData"
-                   Value="@CurrentSelectionMode"
-                   ValueChanged="@( (ListBoxSelectionMode newValue) => OnRadioGroupValueChanged(newValue) )">
-</TelerikRadioGroup>
-
-<br />
-<br />
-
-<TelerikListBox Data="@ListBoxData"
-                TextField="@nameof(ListBoxModel.Name)"
-                SelectionMode="@CurrentSelectionMode"
-                @bind-SelectedItems="@ListBoxSelectedItems"
-                Width="180px"
-                Height="auto">
-    <ListBoxToolBarSettings>
-        <ListBoxToolBar>
-            <ListBoxToolBarCustomTool>
-                <TelerikButton Icon="@SvgIcon.StripAllFormatting"
-                               Title="Deselect All"
-                               OnClick="@( () => ListBoxSelectedItems = new List<ListBoxModel>() )"
-                               Enabled="@( ListBoxSelectedItems.Count() > 0 )" />
-            </ListBoxToolBarCustomTool>
-        </ListBoxToolBar>
-    </ListBoxToolBarSettings>
-</TelerikListBox>
-
-@code {
-    private List<ListBoxModel> ListBoxData { get; set; } = new List<ListBoxModel>();
-
-    private IEnumerable<ListBoxModel> ListBoxSelectedItems { get; set; } = new List<ListBoxModel>();
-
-    private ListBoxSelectionMode CurrentSelectionMode { get; set; } = ListBoxSelectionMode.Single;
-
-    private List<ListBoxSelectionMode> RadioGroupData { get; set; } = new List<ListBoxSelectionMode>() {
-        ListBoxSelectionMode.Single,
-        ListBoxSelectionMode.Multiple
-    };
-
-    private void OnRadioGroupValueChanged(ListBoxSelectionMode newValue)
-    {
-        CurrentSelectionMode = newValue;
-
-        ListBoxSelectedItems = new List<ListBoxModel>();
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 7; i++)
-        {
-            ListBoxData.Add(new ListBoxModel()
-            {
-                Id = i,
-                Name = $"ListBox Item {i}",
-            });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class ListBoxModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/listbox/selection/" height="550px"></demo>
 
 
 ## Next Steps

@@ -25,29 +25,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 
 >caption Basic Telerik Popover for Blazor
 
-````RAZOR
-<TelerikPopover @ref="@PopoverRef"
-                AnchorSelector=".popover-target"
-                ShowOn="@PopoverShowOn.Click"
-                Position="@PopoverPosition.Bottom"
-                Offset="20">
-    <PopoverContent>
-        Telerik Popover for Blazor
-    </PopoverContent>
-    <PopoverActions>
-        <TelerikButton OnClick="@( () => PopoverRef?.Hide() )"
-                       Icon="@SvgIcon.X">Close</TelerikButton>
-    </PopoverActions>
-</TelerikPopover>
-
-<TelerikButton Class="popover-target">Show Popover Automatically</TelerikButton>
-
-<TelerikButton OnClick="@( () => PopoverRef?.Show() )">Show Popover Programmatically</TelerikButton>
-
-@code{
-    private TelerikPopover? PopoverRef { get; set; }
-}
-````
+<demo metaUrl="client/popover/overview/basic/"></demo>
 
 ## Popover Positioning and Collision
 
@@ -95,28 +73,7 @@ To execute Popover methods, obtain a reference to the component instance with `@
 | `Show` | Use this method to display the Popover. |
 | `Hide` | Use this method to close the Popover. |
 
-````RAZOR
-<TelerikPopover @ref="@PopoverRef"
-                AnchorSelector=".popover-target"
-                Position="@PopoverPosition.Bottom"
-                Offset="20">
-    <PopoverContent>
-        Telerik Popover for Blazor
-    </PopoverContent>
-    <PopoverActions>
-        <TelerikButton OnClick="@( () => PopoverRef?.Hide() )"
-                       Icon="@SvgIcon.X">Hide</TelerikButton>
-    </PopoverActions>
-</TelerikPopover>
-
-<TelerikButton OnClick="@( () => PopoverRef?.Show() )">Show Popover</TelerikButton>
-
-<TelerikSvgIcon Class="popover-target" Icon="@SvgIcon.QuestionCircle" />
-
-@code{
-    private TelerikPopover? PopoverRef { get; set; }
-}
-````
+<demo metaUrl="client/popover/overview/methods/" height="300"></demo>
 
 ## Next Steps
 

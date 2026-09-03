@@ -56,77 +56,7 @@ The example below omits all required event handlers for brevity. Consult the [Li
 
 >caption Setting up the ListBox Toolbar
 
-````RAZOR
-@* ListBox and Button handlers are not defined for brevity. *@
-
-<h2>Select ListBox toolbar position</h2>
-
-<TelerikRadioGroup Data="@RadioGroupData"
-                   @bind-Value="@CurrentToolBarPosition">
-</TelerikRadioGroup>
-
-<br />
-<br />
-
-<TelerikListBox Data="@ListBoxData"
-                TextField="@nameof(ListBoxModel.Name)"
-                SelectionMode="@ListBoxSelectionMode.Multiple"
-                @bind-SelectedItems="@ListBoxSelectedItems"
-                ToolBarPosition="@CurrentToolBarPosition"
-                Width="max-content"
-                Height="auto">
-    <ListBoxToolBarSettings>
-        <ListBoxToolBar Visible="true">
-            <ListBoxToolBarMoveUpTool />
-            <ListBoxToolBarMoveDownTool />
-            <ListBoxToolBarTransferToTool />
-            <ListBoxToolBarTransferFromTool />
-            <ListBoxToolBarTransferAllToTool />
-            <ListBoxToolBarTransferAllFromTool />
-            <ListBoxToolBarRemoveTool />
-            <ListBoxToolBarCustomTool>
-                <TelerikButton Icon="@SvgIcon.Gear"
-                               Enabled="@( ListBoxSelectedItems.Count() > 0 )" />
-            </ListBoxToolBarCustomTool>
-        </ListBoxToolBar>
-    </ListBoxToolBarSettings>
-</TelerikListBox>
-
-@code {
-    private List<ListBoxModel> ListBoxData { get; set; } = new List<ListBoxModel>();
-
-    private IEnumerable<ListBoxModel> ListBoxSelectedItems { get; set; } = new List<ListBoxModel>();
-
-    private ListBoxToolBarPosition CurrentToolBarPosition { get; set; } = ListBoxToolBarPosition.Right;
-
-    private List<ListBoxToolBarPosition> RadioGroupData { get; set; } = new List<ListBoxToolBarPosition>() {
-        ListBoxToolBarPosition.Top,
-        ListBoxToolBarPosition.Right,
-        ListBoxToolBarPosition.Bottom,
-        ListBoxToolBarPosition.Left
-    };
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 7; i++)
-        {
-            ListBoxData.Add(new ListBoxModel()
-            {
-                Id = i,
-                Name = $"ListBox Item {i}",
-            });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class ListBoxModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/listbox/toolbar/" height="700px"></demo>
 
 > The `<ListBoxToolBar>` tag exposes `ChildContent` as a Blazor `RenderFragment`.
 >

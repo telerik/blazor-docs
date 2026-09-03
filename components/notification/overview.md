@@ -15,48 +15,13 @@ This article provides information about the <a href = "https://www.telerik.com/b
 
 The Notification component renders a brief message to the user which holds information regarding the status of a process in the application. Using its settings you can customize its position, animation options and rendering. 
 
-<demo metaUrl="client/notification/overview/" height="420"></demo>
-
 ## Creating Blazor Notification
 
 1. Add the `<TelerikNotification>` tag to your razor page.
 1. Obtain the component reference via `@ref`.
 1. Setup an instance of the [`NotificationModel` class](#notificationmodel-class-properties) (provided by the Telerik Blazor package), and pass it to the `Show()` method of the component instance.
 
-````RAZOR
-@* This shows a simple text message that hides automatically *@
-
-<TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" Class="MyTelerikNotification"></TelerikNotification>
-
-@code {
-    public TelerikNotification NotificationReference { get; set; }
-
-    public void AddNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Auto Closable Notification",
-            ThemeColor = ThemeConstants.Notification.ThemeColor.Primary
-        });
-    }
-}
-
-<style>
-    .MyTelerikNotification .k-notification-container .k-notification {
-        width: 300px;
-        height: 50px;
-        font-size: 1.5em;
-        text-align: center;
-        align-items: center;
-    }
-</style>
-````
-
->caption Simple Notification
-
-![notification overview](images/notification-overview-basic-example.gif)
+<demo metaUrl="client/notification/overview/basic/"></demo>
 
 ## Stacked Notifications
 
@@ -107,20 +72,7 @@ To use the Blazor Notification methods, you have to get a reference to the compo
 
 >caption Get reference to the Notification and execute methods
 
-````RAZOR
-<TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" />
-
-@code {
-    private TelerikNotification NotificationReference { get; set; }
-
-    private void OpenNotification()
-    {
-        NotificationReference.Show("Notification Text", "success");
-    }
-}
-````
+<demo metaUrl="client/notification/overview/reference-methods/" height="300"></demo>
 
 You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide](slug:notification-open-close-hide) article.
 

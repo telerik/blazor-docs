@@ -43,7 +43,9 @@ The below example shows how to:
 
 >caption Create New ProseMirror Schema
 
-<demo metaUrl="client/editor/prosemirror-schema/create-new-schema/" height="480"></demo>
+````RAZOR
+<demo metaUrl="client/editor/prosemirror-schema/create-new-schema/" height="550"></demo>
+````
 
 ## See Also
 

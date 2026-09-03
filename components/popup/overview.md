@@ -23,25 +23,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 
 >caption Basic Telerik Popup for Blazor
 
-````RAZOR
-<TelerikPopup @ref="@PopupRef"
-              AnchorSelector=".popup-target"
-              AnimationType="@AnimationType.SlideDown"
-              AnimationDuration="200"
-              Width="200px">
-    <div style="text-align: center; padding: 2em 0;">
-        <p>Telerik Popup for Blazor</p>
-        <TelerikButton OnClick="@(() => PopupRef?.Hide())">Hide Popup</TelerikButton>
-    </div>
-</TelerikPopup>
-
-<TelerikButton OnClick="@(() => PopupRef?.Show())"
-               Class="popup-target">Show Popup</TelerikButton>
-
-@code {
-    private TelerikPopup? PopupRef { get; set; }
-}
-````
+<demo metaUrl="client/popup/overview/basic/"></demo>
 
 ## Positioning and Collision
 
@@ -95,35 +77,7 @@ To execute Popup methods, obtain a reference to the component instance with `@re
 | `Show` | Displays the Popup. |
 | `Hide` | Closes the Popup. |
 
-````RAZOR
-<TelerikButton OnClick="@TogglePopup"
-               Class="popup-target">Toggle Popup</TelerikButton>
-
-<TelerikPopup @ref="@PopupRef"
-              AnchorSelector=".popup-target">
-    Telerik Popup for Blazor
-</TelerikPopup>
-
-@code {
-    private TelerikPopup? PopupRef { get; set; }
-
-    private bool PopupVisible { get; set; }
-
-    private void TogglePopup()
-    {
-        if (!PopupVisible)
-        {
-            PopupVisible = true;
-            PopupRef?.Show();
-        }
-        else
-        {
-            PopupVisible = false;
-            PopupRef?.Hide();
-        }
-    }
-}
-````
+<demo metaUrl="client/popup/overview/methods/"></demo>
 
 ## Next Steps
 

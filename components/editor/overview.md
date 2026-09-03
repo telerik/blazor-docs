@@ -90,7 +90,7 @@ The Editor provides methods for programmatic operation. To use them, obtain a re
 
 >caption Paste in the Editor at the cursor position
 
-<demo metaUrl="client/editor/overview/paste-in-editor/" height="560"></demo>
+<demo metaUrl="client/editor/overview/paste-in-editor/" height="400"></demo>
 
 ## Next Steps
 

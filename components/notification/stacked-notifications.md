@@ -15,32 +15,7 @@ When you invoke multiple notifications from the same component reference they wi
 
 >caption Stacked Notifications in Telerik UI for Blazor
 
-![stacked notifications](images/notification-stacked-notifications.png)
-
-````RAZOR
-@* Calling Show() before the previous notifications hide will stack the new messages above the old ones *@
-
-<TelerikButton OnClick="@AddStackedNotifications">Add stacked notifications</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" />
-
-@code {
-    public TelerikNotification NotificationReference { get; set; }
-    public string[] ColorOptions = new string[4] { "primary", "secondary", "success", "info" };
-
-    public void AddStackedNotifications()
-    {
-        foreach (var color in ColorOptions)
-        {
-            NotificationReference.Show(new NotificationModel()
-            {
-                Text = $"Stacked {color} notification",
-                ThemeColor = $"{color}"
-            });
-        }
-    }
-}
-````
+<demo metaUrl="client/notification/stacked-notifications/"></demo>
 
 >tip @[template](/_contentTemplates/notification/templates.md#one-instance-per-app-link)
 

@@ -25,27 +25,7 @@ You can increase or decrease the size of the Pager by setting the `Size` paramet
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Pager.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikPager Size="@size"
-                          PageSize="10"
-                          Total="20" 
-                          PageSizes="@(new List<int?> {5, 10, null})">
-            </TelerikPager>
-        </div>
-    }
-}
-````
+<demo metaUrl="client/pager/appearance/sizes/" height="600"></demo>
 
 ## See Also
 

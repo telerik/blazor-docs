@@ -29,132 +29,20 @@ This section gives examples that show how to:
 
 ### Customize All Notifications From The Same Reference
 
-````RAZOR
-@* Customize the notification template *@
-
-<TelerikButton OnClick="@AddNotification">Add a notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference">
-    <Template>
-        The current text is: @context.Text
-    </Template>
-</TelerikNotification>
-
-@code {
-    public TelerikNotification NotificationReference { get; set; }
-
-    public void AddNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Primary notification",
-            ThemeColor = "primary"
-        });
-
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Secondary Notification",
-            ThemeColor = "secondary"
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/templates/same-reference/"></demo>
 
 ### Use Different Templates
 
 When you are using different references in order to provide multiple templates the Notifications will not [stack](slug:notification-stacked-notifications).
 
-````RAZOR
-@* Use different templates for different content and notifications *@
-
-<TelerikButton OnClick="@AddNotifications">Add notifications</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference1">
-    <Template>
-        The current text is: @context.Text
-    </Template>
-</TelerikNotification>
-
-<TelerikNotification @ref="@NotificationReference2">
-    <Template>
-        Different templated text: @context.Text
-    </Template>
-</TelerikNotification>
-
-@code {
-    public TelerikNotification NotificationReference1 { get; set; }
-    public TelerikNotification NotificationReference2 { get; set; }
-
-    public void AddNotifications()
-    {
-        NotificationReference1.Show(new NotificationModel()
-        {
-            Text = "Primary notification",
-            ThemeColor = "primary"
-        });
-
-        NotificationReference2.Show(new NotificationModel()
-        {
-            Text = "Secondary Notification",
-            ThemeColor = "secondary"
-        });
-    }
-}
-````
+<demo metaUrl="client/notification/templates/different-references/"></demo>
 
 
 ### Get a Click Event for Notification Body
 
 You can handle events in the template of the notification like with any other Blazor template. This lets you achieve interactivity in the templates. For example, you can know when the user clicks the notification text.
 
-````RAZOR
-@* Get click event for the notifications *@
-
-<TelerikNotification @ref="@NotificationReference">
-    <Template>
-        <div @onclick="@( (MouseEventArgs e) => MyNotificationClick(context, e) )">
-            The current text is: @context.Text
-        </div>
-    </Template>
-</TelerikNotification>
-
-@code {
-    async Task MyNotificationClick(NotificationModel notificationMetadata, MouseEventArgs e)
-    {
-        Console.WriteLine(
-            $"The user clicked in notification: {notificationMetadata.Text}, " +
-            $"is color is: {notificationMetadata.ThemeColor}"
-        );
-    }
-
-    public TelerikNotification NotificationReference { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            AddNotification();
-        }
-    }
-
-    void AddNotification()
-    {
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Primary notification",
-            ThemeColor = "primary"
-        });
-
-        NotificationReference.Show(new NotificationModel()
-        {
-            Text = "Secondary Notification",
-            ThemeColor = "secondary"
-        });
-
-        NotificationReference.Show("Plain text notification, tertiary color", "tertiary");
-    }
-}
-````
+<demo metaUrl="client/notification/templates/click-event/"></demo>
 
 
 ## See Also
