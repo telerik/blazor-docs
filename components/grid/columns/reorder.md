@@ -21,11 +21,6 @@ To prevent the user from moving a certain column, set the column's `Reorderable`
 
 <demo metaUrl="client/grid/columns-reorder/" height="400"></demo>
 
-
->caption How column reordering works in the Telerik grid
-
-![Blazor Grid Column Reorder Preview](images/column-reorder-preview.gif)
-
 ## See Also
 
 * [Live Demo: Column Reordering](https://demos.telerik.com/blazor-ui/grid/column-reordering)
