@@ -11,13 +11,19 @@ components: ["grid"]
 
 # Frozen Columns
 
-The Grid lets you freeze one or more columns. This will allow the user to scroll horizontally through the Grid, but still be able to keep some important columns visible at all times (such as ID or command column).
+The Grid lets you freeze (lock) one or more columns. This will allow the user to scroll horizontally through the Grid, but still be able to keep some important columns visible at all times (such as ID or command column).
 
-To enable the column freezing, set the `Locked` parameter of the column to `true`.
+To freeze a column:
 
-If the column you want to freeze is not the first in the list, the grid must be scrollable. This requires that there are enough columns with their `Width` set so that the grid has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the grid). You can read more about the scrolling behavior of the grid in the [Grid Column Width Behavior](slug:grid-columns-width) article.
+1. Set its `Locked` parameter to `true`.
+1. Set its `Width` parameter in pixels.
 
-This article you can observe Freezing different columns. The examples are separated into types for clarity:
+Frozen columns make sense when the Grid has a horizontal scrollbar. Horizontal scrolling requires all columns to have their `Width` set and the sum of all column widths exceeds the Grid `Width`. Read more at the [Grid Column Width Behavior](slug:grid-columns-width) article.
+
+In some scenarios, the Grid `Width` must be set in absolute units like `px` or `vw`, otherwise [the Grid may expand horizontally](slug:grid-kb-flex-width-issue) and not render a horizontal scrollbar.
+
+Column freezing includes the following cases:
+
 * [Frozen first and last columns](#frozen-first-and-last-columns)
 * [Frozen column in the middle of the Grid](#frozen-column-in-the-middle-of-the-grid)
 
@@ -27,23 +33,11 @@ This article you can observe Freezing different columns. The examples are separa
 
 <demo metaUrl="client/grid/columns-frozen-first-last/" height="600"></demo>
 
-<demo metaUrl="client/grid/columns-frozen-first-last/" height="500"></demo>
 ## Frozen column in the middle of the Grid
 
 >caption Observe the behavior of a locked column that is neither first, nor last
 
-![gif of two statically frozen columns](images/FrozenSimple.gif)
-
 <demo metaUrl="client/grid/columns-frozen-middle/" height="500"></demo>
-
-
-## Limitations
-
-The frozen columns pose some requirements:
-
-* The `Width` of the Grid **must** be set in `px` units.
-
-* When a column is frozen (it has `Locked="true"`), its `Width` **must** be in `px` units.
 
 ## See also
 
