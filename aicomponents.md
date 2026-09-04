@@ -55,6 +55,14 @@ Build prompt-driven and chat-based interfaces with components designed for conve
         darkSrc="./images/aicomponents/AIPrompt_Dark_Large.svg"
         description="Enhance user input with the Blazor AIPrompt component featuring intelligent suggestions and workflow optimization.">
     </article-card>
+    <article-card
+        href="/components/llmkit/overview"
+        src="./images/aicomponents/LLM Kit_Light_Large.svg"
+        title="LLM Kit"
+        subTitle="AI Component Collection"
+        darkSrc="./images/aicomponents/LLM Kit_Dark_Large.svg"
+        description="Build transparent AI agent experiences with the Telerik UI for Blazor LLM Kit components for reasoning, tool calls, citations, and checkpoints.">
+    </article-card>
 </article-card-container>
 
 ## Smart Grid Features
