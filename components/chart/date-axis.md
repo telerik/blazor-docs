@@ -32,7 +32,7 @@ You can set the aggregation function through the `Aggregate` property of the ser
 
 >caption Date Axis with month grouping and different aggregates on the series
 
-<demo metaUrl="client/chart/date-axis/month-grouping/" height="420"></demo>
+<demo metaUrl="client/chart/date-axis/month-grouping/" height="500"></demo>
 
 ### Advanced Features
 
@@ -60,7 +60,7 @@ Each base unit has a default format for the date it displays. If you want to cha
 
 >caption Steps set to weeks, changed weeks start day to Monday and non-default label format
 
-<demo metaUrl="client/chart/date-axis/week-steps-format/" height="420"></demo>
+<demo metaUrl="client/chart/date-axis/week-steps-format/" height="500"></demo>
 
 ## Numerical charts
 
@@ -88,12 +88,12 @@ For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning
 
 >caption ScatterLine chart with day and time values. Markers are rendered after the day labels to also respect the time values.
 
-<demo metaUrl="client/chart/date-axis/scatterline-day-time/" height="460"></demo>
+<demo metaUrl="client/chart/date-axis/scatterline-day-time/" height="500"></demo>
 <br/>
 
 >caption ScatterLine chart with only days values. Markers are rendered exactly on the day labels. 
 
-<demo metaUrl="client/chart/date-axis/scatterline-day-only/" height="460"></demo>
+<demo metaUrl="client/chart/date-axis/scatterline-day-only/" height="500"></demo>
 
 ## See Also
 

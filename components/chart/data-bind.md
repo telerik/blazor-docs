@@ -57,7 +57,7 @@ With this approach, the items in each series are independent from the other seri
 
 >caption Bind series independently of each other and of the category axis
 
-<demo metaUrl="client/chart/data-bind/independent-series/" height="420"></demo>
+<demo metaUrl="client/chart/data-bind/independent-series/" height="500"></demo>
 
 ## Attach Series Items to Their Categories
 
@@ -72,17 +72,17 @@ With this, the items from the series will be matched to the items (categories) o
 
 >caption Bind the entire chart to a single collection. 
 
-<demo metaUrl="client/chart/data-bind/single-collection/" height="420"></demo>
+<demo metaUrl="client/chart/data-bind/single-collection/" height="500"></demo>
 
 >caption Unique categories are added independently.
 
-<demo metaUrl="client/chart/data-bind/unique-categories/" height="420"></demo>
+<demo metaUrl="client/chart/data-bind/unique-categories/" height="500"></demo>
 
 >tip You can define [multiple x-axes](slug:components/chart/multiple-axes) to avoid this behavior and have each series populate its own x-axis.
 
 >caption If category values match, they will be combined
 
-<demo metaUrl="client/chart/data-bind/matching-categories/" height="420"></demo>
+<demo metaUrl="client/chart/data-bind/matching-categories/" height="500"></demo>
 
 ## Mixed Data Source
 
@@ -92,11 +92,11 @@ For example, you can take the data for some series from a complex model, and the
 
 >caption Populate categories and one series from standalone data, other series from model
 
-<demo metaUrl="client/chart/data-bind/mixed-source-standalone-series/" height="420"></demo>
+<demo metaUrl="client/chart/data-bind/mixed-source-standalone-series/" height="500"></demo>
 
 >caption Populate categories from model, and some series from standalone data. Standalone categories are ignored.
 
-<demo metaUrl="client/chart/data-bind/mixed-source-standalone-categories-ignored/" height="420"></demo>
+<demo metaUrl="client/chart/data-bind/mixed-source-standalone-categories-ignored/" height="500"></demo>
 
 ## Numerical Charts
 
@@ -108,11 +108,11 @@ This means that it is often suitable to provide each series with its own collect
 
 >caption Series with a different number of items can be easily used in numerical charts
 
-<demo metaUrl="client/chart/data-bind/numerical-separate-collections/" height="460"></demo>
+<demo metaUrl="client/chart/data-bind/numerical-separate-collections/" height="500"></demo>
 
 >caption The same chart bound to a single model with fields for each series
 
-<demo metaUrl="client/chart/data-bind/numerical-single-collection/" height="460"></demo>
+<demo metaUrl="client/chart/data-bind/numerical-single-collection/" height="500"></demo>
 
 ## Chart Model with JsonProperty
 

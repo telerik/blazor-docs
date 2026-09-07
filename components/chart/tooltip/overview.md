@@ -34,7 +34,7 @@ To enable tooltips for the data points of each individual series:
 
 >caption Enable the tooltip for a specific Chart Series
 
-<demo metaUrl="client/chart/tooltip/overview/single-series/" height="420"></demo>
+<demo metaUrl="client/chart/tooltip/overview/single-series/" height="500"></demo>
 
 
 ## Common Tooltip
@@ -50,7 +50,7 @@ To enable the same tooltip for all series:
 
 >caption Set a Common Tooltip for all series at once
 
-<demo metaUrl="client/chart/tooltip/overview/common-tooltip/" height="420"></demo>
+<demo metaUrl="client/chart/tooltip/overview/common-tooltip/" height="500"></demo>
 
 
 ## Customization
@@ -72,7 +72,7 @@ You can customize the appearance of the individual series tooltip by using:
 
 >caption Configuration of the tooltips with applied customization settings
 
-<demo metaUrl="client/chart/tooltip/overview/parameter-settings/" height="420"></demo>
+<demo metaUrl="client/chart/tooltip/overview/parameter-settings/" height="500"></demo>
 
 
 #### Common Tooltip Settings
@@ -101,7 +101,7 @@ The available series data point information in the `context` is:
 
 >caption Use the Tooltip Template and use the DataItem to get the value of the point and add additional information
 
-<demo metaUrl="client/chart/tooltip/overview/template/" height="420"></demo>
+<demo metaUrl="client/chart/tooltip/overview/template/" height="500"></demo>
 
 
 ## See Also

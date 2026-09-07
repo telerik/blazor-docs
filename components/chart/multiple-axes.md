@@ -81,7 +81,7 @@ In the following example, you can see how to define multiple y-axes, associate a
 
 >caption Multiple Y-axes and defining their position according a category axis
 
-<demo metaUrl="client/chart/multiple-axes/value-axes/" height="420"></demo>
+<demo metaUrl="client/chart/multiple-axes/value-axes/" height="500"></demo>
 
 ### Category Axes
 
@@ -89,7 +89,7 @@ You can use multiple category axes to associate each series with its own points 
 
 >caption Multiple category axes on a line chart
 
-<demo metaUrl="client/chart/multiple-axes/category-axes/" height="420"></demo>
+<demo metaUrl="client/chart/multiple-axes/category-axes/" height="500"></demo>
 
 ### Behavior with Bar and Column Charts
 
@@ -100,7 +100,7 @@ It is important to keep in mind the behavior of the series with multiple categor
  
 >caption Multiple category axes on a column chart with proper crossing values and series values
 
-<demo metaUrl="client/chart/multiple-axes/column-crossing-values/" height="420"></demo>
+<demo metaUrl="client/chart/multiple-axes/column-crossing-values/" height="500"></demo>
 
 >caption Examples of potentially unwanted behaviors of column and bar types of charts with multiple axes, and the code that produces those issues.
 
@@ -193,7 +193,7 @@ When using numerical charts, you define the extra axes in the `ChartXAxes` and `
 
 >caption Multiple axes in a numerical chart
 
-<demo metaUrl="client/chart/multiple-axes/numerical-axes/" height="460"></demo>
+<demo metaUrl="client/chart/multiple-axes/numerical-axes/" height="500"></demo>
 
 ### Move X-Axis Labels to the Bottom
 
@@ -203,7 +203,7 @@ The general approach is to set an axis crossing point that has a very large valu
 
 >caption X-axis Labels at the bottom of the chart with negative values
 
-<demo metaUrl="client/chart/multiple-axes/x-axis-labels-bottom/" height="420"></demo>
+<demo metaUrl="client/chart/multiple-axes/x-axis-labels-bottom/" height="500"></demo>
 
 ### Move Value Axis to the Right
 
@@ -213,7 +213,7 @@ This approach can work for both numerical and categorical axes. The example belo
 
 >caption Example of setting a crossing point that is very large so the value axis appears on the right hand side of the chart
 
-<demo metaUrl="client/chart/multiple-axes/value-axis-right/" height="420"></demo>
+<demo metaUrl="client/chart/multiple-axes/value-axis-right/" height="500"></demo>
 
 ## See Also
 

@@ -63,7 +63,7 @@ Use the Linear Trendline to visualize the rise or decline of a specific quantity
 
 >caption Linear trendline in scatter line Chart series
 
-<demo metaUrl="client/chart/trendlines/linear/" height="460"></demo>
+<demo metaUrl="client/chart/trendlines/linear/" height="500"></demo>
 
 ### Moving Average Trendline
 
@@ -71,7 +71,7 @@ Use the Moving Average Trendline to smooth out data fluctuations. This trendline
 
 >caption Line Chart with a moving average trendline
 
-<demo metaUrl="client/chart/trendlines/moving-average/" height="460"></demo>
+<demo metaUrl="client/chart/trendlines/moving-average/" height="500"></demo>
 
 ### Exponential Trendline
 
@@ -79,7 +79,7 @@ Use the Exponential Trendline to visualize data with rapidly accelerating growth
 
 >caption Chart with an Exponential Trendline
 
-<demo metaUrl="client/chart/trendlines/exponential/" height="460"></demo>
+<demo metaUrl="client/chart/trendlines/exponential/" height="500"></demo>
 
 ### Logarithmic Trendline
 
@@ -87,7 +87,7 @@ Use the Logarithmic Trendline to visualize data with rapid initial growth that s
 
 >caption Chart with a Logarithmic Trendline
 
-<demo metaUrl="client/chart/trendlines/logarithmic/" height="460"></demo>
+<demo metaUrl="client/chart/trendlines/logarithmic/" height="500"></demo>
 
 ### Power Trendline
 
@@ -95,7 +95,7 @@ Use the Power Trendline to visualize data that follows a power-law relationship,
 
 >caption Chart with a Power Trendline
 
-<demo metaUrl="client/chart/trendlines/power/" height="460"></demo>
+<demo metaUrl="client/chart/trendlines/power/" height="500"></demo>
 
 ### Polynomial Trendline
 
@@ -103,7 +103,7 @@ Use the Polynomial Trendline to visualize complex data patterns not fitting the 
 
 >caption Chart with a Polynomial Trendline
 
-<demo metaUrl="client/chart/trendlines/polynomial/" height="460"></demo>
+<demo metaUrl="client/chart/trendlines/polynomial/" height="500"></demo>
 
 ## See Also
 

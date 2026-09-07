@@ -32,7 +32,7 @@ To enable the shared tooltip:
 
 >caption Basic configuration of a Chart with Shared Tooltip
 
-<demo metaUrl="client/chart/tooltip/shared/basic/" height="420"></demo>
+<demo metaUrl="client/chart/tooltip/shared/basic/" height="500"></demo>
 
 ## Customization
 
@@ -71,7 +71,7 @@ Each `Point` contains the following data:
 
 >caption Usage of the SharedTemplate
 
-<demo metaUrl="client/chart/tooltip/shared/template/" height="420"></demo>
+<demo metaUrl="client/chart/tooltip/shared/template/" height="500"></demo>
 
 ## See also
 

@@ -30,7 +30,7 @@ In addition, the SVG Chart provides accessibility features such as [general desc
 
 >caption Bar Chart rendered as SVG
 
-<demo metaUrl="client/chart/rendering-modes/svg/" height="460"></demo>
+<demo metaUrl="client/chart/rendering-modes/svg/" height="500"></demo>
 
 ## Canvas
 
@@ -49,7 +49,7 @@ On the downside, rendering a fixed resolution bitmap results in:
 
 >caption Bar Chart rendered as Canvas
 
-<demo metaUrl="client/chart/rendering-modes/canvas/" height="460"></demo>
+<demo metaUrl="client/chart/rendering-modes/canvas/" height="500"></demo>
 
 ## See Also
 
