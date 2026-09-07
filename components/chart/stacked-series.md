@@ -31,7 +31,7 @@ To stack all series together, set the `Enabled` property to `true` in the `Chart
 
 >caption All series stacked together
 
-<demo metaUrl="client/chart/stacked-series/simple-stack/" height="420"></demo>
+<demo metaUrl="client/chart/stacked-series/simple-stack/" height="500"></demo>
 
 ## Named Stack
 
@@ -39,7 +39,7 @@ You can choose which series to cluster together through the `Group` property of 
 
 >caption Stack certain series together in a separate group
 
-<demo metaUrl="client/chart/stacked-series/named-stack/" height="420"></demo>
+<demo metaUrl="client/chart/stacked-series/named-stack/" height="500"></demo>
 
 ## Stack 100%
 
@@ -51,7 +51,7 @@ You can use separate groups, or you can stack all series together with just the 
 
 >caption Stack 100% with groups
 
-<demo metaUrl="client/chart/stacked-series/stack-100/" height="420"></demo>
+<demo metaUrl="client/chart/stacked-series/stack-100/" height="500"></demo>
 
 ## See Also
 

@@ -26,7 +26,7 @@ The <a href="https://demos.telerik.com/blazor-ui/chart/overview" target="_blank"
 >caption Basic chart
 
 
-<demo metaUrl="client/chart/overview/" height="500"></demo>
+<demo metaUrl="client/chart/overview/" height="600"></demo>
 
 ## Chart Elements
 
@@ -62,7 +62,7 @@ You can also set the chart size in percentage values so it occupies its containe
 
 >caption Change the 100% chart size dynamically to have a responsive chart
 
-<demo metaUrl="client/chart/overview/responsive-resize/" height="420"></demo>
+<demo metaUrl="client/chart/overview/responsive-resize/" height="500"></demo>
 
 ## Styling with CSS Variables
 
@@ -70,7 +70,7 @@ The Chart allows various [customizations through child tags and parameters](#cha
 
 >caption Using CSS variables to customize the Chart appearance
 
-<demo metaUrl="client/chart/overview/css-variables/" height="320"></demo>
+<demo metaUrl="client/chart/overview/css-variables/" height="450"></demo>
 
 ## Chart Parameters
 

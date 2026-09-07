@@ -21,7 +21,7 @@ Where the labels are numerical (series values, the value axis), you can format t
 
 >caption Format numerical values through format strings
 
-<demo metaUrl="client/chart/labels-template-and-format/format-strings/" height="420"></demo>
+<demo metaUrl="client/chart/labels-template-and-format/format-strings/" height="500"></demo>
 
 ## Templates
 
@@ -127,7 +127,7 @@ function chartLabelFunction(context) {
 
 >caption Using numerical Chart label templates for series, axes and legend
 
-<demo metaUrl="client/chart/labels-template-and-format/numerical-templates/" height="480"></demo>
+<demo metaUrl="client/chart/labels-template-and-format/numerical-templates/" height="500"></demo>
 
 ### Hide Label Conditionally
 
@@ -140,7 +140,7 @@ To do that, you need to:
 
 >caption Hide Chart labels with zero value
 
-<demo metaUrl="client/chart/labels-template-and-format/hide-label-conditionally/" height="420"></demo>
+<demo metaUrl="client/chart/labels-template-and-format/hide-label-conditionally/" height="500"></demo>
 
 ## See Also
 
