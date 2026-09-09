@@ -32,7 +32,7 @@ To define a data item as a running total or total, include a corresponding data 
 
 >caption A Waterfall Chart that shows cash flow
 
-<demo metaUrl="client/chart/types/waterfall/" height="460"></demo>
+<demo metaUrl="client/chart/types/waterfall/" height="500"></demo>
 
 ## Waterfall Chart Specific Appearance Settings
 

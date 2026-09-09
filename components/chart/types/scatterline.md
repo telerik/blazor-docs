@@ -28,7 +28,7 @@ You would usually use ScatterLine charts for showing the relation between differ
 
 >caption A scatter line chart that shows battery charging percentage over minutes depending on the charging current
 
-<demo metaUrl="client/chart/types/scatterline/" height="460"></demo>
+<demo metaUrl="client/chart/types/scatterline/" height="500"></demo>
 
 ## ScatterLine Chart Specific Appearance Settings
 

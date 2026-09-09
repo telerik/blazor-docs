@@ -29,7 +29,7 @@ To use a Chart component with Bubble series:
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
 
-<demo metaUrl="client/chart/types/bubble/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/bubble/overview/" height="500"></demo>
 
 ## Bubble Sizing
 
@@ -54,7 +54,7 @@ If you need to [improve the bubble size comparability across several Charts](slu
 
 >caption Using default and custom Chart bubble sizes
 
-<demo metaUrl="client/chart/types/bubble/bubble-sizing/" height="460"></demo>
+<demo metaUrl="client/chart/types/bubble/bubble-sizing/" height="500"></demo>
 
 ## Bubble Chart Specific Appearance Settings
 
@@ -74,7 +74,7 @@ The size field should, generally, have positive values as it correlates to the p
 
 >caption Negative bubble size
 
-<demo metaUrl="client/chart/types/bubble/negative-values/" height="420"></demo>
+<demo metaUrl="client/chart/types/bubble/negative-values/" height="500"></demo>
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 

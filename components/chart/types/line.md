@@ -27,7 +27,7 @@ The <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazo
 
 >caption A line chart that shows product revenues
 
-<demo metaUrl="client/chart/types/line/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/line/overview/" height="500"></demo>
 
 ## Line Chart Specific Appearance Settings
 
@@ -53,7 +53,7 @@ If some values are missing from the series data (they are `null`), you can have 
 
 >caption A line chart that shows how to rotate the labels
 
-<demo metaUrl="client/chart/types/line/label-rotation/" height="420"></demo>
+<demo metaUrl="client/chart/types/line/label-rotation/" height="500"></demo>
 
 ## See Also
 

@@ -30,7 +30,7 @@ If you use [simple data binding](slug:components/chart/databind#independent-seri
 
 >caption A pie chart that shows product revenues
 
-<demo metaUrl="client/chart/types/pie/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/pie/overview/" height="500"></demo>
 
 ## Rotation
 
@@ -40,7 +40,7 @@ By default, the first segment starts at the top. You can change that by using th
 
 You can control the color of the individual segments of the pie chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-<demo metaUrl="client/chart/types/pie/color-field/" height="420"></demo>
+<demo metaUrl="client/chart/types/pie/color-field/" height="500"></demo>
 
 ## Exploded Segment
 
@@ -50,7 +50,7 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 
 >caption Exploded Items
 
-<demo metaUrl="client/chart/types/pie/exploded-segment/" height="420"></demo>
+<demo metaUrl="client/chart/types/pie/exploded-segment/" height="500"></demo>
 
 ## Visible In Legend
 
@@ -58,7 +58,7 @@ You can hide certain segments from the legend (for example, if their contributio
 
 >caption Hide segments from the legend
 
-<demo metaUrl="client/chart/types/pie/visible-in-legend/" height="420"></demo>
+<demo metaUrl="client/chart/types/pie/visible-in-legend/" height="500"></demo>
 
 ## Width and Height
 

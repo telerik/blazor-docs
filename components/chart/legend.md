@@ -46,7 +46,7 @@ The structure of the nested tags is `<ChartSeriesLegend*Specifics*>`, where the 
 
 Customize the legend items by using nested tag settings.
 
-<demo metaUrl="client/chart/legend/customization/" height="420"></demo>
+<demo metaUrl="client/chart/legend/customization/" height="500"></demo>
 
 ## See Also
 

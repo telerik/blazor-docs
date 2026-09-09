@@ -32,7 +32,7 @@ The <a href="https://www.telerik.com/blazor-ui/candlestick-chart" target="_blank
 
 >caption A Candlestick chart that shows product financial stock data
 
-<demo metaUrl="client/chart/types/candlestick/" height="560"></demo>
+<demo metaUrl="client/chart/types/candlestick/" height="500"></demo>
 
 ## Candlestick Chart Specific Appearance Settings
 

@@ -32,7 +32,7 @@ The <a href="https://www.telerik.com/blazor-ui/ohlc-chart" target="_blank">OHLC 
 
 >caption An OHLC chart that shows product financial stock data
 
-<demo metaUrl="client/chart/types/ohlc/" height="560"></demo>
+<demo metaUrl="client/chart/types/ohlc/" height="500"></demo>
 
 ## OHLC Chart Specific Appearance Settings
 

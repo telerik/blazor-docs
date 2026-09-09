@@ -28,7 +28,7 @@ If you use [simple data binding](slug:components/chart/databind#independent-seri
 
 >caption A donut chart that shows product revenues
 
-<demo metaUrl="client/chart/types/donut/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/donut/overview/" height="500"></demo>
 
 ## Donut Chart Specific Appearance Settings
 
@@ -50,7 +50,7 @@ By default, the first segment starts at the top. You can change that by using th
 
 You can control the color of the individual segments of the donut chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-<demo metaUrl="client/chart/types/donut/color-field/" height="420"></demo>
+<demo metaUrl="client/chart/types/donut/color-field/" height="500"></demo>
 
 ### Exploded Segment
 
@@ -60,7 +60,7 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 
 >caption Exploded Items
 
-<demo metaUrl="client/chart/types/donut/exploded-segment/" height="420"></demo>
+<demo metaUrl="client/chart/types/donut/exploded-segment/" height="500"></demo>
 
 ### Visible In Legend
 
@@ -68,13 +68,13 @@ You can hide certain segments from the legend (for example, if their contributio
 
 >caption Hide segments from the legend
 
-<demo metaUrl="client/chart/types/donut/visible-in-legend/" height="420"></demo>
+<demo metaUrl="client/chart/types/donut/visible-in-legend/" height="500"></demo>
 
 ### Hole Size
 
 You can change the percentage that the hole in the middle takes from the entire diameter of the circle by setting the `HoleSize` property of the series. Setting `0` removes the hole, and `100` means the entire chart is the hole.
 
-<demo metaUrl="client/chart/types/donut/hole-size/" height="420"></demo>
+<demo metaUrl="client/chart/types/donut/hole-size/" height="500"></demo>
 
 ### Multiple Series
 
@@ -84,7 +84,7 @@ You can use multiple series to showcase relationships within a data set, or seve
 
 You can also use the `ColorField` property to define a field with the segments' colors. With this, you can color-code different series and their relationships to one another.
 
-<demo metaUrl="client/chart/types/donut/multiple-series/" height="420"></demo>
+<demo metaUrl="client/chart/types/donut/multiple-series/" height="500"></demo>
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
@@ -92,13 +92,13 @@ You can also use the `ColorField` property to define a field with the segments' 
 
 >caption Customize Chart Title Margin, Series Label Font, and Borders
 
-<demo metaUrl="client/chart/types/donut/title-label-border/" height="420"></demo>
+<demo metaUrl="client/chart/types/donut/title-label-border/" height="500"></demo>
 
 The following example shows how to use the Chart `Height`, Series `Size`, and Legend `Height` to arrange a layout with a larger number of donut segments.
 
 >caption Customize Donut Chart element dimensions
 
-<demo metaUrl="client/chart/types/donut/element-dimensions/" height="460"></demo>
+<demo metaUrl="client/chart/types/donut/element-dimensions/" height="500"></demo>
 
 ## See Also
 

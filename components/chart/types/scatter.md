@@ -28,7 +28,7 @@ Scatter charts are useful for showing the relation between different sets of dat
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
 
-<demo metaUrl="client/chart/types/scatter/" height="460"></demo>
+<demo metaUrl="client/chart/types/scatter/" height="500"></demo>
 
 ## Scatter Chart Specific Appearance Settings
 

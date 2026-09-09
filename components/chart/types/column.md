@@ -29,7 +29,7 @@ The Column Chart is similar to the [Range Column Chart](slug:components/chart/ty
 
 >caption A column chart that shows product revenues
 
-<demo metaUrl="client/chart/types/column/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/column/overview/" height="500"></demo>
 
 ## Column Chart Specific Appearance Settings
 
@@ -50,6 +50,8 @@ The color of a series is controlled through the `Color` property that can take a
 
 @[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
 
+<demo metaUrl="client/chart/types/column/color-field/" height="500"></demo>
+
 @[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
@@ -58,7 +60,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 >caption Configuring Label Rotation, Skipping the rendering of every second label and adding borders and padding to the Labels.
 
-<demo metaUrl="client/chart/types/column/label-customization/" height="460"></demo>
+<demo metaUrl="client/chart/types/column/label-customization/" height="500"></demo>
 
 ## See Also
 

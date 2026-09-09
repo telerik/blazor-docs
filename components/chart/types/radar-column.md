@@ -29,7 +29,7 @@ Radar column charts are often used to make comparisons between several units tha
 
 >caption A radar column chart that shows comparison between the nutritional composition of two foods
 
-<demo metaUrl="client/chart/types/radar-column/" height="460"></demo>
+<demo metaUrl="client/chart/types/radar-column/" height="500"></demo>
 
 ## Radar Column Chart Specific Appearance Settings
 

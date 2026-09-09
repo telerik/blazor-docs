@@ -37,7 +37,7 @@ The `OnAxisLabelClick` event fires when the user clicks a label item on any of t
 
 >caption Using the Chart OnAxisLabelClick event
 
-<demo metaUrl="client/chart/events/axis-label-click/" height="420"></demo>
+<demo metaUrl="client/chart/events/axis-label-click/" height="500"></demo>
 
 ## OnLegendItemClick
 
@@ -51,7 +51,7 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
 
 >caption Using the Chart OnLegendItemClick event
 
-<demo metaUrl="client/chart/events/legend-item-click/" height="480"></demo>
+<demo metaUrl="client/chart/events/legend-item-click/" height="500"></demo>
 
 ## OnDragEnd
 
@@ -79,7 +79,7 @@ The Chart `OnDragStart` event fires at the beginning of a drag (pan) gesture. Th
 
 The `OnDragStart` event fires before [`OnDragEnd`](#ondragend).
 
-<demo metaUrl="client/chart/events/drag-start/" height="440"></demo>
+<demo metaUrl="client/chart/events/drag-start/" height="500"></demo>
 
 
 
@@ -134,18 +134,18 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ### Basic Click Handler
 
-<demo metaUrl="client/chart/events/on-series-click/basic-click-handler/" height="480"></demo>
+<demo metaUrl="client/chart/events/on-series-click/basic-click-handler/" height="500"></demo>
 
 
 ### Get The Data Model For The Clicked Series
 
-<demo metaUrl="client/chart/events/on-series-click/data-model/" height="460"></demo>
+<demo metaUrl="client/chart/events/on-series-click/data-model/" height="500"></demo>
 
 
 
 ### Load Data On Demand Based On Series Click
 
-<demo metaUrl="client/chart/events/on-series-click/load-data-on-demand/" height="600"></demo>
+<demo metaUrl="client/chart/events/on-series-click/load-data-on-demand/" height="500"></demo>
 
 
 
@@ -175,7 +175,7 @@ The Chart `OnZoomStart` event fires at the beginning of a zoom gesture. The even
 
 The `OnZoomStart` event fires before [`OnZoomEnd`](#onzoomend).
 
-<demo metaUrl="client/chart/events/zoom-start/" height="440"></demo>
+<demo metaUrl="client/chart/events/zoom-start/" height="500"></demo>
 
 ## See Also
 

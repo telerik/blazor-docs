@@ -29,7 +29,7 @@ Radar line charts are often used to make comparisons between several units that 
 
 >caption A radar column chart that shows comparison between the nutritional composition of two foods
 
-<demo metaUrl="client/chart/types/radar-line/" height="460"></demo>
+<demo metaUrl="client/chart/types/radar-line/" height="500"></demo>
 
 ## Radar Line Chart Specific Appearance Settings
 

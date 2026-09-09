@@ -29,7 +29,7 @@ Radar area charts are often used to make comparisons between several units that 
 
 >caption A radar area chart that shows comparison between character evaluations
 
-<demo metaUrl="client/chart/types/radar-area/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/radar-area/overview/" height="500"></demo>
 
 ## Radar Area Chart Specific Appearance Settings
 
@@ -66,7 +66,7 @@ You can render the lines between the points with different styles. The supported
 
 >caption Change the first series line settings, the Color and Font of the Category Axis Labels and the legend border
 
-<demo metaUrl="client/chart/types/radar-area/line-labels-legend/" height="460"></demo>
+<demo metaUrl="client/chart/types/radar-area/line-labels-legend/" height="500"></demo>
 
 ## See Also
 
