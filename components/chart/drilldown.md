@@ -24,7 +24,7 @@ To configure Chart series for drill-down:
 
 >caption Chart DrillDown
 
-<demo metaUrl="client/chart/drilldown/overview/" height="420"></demo>
+<demo metaUrl="client/chart/drilldown/overview/" height="500"></demo>
 
 ## Configuring Breadcrumb Navigation
 
@@ -35,7 +35,7 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
 
 >caption Configuring Breadcrumb for Chart Drilldown
 
-<demo metaUrl="client/chart/drilldown/breadcrumb/" height="460"></demo>
+<demo metaUrl="client/chart/drilldown/breadcrumb/" height="500"></demo>
 
 ## Reset Drilldown Level
 
@@ -43,7 +43,7 @@ To reset the drilldown level programmatically, use the `ResetDrilldownLevel` met
 
 >caption Reset Chart Drilldown Level Programmatically
 
-<demo metaUrl="client/chart/drilldown/reset-level/" height="460"></demo>
+<demo metaUrl="client/chart/drilldown/reset-level/" height="500"></demo>
 
 ## See Also
 

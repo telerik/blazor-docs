@@ -24,7 +24,7 @@ To perform zooming, do either of the following:
 
 >caption Zoomable Chart
 
-<demo metaUrl="client/chart/zoom/basic/" height="440"></demo>
+<demo metaUrl="client/chart/zoom/basic/" height="500"></demo>
 
 ### Mouse Wheel
 
@@ -38,7 +38,7 @@ To specify if users can zoom in and out on a selected area, set the boolean `Ena
 
 >caption Mouse wheel and selection zoom in the Chart
 
-<demo metaUrl="client/chart/zoom/mousewheel-and-selection/" height="420"></demo>
+<demo metaUrl="client/chart/zoom/mousewheel-and-selection/" height="500"></demo>
 
 ### Specifying a Keyboard Key for Zooming
 

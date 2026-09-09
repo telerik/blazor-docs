@@ -68,11 +68,11 @@ There are two different ways to configure the `From` and `To` values. The correc
 
 ## Categorical Chart PlotBands
 
-<demo metaUrl="client/chart/plot-bands/categorical/" height="420"></demo>
+<demo metaUrl="client/chart/plot-bands/categorical/" height="500"></demo>
 
 ## Numerical Chart PlotBands
 
-<demo metaUrl="client/chart/plot-bands/numerical/" height="460"></demo>
+<demo metaUrl="client/chart/plot-bands/numerical/" height="500"></demo>
 
 ## See Also
 

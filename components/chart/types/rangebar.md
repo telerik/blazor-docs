@@ -31,7 +31,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Bar Chart bound to arrays
 
-<demo metaUrl="client/chart/types/rangebar/array-binding/" height="460"></demo>
+<demo metaUrl="client/chart/types/rangebar/array-binding/" height="500"></demo>
 
 ### Binding Range Column Series to Custom Objects
 
@@ -40,7 +40,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Bar Chart bound to custom objects
 
-<demo metaUrl="client/chart/types/rangebar/custom-object-binding/" height="460"></demo>
+<demo metaUrl="client/chart/types/rangebar/custom-object-binding/" height="500"></demo>
 
 ## Range Bar Chart Specific Appearance Settings
 
@@ -49,6 +49,8 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color controls the fill color of the area.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
+
+<demo metaUrl="client/chart/types/bar/color-field/" height="500"></demo>
 
 @[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
 

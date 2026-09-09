@@ -29,7 +29,7 @@ The Bar Chart is similar to the [Range Bar Chart](slug:components/chart/types/ra
 
 >caption A bar chart that shows product revenues
 
-<demo metaUrl="client/chart/types/bar/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/bar/overview/" height="500"></demo>
 
 ## Bar Chart Specific Appearance Settings
 
@@ -39,6 +39,8 @@ The color of a series is controlled through the `Color` property that can take a
 
 @[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
 
+<demo metaUrl="client/chart/types/bar/color-field/" height="500"></demo>
+
 @[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
@@ -47,7 +49,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 >caption Configuring Label Template for the Value Axis and change the Font of the Category Axis.
 
-<demo metaUrl="client/chart/types/bar/value-axis-label-template/" height="420"></demo>
+<demo metaUrl="client/chart/types/bar/value-axis-label-template/" height="500"></demo>
 
 ## See Also
 

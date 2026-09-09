@@ -31,7 +31,7 @@ The Area Chart is similar to the [Range Area Chart](slug:components/chart/types/
 
 >caption An area chart that shows product revenues
 
-<demo metaUrl="client/chart/types/area/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/area/overview/" height="500"></demo>
 
 ## Area Chart Specific Appearance Settings
 
@@ -66,7 +66,7 @@ You can render the lines between the points with different styles. The supported
 
 >caption Change the rendering Step, Color and Font of the Category Axis Labels
 
-<demo metaUrl="client/chart/types/area/category-axis-labels/" height="420"></demo>
+<demo metaUrl="client/chart/types/area/category-axis-labels/" height="500"></demo>
 
 ## See Also
 

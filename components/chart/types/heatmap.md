@@ -39,7 +39,7 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
 
 >caption A Heatmap Chart that shows commits made by developers
 
-<demo metaUrl="client/chart/types/heatmap/overview/" height="420"></demo>
+<demo metaUrl="client/chart/types/heatmap/overview/" height="500"></demo>
 
 ## Data Binding Notes
 
@@ -54,7 +54,7 @@ When you are data binding the Heatmap Chart you should have the following points
 ![problematic behavior](images/heatmap-problematic-behavior.png)
 
 
-<demo metaUrl="client/chart/types/heatmap/categories-mismatch/" height="420"></demo>
+<demo metaUrl="client/chart/types/heatmap/categories-mismatch/" height="500"></demo>
 
 ## Heatmap Chart Specific Appearance Settings
 
@@ -69,7 +69,7 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
 >caption Change the Type of the marker.
 
-<demo metaUrl="client/chart/types/heatmap/marker-type/" height="420"></demo>
+<demo metaUrl="client/chart/types/heatmap/marker-type/" height="500"></demo>
 
 ### Color
 
@@ -77,7 +77,7 @@ The `Color` parameter controls the general color palette for the markers of the 
 
 >caption Change the Color of the Heatmap.
 
-<demo metaUrl="client/chart/types/heatmap/color/" height="420"></demo>
+<demo metaUrl="client/chart/types/heatmap/color/" height="500"></demo>
 
 ### ColorField
 
@@ -85,7 +85,7 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 >caption Provide a custom color to all markers in the Heatmap.
 
-<demo metaUrl="client/chart/types/heatmap/color-field/" height="420"></demo>
+<demo metaUrl="client/chart/types/heatmap/color-field/" height="500"></demo>
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
@@ -93,7 +93,7 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 >caption Hide the Labels for both X and Y axes.
 
-<demo metaUrl="client/chart/types/heatmap/hide-axis-labels/" height="420"></demo>
+<demo metaUrl="client/chart/types/heatmap/hide-axis-labels/" height="500"></demo>
 
 ## See Also
 

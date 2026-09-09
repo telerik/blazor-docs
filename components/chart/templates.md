@@ -13,7 +13,7 @@ components: ["charts"]
 
 Starting in **version 7.0.0**, when all Chart series have no data to show, a default layout with **No data** text is displayed over the Chart. To customize the default layout content declare a `<NoDataTemplate>` tag inside a `<ChartSettings>` tag:
 
-<demo metaUrl="client/chart/templates/no-data/" height="480"></demo>
+<demo metaUrl="client/chart/templates/no-data/" height="500"></demo>
 
 ## See Also
 

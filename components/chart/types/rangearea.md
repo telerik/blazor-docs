@@ -35,7 +35,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Area Chart bound to arrays
 
-<demo metaUrl="client/chart/types/rangearea/array-binding/" height="460"></demo>
+<demo metaUrl="client/chart/types/rangearea/array-binding/" height="500"></demo>
 
 ### Binding Range Area Series to Custom Objects
 
@@ -44,7 +44,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Area Chart bound to custom objects
 
-<demo metaUrl="client/chart/types/rangearea/custom-object-binding/" height="460"></demo>
+<demo metaUrl="client/chart/types/rangearea/custom-object-binding/" height="500"></demo>
 
 ## Range Area Chart Specific Appearance Settings
 

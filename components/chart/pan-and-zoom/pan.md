@@ -29,7 +29,7 @@ To perform panning, do either of the following:
 
 >caption Chart with enabled panning
 
-<demo metaUrl="client/chart/pan/basic/" height="420"></demo>
+<demo metaUrl="client/chart/pan/basic/" height="500"></demo>
 
 ### Specifying a Keyboard Key for Panning
 
@@ -51,7 +51,7 @@ To specify an axis that user cannot pan, use the `Lock` parameter within the `Ch
 
 >caption Chart with specified panning keyboard key and locked axis
 
-<demo metaUrl="client/chart/pan/key-and-locked-axis/" height="420"></demo>
+<demo metaUrl="client/chart/pan/key-and-locked-axis/" height="500"></demo>
 
 ## See Also
 
