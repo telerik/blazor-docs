@@ -37,8 +37,6 @@ Use the `CardHeader` tag to render header area of the Card.
 
 >caption Render `CardHeader` area. The result from the snippet below.
 
-![Card Header](images/card-header-example.png)
-
 <demo metaUrl="client/card/building-blocks/header/" height="350"></demo>
 
 ## CardBody
@@ -46,8 +44,6 @@ Use the `CardHeader` tag to render header area of the Card.
 Use the `CardBody` tag to render the body of the Card.
 
 >caption Render `CardBody` area. The result from the snippet below.
-
-![Card Body](images/card-body-example.png)
 
 <demo metaUrl="client/card/building-blocks/body/" height="300"></demo>
 
@@ -57,8 +53,6 @@ Use the `CardFooter` tag to render the footer area of the Card.
 
 >caption Render `CardFooter` area. The result from the snippet below.
 
-![Card Footer](images/card-footer-example.png)
-
 <demo metaUrl="client/card/building-blocks/footer/" height="350"></demo>
 
 ## CardImage
@@ -66,8 +60,6 @@ Use the `CardFooter` tag to render the footer area of the Card.
 Use the [`CardImage`](slug:card-image) tag to render the image section of the Card. The image will fill the size of the card unless you set any other `Width` and `Height` values.
 
 >caption Use `CardImage` in the Card component. The result from the snippet below.
-
-![Card Image](images/image-example.png)
 
 <demo metaUrl="client/card/building-blocks/image/" height="450"></demo>
 
