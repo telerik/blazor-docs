@@ -17,10 +17,6 @@ When the grid is grouped, the top row above the group provides information about
 
 <demo metaUrl="client/grid/templates-group-header/" height="700"></demo>
 
->caption The result from the code snippet above after grouping by the `Team` and `Active Projects` columns
-
-![Blazor Grid Group Header Template](images/group-header-template.png)
-
 ## See Also
 
 * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)

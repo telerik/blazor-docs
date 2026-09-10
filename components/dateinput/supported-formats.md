@@ -102,22 +102,9 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-BG
 
 <demo metaUrl="client/dateinput/supported-formats/standard/" height="700"></demo>
 
->caption The result from the code snippet above
-
-![Blazor Standard Format Strings](images/standard-format-strings.png)
-
-
-
 >caption Using supported .NET format specifiers to define relatively common date formats in the Telerik Date Input
 
 <demo metaUrl="client/dateinput/supported-formats/custom/" height="450"></demo>
-
->caption The result from the code snippet above
-
-![Blazor Custom Date Formats](images/custom-date-formats.png)
-
-
-
 
 
 ## See Also

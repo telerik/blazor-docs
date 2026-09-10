@@ -31,8 +31,6 @@ The following code snippet shows how you can group columns in the Grid in multi-
 
 >caption Multiple Column Headers in the Grid
 
-![multi-column headers example](images/multi-column-headers-overview.png)
-
 <demo metaUrl="client/grid/columns-multi-column-headers/" height="550"></demo>
 
 

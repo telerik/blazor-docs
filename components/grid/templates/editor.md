@@ -85,10 +85,6 @@ The Grid will save changes and close the current edit row (or edit cell) when th
 
 <demo metaUrl="client/grid/templates-editor-select/" height="400"></demo>
 
->caption The result from the snippet above after Edit was clicked for the first row and the select was expanded
-
-![editor template for simple strings with a select element](images/edit-template-simple-string-select.png)
-
 ## Editor template for a foreign key column
 
 This example uses an ID that represents the foreign key for the grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model](slug:grid-use-navigation-properties)) instead - this will change what renders in the `Template` by default, and will change the rules and operators for filtering, sorting, and so using a field with human-readable information (like strings) might provide better UX.
@@ -96,10 +92,6 @@ This example uses an ID that represents the foreign key for the grid column `Fie
 Also check the [Grid Foreign Key Column](slug:grids-foreign-key) knowledge base article.
 
 <demo metaUrl="client/grid/templates-editor-foreign-key/" height="550"></demo>
-
->caption The result from the code snippet above, after Edit was clicked on the second row and the user expanded the dropdown from the editor template
-
-![Editor Template for a foreign key](images/edit-template-foreign-key.png)
 
 ## In-Cell Editor Templates
 

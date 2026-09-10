@@ -30,15 +30,11 @@ In the example below no separator is used after the `CardHeader`, the horizontal
 
 >caption  Use the `Card Separator` as a standalone building block. The result from the snippet below.
 
-![Standalone CardSeparator](images/stanalone-card-separator-example.png)
-
 <demo metaUrl="client/card/separator/standalone/" height="400"></demo>
 
 ## Nested Card Separator
 
 Use the `CardSeparator` to distinguish two separate sections in the `CardBody`. The result from the snippet below.
-
-![Nested CardSeparator](images/nested-card-separator-example.png)
 
 <demo metaUrl="client/card/separator/nested/" height="400"></demo>
 
@@ -47,8 +43,6 @@ Use the `CardSeparator` to distinguish two separate sections in the `CardBody`. 
 You can change the `CardSeparator` orientation through its `Orientation` parameter.
 
 >caption Use `CardSeparator` with vertical orientation to separate the two action buttons. The result from the snippet below.
-
-![Vertical CardSeparator](images/vertical-card-separator-example.PNG)
 
 <demo metaUrl="client/card/separator/vertical/" height="400"></demo>
 

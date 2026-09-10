@@ -77,8 +77,6 @@ Use the [`CardActions`](slug:card-actions) tag to render the actions area of the
 
 >caption Use `CardActions` in the Card component. The result from the snippet below.
 
-![Card Actions](images/card-actions-example.png)
-
 <demo metaUrl="client/card/building-blocks/actions/" height="400"></demo>
 
 ## CardSeparator
@@ -86,8 +84,6 @@ Use the [`CardActions`](slug:card-actions) tag to render the actions area of the
 Use the `CardActions` tag to render the actions area of the Card. An example of [`CardSeparator`](slug:card-separator) used between Card elements or nested inside an element.
 
 >caption Use `CardSeparator` in the Card component. The result from the snippet below.
-
-![Card Separator](images/card-separator-example.png)
 
 <demo metaUrl="client/card/building-blocks/separator/" height="450"></demo>
 
@@ -97,8 +93,6 @@ Use the `CardTitle` tag to render a title (heading). Although the header area is
 
 >caption Use `CardTitle` in the Card component. The result from the snippet below.
 
-![Card Footer](images/card-title-example.png)
-
 <demo metaUrl="client/card/building-blocks/title/" height="400"></demo>
 
 
@@ -107,8 +101,6 @@ Use the `CardTitle` tag to render a title (heading). Although the header area is
 Use the `CardSubTitle` tag to render sub title. Although the header area is suitable for placing title and sub title, it is not required and you can use the `CardSubTitle` as desired. It can also be used along with the `CardTitle` or as a standalone element. The below sample demonstrates both approaches.
 
 >caption Use `CardSubTitle` in the Card component. The result from the snippet below.
-
-![Card Footer](images/card-subtitle-example.png)
 
 <demo metaUrl="client/card/building-blocks/subtitle/" height="400"></demo>
 
