@@ -69,9 +69,13 @@ The following table lists Context Menu parameters, which are not related to othe
 
 The popup of the component can be additionally customized via nested tags:
 
-<div class="skip-repl"></div>
-
-<demo metaUrl="client/contextmenu/overview/popup-settings/" height="200"></demo>
+````RAZOR.skip-repl
+<TelerikContextMenu TItem="object">
+    <ContextMenuSettings>
+        <ContextMenuPopupSettings HorizontalCollision="@PopupCollision.Fit" />
+    </ContextMenuSettings>
+</TelerikContextMenu>
+````
 
 The ContextMenu provides the following popup settings:
 
