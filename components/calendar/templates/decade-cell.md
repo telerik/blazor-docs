@@ -17,14 +17,9 @@ The template receives the `DateTime` corresponding to its cell.
 
 >caption Mark some years on the calendar decade view
 
-![calendar decade cell template](images/calendar-decade-template.png)
-
 <demo metaUrl="client/calendar/templates/decade-cell/" height="500"></demo>
-
 
 ## See Also
 
 * [Calendar Templates Overview](slug:calendar-templates-overview)
 * [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)
- 
-
