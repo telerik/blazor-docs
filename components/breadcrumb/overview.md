@@ -25,11 +25,6 @@ To use a Telerik Breadcrumb for Blazor:
 
 <demo metaUrl="client/breadcrumb/overview/" height="250"></demo>
 
-
->caption Component namespace and reference
-
-<demo metaUrl="client/breadcrumb/reference/" height="250"></demo>
-
 ## Features
 
 The Breadcrumb provides the following features:
