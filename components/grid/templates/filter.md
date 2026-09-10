@@ -50,11 +50,6 @@ You can find more examples in the [Live Demo: Custom Filter Row](https://demos.t
 
 <demo metaUrl="client/grid/templates-filter-row/" height="500"></demo>
 
->caption The result from the code snippet above after filtering
-
-![Custom Filter Cell Template - Min and Max](images/custom-filter-cell-min-max.png)
-
-
 ## Filter Menu Template
 
 By default, the filter menu contains two filter values that are tied with a logical operator - OR or AND, with filtering being triggered through a dedicated Filter button and a Clear button removes the filter.
@@ -87,10 +82,6 @@ For an example with the CheckboxList Filter, see the [Custom Data](slug:grid-che
 >tip The grid can create a checkbox filter for you, see the [CheckBoxList Filtering](slug:grid-checklist-filter) article.
 
 <demo metaUrl="client/grid/templates-filter-menu/" height="550"></demo>
-
->caption The result from the code snippet above, after filtering
-
-![Custom Filter Menu Template with Checkboxes](images/custom-filter-menu-checkboxes.png)
 
 ## Filter Menu Buttons Template
 

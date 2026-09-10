@@ -20,10 +20,6 @@ You can use [aggregates](slug:grid-aggregates) for the current field directly fr
 
 <demo metaUrl="client/grid/templates-column-footer/" height="400"></demo>
 
->caption The result from the code snippet above
-
-![Blazor Grid Footer Template](images/footer-template.png)
-
 ## Using Components in Grid Column Footer Templates
 
 @[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)

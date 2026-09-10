@@ -40,10 +40,6 @@ You can also use [aggregates](slug:grid-aggregates) for the grouped data.
 
 <demo metaUrl="client/grid/grouping/" height="500"></demo>
 
->caption How grouping works in the Telerik grid
-
-![Blazor Grid Grouping Overview](images/grouping-overview.gif)
-
 ## Aggregates
 
 The grid lets you define and use aggregates that it can calculate for you. You can read more about using them in the [Aggregates](slug:grid-aggregates) article.

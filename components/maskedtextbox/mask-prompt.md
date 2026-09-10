@@ -67,8 +67,6 @@ By default, the `Value` of the component only includes the rules from the mask. 
 
 >caption Adding the literals to the value
 
-![Include Literals behavior](images/include-literals.gif)
-
 <demo metaUrl="client/maskedtextbox/mask-prompt/include-literals/" height="250"></demo>
 
 ### Mask on Focus, FloatingLabel and Placeholder
@@ -79,10 +77,7 @@ The [FloatingLabel](slug:floatinglabel-overview) will take precedence over the `
 
 >caption Showing the mask on focus only
 
-![Show mask only when the input is focused](images/show-mask-on-focus-only.gif)
-
 <demo metaUrl="client/maskedtextbox/mask-prompt/mask-on-focus/" height="250"></demo>
-
 
 ## Prompt
 
@@ -101,8 +96,6 @@ When the user has not filled in all the blank spaces in the mask, the Telerik Ma
 The `PromptPlaceholder` is useful when you need to process the user input at a later stage. For example, when you can have input that can vary in length like a phone country code (that can be one to three digits and the rest can be empty or spaces). For such cases, the masked textbox provides you with the value where places where the user did not input anything are replaced with the `PromptPlaceholder` to facilitate post-processing and parsing. For example, with the default space for a placeholder, you could remove all spaces from the input to get only the meaningful digits of the phone number.
 
 >caption Prompt and PromptPlacehlolder behavior
-
-![Prompt and PromptPlaceholder behavior](images/custom-promt-and-promptplaceholder.gif)
 
 <demo metaUrl="client/maskedtextbox/mask-prompt/prompt/" height="300"></demo>
 
