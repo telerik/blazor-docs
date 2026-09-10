@@ -23,7 +23,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-<demo metaUrl="client/dateinput/events/on-blur/" height="300"></demo>
+<demo metaUrl="client/dateinput/events/onblur/" height="300"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -38,7 +38,7 @@ The DateInput is a generic component, so you must either provide a `Value`, or a
 
 >caption Handle OnChange and use two-way binding
 
-<demo metaUrl="client/dateinput/events/on-change/" height="300"></demo>
+<demo metaUrl="client/dateinput/events/onchange/" height="300"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -55,7 +55,7 @@ The `ValueChanged` event fires:
 
 >caption Handle ValueChanged and provide initial value
 
-<demo metaUrl="client/dateinput/events/value-changed/" height="300"></demo>
+<demo metaUrl="client/dateinput/events/valuechanged/" height="300"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
