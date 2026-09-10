@@ -28,23 +28,17 @@ The labels are shown on each major tick (`LargeStep`) and by default they render
 
 This example shows how to use the current label value and to add styling and a currency symbol.
 
-![basic template with currency symbol and styling](images/rangeslider-basic-template-currency.png)
-
 <demo metaUrl="client/rangeslider/label-template-basic/" height="300"></demo>
 
 ## Labels for Min and Max Only
 
 This example shows how you can render text only for the min and max values of the slider.
 
-![labels for the min and max only](images/rangeslider-labels-for-min-and-max-only.png)
-
 <demo metaUrl="client/rangeslider/label-template-min-max-only/" height="300"></demo>
 
 ## Show and Select Items
 
 While the slider is a numeric input, you can use its values to match against indexes of a collection - with this you can extract a full model and also display complex content for the items. You can set the `SmallStep` and `LargeStep` to `1` so there are only major ticks that act as items for the user and so that they are integer indexes.
-
-![model items in the slider](images/rangeslider-items.png)
 
 <demo metaUrl="client/rangeslider/label-template-items/" height="400"></demo>
 

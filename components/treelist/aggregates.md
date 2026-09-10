@@ -119,11 +119,6 @@ If you try to use an aggregate that is not defined, or an aggregate over an unsu
 }
 ````
 
->caption The result of the code snippet above after the grid has been grouped by the `Team` and `Active Projects` columns
-
-![Blazor TreeList Aggregates Overview](images/grid-aggregates-overview.png)
-
-
 ## See Also
 
 * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
