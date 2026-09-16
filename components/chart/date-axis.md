@@ -89,7 +89,6 @@ For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning
 >caption ScatterLine chart with day and time values. Markers are rendered after the day labels to also respect the time values.
 
 <demo metaUrl="client/chart/date-axis/scatterline-day-time/" height="500"></demo>
-<br/>
 
 >caption ScatterLine chart with only days values. Markers are rendered exactly on the day labels. 
 
