@@ -34,12 +34,13 @@ The following example demonstrates how to configure the Map Bubble Layer.
 @* This code snippet showcases an example of a Bubble Layer configuration. *@
 
 <TelerikMap Center="@Center"
+            Height="85vh"
             Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@MapAttribution"
+                  Subdomains="@MapSubdomains"
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Bubble"
@@ -53,38 +54,19 @@ The following example demonstrates how to configure the Map Bubble Layer.
                       </MapLayerBubbleSettingsStyle>
                   </MapLayerBubbleSettings>
         </MapLayer>
-
-        <MapLayer Type="@MapLayersType.Marker"
-                  Data="@MarkerData1"
-                  LocationField="@nameof(MarkerModel.LatLng)"
-                  TitleField="@nameof(MarkerModel.Title)">
-        </MapLayer>
     </MapLayers>
 </TelerikMap>
 
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
+
 @code {
-    public string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    public string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    public string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    public string[] MapSubdomains { get; set; } = new string[] { "a", "b", "c" };
+    public string MapAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     public double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
-
-    public List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>()
-    {
-        new MarkerModel()
-        {
-            LatLng = new double[] { 30.268107, -97.744821 },
-            Title = "Austin, TX"
-        }
-     };
-
-    public List<MarkerModel> MarkerData2 { get; set; } = new List<MarkerModel>()
-    {
-        new MarkerModel()
-        {
-            LatLng = new double[] { 37.7749, -122.4194 },
-            Title = "San Francisco, CA"
-        }
-    };
 
     public List<BubbleModel> BubbleData { get; set; } = new List<BubbleModel>()
     {
@@ -99,12 +81,6 @@ The following example demonstrates how to configure the Map Bubble Layer.
             Revenue = 200
         }
     };
-
-    public class MarkerModel
-    {
-        public double[] LatLng { get; set; }
-        public string Title { get; set; }
-    }
 
     public class BubbleModel
     {
