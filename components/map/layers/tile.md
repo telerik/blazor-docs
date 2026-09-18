@@ -30,24 +30,28 @@ The following example demonstrates how to configure the Map Tile Layer.
 
 ````RAZOR
 <TelerikMap Center="@MapCenter"
+            Height="85vh"
             Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@LayerAttribution"
-                  Subdomains="@LayerSubdomains"
-                  UrlTemplate="@LayerUrlTemplate">
+                  Attribution="@MapAttribution"
+                  Subdomains="@MapSubdomains"
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
     </MapLayers>
 </TelerikMap>
 
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
+
 @code {
     private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
 
-    public readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
-    public const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    public const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    public readonly string[] MapSubdomains = new string[] { "a", "b", "c" };
+    public const string MapAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 
 }
 ````
-
-@[template](/_contentTemplates/map/general.md#urltemplate-csp)

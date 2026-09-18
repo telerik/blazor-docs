@@ -51,7 +51,7 @@ To center the map on a specific marker's coordinates, use a variable to bind the
         <MapLayer Type="@MapLayersType.Tile"
                   Attribution="@LayerAttribution"
                   Subdomains="@LayerSubdomains"
-                  UrlTemplate="@LayerUrlTemplate">
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Marker"
@@ -62,13 +62,18 @@ To center the map on a specific marker's coordinates, use a variable to bind the
     </MapLayers>
 </TelerikMap>
 
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
+
 @code {
     private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
     private int SelectedValue { get; set; }
     private int MapZoom { get; set; } = 3;
 
     private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
-    private const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
     private const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 
     private void MyOnChangeHandler(object theUserInput)

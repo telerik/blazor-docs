@@ -36,13 +36,14 @@ The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick`
 @* This code snippet showcases an example of how to handle the Map OnClick event. *@
 
 <TelerikMap Center="@Center"
-            Zoom="3"
-            OnClick="@OnMapClick">
+            Height="75vh"
+            OnClick="@OnMapClick"
+            Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@MapAttribution"
+                  Subdomains="@MapSubdomains"
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Bubble"
@@ -67,10 +68,15 @@ The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick`
 
 <strong>@EventResult</strong>
 
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
+
 @code {
-    private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    private string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    private string[] MapSubdomains { get; set; } = new string[] { "a", "b", "c" };
+    private string MapAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
     private string EventResult { get; set; }
 
@@ -143,13 +149,14 @@ The `OnMarkerClick` event fires when the user clicks or taps a marker. The `OnMa
 @* This code snippet showcases an example of how to handle the Map OnMarkerClick event. *@
 
 <TelerikMap Center="@Center"
-            Zoom="3"
-            OnMarkerClick="@OnMarkerClick">
+            Height="75vh"
+            OnMarkerClick="@OnMarkerClick"
+            Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@MapAttribution"
+                  Subdomains="@MapSubdomains"
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Bubble"
@@ -174,10 +181,15 @@ The `OnMarkerClick` event fires when the user clicks or taps a marker. The `OnMa
 
 <strong>@EventResult</strong>
 
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
+
 @code {
-    private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    private string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    private string[] MapSubdomains { get; set; } = new string[] { "a", "b", "c" };
+    private string MapAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
     private string EventResult { get; set; }
 
@@ -245,22 +257,26 @@ The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShap
 | `DataItem` | `object` | The data item when the shape is from a Bubble layer, or `null` when the shape is from a Shape layer. |
 | `GeoJsonDataItem` | `Dictionary<string, object>` | The data item as GeoJSON object when the layer is a Shape layer (`null` for Bubble layer). |
 
+The `OnShapeClick` event fires only for shapes in the top Map layer.
+
 >caption Handle OnShapeClick.
 
 ````RAZOR
-@* This code snippet showcases an example of how to handle the Map OnShapeClick event. *@
-
 <TelerikMap Center="@Center"
-            Zoom="3"
-            OnShapeClick="@OnShapeClick">
+            Height="85vh"
+            OnShapeClick="@OnShapeClick"
+            Zoom="4">
     <MapLayers>
-        <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+        <MapLayer Type="@MapLayersType.Shape"
+                  Data="@WorldData">
+            <MapLayerShapeSettings>
+                <MapLayerShapeSettingsStyle>
+                    <MapLayerShapeSettingsStyleFill Color="#0000ff" Opacity="0.5"></MapLayerShapeSettingsStyleFill>
+                    <MapLayerShapeSettingsStyleStroke Color="#ffffff"></MapLayerShapeSettingsStyleStroke>
+                </MapLayerShapeSettingsStyle>
+            </MapLayerShapeSettings>
         </MapLayer>
-
-        <MapLayer Type="@MapLayersType.Bubble"
+        @* <MapLayer Type="@MapLayersType.Bubble"
                   Data="@BubbleData"
                   LocationField="@nameof(BubbleModel.LatLng)"
                   ValueField="@nameof(BubbleModel.Revenue)">
@@ -270,33 +286,22 @@ The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShap
                     <MapLayerBubbleSettingsStyleStroke Color="#000000"></MapLayerBubbleSettingsStyleStroke>
                 </MapLayerBubbleSettingsStyle>
             </MapLayerBubbleSettings>
-        </MapLayer>
-
-        <MapLayer Type="@MapLayersType.Marker"
-                  Data="@MarkerData1"
-                  LocationField="@nameof(MarkerModel.LatLng)"
-                  TitleField="@nameof(MarkerModel.Title)">
-        </MapLayer>
+        </MapLayer> *@
     </MapLayers>
 </TelerikMap>
 
 <strong>@EventResult</strong>
 
-@code {
-    private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    private string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
-    private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
-    private string EventResult { get; set; }
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
 
-    private List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>()
-    {
-        new MarkerModel()
-        {
-            LatLng = new double[] { 30.268107, -97.744821 },
-            Title = "Austin, TX"
-        }
-    };
+@code {
+    private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
+
+    private string WorldData { get; set; } = string.Empty;
 
     private List<BubbleModel> BubbleData { get; set; } = new List<BubbleModel>()
     {
@@ -312,14 +317,25 @@ The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShap
         }
     };
 
+    private string EventResult { get; set; } = string.Empty;
+
     private void OnShapeClick(MapShapeClickEventArgs args)
     {
-        var dataItem = args.DataItem as BubbleModel;
-        var eventArgs = args.EventArgs as MouseEventArgs;
+        MouseEventArgs eventArgs = (MouseEventArgs)args.EventArgs;
+        BubbleModel? bubbleDataItem = args.DataItem as BubbleModel;
 
-        LogToConsole(
-            $"shape click: revenue = {dataItem.Revenue}, location = [{string.Join(",", dataItem.LatLng)}]," +
-            $"clientX = {eventArgs.ClientX}, clientY = {eventArgs.ClientY}");
+        if (bubbleDataItem is not null)
+        {
+            LogToConsole(
+                $"bubble click: revenue = {bubbleDataItem.Revenue}," +
+                $"clientX = {eventArgs.ClientX}, clientY = {eventArgs.ClientY}");
+        }
+        else
+        {
+            LogToConsole(
+                $"shape click: country id = {args.GeoJsonDataItem.ElementAt(1).Value}," +
+                $"clientX = {eventArgs.ClientX}, clientY = {eventArgs.ClientY}");
+        }
     }
 
     private void LogToConsole(string text)
@@ -327,15 +343,14 @@ The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShap
         EventResult = text;
     }
 
-    public class MarkerModel
+    protected override async Task OnInitializedAsync()
     {
-        public double[] LatLng { get; set; }
-        public string Title { get; set; }
+        WorldData = await new HttpClient().GetStringAsync("https://raw.githubusercontent.com/telerik/blazor-ui/master/map/world-data.json");
     }
 
     public class BubbleModel
     {
-        public double[] LatLng { get; set; }
+        public double[] LatLng { get; set; } = new double[2];
         public int Revenue { get; set; }
     }
 }
@@ -359,13 +374,14 @@ The `OnZoomEnd` event fires when the user has finished zooming the Map. The `OnZ
 @* This code snippet showcases an example of how to handle the Map OnZoomEnd event. *@
 
 <TelerikMap Center="@Center"
-            Zoom="3" 
-            OnZoomEnd="@OnZoomEnd">
+            Height="75vh"
+            OnZoomEnd="@OnZoomEnd"
+            Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@MapAttribution"
+                  Subdomains="@MapSubdomains"
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Bubble"
@@ -390,10 +406,15 @@ The `OnZoomEnd` event fires when the user has finished zooming the Map. The `OnZ
 
 <strong>@EventResult</strong>
 
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
+
 @code {
-    private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    private string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    private string[] MapSubdomains { get; set; } = new string[] { "a", "b", "c" };
+    private string MapAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
     private string EventResult { get; set; }
 
@@ -467,13 +488,14 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
 @* This code snippet showcases an example of how to handle the Map OnPanEnd event. *@
 
 <TelerikMap Center="@Center"
-            Zoom="3"
-            OnPanEnd="@OnPanEnd">
+            Height="75vh"
+            OnPanEnd="@OnPanEnd"
+            Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@MapAttribution"
+                  Subdomains="@MapSubdomains"
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Bubble"
@@ -498,10 +520,15 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
 
 <strong>@EventResult</strong>
 
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
+
 @code {
-    private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    private string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    private string[] MapSubdomains { get; set; } = new string[] { "a", "b", "c" };
+    private string MapAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
     private string EventResult { get; set; }
 
@@ -556,8 +583,6 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
     }
 }
 ````
-
-@[template](/_contentTemplates/map/general.md#urltemplate-csp)
 
 ## See Also
 

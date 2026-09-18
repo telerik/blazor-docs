@@ -65,7 +65,7 @@ To change the color of specific markers, target them based on their titles using
         <MapLayer Type="@MapLayersType.Tile"
                   Attribution="@Attribution"
                   Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  UrlTemplate="mapUrlTemplateFunction">
         </MapLayer>
         <MapLayer Type="@MapLayersType.Marker"
                   Data="@MarkerData"
@@ -74,6 +74,12 @@ To change the color of specific markers, target them based on their titles using
         </MapLayer>
     </MapLayers>
 </TelerikMap>
+
+<script suppress-error="BL9992">
+    function mapUrlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
+    }
+</script>
 
 <style>
 /* The first line is for the default marker style. The second one is for the hover state. */
@@ -90,7 +96,6 @@ To change the color of specific markers, target them based on their titles using
 
 @code {
     private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
     private string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
 
