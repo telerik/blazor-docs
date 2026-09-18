@@ -45,7 +45,7 @@ The following parameters enable you to customize the appearance of the Blazor Ma
 | `TileSize` | `double` | The size of the image tile in pixels. |
 | `TitleField` | `string` | The data item field which contains the marker title. |
 | `Type` | `MapLayersType` enum | The type of the layer. |
-| `UrlTemplate` | `string` | The URL template for tile layers. The available variables are: <ul><li>`x`&mdash;the X coordinate of the tile;</li><li>`y`&mdash;the Y coordinate of the tile</li><li>`zoom`&mdash;the zoom level</li><li>`subdomain`&mdash;the subdomain for this tile. Also see `Subdomains`. <br />There are [two possible ways to define the `UrlTemplate`](slug:components/map/overview#content-security-policy). |
+| `UrlTemplate` | `string` | The JavaScript function name that builds the URL for each tile in a tile layer. The function argument is an object with these properties <ul><li>`x`&mdash;the X coordinate of the tile;</li><li>`y`&mdash;the Y coordinate of the tile</li><li>`zoom`&mdash;the zoom level</li><li>`subdomain`&mdash;the subdomain for this tile. Also see `Subdomains`. |
 | `ValueField` | `string` | The value field for bubble layer symbols. The data item field should be a number. |
 | `ZIndex` | `double` | The zIndex for this layer. Layers are normally stacked in declaration order (last one is on top). |
 

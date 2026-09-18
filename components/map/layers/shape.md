@@ -30,6 +30,7 @@ The following example demonstrates how to configure the Map Shape Layer.
 @* This code snippet showcases an example of a Shape Layer configuration. *@
 
 <TelerikMap Center="@Center"
+            Height="85vh"
             Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Shape"
