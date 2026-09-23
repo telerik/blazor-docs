@@ -49,78 +49,7 @@ The following example exports the Diagram as a PNG image or a PDF document and s
 
 >caption Export the Diagram as PNG or PDF
 
-````RAZOR
-@using Telerik.Blazor.Common.Export.Pdf
-
-<TelerikButton OnClick="@OnExportPdfClick">Export as PDF</TelerikButton>
-<TelerikButton OnClick="@OnExportPngClick">Export as PNG</TelerikButton>
-
-<TelerikDiagram @ref="@DiagramRef" Height="420px" Zoom="0.8">
-    <DiagramConnectionDefaults Type="@DiagramConnectionType.Cascading" />
-    <DiagramLayout Type="@DiagramLayoutType.Tree" />
-    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle" />
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-        <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-        <DiagramShape Id="shape4">
-            <DiagramShapeContent Text="Shape 4" />
-        </DiagramShape>
-        <DiagramShape Id="shape5">
-            <DiagramShapeContent Text="Shape 5" />
-        </DiagramShape>
-        <DiagramShape Id="shape6">
-            <DiagramShapeContent Text="Shape 6" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
-        <DiagramConnection FromId="shape1" ToId="shape3" />
-        <DiagramConnection FromId="shape2" ToId="shape4" />
-        <DiagramConnection FromId="shape2" ToId="shape5" />
-        <DiagramConnection FromId="shape3" ToId="shape6" />
-    </DiagramConnections>
-</TelerikDiagram>
-
-@code {
-    private TelerikDiagram DiagramRef { get; set; }
-
-    private async Task OnExportPdfClick()
-    {
-        var result = await DiagramRef!.ExportToPdfAsync(new PdfExportOptions
-        {
-            PaperSize = "A4",
-            Landscape = true,
-            Title = "Diagram Export"
-        });
-
-        var base64 = result.Substring(result.IndexOf(",") + 1);
-        byte[] bytes = Convert.FromBase64String(base64);
-
-        // The file is saved to the root application folder.
-        System.IO.File.WriteAllBytes("diagram.pdf", bytes);
-    }
-
-    private async Task OnExportPngClick()
-    {
-        var result = await DiagramRef!.ExportToPngAsync();
-
-        var base64 = result.Substring(result.IndexOf(",") + 1);
-        byte[] bytes = Convert.FromBase64String(base64);
-
-        // The file is saved to the root application folder.
-        System.IO.File.WriteAllBytes("diagram.png", bytes);
-    }
-}
-````
+<demo metaUrl="client/diagram/export/png-pdf-1/" height="620"></demo>
 
 ## See Also
 

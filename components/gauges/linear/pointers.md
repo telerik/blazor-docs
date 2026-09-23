@@ -35,144 +35,43 @@ The `Shape` parameter controls the shape of the pointer and takes a member of th
 
 * `Arrow`
 
->caption Change the shape of the pointer. The result from the code snippet below.
+>caption Change the shape of the pointer.
 
-![Arrow Pointers](images/arrow-pointers.png)
-
-````RAZOR
-@* Use arrows as pointers in the Linear Gauge *@
-
-<TelerikLinearGauge>
-    <LinearGaugePointers>
-        <LinearGaugePointer Value="10" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-        
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/pointers/shape-pointer-result-code-6/" height="420"></demo>
 
 ## Color
 
 The `Color` (`string`) parameter controls the color of the pointers. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the color of the arrow pointers. The result from the code snippet below
+>caption Change the color of the arrow pointers.
 
-![color parameter example](images/color-parameter.png)
-
-````RAZOR
-@* Change the color of the pointers *@
-
-<TelerikLinearGauge>
-    <LinearGaugePointers>
-        <LinearGaugePointer Value="10" Color="#008000" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20" Color="rgb(255,255,0)" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30" Color="red" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-        
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/pointers/color-arrow-pointers-result-5/" height="420"></demo>
 
 ## Opacity
 
 The `Opacity` (`double`) parameter controls the opacity of the pointers. The value passed to it should be between **0** and **1**.
 
-````RAZOR
-@* Change the opacity of a pointer *@
-
-<TelerikLinearGauge>
-    <LinearGaugePointers>
-        <LinearGaugePointer Value="10" Opacity="0.4" Color="green" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20" Color="yellow" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30" Color="red" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-        
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/pointers/color-arrow-pointers-result-4/" height="420"></demo>
 
 ## Size
 
 The `Size` (`double`) parameter controls the size of the pointers. 
 
-````RAZOR
-@* Change the sizes of the pointers *@ 
-
-<TelerikLinearGauge>
-    <LinearGaugePointers>
-        <LinearGaugePointer Value="10" Color="green" Shape="@LinearGaugePointerShape.Arrow" Size="15">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20" Color="yellow" Shape="@LinearGaugePointerShape.Arrow" Size="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30" Color="red" Shape="@LinearGaugePointerShape.Arrow" Size="5">
-        </LinearGaugePointer>
-        
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/pointers/color-arrow-pointers-result-3/" height="420"></demo>
 
 ## Margin
 
 The `Margin` (`double`) parameter controls the margin between the [Scale](slug:linear-gauge-scale) and the pointers.
 
-````RAZOR
-@* Change the margin between the scale and the pointers *@
-
-<TelerikLinearGauge>
-    <LinearGaugePointers>
-        <LinearGaugePointer Value="10" Margin="10" Shape="@LinearGaugePointerShape.Arrow" >
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20" Margin="8" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30" Margin="6" Shape="@LinearGaugePointerShape.Arrow">
-        </LinearGaugePointer>
-        
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/pointers/color-arrow-pointers-result-2/" height="420"></demo>
 
 ## Additional Customization
 
 @[template](/_contentTemplates/gauges/additional-customization.md#linear-gauge-additional-customization)
 
->caption Customize the Pointer Track. The result from the code snippet below.
+>caption Customize the Pointer Track.
 
-![custom pointer track](images/custom-pointer-track.png)
-
-````RAZOR
-@* Customize the pointer track *@
-
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale></LinearGaugeScale>
-    </LinearGaugeScales>
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="30">
-            <LinearGaugePointerTrack Color="#a9a9a9" Visible="true"></LinearGaugePointerTrack>
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/pointers/pointer-track-result-code-1/" height="420"></demo>
 
 ## See Also
 

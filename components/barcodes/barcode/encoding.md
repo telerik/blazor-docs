@@ -19,31 +19,7 @@ You can choose which supported encoding to use by setting the `Type` parameter o
 
 >caption Explore the Barcode Type options
 
-````RAZOR
-@*Choose a type from the dropdown*@
-
-<div style="display: flex">
-    <div style="display: inline">
-        <select @bind="BarcodeType">
-            @foreach (var possibleType in Enum.GetValues(typeof(BarcodeType)))
-            {
-                <option value="@possibleType">@possibleType</option>
-            }
-        </select>
-    </div>
-
-    <TelerikBarcode @ref="myBarcode" Width="300px"
-                    Height="200px"
-                    Type="@BarcodeType"
-                    Value="123456789">
-    </TelerikBarcode>
-</div>
-
-@code {
-    TelerikBarcode myBarcode;
-    BarcodeType BarcodeType { get; set; } = BarcodeType.Code39;
-}
-````
+<demo metaUrl="client/barcode/encoding/types/" height="420"></demo>
 
 | SYMBOLOGY | CHARACTER SET | LENGTH | CHECK DIGITS |
 | --------- | ------------- | ------ | ------------ |

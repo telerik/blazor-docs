@@ -29,88 +29,25 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
 * `Butt` - flat scale ending shape
 
->caption Change the shape of the scale. The result from the code snippet below.
+>caption Change the shape of the scale.
 
-![Round shape](images/linecap-parameter.png)
-
-````RAZOR
-@* Use a flat shape for the end of the scale *@
-
-<TelerikCircularGauge>
-    <CircularGaugePointers>
-
-        <CircularGaugePointer LineCap="@CircularGaugePointerLineCap.Butt" Value="40">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>
-            <CircularGaugeScaleLabels Visible="true" />
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/pointers/pointer-shape-4/" height="420"></demo>
 
 ## PlaceholderColor
 
 The `PlaceholderColor` (`string`) parameter controls the background color of the pointer. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the background color of the pointer. The result from the code snippet below:
+>caption Change the background color of the pointer.
 
-![placeholder color](images/placeholdercolor-parameter-circular.png)
-
-````RAZOR
-@* Set the PlaceholderColor to light blue *@
-
-<TelerikCircularGauge>
-    <CircularGaugePointers>
-
-        <CircularGaugePointer PlaceholderColor="lightblue" Value="40">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>
-            <CircularGaugeScaleLabels Visible="true" />
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/pointers/pointer-background-3/" height="420"></demo>
 
 ## Color
 
 The `Color` (`string`) parameter controls the color of the pointer. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the color of the pointer. The result from the code snippet below
+>caption Change the color of the pointer.
 
-![color parameter example](images/color-parameter-circular-pointer.png)
-
-````RAZOR
-@* Change the color of the pointer to purple *@
-
-<TelerikCircularGauge>
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Color="purple" Value="60">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>
-            <CircularGaugeScaleLabels Visible="true" />
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/pointers/pointer-color-2/" height="420"></demo>
 
 ## Size
 
@@ -118,26 +55,7 @@ The `Size` (`double`) parameter controls the size of the pointer.
 
 ![larger pointer size](images/pointer-size-circular.png)
 
-````RAZOR
-@* Change the size of the pointer *@
-
-<TelerikCircularGauge>
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Size="20" Value="40">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>
-            <CircularGaugeScaleLabels Visible="true" />
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/pointers/pointer-color-1/" height="420"></demo>
 
 ## See Also
 

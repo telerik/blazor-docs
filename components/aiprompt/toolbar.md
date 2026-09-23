@@ -51,40 +51,7 @@ The example below omits any event handlers for brevity. Custom buttons are to be
 
 >caption Setting up the AIPrompt ToolBar
 
-````RAZOR
-<TelerikAIPrompt OnPromptRequest="@HandlePromptRequest">
-    <AIPromptToolBar>
-        <AIPromptToolBarButton OnClick="@OnToolBarButtonClick">My Button</AIPromptToolBarButton>
-        <AIPromptToolBarSpacer/>
-        <AIPromptToolBarTemplateItem>
-            <TelerikSplitButton OnClick="@OnSplitButtonClick">
-                <SplitButtonContent>Insert</SplitButtonContent>
-                <SplitButtonItems>
-                    <SplitButtonItem>Insert above</SplitButtonItem>
-                    <SplitButtonItem>Insert below</SplitButtonItem>
-                </SplitButtonItems>
-            </TelerikSplitButton>
-        </AIPromptToolBarTemplateItem>
-    </AIPromptToolBar>
-</TelerikAIPrompt>
-
-@code {
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // handle the prompt request here.
-    }
-
-    private void OnToolBarButtonClick()
-    {
-        // handle the toolbar button click here.
-    }
-
-    private void OnSplitButtonClick()
-    {
-        // handle the split button click here.
-    }
-}
-````
+<demo metaUrl="client/aiprompt/toolbar/configuration-1/" height="420"></demo>
 
 
 ## Next Steps

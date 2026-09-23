@@ -24,66 +24,17 @@ You can customize the appearance of the labels rendered on the [scale](slug:arc-
 
 The `Format` (`string`) parameter allows you to customize the rendering of the labels by using the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings" target="_blank">standard numeric format strings</a>. You can set the values of the labels to showcase, for example, currency, percentage, and so on.
 
->caption Use the Format parameter to showcase percentage. The result from the code snippet below.
+>caption Use the Format parameter to showcase percentage.
 
-![Format parameter example](images/format-parameter-labels.png)
-
-````RAZOR
-@* Use the {0:P0} format string to format the values of the labels as percentage. *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="1">
-            <ArcGaugeScaleLabels Visible="true" Format="{0:P0}" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="0.3">
-            
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/labels/format-parameter-showcase-pe-6/" height="420"></demo>
 
 ## Center Template
 
 The center template allows you to take control of the rendering of the central section of the Arc Gauge. To use it, add the `<ArcGaugeCenterLabel>` a child of the `<TelerikArcGauge>` It provides a `context` object (`GaugeCenterLabelTemplateContext`) which exposes a list with the pointer in the component.
 
->caption Use the Center Template to display the Value of the pointer. The result from the code snippet below.
+>caption Use the Center Template to display the Value of the pointer.
 
-![center template](images/center-template-arc.png)
-
-````RAZOR
-@* Print the value of the pointer in the center of the component *@
-
-<TelerikArcGauge>
-    <ArcGaugeCenterLabel>
-        <Template>
-            @{
-                var pointer = context.Pointers.FirstOrDefault();
-
-                <div style="font-weight: bold">@pointer.Value</div>
-            }
-        </Template>
-    </ArcGaugeCenterLabel>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100">
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30" Color="blue">
-            
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/labels/center-template-display-valu-5/" height="420"></demo>
 
 ## Position
 
@@ -91,122 +42,31 @@ The `Position` parameter is of enum type `ArcGaugeScaleLabelsPosition` and deter
 
 >caption Setting Arc Gauge label position
 
-````RAZOR
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale>
-            <ArcGaugeScaleLabels Visible="true"
-                                 Position="@ArcGaugeScaleLabelsPosition.Inside" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-        <ArcGaugePointer Value="66">
-        </ArcGaugePointer>
-    </ArcGaugePointers>
-</TelerikArcGauge>
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale>
-            <ArcGaugeScaleLabels Visible="true"
-                                 Position="@ArcGaugeScaleLabelsPosition.Outside" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-        <ArcGaugePointer Value="66">
-        </ArcGaugePointer>
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/labels/arc-gauge-label-position-4/" height="520"></demo>
 
 ## Color
 
 The `Color` (`string`) parameter controls the color of the labels. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the color of the labels. The result from the code snippet below.
+>caption Change the color of the labels.
 
-![Color parameter screenshot](images/color-parameter-labels.png)
-
-````RAZOR
-@* Change the color of the labels to red *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100">
-            <ArcGaugeScaleLabels Visible="true" Color="red" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-            
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-
-````
+<demo metaUrl="client/arcgauge/labels/color-labels-result-code-3/" height="420"></demo>
 
 ## Visible
 
 The `Visible` (`bool`) parameter controls whether the labels will be rendered. By default the labels would not be rendered.
 
->caption Show the labels by using the Visible parameter. The result from the code snippet below
+>caption Show the labels by using the Visible parameter.
 
-![Hide the labels](images/visible-parameter-labels.png)
-
-````RAZOR
-@* Set the Visible parameter to true to show the labels *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100">
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-            
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/labels/labels-visible-parameter-res-2/" height="420"></demo>
 
 ## Additional Customization
 
 @[template](/_contentTemplates/gauges/additional-customization.md#arc-gauge-additional-customization)
 
->caption Customize the borders of the Labels. The result from the code snippet below.
+>caption Customize the borders of the Labels.
 
-![Custom Label borders](images/labels-custom-borders.png)
-
-````RAZOR
-@* Provide color, solid outline and custom width to the label borders *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100">
-            <ArcGaugeScaleLabels Visible="true">
-                <ArcGaugeScaleLabelsBorder Color="blue" DashType="@DashType.Solid" Width="1"></ArcGaugeScaleLabelsBorder>
-            </ArcGaugeScaleLabels>
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-            
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/labels/borders-labels-result-code-1/" height="420"></demo>
 
 ## See Also
 

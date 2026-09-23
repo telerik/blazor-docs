@@ -36,45 +36,7 @@ When the user selects a range from the calendar popup, the first click always fi
 
 >caption Handle StartValueChanged and EndValueChanged
 
-````RAZOR
-@StartValue?.ToString("dd MMM yyyy")
-<br />
-@EndValue?.ToString("dd MMM yyyy")
-<br />
-<TelerikDateRangePicker StartValue="@StartValue"
-                        EndValue="@EndValue"
-                        StartValueChanged="@( (DateTime? sV) => StartValueChangedHandler(sV) )"
-                        EndValueChanged="@( (DateTime? eV) => EndValueChangedHandler(eV) )">
-</TelerikDateRangePicker>
-
-@code {
-    public DateTime? StartValue { get; set; } = DateTime.Now;
-    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-
-    async Task StartValueChangedHandler(DateTime? currStart)
-    {
-        //you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
-        //not updating the model will effectively cancel the event
-        StartValue = currStart;
-
-        Console.WriteLine($"start changed to: {currStart}");
-    }
-
-    async Task EndValueChangedHandler(DateTime? currEnd)
-    {
-        // you have to update the model manually because handling the <Parameter>Changed event does not let you use @bind-<Parameter>
-        // not updating the model will effectively cancel the event
-        EndValue = currEnd;
-
-        // sample check to execute logic only after the user has selected both ends of the range
-        // if this does not pass, the user has only clicked once in the calendar popup
-        if (currEnd != default(DateTime?))
-        {
-            Console.WriteLine($"end changed to: {currEnd}. The range is from {StartValue} to {EndValue}");
-        }
-    }
-}
-````
+<demo metaUrl="client/daterangepicker/events/valuechanged-6/" height="520"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -86,29 +48,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange
 
-````RAZOR
-@StartValue?.ToString("dd MMM yyyy")
-<br />
-@EndValue?.ToString("dd MMM yyyy")
-<br />
-<TelerikDateRangePicker @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue"
-                        OnChange="@OnChangeHandler">
-</TelerikDateRangePicker>
-
-@code {
-    public DateTime? StartValue { get; set; } = DateTime.Now;
-    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-
-    async Task OnChangeHandler(DateRangePickerChangeEventArgs e)
-    {
-        Console.WriteLine($"The range is from {e.StartValue} to {e.EndValue}");
-
-        // the fields are of type object because you can use nullable or non-nullable DateTime
-        // so you may need to cast them if you want to use the actual DateTime objects
-    }
-}
-````
+<demo metaUrl="client/daterangepicker/events/onchange-5/" height="520"></demo>
 
 ## OnOpen
 
@@ -122,27 +62,7 @@ The event handler receives as an argument an `DateRangePickerOpenEventArgs` obje
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````RAZOR
-<TelerikDateRangePicker @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue"
-                        OnOpen="@OnDateRangePickerPopupOpen"
-                        Format="dd MMMM yyyy"
-                        Min="@Min" Max="@Max">
-</TelerikDateRangePicker>
-
-@code {
-    private DateTime? StartValue { get; set; } = DateTime.Now;
-    private DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-
-    private void OnDateRangePickerPopupOpen(DateRangePickerOpenEventArgs args)
-    {
-        //set the IsCancelled to true to cancel the OnOpen event
-        args.IsCancelled = false;
-    }
-}
-````
+<demo metaUrl="client/daterangepicker/events/onchange-4/" height="520"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -158,32 +78,7 @@ The event handler receives as an argument an `DateRangePickerCloseEventArgs` obj
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````RAZOR
-@* Cancel the OnClose event based on a condition *@
-
-<TelerikDateRangePicker @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue"
-                        OnClose="@OnDateRangePickerPopupClose"
-                        Format="dd MMMM yyyy"
-                        Min="@Min" Max="@Max">
-</TelerikDateRangePicker>
-
-@code {
-    private DateTime? StartValue { get; set; } = DateTime.Now;
-    private DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-
-    private void OnDateRangePickerPopupClose(DateRangePickerCloseEventArgs args)
-    {
-        //cancel the OnClose event based on a condition
-        if (EndValue > DateTime.Today.AddDays(15))
-        {
-            args.IsCancelled = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/daterangepicker/events/onchange-3/" height="520"></demo>
 
 ## ViewChanged
 
@@ -191,26 +86,7 @@ The `ViewChanged` event fires when the user changes the view they are seeing in 
 
 >caption Handle the ViewChanged event
 
-````RAZOR
-@StartValue?.ToString("dd MMM yyyy")
-<br />
-@EndValue?.ToString("dd MMM yyyy")
-<br />
-<TelerikDateRangePicker @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue"
-                        ViewChanged="@ViewChangeHandler">
-</TelerikDateRangePicker>
-
-@code {
-    public DateTime? StartValue { get; set; } = DateTime.Now;
-    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-
-    async Task ViewChangeHandler(CalendarView currView)
-    {
-        Console.WriteLine($"The user is now looking at the {currView} calendar view");
-    }
-}
-````
+<demo metaUrl="client/daterangepicker/events/viewchanged-2/" height="520"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -228,43 +104,7 @@ The event handler receives as an argument an `DateRangePickerCalendarCellRenderE
 
 >caption Handle the OnCalendarCellRender event.
 
-````RAZOR
-@* Customize the calendar cells using the OnCalendarCellRender event. *@
-
-<TelerikDateRangePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"
-                        @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue"
-                        Format="dd MMMM yyyy"
-                        Min="@Min" Max="@Max">
-</TelerikDateRangePicker>
-
-@code {
-    private DateTime? StartValue { get; set; } = DateTime.Now;
-    private DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-
-    private void OnCalendarCellRenderHandler(DateRangePickerCalendarCellRenderEventArgs args)
-    {
-        if (args.View == CalendarView.Month)
-        {
-            args.Class = args.Date.Day % 3 == 0 ? "special" : "";
-        }
-        else if (args.View == CalendarView.Decade)
-        {
-            args.Class = args.Date.Year == 2020 ? "special" : "";
-        }
-    }
-}
-
-<style>
-    .special {
-        color: white;
-        background-color: greenyellow;
-        font-weight: bold;
-    }
-</style>
-````
+<demo metaUrl="client/daterangepicker/events/calendarcellrender-1/" height="520"></demo>
 
 ## See Also
 
