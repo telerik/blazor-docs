@@ -30,29 +30,7 @@ You can increase or decrease the size of the DateRangePicker by setting the `Siz
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DateRangePicker.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDateRangePicker @bind-StartValue="@StartValue"
-                                    @bind-EndValue="@EndValue" Size="@size"></TelerikDateRangePicker>
-        </div>
-    }
-}
-
-@code {
-    private DateTime StartValue { get; set; } = DateTime.Now;
-    private DateTime EndValue { get; set; } = DateTime.Now.AddDays(6);
-}
-````
+<demo metaUrl="client/daterangepicker/appearance/size-3/" height="420"></demo>
 
 ## Rounded
 
@@ -67,31 +45,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the DateRangePic
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DateRangePicker.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDateRangePicker @bind-StartValue="@StartValue"
-                                    @bind-EndValue="@EndValue" Rounded="@rounded"></TelerikDateRangePicker>
-        </div>
-    }
-}
-
-@code {
-    private DateTime StartValue { get; set; } = DateTime.Now;
-    private DateTime EndValue { get; set; } = DateTime.Now.AddDays(6);
-}
-````
+<demo metaUrl="client/daterangepicker/appearance/rounded-2/" height="420"></demo>
 
 ## FillMode
 
@@ -105,31 +59,7 @@ The `FillMode` controls how the TelerikDateRangePicker is filled. You can set it
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.DateRangePicker.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikDateRangePicker @bind-StartValue="@StartValue"
-                                    @bind-EndValue="@EndValue" FillMode="@fillMode"></TelerikDateRangePicker>
-        </div>
-    }
-}
-
-@code {
-    private DateTime StartValue { get; set; } = DateTime.Now;
-    private DateTime EndValue { get; set; } = DateTime.Now.AddDays(6);
-}
-````
+<demo metaUrl="client/daterangepicker/appearance/fill-mode-1/" height="420"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

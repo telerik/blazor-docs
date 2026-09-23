@@ -19,20 +19,7 @@ The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">T
 1. Add an instance of the `<LinearGaugePointer>` to the `<LinearGaugePointers>` collection.
 1. Provide a `Value` for the `<LinearGaugePointer>`.
 
-````RAZOR
-
-@* Setup a basic linear gauge *@
-
-<TelerikLinearGauge>
-    <LinearGaugePointers>
-        <LinearGaugePointer Value="@GaugeValue" />
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-
-@code {
-    private double GaugeValue { get; set; } = 40;
-}
-````
+<demo metaUrl="client/lineargauge/overview/example-2/" height="420"></demo>
 
 ## Scale
 
@@ -70,33 +57,7 @@ The ranges are used to visually distinguish particular values on the scale. [Rea
 
 >caption Get a reference to the Linear Gauge and use the Refresh method
 
-````RAZOR
-@* Change the Height of the component *@
-
-<TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>
-
-<TelerikLinearGauge @ref="@LinearGaugeRef" Height="@Height">
-    <LinearGaugePointers>
-    
-        <LinearGaugePointer Value="30" />
-        
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-
-@code {
-    Telerik.Blazor.Components.TelerikLinearGauge LinearGaugeRef { get; set; }
-
-    public string Height { get; set; } = "300px";
-
-    private async Task ChangeTheHeight()
-    {
-        Height = "450px";
-        // Refresh() may execute before OnParameterSet(). The delay avoids this.
-        await Task.Delay(1);
-        LinearGaugeRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/lineargauge/overview/get-reference-linear-gauge-1/" height="520"></demo>
 
 ## Next Steps
 

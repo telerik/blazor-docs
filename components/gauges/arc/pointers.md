@@ -29,107 +29,31 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
 * `Butt` - setting the ArcGaugePointerLineCap to Butt would make the shape of the scale ending flat. 
 
->caption Change the shape of the scale. The result from the code snippet below.
+>caption Change the shape of the scale.
 
-![Round shape](images/linecap-parameter.png)
-
-````RAZOR
-@* Use a flat shape for the end of the scale *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale>
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30" LineCap="@ArcGaugePointerLineCap.Butt">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/pointers/shape-scale-result-code-4/" height="420"></demo>
 
 ## PlaceholderColor
 
 The `PlaceholderColor` (`string`) parameter controls the background color of the pointer. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the background color of the pointer. The result from the code snippet below:
+>caption Change the background color of the pointer.
 
-![placeholder color](images/placeholdercolor-parameter-arc.png)
-
-````RAZOR
-@* Set the PlaceholderColor to light blue *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale>
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30" PlaceholderColor="lightblue">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/pointers/background-color-pointer-res-3/" height="420"></demo>
 
 ## Color
 
 The `Color` (`string`) parameter controls the color of the pointer. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the color of the pointer. The result from the code snippet below
+>caption Change the color of the pointer.
 
-![color parameter example](images/color-parameter-arc-pointer.png)
-
-````RAZOR
-@* Change the color of the pointer to green *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale>
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30" Color="green">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/pointers/color-pointer-result-code-2/" height="420"></demo>
 
 ## Size
 
 The `Size` (`double`) parameter controls the size of the pointer. 
 
-![larger pointer size](images/pointer-size-arc.png)
-
-````RAZOR
-@* Change the sizes of the pointer *@ 
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale>
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30" Size="20">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/pointers/color-pointer-result-code-1/" height="420"></demo>
 
 ## See Also
 

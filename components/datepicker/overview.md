@@ -22,7 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazo
 
 >caption Basic Date Picker with custom format, min and max
 
-<demo metaUrl="client/datepicker/overview/" height="420"></demo>
+<demo metaUrl="client/datepicker/overview/" height="500"></demo>
 
 ## Date Input Typing Settings
 
@@ -63,7 +63,7 @@ The Blazor DatePicker allows you to customize the rendering of the Calendar popu
 
 ## Adaptive Rendering
 
-<demo metaUrl="client/datepicker/adaptive/" height="420"></demo>
+<demo metaUrl="client/datepicker/adaptive/" height="520"></demo>
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
@@ -132,31 +132,7 @@ Add a reference to the component instance to use the [Date Picker's methods](slu
 
 >caption Using Blazor DatePicker methods
 
-````RAZOR
-<TelerikDatePicker @ref="@DatePickerRef"
-                   @bind-Value="@DatePickerValue"
-                   Width="200px" />
-
-<TelerikButton OnClick="@FocusPicker">Focus DatePicker</TelerikButton>
-<TelerikButton OnClick="@OpenPicker">Open DatePicker Calendar</TelerikButton>
-
-@code {
-    // the component type depends on the value type
-    private TelerikDatePicker<DateTime> DatePickerRef { get; set; }
-
-    private DateTime DatePickerValue { get; set; } = DateTime.Now;
-
-    private async Task FocusPicker()
-    {
-        await DatePickerRef.FocusAsync();
-    }
-
-    private void OpenPicker()
-    {
-        DatePickerRef.Open();
-    }
-}
-````
+<demo metaUrl="client/datepicker/methods-1/" height="420"></demo>
 
 ## Next Steps
 

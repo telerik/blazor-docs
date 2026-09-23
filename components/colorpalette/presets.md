@@ -15,13 +15,7 @@ The Telerik Blazor Color Palette component comes with a set of predefined color 
 
 >caption Example of using a predefined color list
 
-````RAZOR
-@SelectedColor
-<TelerikColorPalette Colors="@ColorPalettePresets.Basic" @bind-Value="@SelectedColor" />
-@code{
-    string SelectedColor { get; set; }
-}
-````
+<demo metaUrl="client/colorpalette/presets/basic/" height="420"></demo>
 
 >caption List of the built-in color presets in the Telerik Color Palette
 
@@ -29,19 +23,7 @@ The Telerik Blazor Color Palette component comes with a set of predefined color 
 
 >caption Explore the predefined color presets - generates the image above
 
-````RAZOR
-<div style="display:flex;flex-direction: row; flex-flow:wrap;">
-    @foreach (System.Reflection.FieldInfo item in typeof(ColorPalettePresets).GetFields())
-    {
-        List<string> currPreset = (List<string>)item.GetValue(null);
-        string presetName = item.Name;
-        <div style="padding: 20px;">
-            <h6>@presetName</h6>
-            <TelerikColorPalette Colors="@currPreset" TileHeight="16px" TileWidth="16px" />
-        </div>
-    }
-</div>
-````
+<demo metaUrl="client/colorpalette/presets/all/" height="600"></demo>
 
 
 ## See Also

@@ -18,9 +18,7 @@ Telerik UI for Blazor provides styled substitutes to the standard alert, confirm
 
 To use the alert, confirm, and prompt dialogs (popup messages), receive a cascading parameter of type `Telerik.Blazor.DialogFactory`. This object exposes the methods you can use to display the predefined dialogs.
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 [CascadingParameter]
 public DialogFactory Dialogs { get; set; }
 ````
@@ -55,39 +53,7 @@ The alert dialog is a Blazor popup message. It shows the user that something wen
 
 >caption Use an Alert dialog
 
-````RAZOR
-@* Use Alert dialogs, monitor the console for when the code continues *@
-
-<TelerikButton OnClick="@ShowAlert">Show Alert</TelerikButton>
-<TelerikButton OnClick="@ShowAlertWithTitle">Show Alert with Custom Title</TelerikButton>
-<TelerikButton OnClick="@ShowAlertWithTitleAndButton">Show Alert with Custom Title and Custom Button</TelerikButton>
-
-@code {
-    [CascadingParameter]
-    private DialogFactory Dialogs { get; set; }
-
-    private async Task ShowAlert()
-    {
-        await Dialogs.AlertAsync("Something went wrong!");
-
-        Console.WriteLine("The user dismissed the alert box.");
-    }
-
-    private async Task ShowAlertWithTitle()
-    {
-        await Dialogs.AlertAsync("Something went wrong!", "Read this!");
-
-        Console.WriteLine("The user dismissed the alert box with the custom title.");
-    }
-    
-    private async Task ShowAlertWithTitleAndButton()
-    {
-        await Dialogs.AlertAsync("Something went wrong!", "Read this!", "DONE");
-
-        Console.WriteLine("The user dismissed the alert box with the custom title and custom button.");
-    }
-}
-````
+<demo metaUrl="client/dialog/predefined/alert-3/" height="420"></demo>
 
 
 ## Confirm
@@ -96,46 +62,7 @@ The confirm dialog returns a `bool` value that indicates which button the user c
 
 >caption Use a Confirm dialog
 
-````RAZOR
-@* Use Confirm dialogs, monitor the console for when and how the code continues *@
-
-<TelerikButton OnClick="@ShowConfirm">Show Confirm</TelerikButton>
-<TelerikButton OnClick="@ShowConfirmWithTitle">Show Confirm with Custom Title</TelerikButton>
-<TelerikButton OnClick="@ShowConfirmWithTitleAndButtons">Show Confirm with Custom Title and Custom Buttons</TelerikButton>
-
-@code {
-    [CascadingParameter]
-    private DialogFactory Dialogs { get; set; }
-
-    private async Task ShowConfirm()
-    {
-        bool isConfirmed = await Dialogs.ConfirmAsync("Are you sure?");
-
-        if (isConfirmed)
-        {
-            Console.WriteLine("The user is sure, continue.");
-        }
-        else
-        {
-            Console.WriteLine("The user changed their mind");
-        }
-    }
-
-    private async Task ShowConfirmWithTitle()
-    {
-        bool isConfirmed = await Dialogs.ConfirmAsync("Are you sure?", "Confirmation!");
-
-        Console.WriteLine($"The user is sure: {isConfirmed}.");
-    }
-    
-    private async Task ShowConfirmWithTitleAndButtons()
-    {
-        bool isConfirmed = await Dialogs.ConfirmAsync("Are you sure?", "Confirmation!", "YES, I'm sure", "NO, I'm not sure");
-
-        Console.WriteLine($"The user is sure: {isConfirmed}.");
-    }
-}
-````
+<demo metaUrl="client/dialog/predefined/confirm-2/" height="420"></demo>
 
 
 ## Prompt
@@ -144,54 +71,7 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
 
 >caption Use a Prompt dialog
 
-````RAZOR
-@* Use Prompt as Blazor popup message, monitor the console for when and how the code continues *@
-
-<TelerikButton OnClick="@ShowPrompt">Show Prompt</TelerikButton>
-<TelerikButton OnClick="@ShowPromptWithTitle">Show Prompt with Custom Title</TelerikButton>
-<TelerikButton OnClick="@ShowPromptWithTitleAndDefaultText">Show Prompt with Title and Default Input Text</TelerikButton>
-<TelerikButton OnClick="@ShowPromptWithTitleDefaultTextAndButtons">Show Prompt with Title, Default Input Text and Custom Buttons</TelerikButton>
-
-@code {
-    [CascadingParameter]
-    private DialogFactory Dialogs { get; set; }
-
-    private async Task ShowPrompt()
-    {
-        string userInput = await Dialogs.PromptAsync("Enter your answer.");
-
-        if (userInput == null)
-        {
-            Console.WriteLine("The user will not answer.");
-        }
-        else
-        {
-            Console.WriteLine($"The user said: {userInput}");
-        }
-    }
-
-    private async Task ShowPromptWithTitle()
-    {
-        string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed");
-
-        Console.WriteLine($"The user answer: {userInput}");
-    }
-
-    private async Task ShowPromptWithTitleAndDefaultText()
-    {
-        string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed", "Default Text");
-
-        Console.WriteLine($"The user answer: {userInput}");
-    }
-    
-    private async Task ShowPromptWithTitleDefaultTextAndButtons()
-    {
-        string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed", "Default Text", "READY", "REJECT");
-
-        Console.WriteLine($"The user answer: {userInput}");
-    }
-}
-````
+<demo metaUrl="client/dialog/predefined/prompt-1/" height="420"></demo>
 
 
 ## See Also

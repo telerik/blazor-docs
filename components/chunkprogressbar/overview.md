@@ -20,16 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_bl
 
 1. Set its `Value` and `Max` parameters to denote the completed progress. Read more about the relationship between them in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section.
 
-````RAZOR
-@*Basic configuration of the ChunkProgressBar*@
-
-<TelerikChunkProgressBar Value="@ChunkProgressBarValue" Max="@MaxValue" />
-
-@code {
-    public double MaxValue { get; set; } = 5;
-    public double ChunkProgressBarValue { get; set; } = 3;
-}
-````
+<demo metaUrl="client/chunkprogressbar/overview/basic/" height="200"></demo>
 
 ## Chunk Count, Value and MaxValue
 
@@ -39,16 +30,7 @@ This section explains the connection between the [ChunkCount, Value, and MaxValu
 
 When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter represents the number of chunks that are highlighted.
 
-````RAZOR
-<TelerikChunkProgressBar Value="2"
-                         Max="3"
-                         ChunkCount="3">
-</TelerikChunkProgressBar>
-````
-
->caption The result from the code snippet above
-
-![Blazor Chunkprogressbar Matching Values Example](images/chunkprogressbar-matching-values-example.png)
+<demo metaUrl="client/chunkprogressbar/overview/matching-values/" height="200"></demo>
 
 ### Non-matching Values
 
@@ -56,16 +38,7 @@ Each chunk (section) represents an equal part of the maximum value (`Max/ChunkCo
 
 In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so the full chunks this covers is `3 / 2.5 = 1.2`, so `1` chunk will be highlighted. If the `Value` is set to `4`, one chunk will remain highlighted, a second chunk will be highlighted when the `Value` becomes `5`.
 
-````RAZOR
-<TelerikChunkProgressBar Value="3"
-                         Max="10"
-                         ChunkCount="4">
-</TelerikChunkProgressBar>
-````
-
->caption The result of the code snippet above
-
-![non-matching values example screenshot](images/non-matching-value-example.png)
+<demo metaUrl="client/chunkprogressbar/overview/non-matching-values/" height="200"></demo>
 
 ## ChunkProgressBar Parameters
 
@@ -86,18 +59,7 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 
 >caption The progress bar will resize with the parent element dimensions when you set its width to 100%
 
-````RAZOR
-<div style="width: 50%; border: 1px solid red;">
-
-    <style>
-        .width-100 {
-            width: 100%;
-        }
-    </style>
-
-    <TelerikChunkProgressBar Class="width-100" Value="44" />
-</div>
-````
+<demo metaUrl="client/chunkprogressbar/overview/responsive/" height="200"></demo>
 
 ## Next Steps
 

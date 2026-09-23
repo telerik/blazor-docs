@@ -31,8 +31,6 @@ The drawer's height is dynamic based on the height of the content (you can chang
 
 >caption The Drawer in Push mode.
 
-![drawer push mode example](images/drawer-modes-push-example.gif)
-
 <demo metaUrl="client/drawer/pushmode/" height="420"></demo>
 
 ## Overlay Mode
@@ -42,8 +40,6 @@ When `Mode` is set to `Overlay`, the Drawer's navigation is on top of the conten
 ComboBoxes, DropDownLists, DateTimePickers and similar popup-based components are not supported inside the `Template` or `ItemTemplate` of a Drawer in `Overlay` mode. This is because the popup is rendered outside the Drawer and clicking on the popup will close the Drawer.
 
 >caption Drawer in Overlay mode
-
-![drawer overlay mode example](images/drawer-modes-overlay-example.gif)
 
 <demo metaUrl="client/drawer/overlaymode/" height="420"></demo>
 

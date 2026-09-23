@@ -25,36 +25,9 @@ You can highlight specific value ranges by providing one or more instances of th
 
 * The `To` (`double?`) parameter controls the highest point in the range.
 
->caption Use the From and To parameters to provide a range. The result from the code snippet below.
+>caption Use the From and To parameters to provide a range.
 
-![From and To parameters example](images/from-to-range.png)
-
-````RAZOR
-@* Use the From and To parameters to provide a range on the scale. *@
-
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleRanges>
-                <LinearGaugeScaleRange From="10" To="20" Color="red"></LinearGaugeScaleRange>
-            </LinearGaugeScaleRanges>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
-
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/ranges/parameters-provide-range-res-3/" height="420"></demo>
 
 ## Color
 
@@ -62,75 +35,17 @@ The `Color` (`string`) parameter controls the color of the range. It accepts **C
 
 If you do not define the `Color` parameter the range will not be visually rendered.
 
->caption Use an RGB colors for the ranges in the linear gauge. The result from the code snippet below.
+>caption Use an RGB colors for the ranges in the linear gauge.
 
-![Color parameter screenshot](images/color-parameter-ranges.png)
-
-````RAZOR
-@* Change the color of the ranges *@
-
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleRanges>
-                <LinearGaugeScaleRange From="0" To="10" Color="rgb(0,128,0)"></LinearGaugeScaleRange>
-                <LinearGaugeScaleRange From="10" To="20" Color="rgb(255,255,0)"></LinearGaugeScaleRange>
-                <LinearGaugeScaleRange From="20" To="30" Color="rgb(255, 0, 0)"></LinearGaugeScaleRange>
-            </LinearGaugeScaleRanges>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
-
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/ranges/rgb-colors-ranges-linear-2/" height="420"></demo>
 
 ## Opacity
 
 The `Opacity` (`double`) parameter controls the of the range. The value passed to it should be between **0** and **1**.
 
->caption Change the opacity of a range. The result from the code snippet below
+>caption Change the opacity of a range.
 
-![Mirror the linear gauge](images/opacity-parameter-ranges.png)
-
-````RAZOR
-@* Make a range more opaque *@
-
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleRanges>
-                <LinearGaugeScaleRange From="0" To="10" Color="rgb(0,128,0)"></LinearGaugeScaleRange>
-                <LinearGaugeScaleRange From="10" To="20" Color="rgb(255,255,0)" Opacity="0.5"></LinearGaugeScaleRange>
-                <LinearGaugeScaleRange From="20" To="30" Color="rgb(255, 0, 0)"></LinearGaugeScaleRange>
-            </LinearGaugeScaleRanges>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
-
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/ranges/opacity-range-result-code-1/" height="420"></demo>
 
 ## See Also
 

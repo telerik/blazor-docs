@@ -23,25 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank"
 
 >caption Basic Date Range Picker with custom format, min and max and reverse range
 
-````RAZOR
-@StartValue?.ToString("dd MMM yyyy")
-<br />
-@EndValue?.ToString("dd MMM yyyy")
-<br />
-<TelerikDateRangePicker @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue"
-                        Format="dd MMMM yyyy"
-                        Min="@Min" Max="@Max"
-                        AllowReverse="true">
-</TelerikDateRangePicker>
-
-@code {
-    public DateTime? StartValue { get; set; } = DateTime.Now;
-    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-}
-````
+<demo metaUrl="client/daterangepicker/basic-2/" height="570"></demo>
 
 ## Date Input Typing Settings
 
@@ -65,7 +47,7 @@ The DateRangePicker allows you to customize the rendering of the Calendar popup 
 
 ## Adaptive Rendering
 
-<demo metaUrl="client/daterangepicker/adaptive/" height="420"></demo>
+<demo metaUrl="client/daterangepicker/adaptive/" height="570"></demo>
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
@@ -130,39 +112,7 @@ Add a reference to the component instance to use the [Date Range Picker's method
 | `Refresh` | Re-renders the Calendar popup. |
 
 
-````RAZOR
-<TelerikButton OnClick="@FocusStart">Focus Start TextBox</TelerikButton>
-<TelerikButton OnClick="@FocusEnd">Focus End TextBox</TelerikButton>
-<TelerikButton OnClick="@OpenPicker">Open DateRangePicker</TelerikButton>
-
-<TelerikDateRangePicker @ref="@DateRangePickerRef"
-                        @bind-StartValue="@DateRangePickerStartValue"
-                        @bind-EndValue="@DateRangePickerEndValue" />
-
-@code {
-    // the component type depends on the value type, could be also DateTime?
-    private TelerikDateRangePicker<DateTime> DateRangePickerRef { get; set; }
-
-    private DateTime DateRangePickerStartValue { get; set; } = DateTime.Now;
-
-    private DateTime DateRangePickerEndValue { get; set; } = DateTime.Now.AddDays(10);
-
-    private async Task FocusStart()
-    {
-        await DateRangePickerRef.FocusStartAsync();
-    }
-
-    async Task FocusEnd()
-    {
-        await DateRangePickerRef.FocusEndAsync();
-    }
-
-    void OpenPicker()
-    {
-        DateRangePickerRef.Open();
-    }
-}
-````
+<demo metaUrl="client/daterangepicker/basic-1/" height="570"></demo>
 
 ## Next Steps
 

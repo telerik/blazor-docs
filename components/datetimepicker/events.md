@@ -34,33 +34,7 @@ See [Focused Date](slug:components/datetimepicker/overview#focused-date) for add
 
 >caption Using the DatePicker FocusedDateChanged event
 
-````RAZOR
-<p><code>FocusedDate</code>: @PickerFocusedDate.ToString("yyyy-MM-dd")</p>
-
-<p>Last <code>FocusedDateChanged</code> event at: @FocusedDateChangedLog</p>
-
-<TelerikDateTimePicker @bind-Value="@PickerValue"
-                       FocusedDate="@PickerFocusedDate"
-                       FocusedDateChanged="@PickerFocusedDateChanged"
-                       Width="360px" />
-
-
-@code {
-    private DateTime? PickerValue { get; set; } = DateTime.Now;
-
-    private DateTime PickerFocusedDate { get; set; } = DateTime.Today.AddDays(2);
-
-    private string FocusedDateChangedLog { get; set; } = string.Empty;
-
-    private void PickerFocusedDateChanged(DateTime newFocusedDate)
-    {
-        PickerFocusedDate = newFocusedDate;
-
-        FocusedDateChangedLog = DateTime.Now.ToString("HH:mm:ss");
-    }
-}
-
-````
+<demo metaUrl="client/datetimepicker/events/focuseddatechanged-7/" height="670"></demo>
 
 
 ## OnBlur
@@ -69,26 +43,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-@result
-
-<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
-                       OnBlur="@OnBlurHandler">
-</TelerikDateTimePicker>
-
-@code {
-    private string result = string.Empty;
-
-    private DateTime? DateTimePickerValue { get; set; } = DateTime.Now;
-
-    private void OnBlurHandler()
-    {
-        result = $"BLUR fired, current value is {DateTimePickerValue}.";
-    }
-}
-````
+<demo metaUrl="client/datetimepicker/events/blur-6/" height="620"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -110,38 +65,7 @@ As an argument, the event handler receives a [`DateTimePickerCalendarCellRenderE
 
 >caption Handle the OnCalendarCellRender event.
 
-````RAZOR
-@* Customize the calendar cells using the OnCalendarCellRender event. *@
-
-<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
-                       OnCalendarCellRender="@OnCalendarCellRenderHandler"
-                       Width="295px">
-</TelerikDateTimePicker>
-
-<style>
-    .special {
-        color: white;
-        background-color: greenyellow;
-        font-weight: bold;
-    }
-</style>
-
-@code {
-    private DateTime? DateTimePickerValue { get; set; } = DateTime.Now;
-
-    private void OnCalendarCellRenderHandler(DateTimePickerCalendarCellRenderEventArgs args)
-    {
-        if (args.View == CalendarView.Month)
-        {
-            args.Class = args.Date.Day % 3 == 0 ? "special" : "";
-        }
-        else if (args.View == CalendarView.Decade)
-        {
-            args.Class = args.Date.Year == 2020 ? "special" : "";
-        }
-    }
-}
-````
+<demo metaUrl="client/datetimepicker/events/calendarcellrender-5/" height="620"></demo>
 
 ## OnChange
 
@@ -157,25 +81,7 @@ The DateTimePicker is a generic component, so you must either provide a `Value`,
 
 >caption Handle DateTimePicker OnChange and use two-way Value binding
 
-````RAZOR
-<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
-                       OnChange="@DateTimePickerValueChanged"
-                       Width="300px">
-</TelerikDateTimePicker>
-
-<span><code>OnChange</code> fired at <strong>@LastOnChange?.ToString("HH:mm:ss.fff")</strong></span>
-
-@code {
-    private DateTime? DateTimePickerValue { get; set; }
-    private DateTime? LastOnChange { get; set; }
-
-    private void DateTimePickerValueChanged(object currentValue)
-    {
-        LastOnChange = DateTime.Now;
-        Console.WriteLine($"The current Value is {(DateTime?)currentValue}");
-    }
-}
-````
+<demo metaUrl="client/datetimepicker/events/onchange-4/" height="620"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -192,26 +98,7 @@ As an argument, the event handler receives a [`DateTimePickerCloseEventArgs` obj
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````RAZOR
-@* Cancel the OnClose event based on a condition *@
-
-<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
-                       OnClose="@OnDateTimePickerPopupClose">
-</TelerikDateTimePicker>
-
-@code {
-    private DateTime? DateTimePickerValue = DateTime.Now;
-
-    private void OnDateTimePickerPopupClose(DateTimePickerCloseEventArgs args)
-    {
-        //cancel the OnClose event based on a condition
-        if (DateTimePickerValue > DateTime.Now)
-        {
-            args.IsCancelled = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/datetimepicker/events/onchange-3/" height="620"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -227,21 +114,7 @@ As an argument, the event handler receives a [`DateTimePickerOpenEventArgs` obje
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````RAZOR
-<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
-                       OnOpen="@OnDateTimePickerPopupOpen">
-</TelerikDateTimePicker>
-
-@code {
-    private DateTime? DateTimePickerValue = DateTime.Now;
-
-    private void OnDateTimePickerPopupOpen(DateTimePickerOpenEventArgs args)
-    {
-        //set the IsCancelled to true to cancel the OnOpen event
-        args.IsCancelled = false;
-    }
-}
-````
+<demo metaUrl="client/datetimepicker/events/onchange-2/" height="620"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -254,30 +127,7 @@ The `ValueChanged` event fires:
 
 >caption Handle ValueChanged and provide initial value
 
-````RAZOR
-@result
-<br />
-model value: @DateTimePickerValue
-<br />
-
-<TelerikDateTimePicker Value="@DateTimePickerValue" 
-                       ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )">
-</TelerikDateTimePicker>
-
-@code {
-    private string result = string.Empty;
-
-    private DateTime DateTimePickerValue { get; set; } = DateTime.Now;
-
-    private void MyValueChangeHandler(DateTime userInput)
-    {
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", userInput);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        DateTimePickerValue = userInput;
-    }
-}
-````
+<demo metaUrl="client/datetimepicker/events/valuechanged-1/" height="620"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 

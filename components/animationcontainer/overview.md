@@ -25,28 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_bla
 
 >caption Basic AnimationContainer
 
-````RAZOR
-<TelerikButton OnClick="@ToggleAnimationContainer">Toggle Animation Container</TelerikButton>
-
-<TelerikAnimationContainer @ref="@TAC"
-                           AnimationType="@AnimationType.ZoomIn"
-                           Width="300px"
-                           Top="100px"
-                           Left="100px">
-    <div style="padding: 1em; color: #fff; background: #282f89; text-align: center;">
-        Telerik Blazor Animation Container
-    </div>
-</TelerikAnimationContainer>
-
-@code {
-    private TelerikAnimationContainer TAC { get; set; }
-
-    private async Task ToggleAnimationContainer()
-    {
-        await TAC.ToggleAsync();
-    }
-}
-````
+<demo metaUrl="client/animationcontainer/basic/" height="420"></demo>
 
 ## Position
 
@@ -75,71 +54,7 @@ One of the core features of the Animation Container is the customizable open and
 
 >caption AnimationContainer animation options
 
-````RAZOR
-<label>
-    Animation Type:
-    <TelerikDropDownList Data="@AnimationTypes"
-                         Value="@SelectedAnimationType"
-                         ValueChanged="@( (AnimationType newValue) => OnDropDownValueChanged(newValue) )"
-                         Width="160px" />
-</label>
-<label>
-    Animation Duration:
-    <TelerikNumericTextBox @bind-Value="@SelectedAnimationDuration"
-                           Min="0"
-                           Max="7000"
-                           Width="100px" />
-</label>
-
-<TelerikButton OnClick="@ToggleAnimationContainer">Toggle Animation Container</TelerikButton>
-
-<TelerikAnimationContainer @ref="@TAC"
-                           AnimationType="@SelectedAnimationType"
-                           AnimationDuration="@SelectedAnimationDuration"
-                           Width="300px"
-                           Top="100px"
-                           Left="200px">
-    <div style="padding: 1em; color: #fff; background: #282f89; text-align: center;">
-        Telerik Blazor Animation Container
-    </div>
-</TelerikAnimationContainer>
-
-@code {
-    private TelerikAnimationContainer TAC { get; set; }
-
-    private List<AnimationType> AnimationTypes { get; set; }
-
-    private AnimationType SelectedAnimationType { get; set; } = AnimationType.SlideDown;
-
-    private int SelectedAnimationDuration { get; set; } = 300;
-
-    private async Task ToggleAnimationContainer()
-    {
-        await TAC.ToggleAsync();
-    }
-
-    private async Task OnDropDownValueChanged(AnimationType newAnimationType)
-    {
-        await TAC.HideAsync();
-
-        SelectedAnimationType = newAnimationType;
-
-        await TAC.ShowAsync();
-    }
-
-    protected override void OnInitialized()
-    {
-        AnimationTypes = new List<AnimationType>();
-
-        foreach (AnimationType animation in Enum.GetValues(typeof(AnimationType)))
-        {
-            AnimationTypes.Add(animation);
-        }
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/animationcontainer/animation/" height="420"></demo>
 
 ## AnimationContainer Parameters
 
@@ -171,25 +86,7 @@ The Animation Container provides methods for programmatic operation. To use them
 
 >caption Use AnimationContainer reference and methods
 
-````RAZOR
-<TelerikAnimationContainer @ref="@TAC">
-    <div style="padding: 1em; color: #fff; background: #282f89; text-align: center;">
-        Telerik Blazor Animation Container
-    </div>
-</TelerikAnimationContainer>
-
-@code {
-    private TelerikAnimationContainer TAC { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await TAC.ShowAsync();
-        }
-    }
-}
-````
+<demo metaUrl="client/animationcontainer/methods/" height="420"></demo>
 
 ## See Also
 
