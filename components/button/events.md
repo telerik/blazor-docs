@@ -21,6 +21,8 @@ The `OnClick` event fires when the user clicks or taps the button.
 
 It receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs?view=aspnetcore-5.0).
 
+To assign the event handler from a C# code-behind file, see [Handle Button OnClick in a Code-Behind File](slug:button-kb-onclick-code-behind).
+
 >caption Handle the button click
 
 <demo metaUrl="client/button/events/" height="200"></demo>

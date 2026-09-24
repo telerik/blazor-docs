@@ -22,6 +22,8 @@ The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use featur
 
 > tip **Jumpstart Your Grid** <br/><br/> With the Agentic UI Generator, you can build components and layouts using natural language prompts — directly inside AI-powered IDEs like VS Code and Cursor. Get intelligent assistance with component implementation, styling, layout design, and iconography powered by our documentation and APIs. <br/><br/>[Try the Agentic UI Generator](slug:agentic-ui-generator-getting-started)
 
+>important If the Grid appears unstyled or its icons do not match the rest of the Telerik UI, verify the [Telerik theme and JavaScript assets](slug:getting-started-workflow-details#css-theme-and-javascript-files) before adding custom CSS. Use theme and font icon assets from the same Telerik UI for Blazor package version. Register the font icon stylesheet only when the app uses Telerik font icons; SVG icons do not require it.
+
 ## Creating Blazor Grid
 
 1. Use the `TelerikGrid` tag.

@@ -15,6 +15,17 @@ The [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) component a
 
 When you add that template, the form will no longer render the built-in Blazor Form submit Button so you can choose the buttons and layout you want to achieve. We recommend that you add a Submit Button in all cases so the users can save their work and fire the corresponding form [events](slug:form-events).
 
+To make all form buttons fill the available width equally, set the Form's `ButtonsLayout` parameter to `FormButtonsLayout.Stretch`:
+
+````RAZOR
+<TelerikForm ButtonsLayout="FormButtonsLayout.Stretch">
+    <FormButtons>
+        <TelerikButton ButtonType="ButtonType.Submit">Submit</TelerikButton>
+        <TelerikButton ButtonType="ButtonType.Button">Cancel</TelerikButton>
+    </FormButtons>
+</TelerikForm>
+````
+
 ### How to add a Reset (Clear) button to the form
 
 You can provide a standard [Telerik UI for Blazor Button](slug:components/button/overview) to allow the user to clear the contents of the editors in the Telerik Form. Refer to below Blazor Form Submit example for more details.

@@ -81,6 +81,7 @@ The `ThemeColor` parameter controls the Button background, text, and border colo
 | `Error` | `error` |
 | `Inverse` | `inverse` |
 
+>tip The `Dark` and `Light` `ThemeColor` values were removed in UI for Blazor 14. They have no direct replacements. Choose another supported semantic color or use the Button `Class` parameter with custom CSS to preserve a specific appearance. For details, see the [14.0.0 breaking changes](slug:changes-in-14-0-0#themecolor-values).
 
 >caption Built-in Button ThemeColor Values
 

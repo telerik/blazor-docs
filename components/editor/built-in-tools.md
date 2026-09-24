@@ -98,7 +98,7 @@ The inline tools add or work with inline HTML elements. For example, such elemen
             <td>CreateLink</td>
             <td>createLink</td>
             <td>button</td>
-            <td>Creates a hyperlink</td>
+            <td>Creates a hyperlink. To customize the hyperlink dialog UI, replace this tool with a <a href="slug:editor-custom-tools#replace-the-createlink-tool">custom tool</a>.</td>
             <td>new LinkCommandArgs(string href, string text, string target, string title, null)</td>
         </tr>
         <tr>

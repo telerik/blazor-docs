@@ -84,6 +84,8 @@ The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor
 
 As a data-driven component, the Scheduler needs a collection of appointments to work with. Learn how to [data bind the Scheduler and configure model property names](slug:scheduler-appointments-databinding).
 
+To load only the appointments for the currently visible range from a backend, see [Load Scheduler appointments on demand](slug:scheduler-kb-lod-server).
+
 
 ## Views
 

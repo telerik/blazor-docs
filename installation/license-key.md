@@ -173,6 +173,20 @@ To activate Telerik UI for Blazor:
 * Every developer must use a license key that is associated with their personal Telerik account.
 * You can use [deployment keys in cloud build CI/CD environments](slug:deployment-license-key).
 
+### How can IT set up Telerik UI for Blazor for multiple developers?
+
+Installing the Telerik software on a machine and installing a developer license key are separate tasks. A machine-wide installer run by an IT tool does not place a developer license key in every user's profile.
+
+For local development, set up the license key in each developer's user context:
+
+1. Assign the developer a Telerik license or seat.
+1. Sign in with the developer's Telerik account and run `telerik license get-key`, or follow the [manual license key installation](#manual-installation) steps.
+1. Save the resulting `telerik-license.txt` file in that user's operating system profile.
+
+If an IT tool runs under a system account, perform the developer-specific license setup separately for each user. For CI/CD builds, use a deployment key with [`TELERIK_LICENSE` or `TELERIK_LICENSE_PATH`](slug:deployment-license-key) instead of installing a developer key in a user profile.
+
+The [automated installer](slug:installation-msi) may use a protected default installation path on Windows. If the user does not have administrator access, choose an installation path where the user has full access.
+
 ### Are earlier Telerik UI for Blazor versions affected?
 
 No, versions up to **7.1.0** released prior to February 2025 do not require a license key.

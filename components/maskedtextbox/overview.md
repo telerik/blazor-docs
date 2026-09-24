@@ -49,6 +49,22 @@ The table below provides a quick overview of the mask-related parameters. See th
 | `Prompt` | `char` <br /> (`_`) | The character that will show in the mask where there is no user input already. |
 | `PromptPlaceholder` | `char?` <br /> (` ` space) | The character that is added to the raw `Value` for places where there is no user input yet. |
 
+### Date Entry Mask
+
+To collect a date as a formatted string, use digit rules with literal separators. The following example displays an `MM/DD/YYYY` pattern and includes the slash characters in the bound value:
+
+````RAZOR
+<TelerikMaskedTextBox @bind-Value="@DateText"
+					  Mask="00/00/0000"
+					  MaskOnFocus="true"
+					  Placeholder="MM / DD / YYYY"
+					  IncludeLiterals="true" />
+
+@code {
+	private string DateText { get; set; } = string.Empty;
+}
+````
+
 ## MaskedTextBox Parameters
 
 See the [MaskedTextBox API Reference](slug:Telerik.Blazor.Components.TelerikMaskedTextBox) for a full list of parameters, methods and events.
