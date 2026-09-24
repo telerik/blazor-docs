@@ -24,6 +24,32 @@ This template receives a `context` argument that is of the data model type and r
 
 When using an `ItemTemplate`, the Drawer can still [navigate automatically if the `UrlField` parameter is set, or if the Drawer data items have a populated `Url` property](slug:drawer-navigation).
 
+When the Drawer uses `MiniMode` with an `ItemTemplate`, the template must hide the text when the Drawer is collapsed. Use the same `Expanded` value that is bound to the Drawer:
+
+````RAZOR.skip-repl
+<TelerikDrawer @bind-Expanded="@Expanded"
+               Data="@Data"
+               MiniMode="true">
+    <ItemTemplate Context="item">
+        <TelerikSvgIcon Icon="@item.Icon" />
+        @if (Expanded)
+        {
+            <span>@item.Text</span>
+        }
+    </ItemTemplate>
+</TelerikDrawer>
+````
+
+To set the font size of the item text, apply the style to the HTML element that renders the text in the `ItemTemplate`:
+
+````RAZOR.skip-repl
+<ItemTemplate Context="item">
+    <span style="font-size: 12px;">@item.Text</span>
+</ItemTemplate>
+````
+
+If you use a CSS class instead of an inline style, place the rule in a global stylesheet. If you use CSS isolation, follow the guidance for [styling nested Telerik components](slug:common-kb-css-isolation), including the `::deep` selector when applicable.
+
 >caption Use ItemTemplate to control the rendering of the items in the Drawer.
 
 ````RAZOR

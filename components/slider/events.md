@@ -33,6 +33,8 @@ The `ValueChanged` event fires every time the `Value` parameter changes. This ha
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
+For a complete example that measures the handle position and displays a value below it, see [Measure the Slider Handle Position](slug:slider-kb-measure-handle-position).
+
 ## OnChange
 
 The `OnChange` event represents a user action - confirmation of the current value. It fires when the user:

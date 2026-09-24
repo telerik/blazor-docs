@@ -359,6 +359,8 @@ Each icon box in the icon list is clickable and reveals the following details:
 * Ability to copy the glyph symbol of the font icon.
 * Ability to copy the HTML markup (`<svg>` tag) of the SVG icon.
 
+The built-in SVG icons are exposed to Blazor through `ISvgIcon` objects such as `SvgIcon.Droplet`; their path data is not a separate documented property of the `SvgIcon` class. To use the exact path in custom SVG markup, copy the SVG markup from the icon list. For application-defined icons, use a custom `SvgIconBase` implementation and set its `Content` and `ViewBox` properties.
+
 The icon list may contain icons which are not available in older versions of Telerik UI for Blazor or even in the latest one. Such icons will be added in the next product version.
 
 

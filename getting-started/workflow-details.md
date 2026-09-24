@@ -87,7 +87,11 @@ Telerik UI for Blazor requires interactive render mode. Using [**Global** Intera
 
 The Telerik Blazor components will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
 
+Use the host and startup files that match the application hosting model. A Blazor Web App uses `App.razor`, an interactive render mode such as `InteractiveServer`, and `blazor.web.js`. A Blazor WebAssembly Standalone app uses its `index.html` host and the WebAssembly framework script. Do not combine the document and startup configuration from these two hosting models. If Telerik components render but do not respond to clicks, verify the render mode before troubleshooting component events.
+
 The `Account` section in the Blazor Web App template with identity is static by design. Most Telerik Blazor components cannot work in this section.
+
+Authentication with ASP.NET Core Identity and authorization for routable pages are application-level concerns. Use the Blazor [`[Authorize]` attribute](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-9.0#authorize-attribute) and [`AuthorizeRouteView`](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-9.0#customize-unauthorized-content-with-the-router-component) to protect pages, and keep interactive Telerik components outside the static `Account` section. Telerik components do not require a separate authentication configuration.
 
 ## Namespaces
 
@@ -183,6 +187,8 @@ Set a `k-body` CSS class to the `<body>` element to apply typography, text color
 
 </body>
 ````
+
+If a [Grid](slug:grid-overview) appears unstyled or its icons do not match the rest of the Telerik UI, verify these theme and icon assets before adding component-specific CSS. Use assets from the same Telerik UI for Blazor package version.
 
 ### JavaScript File
 

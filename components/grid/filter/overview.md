@@ -27,6 +27,10 @@ The `FilterRow` filtering mode renders a row below the column headers, providing
 
 The `FilterMenu` filter mode renders a button in the column header. Clicking the button opens a popup with filtering options, allowing you to apply two filter criteria, choose a filter operator, and use buttons to apply or clear the filter. Read more about enabling and fine-tuning the filtering menu in the [Grid Filter Menu](slug:grid-filter-menu) article.
 
+## Changing the Filter Mode at Runtime
+
+To change between `None`, `FilterRow`, and `FilterMenu` at runtime, recreate the Grid so that it rebuilds its columns and filter templates. For the complete example, refer to [Change the Grid Filter Mode at Runtime](slug:grid-kb-change-filter-mode-at-runtime).
+
 ## More Filtering Options
 
 In addition to the two main filtering modes, the Grid offers two more features that can enhance the user experience when looking for data.

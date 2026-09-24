@@ -67,6 +67,8 @@ The Blazor ColorPicker accepts values by the application code in the following f
 
 The ColorPicker does not support color keywords.
 
+Make sure that the initial `Value` uses one of the supported formats. For example, `#ebebeff` is not a valid hexadecimal value because it contains seven hexadecimal digits after the `#` character. Use a 6-digit hexadecimal value such as `#ebebef`, or an 8-digit hexadecimal value that includes alpha opacity, such as `#ebebefff`.
+
 ## Adaptive Rendering
 
 <demo metaUrl="client/colorpicker/adaptive/" height="555"></demo>

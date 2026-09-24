@@ -89,6 +89,8 @@ The alert dialog is a Blazor popup message. It shows the user that something wen
 }
 ````
 
+For multiline text in a predefined Alert, see [Display Multiline Text in a Predefined Alert](slug:dialog-kb-dialogfactory-multiline-alert).
+
 
 ## Confirm
 

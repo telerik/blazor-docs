@@ -30,7 +30,7 @@ The `context` of the template is a `SchedulerAllDaySlotTemplateContext` object t
 
 ## SlotTemplate
 
-Use the `SlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor. This template can be defined for the [Day, Multiday, Month, Timeline, and Week Scheduler views](slug:scheduler-views-overview). 
+Use the `SlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor. This template can be defined for the [Day, Multiday, Month, Timeline, and Week Scheduler views](slug:scheduler-views-overview). The [Agenda view](slug:scheduler-views-agenda) is not included because it renders a summary table instead of time slots and does not expose a dedicated time-cell template.
 
 The `context` of the template is a `SchedulerSlotTemplateContext` object that contains:
 

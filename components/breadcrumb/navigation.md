@@ -28,6 +28,8 @@ In some cases you might prefer to dynamically generate the breadcrumbs based on 
 
 Here is an example for such a configuration in our public repository - [SubScribeToLocationChanged](https://github.com/telerik/blazor-ui/tree/master/breadcrumb/subscribe-to-location-changed).
 
+For a page that loads data asynchronously and has to update Breadcrumb items rendered in `MainLayout.razor`, see [Update Breadcrumb Items from a Page](slug:breadcrumb-update-items-from-page).
+
 ## Notes
 
 @[template](/_contentTemplates/common/navigation-components.md#navman-used)

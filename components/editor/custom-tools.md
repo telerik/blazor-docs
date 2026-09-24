@@ -17,6 +17,7 @@ The [Blazor Editor](https://www.telerik.com/blazor-ui/editor) component lets you
 In this article:
 
 * [Basics](#basics)
+	* [Replace the CreateLink Tool](#replace-the-createlink-tool)
 * [Examples](#examples)
 	* [Change the Value](#change-the-value)
 	* [Use Editor Commands](#use-editor-commands)
@@ -35,6 +36,82 @@ To create a custom tool:
 1. [Add the custom tool to the Editor toolbar via the `Tools` collection](slug:editor-toolbar#choose-toolbar-items). You can add the custom tools in the desired order and position, regardless of their order in the markup. Custom tools can be added as standalone tools only, not inside an `EditorButtonGroup`.
 
 1. Manipulate the editor content as desired from the custom content events (like clicks) - either through the [editor commands](slug:editor-built-in-tools), or with your own code that manipulates its `Value` field contents.
+
+### Replace the CreateLink Tool
+
+The built-in `CreateLink` tool opens the predefined hyperlink dialog. To control the dialog markup, remove `CreateLink` from the `Tools` collection and add a custom tool that opens your own [`TelerikDialog`](slug:dialog-overview). After the user enters the link details, execute the Editor `createLink` command with `LinkCommandArgs`.
+
+The following example creates a toolbar without the built-in `CreateLink` tool and uses a custom dialog instead.
+
+````RAZOR
+@using Telerik.Blazor.Components.Editor
+
+<TelerikEditor @ref="@EditorRef"
+			   Tools="@Tools"
+			   @bind-Value="@EditorValue">
+	<EditorCustomTools>
+		<EditorCustomTool Name="CustomCreateLink">
+			<TelerikButton OnClick="@OpenLinkDialog">Insert Hyperlink</TelerikButton>
+		</EditorCustomTool>
+	</EditorCustomTools>
+</TelerikEditor>
+
+<TelerikDialog @bind-Visible="@LinkDialogVisible" Title="Insert Hyperlink">
+	<DialogContent>
+		<label for="link-url">URL</label>
+		<TelerikTextBox Id="link-url" @bind-Value="@LinkUrl" />
+
+		<label for="link-text">Text</label>
+		<TelerikTextBox Id="link-text" @bind-Value="@LinkText" />
+
+		<label for="link-title">Title</label>
+		<TelerikTextBox Id="link-title" @bind-Value="@LinkTitle" />
+	</DialogContent>
+	<DialogButtons>
+		<TelerikButton OnClick="@ApplyLink">Insert</TelerikButton>
+		<TelerikButton OnClick="@CloseLinkDialog">Cancel</TelerikButton>
+	</DialogButtons>
+</TelerikDialog>
+
+@code {
+	private TelerikEditor EditorRef { get; set; }
+
+	private string EditorValue { get; set; } = "<p>Select text, then insert a link.</p>";
+
+	private List<IEditorTool> Tools { get; set; } = new()
+	{
+		new Bold(),
+		new CustomTool("CustomCreateLink"),
+		new Unlink()
+	};
+
+	private bool LinkDialogVisible { get; set; }
+
+	private string LinkUrl { get; set; } = "https://www.example.com";
+
+	private string LinkText { get; set; } = "Example link";
+
+	private string LinkTitle { get; set; } = "Example link";
+
+	private void OpenLinkDialog()
+	{
+		LinkDialogVisible = true;
+	}
+
+	private void CloseLinkDialog()
+	{
+		LinkDialogVisible = false;
+	}
+
+	private async Task ApplyLink()
+	{
+		await EditorRef.ExecuteAsync(new LinkCommandArgs(LinkUrl, LinkText, "_blank", LinkTitle, null));
+		LinkDialogVisible = false;
+	}
+}
+````
+
+The browser owns the current text selection. Preserve the selection before opening the custom dialog if the command has to apply to the selected text. For more information, see [getting the selected content from the Editor](slug:editor-kb-get-selection).
 
 ## Examples
 
