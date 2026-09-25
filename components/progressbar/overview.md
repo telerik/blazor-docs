@@ -20,16 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">
 
 >caption ProgressBar with maximum and initial values
 
-````RAZOR
-@*Set the maximum and the current values of the ProgressBar*@
-
-<TelerikProgressBar Max="@MaxValue" Value="@PBValue" />
-
-@code {
-    public double MaxValue { get; set; } = 100;
-    public double PBValue { get; set; } = 10;
-}
-````
+<demo metaUrl="client/progressbar/overview/example-2/" height="420"></demo>
 
 ## Label
 
@@ -43,18 +34,7 @@ In some scenarios the estimated time of completion is unknown or the progress ca
 
 The ProgressBar will resize with the parent element dimensions when you set its width to 100%:
 
-````RAZOR
-<div style="width: 50%; border: 1px solid red;">
-
-    <style>
-        .width-100 {
-            width: 100%;
-        }
-    </style>
-
-    <TelerikProgressBar Class="width-100" Value="44" />
-</div>
-````
+<demo metaUrl="client/progressbar/overview/example-1/" height="420"></demo>
 
 ## ProgressBar Parameters
 

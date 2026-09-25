@@ -69,9 +69,7 @@ The `TelerikFormGroupRenderer` `Template` is nested inside another template - `F
 
 >caption Setting named contexts in the Form templates
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 <TelerikForm>
     <FormItemsTemplate Context="formContext">
         ...
@@ -84,7 +82,6 @@ The `TelerikFormGroupRenderer` `Template` is nested inside another template - `F
     </FormItemsTemplate>
 <TelerikForm>
 ````
-
 
 ## Form Item Renderer
 
@@ -273,111 +270,7 @@ This approach is suitable for scenarios where the custom Form layout can accommo
 
 >caption Use a loop to render Form groups and items inside a FormItemsTemplate
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             Width="600px">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-        <TelerikValidationSummary />
-    </FormValidation>
-    <FormItems>
-        <FormGroup LabelText="Disabled Section">
-            <FormItem Field="@nameof(Person.Id)" Enabled="false"></FormItem>
-        </FormGroup>
-        <FormGroup LabelText="Names">
-            <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name"></FormItem>
-            <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name"></FormItem>
-        </FormGroup>
-        <FormItem Field="@nameof(Person.BirthDate)" LabelText="Date of Birth"></FormItem>
-    </FormItems>
-    <FormItemsTemplate Context="formContext">
-        <p>Text before all form groups</p>
-        @foreach (IFormItemBase item in formContext.Items)
-        {
-            if (item is IFormGroup) // only if using FormGroups
-            {
-                var groupItem = (IFormGroup)item;
-                <TelerikFormGroupRenderer Group="@groupItem">
-                    <Template Context="groupContext">
-                        <div class="form-group-wrapper">
-                            <h3>Group "@groupItem.LabelText"</h3>
-                            @foreach (IFormItem singleItem in groupContext.Items)
-                            {
-                                <div class="form-item-wrapper">
-                                    <TelerikFormItemRenderer Item="@singleItem" />
-                                </div>
-                            }
-                        </div>
-                    </Template>
-                </TelerikFormGroupRenderer>
-            }
-            else
-            {
-                <div class="form-item-wrapper">
-                    <TelerikFormItemRenderer Item="@(item as IFormItem)" />
-                </div>
-            }
-        }
-        <p>Text after all form groups</p>
-    </FormItemsTemplate>
-</TelerikForm>
-
-<style>
-    .form-group-wrapper {
-        border: 1px solid #000;
-        margin: .6em;
-        padding: .6em;
-        background: #ccf;
-    }
-
-    .form-item-wrapper {
-        border: 1px dashed #999;
-        margin: .4em;
-        padding: .4em;
-        background: #ffc;
-    }
-
-        .form-item-wrapper:nth-child(even) {
-            background: #feb;
-        }
-</style>
-
-@code {
-    private Person Employee = new Person();
-
-    protected override void OnInitialized()
-    {
-        Employee = new Person()
-        {
-            Id = 1,
-            FirstName = "John",
-            LastName = "Doe",
-            BirthDate = DateTime.Today.AddYears(-30)
-        };
-
-        base.OnInitialized();
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(24)]
-        public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(24)]
-        public string LastName { get; set; }
-
-        [Required]
-        public DateTime BirthDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/formitemstemplate/example-3/" height="420"></demo>
 
 
 ### Render Form Items One by One or Conditionally
@@ -390,143 +283,7 @@ The sample also demonstrates how to display Form items and groups conditionally,
 
 >caption Render defined Form items inside a FormItemsTemplate
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             Width="600px">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-        <TelerikValidationSummary />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.Id)" Enabled="false"></FormItem>
-        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name"></FormItem>
-        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" Id="last-name-item"></FormItem>
-        <FormItem Field="@nameof(Person.BirthDate)">
-            <Template>
-                <label for="birth-date" class="k-label k-form-label">
-                    Date of Birth
-                    (Age toggles other Form items)
-                </label>
-                <div class="k-form-field-wrap">
-                    <TelerikDatePicker @bind-Value="@Employee.BirthDate"
-                                       Format="d"
-                                       Id="birth-date" />
-                </div>
-            </Template>
-        </FormItem>
-        <FormItem Field="@nameof(Person.DriversLicense)" LabelText="Driver's License"></FormItem>
-        <FormGroup LabelText="Job Information" Id="job-info-group">
-            <FormItem Field="@nameof(Person.Team)"></FormItem>
-            <FormItem Field="@nameof(Person.Salary)"></FormItem>
-        </FormGroup>
-    </FormItems>
-    <FormItemsTemplate Context="formContext">
-        @{
-            var formItems = formContext.Items.OfType<IFormItem>().ToList();
-            var formGroups = formContext.Items.OfType<IFormGroup>().ToList();
-        }
-
-        <p>Text before all form items.</p>
-        <div class="form-item-wrapper">
-            @* Get Form item by Field *@
-            <TelerikFormItemRenderer Item="@( formItems.First(x => x.Field == nameof(Person.Id)) )" />
-        </div>
-        <div class="form-item-wrapper">
-            @* Get Form item by index *@
-            <TelerikFormItemRenderer Item="@( formItems[1] )" />
-        </div>
-        <div class="form-item-wrapper">
-            @* Get Form item by Id *@
-            <TelerikFormItemRenderer Item="@( formItems.First(x => x.Id == "last-name-item") )" />
-        </div>
-        <div class="form-item-wrapper">
-            <TelerikFormItemRenderer Item="@( formItems.Skip(3).First() )" />
-        </div>
-
-        @* Render Form item and group conditionally *@
-        @if (Employee.BirthDate < DateTime.Today.AddYears(-18))
-        {
-            <div class="form-item-wrapper">
-                <TelerikFormItemRenderer Item="@( formItems.First(x => x.Field == nameof(Person.DriversLicense)) )" />
-            </div>
-
-            <div class="form-item-wrapper">
-                <TelerikFormGroupRenderer Group="@( formGroups.First(x => x.Id == "job-info-group") )">
-                    <Template Context="groupContext">
-                        @{
-                            var groupItems = groupContext.Items.OfType<IFormItem>().ToList();
-                        }
-                        <TelerikFormItemRenderer Item="@( groupItems.First(x => x.Field == nameof(Person.Team)) )" />
-                        <TelerikFormItemRenderer Item="@( groupItems.First(x => x.Field == nameof(Person.Salary)) )" />
-                    </Template>
-                </TelerikFormGroupRenderer>
-            </div>
-        }
-    </FormItemsTemplate>
-</TelerikForm>
-
-<style>
-    .form-group-wrapper {
-        border: 1px solid #000;
-        margin: .6em;
-        padding: .6em;
-        background: #ccf;
-    }
-
-    .form-item-wrapper {
-        border: 1px dashed #999;
-        margin: .4em;
-        padding: .4em;
-        background: #ffc;
-    }
-
-        .form-item-wrapper:nth-child(even) {
-            background: #feb;
-        }
-</style>
-
-@code {
-    private Person Employee = new Person();
-
-    protected override void OnInitialized()
-    {
-        Employee = new Person()
-        {
-            Id = 1,
-            FirstName = "John",
-            LastName = "Doe",
-            BirthDate = DateTime.Today.AddYears(-30)
-        };
-
-        base.OnInitialized();
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(24)]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        [MaxLength(24)]
-        public string LastName { get; set; } = string.Empty;
-
-        [Required]
-        public DateTime BirthDate { get; set; } = DateTime.Today;
-
-        public bool DriversLicense { get; set; }
-
-        public string Team { get; set; } = string.Empty;
-
-        public decimal Salary { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/formitemstemplate/example-2/" height="420"></demo>
 
 
 ### Combine Autogenerated and Defined Form Items
@@ -537,87 +294,7 @@ When using only auto-generated Form items with a custom Form layout, you can rem
 
 >caption Render auto-generated and defined Form items inside a FormItemsTemplate
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             Width="600px">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-        <TelerikValidationSummary />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.Id)" Enabled="false" Id="IdItem"></FormItem>
-        <FormAutoGeneratedItems />
-    </FormItems>
-    <FormItemsTemplate Context="formContext">
-        @{
-            var formItems = formContext.Items.Cast<IFormItem>().ToList();
-
-            foreach (IFormItem formItem in formItems)
-            {
-                <div class="form-item-wrapper">
-                    <TelerikFormItemRenderer Item="@formItem" />
-                </div>
-            }
-        }
-    </FormItemsTemplate>
-</TelerikForm>
-
-<style>
-    .form-group-wrapper {
-        border: 1px solid #000;
-        margin: .6em;
-        padding: .6em;
-        background: #ccf;
-    }
-
-    .form-item-wrapper {
-        border: 1px dashed #999;
-        margin: .4em;
-        padding: .4em;
-        background: #ffc;
-    }
-
-        .form-item-wrapper:nth-child(even) {
-            background: #feb;
-        }
-</style>
-
-@code {
-    private Person Employee = new Person();
-
-    protected override void OnInitialized()
-    {
-        Employee = new Person()
-        {
-            Id = 1,
-            FirstName = "John",
-            LastName = "Doe",
-            BirthDate = DateTime.Today.AddYears(-30)
-        };
-
-        base.OnInitialized();
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(24)]
-        public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(24)]
-        public string LastName { get; set; }
-
-        [Required]
-        public DateTime BirthDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/formitemstemplate/example-1/" height="420"></demo>
 
 ## See Also
 

@@ -29,41 +29,7 @@ The PromptBox supports the following input modes:
 
 >caption Comprehensive mode comparison
 
-````RAZOR
-<div class="d-flex flex-column gap-4">
-    <div>
-        <h4>SingleLine Mode</h4>
-        <TelerikPromptBox @bind-Value="@SingleLinePrompt"
-                          Mode="PromptBoxMode.SingleLine"
-                          Placeholder="Single line input..."
-                          Width="100%" />
-    </div>
-    
-    <div>
-        <h4>MultiLine Mode</h4>
-        <TelerikPromptBox @bind-Value="@MultiLinePrompt"
-                          Mode="PromptBoxMode.MultiLine"
-                          Placeholder="Multi-line input..."
-                          Rows="3"
-                          Width="100%" />
-    </div>
-    
-    <div>
-        <h4>Auto Mode</h4>
-        <TelerikPromptBox @bind-Value="@AutoPrompt"
-                          Mode="PromptBoxMode.Auto"
-                          Placeholder="Auto-expanding input..."
-                          MaxTextAreaHeight="120px"
-                          Width="100%" />
-    </div>
-</div>
-
-@code {
-    private string SingleLinePrompt = string.Empty;
-    private string MultiLinePrompt = string.Empty;
-    private string AutoPrompt = string.Empty;
-}
-````
+<demo metaUrl="client/promptbox/modes/example-1/" height="420"></demo>
 
 ## See Also
 

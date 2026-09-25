@@ -31,61 +31,7 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 
 >caption Handle the OnSubmit event
 
-````RAZOR
-@* Use the OnSubmit event to trigger some custom logic depending on the validity of the form *@
-
-@using System.ComponentModel.DataAnnotations 
-
-<TelerikForm EditContext="@myEditContext"
-             OnSubmit="@OnSubmitHandler">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-    </FormValidation>
-</TelerikForm>
-
-
-@code {
-    public Person person = new Person();
-
-    EditContext myEditContext { get; set; }
-
-
-    private void OnSubmitHandler(EditContext editContext)
-    {
-        bool isFormValid = editContext.Validate();
-
-        if (isFormValid)
-        {
-            //apply some custom logic when the form is valid
-        }
-        else
-        {
-            //apply some custom logic when the form is not valid
-        }
-    }
-
-    protected override void OnInitialized()
-    {
-        myEditContext = new EditContext(person);
-        base.OnInitialized();
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-        [Required(ErrorMessage ="Add your first name")]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = "Add your last name")]
-        public string LastName { get; set; }
-        [Range(typeof(DateTime), "1/1/1900", "1/15/2020", ErrorMessage = "The Date of Birth must be between 1/1/1900 and 1/15/2021")]
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-        public string CompanyName { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool IsOnVacation { get; set; } = true;
-    }
-}
-````
+<demo metaUrl="client/form/events/example-4/" height="650"></demo>
 
 ## OnUpdate
 
@@ -106,54 +52,7 @@ The `OnUpdate` event argument is a [`FormUpdateEventArgs` object](slug:Telerik.B
 
 >caption Using the Form OnUpdate event
 
-````RAZOR
-<p>OnUpdate will fire on each key stroke that changes a form value:</p>
-
-<TelerikForm Model="@Colleague"
-             OnUpdate="@OnFormUpdate"
-             Width="300px">
-</TelerikForm>
-
-<p>OnUpdate will fire on blur or Enter keypress:</p>
-
-<TelerikForm Model="@Colleague"
-             OnUpdate="@OnFormUpdate"
-             Width="300px">
-    <FormItems>
-        <FormItem Field="@nameof(Person.FirstName)">
-            <Template>
-                FirstName
-                <br />
-                <TelerikTextBox @bind-Value="@Colleague.FirstName"
-                                ValidateOn="@ValidationEvent.Change" />
-            </Template>
-        </FormItem>
-    </FormItems>
-</TelerikForm>
-
-<p>Event Log: @EventLogger</p>
-
-@code {
-    private Person Colleague = new Person();
-
-    private string EventLogger { get; set; }
-
-    private async Task OnFormUpdate(FormUpdateEventArgs args)
-    {
-        Person updatedModel = (Person)args.Model;
-        var updatedValue = typeof(Person).GetProperty(args.FieldName).GetValue(updatedModel);
-
-        EventLogger = $"OnUpdate fired for {args.FieldName} with a new value of \"{updatedValue}\"";
-    }
-
-    public class Person
-    {
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/events/example-3/" height="600"></demo>
 
 ## OnValidSubmit
 
@@ -161,53 +60,7 @@ The `OnValidSubmit` event fires when the form is submitted and there are no vali
 
 >caption Use the OnValidSubmit event
 
-````RAZOR
-@* You can use the OnValidSubmit event to provide custom logic when the form is valid *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm EditContext="@myEditContext"
-             OnValidSubmit="@OnValidSubmitHandler">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-    </FormValidation>
-</TelerikForm>
-
-
-@code {
-    public Person person = new Person();
-
-    EditContext myEditContext { get; set; }
-
-
-    public void OnValidSubmitHandler(EditContext editContext)
-    {
-        //some logic when the form is valid.
-        Console.WriteLine("valid submission, you can save the model");
-    }
-
-    protected override void OnInitialized()
-    {
-        myEditContext = new EditContext(person);
-        base.OnInitialized();
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Add your first name")]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = "Add your last name")]
-        public string LastName { get; set; }
-        [Range(typeof(DateTime), "1/1/1900", "1/15/2020", ErrorMessage = "The Date of Birth must be between 1/1/1900 and 1/15/2021")]
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-        public string CompanyName { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool IsOnVacation { get; set; } = true;
-    }
-}
-````
+<demo metaUrl="client/form/events/example-2/" height="650"></demo>
 
 ## OnInvalidSubmit
 
@@ -215,52 +68,7 @@ The `OnInvalidSubmit` event fires when there are validation errors in the Form u
 
 >caption Use the OnInvalidSubmit event
 
-````RAZOR
-@* You can use the OnInvalidSubmit event to provide custom logic when the form is not valid *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm EditContext="@myEditContext"
-             OnInvalidSubmit="@OnInvalidSubmitHandler">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-    </FormValidation>
-</TelerikForm>
-
-
-@code {
-    public Person person = new Person();
-
-    EditContext myEditContext { get; set; }
-
-    public void OnInvalidSubmitHandler(EditContext editContext)
-    {
-        //some logic when the form is not valid.
-        Console.WriteLine("INVALID submission attempt");
-    }
-
-    protected override void OnInitialized()
-    {
-        myEditContext = new EditContext(person);
-        base.OnInitialized();
-    }
-
-    public class Person
-    {
-        [Editable(false)]
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Add your first name")]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = "Add your last name")]
-        public string LastName { get; set; }
-        [Range(typeof(DateTime), "1/1/1900", "1/15/2020", ErrorMessage = "The Date of Birth must be between 1/1/1900 and 1/15/2021")]
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-        public string CompanyName { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool IsOnVacation { get; set; } = true;
-    }
-}
-````
+<demo metaUrl="client/form/events/example-1/" height="650"></demo>
 
 ## See Also
 

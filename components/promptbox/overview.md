@@ -25,29 +25,7 @@ The component also offers advanced functionality like automatic mode switching, 
 
 >caption Basic PromptBox with auto-expanding mode
 
-````RAZOR
-<TelerikPromptBox @bind-Value="@Prompt"
-                  Mode="PromptBoxMode.Auto"
-                  Placeholder="Type, speak, or attach files…"
-                  OnPromptAction="@OnActionButtonClick" />
-<p>Current prompt: @Prompt</p>
-
-@code {
-    private string Prompt = string.Empty;
-
-    private async Task OnActionButtonClick(PromptBoxActionButtonEventArgs args)
-    {
-        if (args.Action == PromptBoxActionType.Send)
-        {
-            // Process the user input
-            Console.WriteLine($"User submitted: {args.Text}");
-
-            // Clear the prompt after processing
-            Prompt = string.Empty;
-        }
-    }
-}
-````
+<demo metaUrl="client/promptbox/overview/example-1/" height="420"></demo>
 
 ## Input Modes
 

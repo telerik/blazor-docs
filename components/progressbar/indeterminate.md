@@ -22,19 +22,7 @@ To put the ProgressBar in Indeterminate state set the `Indeterminate`, `boolean`
 
 >caption Put the ProgressBar in Indeterminate State
 
-````RAZOR
-<div>
-    <TelerikButton ThemeColor="primary" OnClick="(_ => isIndeterminate = true)">Put the ProgressBar in Indeterminate State</TelerikButton>
-</div>
-
-<br />
-
-<TelerikProgressBar Indeterminate="@isIndeterminate" Value="10" Max="100" />
-
-@code {
-    public bool isIndeterminate { get; set; } = false;
-}
-````
+<demo metaUrl="client/progressbar/indeterminate/example-1/" height="420"></demo>
 
 ![put the progress bar in indeterminate state example](images/progress-bar-in-indeterminate-state-example.gif)
 

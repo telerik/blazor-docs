@@ -19,30 +19,7 @@ To enable file attachment functionality, set the `EnableFileSelect` parameter to
 
 >caption Basic file attachment setup
 
-````RAZOR
-<TelerikPromptBox @bind-Value="@Prompt"
-                  EnableFileSelect="true"
-                  Placeholder="Type or attach files...">
-    <PromptBoxSettings>
-        <PromptBoxFileSelectButtonSettings AllowedExtensions="@AllowedExtensions"
-                                           Multiple="true"
-                                           OnSelect="@OnFilesSelected" />
-    </PromptBoxSettings>
-</TelerikPromptBox>
-
-@code {
-    private string Prompt = string.Empty;
-    private List<string> AllowedExtensions = new List<string> { ".pdf", ".png", ".jpg", ".jpeg", ".gif", ".txt" };
-
-    private void OnFilesSelected(FileSelectEventArgs args)
-    {
-        foreach (var file in args.Files)
-        {
-            Console.WriteLine($"File selected: {file.Name} ({file.Size} bytes)");
-        }
-    }
-}
-````
+<demo metaUrl="client/promptbox/attachments/example-1/" height="420"></demo>
 
 ## File Selection Parameters and Events
 
