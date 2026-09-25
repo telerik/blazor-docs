@@ -24,23 +24,7 @@ The following implementation demonstrates the code needed for the Swiss Type:
 
 >caption An example of a Swiss QR Type implementation
 
-````RAZOR
-@* This code snippet showcases an example of Swiss type QR code. *@
-
-<TelerikQRCode Size="200px"
-               Value="@value">
-    <QRCodeOverlay Type="@QRCodeOverlayType.Swiss" />
-</TelerikQRCode>
-
-@code {
-    string value = "SPC  0200  1  CH4431999123000889012  S  " +
-            "Robert Schneider AG  Rue du Lac  1268  2501  Biel  CH  1949.75  CHF  " +
-            "S  Pia-Maria Rutschmann-Schnyder  Grosse Marktgasse  28  9400  Rorschach  CH  " +
-            "QRR  210000000003139471430009017 Order of 15 June 2020  EPD  " +
-            "//S1/10/10201409/11/200701/20/140.000-53/30/102673831/31/200615/32/7.7/33/7.7:139.40/40/0:30" +
-            "  Name AV1: UV;UltraPay005;12345  Name AV2: XY;XYService;54321";
-}
-````
+<demo metaUrl="client/qrcode/qr-code-types/example-2/" height="420"></demo>
 
 >caption The result from the above code snippet
 
@@ -54,14 +38,7 @@ The following implementation demonstrates the code needed for the Image Type:
 
 >caption An example of a QRCode Image Type implementation
 
-````RAZOR
-@* This code snippet showcases an example of image type QR code. *@
-
-<TelerikQRCode Size="200px"
-               Value="https://demos.telerik.com/blazor-ui">
-    <QRCodeOverlay Type="@QRCodeOverlayType.Image" ImageUrl="https://demos.telerik.com/kendo-ui/content/shared/images/site/kendoka-cta.svg" />
-</TelerikQRCode>
-````
+<demo metaUrl="client/qrcode/qr-code-types/example-1/" height="420"></demo>
 
 >caption The result from the above code snippet
 

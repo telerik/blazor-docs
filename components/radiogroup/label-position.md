@@ -17,22 +17,7 @@ By default, the labels are after the buttons, and you can change that through th
 
 >caption Labels before and after the radio buttons
 
-````RAZOR
-@* If you want the labels before the buttons, you can set the value directly to the parameter *@
-
-<select @bind="@thePosition">
-   <option value="@RadioGroupLabelPosition.Before">Before</option>
-   <option value="@RadioGroupLabelPosition.After">After</option>
-</select>
-<br />
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" LabelPosition="@thePosition"></TelerikRadioGroup>
-@code{
-    RadioGroupLabelPosition thePosition { get; set; } = RadioGroupLabelPosition.Before;
-
-    int SelectedValue { get; set; } = 2;
-    IEnumerable<int> Data { get; set; } = Enumerable.Range(1, 5);
-}
-````
+<demo metaUrl="client/radiogroup/label-position/example-1/" height="420"></demo>
 
 ![Label Position in the ButtonGroup component](images/radio-group-label-position.gif)
 

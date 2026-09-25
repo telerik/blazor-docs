@@ -41,61 +41,7 @@ If the local data changes programmatically, you need to reset the collection ins
 
 <div class="skip-repl"></div>
 
-````RAZOR
-<TelerikPivotGrid Data="@PivotData">
-    <PivotGridColumns>
-        <PivotGridColumn Name="@nameof(PivotModel.City)" />
-    </PivotGridColumns>
-    <PivotGridRows>
-        <PivotGridRow Name="@nameof(PivotModel.Category)" />
-        <PivotGridRow Name="@nameof(PivotModel.Product)" />
-    </PivotGridRows>
-    <PivotGridMeasures>
-        <PivotGridMeasure Name="@nameof(PivotModel.ContractValue)" />
-    </PivotGridMeasures>
-</TelerikPivotGrid>
-
-@code {
-    private List<PivotModel>? PivotData { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        var dataItemCount = 100;
-        var categoryCount = 3;
-        var productCount = 5 + 1; // effectively 5, as Random.Shared.Next() will never return 6
-        var cityCount = 3 + 1; // effectively 3
-
-        await Task.Delay(1000); // simulate network delay
-
-        PivotData = new List<PivotModel>(); // reset PivotData object reference if it exists
-
-        for (int i = 1; i <= dataItemCount; i++)
-        {
-            var productNumber = Random.Shared.Next(1, productCount);
-
-            PivotData.Add(new PivotModel()
-            {
-                Category = $"Category {productNumber % categoryCount + 1}",
-                Product = $"Product {productNumber}",
-                City = $"City {Random.Shared.Next(1, cityCount)}",
-                ContractDate = DateTime.Now.AddDays(-Random.Shared.Next(1, 31)).AddMonths(-Random.Shared.Next(1, 12)).AddYears(-Random.Shared.Next(0, 5)),
-                ContractValue = Random.Shared.Next(123, 987)
-            });
-        }
-
-        await base.OnInitializedAsync();
-    }
-
-    public class PivotModel
-    {
-        public string Category { get; set; } = null!;
-        public string Product { get; set; } = null!;
-        public string City { get; set; } = null!;
-        public DateTime ContractDate { get; set; }
-        public decimal ContractValue { get; set; }
-    }
-}
-````
+<demo metaUrl="client/pivotgrid/data-binding/example-2/" height="420"></demo>
 
 
 ## XMLA
@@ -136,36 +82,7 @@ The `<PivotGridXmlaDataProviderCredentials>` component creates an object, which 
 >caption PivotGrid bound to XMLA data provider without credentials
 
 <div class="skip-repl"></div>
-````RAZOR
-<TelerikPivotGridContainer>
-    <TelerikPivotGridConfigurator />
-
-    <TelerikPivotGridConfiguratorButton />
-
-    <TelerikPivotGrid DataProviderType="@PivotGridDataProviderType.Xmla"
-                      TItem="object">
-        <PivotGridSettings>
-            <PivotGridXmlaDataProviderSettings ServerUrl="https://demos.telerik.com/olap/msmdpump.dll"
-                                               Catalog="Adventure Works DW 2008R2"
-                                               Cube="Adventure Works" />
-        </PivotGridSettings>
-
-        <PivotGridRows>
-            <PivotGridRow Name="[Product].[Category]"></PivotGridRow>
-            <PivotGridRow Name="[Product].[Model Name]"></PivotGridRow>
-        </PivotGridRows>
-
-        <PivotGridColumns>
-            <PivotGridColumn Name="[Date].[Calendar Quarter of Year]"></PivotGridColumn>
-            <PivotGridColumn Name="[Date].[Calendar Year]"></PivotGridColumn>
-        </PivotGridColumns>
-
-        <PivotGridMeasures>
-            <PivotGridMeasure Name="[Measures].[Reseller Order Count]"></PivotGridMeasure>
-        </PivotGridMeasures>
-    </TelerikPivotGrid>
-</TelerikPivotGridContainer>
-````
+<demo metaUrl="client/pivotgrid/data-binding/example-1/" height="420"></demo>
 
 ## See Also
 

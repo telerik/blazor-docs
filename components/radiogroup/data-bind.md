@@ -36,17 +36,7 @@ You can data bind the RadioGroup to a collection of `string` or [value type](htt
 
 >caption Data binding a RadioGroup to strings
 
-````RAZOR
-RadioGroupValue: @RadioGroupValue
-<br />
-<TelerikRadioGroup Data="@RadioGroupData" @bind-Value="@RadioGroupValue" />
-
-@code {
-    private string RadioGroupValue { get; set; } = string.Empty;
-
-    private IEnumerable<string> RadioGroupData { get; set; } = new List<string> { "first", "second", "third" };
-}
-````
+<demo metaUrl="client/radiogroup/data-bind/example-3/" height="420"></demo>
 
 ## Bind to a Model
 
@@ -60,32 +50,7 @@ To bind the RadioGroup to a model:
 
 >caption Data binding a RadioGroup to a model and collection of models
 
-````RAZOR
-Selected Gender Id: @( RadioGroupValue == default ? "None yet" : RadioGroupValue.ToString() )
-<br />
-<TelerikRadioGroup Data="@RadioGroupData"
-                   @bind-Value="@RadioGroupValue"
-                   ValueField="@nameof(Gender.Id)"
-                   TextField="@nameof(Gender.Text)" />
-
-@code {
-    private int RadioGroupValue { get; set; }
-
-    private List<Gender> RadioGroupData { get; set; } = new List<Gender>()
-    {
-        new Gender { Id = 1, Text = "Female" },
-        new Gender { Id = 2, Text = "Male" },
-        new Gender { Id = 3, Text = "Other" },
-        new Gender { Id = 4, Text = "Prefer Not to Say" },
-    };
-
-    public class Gender
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-    }
-}
-````
+<demo metaUrl="client/radiogroup/data-bind/example-2/" height="420"></demo>
 
 ## Considerations
 
@@ -152,29 +117,7 @@ The RadioGroup is a generic component and its type depends on the type of its `D
 
 >caption RadioGroup configuration if you cannot provide Value or Data
 
-````RAZOR
-<TelerikRadioGroup Data="@RadioGroupData"
-                   TItem="@Gender"
-                   TValue="@int"
-                   ValueField="@nameof(Gender.Id)"
-                   TextField="@nameof(Gender.Text)" />
-
-@code {
-    private List<Gender> RadioGroupData { get; set; } = new List<Gender>()
-    {
-        new Gender { Id = 1, Text = "Female" },
-        new Gender { Id = 2, Text = "Male" },
-        new Gender { Id = 3, Text = "Other" },
-        new Gender { Id = 4, Text = "Prefer Not to Say" },
-    };
-
-    public class Gender
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-    }
-}
-````
+<demo metaUrl="client/radiogroup/data-bind/example-1/" height="420"></demo>
 
 ## See Also
 

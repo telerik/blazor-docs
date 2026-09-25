@@ -19,68 +19,7 @@ When you add that template, the form will no longer render the built-in Blazor F
 
 You can provide a standard [Telerik UI for Blazor Button](slug:components/button/overview) to allow the user to clear the contents of the editors in the Telerik Form. Refer to below Blazor Form Submit example for more details.
 
-````RAZOR
-@* Add a Clear Button to the Telerik Form. We also add a Submit button *@
-
-@inject IServiceProvider ServiceProvider
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm EditContext="@FormEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px">
-
-    <FormButtons>
-        <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Submit</TelerikButton>
-        <TelerikButton ButtonType="ButtonType.Button" OnClick="@ClearButton">Clear</TelerikButton>
-    </FormButtons>
-
-</TelerikForm>
-
-@code {
-    private Person person { get; set; } = new Person();
-
-    private EditContext FormEditContext { get; set; }
-
-    private void ClearButton()
-    {
-        person = new Person();
-        CreatedEditContext(person);
-    }
-
-    private void CreatedEditContext(Person model)
-    {
-        FormEditContext = new EditContext(model);
-
-        // we add the validation like this instead of in the markup
-        // because changing the model and context does not otherwise attach the validator
-        // and using the Clear button to new-up the model will leave you without validation
-        FormEditContext.EnableDataAnnotationsValidation(ServiceProvider);
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        person = new Person()
-            {
-                FirstName = "John",
-                DOB = DateTime.Now.AddYears(-37)
-            };
-
-        CreatedEditContext(person);
-    }
-
-    private async Task OnValidSubmitHandler()
-    {
-        Console.WriteLine($"SAVING {person.FirstName} {person.LastName} who was born on {person.DOB}");
-    }
-
-    public class Person
-    {
-        [Required]
-        public string FirstName { get; set; }
-        [Required]
-        public string LastName { get; set; }
-        public DateTime DOB { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/buttons/example-1/" height="450"></demo>
 
 ## See Also
 

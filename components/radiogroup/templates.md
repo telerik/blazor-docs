@@ -21,49 +21,7 @@ The template exposes a `context` variable. Cast it to the RadioGroup model type 
 
 >caption Using RadioGroup Item Template
 
-````RAZOR
-<TelerikRadioGroup Data="@RadioOptions"
-                   @bind-Value="@RadioValue"
-                   ValueField="@nameof(RadioModel.Id)"
-                   TextField="@nameof(RadioModel.Text)">
-    <ItemTemplate>
-        @{
-            var item = context as RadioModel;
-        }
-        <strong>@item.Text</strong> with <em>@item.Description</em>
-    </ItemTemplate>
-</TelerikRadioGroup>
-
-@code {
-    private List<RadioModel> RadioOptions { get; set; }
-
-    private int RadioValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        RadioOptions = new List<RadioModel>();
-
-        for (int i = 1; i <= 3; i++)
-        {
-            RadioOptions.Add(new RadioModel()
-            {
-                Id = i,
-                Text = $"Radio option {i}",
-                Description = $"description {i}"
-            });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class RadioModel
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public string Description { get; set; }
-    }
-}
-````
+<demo metaUrl="client/radiogroup/templates/example-1/" height="420"></demo>
 
 ## Next Steps
 

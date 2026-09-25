@@ -30,37 +30,7 @@ To enable validation in the Telerik Form for Blazor, add the `<FormValidation>` 
 
 >caption Enable validation in the Telerik Form for Blazor
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@FormModel">
-    <FormValidation>
-        <DataAnnotationsValidator />
-        <TelerikValidationSummary />
-    </FormValidation>
-</TelerikForm>
-
-@code {
-    private Person FormModel { get; set; } = new Person();
-
-    public class Person
-    {
-        [Required]
-        [MaxLength(20, ErrorMessage ="The First Name cannot exceed 20 characters")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(25, ErrorMessage = "The Last Name cannot exceed 25 characters")]
-        public string LastName { get; set; }
-
-        [Required(ErrorMessage = "The Birth Date is required")]
-        public DateTime? BirthDate { get; set; }
-
-        [Range(30, 250, ErrorMessage ="The Height must be between 30 and 250 cm")]
-        public int Height { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/validation/example-1/" height="600"></demo>
 
 @[template](/_contentTemplates/common/form-validation.md#note-editcontext-formitem-template)
 

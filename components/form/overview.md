@@ -24,7 +24,7 @@ The <a href = "https://demos.telerik.com/blazor-ui/form/overview" target="_blank
 
 >caption Basic Blazor Form
 
-<demo metaUrl="client/form/overview/" height="450"></demo>
+<demo metaUrl="client/form/overview/" height="600"></demo>
 
 ## Form Items
 
@@ -62,44 +62,7 @@ You can customize the automatically generated field editors by providing the `Ed
 | **DateTime**        | `FormEditorType.DatePicker`<br /> `FormEditorType.DateTimePicker`<br> `FormEditorType.TimePicker` |
 
 
-````RAZOR
-@* The usage of the EditorType parameter *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@person">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.Id)" LabelText="Id"></FormItem>
-        <FormItem Field="@nameof(Person.FirstName)"
-                  EditorType="@FormEditorType.TextArea"
-                  LabelText="First name">
-        </FormItem>
-        <FormItem Field="@nameof(Person.LastName)" 
-                  EditorType="@FormEditorType.TextArea"
-                  LabelText="Last name">
-        </FormItem>
-        <FormItem Field="@nameof(Person.DOB)"
-                  EditorType="@FormEditorType.DateTimePicker"
-                  LabelText="Date of birth">
-        </FormItem>
-    </FormItems>
-</TelerikForm>
-
-@code {
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-    }
-}
-````
+<demo metaUrl="client/form/overview/example-2/" height="600"></demo>
 
 ## Data Annotation Attributes
 
@@ -157,42 +120,7 @@ The Form also exposes a `Refresh()` method that calls `StateHasChanged()` only f
 
 >caption Get the Form Reference and Validate the EditContext
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@TeamMate" @ref="@FormRef" Width="300px">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-</TelerikForm>
-
-@code {
-    private TelerikForm FormRef { get; set; }
-
-    private Employee TeamMate { get; set; } = new();
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender)
-        {
-            FormRef?.EditContext.Validate();
-        }
-
-        base.OnAfterRender(firstRender);
-    }
-
-    public class Employee
-    {
-        [Display(AutoGenerateField = false)]
-        public int Id { get; set; }
-        [Required]
-        [MinLength(2, ErrorMessage = "{0} should be at least {1} characters.")]
-        public string Name { get; set; }
-        [Required]
-        public DateTime? BirthDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/overview/example-1/" height="570"></demo>
 
 ## Next Steps
 
