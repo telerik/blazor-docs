@@ -19,15 +19,11 @@ By default, the list is vertical, and you can change that through the `Layout` p
 
 <demo metaUrl="client/radiogroup/layout/example-2/" height="420"></demo>
 
-![Layouts in the ButtonGroup component](images/radio-group-layout.gif)
-
 In the `Horizontal` layout mode, the individual items do not create a layout and so they will flow with their container's dimensions.
 
 >caption Items can fall on several lines in Horizontal layout when their container cannot fit them all
 
 <demo metaUrl="client/radiogroup/layout/example-1/" height="420"></demo>
-
-![Horizontal Layout items flow in lines](images/radio-group-horizontal-flow.png)
 
 ## See Also
 

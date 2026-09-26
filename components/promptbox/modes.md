@@ -29,7 +29,7 @@ The PromptBox supports the following input modes:
 
 >caption Comprehensive mode comparison
 
-<demo metaUrl="client/promptbox/modes/example-1/" height="420"></demo>
+<demo metaUrl="client/promptbox/modes/example-1/" height="620"></demo>
 
 ## See Also
 

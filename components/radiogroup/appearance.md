@@ -30,6 +30,6 @@ Change the size of the radio buttons by setting the `Size` parameter to a member
 
 >caption The built-in sizes
 
-<demo metaUrl="client/radiogroup/appearance/example-1/" height="420"></demo>
+<demo metaUrl="client/radiogroup/appearance/example-1/" height="320"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

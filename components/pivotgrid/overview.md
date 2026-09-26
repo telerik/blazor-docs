@@ -59,10 +59,7 @@ The PivotGrid is an integrated product that includes several Razor components:
 
 >caption PivotGrid with configurator and local data
 
-<div class="skip-repl"></div>
-
-<demo metaUrl="client/pivotgrid/overview/example-2/" height="420"></demo>
-
+<demo metaUrl="client/pivotgrid/overview/example-2/" height="800"></demo>
 
 ## Data Binding
 

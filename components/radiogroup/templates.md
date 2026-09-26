@@ -21,7 +21,7 @@ The template exposes a `context` variable. Cast it to the RadioGroup model type 
 
 >caption Using RadioGroup Item Template
 
-<demo metaUrl="client/radiogroup/templates/example-1/" height="420"></demo>
+<demo metaUrl="client/radiogroup/templates/example-1/" height="350"></demo>
 
 ## Next Steps
 

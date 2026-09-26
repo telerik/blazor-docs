@@ -25,7 +25,7 @@ The component also offers advanced functionality like automatic mode switching, 
 
 >caption Basic PromptBox with auto-expanding mode
 
-<demo metaUrl="client/promptbox/overview/example-1/" height="420"></demo>
+<demo metaUrl="client/promptbox/overview/example-1/" height="320"></demo>
 
 ## Input Modes
 

@@ -34,9 +34,7 @@ The `Row` parameter controls in which row the `GridLayoutItem` will reside. The 
 
 * `c` is the number of columns;
 
->caption Distribute the GridLayout items across the rows. The result from the code snippet below.
-
-![rows example](images/gridlayout-items-rows-example.png)
+>caption Distribute the GridLayout items across the rows.
 
 <demo metaUrl="client/gridlayout/items/example-5/" height="420"></demo>
 
@@ -44,9 +42,7 @@ The `Row` parameter controls in which row the `GridLayoutItem` will reside. The 
 
 The `Column` parameter controls in which column the `GridLayoutItem` will reside. The column indexes in the component are `1-based`. If no columns are defined, the GridLayout items will be displayed in one column.
 
->caption Distribute the GridLayout items across the columns. The result from the code snippet below.
-
-![rows example](images/gridlayout-items-columns-example.png)
+>caption Distribute the GridLayout items across the columns.
 
 <demo metaUrl="client/gridlayout/items/example-4/" height="420"></demo>
 
@@ -77,9 +73,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
 
 >caption Create a page layout with the GridLayout component
 
-![complex layout](images/gridlayout-complex-example.png)
-
-<demo metaUrl="client/gridlayout/items/example-1/" height="420"></demo>
+<demo metaUrl="client/gridlayout/items/example-1/" height="620"></demo>
 
 ## See Also
 

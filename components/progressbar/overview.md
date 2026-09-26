@@ -20,7 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">
 
 >caption ProgressBar with maximum and initial values
 
-<demo metaUrl="client/progressbar/overview/example-2/" height="420"></demo>
+<demo metaUrl="client/progressbar/overview/example-2/" height="300"></demo>
 
 ## Label
 
@@ -34,7 +34,7 @@ In some scenarios the estimated time of completion is unknown or the progress ca
 
 The ProgressBar will resize with the parent element dimensions when you set its width to 100%:
 
-<demo metaUrl="client/progressbar/overview/example-1/" height="420"></demo>
+<demo metaUrl="client/progressbar/overview/example-1/" height="300"></demo>
 
 ## ProgressBar Parameters
 

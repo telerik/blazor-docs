@@ -13,19 +13,11 @@ components: ["progressbar"]
 
 The Indeterminate state of the ProgressBar can be used in cases when the estimated time of completion of the task is unknown or the progress can not be represented as a physical value. The ProgressBar is filled with flowing motion animation to showcase that the task is running. 
 
->caption Telerik ProgressBar in Indeterminate state
-
-![progress bar in indeterminate state](images/progress-bar-indeterminate-example.gif)
-
-
 To put the ProgressBar in Indeterminate state set the `Indeterminate`, `boolean` parameter to `true`.
 
 >caption Put the ProgressBar in Indeterminate State
 
-<demo metaUrl="client/progressbar/indeterminate/example-1/" height="420"></demo>
-
-![put the progress bar in indeterminate state example](images/progress-bar-in-indeterminate-state-example.gif)
-
+<demo metaUrl="client/progressbar/indeterminate/example-1/" height="300"></demo>
 
 ## See Also
 

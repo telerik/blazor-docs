@@ -19,9 +19,6 @@ By default, the labels are after the buttons, and you can change that through th
 
 <demo metaUrl="client/radiogroup/label-position/example-1/" height="420"></demo>
 
-![Label Position in the ButtonGroup component](images/radio-group-label-position.gif)
-
-
 ## See Also
 
 * [RadioGroup Overview](slug:radiogroup-overview)

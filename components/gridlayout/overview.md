@@ -22,7 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 
 >caption A basic configuration of the Telerik GridLayout
 
-<demo metaUrl="client/gridlayout/overview/example-1/" height="420"></demo>
+<demo metaUrl="client/gridlayout/overview/example-1/" height="320"></demo>
 
 ## Rows
 
