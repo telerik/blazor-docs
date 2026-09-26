@@ -26,23 +26,7 @@ The Floating Action Button comes with built-in customization features that lets 
 
 >caption Basic Blazor Floating Action Button
 
-````RAZOR
-Current time: @Result
-<TelerikFloatingActionButton Size="@ThemeConstants.Button.Size.Large"
-                             VerticalAlign="@FloatingActionButtonVerticalAlign.Top"
-                             HorizontalAlign="@FloatingActionButtonHorizontalAlign.Center"
-                             ThemeColor="@ThemeConstants.Button.ThemeColor.Info"
-                             Icon="@SvgIcon.Clock"
-                             OnClick="@HandleClickEvent" />
-@code {
-    private string Result { get; set; } = DateTime.Now.ToString("HH:MM:ss:fff");
-
-    private void HandleClickEvent()
-    {
-        Result = DateTime.Now.ToString("HH:MM:ss:fff");
-    }
-}
-````
+<demo metaUrl="client/floatingactionbutton/overview/example-1/" height="220"></demo>
 
 ## Position and Alignment
 

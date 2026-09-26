@@ -34,32 +34,9 @@ The `<CircularGaugeScale>` exposes the following parameters:
 * The `MajorTicks` (`object`) parameter configures the scale major ticks. It exposes `Color`, `Size`, `Visible` and `Width` parameters to control the rendering of the major ticks.
     *  The default value of the `Visible` parameter is false, so in order to display the MajorTicks on the scale include `<CircularGaugeScaleMajorTicks Visible="true"></CircularGaugeScaleMajorTicks>` in the `<CircularGaugeScale>` tag.
 
->caption Change the rendering of the minor and major ticks. The result from the code snippet below.
+>caption Change the rendering of the minor and major ticks.
 
-![Minor and major ticks parameters](images/minor-and-major-ticks-circular-gauge.png)
-
-````RAZOR
-@* Render and customize the minor and major ticks. *@
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>
-            <CircularGaugeScaleMajorTicks Visible="true" Width="3"></CircularGaugeScaleMajorTicks>
-            <CircularGaugeScaleMinorTicks Visible="true" Color="red"></CircularGaugeScaleMinorTicks>
-            <CircularGaugeScaleLabels Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="60">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/scale/ticks-5/" height="420"></demo>
 
 ## Min and Max
 
@@ -67,32 +44,9 @@ The `<CircularGaugeScale>` exposes the following parameters:
 
 * The `Min` (`double`) parameter controls the minimum value of the component.
 
->caption Change the minimum and the maximum values for the scale. The result from the code snippet below.
+>caption Change the minimum and the maximum values for the scale.
 
-![Min and max parameters example](images/min-and-max-circular-gauge.png)
-
-````RAZOR
-@* Use the Min and Max parameters to change the minimum and maximum values for the scale *@
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale Min="10" Max="100">
-            <CircularGaugeScaleMajorTicks Visible="true"></CircularGaugeScaleMajorTicks>
-            <CircularGaugeScaleMinorTicks Visible="true"></CircularGaugeScaleMinorTicks>
-            <CircularGaugeScaleLabels Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="50">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/scale/min-max-4/" height="420"></demo>
 
 ## MinorUnit and MajorUnit
 
@@ -100,95 +54,25 @@ The `<CircularGaugeScale>` exposes the following parameters:
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
->caption Change the rendering of the minor and major unit divisions. The result from the code snippet below.
+>caption Change the rendering of the minor and major unit divisions.
 
-![Minor and major units parameters](images/minor-and-major-units-circular-gauge.png)
-
-````RAZOR
-@* Update the rendering of the major and minor units. *@
-
-<TelerikCircularGauge>
-
-    <CircularGaugeScales>
-
-        <CircularGaugeScale MajorUnit="10" MinorUnit="5">
-            <CircularGaugeScaleMajorTicks Visible="true"></CircularGaugeScaleMajorTicks>
-            <CircularGaugeScaleMinorTicks Visible="true"></CircularGaugeScaleMinorTicks>
-            <CircularGaugeScaleLabels Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="70">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/scale/unit-divisions-3/" height="420"></demo>
 
 ## Start Angle
 
 The `StartAngle` (`double`) parameter controls the start angle of the gauge. The gauge is rendered clockwise (0 degrees are the 180 degrees in the polar coordinate system). Defaults to 90 degrees.
 
->caption Change the Start Angle of the Circular Gauge. The result from the code snippet below.
+>caption Change the Start Angle of the Circular Gauge.
 
-![Start Angle parameter](images/start-angle-circular-gauge.png)
-
-````RAZOR
-@* Use StartAngle parameter to change the start angle of the scale. *@
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale StartAngle="0">
-            <CircularGaugeScaleMajorTicks Visible="true"></CircularGaugeScaleMajorTicks>
-            <CircularGaugeScaleMinorTicks Visible="true"></CircularGaugeScaleMinorTicks>
-            <CircularGaugeScaleLabels Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="60">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/scale/start-angle-2/" height="420"></demo>
 
 ## Reverse
 
 If you set the `Reverse` (`bool`) parameter to `true` the scale direction will be reversed - values will increase anticlockwise.
 
->caption Reverse the scale of the Circular Gauge. The result from the code snippet below.
+>caption Reverse the scale of the Circular Gauge.
 
-![Reverse parameter example](images/reverse-circular-gauge.png)
-
-````RAZOR
-@* Reverse the scale. *@
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale Reverse="true">
-            <CircularGaugeScaleMajorTicks Visible="true"></CircularGaugeScaleMajorTicks>
-            <CircularGaugeScaleMinorTicks Visible="true"></CircularGaugeScaleMinorTicks>
-            <CircularGaugeScaleLabels Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="60">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/scale/reverse-1/" height="420"></demo>
 
 ## Additional Customization
 

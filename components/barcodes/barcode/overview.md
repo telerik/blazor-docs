@@ -28,12 +28,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 
 >caption A basic configuration of the Telerik Barcode
 
-````RAZOR
-<TelerikBarcode Width="300px"
-                Height="200px"
-                Value="123456789">
-</TelerikBarcode>
-````
+<demo metaUrl="client/barcode/basic-configuration/" height="420"></demo>
 
 ## Encoding
 
@@ -47,34 +42,7 @@ The Barcode methods are accessible through it's reference.
 
 >caption Get a reference to the Barcode and use its methods
 
-````RAZOR
-@* This code snippet showcases an example usage of the Refresh() method. *@
-
-<TelerikButton OnClick="@ChangeSize">Change Size!</TelerikButton>
-<br />
-<br />
-<TelerikButton OnClick="@(() => TelerikBarcodeRef.Refresh())">Refresh component after changes!</TelerikButton>
-<br />
-<br />
-
-<TelerikBarcode @ref="TelerikBarcodeRef" Width="@Width"
-                Height="@Height"
-                Value="123456789">
-</TelerikBarcode>
-
-@code{
-    Telerik.Blazor.Components.TelerikBarcode TelerikBarcodeRef { get; set; }
-
-    string Height { get; set; } = "200px";
-    string Width { get; set; } = "300px";
-
-    public void ChangeSize()
-    {
-        Height = "400px";
-        Width = "500px";
-    }
-}
-````
+<demo metaUrl="client/barcode/methods/" height="460"></demo>
 
 ## Parameters
 

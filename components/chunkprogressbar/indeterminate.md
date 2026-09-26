@@ -22,22 +22,7 @@ To put the ChunkProgressBar in Indeterminate state set the `Indeterminate`, `boo
 
 >caption Put the ChunkProgressBar in Indeterminate State
 
-````RAZOR
-<div>
-    <TelerikButton ThemeColor="primary" OnClick="(_ => isIndeterminate = true)">Put the ChunkProgressBar in Indeterminate State</TelerikButton>
-</div>
-
-<br />
-
-<TelerikChunkProgressBar Indeterminate="@isIndeterminate" Value="10" Max="100" ChunkCount="10"/>
-
-@code {
-    public bool isIndeterminate { get; set; } = false;
-}
-````
-
-![put the progress bar in indeterminate state example](images/chunkprogress-bar-in-indeterminate-state-example.gif)
-
+<demo metaUrl="client/chunkprogressbar/indeterminate/" height="250"></demo>
 
 ## See Also
 

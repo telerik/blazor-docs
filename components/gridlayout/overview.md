@@ -22,47 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 
 >caption A basic configuration of the Telerik GridLayout
 
-````RAZOR
-@* Split the items in the GridLayout in three columns and two rows. *@
-
-<TelerikGridLayout>
-    <GridLayoutColumns>
-        <GridLayoutColumn Width="200px"></GridLayoutColumn>
-        <GridLayoutColumn Width="200px"></GridLayoutColumn>
-        <GridLayoutColumn Width="200px"></GridLayoutColumn>
-    </GridLayoutColumns>
-    <GridLayoutRows>
-        <GridLayoutRow Height="50px"></GridLayoutRow>
-    </GridLayoutRows>
-    <GridLayoutItems>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 1
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 2
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 3
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 4
-            </div>
-        </GridLayoutItem>
-        <GridLayoutItem>
-            <div style="border: 1px gray solid;">
-                item 5
-            </div>
-        </GridLayoutItem>
-    </GridLayoutItems>
-</TelerikGridLayout>
-````
+<demo metaUrl="client/gridlayout/overview/example-1/" height="320"></demo>
 
 ## Rows
 

@@ -75,22 +75,7 @@ The available Diagram Connection types include:
 
 >caption Using Connection Points
 
-````RAZOR
-<TelerikDiagram>
-    <DiagramConnections>
-        <DiagramConnection Type="@DiagramConnectionType.Polyline">
-            <DiagramConnectionFrom X="20" Y="20" />
-            <DiagramConnectionTo X="200" Y="200" />
-            <DiagramConnectionPoints>
-                <DiagramConnectionPoint X="150" Y="50" />
-                <DiagramConnectionPoint X="50" Y="100" />
-                <DiagramConnectionPoint X="150" Y="150" />
-                <DiagramConnectionPoint X="100" Y="170" />
-            </DiagramConnectionPoints>
-        </DiagramConnection>
-    </DiagramConnections>
-</TelerikDiagram>
-````
+<demo metaUrl="client/diagram/connections/connection-points-5/" height="450"></demo>
 
 ## Cap Types
 
@@ -280,43 +265,7 @@ The Diagram allows users to reshape connections by dragging their intermediate [
 
 >caption Enable editable connection points globally and per Connection
 
-````RAZOR
-<TelerikDiagram Height="400px">
-    <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline">
-        <DiagramConnectionDefaultsEditable>
-            <DiagramConnectionDefaultsEditablePoints Enabled="true" />
-        </DiagramConnectionDefaultsEditable>
-    </DiagramConnectionDefaults>
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1" X="100" Y="100">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2" X="300" Y="100">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-        <DiagramShape Id="shape3" X="200" Y="250">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2">
-            <DiagramConnectionPoints>
-                <DiagramConnectionPoint X="200" Y="50" />
-            </DiagramConnectionPoints>
-        </DiagramConnection>
-        <DiagramConnection FromId="shape2" ToId="shape3">
-            <DiagramConnectionPoints>
-                <DiagramConnectionPoint X="350" Y="200" />
-            </DiagramConnectionPoints>
-            <DiagramConnectionEditable>
-                <DiagramConnectionEditablePoints Enabled="false" />
-            </DiagramConnectionEditable>
-        </DiagramConnection>
-    </DiagramConnections>
-</TelerikDiagram>
-````
+<demo metaUrl="client/diagram/connections/editable-points-4/" height="520"></demo>
 
 ## Styling
 
@@ -377,145 +326,13 @@ Rich content is also supported with [Diagram data binding](slug:diagram-data-bin
 
 >caption Using declarative rich content in Diagram Connections
 
-````RAZOR
-<TelerikDiagram Height="420px">
-    <DiagramLayout Type="@DiagramLayoutType.Tree" VerticalSeparation="180" />
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1"
-                           ToId="shape2">
-            <DiagramConnectionContent Background="#fda"
-                                      Offset="30">
-                <DiagramConnectionContentMargin Bottom="10" />
-                <DiagramConnectionContentPadding Top="20" Bottom="20" Left="20" Right="20" />
-                <DiagramConnectionContentBorder Color="blue" Width="2" DashType="@DashType.Solid" />
-                <DiagramConnectionContentBlocks>
-                    <DiagramConnectionContentBlock>
-                        <DiagramConnectionContentBlockChildren>
-                            <DiagramConnectionContentBlockChild Text="Connection Title"
-                                                                Bold="true"
-                                                                Color="blue"
-                                                                FontSize="18"
-                                                                Italic="true"
-                                                                Underline="true" />
-                        </DiagramConnectionContentBlockChildren>
-                    </DiagramConnectionContentBlock>
-                    <DiagramConnectionContentBlock>
-                        <DiagramConnectionContentBlockChildren>
-                            <DiagramConnectionContentBlockChild Type="@DiagramConnectionContentBlocksChildrenType.Image"
-                                                                Height="24"
-                                                                Src="@Base64SvgImage"
-                                                                Width="24" />
-                            <DiagramConnectionContentBlockChild Type="@DiagramConnectionContentBlocksChildrenType.Break" />
-                            <DiagramConnectionContentBlockChild Text="Image Description"
-                                                                Color="green"
-                                                                FontSize="16" />
-                        </DiagramConnectionContentBlockChildren>
-                    </DiagramConnectionContentBlock>
-                </DiagramConnectionContentBlocks>
-            </DiagramConnectionContent>
-        </DiagramConnection>
-    </DiagramConnections>
-</TelerikDiagram>
-
-@code {
-    private readonly string Base64SvgImage = "data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAMAAAAua3VzAAACylBMVEVMaXFc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBeULtoAAAA7XRSTlMAgAIEmOsx8uAhAQUG+vX0/AP7/jMdovfO5weHChPmt+/2LkdrrfkWC5/cYDZ5F8vuOA743v0QgXqTHKzjFMjNUG6h8909EejtIBoeiC/J0w+0XL1bPOHMQAySGyXPUvHwVbwmOt9thmwZJ0vl7Fpe0NHKq9mbhWYJMhhBIg10K9Wc5L+L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";
-}
-````
+<demo metaUrl="client/diagram/connections/rich-content-3/" height="520"></demo>
 
 ## Example
 
 >caption Customize Diagram Connections
 
-````RAZOR
-<TelerikDiagram Height="420px">
-    <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline" Selectable="true">
-        <DiagramConnectionDefaultsEditable Drag="true" Enabled="true" Remove="true" />
-        <DiagramConnectionDefaultsEndCap Type="@DiagramConnectionsEndCapType.ArrowEnd">
-            <DiagramConnectionDefaultsEndCapFill Color="yellow" />
-            <DiagramConnectionDefaultsEndCapStroke Color="red" Width="2" DashType="@DashType.Solid" />
-        </DiagramConnectionDefaultsEndCap>
-        <DiagramConnectionDefaultsHover>
-            <DiagramConnectionDefaultsHoverStroke Color="orange" />
-        </DiagramConnectionDefaultsHover>
-        <DiagramConnectionDefaultsSelection>
-            <DiagramConnectionDefaultsSelectionHandles Height="10" Width="10">
-                <DiagramConnectionDefaultsSelectionHandlesFill Color="purple" />
-                <DiagramConnectionDefaultsSelectionHandlesStroke Color="black" />
-            </DiagramConnectionDefaultsSelectionHandles>
-        </DiagramConnectionDefaultsSelection>
-        <DiagramConnectionDefaultsStartCap Type="@DiagramConnectionsStartCapType.FilledCircle">
-            <DiagramConnectionDefaultsStartCapFill Color="yellow" />
-            <DiagramConnectionDefaultsStartCapStroke Color="red" Width="2" />
-        </DiagramConnectionDefaultsStartCap>
-        <DiagramConnectionDefaultsStroke Color="black" Width="3" />
-    </DiagramConnectionDefaults>
-
-    <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-        <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1"
-                           ToId="shape2"
-                           FromConnector="@DiagramConnectionsFromConnector.Left">
-            <DiagramConnectionPoints>
-                <DiagramConnectionPoint X="80" Y="120" />
-                <DiagramConnectionPoint X="120" Y="160" />
-            </DiagramConnectionPoints>
-            <DiagramConnectionStartCap Type="@DiagramConnectionsStartCapType.ArrowEnd" />
-        </DiagramConnection>
-        <DiagramConnection FromId="shape1" ToId="shape3" Type="@DiagramConnectionType.Cascading">
-            <DiagramConnectionContent Text="1 to 3" />
-            <DiagramConnectionEditable Enabled="false" />
-            <DiagramConnectionEndCap Type="@DiagramConnectionsEndCapType.FilledCircle">
-                <DiagramConnectionEndCapFill Color="lightblue" />
-                <DiagramConnectionEndCapStroke Color="blue" DashType="@DashType.Solid" Width="2" />
-            </DiagramConnectionEndCap>
-            <DiagramConnectionHover>
-                <DiagramConnectionHoverStroke Color="purple" />
-            </DiagramConnectionHover>
-            <DiagramConnectionSelection>
-                <DiagramConnectionSelectionHandles Height="16" Width="16">
-                    <DiagramConnectionSelectionHandlesFill Color="lime" />
-                    <DiagramConnectionSelectionHandlesStroke Color="green" />
-                </DiagramConnectionSelectionHandles>
-            </DiagramConnectionSelection>
-            <DiagramConnectionStartCap Type="@DiagramConnectionsStartCapType.FilledCircle">
-                <DiagramConnectionStartCapFill Color="lightblue" />
-                <DiagramConnectionStartCapStroke Color="blue" DashType="@DashType.Solid" Width="2" />
-            </DiagramConnectionStartCap>
-            <DiagramConnectionStroke Color="lightblue" Width="5" />
-        </DiagramConnection>
-        <DiagramConnection>
-            <DiagramConnectionContent Text="Connection with no shapes and caps" Color="red" FontStyle="italic" />
-            <DiagramConnectionEndCap Type="@DiagramConnectionsEndCapType.None" />
-            <DiagramConnectionFrom X="330" Y="100" />
-            <DiagramConnectionStartCap Type="@DiagramConnectionsStartCapType.None" />
-            <DiagramConnectionTo X="400" Y="200" />
-        </DiagramConnection>
-    </DiagramConnections>
-</TelerikDiagram>
-````
+<demo metaUrl="client/diagram/connections/customization-2/" height="520"></demo>
 
 ## Visual Function
 
@@ -541,75 +358,7 @@ To use a visual function:
 
 >caption Using Diagram Connection visual function
 
-````RAZOR
-<TelerikDiagram>
-    <DiagramLayout Type="@DiagramLayoutType.Tree"></DiagramLayout>
-
-    <DiagramConnectionDefaults Type="@DiagramConnectionType.Polyline">
-        <DiagramConnectionDefaultsContent Visual="connectionVisualFunction" />
-    </DiagramConnectionDefaults>
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Template="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-        <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" DataItem="@ConnectionDataItem1" />
-        <DiagramConnection FromId="shape1" ToId="shape3" DataItem="@ConnectionDataItem2" />
-    </DiagramConnections>
-</TelerikDiagram>
-
-@* Move JavaScript code to an external JS file *@
-<script suppress-error="BL9992">
-    function connectionVisualFunction(context) {
-        let diagramNS = TelerikBlazor.DiagramCommon;
-
-        let connectionGroup = new diagramNS.Group({
-            autoSize: true
-        });
-
-        let circle = new diagramNS.Circle({
-            width: 16,
-            height: 16,
-            fill: {
-                color: context.dataItem.Color ?? "transparent"
-            },
-            stroke: {
-                color: context.dataItem.Color ? context.color : "transparent"
-            }
-        });
-        connectionGroup.append(circle);
-
-        let text = new diagramNS.TextBlock({
-            text: context.dataItem.Title,
-            fontSize: 16,
-            x: 20
-        });
-        connectionGroup.append(text);
-
-        return connectionGroup;
-    }
-</script>
-
-@code {
-    private readonly ConnectionModel ConnectionDataItem1 = new() { Title = "1 to 2", Color = "green" };
-    private readonly ConnectionModel ConnectionDataItem2 = new() { Title = "1 to 3", Color = "red" };
-
-    public class ConnectionModel
-    {
-        public string Title { get; set; } = string.Empty;
-        public string Color { get; set; } = "black";
-    }
-}
-````
+<demo metaUrl="client/diagram/connections/visual-function-1/" height="550"></demo>
 
 ## See Also
 

@@ -17,46 +17,13 @@ By default, the list is vertical, and you can change that through the `Layout` p
 
 >caption Horizontal and Vertical layouts in the Telerik Blazor Button Group Component
 
-````RAZOR
-@* If you want a horizontal list, you can set the value directly to the parameter *@
-
-<select @bind="@theLayout">
-   <option value="@RadioGroupLayout.Horizontal">Horizontal</option>
-   <option value="@RadioGroupLayout.Vertical">Vertical</option>
-</select>
-<br />
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" Layout="@theLayout"></TelerikRadioGroup>
-@code{
-    RadioGroupLayout theLayout { get; set; } = RadioGroupLayout.Horizontal;
-
-    int SelectedValue { get; set; } = 2;
-    IEnumerable<int> Data { get; set; } = Enumerable.Range(1, 5);
-}
-````
-
-![Layouts in the ButtonGroup component](images/radio-group-layout.gif)
+<demo metaUrl="client/radiogroup/layout/example-2/" height="420"></demo>
 
 In the `Horizontal` layout mode, the individual items do not create a layout and so they will flow with their container's dimensions.
 
 >caption Items can fall on several lines in Horizontal layout when their container cannot fit them all
 
-````RAZOR
-@* This code just creates 20 items and puts them in a container with small width *@
-
-<div style="width: 500px; border: 1px solid red;">
-    <TelerikRadioGroup Data="@RadioButtonsList"
-                      @bind-Value="@SelectedValue"
-                      Layout="@RadioGroupLayout.Horizontal">
-    </TelerikRadioGroup>
-</div>
-
-@code{
-    List<string> RadioButtonsList { get; set; } = Enumerable.Range(1, 20).Select(x => $"Item {x}").ToList();
-    string SelectedValue { get; set; }
-}
-````
-
-![Horizontal Layout items flow in lines](images/radio-group-horizontal-flow.png)
+<demo metaUrl="client/radiogroup/layout/example-1/" height="420"></demo>
 
 ## See Also
 

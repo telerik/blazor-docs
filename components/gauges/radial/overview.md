@@ -21,18 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">T
 
 >caption Basic Telerik Radial Gauge for Blazor.
 
-![Basic Radial Gauge](images/basic-radial-gauge.png)
-
-````RAZOR
-@* Setup a basic radial gauge *@
-
-<TelerikRadialGauge>
-    <RadialGaugePointers>
-        <RadialGaugePointer Value="20">            
-        </RadialGaugePointer>        
-    </RadialGaugePointers>    
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/overview/basic-telerik-radial-gauge-2/" height="420"></demo>
 
 ## Scale
 
@@ -73,34 +62,7 @@ To execute Radial Gauge methods, obtain reference to the component instance via 
 
 >caption Get a component reference and use the Refresh method
 
-````RAZOR
-@* Change the Height of the component *@
-
-<TelerikButton OnClick="@ChangeHeight">Change the height</TelerikButton>
-
-<TelerikRadialGauge @ref="@RadialGaugeRef" Height="@Height">
-    <RadialGaugePointers>
-        <RadialGaugePointer Value="20">
-        </RadialGaugePointer>
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-
-@code{
-    Telerik.Blazor.Components.TelerikRadialGauge RadialGaugeRef { get; set; }
-
-    public string Height { get; set; } = "200px";
-
-    async Task ChangeHeight()
-    {
-        Height = "400px";
-
-        //give time to the framework and browser to resize the actual DOM so the gauge can use the expected size
-        await Task.Delay(30);
-
-        RadialGaugeRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/radialgauge/overview/get-component-reference-refr-1/" height="420"></demo>
 
 ## See Also
 

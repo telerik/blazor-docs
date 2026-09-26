@@ -17,24 +17,7 @@ Additionally, the Prompt view can display prompt suggestions related to the prom
 
 >caption Using `PromptSuggestions` to display a set of predefined prompts or hints.
 
-````RAZOR
-<TelerikAIPrompt OnPromptRequest="@HandlePromptRequest" PromptSuggestions="PromptSuggestions"></TelerikAIPrompt>
-
-@code {
-    private List<string> PromptSuggestions { get; set; } = new List<string>()
-    {
-        "Act as a marketing specialist and content writer and write a compelling [type of text] that speaks directly to my [ideal customer persona] and encourages them to take [desired action] on my [website/product].",
-        "I'm looking for a [type of text] that will convince [ideal customer persona] to sign up for my [program/newsletter] by explaining the value it brings and the benefits they'll receive.",
-        "Write a Twitter thread idea that will both go viral and attract high-quality leads for my [product/service] with a strong call-to-action and compelling visuals."
-    };
-
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-    }
-}
-````
+<demo metaUrl="client/aiprompt/views/prompt/promptsuggestions-1/" height="550"></demo>
 
 ## See Also
 

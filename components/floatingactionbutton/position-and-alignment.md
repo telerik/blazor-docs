@@ -37,56 +37,7 @@ Use the available alignment parameters to control which side of the Floating Act
 
 ## Example
 
-````RAZOR
-<div class="custom-container">
-    <label>
-        Horizontal Alignment
-        <br />
-        <TelerikRadioGroup Data="@HorizontalAligns"
-                           @bind-Value="@HorizontalAlign">
-        </TelerikRadioGroup>
-    </label>
-    <label>
-        Vertical Alignment
-        <br />
-        <TelerikRadioGroup Data="@VerticalAligns"
-                           @bind-Value="@VerticalAlign">
-        </TelerikRadioGroup>
-    </label>
-</div>
-
-<TelerikFloatingActionButton HorizontalAlign="@HorizontalAlign"
-                             VerticalAlign="@VerticalAlign"
-                             Icon="SvgIcon.Pin" />
-
-<style>
-    .custom-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        column-gap: 10px;
-    }
-</style>
-
-@code {
-    private FloatingActionButtonHorizontalAlign HorizontalAlign { get; set; } = FloatingActionButtonHorizontalAlign.Start;
-    private List<FloatingActionButtonHorizontalAlign> HorizontalAligns { get; set; } = new List<FloatingActionButtonHorizontalAlign>()
-    {
-        FloatingActionButtonHorizontalAlign.Start,
-        FloatingActionButtonHorizontalAlign.Center,
-        FloatingActionButtonHorizontalAlign.End
-    };
-
-    private FloatingActionButtonVerticalAlign VerticalAlign { get; set; } = FloatingActionButtonVerticalAlign.Top;
-    private List<FloatingActionButtonVerticalAlign> VerticalAligns { get; set; } = new List<FloatingActionButtonVerticalAlign>()
-    {
-        FloatingActionButtonVerticalAlign.Top,
-        FloatingActionButtonVerticalAlign.Middle,
-        FloatingActionButtonVerticalAlign.Bottom
-    };
-}
-````
+<demo metaUrl="client/floatingactionbutton/position-alignment/example-1/" height="420"></demo>
 
 ## See Also
 

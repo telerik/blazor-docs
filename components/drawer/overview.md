@@ -99,36 +99,7 @@ The Drawer methods are accessible through it's reference. These methods change t
 
 >caption Get a reference to the drawer and use its methods
 
-````RAZOR
-@* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
-
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon="@SvgIcon.Menu">
-    Toggle drawer
-</TelerikButton>
-
-<TelerikDrawer Data="@Data" Mode="@DrawerMode.Push"
-               @ref="@DrawerRef">
-    <DrawerContent>lorem ipsum</DrawerContent>
-</TelerikDrawer>
-
-@code {
-    Telerik.Blazor.Components.TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-
-    IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
-            };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/methods-1/" height="420"></demo>
 
 ## Next Steps
 

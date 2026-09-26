@@ -23,25 +23,7 @@ The `ViewTemplate` allows you to control the rendering of view's content. You ca
 
 >caption Using the `ViewTemplate` to alter the appearance of the Prompt view
 
-````RAZOR
-<TelerikAIPrompt @ref="@AIPromptRef" @bind-Prompt="@Prompt">
-    <AIPromptViews>
-        <AIPromptPromptView ButtonIcon="@SvgIcon.Sparkles">
-            <ViewTemplate>
-                <TelerikTextBox @bind-Value="@Prompt" Placeholder="Type your prompt here..." />
-            </ViewTemplate>
-        </AIPromptPromptView>
-        <AIPromptOutputView ButtonIcon="@SvgIcon.Comment">
-        </AIPromptOutputView>
-    </AIPromptViews>
-</TelerikAIPrompt>
-
-@code {
-    private TelerikAIPrompt AIPromptRef { get; set; }
-
-    private string Prompt { get; set; }
-}
-````
+<demo metaUrl="client/aiprompt/views/templates/viewtemplate-2/" height="420"></demo>
 
 ## Footer Template
 
@@ -49,37 +31,7 @@ The `FooterTemplate` allows you to control the rendering of the footer within in
 
 >caption Using the `FooterTemplate` to define a custom button.
 
-````RAZOR
-<TelerikAIPrompt @ref="@AIPromptRef" @bind-Prompt="@Prompt">
-    <AIPromptViews>
-        <AIPromptPromptView ButtonIcon="@SvgIcon.Sparkles">
-            <FooterTemplate>
-                <TelerikButton OnClick="@HandlePromptRequest">Generate</TelerikButton>
-            </FooterTemplate>
-        </AIPromptPromptView>
-        <AIPromptOutputView ButtonIcon="@SvgIcon.Comment">
-        </AIPromptOutputView>
-    </AIPromptViews>
-</TelerikAIPrompt>
-
-@code {
-    private TelerikAIPrompt AIPromptRef { get; set; }
-
-    private string Prompt { get; set; }
-
-    private void HandlePromptRequest()
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        AIPromptRef.AddOutput(
-            output: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            title: "Generated response",
-            subtitle: string.Empty,
-            prompt: Prompt,
-            commandId: null,
-            openOutputView: true);
-    }
-}
-````
+<demo metaUrl="client/aiprompt/views/templates/footertemplate-1/" height="420"></demo>
 
 ## See Also
 

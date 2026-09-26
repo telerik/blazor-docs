@@ -75,68 +75,7 @@ The `PromptChanged` event fires when the user changes the prompt text. Use the e
 
 >caption Using AIPrompt events
 
-````RAZOR
-@* All AIPrompt events *@
-
-<TelerikAIPrompt OnPromptRequest="@OnPromptRequestHandler"
-                 OnCommandExecute="@OnCommandExecuteHandler"
-                 OutputActions="@OutputActions"
-                 OnOutputActionClick="@OnOutputActionClick"
-                 PromptChanged="@OnPromptChanged"
-                 Prompt="@Prompt"
-                 Commands="@PromptCommands">
-</TelerikAIPrompt>
-
-@code {
-    private string Prompt { get; set; }
-
-    private List<AIPromptCommandDescriptor> PromptCommands { get; set; } = new List<AIPromptCommandDescriptor>()
-    {
-        new AIPromptCommandDescriptor() { Id = "1", Title = "Correct Spelling and grammar", Icon = SvgIcon.SpellChecker },
-        new AIPromptCommandDescriptor() { Id = "2", Title = "Change Tone", Icon = SvgIcon.TellAFriend,
-            Children = new List<AIPromptCommandDescriptor>
-            {
-                new AIPromptCommandDescriptor() { Id = "3", Title = "Professional" },
-                new AIPromptCommandDescriptor() { Id = "4", Title = "Conversational" },
-                new AIPromptCommandDescriptor() { Id = "5", Title = "Humorous" },
-                new AIPromptCommandDescriptor() { Id = "6", Title = "Empathic" },
-                new AIPromptCommandDescriptor() { Id = "7", Title = "Academic" },
-            }
-        },
-    };
-
-    private List<AIPromptOutputActionDescriptor> OutputActions { get; set; } = new List<AIPromptOutputActionDescriptor>()
-    {
-        new AIPromptOutputActionDescriptor() { Name = "Copy", Icon = nameof(SvgIcon.Copy) },
-        new AIPromptOutputActionDescriptor() { Name = "Retry", Icon = nameof(SvgIcon.Share) },
-        new AIPromptOutputActionDescriptor() { Name = "Thumbs Up", Icon = SvgIcon.ThumbUp },
-        new AIPromptOutputActionDescriptor() { Name = "Thumbs Down", Icon = SvgIcon.ThumbDown }
-    };
-
-    private void OnPromptRequestHandler(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel pretium lectus quam id leo in.";
-    }
-
-    private void OnCommandExecuteHandler(AIPromptCommandExecuteEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Nisl pretium fusce id velit ut tortor pretium. A pellentesque sit amet porttitor eget dolor. Lectus mauris ultrices eros in cursus turpis massa tincidunt.";
-    }
-
-    private void OnOutputActionClick(AIPromptOutputActionClickEventArgs args)
-    {
-        // Handle the output action click event
-        Console.WriteLine($"Action clicked: {args.Action.Name}");
-    }
-
-    private void OnPromptChanged(string prompt)
-    {
-        Prompt = prompt;
-    }
-}
-````
+<demo metaUrl="client/aiprompt/events/events/" height="420"></demo>
 
 ## See Also
 

@@ -20,32 +20,7 @@ You can set the `Columns` parameter when [`<FormItemsTemplate>`](slug:form-formi
 
 When using `Columns`, you can also define arbitrary space between the rows with the `RowSpacing` parameter.
 
-````RAZOR
-<TelerikForm Model="@Employee"
-             Columns="2"
-             ColumnSpacing="24px"
-             RowSpacing="24px">
-</TelerikForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        public int Id { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-18);
-        public string CompanyName { get; set; } = string.Empty;
-        public DateTime HireDate { get; set; } = DateTime.Today;
-        public bool IsOnVacation { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Form Columns Example](images/form-columns-example.png)
+<demo metaUrl="client/form/columns/example-1/" height="600"></demo>
 
 ## See Also
 

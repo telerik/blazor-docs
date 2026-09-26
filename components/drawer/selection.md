@@ -21,45 +21,7 @@ If you use the drawer for [page navigation](slug:drawer-navigation), the selecte
 
 >caption Use tho way data binding for the SelectedItem.
 
-````RAZOR
-@* Use two-way data binding with the SelectedItem to display contents according to the user selection *@
-
-<TelerikDrawer Data="@Data"
-               MiniMode="true"
-               Mode="@DrawerMode.Push"
-               @bind-SelectedItem="@selectedItem"
-               @ref="@DrawerRef">
-    <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
-        <div class="text-info">
-            Content for the @selectedItem?.Text item
-        </div>
-    </DrawerContent>
-</TelerikDrawer>
-
-@code {
-    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    public DrawerItem selectedItem { get; set; }
-    public List<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
-             };
-
-    protected override void OnInitialized()
-    {
-        // pre-select an item. Not required
-        selectedItem = Data[Data.Count - 1];
-    }
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/selection/selection-1/" height="420"></demo>
 
 
 ## See Also

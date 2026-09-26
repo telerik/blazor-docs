@@ -32,19 +32,7 @@ The ExpansionPanel and [PanelBar](slug:panelbar-overview) are similar and interc
 
 >caption Basic Blazor ExpasionPanel
 
-````RAZOR
-<TelerikExpansionPanel @bind-Expanded="@ExpansionPanelExpanded"
-                       SubTitle="Sub Title"
-                       Title="Expansion Panel Title">
-    <Content>
-        Expansion Panel Content
-    </Content>
-</TelerikExpansionPanel>
-
-@code {
-    private bool ExpansionPanelExpanded { get; set; }
-}
-````
+<demo metaUrl="client/expansionpanel/basic-3/" height="420"></demo>
 
 ## Icons
 
@@ -52,20 +40,7 @@ The ExpansionPanel uses [`ChevronDown` and `ChevronUp` icons](slug:common-featur
 
 >caption Using custom ExpasionPanel icons
 
-````RAZOR
-<TelerikExpansionPanel CollapseIcon="@SvgIcon.ArrowUp"
-                       ExpandIcon="@SvgIcon.ArrowDown"
-                       @bind-Expanded="@ExpansionPanelExpanded"
-                       Title="Expansion Panel Title">
-    <Content>
-        ExpansionPanel Content
-    </Content>
-</TelerikExpansionPanel>
-
-@code {
-    private bool ExpansionPanelExpanded { get; set; }
-}
-````
+<demo metaUrl="client/expansionpanel/custom-icons-2/" height="420"></demo>
 
 ## User Interaction
 
@@ -109,41 +84,7 @@ The ExpansionPanel methods `ExpandAsync`, `CollapseAsync`, and `ToggleAsync` pro
 
 >caption Using ExpansionPanel methods
 
-````RAZOR
-<TelerikButton OnClick="@OnExpandButtonClick">Expand</TelerikButton>
-<TelerikButton OnClick="@OnCollapseButtonClick">Collapse</TelerikButton>
-<TelerikButton OnClick="@OnToggleButtonClick">Toggle</TelerikButton>
-
-<TelerikExpansionPanel @ref="ExpansionPanelRef"
-                       @bind-Expanded="@ExpansionPanelExpanded"
-                       Title="Expansion Panel Title"
-                       Toggleable="false">
-    <Content>
-        Expansion Panel Content
-    </Content>
-</TelerikExpansionPanel>
-
-@code {
-    private TelerikExpansionPanel? ExpansionPanelRef;
-
-    private bool ExpansionPanelExpanded { get; set; }
-
-    private async Task OnExpandButtonClick()
-    {
-        await ExpansionPanelRef!.ExpandAsync();
-    }
-
-    private async Task OnCollapseButtonClick()
-    {
-        await ExpansionPanelRef!.CollapseAsync();
-    }
-
-    private async Task OnToggleButtonClick()
-    {
-        await ExpansionPanelRef!.ToggleAsync();
-    }
-}
-````
+<demo metaUrl="client/expansionpanel/methods-1/" height="420"></demo>
 
 ## Next Steps
 
