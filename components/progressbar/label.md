@@ -17,11 +17,9 @@ This article explains how to customize the ProgressBar label position and conten
 
 To access the customization settings use the `<ProgressBarLabel>`. It provides a `Context` which exposes a `Value` parameter which is representation of the current value of the component.
 
->caption Customize the label for the ProgressBar. The result from the code snippet below.
+>caption Customize the label for the ProgressBar.
 
-![customize the labels of the progress bar](images/progress-bar-customize-label.png)
-
-<demo metaUrl="client/progressbar/label/example-1/" height="420"></demo>
+<demo metaUrl="client/progressbar/label/example-1/" height="300"></demo>
 
 ## Features
 

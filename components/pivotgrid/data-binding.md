@@ -81,8 +81,36 @@ The `<PivotGridXmlaDataProviderCredentials>` component creates an object, which 
 
 >caption PivotGrid bound to XMLA data provider without credentials
 
-<div class="skip-repl"></div>
-<demo metaUrl="client/pivotgrid/data-binding/example-1/" height="420"></demo>
+````RAZOR.skip-repl
+<TelerikPivotGridContainer>
+	<TelerikPivotGridConfigurator />
+
+	<TelerikPivotGridConfiguratorButton />
+
+	<TelerikPivotGrid DataProviderType="@PivotGridDataProviderType.Xmla"
+					  TItem="object">
+		<PivotGridSettings>
+			<PivotGridXmlaDataProviderSettings ServerUrl="https://demos.telerik.com/olap/msmdpump.dll"
+											   Catalog="Adventure Works DW 2008R2"
+											   Cube="Adventure Works" />
+		</PivotGridSettings>
+
+		<PivotGridRows>
+			<PivotGridRow Name="[Product].[Category]"></PivotGridRow>
+			<PivotGridRow Name="[Product].[Model Name]"></PivotGridRow>
+		</PivotGridRows>
+
+		<PivotGridColumns>
+			<PivotGridColumn Name="[Date].[Calendar Quarter of Year]"></PivotGridColumn>
+			<PivotGridColumn Name="[Date].[Calendar Year]"></PivotGridColumn>
+		</PivotGridColumns>
+
+		<PivotGridMeasures>
+			<PivotGridMeasure Name="[Measures].[Reseller Order Count]"></PivotGridMeasure>
+		</PivotGridMeasures>
+	</TelerikPivotGrid>
+</TelerikPivotGridContainer>
+````
 
 ## See Also
 

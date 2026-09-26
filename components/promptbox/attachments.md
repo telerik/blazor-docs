@@ -19,7 +19,7 @@ To enable file attachment functionality, set the `EnableFileSelect` parameter to
 
 >caption Basic file attachment setup
 
-<demo metaUrl="client/promptbox/attachments/example-1/" height="420"></demo>
+<demo metaUrl="client/promptbox/attachments/example-1/" height="300"></demo>
 
 ## File Selection Parameters and Events
 

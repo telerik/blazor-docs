@@ -28,7 +28,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle the OnChange event and use two-way binding
 
-<demo metaUrl="client/radiogroup/events/example-3/" height="420"></demo>
+<demo metaUrl="client/radiogroup/events/example-3/" height="350"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -41,7 +41,7 @@ The example below uses [binding](slug:radiogroup-databind) to string data for br
 
 >caption Handle ValueChanged
 
-<demo metaUrl="client/radiogroup/events/example-2/" height="420"></demo>
+<demo metaUrl="client/radiogroup/events/example-2/" height="350"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -55,7 +55,7 @@ The `OnBlur` event fires when an element inside the component loses focus (radio
 
 >caption Handle the OnBlur event
 
-<demo metaUrl="client/radiogroup/events/example-1/" height="420"></demo>
+<demo metaUrl="client/radiogroup/events/example-1/" height="350"></demo>
 
 
 

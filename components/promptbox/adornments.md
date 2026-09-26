@@ -30,7 +30,7 @@ In `Auto` mode, the position updates automatically as the input expands from one
 
 >caption Start affix with mode-aware positioning
 
-<demo metaUrl="client/promptbox/adornments/example-3/" height="420"></demo>
+<demo metaUrl="client/promptbox/adornments/example-3/" height="320"></demo>
 
 ### End Affix Template  
 
@@ -43,7 +43,7 @@ In Auto mode, the position updates automatically as the input expands from one l
 
 >caption End affix with multiple interactive elements
 
-<demo metaUrl="client/promptbox/adornments/example-2/" height="420"></demo>
+<demo metaUrl="client/promptbox/adornments/example-2/" height="320"></demo>
 
 ### Top Affix Template
 

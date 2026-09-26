@@ -27,7 +27,7 @@ The event provides [`PromptBoxActionButtonEventArgs`](https://docs.telerik.com/b
 
 >caption Handle action button interactions
 
-<demo metaUrl="client/promptbox/events/example-5/" height="420"></demo>
+<demo metaUrl="client/promptbox/events/example-5/" height="320"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -45,7 +45,7 @@ The `OnChange` event represents a user confirmation of the current value. It is 
 
 >caption Handle OnChange event
 
-<demo metaUrl="client/promptbox/events/example-3/" height="420"></demo>
+<demo metaUrl="client/promptbox/events/example-3/" height="320"></demo>
 
 ### OnBlur
 
@@ -53,7 +53,7 @@ The `OnBlur` event fires when the PromptBox loses focus, regardless of whether t
 
 >caption Handle OnBlur event
 
-<demo metaUrl="client/promptbox/events/example-2/" height="420"></demo>
+<demo metaUrl="client/promptbox/events/example-2/" height="320"></demo>
 
 ## Speech-to-Text Events
 
@@ -69,7 +69,7 @@ When speech-to-text functionality is enabled, the PromptBox provides events thro
 
 >caption Speech-to-text event handling
 
-<demo metaUrl="client/promptbox/events/example-1/" height="420"></demo>
+<demo metaUrl="client/promptbox/events/example-1/" height="320"></demo>
 
 ## File Selection Events
 

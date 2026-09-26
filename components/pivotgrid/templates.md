@@ -45,8 +45,7 @@ All template components expose an optional `Context` parameter. Set it in scenar
 
 >caption Using PivotGrid header and data cell templates
 
-<div class="skip-repl"></div>
-<demo metaUrl="client/pivotgrid/templates/example-1/" height="420"></demo>
+<demo metaUrl="client/pivotgrid/templates/example-1/" height="520"></demo>
 
 
 ## See Also
