@@ -22,28 +22,7 @@ The Skeleton `AnimationType` parameter controls the animation of the Skeleton. S
 
 >caption Using Skeleton animations
 
-````RAZOR
-<div style="display: flex; gap: 2em;">
-    <div style="flex: 1">
-        Pulse Animation (default)
-        <TelerikSkeleton AnimationType="@SkeletonAnimationType.Pulse"
-                         Height="40px"
-                         ShapeType="@SkeletonShapeType.Rectangle" />
-    </div>
-    <div style="flex: 1">
-        Wave Animation
-        <TelerikSkeleton AnimationType="@SkeletonAnimationType.Wave"
-                         Height="40px"
-                         ShapeType="@SkeletonShapeType.Rectangle" />
-    </div>
-    <div style="flex: 1">
-        No Animation
-        <TelerikSkeleton AnimationType="@SkeletonAnimationType.None"
-                         Height="40px"
-                         ShapeType="@SkeletonShapeType.Rectangle" />
-    </div>
-</div>
-````
+<demo metaUrl="client/skeleton/appearance/example-1/" height="420"></demo>
 
 ## ShapeType
 
@@ -56,30 +35,7 @@ The differences between `Rectangle` and `Text` are:
 
 >caption Using Skeleton shapes
 
-````RAZOR
-<div style="display: flex; gap: 2em;">
-    <div style="flex: 1">
-        Circle (default)
-
-        <TelerikSkeleton Height="64px"
-                        ShapeType="@SkeletonShapeType.Circle"
-                        Width="64px" />
-    </div>
-    <div style="flex: 1">
-        Rectangle
-
-        <TelerikSkeleton Height="64px"
-                        ShapeType="@SkeletonShapeType.Rectangle" />
-    </div>
-    <div style="flex: 1">
-        Text (default)
-
-        <TelerikSkeleton Height="24px" />
-        <TelerikSkeleton Height="24px" />
-        <TelerikSkeleton Height="24px" />
-    </div>
-</div>
-````
+<demo metaUrl="client/skeleton/appearance/example-2/" height="420"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

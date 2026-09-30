@@ -42,33 +42,7 @@ Much like the Stepper component, the internal Stepper of the Wizard provides two
 
 >caption Set up the Wizard to display step labels only
 
-````RAZOR
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="250px">
-        <WizardSettings>
-            <WizardStepperSettings StepType="StepperStepType.Labels">
-            </WizardStepperSettings>
-        </WizardSettings>
-        <WizardSteps>
-            <WizardStep Label="Cart" Icon="@SvgIcon.Cart">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Delivery address" Icon="@SvgIcon.Pin">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-````
+<demo metaUrl="client/wizard/structure/stepper/example-1/" height="440"></demo>
 
 ## Linear flow
 
@@ -76,40 +50,9 @@ The `Linear` flow property of the internal Stepper matches the functionality of 
 
 You can enable/disable the Linear flow of the Wizard Stepper through the `Linear` parameter of the `WizardStepperSettings`. It takes a `bool` and its default value is `true`.
 
->caption Disable the Linear flow of the Wizard Stepper. The result from the snippet below.
+>caption Disable the Linear flow of the Wizard Stepper.
 
-![Disabled Linear flow](images/disabled-linear-flow-example.gif)
-
-
-````RAZOR
-@* Disable the Linear flow of the Wizard *@
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSettings>
-            <WizardStepperSettings Linear="false">
-            </WizardStepperSettings>
-        </WizardSettings>
-        <WizardSteps>
-            <WizardStep Label="Cart" Icon="@SvgIcon.Cart">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Delivery address" Icon="SvgIcon.Pin">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-````
+<demo metaUrl="client/wizard/structure/stepper/example-2/" height="480"></demo>
 
 ## Individual Stepper Settings
 
@@ -124,31 +67,7 @@ The priority and rules applied for their rendering is the same as for the [Stepp
 
 >caption Set up the desired content for the Wizard Stepper indicators.
 
-````RAZOR
-@* Configure the indicators of the Wizard Stepper *@
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Text="1" Label="Text">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Icon="@SvgIcon.Pin" Label="Icon">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Icon="SvgIcon.Globe" Label="Svg Icon">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-````
+<demo metaUrl="client/wizard/structure/stepper/example-3/" height="480"></demo>
 
 ### Labels
 
@@ -156,31 +75,7 @@ The Wizard Stepper allows you to set labels for the corresponding step indicator
 
 >caption Set up the desired labels for the Wizard Stepper steps.
 
-````RAZOR
-@* Configure the labels of the Wizard Stepper *@
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Label="Cart" Icon="@("cart")">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Delivery address" Icon="@SvgIcon.Pin">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Payment method" Icon="SvgIcon.Dollar">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-````
+<demo metaUrl="client/wizard/structure/stepper/example-4/" height="480"></demo>
 
 ### Optional
 
@@ -190,36 +85,7 @@ To mark a Wizard step as optional, set the `Optional` parameter of the `WizardSt
 
 >caption Set an optional step in the Wizard Stepper
 
-````RAZOR
-@* Set up an optional Wizard step *@
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Label="Cart" Icon="@("cart")">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Delivery address" Icon="SvgIcon.Pin">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Optional="true" Label="Preview" Icon="SvgIcon.Eye">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
-                <Content>
-                    <h2>Content for Wizard Step 4</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-````
+<demo metaUrl="client/wizard/structure/stepper/example-5/" height="480"></demo>
 
 
 ### Disabled
@@ -237,47 +103,7 @@ Respectively, if the previous step is disabled, the Previous button will be disa
 
 >caption Disable a Wizard step.
 
-````RAZOR
-@* Set up a disabled Wizard step *@
-
-<TelerikButton OnClick="@ToggleDisabled">Toggle Disabled of the Preview Step</TelerikButton>
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Label="Cart" Icon="@("cart")">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Delivery address" Icon="SvgIcon.Pin">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Disabled="@IsDisabled" Label="Preview" Icon="@("eye")">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
-                <Content>
-                    <h2>Content for Wizard Step 4</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-
-@code {
-    public bool IsDisabled { get; set; }
-
-    void ToggleDisabled()
-    {
-        IsDisabled = !IsDisabled;
-    }
-}
-````
+<demo metaUrl="client/wizard/structure/stepper/example-6/" height="480"></demo>
 
 ### Valid
 
@@ -289,53 +115,7 @@ You can toggle the `Valid` parameter value based on your application logic to ac
 
 >caption Set up valid/invalid steps in the Wizard Stepper.
 
-````RAZOR
-@* Wizard with valid and invalid steps *@
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Valid="@IsStep1Valid" OnChange="@OnChangeHandler1" Label="Cart" Icon="@SvgIcon.Cart">
-                <Content>
-                    <h2>Valid Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Valid="@IsStep2Valid" OnChange="@OnChangeHandler2" Label="Delivery address" Icon="SvgIcon.Pin">
-                <Content>
-                    <h2>Invalid step for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Preview" Icon="@SvgIcon.Pin">
-                <Content>
-                    <h2>Content for Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-
-@code {
-    public bool? IsStep1Valid { get; set; }
-
-    public bool? IsStep2Valid { get; set; }
-
-    void OnChangeHandler1()
-    {
-        IsStep1Valid = true;
-    }
-
-    //prevent the user from going to the next/previous step if the current step is invalid
-    void OnChangeHandler2(WizardStepChangeEventArgs args)
-    {
-        IsStep2Valid = false;
-
-        if (IsStep2Valid == false)
-        {
-            args.IsCancelled = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/wizard/structure/stepper/example-7/" height="480"></demo>
 
 ### Visible
 
@@ -347,52 +127,7 @@ The Wizard `Value` always refers to the full zero-based step index, including hi
 
 >caption Toggle the visibility of a Wizard step
 
-````RAZOR
-<TelerikButton OnClick="@ToggleVisibility">Toggle Visibility of the Preview Step</TelerikButton>
-
-<div style="text-align:center">
-    <TelerikWizard @bind-Value="@WizardValue" Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Label="Cart" Icon="@("cart")">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Delivery address" Icon="SvgIcon.Pin">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Visible="@IsVisible" Label="Preview" Icon="@("eye")">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
-                <Content>
-                    <h2>Content for Wizard Step 4</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-
-@code {
-    private bool IsVisible { get; set; } = true;
-
-    private int WizardValue { get; set; }
-
-    private void ToggleVisibility()
-    {
-        if (IsVisible && WizardValue == 2)
-        {
-            WizardValue = 1;
-        }
-
-        IsVisible = !IsVisible;
-    }
-}
-````
+<demo metaUrl="client/wizard/structure/stepper/example-8/" height="480"></demo>
 
 ## See Also
 

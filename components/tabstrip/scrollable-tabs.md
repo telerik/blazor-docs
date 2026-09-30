@@ -34,79 +34,7 @@ The `Start` and `End`  values of `ScrollButtonsPosition` take into account if [r
 
 >caption Using scrollable TabStrip tabs
 
-````RAZOR
-<div style="display: flex; gap: 2em; flex-wrap: wrap; margin: 0 0 2em;">
-    <label>
-        <strong>TabStrip Width:</strong>
-        <TelerikNumericTextBox @bind-Value="@TabStripWidth" Format="# '%'" Min="10" Max="100" Step="10" Width="120px" />
-    </label>
-    <div>
-        <strong>Button Position:</strong>
-        <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-            @foreach (TabStripScrollButtonsPosition position in TabStripScrollButtonsPositions)
-            {
-                <ButtonGroupToggleButton Selected="@(TabStripScrollButtonsPosition == position)"
-                                         SelectedChanged="@((bool selected) => { if (selected) TabStripScrollButtonsPosition = position; })">
-                    @position
-                </ButtonGroupToggleButton>
-            }
-        </TelerikButtonGroup>
-    </div>
-    <div>
-        <strong>Button Visibility:</strong>
-        <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-            @foreach (TabStripScrollButtonsVisibility visibility in TabStripScrollButtonsVisibilities)
-            {
-                <ButtonGroupToggleButton Selected="@(TabStripScrollButtonsVisibility == visibility)"
-                                         SelectedChanged="@((bool selected) => { if (selected) TabStripScrollButtonsVisibility = visibility; })">
-                    @visibility
-                </ButtonGroupToggleButton>
-            }
-        </TelerikButtonGroup>
-    </div>
-</div>
-
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
-                 OverflowMode="@TabStripOverflowMode.Scroll"
-                 ScrollButtonsPosition="@TabStripScrollButtonsPosition"
-                 ScrollButtonsVisibility="@TabStripScrollButtonsVisibility"
-                 Width="@($"{TabStripWidth}%")">
-    @for (int i = 1; i <= TabStripTabs; i++)
-    {
-        string tabId = $"tab{i}";
-        string tabTitle = $"Tab {i}";
-        <TabStripTab @key="@tabId"
-                        Id="@tabId"
-                        Title="@tabTitle">
-            <p>Content of @tabTitle</p>
-        </TabStripTab>
-    }
-</TelerikTabStrip>
-
-@code {
-    private string TabStripActiveTabId { get; set; } = "tab1";
-
-    private int TabStripWidth { get; set; } = 100;
-    private int TabStripTabs { get; set; } = 9;
-
-    private TabStripScrollButtonsPosition TabStripScrollButtonsPosition { get; set; } = TabStripScrollButtonsPosition.Split;
-    private TabStripScrollButtonsVisibility TabStripScrollButtonsVisibility { get; set; } = TabStripScrollButtonsVisibility.Auto;
-
-    private readonly TabStripScrollButtonsPosition[] TabStripScrollButtonsPositions = new[]
-    {
-        TabStripScrollButtonsPosition.End,
-        TabStripScrollButtonsPosition.Split,
-        TabStripScrollButtonsPosition.Start
-    };
-
-    private readonly TabStripScrollButtonsVisibility[] TabStripScrollButtonsVisibilities = new[]
-    {
-        TabStripScrollButtonsVisibility.Auto,
-        TabStripScrollButtonsVisibility.Hidden,
-        TabStripScrollButtonsVisibility.Visible
-    };
-}
-````
+<demo metaUrl="client/tabstrip/scrollable-tabs/example-3/" height="440"></demo>
 
 ## Overflow Menu
 
@@ -118,36 +46,7 @@ The TabStrip exposes the built-in overflow menu as a separate [`TabStripOverflow
 
 >caption Using the TabStrip overflow menu
 
-````RAZOR
-<div style="margin: 0 0 2em;">
-    <label>
-        <strong>TabStrip Width:</strong>
-        <TelerikNumericTextBox @bind-Value="@TabStripWidth" Format="# '%'" Min="10" Max="100" Step="10" Width="120px" />
-    </label>
-</div>
-
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
-                 OverflowMode="@TabStripOverflowMode.Menu"
-                 Width="@($"{TabStripWidth}%")">
-    @for (int i = 1; i <= TabStripTabs; i++)
-    {
-        string tabId = $"tab{i}";
-        string tabTitle = $"Tab {i}";
-        <TabStripTab @key="@tabId"
-                        Id="@tabId"
-                        Title="@tabTitle">
-            <p>Content of @tabTitle</p>
-        </TabStripTab>
-    }
-</TelerikTabStrip>
-
-@code {
-    private string TabStripActiveTabId { get; set; } = "tab1";
-
-    private int TabStripWidth { get; set; } = 100;
-    private int TabStripTabs { get; set; } = 9;
-}
-````
+<demo metaUrl="client/tabstrip/scrollable-tabs/example-2/" height="420"></demo>
 
 ## TabStripOverflowMenu Component
 
@@ -161,86 +60,7 @@ See the [TabStriptOverflowMenu component API reference](slug:telerik.blazor.comp
 
 >caption Using TabStripOverflowMenu component in TabStripSuffixTemplate
 
-````RAZOR
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
-                 OverflowMode="@TabStripOverflowMode.Menu">
-    <TabStripSuffixTemplate>
-        <TelerikButton Icon="@SvgIcon.Plus"
-                       OnClick="@OnAddTabButtonClick"
-                       Title="Add New Tab" />
-        <TabStripOverflowMenu @ref="@TabStripOverflowMenuRef" />
-    </TabStripSuffixTemplate>
-    <ChildContent>
-        @foreach (TabDescriptor tab in TabDescriptors)
-        {
-            <TabStripTab @key="@tab"
-                         Closeable="@tab.Closeable"
-                         Id="@tab.Id"
-                         Pinnable="@tab.Pinnable"
-                         @bind-Pinned="@tab.Pinned"
-                         Title="@tab.Title"
-                         Visible="@tab.Visible"
-                         VisibleChanged="@((bool newVisible) => TabStripTabVisibleChanged(tab, newVisible))">
-                <p>Content of tab <strong>@tab.Title</strong></p>
-            </TabStripTab>
-        }
-    </ChildContent>
-</TelerikTabStrip>
-
-@code {
-    private string TabStripActiveTabId { get; set; } = string.Empty;
-    private int LastId { get; set; }
-
-    private List<TabDescriptor> TabDescriptors { get; set; } = new();
-
-    private TabStripOverflowMenu? TabStripOverflowMenuRef { get; set; }
-
-    private void OnAddTabButtonClick()
-    {
-        TabDescriptors.Add(new TabDescriptor
-        {
-            Id = $"tab{++LastId}",
-            Title = $"Tab {LastId}",
-            Closeable = true,
-            Pinnable = true,
-        });
-
-        TabStripOverflowMenuRef?.Refresh();
-    }
-
-    private void TabStripTabVisibleChanged(TabDescriptor tabDescriptor, bool newVisible)
-    {
-        tabDescriptor.Visible = newVisible;
-
-        TabStripOverflowMenuRef?.Refresh();
-    }
-
-    protected override void OnInitialized()
-    {
-        TabDescriptors = Enumerable.Range(1, 7).Select(x => new TabDescriptor
-        {
-            Id = $"tab{++LastId}",
-            Title = $"Tab {LastId}",
-            Closeable = true,
-            Pinnable = true,
-            Pinned = LastId == 5
-        }).ToList();
-
-        TabStripActiveTabId = TabDescriptors.First().Id;
-    }
-
-    public class TabDescriptor
-    {
-        public bool Closeable { get; set; }
-        public bool Disabled { get; set; }
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public bool Pinnable { get; set; }
-        public bool Pinned { get; set; }
-        public string Title { get; set; } = "Tab Title";
-        public bool Visible { get; set; } = true;
-    }
-}
-````
+<demo metaUrl="client/tabstrip/scrollable-tabs/example-1/" height="420"></demo>
 
 ## Next Steps
 

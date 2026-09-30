@@ -24,46 +24,7 @@ By default, the tooltip shows on hover (mouseover) of its target, just like the 
 
 >caption Explore the show events of the Tooltip
 
-````RAZOR
-@* Setting a show event is not mandatory, it defaults to Hover *@
-
-<TelerikTooltip TargetSelector="#hoverTarget" ShowOn="@TooltipShowEvent.Hover">
-</TelerikTooltip>
-
-<div id="hoverTarget" title="lorem ipsum">
-    <strong>Hover</strong> me to see the tooltip.
-</div>
-
-<TelerikTooltip TargetSelector="#clickTarget" ShowOn="@TooltipShowEvent.Click">
-</TelerikTooltip>
-
-<div id="clickTarget" title="dolor sit amet">
-    <strong>Click</strong> me to see the tooltip.
-    Then click somewhere to hide the tooltip.
-</div>
-
-@code {
-    TooltipShowEvent showEvent { get; set; } = TooltipShowEvent.Hover;
-}
-
-<style>
-    #hoverTarget {
-        position: absolute;
-        top: 200px;
-        left: 200px;
-        width: 200px;
-        background: yellow;
-    }
-
-    #clickTarget {
-        position: absolute;
-        top: 200px;
-        left: 500px;
-        width: 200px;
-        background: green;
-    }
-</style>
-````
+<demo metaUrl="client/tooltip/show-event/example-1/" height="420"></demo>
 
 ## Next Steps
 

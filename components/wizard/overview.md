@@ -24,33 +24,7 @@ The Wizard uses a [Stepper component](slug:stepper-overview) internally, so know
 
 >caption Basic Telerik Wizard
 
-````RAZOR
-<TelerikWizard @bind-Value="@WizardValue">
-    <WizardSteps>
-        <WizardStep Label="Start" Icon="@SvgIcon.Gear">
-            <Content>
-                <p>Welcome to the Wizard!</p>
-            </Content>
-        </WizardStep>
-        <WizardStep Label="Survey" Icon="@SvgIcon.Pencil">
-            <Content>
-                <p>The user is performing some actions...</p>
-            </Content>
-        </WizardStep>
-        <WizardStep Label="Finish" Icon="SvgIcon.Check">
-            <Content>
-                <p>Thank you!</p>
-            </Content>
-        </WizardStep>
-    </WizardSteps>
-</TelerikWizard>
-
-<p><strong>Wizard Value: @WizardValue</strong></p>
-
-@code {
-    int WizardValue { get; set; }
-}
-````
+<demo metaUrl="client/wizard/overview/example-1/" height="520"></demo>
 
 ## Stepper
 

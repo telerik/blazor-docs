@@ -28,26 +28,7 @@ The `OnClick` event fires before `SelectedChanged`. Do not change the `Selected`
 
 >caption Handle the Toggle Button OnClick event
 
-````RAZOR
-<TelerikToggleButton @bind-Selected="@IsSelected"
-                     OnClick="@OnToggleButtonClick">
-    Toggle Button
-</TelerikToggleButton>
-
-<p> @result </p>
-
-@code {
-    bool IsSelected { get; set; } = true;
-
-    string result { get; set; }
-
-    async Task OnToggleButtonClick(MouseEventArgs args)
-    {
-        await Task.Delay(300); // simulate async operation
-        result = $"The user clicked at {DateTime.Now.ToLongTimeString()}.{DateTime.Now.Millisecond}";
-    }
-}
-````
+<demo metaUrl="client/togglebutton/events/example-1/" height="320"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -61,21 +42,7 @@ The `SelectedChanged` event fires after `OnClick`.
 
 >caption Handle the SelectedChanged event
 
-````RAZOR
-<TelerikToggleButton Selected="@IsSelected"
-                     SelectedChanged="@MySelectedChangedHandler">
-    Toggle Button
-</TelerikToggleButton>
-
-@code {
-    bool IsSelected { get; set; }
-
-    void MySelectedChangedHandler(bool newSelected)
-    {
-        IsSelected = newSelected;
-    }
-}
-````
+<demo metaUrl="client/togglebutton/events/example-2/" height="320"></demo>
 
 ## See Also
 

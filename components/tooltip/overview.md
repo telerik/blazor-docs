@@ -23,21 +23,7 @@ The Blazor Tooltip will automatically display the value of `title` and `alt` att
 
 >caption Basic Tooltip attached to multiple targets
 
-````RAZOR
-<TelerikTooltip TargetSelector=".tooltip-target" />
-
-<div style="padding: 5em;">
-    Hover the button ...
-
-    <TelerikButton Icon="@SvgIcon.Eye" Title="Hello world!" Class="tooltip-target" />
-
-    ... and the question mark:
-
-    <span title="I am a Telerik Blazor Tooltip." class="tooltip-target">
-        <TelerikSvgIcon Icon="@SvgIcon.QuestionCircle" />
-    </span>
-</div>
-````
+<demo metaUrl="client/tooltip/overview/example-1/" height="420"></demo>
 
 >tip For better performance, use one single Tooltip instance for multiple targets, especially if the targets are similar and a lot in number.
 >

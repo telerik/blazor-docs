@@ -42,77 +42,7 @@ The `NodeTemplate` controls the content of the Tooltip that will appear when the
 
 >caption Customizing the Sankey Tooltips
 
-````RAZOR
-<TelerikSankey Data="@Data"
-               DisableAutoLayout="true"
-               Height="400px">
-    <SankeyLinks ColorType="@SankeyLinksColorType.Source" />
-    <SankeyTooltip>
-        <LinkTemplate>
-            <div style="padding:5px; display: flex; align-items: center;">
-                <span class="square-symbol" style="background-color: @context.Source.Color"></span>
-                @context.Source.Label.Text
-
-                <TelerikSvgIcon Icon="@SvgIcon.ChevronRight" Size="@ThemeConstants.SvgIcon.Size.Large"></TelerikSvgIcon>
-
-                <span class="square-symbol" style="background-color: @context.Target.Color"></span>
-                @context.Target.Label.Text
-            </div>
-        </LinkTemplate>
-
-        <NodeTemplate>
-            <div style="color:@context.DataItem.Color; font-weight:bold">
-                @context.DataItem.Label.Text
-            </div>
-        </NodeTemplate>
-    </SankeyTooltip>
-</TelerikSankey>
-
-<style>
-    .square-symbol {
-        width: 15px;
-        height: 15px;
-        display: inline-block;
-        margin-left: 3px;
-        margin-right: 3px;
-    }
-</style>
-
-@code {
-    private SankeyData? Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        var sourceNodes = 3;
-        var destinationNodes = 3;
-
-        Data = new SankeyData()
-            {
-                Nodes = new SankeyDataNodes(),
-                Links = new SankeyDataLinks()
-            };
-
-        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
-        {
-            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
-            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
-        }
-
-        for (int i = 1; i <= sourceNodes; i++)
-        {
-            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
-            {
-                Data.Links.Add(new SankeyDataLink()
-                    {
-                        SourceId = i,
-                        TargetId = j,
-                        Value = Random.Shared.Next(5, 30)
-                    });
-            }
-        }
-    }
-}
-````
+<demo metaUrl="client/sankey/tooltip/example-1/" height="620"></demo>
 
 ## See Also
 

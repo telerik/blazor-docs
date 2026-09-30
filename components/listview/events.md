@@ -557,35 +557,7 @@ The event fires when the user pages the listview. If you will be providing the `
 
 >caption Handle the PageChanged event
 
-````RAZOR
-@result
-
-<TelerikListView Data="@ListViewData" Pageable="true" PageChanged="@PageChangedHandler">
-    <Template>
-        <h6>@context.Name</h6>
-    </Template>
-</TelerikListView>
-
-@code{
-    string result { get; set; }
-    async Task PageChangedHandler(int currPageIndex)
-    {
-        result = $"The user is now on page {currPageIndex}";
-    }
-
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/events/example-1/" height="620"></demo>
 
 ### PageSizeChanged
 
@@ -597,37 +569,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````RAZOR
-<TelerikListView Data="@ListViewData"
-                 Pageable="true"
-                 PageSize="@PageSize"
-                 PageSizeChanged="@PageSizeChangedHandler">
-    <Template>
-        <h6>@context.Name</h6>
-    </Template>
-</TelerikListView>
-
-@code{
-    int PageSize { get; set; } = 15;
-    
-    async Task PageSizeChangedHandler(int newPageSize)
-    {
-        PageSize = newPageSize;
-    }
-
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/events/example-2/" height="620"></demo>
 
 ## See Also
 

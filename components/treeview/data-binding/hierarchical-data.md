@@ -30,64 +30,7 @@ The example below uses two levels of hierarchy, but the same idea applies to any
 
 >caption TreeView with different model type at each all level
 
-````RAZOR
-Hierarchical data hold collections of the child items
-
-<TelerikTreeView Data="@HierarchicalData" @bind-ExpandedItems="@ExpandedItems">
-    <TreeViewBindings>
-        <TreeViewBinding TextField="Category" ItemsField="Products" />
-        <TreeViewBinding Level="1" TextField="ProductName" />
-    </TreeViewBindings>
-</TelerikTreeView>
-
-@code {
-    public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
-
-    public class ProductCategoryItem
-    {
-        public string Category { get; set; }
-        public List<ProductItem> Products { get; set; }
-    }
-
-    public class ProductItem
-    {
-        public string ProductName { get; set; }
-    }
-
-
-    protected override void OnInitialized()
-    {
-        LoadHierarchical();
-        ExpandedItems = HierarchicalData.Where(x => x.Products != null && x.Products.Any()).ToList();
-    }
-
-    private void LoadHierarchical()
-    {
-        List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
-
-        List<ProductItem> firstCategoryProducts = new List<ProductItem>()
-        {
-            new ProductItem { ProductName= "Category 1 - Product 1" },
-            new ProductItem { ProductName= "Category 1 - Product 2" }
-        };
-
-        roots.Add(new ProductCategoryItem
-        {
-            Category = "Category 1",
-            Products = firstCategoryProducts // this is how child items are provided
-
-        });
-
-        roots.Add(new ProductCategoryItem
-        {
-            Category = "Category 2" // we will set no other properties and it will not have children, nor will it be expanded
-        });
-
-        HierarchicalData = roots;
-    }
-}
-````
+<demo metaUrl="client/treeview/data-binding/hierarchical-data/example-1/" height="420"></demo>
 
 ## Same Model Type on All Levels
 
@@ -97,86 +40,7 @@ Experiment with the `TreeLevels`, `RootItems` and `ItemsPerLevel` values below.
 
 >caption TreeView with random number of levels and same model type on all levels
 
-````RAZOR
-<TelerikTreeView Data="@HierarchicalData"
-                 CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
-                 CheckChildren="true"
-                 CheckParents="true"
-                 SelectionMode="@TreeViewSelectionMode.Multiple"
-                 @bind-ExpandedItems="@ExpandedItems"
-                 @bind-CheckedItems="@CheckedItems"
-                 @bind-SelectedItems="@SelectedItems" />
-
-@code {
-    private List<TreeItem> HierarchicalData { get; set; } = new();
-    private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
-    private IEnumerable<object> CheckedItems { get; set; } = new List<TreeItem>();
-    private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
-
-    private int TreeLevels { get; set; } = 4;
-    private int RootItems { get; set; } = 3;
-    private int ItemsPerLevel { get; set; } = 2;
-    private int IdCounter { get; set; }
-
-    protected override void OnInitialized()
-    {
-        HierarchicalData = LoadHierarchical();
-
-        // Select, check and expand the root items.
-        ExpandedItems = new List<TreeItem>(HierarchicalData);
-        // CheckChildren and CheckParents don't affect programmatic checking.
-        CheckedItems = new List<TreeItem>(HierarchicalData);
-        SelectedItems = new List<TreeItem>(HierarchicalData);
-    }
-
-    private List<TreeItem> LoadHierarchical()
-    {
-        List<TreeItem> items = new List<TreeItem>();
-
-        PopulateItems(items, 1);
-
-        return items;
-    }
-
-    private void PopulateItems(List<TreeItem> items, int level)
-    {
-        for (int i = 1; i <= (level == 1 ? RootItems : ItemsPerLevel); i++)
-        {
-            var itemId = ++IdCounter;
-
-            var newItem = new TreeItem()
-            {
-                Id = itemId,
-                Text = $"Level {level} Item {i} Id {itemId}"
-            };
-
-            items.Add(newItem);
-
-            if (level < TreeLevels)
-            {
-                PopulateChildren(items, level + 1);
-            }
-        }
-    }
-
-    private void PopulateChildren(List<TreeItem> items, int level)
-    {
-        foreach (var item in items)
-        {
-            item.Items = new List<TreeItem>();
-
-            PopulateItems(item.Items, level);
-        }
-    }
-
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; } = string.Empty;
-        public List<TreeItem>? Items { get; set; }
-    }
-}
-````
+<demo metaUrl="client/treeview/data-binding/hierarchical-data/example-2/" height="420"></demo>
 
 
 ## See Also
