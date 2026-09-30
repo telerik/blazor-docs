@@ -19,51 +19,7 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 >caption Grouping in the MultiSelect
 
-````RAZOR
-<TelerikMultiSelect Data="@Data"
-                 @bind-Value="@SelectedProducts"
-                 GroupField="Category.CategoryName"
-                 TextField="ProductName"
-                 ValueField="ProductId"
-                 Placeholder="Select a product">
-</TelerikMultiSelect>
-
-@code {
-    public IEnumerable<Product> Data { get; set; }
-    public List<int> SelectedProducts { get; set; } = new List<int>();
-
-    protected override void OnInitialized()
-    {
-        List<Product> products = new List<Product>();
-        for (int i = 0; i < 20; i++)
-        {
-            products.Add(new Product()
-            {
-                ProductId = i,
-                ProductName = $"Product {i}",
-                Category = new Category() { CategoryId = i % 5, CategoryName = $"Category {i % 5}" }
-            });
-        }
-
-        Data = products;
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public Category Category { get; set; }
-    }
-
-    public class Category
-    {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multiselect/grouping/example-1/" height="420"></demo>
 
 # Notes
 

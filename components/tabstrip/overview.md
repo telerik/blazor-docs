@@ -37,28 +37,7 @@ To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
 
 >caption Using the TabStrip `ActiveTabId` parameter
 
-````RAZOR
-<TelerikButton OnClick="@(() => TabStripActiveTabId = string.Empty)">Deactivate Tab</TelerikButton>
-
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId">
-    <TabStripTab Id="tab1"
-                 Title="Tab 1">
-        First tab content.
-    </TabStripTab>
-    <TabStripTab Id="tab2"
-                 Title="Tab 2">
-        Second tab content.
-    </TabStripTab>
-    <TabStripTab Id="tab3"
-                 Title="Tab 3">
-        Third tab content.
-    </TabStripTab>
-</TelerikTabStrip>
-
-@code {
-    private string TabStripActiveTabId { get; set; } = "tab1";
-}
-````
+<demo metaUrl="client/tabstrip/overview/example-1/" height="420"></demo>
 
 ## Tab Position and Alignment
 

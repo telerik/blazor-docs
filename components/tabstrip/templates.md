@@ -24,7 +24,7 @@ Using a `HeaderTemplate` requires you to define the tab content inside a `<Conte
 
 >caption Using TabStrip HeaderTemplate
 
-<demo metaUrl="client/tabstrip/headertemplate/" height="420"></demo>
+<demo metaUrl="client/tabstrip/headertemplate/" height="320"></demo>
 
 >tip For styling customizations on the tab headers, you can use the `TabStripTab` `Class` parameter instead of a `HeaderTemplate`, or use both at the same time.
 
@@ -38,76 +38,7 @@ The Suffix Template disables the rendering of the built-in [Overflow Menu](slug:
 
 >caption Using TabStrip SuffixTemplate
 
-````RAZOR
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
-                 Height="300px">
-    <TabStripSuffixTemplate>
-        <TelerikButton Icon="@SvgIcon.ArrowLeft"
-                       OnClick="@OnPreviousClick"
-                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                       Title="Previous Tab" />
-        <TelerikButton Icon="@SvgIcon.ArrowRight"
-                       OnClick="@OnNextClick"
-                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                       Title="Next Tab" />
-    </TabStripSuffixTemplate>
-    <ChildContent>
-        @for (int i = 1; i <= 5; i++)
-        {
-            string tabId = i.ToString();
-            string tabTitle = $"Tab {i}";
-            <TabStripTab @key="@tabId"
-                         Id="@tabId"
-                         Title="@tabTitle">
-                <p>Content of @tabTitle</p>
-            </TabStripTab>
-        }
-    </ChildContent>
-</TelerikTabStrip>
-
-@code {
-    private string TabStripActiveTabId { get; set; } = "1";
-    private const int TabCount = 5;
-
-    private TabStripTabAlignment TabStripTabAlignment { get; set; } = TabStripTabAlignment.Start;
-    private TabPosition TabStripTabPosition { get; set; } = TabPosition.Top;
-    private readonly TabStripTabAlignment[] TabStripTabAlignments = new[]
-    {
-        TabStripTabAlignment.Center,
-        TabStripTabAlignment.End,
-        TabStripTabAlignment.Justify,
-        TabStripTabAlignment.Start,
-        TabStripTabAlignment.Stretched
-    };
-
-    private readonly TabPosition[] TabPositions = new[]
-    {
-        TabPosition.Bottom,
-        TabPosition.Left,
-        TabPosition.Right,
-        TabPosition.Top
-    };
-
-    private void OnPreviousClick()
-    {
-        int currentTabId = GetActiveTabId();
-        int previousTabId = Math.Max(currentTabId - 1, 1);
-        TabStripActiveTabId = previousTabId.ToString();
-    }
-
-    private void OnNextClick()
-    {
-        int currentTabId = GetActiveTabId();
-        int nextTabId = Math.Min(currentTabId + 1, TabCount);
-        TabStripActiveTabId = nextTabId.ToString();
-    }
-
-    private int GetActiveTabId()
-    {
-        return int.Parse(TabStripActiveTabId);
-    }
-}
-````
+<demo metaUrl="client/tabstrip/templates/example-1/" height="500"></demo>
 
 ## Next Steps
 

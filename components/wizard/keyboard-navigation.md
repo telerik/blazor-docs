@@ -65,40 +65,7 @@ The following sample shows how to:
 * Disable `ArrowUp` and `ArrowDown` and only use `ArrowRight` and `ArrowLeft` for nevigating to the next and previous step.
 * Disable `Home` and `End`, so that there is no way to jump to the first or last step.
 
-````RAZOR
-<TelerikWizard @bind-Value="@WizardValue"
-               CustomKeyboardShortcuts="@WizardCustomKeyboardShortcuts">
-    <WizardSteps>
-        <WizardStep Label="Start" Icon="@SvgIcon.Home">
-            <Content>
-                <p>Welcome to the Wizard!</p>
-            </Content>
-        </WizardStep>
-        <WizardStep Label="Survey" Icon="@SvgIcon.Pencil">
-            <Content>
-                <p>The user is performing some actions...</p>
-            </Content>
-        </WizardStep>
-        <WizardStep Label="Finish" Icon="@SvgIcon.Check">
-            <Content>
-                <p>Thank you!</p>
-            </Content>
-        </WizardStep>
-    </WizardSteps>
-</TelerikWizard>
-
-@code {
-    private int WizardValue { get; set; }
-
-    private Dictionary<string, WizardKeyboardCommand?> WizardCustomKeyboardShortcuts => new()
-    {
-        { "ArrowRight", WizardKeyboardCommand.NavigateToNextStep },
-        { "ArrowLeft", WizardKeyboardCommand.NavigateToPreviousStep },
-        { "Home", null },
-        { "End", null }
-    };
-}
-````
+<demo metaUrl="client/wizard/keyboard-navigation/example-1/" height="450"></demo>
 
 ## See Also
 

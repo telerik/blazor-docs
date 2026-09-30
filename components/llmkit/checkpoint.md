@@ -24,31 +24,7 @@ To use the Checkpoint component:
 
 >caption Checkpoint placed above an AI-generated response
 
-````RAZOR
-<TelerikCheckpoint State="@CheckpointState"
-                   Visible="true"
-                   OnClick="@OnCheckpointClick" />
-
-<div>
-    <p>Your top 5 customers by revenue in Q1 2025:</p>
-    <ol>
-        <li>Acme Corp — $142,000</li>
-        <li>TechStart Inc — $98,500</li>
-        <li>Meridian Labs — $87,200</li>
-        <li>Nova Systems — $76,400</li>
-        <li>Brightpath Co — $61,100</li>
-    </ol>
-</div>
-
-@code {
-    private CheckpointState CheckpointState { get; set; } = CheckpointState.StartOver;
-
-    private void OnCheckpointClick()
-    {
-        CheckpointState = CheckpointState.Restore;
-    }
-}
-````
+<demo metaUrl="client/llmkit/checkpoint/example-1/" height="420"></demo>
 
 ## Checkpoint API
 

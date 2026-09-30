@@ -43,43 +43,7 @@ In `Stretch` mode:
 
 >caption Compact and Stretch layout modes
 
-````RAZOR
-@using Telerik.Blazor.Components.SegmentedControl
-
-<h4>Compact (default)</h4>
-<TelerikSegmentedControl TItem="SegmentItem"
-                         TValue="string"
-                         Data="@Items"
-                         @bind-Value="@SelectedCompact"
-                         LayoutMode="@SegmentedControlLayoutMode.Compact">
-</TelerikSegmentedControl>
-
-<h4>Stretch</h4>
-<TelerikSegmentedControl TItem="SegmentItem"
-                         TValue="string"
-                         Data="@Items"
-                         @bind-Value="@SelectedStretch"
-                         LayoutMode="@SegmentedControlLayoutMode.Stretch">
-</TelerikSegmentedControl>
-
-@code {
-    private string SelectedCompact { get; set; }
-    private string SelectedStretch { get; set; }
-
-    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
-    {
-        new SegmentItem() { Text = "Search",  Value = "search" },
-        new SegmentItem() { Text = "Filter",  Value = "filter" },
-        new SegmentItem() { Text = "Sort",    Value = "sort" },
-    };
-
-    public class SegmentItem
-    {
-        public string Text { get; set; }
-        public string Value { get; set; }
-    }
-}
-````
+<demo metaUrl="client/segmentedcontrol/appearance/example-1/" height="420"></demo>
 
 ## Size
 
@@ -93,41 +57,7 @@ The `Size` parameter controls the padding of the Segmented Control items. Use th
 
 >caption Different sizes of the SegmentedControl
 
-````RAZOR
-@foreach (string size in Sizes)
-{
-    <div style="margin-bottom: 1rem;">
-        <span>Size: <strong>@size</strong></span>
-        <TelerikSegmentedControl TItem="SegmentItem"
-                                 TValue="string"
-                                 Data="@Items"
-                                 Size="@size">
-        </TelerikSegmentedControl>
-    </div>
-}
-
-@code {
-    private List<string> Sizes { get; set; } = new List<string>()
-    {
-        Telerik.Blazor.ThemeConstants.Button.Size.Small,
-        Telerik.Blazor.ThemeConstants.Button.Size.Medium,
-        Telerik.Blazor.ThemeConstants.Button.Size.Large,
-    };
-
-    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
-    {
-        new SegmentItem() { Text = "Search",  Value = "search" },
-        new SegmentItem() { Text = "Filter",  Value = "filter" },
-        new SegmentItem() { Text = "Sort",    Value = "sort" },
-    };
-
-    public class SegmentItem
-    {
-        public string Text { get; set; }
-        public string Value { get; set; }
-    }
-}
-````
+<demo metaUrl="client/segmentedcontrol/appearance/example-2/" height="320"></demo>
 
 ## See Also
 

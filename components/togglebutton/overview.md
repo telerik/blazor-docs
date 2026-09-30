@@ -24,26 +24,7 @@ The ToggleButton component can have a selected state, which is the main differen
 
 >caption Basic Telerik ToggleButton
 
-````RAZOR
-<TelerikToggleButton @bind-Selected="@IsSelected"
-                     OnClick="@OnToggleButtonClick">
-    Selected: <strong>@IsSelected</strong>
-</TelerikToggleButton>
-
-<p> @result </p>
-
-@code {
-    bool IsSelected { get; set; } = true;
-
-    string result { get; set; }
-
-    async Task OnToggleButtonClick()
-    {
-        string currentState = IsSelected ? "ON" : "OFF";
-        result = $"The user clicked the {currentState} state";
-    }
-}
-````
+<demo metaUrl="client/togglebutton/overview/example-1/" height="320"></demo>
 
 ## Events
 
@@ -78,25 +59,7 @@ It is possible to apply custom styles to the button through its `Class` paramete
 
 >caption Set CSS class to the button and change its appearance
 
-````RAZOR
-<TelerikToggleButton Class="my-toggle">
-    Toggle Button
-</TelerikToggleButton>
-
-<style>
-    /* default state */
-    .my-toggle.k-button,
-    .my-toggle.k-button:hover {
-        border: 2px solid blue;
-    }
-    /* selected state */
-    .my-toggle.k-selected,
-    .my-toggle.k-selected:hover {
-        color: yellow;
-        font-weight: 700;
-    }
-</style>
-````
+<demo metaUrl="client/togglebutton/overview/example-2/" height="320"></demo>
 
 ## Next Steps
 

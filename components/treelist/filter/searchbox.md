@@ -30,47 +30,7 @@ To enable the SearchBox, add the `<TreeListSearchBox>` tag in the [`<TreeListToo
 
 >caption TreeList SearchBox
 
-````RAZOR
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(SampleModel.Id)"
-                 ParentIdField="@nameof(SampleModel.ParentId)"
-                 Pageable="true"
-                 Sortable="true">
-    <TreeListToolBarTemplate>
-        <TreeListSearchBox />
-    </TreeListToolBarTemplate>
-    <TreeListColumns>
-        <TreeListColumn Field="@nameof(SampleModel.Name)" Expandable="true" />
-        <TreeListColumn Field="@nameof(SampleModel.Description)" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-    private List<SampleModel> TreeListData { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 50; i++)
-        {
-            TreeListData.Add(new SampleModel()
-            {
-                Id = i,
-                ParentId = i <= 5 ? null : Random.Shared.Next(1, 6),
-                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
-                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
-            });
-        }
-    }
-
-    public class SampleModel
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/treelist/filter/searchbox/example-1/" height="720"></demo>
 
 
 ## Search From Code
@@ -104,60 +64,7 @@ The example below demonstrates all SearchBox settings in action, and also how to
 
 >caption TreeList SearchBox customizaton
 
-````RAZOR
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(SampleModel.Id)"
-                 ParentIdField="@nameof(SampleModel.ParentId)"
-                 Pageable="true"
-                 Sortable="true">
-    <TreeListToolBarTemplate>
-        <span class="k-toolbar-spacer"></span>
-        <TreeListSearchBox Class="primary-searchbox"
-                           DebounceDelay="300"
-                           Fields="@SearchableFields"
-                           Placeholder="Search Name Column..."
-                           Width="240px" />
-    </TreeListToolBarTemplate>
-    <TreeListColumns>
-        <TreeListColumn Field="@nameof(SampleModel.Name)" Expandable="true" />
-        <TreeListColumn Field="@nameof(SampleModel.Description)" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-<style>
-    .primary-searchbox {
-        color: var(--kendo-color-primary);
-    }
-</style>
-
-@code {
-    private List<SampleModel> TreeListData { get; set; } = new();
-
-    private List<string> SearchableFields = new List<string> { nameof(SampleModel.Name) };
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 50; i++)
-        {
-            TreeListData.Add(new SampleModel()
-            {
-                Id = i,
-                ParentId = i <= 5 ? null : Random.Shared.Next(1, 6),
-                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
-                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
-            });
-        }
-    }
-
-    public class SampleModel
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/treelist/filter/searchbox/example-2/" height="720"></demo>
 
 ## See Also
 

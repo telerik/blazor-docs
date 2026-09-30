@@ -24,14 +24,7 @@ The Blazor Signature component provides an area where users can draw their signa
 
 >caption Blazor Signature with basic configuration
 
-````RAZOR
-<TelerikSignature @bind-Value="@SignatureValue" Width="300px" Height="300px">
-</TelerikSignature>
-
-@code {
-    private string SignatureValue { get; set; }
-}
-````
+<demo metaUrl="client/signature/overview/example-1/" height="520"></demo>
 
 ## Value Format
 
@@ -41,70 +34,7 @@ To test with physical PNG files, uncomment the code below and run the example in
 
 >caption Using the Signature Value with images
 
-````RAZOR
-@*@inject IWebHostEnvironment HostingEnvironment*@
-
-<p>Draw something to see how the Signature Value looks like.</p>
-
-<TelerikSignature @bind-Value="@SignatureValue"
-                  Width="400px"
-                  Height="200px" />
-
-@if (!string.IsNullOrEmpty(SignatureValue))
-{
-    <p><TelerikButton OnClick="@SavePng">Save PNG Image</TelerikButton></p>
-
-    @if (ShowPng)
-    {
-        <h2>Signature Image as Saved PNG File</h2>
-        <p><strong>Test this in a Blazor Server app.</strong></p>
-        <p>The image source does not include <code>@PngBase64Prefix</code></p>
-        <p><img src="signature.png?@CacheBuster" style="width:400px;" alt="Saved Signature PNG" /></p>
-    }
-
-    <h2>Signature Value</h2>
-    <div style="width:600px;height:5em;margin-top:2em;overflow:auto;word-break:break-all;">
-        @( new MarkupString(SignatureValue
-            .Replace(PngBase64Prefix, $"<strong style=\"color:red\">{PngBase64Prefix}</strong>")) )
-    </div>
-
-    <h2>Signature Image as Data URI</h2>
-    <p>The <code>img src</code> attribute includes <code>@PngBase64Prefix</code></p>
-    <p><img src="@SignatureValue" style="width:400px;" alt="Signature PNG as Data URI" /></p>
-}
-
-@code {
-    private string SignatureValue { get; set; } = string.Empty;
-
-    private bool ShowPng { get; set; }
-    private const string SignaturePngFileName = "signature.png";
-    private const string PngBase64Prefix = "data:image/png;base64,";
-    private string CacheBuster { get; set; } = string.Empty;
-
-    private async Task SavePng()
-    {
-        if (!string.IsNullOrEmpty(SignatureValue))
-        {
-            // Remove "data:image/png;base64," from SignatureValue
-            byte[] imageBytes = Convert.FromBase64String(SignatureValue.Substring(PngBase64Prefix.Length));
-
-            // This code works only in Blazor Server apps.
-            // In WebAssembly apps, you need to send the Signature Value to a server first.
-
-            //var imageSaveLocation = Path.Combine(HostingEnvironment.WebRootPath, SignaturePngFileName);
-
-            //using (var imageFile = new FileStream(imageSaveLocation, FileMode.Create))
-            //{
-            //    await imageFile.WriteAsync(imageBytes, 0, imageBytes.Length);
-            //    await imageFile.FlushAsync();
-            //}
-
-            CacheBuster = DateTime.Now.Ticks.ToString();
-            ShowPng = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/signature/overview/example-2/" height="700"></demo>
 
 ## Appearance
 
@@ -158,28 +88,7 @@ The Signature exposes methods for programmatic operation. To use them, define a 
 
 >caption Obtain reference to the Signature instance and execute methods
 
-````RAZOR
-@* Get a reference to the Signature component and refresh it on button click *@
-
-<TelerikButton OnClick="@RefreshClickHandler">Refresh the Signature</TelerikButton>
-
-<TelerikSignature @bind-Value="@SignatureValue"
-                  Width="300px"
-                  Height="300px"
-                  @ref="@SignatureReference">
-</TelerikSignature>
-
-@code {
-    private TelerikSignature SignatureReference { get; set; }
-
-    private string SignatureValue { get; set; }
-
-    private void RefreshClickHandler()
-    {
-        SignatureReference.Refresh();
-    }
-}
-````
+<demo metaUrl="client/signature/overview/example-3/" height="520"></demo>
 
 ## Next Steps
 

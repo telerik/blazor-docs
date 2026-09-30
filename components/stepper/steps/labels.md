@@ -13,66 +13,21 @@ components: ["stepper"]
 
 The Stepper component allows you to set labels for the corresponding step indicators. You can define the desired labels through the `Label` parameter the `StepperStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the step indicator.
 
->caption Stepper component with indicators and labels. The result from the snippet below.
+>caption Stepper component with indicators and labels.
 
-![Indicators and Labels](images/labels-and-indicators-example.png)
-
-````RAZOR
-@* Stepper with icon indicators and labels *@
-
-<div style="width:500px">
-    <TelerikStepper>
-        <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
-            <StepperStep Label="Education" Icon="@SvgIcon.Book"></StepperStep>
-            <StepperStep Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/steps/labels/example-3/" height="320"></demo>
 
 <br/>
 
->caption Stepper component with indicators and only a couple labels defined. The result from the snippet below.
+>caption Stepper component with indicators and only a couple labels defined.
 
-![Some Labels](images/some-labels-example.png)
-
-````RAZOR
-@* Stepper with icon indicators and only a couple labels *@
-
-<div style="width:500px">
-    <TelerikStepper>
-        <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
-            <StepperStep Icon="@SvgIcon.Book"></StepperStep>
-            <StepperStep Icon="@SvgIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/steps/labels/example-2/" height="320"></demo>
 
 <br/>
 
->caption Stepper component with only indicators and no labels. The result from the snippet below.
+>caption Stepper component with only indicators and no labels.
 
-![Only Indicators](images/only-indicators-example.png)
-
-````RAZOR
-@* Stepper with only indicators and no labels *@
-
-<div style="width:500px">
-    <TelerikStepper>
-        <StepperSteps>
-            <StepperStep Icon="@SvgIcon.User"></StepperStep>
-            <StepperStep Icon="@SvgIcon.Book"></StepperStep>
-            <StepperStep Icon="@SvgIcon.FlipVertical"></StepperStep>
-            <StepperStep Icon="@SvgIcon.Paperclip"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/steps/labels/example-1/" height="320"></demo>
 
 ## See Also
 

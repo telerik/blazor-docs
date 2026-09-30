@@ -35,66 +35,7 @@ To bind data to the `<MultiColumnComboBoxColumn>` you can use the `Field`. This 
 
 >caption MultiColumnComboBoxColumn with its features
 
-````RAZOR
-<TelerikMultiColumnComboBox Data="@MultiComboData"
-                            @bind-Value="@BoundValue"
-                            ValueField="@nameof(SampleData.Id)"
-                            TextField="@nameof(SampleData.Name)"
-                            Width="300px">
-    <MultiColumnComboBoxColumns>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)"
-                                   Title="The id"
-                                   Class="id-cell-class"
-                                   HeaderClass="id-header-class"
-                                   Width="300px">
-        </MultiColumnComboBoxColumn>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)"
-                                   Title="The name"
-                                   Class="name-cell-class"
-                                   HeaderClass="name-header-class"
-                                   Width="300px">
-        </MultiColumnComboBoxColumn>
-    </MultiColumnComboBoxColumns>
-</TelerikMultiColumnComboBox>
-
-@code {
-    public int BoundValue { get; set; }
-
-    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
-        {
-            Id = x,
-            Name = "Name " + x
-        }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-
-<style>
-    .id-cell-class {
-        font-weight: bold;
-        font-style: italic;
-    }
-
-    .id-header-class {
-        font-weight: bold;
-        color: blue;
-    }
-
-    .name-cell-class {
-        color: darkslategray;
-        font-weight: bolder;
-    }
-
-    .name-header-class {
-        font-weight: bold;
-        background-color: lightblue;
-    }
-</style>
-````
+<demo metaUrl="client/multicolumncombobox/overview/example-4/" height="420"></demo>
 
 
 ## See Also

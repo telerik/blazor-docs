@@ -24,12 +24,7 @@ This is the main building block of the listview component. You define the layout
 
 >caption Item template in the ListView
 
-<demo metaUrl="client/listview/template/" height="420"></demo>
-
->caption The result from the snippet above
-
-![listview item template](images/listview-item-template.png)
-
+<demo metaUrl="client/listview/template/" height="600"></demo>
 
 ## Edit Template
 
@@ -39,7 +34,7 @@ This is the template that an item in edit or insert mode renders, instead of its
 
 >caption Declaring an edit template in the ListView. Note: The CUD operations are not implemented in this example.
 
-<demo metaUrl="client/listview/edittemplate/" height="420"></demo>
+<demo metaUrl="client/listview/edittemplate/" height="640"></demo>
 
 ## Header Template
 
@@ -47,12 +42,7 @@ This piece of code renders just above the items, but within the main listview wr
 
 >caption Header Template in the ListView
 
-<demo metaUrl="client/listview/headertemplate/" height="420"></demo>
-
->caption The result from the code snippet above
-
-![listview header template](images/listview-header-template.png)
-
+<demo metaUrl="client/listview/headertemplate/" height="620"></demo>
 
 ## Footer Template
 
@@ -60,11 +50,7 @@ This piece of code renders just below the items, but within the main listview wr
 
 >caption Footer Template in the ListView
 
-<demo metaUrl="client/listview/footertemplate/" height="420"></demo>
-
->caption The result from the code snippet above
-
-![listview footer template](images/listview-footer-template.png)
+<demo metaUrl="client/listview/footertemplate/" height="620"></demo>
 
 ## See Also
 

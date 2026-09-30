@@ -23,14 +23,7 @@ The `SelectFilesButtonTemplate` allows you to modify the **Select Files...** but
 
 >caption Using Upload SelectFilesButtonTemplate
 
-````RAZOR
-<TelerikUpload>
-    <SelectFilesButtonTemplate>
-        <TelerikSvgIcon Icon="@SvgIcon.Upload" />
-        Click to Select Files for Upload
-    </SelectFilesButtonTemplate>
-</TelerikUpload>
-````
+<demo metaUrl="client/upload/templates/example-1/" height="420"></demo>
 
 ## FileTemplate
 
@@ -42,70 +35,7 @@ The example below demonstrates how to use the `RemoveFileAsync()` method to remo
 
 >caption Using Upload FileTemplate
 
-````RAZOR
-<TelerikUpload @ref="@UploadRef" Files="@InitialFiles">
-    <FileTemplate Context="fileContext">
-        <div class="custom-file-item">
-            <div class="file-badge">
-                @fileContext.File.Extension.TrimStart('.').ToUpper()
-            </div>
-            <div class="file-info">
-                <div><strong>@fileContext.File.Name@fileContext.File.Extension</strong></div>
-                <div>Size: @((fileContext.File.Size / 1024.0 / 1024.0).ToString("F2")) MB</div>
-            </div>
-            <TelerikButton Icon="@SvgIcon.X"
-                           FillMode="@ThemeConstants.Button.FillMode.Clear"
-                           OnClick="@(() => RemoveFile(fileContext.File.Id))">
-            </TelerikButton>
-        </div>
-    </FileTemplate>
-</TelerikUpload>
-
-<style>
-    .custom-file-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin-bottom: 5px;
-    }
-
-    .file-badge {
-        width: 40px;
-        height: 40px;
-        background: #0d6efd;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-        font-size: 10px;
-        font-weight: bold;
-    }
-
-    .file-info {
-        flex: 1;
-    }
-</style>
-
-@code {
-    private TelerikUpload UploadRef { get; set; }
-
-    private List<UploadFileInfo> InitialFiles { get; set; } = new List<UploadFileInfo>()
-    {
-        new UploadFileInfo(){ Id="2", Name="Image", Extension=".jpg", Size = 1024 * 1024 * 4 },
-        new UploadFileInfo(){ Id="3", Name="Presentation", Extension=".pptx", Size = 1024 * 1024 * 8 },
-        new UploadFileInfo(){ Id="4", Name="Spreadsheet", Extension=".xlsx", Size = 1024 * 1024 * 3 }
-    };
-
-    private void RemoveFile(string fileId)
-    {
-        UploadRef.RemoveFile(fileId);
-    }
-}
-````
+<demo metaUrl="client/upload/templates/example-2/" height="420"></demo>
 
 ## FileInfoTemplate
 
@@ -115,21 +45,7 @@ The `FileInfoTemplate` exposes a `context` of type `FileInfoTemplateContext` tha
 
 >caption Using Upload FileInfoTemplate
 
-````RAZOR
-<TelerikUpload Files="@InitialFiles">
-    <FileInfoTemplate Context="fileContext">
-        <strong>File Name:</strong> @fileContext.File.Name <br />
-        <strong>Size:</strong> @(fileContext.File.Size / 1024) KB
-    </FileInfoTemplate>
-</TelerikUpload>
-
-@code {
-    private List<UploadFileInfo> InitialFiles { get; set; } = new List<UploadFileInfo>()
-    {
-        new UploadFileInfo(){ Id="1", Name="Report", Extension=".pdf", Size = 1024 * 1024 * 2 }
-    };
-}
-````
+<demo metaUrl="client/upload/templates/example-3/" height="420"></demo>
 
 ## See Also
 

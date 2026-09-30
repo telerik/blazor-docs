@@ -17,32 +17,7 @@ You can move the Window for Blazor by dragging its titlebar with the mouse or wi
 
 >important If you set the `Left` and `Top` parameters, you must use two-way binding for them (or update their values in the corresponding [events](slug:window-events)), otherwise the old information in the view-model will reset the position of the window.
 
-````RAZOR
-<TelerikWindow Visible="true"
-               @bind-Left="@WindowLeft"
-               @bind-Top="@WindowTop">
-    <WindowTitle>Dragging <strong>Enabled</strong></WindowTitle>
-    <WindowContent>
-        Window Content
-    </WindowContent>
-</TelerikWindow>
-
-<TelerikWindow Visible="true"
-               Draggable="false"
-               Left="100px"
-               Top="100px">
-    <WindowTitle>Dragging <strong>Disabled</strong></WindowTitle>
-    <WindowContent>
-        Window Content
-    </WindowContent>
-</TelerikWindow>
-
-@code{
-    private string WindowLeft { get; set; }
-
-    private string WindowTop { get; set; }
-}
-````
+<demo metaUrl="client/window/draggable/example-1/" height="420"></demo>
 
 ## See Also
 
