@@ -1,5 +1,5 @@
 ---
-title: Telerik UI for Blazor AI Tools Overview
+title: Overview
 page_title: Telerik Blazor MCP Server Overview
 description: Learn about the Telerik Blazor MCP Server, choose between orchestrated and targeted modes, and use AI Tools with Telerik UI for Blazor components.
 slug: ai-overview
