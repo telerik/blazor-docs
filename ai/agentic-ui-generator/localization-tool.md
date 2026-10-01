@@ -85,6 +85,22 @@ A mode is the specific action that the Telerik localization tool performs. For b
 | `translate` | [Translate approved or existing `.resx` values](#translate-resource-files). If you already have populated non-translated `.resx` files, you can use `translate` together with `resourcePaths` directly without `preview` and `apply` before that. | `projectPath`, <br /> `targetLocales` | `resourcePaths`, <br /> `retranslateExisting` |
 | `status` | Return the latest workflow state and result. Use it to see: <ul><li>Whether a workflow exists</li><li>Which plan was last saved</li><li>Whether the last saved plan is stale</li><li>How many resources or locales were translated</li></ul> | `projectPath` |  |
 
+### Review Localization Plan
+
+If you need to review the plan from the `preview` stage in detail, consider the following prompt. Note the usage of the `PlannedSourceChanges` and `TargetResourceFiles` properties.
+
+````PROMPT Output full localization plan for review
+Locate the persisted localization plan for project <projectPath> with plan ID <planId>. Display PlannedSourceChanges and TargetResourceFiles as tables. Include the source text, resource key, file and line, replacement expression, locale, and entry counts. Do not modify or apply any files.
+````
+````RAZOR
+````
+
+<style>
+.d-print-none button:nth-child(2) {
+  display: none !important;
+}
+</style>
+
 ## Parameters
 
 A parameter is a required or optional argument for a given mode that configures the mode operation. A required parameter does not necessarily need to be present in your prompt if it can be inferred from the Chat history and context.
