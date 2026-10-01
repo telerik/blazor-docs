@@ -102,6 +102,27 @@ A parameter is a required or optional argument for a given mode that configures 
 
 ## Localize Strings in .razor Files
 
+Scanning in `.razor` files detects the following candidates for translation:
+
+* Plain visible text nodes in Razor markup
+* The following HTML attributes:
+    * `title`
+    * `placeholder`
+    * `alt`
+    * `aria-label`
+    * `aria-description`
+* The following component parameters:
+    * `Description`
+    * `Hint`
+    * `Subtitle`
+    * `Text`
+    * `Label`
+    * `Title`
+    * `Placeholder`
+    * `HeaderText`
+    * `EmptyText`
+    * `Tooltip`
+
 The Telerik localization tool does not handle the following scenarios intentionally:
  
 * String interpolation in markup, for example: `@($"Welcome back, {userName}!")`
