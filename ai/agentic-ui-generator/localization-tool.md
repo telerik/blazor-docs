@@ -104,14 +104,14 @@ A parameter is a required or optional argument for a given mode that configures 
 
 Scanning in `.razor` files detects the following candidates for translation:
 
-* Plain visible text nodes in Razor markup
-* The following HTML attributes:
+* Plain rendered text nodes in the Razor markup
+* The following case-insensitive HTML attributes when they are set to string literals or C# members from the [allowed list](#localize-strings-in-razorcs-and-cs-files):
     * `title`
     * `placeholder`
     * `alt`
     * `aria-label`
     * `aria-description`
-* The following component parameters:
+* The following component parameters (case insensitive) when they are set to string literals or C# members from the [allowed list](#localize-strings-in-razorcs-and-cs-files):
     * `Description`
     * `Hint`
     * `Subtitle`
@@ -147,7 +147,7 @@ The scanning process of C# files is conservative by design and complies with the
 
 ### Supported Property Names
 
-The supported list of UI property names includes:
+The supported list of UI property names (case sensitive) includes:
  
 * `Description`
 * `Hint`
