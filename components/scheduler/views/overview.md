@@ -30,69 +30,7 @@ The available views are:
 
 >caption Allow the user to navigate between Day and Week views only by defining only them. Example how to choose starting View (Week) and Date (29 Nov 2019).
 
-````RAZOR
-@* The user can only choose the Day and Week views - the MultiDay view, for example, is not defined *@
-
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">
-    <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
-        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" />
-    </SchedulerViews>
-</TelerikScheduler>
-
-@code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
-    //the time portions are important
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-            new SchedulerAppointment
-            {
-                Title = "Board meeting",
-                Description = "Q4 is coming to a close, review the details.",
-                Start = new DateTime(2019, 12, 5, 10, 00, 0),
-                End = new DateTime(2019, 12, 5, 11, 30, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Vet visit",
-                Description = "The cat needs vaccinations and her teeth checked.",
-                Start = new DateTime(2019, 12, 2, 11, 30, 0),
-                End = new DateTime(2019, 12, 2, 12, 0, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Planning meeting",
-                Description = "Kick off the new project.",
-                Start = new DateTime(2019, 12, 6, 9, 30, 0),
-                End = new DateTime(2019, 12, 6, 12, 45, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Trip to Hawaii",
-                Description = "An unforgettable holiday!",
-                IsAllDay = true,
-                Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 05)
-            }
-    };
-
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+<demo metaUrl="client/scheduler/overview/example-3/" height="780"></demo>
 
 
 

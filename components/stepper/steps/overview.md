@@ -58,64 +58,7 @@ To include the desired steps for the Stepper component, you can either manually 
 
 >caption Loop through your collection and generate a `StepperStep` for every item in the collection.
 
-````RAZOR
-@*Loop through a collection to create a step for all items in the collection. *@
-
-<div style="width:700px">
-    <TelerikStepper>
-        <StepperSteps>
-            @foreach (var step in Steps)
-            {
-                <StepperStep Label="@step.Label" Icon="@step.Icon"
-                         Optional="@step.Optional" Disabled="@step.Disabled">
-                </StepperStep>
-            }
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-
-@code {
-    private List<StepModel> Steps { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Steps = new List<StepModel>() {
-            new StepModel()
-            {
-                Label = "Personal Info",
-                Icon = SvgIcon.User
-            },
-            new StepModel()
-            {
-                Label = "Education",
-                Icon = SvgIcon.Book,
-                Disabled = true
-            },
-            new StepModel()
-            {
-                Label = "Experience",
-                Icon = SvgIcon.FlipVertical
-            },
-            new StepModel()
-            {
-                Label = "Attachments",
-                Icon = SvgIcon.FileAdd,
-                Optional = true
-            }
-        };
-
-        base.OnInitialized();
-    }
-
-    public class StepModel
-    {
-        public string Label { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public bool Disabled { get; set; }
-        public bool Optional { get; set; }
-    }
-}
-````
+<demo metaUrl="client/stepper/steps/overview/example-1/" height="320"></demo>
 
 ## See Also
 

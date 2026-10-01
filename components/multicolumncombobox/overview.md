@@ -24,47 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/multicolumncombobox" target="_bla
 
 >caption MultiColumnComboBox data binding with two-way value binding
 
-````RAZOR
-<TelerikMultiColumnComboBox Data="@MultiComboData"
-                            @bind-Value="@SelectedProduct"
-                            ValueField="@nameof(Product.Id)"
-                            TextField="@nameof(Product.Name)"
-                            Width="300px">
-    <MultiColumnComboBoxColumns>
-        <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" Title="Product Name"></MultiColumnComboBoxColumn>
-        <MultiColumnComboBoxColumn Field="@nameof(Product.Quantity)" Title="In Stock"></MultiColumnComboBoxColumn>
-    </MultiColumnComboBoxColumns>
-</TelerikMultiColumnComboBox>
-
-<p>Selected product Id: @SelectedProduct</p>
-
-@code {
-    private List<Product> MultiComboData { get; set; }
-
-    private int SelectedProduct { get; set; }
-
-    protected override void OnInitialized()
-    {
-        var rnd = new Random();
-
-        MultiComboData = Enumerable.Range(1, 30).Select(x => new Product()
-        {
-            Id = x,
-            Name = $"Product {x}",
-            Quantity = rnd.Next(0, 30)
-        }).ToList();
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/overview/example-1/" height="420"></demo>
 
 ## Data Binding
 
@@ -147,13 +107,7 @@ The popup of the component can be additionally customized via nested tags:
 
 <div class="skip-repl"></div>
 
-````RAZOR
-<TelerikMultiColumnComboBox>
-    <MultiColumnComboBoxSettings>
-        <MultiColumnComboBoxPopupSettings Width="..." />
-    </MultiColumnComboBoxSettings>
-</TelerikMultiColumnComboBox>
-````
+<demo metaUrl="client/multicolumncombobox/overview/example-2/" height="420"></demo>
 
 The MultiColumnComboBox provides the following popup settings:
 
@@ -179,59 +133,7 @@ Add a reference to the component instance to use the [MultiColumnComboBox's meth
 
 >caption Using MultiColumnComboBox methods
 
-````RAZOR
-<TelerikButton OnClick="@Open">Open MultiColumnComboBox</TelerikButton>
-
-<TelerikMultiColumnComboBox @ref="@MultiColumnComboRef"
-                            Data="@Products"
-                            @bind-Value="@SelectedProduct"
-                            ValueField="@nameof(Product.Id)"
-                            TextField="@nameof(Product.Name)"
-                            Width="300px">
-    <MultiColumnComboBoxColumns>
-        <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" Title="Product Name"></MultiColumnComboBoxColumn>
-        <MultiColumnComboBoxColumn Field="@nameof(Product.Quantity)" Title="In Stock"></MultiColumnComboBoxColumn>
-    </MultiColumnComboBoxColumns>
-</TelerikMultiColumnComboBox>
-
-@code {
-    private TelerikMultiColumnComboBox<Product, int> MultiColumnComboRef { get; set; }
-
-    private List<Product> Products { get; set; }
-
-    private int SelectedProduct { get; set; }
-
-    private void Open()
-    {
-        MultiColumnComboRef.Open();
-        
-        SelectedProduct = 3;
-
-        MultiColumnComboRef.Refresh();
-    }
-
-    protected override void OnInitialized()
-    {
-        var rnd = new Random();
-
-        Products = Enumerable.Range(1, 30).Select(x => new Product()
-            {
-                Id = x,
-                Name = $"Product {x}",
-                Quantity = rnd.Next(0, 30)
-            }).ToList();
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Quantity { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/overview/example-3/" height="420"></demo>
 
 ## Next Steps
 

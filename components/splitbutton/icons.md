@@ -23,33 +23,7 @@ The `Icon` parameter type is `object` and it accepts:
 
 >caption How to use icons in Telerik Blazor SplitButton
 
-````RAZOR
-<TelerikSplitButton Icon="@SvgIcon.Table">
-    <SplitButtonContent>SVG Icon</SplitButtonContent>
-    <SplitButtonItems>
-        <SplitButtonItem Icon="@FontIcon.Calculator">Font Icon</SplitButtonItem>
-        <SplitButtonItem Icon="@CustomIconClass">Custom Icon</SplitButtonItem>
-        <SplitButtonItem> <TelerikLoader /> Custom Markup </SplitButtonItem>
-    </SplitButtonItems>
-</TelerikSplitButton>
-
-<style>
-    .my-icon {
-        /* define a background image or a custom font icon here */
-        background: purple;
-        /* dimensions and other base styles will usually come from another class */
-        width: 1em;
-        height: 1em;
-        font-size: 16px;
-    }
-</style>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
-
-@code {
-    private string CustomIconClass { get; set; } = "my-icon";
-}
-````
+<demo metaUrl="client/splitbutton/icons/example-1/" height="320"></demo>
 
 ## Best Practices for Custom Icons and Images
 

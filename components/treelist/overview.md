@@ -28,53 +28,7 @@ The TreeList supports both flat data and hierarchical data. The example below us
 
 >caption Basic TreeList
 
-````RAZOR
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(Employee.Id)"
-                 ParentIdField="@nameof(Employee.ParentId)"
-                 Pageable="true"
-                 Sortable="true"
-                 FilterMode="@TreeListFilterMode.FilterMenu">
-    <TreeListColumns>
-        <TreeListColumn Expandable="true" Field="FirstName" Title="First Name" />
-        <TreeListColumn Field="LastName" Title="Last Name" />
-        <TreeListColumn Field="Position" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-
-    List<Employee> TreeListData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        TreeListData = new List<Employee>();
-
-        for (int i = 1; i <= 9; i++)
-        {
-            TreeListData.Add(new Employee()
-            {
-                Id = i,
-                ParentId = i <= 3 ? null : i % 3 + 1,
-                FirstName = "First " + i,
-                LastName = "Last " + i,
-                Position = i <= 3 ? "Team Lead" : "Software Engineer"
-            });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
-    }
-}
-````
+<demo metaUrl="client/treelist/overview/example-1/" height="720"></demo>
 
 
 ## Data Binding
@@ -171,70 +125,7 @@ The TreeList is a generic component.Its type depends on the type of its model an
 
 >caption Store the TreeList instance reference and execute methods
 
-````RAZOR
-<TelerikButton OnClick="@AutoFit">Autofit All Columns</TelerikButton>
-
-<TelerikTreeList @ref="@TreeListRef"
-                 Data="@Data"
-                 IdField="EmployeeId"
-                 ParentIdField="ReportsTo"
-                 Pageable="true">
-    <TreeListColumns>
-        <TreeListColumn Field="FirstName" Expandable="true"></TreeListColumn>
-        <TreeListColumn Field="EmployeeId"></TreeListColumn>
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-    TelerikTreeList<Employee> TreeListRef { get; set; }
-    public List<Employee> Data { get; set; }
-
-    void AutoFit()
-    {
-        TreeListRef.AutoFitAllColumns();
-    }
-
-    protected override void OnInitialized()
-    {
-        Data = new List<Employee>();
-        var rand = new Random();
-        int currentId = 1;
-
-        for (int i = 1; i < 6; i++)
-        {
-            Data.Add(new Employee()
-            {
-                EmployeeId = currentId,
-                ReportsTo = null,
-                FirstName = "Employee  " + i.ToString()
-            });
-
-            currentId++;
-        }
-        for (int i = 1; i < 6; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                Data.Add(new Employee()
-                {
-                    EmployeeId = currentId,
-                    ReportsTo = i,
-                    FirstName = "    Employee " + i + " : " + j.ToString()
-                });
-
-                currentId++;
-            }
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string FirstName { get; set; }
-        public int? ReportsTo { get; set; }
-    }
-}
-````
+<demo metaUrl="client/treelist/overview/example-2/" height="720"></demo>
 
 
 # Next Steps

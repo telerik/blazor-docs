@@ -28,47 +28,7 @@ To use the ChainOfThought component:
 
 >caption ChainOfThought showing agent tool discovery steps
 
-````RAZOR
-<TelerikChainOfThought Data="@Steps"
-                       Label="Thinking through request"
-                       Expandable="true"
-                       @bind-Expanded="@IsExpanded"
-                       Completed="@IsComplete">
-    <ItemTemplate Context="step">
-        <div style="display: flex; align-items: flex-start; gap: 8px; padding: 2px 0;">
-            <span>@step.Text</span>
-        </div>
-    </ItemTemplate>
-</TelerikChainOfThought>
-
-@code {
-    private bool IsExpanded { get; set; } = true;
-    private bool IsComplete { get; set; }
-
-    private List<ResearchStep> Steps { get; set; } = new()
-    {
-        new ResearchStep { Text = "Searched for analytics tools" },
-        new ResearchStep { Text = "Found query_database — supports GROUP BY, date filters, and aggregation" },
-        new ResearchStep { Text = "Searching for related work..." }
-    };
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await Task.Delay(2000);
-            Steps.Add(new ResearchStep { Text = "Found 3 related queries — revenue by month, top customers by order value, and invoice reconciliation report" });
-            IsComplete = true;
-            StateHasChanged();
-        }
-    }
-
-    public class ResearchStep
-    {
-        public string Text { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/llmkit/chain-of-thought/example-1/" height="420"></demo>
 
 ## ChainOfThought API
 

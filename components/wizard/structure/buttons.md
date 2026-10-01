@@ -38,31 +38,7 @@ The Wizard provides the following default buttons:
 
 >caption Wizard with default buttons
 
-````RAZOR
-@* Wizard with default buttons *@
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Text="1">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="2">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="3">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-````
+<demo metaUrl="client/wizard/structure/buttons/example-1/" height="520"></demo>
 
 ## Custom buttons
 
@@ -72,56 +48,7 @@ This configuration overrides the whole rendering of the bottom-right section of 
 
 >Custom Wizard buttons do not trigger the component [`OnChange`](slug:wizard-events#onchange) and [`OnFinish`](slug:wizard-events#onfinish) events. See section [Execute Business Logic With Custom Wizard Buttons](#execute-business-logic-with-custom-wizard-buttons) below.
 
->caption Wizard with custom buttons (code snippet below)
-
-![Custom buttons](images/custom-buttons-example.gif)
-
-````RAZOR
-@* Wizard with custom buttons *@
-
-<div style="text-align:center">
-    <TelerikWizard  @bind-Value="@Value" Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Text="1">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="2">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="3">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-        <WizardButtons>
-            @{
-                var index = context;
-
-                if (index > 0)
-                {
-                    <TelerikButton OnClick="@(() => Value = 0)">Go to first page</TelerikButton>
-                    <TelerikButton OnClick="@(() => Value -= 1)">Previous</TelerikButton>
-                }
-                if (index != 2)
-                {
-                    <TelerikButton ButtonType="ButtonType.Button" ThemeColor="primary" OnClick="@(() => Value += 1)">Next</TelerikButton>
-                    <TelerikButton ButtonType="ButtonType.Button" ThemeColor="primary" OnClick="@(() => Value = 2)">Go to last page</TelerikButton>
-                }
-            }
-        </WizardButtons>
-    </TelerikWizard>
-</div>
-
-@code{
-
-    public int Value { get; set; }
-}
-````
+<demo metaUrl="client/wizard/structure/buttons/example-2/" height="520"></demo>
 
 ### Execute Business Logic With Custom Wizard Buttons
 
@@ -140,15 +67,7 @@ The code below shows will prevent clicks on all Stepper steps, without making th
 
 >caption Prevent clicks on the Wizard Stepper
 
-````RAZOR
-<TelerikWizard Class="disabled-stepper" />
-
-<style>
-    .disabled-stepper .k-stepper {
-        pointer-events: none;
-    }
-</style>
-````
+<demo metaUrl="client/wizard/structure/buttons/example-3/" height="520"></demo>
 
 ### Hide the Stepper
 
@@ -156,115 +75,13 @@ The code below shows will prevent clicks on all Stepper steps, without making th
 
 >caption Hide the Wizard Stepper completely
 
-````RAZOR
-<TelerikWizard Class="hidden-stepper" />
-
-<style>
-    .hidden-stepper .k-stepper {
-        display: none !important;
-    }
-</style>
-````
+<demo metaUrl="client/wizard/structure/buttons/example-4/" height="520"></demo>
 
 ### Call OnChange and OnFinish From Button OnClick
 
 >caption Handle OnChange and OnFinish events when using custom Wizard buttons. Cancel the OnChange event.
 
-````RAZOR
-@* Handle OnChange and OnFinish events when using custom Wizard buttons. Cancel the OnChange event. *@
-
-@if (ShowWizard)
-{
-    <TelerikWizard @bind-Value="@CurrentWizardStep" OnFinish="@OnWizardFinish">
-        <WizardSettings>
-            <WizardStepperSettings />
-        </WizardSettings>
-        <WizardSteps>
-            <WizardStep Label="Step 1" OnChange="@OnStepChange">
-                <Content>
-                    <p>First Step</p>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Step 2" OnChange="@OnStepChange">
-                <Content>
-                    <p>Second Step</p>
-                </Content>
-            </WizardStep>
-            <WizardStep Label="Step 3" OnChange="@OnStepChange">
-                <Content>
-                    <p>Third Step</p>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-        <WizardButtons>
-            @{
-                var currentStepIndex = context;
-
-                if (currentStepIndex > 0)
-                {
-                    <TelerikButton OnClick="@( () => PreviousClick(currentStepIndex) )">Back</TelerikButton>
-                }
-                if (currentStepIndex < 2)
-                {
-                    <TelerikButton ThemeColor="primary" OnClick="@( () => NextClick(currentStepIndex) )">Next</TelerikButton>
-                }
-                else
-                {
-
-                    <TelerikButton ThemeColor="primary" OnClick="@DoneClick">Done</TelerikButton>
-                }
-            }
-        </WizardButtons>
-    </TelerikWizard>
-}
-else
-{
-    <p>Wizard steps complete!</p>
-}
-
-@code {
-    public int CurrentWizardStep { get; set; } = 0;
-    public bool ShowWizard { get; set; } = true;
-
-    private async Task NextClick(int currentStepIndex)
-    {
-        var args = new WizardStepChangeEventArgs() {
-            IsCancelled = false,
-            TargetIndex = currentStepIndex + 1
-        };
-
-        await OnStepChange(args);
-
-        if (!args.IsCancelled)
-        {
-            CurrentWizardStep = currentStepIndex + 1;
-        }
-    }
-    private async Task PreviousClick(int newStepIndex)
-    {
-        CurrentWizardStep = newStepIndex - 1;
-    }
-    private async Task DoneClick()
-    {
-        OnWizardFinish();
-    }
-
-    public async Task OnStepChange(WizardStepChangeEventArgs args)
-    {
-        @*
-        if (true)
-        {
-            args.IsCancelled = true;
-        }
-        *@
-    }
-
-    private void OnWizardFinish()
-    {
-        ShowWizard = false;
-    }
-}
-````
+<demo metaUrl="client/wizard/structure/buttons/example-5/" height="520"></demo>
 
 ## See Also
 

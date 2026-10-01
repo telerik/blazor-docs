@@ -64,35 +64,7 @@ The following sample shows how to:
 * Disable closing the Window with the `Escape` key.
 * Minimize, restore, and maximize the Window with a custom key.
 
-````RAZOR
-<TelerikButton OnClick="@( () => WindowVisible = !WindowVisible )">Toggle Window</TelerikButton>
-
-<TelerikWindow @bind-Visible="@WindowVisible"
-               CustomKeyboardShortcuts="@WindowCustomKeyboardShortcuts">
-    <WindowActions>
-        <WindowAction Name="Minimize" />
-        <WindowAction Name="Maximize" />
-        <WindowAction Name="Close" />
-    </WindowActions>
-    <WindowTitle>
-        Window Title
-    </WindowTitle>
-    <WindowContent>
-        Window Content
-    </WindowContent>
-</TelerikWindow>
-
-@code {
-    private bool WindowVisible { get; set; }
-
-    private Dictionary<string, WindowKeyboardCommand?> WindowCustomKeyboardShortcuts { get; set; } = new Dictionary<string, WindowKeyboardCommand?>
-    {
-        { "Escape", null },
-        { "m", WindowKeyboardCommand.Minimize },
-        { "r", WindowKeyboardCommand.Maximize }
-    };
-}
-````
+<demo metaUrl="client/window/keyboard-navigation/example-1/" height="420"></demo>
 
 ## See Also
 

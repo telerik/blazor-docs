@@ -102,30 +102,7 @@ The example below shows how to:
 
 >caption Basic TreeList in-cell editing configuration
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(Employee.Id)"
-                 ParentIdField="@nameof(Employee.ParentId)"
-                 ConfirmDelete="true"
-                 EditMode="@TreeListEditMode.Incell"
-@[template](/_contentTemplates/treelist/editing.md#basic-example-parameters-columns)
-        <TreeListCommandColumn Width="120px">
-            <TreeListCommandButton Command="Add">Add</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete">Delete</TreeListCommandButton>
-        </TreeListCommandColumn>
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-@[template](/_contentTemplates/treelist/editing.md#basic-example-code)
-
-@[template](/_contentTemplates/treelist/editing.md#flat-crud-service-and-model)
-}
-````
+<demo metaUrl="client/treelist/editing/incell/example-1/" height="720"></demo>
 
 ## See Also
 

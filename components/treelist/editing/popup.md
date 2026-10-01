@@ -83,53 +83,7 @@ The example below shows how to:
 
 >caption TreeList popup editing
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(Employee.Id)"
-                 ItemsField="@nameof(Employee.Items)"
-                 ConfirmDelete="true"
-                 EditMode="@TreeListEditMode.Popup"
-                 OnCreate="@OnTreeListCreate"
-                 OnDelete="@OnTreeListDelete"
-                 OnUpdate="@OnTreeListUpdate"
-                 Height="400px">
-    <TreeListSettings>
-        <TreeListPopupEditSettings Width="600px" MaxWidth="90vw" Height="400px" MaxHeight="90vh" />
-        <TreeListPopupEditFormSettings Columns="2" ColumnSpacing="2em" ButtonsLayout="@FormButtonsLayout.Stretch" />
-    </TreeListSettings>
-    <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add">Add Item</TreeListCommandButton>
-    </TreeListToolBarTemplate>
-    <TreeListColumns>
-        <TreeListColumn Field="@nameof(Employee.Id)" Editable="false" Width="60px" />
-        <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" />
-        <TreeListColumn Field="@nameof(Employee.Notes)" EditorType="@TreeListEditorType.TextArea" Visible="false" Width="120px">
-            <Template>
-                @{ var dataItem = (Employee)context; }
-                <div style="white-space:pre">@dataItem.Notes</div>
-            </Template>
-        </TreeListColumn>
-        <TreeListColumn Field="@nameof(Employee.Salary)" DisplayFormat="{0:C2}" Width="130px" />
-        <TreeListColumn Field="@nameof(Employee.HireDate)" DisplayFormat="{0:d}" Width="140px" />
-        <TreeListColumn Field="@nameof(Employee.IsDriver)" Width="80px" />
-        <TreeListCommandColumn Width="200px">
-            <TreeListCommandButton Command="Add">Add</TreeListCommandButton>
-            <TreeListCommandButton Command="Edit">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete">Delete</TreeListCommandButton>
-        </TreeListCommandColumn>
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-@[template](/_contentTemplates/treelist/editing.md#basic-example-code)
-
-@[template](/_contentTemplates/treelist/editing.md#hierarchical-crud-service-and-model)
-}
-````
+<demo metaUrl="client/treelist/editing/popup/example-1/" height="720"></demo>
 
 ## See Also
 

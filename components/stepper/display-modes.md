@@ -23,47 +23,17 @@ You can configure the desired display mode through the `StepType` parameter of t
 
 The default Display mode of the Stepper is `Steps`. If labels are defined, with this setup the Stepper will render both indicators and labels.
 
->caption Display mode: Steps, customize the Stepper to render indicators and labels.The result from the snippet.
+>caption Display mode: Steps, customize the Stepper to render indicators and labels.
 
-![Indicators and labels](images/labels-and-indicators-example.png)
-
-````RAZOR
-@* Stepper with both labels and indicators. *@
-
-<div style="width:500px">
-    <TelerikStepper StepType="StepperStepType.Steps">
-        <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
-            <StepperStep Label="Education" Icon="@SvgIcon.Book"></StepperStep>
-            <StepperStep Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/display-modes/example-2/" height="320"></demo>
 
 ## Labels
 
 If you want to display only labels for the steps, set the `StepType` parameter of the Stepper to `Labels`.
 
->caption Display mode: Labels, customize the Stepper to render only labels. The result from the snippet.
+>caption Display mode: Labels, customize the Stepper to render only labels.
 
-![Labels only](images/labels-only-example.png)
-
-````RAZOR
-@* Stepper with only labels. *@
-
-<div style="width:500px">
-    <TelerikStepper StepType="StepperStepType.Labels">
-        <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
-            <StepperStep Label="Education" Icon="@SvgIcon.Book"></StepperStep>
-            <StepperStep Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/display-modes/example-1/" height="320"></demo>
 
 ## See Also
 

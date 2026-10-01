@@ -25,28 +25,7 @@ To set the tile contents, you have the following options:
 
 >caption Set header and content of tiles
 
-````RAZOR
-<TelerikTileLayout ColumnWidth="200px"
-                   RowHeight="150px"
-                   Width="700px"
-                   Columns="3"
-                   Resizable="true"
-                   Reorderable="true">
-    <TileLayoutItems>
-        <TileLayoutItem HeaderText="Simple Header Text, no content">
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Simple Header Text, some content" ColSpan="2">
-            <Content>You can put components in the tiles too.</Content>
-        </TileLayoutItem>
-        <TileLayoutItem ColSpan="2">
-            <HeaderTemplate>
-                <strong>Bold</strong> header from a template
-            </HeaderTemplate>
-            <Content><p>As with other render fragments, you can put <strong>any</strong> content here</p></Content>
-        </TileLayoutItem>
-    </TileLayoutItems>
-</TelerikTileLayout>
-````
+<demo metaUrl="client/tilelayout/tile-content/example-2/" height="550"></demo>
 
 
 ## Content Scrollbars
@@ -57,37 +36,7 @@ If you want to change that (for example, because you have certain content that r
 
 >caption Content scrollbars and overflow behavior in the Tile Layout
 
-````RAZOR
-<TelerikTileLayout ColumnWidth="300px"
-                   RowHeight="150px"
-                   Columns="3"
-                   Resizable="true"
-                   Reorderable="true">
-    <TileLayoutItems>
-        <TileLayoutItem HeaderText="Responsive Content">
-            <Content>
-                <div style="width: 100%; height: 100%; background: lime;">My size fits</div>
-            </Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Static Content">
-            <Content>
-                <div style="width: 600px; height: 300px; background: yellow;">I will be cut off by default. I will be cut off by default. I will be cut off by default.</div>
-            </Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Custom Scrollbars" Class="tile-with-overflow">
-            <Content>
-                <div style="width: 600px; height: 300px; background: cyan;">I produce scrollbars</div>
-            </Content>
-        </TileLayoutItem>
-    </TileLayoutItems>
-</TelerikTileLayout>
-
-<style>
-    .tile-with-overflow .k-tilelayout-item-body {
-        overflow: auto;
-    }
-</style>
-````
+<demo metaUrl="client/tilelayout/tile-content/example-1/" height="420"></demo>
 
 ## Next Steps
 

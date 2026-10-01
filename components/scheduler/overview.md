@@ -24,60 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor
 
 >caption Basic Scheduler
 
-````RAZOR
-<TelerikScheduler Data="@Appointments"
-                  @bind-Date="@SchedulerStartDate"
-                  @bind-View="@SchedulerCurrentView"
-                  Height="600px">
-    <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" />
-        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" />
-        <SchedulerMonthView />
-        <SchedulerTimelineView StartTime="@DayStart" EndTime="@DayEnd" />
-    </SchedulerViews>
-</TelerikScheduler>
-
-@code {
-    private DateTime SchedulerStartDate { get; set; } = new DateTime(2022, 7, 25);
-
-    private SchedulerView SchedulerCurrentView { get; set; } = SchedulerView.Week;
-
-    // only the time portion matters
-    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 6, 0, 0);
-    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 19, 0, 0);
-
-    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-        new SchedulerAppointment
-        {
-            Title = "Planning meeting",
-            Start = new DateTime(2022, 7, 25, 9, 30, 0),
-            End = new DateTime(2022, 7, 25, 12, 45, 0)
-        },
-        new SchedulerAppointment
-        {
-            Title = "Vet visit",
-            Start = new DateTime(2022, 7, 26, 7, 0, 0),
-            End = new DateTime(2022, 7, 26, 7, 30, 0)
-        },
-        new SchedulerAppointment
-        {
-            Title = "Trip to Hawaii",
-            IsAllDay = true,
-            Start = new DateTime(2022, 7, 27),
-            End = new DateTime(2022, 8, 07)
-        }
-    };
-
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+<demo metaUrl="client/scheduler/overview/example-1/" height="780"></demo>
 
 
 ## Data Binding
@@ -150,26 +97,7 @@ To execute Scheduler methods, obtain reference to the component instance with `@
 
 <div class="skip-repl"></div>
 
-````RAZOR
-<TelerikButton OnClick="@RefreshScheduler">Refresh Scheduler</TelerikButton>
-<TelerikButton OnClick="@RefreshScheduler">Rebind Scheduler</TelerikButton>
-
-<TelerikScheduler @ref="SchedulerRef" />
-
-@code {
-    private TekerikScheduler<Appointment>? SchedulerRef { get; set; }
-
-    private void RefreshScheduler()
-    {
-        SchedulerRef?.Refresh();
-    }
-
-    private void RebindScheduler()
-    {
-        SchedulerRef?.Rebind();
-    }
-}
-````
+<demo metaUrl="client/scheduler/overview/example-2/" height="780"></demo>
 
 ## Next Steps
 

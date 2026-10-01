@@ -20,43 +20,17 @@ You can customize the stepper orientation through the `Orientation` parameter th
 
 Since `horizontal` is the default value for the Stepper `Orientation` parameter, you don't need to explicitly define it.
 
->caption Horizontal Stepper. The result from the snippet below.
+>caption Horizontal Stepper.
 
-![Horizontal Stepper](images/horizontal-stepper-example.png)
-
-````RAZOR
-@* Stepper with horizontal orientation *@
-
-<div style="width:500px">
-    <TelerikStepper>
-        <StepperSteps>
-            <StepperStep Text="1" Label="Step 1"></StepperStep>
-            <StepperStep Text="2" Label="Step 2"></StepperStep>
-            <StepperStep Text="3" Label="Step 3"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/orientation/example-2/" height="320"></demo>
 
 ## Vertical Stepper
 
 Set the `Orientation` parameter of the Stepper to `vertical` to change its default orientation.
 
->caption Vertical Stepper. The result from the snippet below.
+>caption Vertical Stepper.
 
-![Simple Stepper](images/vertical-stepper-example.png)
-
-````RAZOR
-@* Stepper with vertical orientation *@
-
-<TelerikStepper Orientation="StepperOrientation.Vertical">
-    <StepperSteps>
-        <StepperStep Text="1" Label="Step 1"></StepperStep>
-        <StepperStep Text="2" Label="Step 2"></StepperStep>
-        <StepperStep Text="3" Label="Step 3"></StepperStep>
-    </StepperSteps>
-</TelerikStepper>
-````
+<demo metaUrl="client/stepper/orientation/example-1/" height="320"></demo>
 
 ## See Also
 

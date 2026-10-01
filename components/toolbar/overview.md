@@ -23,41 +23,7 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 
 >caption Basic Telerik Toolbar
 
-````RAZOR
-<TelerikToolBar>
-    <ToolBarButtonGroup>
-        <ToolBarButton Icon="@SvgIcon.Bold" OnClick="@OnBold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Italic" OnClick="@OnItalic">Italic</ToolBarButton>
-    </ToolBarButtonGroup>
-
-    <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
-
-    <ToolBarButton Icon="@SvgIcon.Undo" OnClick="@OnUndo">Undo</ToolBarButton>
-</TelerikToolBar>
-
-<p> Last clicked button: @LastClicked </p>
-<p> The Toggle button's selected state is @Selected.ToString() </p>
-
-@code {
-    bool Selected { get; set; } = true;
-    string LastClicked { get; set; }
-
-    void OnBold()
-    {
-        LastClicked = "Bold";
-    }
-
-    void OnItalic()
-    {
-        LastClicked = "Italic";
-    }
-
-    void OnUndo()
-    {
-        LastClicked = "Undo";
-    }
-}
-````
+<demo metaUrl="client/toolbar/overview/example-1/" height="420"></demo>
 
 ## Built-in Tools
 
@@ -106,46 +72,7 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 
 >caption Responsive Overflow Popup
 
-````RAZOR
-<TelerikButton OnClick="ChangeWidth">Change Width!</TelerikButton>
-
-<br />
-<br />
-
-<div class="toolbar-wrapper">
-    <TelerikToolBar OverflowMode="@ToolBarOverflowMode.Menu">
-        <ToolBarButton Icon="@SvgIcon.Undo">Undo</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Redo">Redo</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Image" Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
-        <ToolBarSeparator></ToolBarSeparator>
-        <ToolBarToggleButton Icon="@SvgIcon.ApplyFormat"></ToolBarToggleButton>
-        <ToolBarSeparator></ToolBarSeparator>
-        <ToolBarButton Icon="@SvgIcon.Copy" Overflow="ToolBarItemOverflow.Never">Copy</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Clipboard" Overflow="ToolBarItemOverflow.Never">Paste</ToolBarButton>
-        <ToolBarSeparator></ToolBarSeparator>
-        <ToolBarButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-            <ToolBarToggleButton Icon="@SvgIcon.AlignLeft" OverflowText="Left"></ToolBarToggleButton>
-            <ToolBarToggleButton Icon="@SvgIcon.AlignCenter" OverflowText="Center"></ToolBarToggleButton>
-            <ToolBarToggleButton Icon="@SvgIcon.AlignRight" OverflowText="Right"></ToolBarToggleButton>
-        </ToolBarButtonGroup>
-    </TelerikToolBar>
-</div>
-
-<style>
-    .toolbar-wrapper {
-        width: @(Width.ToString() + "%");
-    }
-</style>
-
-@code {
-    private double Width { get; set; } = 100;
-
-    private void ChangeWidth()
-    {
-        Width = 40;
-    }
-}
-````
+<demo metaUrl="client/toolbar/overview/example-2/" height="420"></demo>
 
 ## Next Steps
 

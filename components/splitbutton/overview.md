@@ -28,36 +28,7 @@ The <a href = "https://www.telerik.com/blazor-ui/split-button" target="_blank">S
 
 >caption Basic SplitButton
 
-````RAZOR
-<TelerikSplitButton OnClick="@OnReply">
-    <SplitButtonContent>Reply</SplitButtonContent>
-    <SplitButtonItems>
-        <SplitButtonItem OnClick="@OnReplyAll">Reply All</SplitButtonItem>
-        <SplitButtonItem OnClick="@OnForward">Forward</SplitButtonItem>
-    </SplitButtonItems>
-</TelerikSplitButton>
-
-Last action: <strong> @LastAction </strong>
-
-@code {
-    string LastAction { get; set; }
-
-    void OnReply()
-    {
-        LastAction = "Reply";
-    }
-
-    void OnReplyAll()
-    {
-        LastAction = "Reply All";
-    }
-
-    void OnForward()
-    {
-        LastAction = "Forward";
-    }
-}
-````
+<demo metaUrl="client/splitbutton/overview/example-2/" height="320"></demo>
 
 
 ## Icons
@@ -136,36 +107,7 @@ The [SplitButton exposes methods](slug:Telerik.Blazor.Components.TelerikSplitBut
 
 >caption Get a reference to the SplitButton and execute methods
 
-````RAZOR
-<TelerikButton OnClick="@FocusSplitButton">Focus</TelerikButton>
-or
-<TelerikButton OnClick="@OpenSplitButton">Open</TelerikButton>
-SplitButton
-
-<br /><br />
-
-<TelerikSplitButton @ref="@SplitButtonRef">
-    <SplitButtonContent>Reply</SplitButtonContent>
-    <SplitButtonItems>
-        <SplitButtonItem>Reply All</SplitButtonItem>
-        <SplitButtonItem>Forward</SplitButtonItem>
-    </SplitButtonItems>
-</TelerikSplitButton>
-
-@code {
-    private TelerikSplitButton? SplitButtonRef;
-
-    private async Task FocusSplitButton()
-    {
-        await SplitButtonRef!.FocusAsync();
-    }
-
-    private async Task OpenSplitButton()
-    {
-        await SplitButtonRef!.OpenAsync();
-    }
-}
-````
+<demo metaUrl="client/splitbutton/overview/example-1/" height="420"></demo>
 
 
 ## Next Steps
