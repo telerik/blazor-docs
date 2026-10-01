@@ -102,6 +102,7 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | `PersistFilterOnSelect` | `bool` | Controls whether the filter input will be cleared when the user selects an item. Applies when [MultiSelect filtering](slug:multiselect-filter) is enabled and `AutoClose="false"`. 
 | `Placeholder` | `string` | The text the user sees as a hint when there is no selection. |
 | `ShowArrowButton` | `bool` | Controls whether the MultiSelect will show an arrow button, which hints about its dropdown. When enabled, an empty MultiSelect component looks similar to a ComboBox, otherwise it looks similar to a TextBox. |
+| `TagMode` | `MultiSelectTagMode` <br /> (`Multiple`) | Defines if selected items display as multiple separate chips or as a single chip. Also see `MaxAllowedTags` and the [MultiSelect Tag Mode](slug:multiselect-tag-mode) article. |
 | `TextField` | `string` <br /> (`"Text"`)| The field in the model from which the text of the items is taken. |
 | `TItem` | `Type` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the value field in the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
