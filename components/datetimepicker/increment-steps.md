@@ -28,24 +28,9 @@ All values default to `1` to provide every possible option. If you set a value l
 
 >caption Change the steps (intervals) in the date time picker
 
-````RAZOR
-@* Show every 4th hour, every 10th minute, every 15th second *@
-
-@selectedDateTime.ToString("yyyy MMM dd, HH:mm:ss tt")
-
-<TelerikDateTimePicker Format="yyyy MMM dd, HH:mm:ss tt" @bind-Value="@selectedDateTime" Width="250px">
-    <DateTimePickerSteps Year="10" Month="6" Day="3" Hour="4" Minute="10" Second="15" />
-</TelerikDateTimePicker>
-
-@code {
-    DateTime selectedDateTime { get; set; } = DateTime.Now;
-}
-````
+<demo metaUrl="client/datetimepicker/increment-steps/steps-1/" height="620"></demo>
 
 >caption Show only every 4th hour, every 10th minute, every 15th second in the time picker
-
-![Intervals (steps) in the date time picker](images/date-time-picker-intevals.png)
-
 
 
 ## See Also

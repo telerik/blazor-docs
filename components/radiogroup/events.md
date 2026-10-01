@@ -28,22 +28,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle the OnChange event and use two-way binding
 
-````RAZOR
-@SelectedValue
-<br />
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" OnChange="@OnChangeHandler"></TelerikRadioGroup>
-@code{
-    string SelectedValue { get; set; }
-    IEnumerable<string> Data { get; set; } = new List<string> { "first", "second", "third" };
-
-    async Task OnChangeHandler(object  newValue)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        Console.WriteLine($"ValueChanged fired with value: {newValue as string}");
-    }
-}
-````
+<demo metaUrl="client/radiogroup/events/example-3/" height="350"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -56,22 +41,7 @@ The example below uses [binding](slug:radiogroup-databind) to string data for br
 
 >caption Handle ValueChanged
 
-````RAZOR
-@SelectedValue
-<br />
-<TelerikRadioGroup Data="@Data" Value="@SelectedValue" ValueChanged="@( (string v) => ValueChangedHandler(v) )"></TelerikRadioGroup>
-@code{
-    string SelectedValue { get; set; }
-    IEnumerable<string> Data { get; set; } = new List<string> { "first", "second", "third" };
-
-    void ValueChangedHandler(string newValue)
-    {
-        SelectedValue = newValue;
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        Console.WriteLine($"ValueChanged fired with value: {newValue}");
-    }
-}
-````
+<demo metaUrl="client/radiogroup/events/example-2/" height="350"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -85,23 +55,7 @@ The `OnBlur` event fires when an element inside the component loses focus (radio
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You may not have to use OnChange to react to loss of focus *@
-
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue"
-                   OnBlur="@OnBlurHandler">
-</TelerikRadioGroup>
-
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, the last value WAS {SelectedValue}.");
-    }
-
-    string SelectedValue { get; set; }
-    IEnumerable<string> Data { get; set; } = new List<string> { "first", "second", "third" };
-}
-````
+<demo metaUrl="client/radiogroup/events/example-1/" height="350"></demo>
 
 
 

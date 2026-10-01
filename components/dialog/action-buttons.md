@@ -30,50 +30,7 @@ The following example demonstrates all supported layout options for the Dialog a
 
 >caption Using Dialog ButtonsLayout
 
-````RAZOR
-<TelerikDialog @ref="@DialogRef"
-               @bind-Visible="@DialogVisible"
-               Title="Select Buttons Layout"
-               ButtonsLayout="@SelectedButtonLayout">
-    <DialogContent>
-        <TelerikRadioGroup Data="@ButtonLayouts"
-                           @bind-Value="@SelectedButtonLayout"
-                           OnChange="@OnRadioChange">
-        </TelerikRadioGroup>
-    </DialogContent>
-    <DialogButtons>
-        <TelerikButton>Cancel</TelerikButton>
-        <TelerikButton ThemeColor="primary">OK</TelerikButton>
-    </DialogButtons>
-</TelerikDialog>
-
-@code {
-    private TelerikDialog DialogRef { get; set; }
-
-    private bool DialogVisible { get; set; } = true;
-
-    private DialogButtonsLayout SelectedButtonLayout { get; set; } = DialogButtonsLayout.End;
-
-    private async Task OnRadioChange(object newValue)
-    {
-        DialogRef.Refresh(); // Refresh() is needed to re-render the Dialog content.
-    }
-
-    private List<DialogModel> ButtonLayouts { get; set; } = new List<DialogModel>()
-    {
-        new DialogModel() { Text = "Start", Value = DialogButtonsLayout.Start },
-        new DialogModel() { Text = "End", Value = DialogButtonsLayout.End },
-        new DialogModel() { Text = "Center", Value = DialogButtonsLayout.Center },
-        new DialogModel() { Text = "Stretch", Value = DialogButtonsLayout.Stretch }
-    };
-
-    public class DialogModel
-    {
-        public string Text { get; set; }
-        public DialogButtonsLayout Value { get; set; }
-    }
-}
-````
+<demo metaUrl="client/dialog/action-buttons/button-layout-1/" height="420"></demo>
 
 ## See Also
 

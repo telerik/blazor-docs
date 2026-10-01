@@ -31,64 +31,7 @@ For a valid and readable Form configuration, set the `Size` to a `string` member
 
 >caption All Built-in Form Sizes
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-Form <code>Size</code>:
-<TelerikRadioGroup Data="@FormSizes"
-                   @bind-Value="@FormSize"
-                   Layout="@RadioGroupLayout.Horizontal" />
-
-<TelerikForm Model="@FormModel"
-             Size="@FormSize"
-             Width="300px">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-        <TelerikValidationSummary />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Product.Name)" />
-        <FormItem Field="@nameof(Product.Price)" />
-        <FormItem Field="@nameof(Product.Quantity)" />
-        <FormItem Field="@nameof(Product.Released)" LabelText="Release Date" />
-        <FormItem Field="@nameof(Product.Discontinued)" />
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Product FormModel { get; set; } = new();
-
-    private readonly string[] FormSizes = new[]
-    {
-        ThemeConstants.Form.Size.Small,
-        ThemeConstants.Form.Size.Medium,
-        ThemeConstants.Form.Size.Large
-    };
-
-    private string FormSize { get; set; } = ThemeConstants.Form.Size.Medium;
-
-    public class Product
-    {
-        public int Id { get; set; }
-
-        [Required]
-        [MinLength(3)]
-        [MaxLength(24)]
-        public string Name { get; set; } = string.Empty;
-        
-        [Range(0, (double)decimal.MaxValue)]
-        public decimal Price { get; set; }
-
-        [Range(0, int.MaxValue)]
-        public int Quantity { get; set; }
-
-        [Required]
-        public DateTime? Released { get; set; }
-
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/form/appearance/example-1/" height="620"></demo>
 
 ## See Also
 

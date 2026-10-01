@@ -19,56 +19,11 @@ By default, the Output view is rendered and is part of the predefined views. How
 
 >caption Use the `ButtonText` and `ButtonIcon` to alter the appearance of view button.
 
-````RAZOR
-<TelerikAIPrompt @bind-Prompt="@Prompt">
-    <AIPromptViews>
-        <AIPromptPromptView ButtonText="Prompt View" ButtonIcon="@SvgIcon.Sparkles" />
-        <AIPromptOutputView ButtonText="Output View" ButtonIcon="@SvgIcon.Comment" />
-    </AIPromptViews>
-</TelerikAIPrompt>
-
-@code {
-    private string Prompt { get; set; }
-}
-````
+<demo metaUrl="client/aiprompt/views/output/view-button-2/" height="420"></demo>
 
 >caption Use `OutputActions` to include visuals related to upvoting or downvoting a specific output.
 
-````RAZOR
-<TelerikAIPrompt @bind-Prompt="@Prompt"
-                 OnPromptRequest="@OnPromptRequestHandler"
-                 OutputActions="@OutputActions"
-                 OnOutputActionClick="@OnOutputActionClick">
-    <AIPromptViews>
-        <AIPromptPromptView ButtonText="Prompt View" ButtonIcon="@SvgIcon.Sparkles" />
-        <AIPromptOutputView ButtonText="Output View" ButtonIcon="@SvgIcon.Comment" />
-    </AIPromptViews>
-</TelerikAIPrompt>
-
-@code {
-    private string Prompt { get; set; }
-
-    private void OnOutputActionClick(AIPromptOutputActionClickEventArgs args)
-    {
-        // Handle the output action click event
-        Console.WriteLine($"Action clicked: {args.Action.Name}");
-    }
-
-    private void OnPromptRequestHandler(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel pretium lectus quam id leo in.";
-    }
-
-    private List<AIPromptOutputActionDescriptor> OutputActions { get; set; } = new List<AIPromptOutputActionDescriptor>()
-    {
-        new AIPromptOutputActionDescriptor() { Name = "Copy", Icon = nameof(SvgIcon.Copy) },
-        new AIPromptOutputActionDescriptor() { Name = "Retry", Icon = nameof(SvgIcon.Share) },
-        new AIPromptOutputActionDescriptor() { Name = "Thumbs Up", Icon = SvgIcon.ThumbUp },
-        new AIPromptOutputActionDescriptor() { Name = "Thumbs Down", Icon = SvgIcon.ThumbDown }
-    };
-}
-````
+<demo metaUrl="client/aiprompt/views/output/outputactions-1/" height="420"></demo>
 
 ## See Also
 

@@ -49,81 +49,7 @@ The Shape `Path` parameter allows you to manually [define a custom Shape form](#
 
 >caption All Diagram Shape types except Image and Text
 
-````RAZOR
-<TelerikDiagram Height="440px" Zoom="0.5">
-    <DiagramShapeDefaults Width="150" Height="150">
-    </DiagramShapeDefaults>
-    <DiagramShapes>
-        @foreach (DiagramShapeType shapeType in AllDiagramShapeTypes)
-        {
-            <DiagramShape Type="@shapeType"
-                          Id="@( $"id-{shapeType}" )"
-                          X="@GetShapeX(shapeType)"
-                          Y="@GetShapeY(shapeType)"
-                          Width="@GetShapeWidth(shapeType)">
-                <DiagramShapeContent Text="@shapeType.ToString()"
-                                     Color="@GetShapeContentColor(shapeType)" />
-            </DiagramShape>
-        }
-    </DiagramShapes>
-</TelerikDiagram>
-
-@code {
-    private readonly List<DiagramShapeType> AllDiagramShapeTypes = new() {
-        DiagramShapeType.Circle,
-        DiagramShapeType.Collate,
-        DiagramShapeType.Database,
-        DiagramShapeType.DataInputOutput,
-        DiagramShapeType.DataStorage,
-        DiagramShapeType.Decision,
-        DiagramShapeType.Delay,
-        DiagramShapeType.DirectAccessStorage,
-        DiagramShapeType.Display,
-        DiagramShapeType.Document,
-        DiagramShapeType.Extract,
-        //DiagramShapeType.Image,
-        DiagramShapeType.InternalStorage,
-        DiagramShapeType.LogicalOr,
-        DiagramShapeType.ManualInputOutput,
-        DiagramShapeType.ManualOperation,
-        DiagramShapeType.Merge,
-        DiagramShapeType.MultipleDocuments,
-        DiagramShapeType.OffPageConnector,
-        DiagramShapeType.OnPageConnector,
-        DiagramShapeType.PredefinedProcess,
-        DiagramShapeType.Preparation,
-        DiagramShapeType.Process,
-        DiagramShapeType.Rectangle,
-        DiagramShapeType.Sort,
-        DiagramShapeType.SummingJunction,
-        //DiagramShapeType.Text,
-        DiagramShapeType.Terminator
-    };
-
-    private double GetShapeX(DiagramShapeType shapeType)
-    {
-        return AllDiagramShapeTypes.IndexOf(shapeType) % 7 * 200;
-    }
-
-    private double GetShapeY(DiagramShapeType shapeType)
-    {
-        return AllDiagramShapeTypes.IndexOf(shapeType) / 7 * 200;
-    }
-
-    public string GetShapeContentColor(DiagramShapeType shapeType)
-    {
-        List<DiagramShapeType> shapesWithBlackColor = new() {
-            DiagramShapeType.Collate, DiagramShapeType.Sort, DiagramShapeType.Text
-        };
-        return shapesWithBlackColor.Contains(shapeType) ? "#000" : string.Empty;
-    }
-
-    public int GetShapeWidth(DiagramShapeType shapeType)
-    {
-        return shapeType == DiagramShapeType.Terminator ? 240 : 150;
-    }
-}
-````
+<demo metaUrl="client/diagram/shapes/shape-types-7/" height="570"></demo>
 
 ### Type-Specific Shape Features
 
@@ -142,34 +68,7 @@ Some Shape types provide unique behavior or settings:
 
 >caption Using transparent Rectangle shapes instead of Text shapes
 
-````RAZOR
-<TelerikDiagram>
-    <DiagramLayout Type="@DiagramLayoutType.Tree" />
-    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle"
-                          Height="50">
-        <DiagramShapeDefaultsContent Color="#000" />
-        <DiagramShapeDefaultsFill Color="transparent" />
-        <DiagramShapeDefaultsStroke Width="0" />
-    </DiagramShapeDefaults>
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-        <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
-        <DiagramConnection FromId="shape1" ToId="shape3" />
-    </DiagramConnections>
-</TelerikDiagram>
-````
+<demo metaUrl="client/diagram/shapes/transparent-rectangle-6/" height="420"></demo>
 
 ## Connectors
 
@@ -220,33 +119,7 @@ The `Offset` value is a pixel distance that moves the connector from its default
 
 >caption Configure connector offset globally and per Shape
 
-````RAZOR
-<TelerikDiagram Height="300px">
-    <DiagramShapeDefaults>
-        <DiagramShapeDefaultsConnectorDefaults Offset="10">
-            <DiagramShapeDefaultsConnectorDefaultsFill Color="purple" />
-        </DiagramShapeDefaultsConnectorDefaults>
-    </DiagramShapeDefaults>
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1" X="50" Y="100">
-            <DiagramShapeContent Text="Global Offset" />
-        </DiagramShape>
-        <DiagramShape Id="shape2" X="250" Y="100">
-            <DiagramShapeContent Text="Custom Offset" />
-            <DiagramShapeConnectorDefaults Offset="20">
-                <DiagramShapeConnectorDefaultsFill Color="orange" />
-            </DiagramShapeConnectorDefaults>
-        </DiagramShape>
-        <DiagramShape Id="shape3" X="450" Y="100">
-            <DiagramShapeContent Text="No Offset" />
-            <DiagramShapeConnectorDefaults Offset="0">
-                <DiagramShapeConnectorDefaultsFill Color="blue" />
-            </DiagramShapeConnectorDefaults>
-        </DiagramShape>
-    </DiagramShapes>
-</TelerikDiagram>
-````
+<demo metaUrl="client/diagram/shapes/connector-offset-5/" height="500"></demo>
 
 ## Tooltips
 
@@ -344,54 +217,7 @@ Rich content is also supported with [Diagram data binding](slug:diagram-data-bin
 
 >caption Using declarative rich content in Diagram Shapes
 
-````RAZOR
-<TelerikDiagram>
-    <DiagramShapes>
-        <DiagramShape Width="240" Height="160" X="50" Y="50">
-            <DiagramShapeContent>
-                <DiagramShapeContentPadding Left="0" Top="0" />
-                <DiagramShapeContentMargin Bottom="20" />
-                <DiagramShapeContentBlocks>
-                    <DiagramShapeContentBlock>
-                        <DiagramShapeContentBlockChildren>
-                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Image"
-                                                           Src="@Base64SvgImage" />
-                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Text"
-                                                           Color="var(--kendo-color-primary)"
-                                                           Bold="true"
-                                                           FontSize="18"
-                                                           Italic="true"
-                                                           Text="Larger Title"
-                                                           Underline="true" />
-                        </DiagramShapeContentBlockChildren>
-                    </DiagramShapeContentBlock>
-                    <DiagramShapeContentBlock>
-                        <DiagramShapeContentBlockChildren>
-                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Image"
-                                                           Height="50"
-                                                           Src="@Base64SvgImage"
-                                                           Width="50" />
-                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Break" />
-                            <DiagramShapeContentBlockChild Type="@DiagramShapeContentBlocksChildrenType.Text"
-                                                           Color="var(--kendo-color-error)"
-                                                           FontSize="16"
-                                                           Text="Smaller Text" />
-                        </DiagramShapeContentBlockChildren>
-                    </DiagramShapeContentBlock>
-                </DiagramShapeContentBlocks>
-            </DiagramShapeContent>
-            <DiagramShapeFill Color="#f0f0f0" />
-            <DiagramShapeHover>
-                <DiagramShapeHoverFill Color="#eee" />
-            </DiagramShapeHover>
-        </DiagramShape>
-    </DiagramShapes>
-</TelerikDiagram>
-
-@code {
-    private readonly string Base64SvgImage = "data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAMAAAAua3VzAAACylBMVEVMaXFc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBeULtoAAAA7XRSTlMAgAIEmOsx8uAhAQUG+vX0/AP7/jMdovfO5weHChPmt+/2LkdrrfkWC5/cYDZ5F8vuOA743v0QgXqTHKzjFMjNUG6h8909EejtIBoeiC/J0w+0XL1bPOHMQAySGyXPUvHwVbwmOt9thmwZJ0vl7Fpe0NHKq9mbhWYJMhhBIg10K9Wc5L+L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";
-}
-````
+<demo metaUrl="client/diagram/shapes/rich-content-4/" height="420"></demo>
 
 ## Editability
 
@@ -409,30 +235,7 @@ The Diagram also displays resize handles on the boundaries of selected Shapes. U
 
 >caption Setting global and Shape-specific editing options and resize handle offset globally
 
-````RAZOR
-<TelerikDiagram Height="400px">
-    <DiagramEditable>
-        <DiagramEditableResizeHandles Offset="10" />
-    </DiagramEditable>
-
-    <DiagramShapeDefaults>
-        <DiagramShapeDefaultsEditable Connect="true" Drag="false" Remove="false" />
-    </DiagramShapeDefaults>
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1" X="100" Y="100" Width="120" Height="80">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2" X="300" Y="100" Width="150" Height="100">
-            <DiagramShapeContent Text="Shape 2" />
-            <DiagramShapeEditable Connect="false" />
-        </DiagramShape>
-        <DiagramShape Id="shape3" X="200" Y="250" Width="100" Height="60">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-    </DiagramShapes>
-</TelerikDiagram>
-````
+<demo metaUrl="client/diagram/shapes/editing-options-3/" height="580"></demo>
 
 ## Example
 
@@ -440,116 +243,7 @@ The following configuration is not using a prefefined [Diagram layout](slug:diag
 
 >caption Customize Diagram Shapes
 
-````RAZOR
-<TelerikDiagram Height="300px">
-    <DiagramShapeDefaults Selectable="true"
-                          Type="@DiagramShapeType.Rectangle">
-        <DiagramShapeDefaultsConnectorDefaults Width="10" Height="10">
-            <DiagramShapeDefaultsConnectorDefaultsFill Color="lime" Opacity="0.8" />
-            <DiagramShapeDefaultsConnectorDefaultsStroke Color="green" Width="3" DashType="@DashType.Solid" />
-            <DiagramShapeDefaultsConnectorDefaultsHover>
-                <DiagramShapeDefaultsConnectorDefaultsHoverFill Color="orange" Opacity="1" />
-            </DiagramShapeDefaultsConnectorDefaultsHover>
-        </DiagramShapeDefaultsConnectorDefaults>
-        <DiagramShapeDefaultsContent Color="white"
-                                     FontFamily="arial"
-                                     FontSize="16"
-                                     FontStyle="normal"
-                                     FontWeight="normal"
-                                     Text="Default Text"
-                                     TextWrap="@DiagramShapesContentTextWrap.Wrap" />
-        <DiagramShapeDefaultsFill Color="purple" Opacity="0.8" />
-        <DiagramShapeDefaultsHover>
-            <DiagramShapeDefaultsHoverFill Color="blue" Opacity="1" />
-        </DiagramShapeDefaultsHover>
-        <DiagramShapeDefaultsEditable Connect="true" Drag="true" Remove="false" />
-        <DiagramShapeDefaultsRotation Angle="0" />
-        <DiagramShapeDefaultsStroke Color="black" DashType="@DashType.Dot" Width="2" />
-    </DiagramShapeDefaults>
-
-    <DiagramShapes>
-        <DiagramShape Height="150"
-                      Id="shape1"
-                      Type="@DiagramShapeType.Circle"
-                      Width="100"
-                      X="160"
-                      Y="20">
-            <DiagramShapeContent Text="Circle" />
-            <DiagramShapeEditable Enabled="false" Connect="false" />
-        </DiagramShape>
-        <DiagramShape Id="shape2"
-                      Source="@Base64SvgImage"
-                      Type="@DiagramShapeType.Image"
-                      X="20"
-                      Y="50">
-            <DiagramShapeConnectorDefaults Width="15" Height="15">
-                <DiagramShapeConnectorDefaultsFill Color="orange" />
-                <DiagramShapeConnectorDefaultsStroke Color="blue" />
-                <DiagramShapeConnectorDefaultsHover>
-                    <DiagramShapeConnectorDefaultsHoverFill Color="purple" />
-                </DiagramShapeConnectorDefaultsHover>
-            </DiagramShapeConnectorDefaults>
-            <DiagramShapeContent Text="Image" Color="#000" FontSize="20" FontWeight="bold" />
-        </DiagramShape>
-        <DiagramShape CornerRadius="6"
-                      Height="80"
-                      Id="shape3"
-                      Width="160"
-                      X="350"
-                      Y="50">
-            <DiagramShapeContent Color="#3d3d3d"
-                                 FontSize="18"
-                                 FontStyle="italic"
-                                 FontWeight="bold"
-                                 RelativePadding="0.1"
-                                 Text="Rounded Rectangle" />
-            <DiagramShapeFill Color="#e0e0e0" />
-            <DiagramShapeHover>
-                <DiagramShapeHoverFill Color="#d6d6d6" />
-            </DiagramShapeHover>
-            <DiagramShapeRotation Angle="20" />
-            <DiagramShapeStroke DashType="@DashType.LongDash" Color="blue" Width="2" />
-        </DiagramShape>
-        <DiagramShape Id="shape4"
-                      Type="@DiagramShapeType.Text"
-                      MinHeight="40"
-                      MinWidth="100"
-                      X="150"
-                      Y="250">
-            <DiagramShapeContent Text="Text Shape" Color="black" />
-        </DiagramShape>
-        <DiagramShape Height="75"
-                      Id="shape5"
-                      Path="M 2 13 A 1.42 1.42 0 0 1 6 13"
-                      Width="150"
-                      X="250"
-                      Y="150">
-            <DiagramShapeContent Text="Custom Path" />
-            <DiagramShapeStroke Color="transparent" DashType="@DashType.Solid" Width="0" />
-        </DiagramShape>
-        <DiagramShape Height="50"
-                      Id="shape6"
-                      Width="120"
-                      X="550"
-                      Y="100">
-            <DiagramShapeContent Color="#ccc" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
-        <DiagramConnection FromId="shape1" ToId="shape3" />
-        <DiagramConnection FromId="shape1" ToId="shape4" />
-        <DiagramConnection FromId="shape3" ToId="shape5" />
-        <DiagramConnection FromId="shape3" ToId="shape6" />
-    </DiagramConnections>
-
-</TelerikDiagram>
-
-@code {
-    private readonly string Base64SvgImage = "data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAMAAAAua3VzAAACylBMVEVMaXFc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBc5QBeULtoAAAA7XRSTlMAgAIEmOsx8uAhAQUG+vX0/AP7/jMdovfO5weHChPmt+/2LkdrrfkWC5/cYDZ5F8vuOA743v0QgXqTHKzjFMjNUG6h8909EejtIBoeiC/J0w+0XL1bPOHMQAySGyXPUvHwVbwmOt9thmwZJ0vl7Fpe0NHKq9mbhWYJMhhBIg10K9Wc5L+L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";
-}
-````
+<demo metaUrl="client/diagram/shapes/customization-2/" height="480"></demo>
 
 ## Visual Function
 
@@ -579,109 +273,7 @@ In addition to the following example, also check the [Blazor Diagram Overview de
 
 >caption Using Diagram Shape visual function
 
-````RAZOR
-<TelerikDiagram>
-    <DiagramLayout Type="@DiagramLayoutType.Tree" />
-
-    <DiagramShapeDefaults Width="240" Height="120" Visual="shapeVisualFunction">
-        <DiagramShapeDefaultsContent Color="white" FontSize="20" FontWeight="bold" />
-        <DiagramShapeDefaultsStroke Width="3" />
-    </DiagramShapeDefaults>
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1" DataItem="@ShapeDataItem1">
-            <DiagramShapeStroke Color="brown" />
-        </DiagramShape>
-        <DiagramShape Id="shape2" DataItem="@ShapeDataItem2">
-            <DiagramShapeStroke Color="purple" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
-    </DiagramConnections>
-</TelerikDiagram>
-
-@* Move JavaScript code to an external JS file *@
-<script suppress-error="BL9992">
-    function shapeVisualFunction(context) {
-        let diagramNS = TelerikBlazor.DiagramCommon;
-
-        let shapeGroup = new diagramNS.Group({
-            autoSize: true
-        });
-
-        let outerCircle = new diagramNS.Circle({
-            width: context.width,
-            height: context.height,
-            fill: "orange",
-            stroke: {
-                color: context.stroke.color,
-                width: context.stroke.width
-            }
-        });
-        shapeGroup.append(outerCircle);
-
-        let innerCirleSpacing = 20;
-        let innerCirle = new diagramNS.Circle({
-            width: context.width - innerCirleSpacing * 2,
-            height: context.height - innerCirleSpacing * 2,
-            fill: "red",
-            x: innerCirleSpacing,
-            y: innerCirleSpacing
-        });
-        shapeGroup.append(innerCirle);
-
-        let textRect = new diagramNS.Rect(0, 0, context.width, context.height);
-        let textLayout = new diagramNS.Layout(textRect, {
-            alignContent: "center",
-            alignItems: "center",
-            justifyContent: "center",
-            orientation: "vertical",
-            spacing: 4
-        });
-        shapeGroup.append(textLayout);
-
-        let title = new diagramNS.TextBlock({
-            text: context.dataItem.Title,
-            fontSize: context.content.fontSize,
-            fontWeight: context.content.fontWeight,
-            color: context.content.color
-        });
-
-        let subTitle = new diagramNS.TextBlock({
-            text: context.dataItem.SubTitle,
-            fontSize: 14,
-            color: "yellow"
-        });
-
-        textLayout.append(title);
-        textLayout.append(subTitle);
-        textLayout.reflow();
-
-        return shapeGroup;
-    }
-</script>
-
-@code {
-    private ShapeModel ShapeDataItem1 { get; set; } = new()
-    {
-        Title = "First Shape",
-        SubTitle = "New Line and Styles"
-    };
-    private ShapeModel ShapeDataItem2 { get; set; } = new()
-    {
-        Title = "Second Shape",
-        SubTitle = "Centered Text"
-    };
-
-    public class ShapeModel
-    {
-        public string Title { get; set; } = string.Empty;
-        public string SubTitle { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/diagram/shapes/visual-function-1/" height="520"></demo>
 
 ## See Also
 
