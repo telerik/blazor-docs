@@ -23,28 +23,7 @@ To use the Telerik Spreadsheet for Blazor:
 
 >caption Basic Blazor Spreadsheet
 
-````RAZOR
-<TelerikSpreadsheet Data="@SpreadsheetData">
-</TelerikSpreadsheet>
-
-@code {
-    private byte[]? SpreadsheetData { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        SpreadsheetData = Convert.FromBase64String(SampleExcelFile);
-
-        // Or, load a file from your file system.
-        // Specify the full File namespace or use namespace aliases
-        // to avoid ambiguous reference with the Telerik SVG icon File.
-        // FileData = System.IO.File.ReadAllBytes("C:\\Documents\\MyWorkbook.xlsx");
-
-        await base.OnInitializedAsync();
-    }
-
-    private const string SampleExcelFile = @[template](/_contentTemplates/spreadsheet/sample-files.md#default);
-}
-````
+<demo metaUrl="client/spreadsheet/overview/example-1/" height="770"></demo>
 
 
 ## Spreadsheet File Format
@@ -113,27 +92,7 @@ The Blazor Spreadsheet component exposes methods for programmatic operation. To 
 
 >caption Using the Spreadsheet reference and methods
 
-````RAZOR
-<TelerikSpreadsheet @ref="@SpreadsheetRef">
-</TelerikSpreadsheet>
-
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-               OnClick="@OnSaveButtonClick">Save Excel File</TelerikButton>
-
-@code {
-    private TelerikSpreadsheet? SpreadsheetRef { get; set; }
-
-    private async Task OnSaveButtonClick()
-    {
-        if (SpreadsheetRef !=null)
-        {
-            byte[] excelFileToSave = await SpreadsheetRef.ExportToExcelAsync();
-
-            Console.WriteLine($"The Excel file size is {excelFileToSave.Length} bytes.");
-        }
-    }
-}
-````
+<demo metaUrl="client/spreadsheet/overview/example-2/" height="770"></demo>
 
 
 ## Next Steps

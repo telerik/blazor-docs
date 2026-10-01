@@ -55,56 +55,7 @@ The `<SankeyLegend>` tag exposes nested tags for further customization of the se
 
 >caption Customizing the Sankey legend by using nested tag settings
 
-````RAZOR
-<TelerikSankey Data="@Data"
-               DisableAutoLayout="true"
-               Height="400px">
-    <SankeyLinks ColorType="@SankeyLinksColorType.Source" />
-    <SankeyLegend Position="@SankeyLegendPosition.Top" Background="rgba(255, 99, 88, 0.1)">
-        <SankeyLegendTitle Text="Device usage by age groups" Font="bold 17px sans-serif">
-            <SankeyLegendTitlePadding Bottom="20"></SankeyLegendTitlePadding>
-        </SankeyLegendTitle>
-        <SankeyLegendItem AreaOpacity="0.7" />
-        <SankeyLegendMargin Bottom="20" />
-        <SankeyLegendPadding Top="10" Bottom="10" />
-    </SankeyLegend>
-</TelerikSankey>
-
-@code {
-    private SankeyData? Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        var sourceNodes = 3;
-        var destinationNodes = 3;
-
-        Data = new SankeyData()
-            {
-                Nodes = new SankeyDataNodes(),
-                Links = new SankeyDataLinks()
-            };
-
-        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
-        {
-            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
-            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
-        }
-
-        for (int i = 1; i <= sourceNodes; i++)
-        {
-            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
-            {
-                Data.Links.Add(new SankeyDataLink()
-                    {
-                        SourceId = i,
-                        TargetId = j,
-                        Value = Random.Shared.Next(5, 30)
-                    });
-            }
-        }
-    }
-}
-````
+<demo metaUrl="client/sankey/legend/example-1/" height="620"></demo>
 
 ## See Also
 

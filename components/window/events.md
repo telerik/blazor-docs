@@ -27,41 +27,7 @@ You can use the `WidthChanged` and `HeightChanged` events to get notifications w
 
 >caption Respond to the user actions when resizing the window
 
-````RAZOR
-<TelerikWindow Height="@WindowHeight"
-               HeightChanged="@WindowHeightChanged"
-               Width="@WindowWidth"
-               WidthChanged="@WindowWidthChanged"
-               Visible="true">
-    <WindowTitle>Window Title</WindowTitle>
-    <WindowContent>
-        Window Content
-    </WindowContent>
-</TelerikWindow>
-
-@WindowResizeLog
-
-@code {
-    private bool WindowVisible { get; set; } = true;
-
-    private string WindowHeight { get; set; } = "200px";
-    private string WindowWidth { get; set; } = "400px";
-
-    private string WindowResizeLog { get; set; } = string.Empty;
-
-    private void WindowWidthChanged(string newWidth)
-    {
-        WindowWidth = newWidth;
-        WindowResizeLog = $"New Width {WindowWidth} and Height {WindowHeight} at {DateTime.Now.ToString("HH:mm:ss")}";
-    }
-
-    private void WindowHeightChanged(string newHeight)
-    {
-        WindowHeight = newHeight;
-        WindowResizeLog = $"New Width {WindowWidth} and Height {WindowHeight} at {DateTime.Now.ToString("HH:mm:ss")}";
-    }
-}
-````
+<demo metaUrl="client/window/events/example-1/" height="420"></demo>
 
 ## LeftChanged and TopChanged
 
@@ -75,41 +41,7 @@ The `LeftChanged` event fires second, so if you intend to store locations in an 
 
 >caption Handle LeftChanged and TopChanged
 
-````RAZOR
-<TelerikWindow Top="@WindowTop"
-               TopChanged="@WindowTopChanged"
-               Left="@WindowLeft"
-               LeftChanged="@WindowLeftChanged"
-               Visible="true">
-    <WindowTitle>Window Title</WindowTitle>
-    <WindowContent>
-        Window Content
-    </WindowContent>
-</TelerikWindow>
-
-@WindowDragLog
-
-@code {
-    private bool WindowVisible { get; set; } = true;
-
-    private string WindowTop { get; set; } = string.Empty;
-    private string WindowLeft { get; set; } = string.Empty;
-
-    private string WindowDragLog { get; set; } = string.Empty;
-
-    private void WindowLeftChanged(string newLeft)
-    {
-        WindowLeft = newLeft;
-        WindowDragLog = $"New Left {WindowLeft} and Top {WindowTop} at {DateTime.Now.ToString("HH:mm:ss")}";
-    }
-
-    private void WindowTopChanged(string newTop)
-    {
-        WindowTop = newTop;
-        WindowDragLog = $"New Left {WindowLeft} and Top {WindowTop} at {DateTime.Now.ToString("HH:mm:ss")}";
-    }
-}
-````
+<demo metaUrl="client/window/events/example-2/" height="420"></demo>
 
 ## Action OnClick
 
@@ -126,32 +58,7 @@ Handle the `StateChanged` event to detect when the user tries to minimize, maxim
 
 >caption React to the user actions to minimize, restore or maximize the window
 
-````RAZOR
-<TelerikWindow State="@WindowState"
-               StateChanged="@WindowStateChanged"
-               Height="200px"
-               Width="400px"
-               Resizable="false"
-               Visible="true">
-    <WindowTitle>Window Title</WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-    </WindowActions>
-    <WindowContent>
-        Window State: <code>@WindowState</code>
-    </WindowContent>
-</TelerikWindow>
-
-@code {
-    private WindowState WindowState { get; set; } = WindowState.Default;
-
-    private void WindowStateChanged(WindowState newState)
-    {
-        WindowState = newState;
-    }
-}
-````
+<demo metaUrl="client/window/events/example-3/" height="420"></demo>
 
 ## VisibleChanged
 
@@ -159,43 +66,7 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
 
 >caption Handle the Window VisibleChanged event
 
-````RAZOR
-<TelerikWindow Visible="@WindowVisible"
-               VisibleChanged="@WindowVisibleChanged">
-    <WindowTitle>
-        Window Title
-    </WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Close" />
-    </WindowActions>
-    <WindowContent>
-        <p>Window Content</p>
-        <label>
-            <TelerikCheckBox @bind-Value="@WindowIsClosable" />
-            Users can close the Window with the [x] button:
-        </label>
-
-    </WindowContent>
-</TelerikWindow>
-
-<TelerikButton OnClick="@(() => WindowVisible = !WindowVisible)">Toggle Window</TelerikButton>
-
-<p>Window Visible: @WindowVisible</p>
-
-@code {
-    private bool WindowVisible { get; set; }
-
-    private bool WindowIsClosable { get; set; } = true;
-
-    private void WindowVisibleChanged(bool newVisible)
-    {
-        if (WindowIsClosable)
-        {
-            WindowVisible = newVisible;
-        }
-    }
-}
-````
+<demo metaUrl="client/window/events/example-4/" height="420"></demo>
 
 ## See Also
 

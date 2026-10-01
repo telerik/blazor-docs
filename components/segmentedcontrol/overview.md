@@ -28,31 +28,7 @@ The <a href="https://www.telerik.com/blazor-ui/segmented-control" target="_blank
 
 >caption Basic SegmentedControl for Blazor
 
-````RAZOR
-<TelerikSegmentedControl Data="@Items"
-                         @bind-Value="@SelectedValue">
-</TelerikSegmentedControl>
-
-<p>Selected value: @SelectedValue</p>
-
-@code {
-    private string SelectedValue { get; set; } = "edit";
-
-    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
-    {
-        new SegmentItem() { Text = "Edit", Value = "edit", Icon = SvgIcon.Pencil },
-        new SegmentItem() { Text = "Preview", Value = "preview", Icon = SvgIcon.Eye },
-        new SegmentItem() { Text = "Split", Value = "split", Icon = SvgIcon.Columns },
-    };
-
-    public class SegmentItem
-    {
-        public string Text { get; set; } = string.Empty;
-        public string Value { get; set; } = string.Empty;
-        public object? Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/segmentedcontrol/overview/example-1/" height="320"></demo>
 
 ## Data Binding
 

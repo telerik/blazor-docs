@@ -17,8 +17,6 @@ An Area chart emphasizes the volume of money, data or any other unit that the gi
 
 >caption Area series in a stock chart. Results from the first code snippet below.
 
-![basic area chart](images/stockchart-basic-area-chart.png)
-
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
 To add a `Area` chart to a stock chart component:
@@ -31,83 +29,7 @@ To add a `Area` chart to a stock chart component:
 
 >caption An area chart that shows product revenues
 
-````RAZOR
-@*Area series*@
-
-<TelerikStockChart Height="450px"
-                   Width="700px">
-
-    <StockChartCategoryAxes>
-        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Years"></StockChartCategoryAxis>
-    </StockChartCategoryAxes>
-
-    <StockChartSeriesItems>
-        <StockChartSeries Type="StockChartSeriesType.Area"
-                          Name="Product 1"
-                          Data="@Data"
-                          Field="@nameof(ChartSeriesData.Product1Sales)"
-                          CategoryField="@nameof(ChartSeriesData.Year)">
-        </StockChartSeries>
-
-        <StockChartSeries Type="StockChartSeriesType.Area"
-                          Name="Product 1"
-                          Data="@Data"
-                          Field="@nameof(ChartSeriesData.Product2Sales)"
-                          CategoryField="@nameof(ChartSeriesData.Year)">
-        </StockChartSeries>
-
-        <StockChartNavigator>
-            <StockChartNavigatorSeriesItems>
-                <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
-                                           Name="Product 1"
-                                           Data="@Data"
-                                           Field="@(nameof(ChartSeriesData.Product1Sales))"
-                                           CategoryField="@(nameof(ChartSeriesData.Year))">
-                </StockChartNavigatorSeries>
-            </StockChartNavigatorSeriesItems>
-        </StockChartNavigator>
-
-    </StockChartSeriesItems>
-
-</TelerikStockChart>
-
-@code {
-    public List<ChartSeriesData> Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Data = ChartSeriesData.GenerateData();
-    }
-
-    public class ChartSeriesData
-    {
-        public int Product1Sales { get; set; }
-        public double Product2Sales { get; set; }
-        public DateTime Year { get; set; }
-        public string SegmentName { get; set; }
-
-        public static List<ChartSeriesData> GenerateData()
-        {
-            List<ChartSeriesData> data = new List<ChartSeriesData>();
-
-            for (int i = 1; i <= 3; i++)
-            {
-                var dataItem = new ChartSeriesData
-                {
-                    Product1Sales = i,
-                    Product2Sales = i + 1.123,
-                    Year = new DateTime(2000 + i, 3, i),
-                    SegmentName = $"{i * 100}"
-                };
-
-                data.Add(dataItem);
-            }
-
-            return data;
-        }
-    }
-}
-````
+<demo metaUrl="client/stockchart/types/area/example-1/" height="520"></demo>
 
 ## Area Chart Specific Appearance Settings
 
@@ -118,86 +40,5 @@ The color of a series is controlled through the `Color` property that can take a
 
 >caption Change the rendering Step and Color of the Category Axis Labels
 
-````RAZOR
-@* Change the rendering Step and Color of the Category Axis Labels *@
-
-<TelerikStockChart Height="450px"
-                   Width="700px">
-
-    <StockChartCategoryAxes>
-        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Years">
-            <StockChartCategoryAxisLabels Step="1" Color="#0000FF"></StockChartCategoryAxisLabels>
-        </StockChartCategoryAxis>
-    </StockChartCategoryAxes>
-
-    <StockChartSeriesItems>
-        <StockChartSeries Type="StockChartSeriesType.Area"
-                          Name="Product 1"
-                          Data="@Data"
-                          Field="@nameof(ChartSeriesData.Product1Sales)"
-                          CategoryField="@nameof(ChartSeriesData.Year)">
-        </StockChartSeries>
-
-        <StockChartSeries Type="StockChartSeriesType.Area"
-                          Name="Product 1"
-                          Data="@Data"
-                          Field="@nameof(ChartSeriesData.Product2Sales)"
-                          CategoryField="@nameof(ChartSeriesData.Year)">
-        </StockChartSeries>
-    </StockChartSeriesItems>
-
-    <StockChartNavigator>
-        <StockChartNavigatorSeriesItems>
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
-                                       Name="Product 1"
-                                       Data="@Data"
-                                       Field="@(nameof(ChartSeriesData.Product1Sales))"
-                                       CategoryField="@(nameof(ChartSeriesData.Year))">
-            </StockChartNavigatorSeries>
-        </StockChartNavigatorSeriesItems>
-    </StockChartNavigator>
-
-</TelerikStockChart>
-
-@code {
-    public List<ChartSeriesData> Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Data = ChartSeriesData.GenerateData();
-    }
-
-    public class ChartSeriesData
-    {
-        public int Product1Sales { get; set; }
-        public double Product2Sales { get; set; }
-        public DateTime Year { get; set; }
-        public string SegmentName { get; set; }
-
-        public static List<ChartSeriesData> GenerateData()
-        {
-            List<ChartSeriesData> data = new List<ChartSeriesData>();
-
-            for (int i = 1; i <= 3; i++)
-            {
-                var dataItem = new ChartSeriesData
-                {
-                    Product1Sales = i,
-                    Product2Sales = i + 1.123,
-                    Year = new DateTime(2000 + i, 3, i),
-                    SegmentName = $"{i * 100}"
-                };
-
-                data.Add(dataItem);
-            }
-
-            return data;
-        }
-    }
-}
-````
-
->caption The result from the code snippet above
-![Blazor Area Chart Customization](images/area-chart-customization.png)
-
+<demo metaUrl="client/stockchart/types/area/example-2/" height="520"></demo>
 

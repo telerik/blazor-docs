@@ -63,93 +63,9 @@ The known limitations of the Autofit Columns feature include:
 ## Example
 
 >caption How column resizing works in the Telerik TreeList
-
-![Blazor TreeList Column Resize Preview](images/column-resize-preview.gif)
-
 >caption TreeList Column Resizing and Autofitting
 
-````RAZOR
-<TelerikButton OnClick="@AutoFitSingleColumn">AutoFit Name Column</TelerikButton>
-<TelerikButton OnClick="@AutoFitMultipleColumns">AutoFit Id and ParentId Columns</TelerikButton>
-<TelerikButton OnClick="@AutoFitAllColumns">AutoFit All Columns</TelerikButton>
-
-<TelerikTreeList @ref="@TreeList" Data="@TreeListData" Resizable="true"
-                 Pageable="true" IdField="Id" ParentIdField="ParentId" Height="400px">
-    <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" Id="NameColumn" />
-        <TreeListColumn Field="Id" Resizable="false" Id="IdColumn" />
-        <TreeListColumn Field="ParentId" Id="ParentIdColumn" />
-        <TreeListColumn Field="HireDate" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-    private TelerikTreeList<Employee>? TreeList { get; set; }
-    private List<Employee> TreeListData { get; set; } = new();
-
-    private async Task AutoFitSingleColumn()
-    {
-        await TreeList!.AutoFitColumnAsync("NameColumn");
-    }
-
-    private async Task AutoFitMultipleColumns()
-    {
-        var columns = new List<string>() { "IdColumn", "ParentIdColumn" };
-        await TreeList!.AutoFitColumnsAsync(columns);
-    }
-
-    private async Task AutoFitAllColumns()
-    {
-        await TreeList!.AutoFitAllColumnsAsync();
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i < 15; i++)
-        {
-            TreeListData.Add(new Employee
-            {
-                Id = i,
-                ParentId = null,
-                Name = $"root: {i}",
-                HireDate = DateTime.Now.AddYears(-i)
-            }); ;
-
-            for (int j = 1; j < 4; j++)
-            {
-                int currId = i * 100 + j;
-                TreeListData.Add(new Employee
-                {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child {j} of {i}",
-                    HireDate = DateTime.Now.AddDays(-currId)
-                });
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = currId * 1000 + k;
-                    TreeListData.Add(new Employee
-                    {
-                        Id = nestedId,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
-                }
-            }
-        }
-    }
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public DateTime HireDate { get; set; }
-    }
-}
-````
+<demo metaUrl="client/treelist/columns/resize/example-1/" height="720"></demo>
 
 ## See Also
 

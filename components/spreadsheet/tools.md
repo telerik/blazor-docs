@@ -93,102 +93,7 @@ The example below shows how to:
 
 >caption Customizing tools from the default Spreadsheet tool set
 
-````RAZOR
-@using Telerik.Blazor.Components.Spreadsheet
-@using Telerik.Blazor.Components.Spreadsheet.ToolBar.ToolTypes
-@using Telerik.Blazor.Resources
-@using Telerik.Blazor.Services
-
-@* Needed to find the built-in Home tool by its localized title if the application is using more than one language *@
-@* @inject ITelerikStringLocalizer Localizer *@
-
-<TelerikSpreadsheet Tools="@DefaultToolsWithCustomizations">
-</TelerikSpreadsheet>
-
-@code {
-    private SpreadsheetToolSet DefaultToolsWithCustomizations { get; set; } = SpreadsheetToolSets.All;
-
-    protected override void OnInitialized()
-    {
-        // Find the built-in File tool set item by its index.
-        SpreadsheetToolSetItem? fileToolSetItem = DefaultToolsWithCustomizations.Items.FirstOrDefault();
-
-        // Rename the File tool set item
-        if (fileToolSetItem != null)
-        {
-            fileToolSetItem.Title = "Custom File Label";
-        }
-
-        // Find the built-in Home tool set item.
-        // This example uses hard-coded title string ("Home") but you may use the tool's localized title if the application is using more than one language.
-        // SpreadsheetToolSetItem? homeToolSetItem = DefaultToolsWithCustomizations.Items
-        //     .FirstOrDefault(x => x.Title == Localizer[nameof(Messages.Spreadsheet_ToolBar_HomeMenu)]);
-
-        SpreadsheetToolSetItem? homeToolSetItem = DefaultToolsWithCustomizations.Items
-        .FirstOrDefault(x => x.Title == "Home");
-
-        var fontFamilyTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetFontFamilyTool) as SpreadsheetFontFamilyTool;
-
-        if (fontFamilyTool != null)
-        {
-            // Change the Font Family tool data.
-            fontFamilyTool.Data = new List<SpreadsheetDropDownListToolItem>()
-            {
-                new SpreadsheetDropDownListToolItem { Text = "Arial", Value = "Arial" },
-                new SpreadsheetDropDownListToolItem { Text = "Helvetica", Value = "Helvetica" },
-                new SpreadsheetDropDownListToolItem { Text = "Tahoma", Value = "Tahoma" },
-                new SpreadsheetDropDownListToolItem { Text = "Verdana", Value = "Verdana" }
-            };
-        }
-
-        var fontSizeTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetFontSizeTool) as SpreadsheetFontSizeTool;
-
-        if (fontSizeTool != null)
-        {
-            // Change the Font Size tool width.
-            fontSizeTool.Width = "6em";
-
-            // Change the Font Size tool data.
-            fontSizeTool.Data = new List<SpreadsheetDropDownListToolItem>()
-            {
-                new SpreadsheetDropDownListToolItem { Text = "12px", Value = "12px" },
-                new SpreadsheetDropDownListToolItem { Text = "16px", Value = "16px" },
-                new SpreadsheetDropDownListToolItem { Text = "24px", Value = "24px" },
-                new SpreadsheetDropDownListToolItem { Text = "36px", Value = "36px" }
-            };
-        }
-
-        var textColorTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetTextColorTool) as SpreadsheetTextColorTool;
-
-        if (textColorTool != null)
-        {
-            // Change the Text Color tool palette.
-            textColorTool.Colors = ColorPalettePresets.Basic;
-        }
-
-        var backgroundColorTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetTextColorTool) as SpreadsheetTextColorTool;
-
-        if (backgroundColorTool != null)
-        {
-            // Change the Background Color tool palette.
-            backgroundColorTool.Colors = ColorPalettePresets.Office;
-        }
-
-        var wrapTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetTextWrapTool) as SpreadsheetTextWrapTool;
-
-        if (wrapTool != null)
-        {
-            // Disable the Wrap tool.
-            //wrapTool.Enabled = false;
-
-            // Or remove the Wrap tool.
-            homeToolSetItem?.Tools.Remove(wrapTool);
-        }
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/spreadsheet/tools/example-3/" height="770"></demo>
 
 ## Create a Custom Tool Set
 
@@ -201,46 +106,7 @@ Here is how to define a custom tool set from scratch. You can also [set the avai
 
 >caption Creating a custom tool set collection from scratch
 
-````RAZOR
-@using Telerik.Blazor.Components.Spreadsheet
-
-<TelerikSpreadsheet Tools="@SpreadsheetTools">
-</TelerikSpreadsheet>
-
-@code {
-    private SpreadsheetToolSet SpreadsheetTools { get; set; } = new SpreadsheetToolSet();
-
-    protected override void OnInitialized()
-    {
-        SpreadsheetTools.Items = new List<SpreadsheetToolSetItem>()
-        {
-            new SpreadsheetToolSetItem()
-            {
-                Title = "Custom Tool Set Item",
-                Tools = new List<SpreadsheetTool>()
-                {
-                    new SpreadsheetOpenFileTool(),
-                    new SpreadsheetDownloadFileTool(),
-
-                    new SpreadsheetToolSeparator(),
-
-                    new SpreadsheetUndoTool(),
-                    new SpreadsheetRedoTool(),
-
-                    new SpreadsheetToolSeparator(),
-
-                    new SpreadsheetHorizontalAlignTool(),
-                    new SpreadsheetTextWrapTool(),
-                    new SpreadsheetNumberFormatTool(),
-                    new SpreadsheetInsertLinkTool()
-                }
-            }
-        };
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/spreadsheet/tools/example-2/" height="420"></demo>
 
 
 ## Define Custom Tools
@@ -252,50 +118,7 @@ The `SpreadsheetCustomTool` type has a `Template` property that is a `RenderFrag
 
 >caption Creating custom Spreadsheet tools
 
-````RAZOR
-@using Telerik.Blazor.Components.Spreadsheet
-
-<p>Click on <strong>File</strong> to see and use the custom tool.</p>
-
-<TelerikSpreadsheet Data="@SpreadsheetData"
-                    Tools="@SpreadsheetToolsWithCustomTool">
-</TelerikSpreadsheet>
-
-@code {
-    private byte[]? SpreadsheetData { get; set; }
-
-    private SpreadsheetToolSet SpreadsheetToolsWithCustomTool { get; set; } = SpreadsheetToolSets.All;
-
-    protected override void OnInitialized()
-    {
-        SpreadsheetToolSetItem fileToolSetItem = SpreadsheetToolsWithCustomTool.Items.First();
-
-        // Add a custom tool to the first tool set item
-        fileToolSetItem.Tools.Add(new SpreadsheetCustomTool()
-        {
-            Template = CustomToolFragment
-        });
-
-        base.OnInitialized();
-    }
-
-    private RenderFragment CustomToolFragment =>
-        @<TelerikButton Icon="@SvgIcon.FileExcel"
-                        ButtonType="@ButtonType.Button"
-                        ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-                        Title="Load Excel Template"
-                        FillMode="@ThemeConstants.Button.FillMode.Flat"
-                        OnClick="@OnCustomToolClick">
-        </TelerikButton>;
-
-    private void OnCustomToolClick()
-    {
-        SpreadsheetData = Convert.FromBase64String(SampleExcelFile);
-    }
-
-    private string SampleExcelFile = @[template](/_contentTemplates/spreadsheet/sample-files.md#default);
-}
-````
+<demo metaUrl="client/spreadsheet/tools/example-1/" height="770"></demo>
 
 
 ## See Also
