@@ -25,117 +25,33 @@ You can customize the appearance of the labels rendered on the [scale](slug:radi
 
 The `Format` (`string`) parameter allows you to customize the rendering of the labels by using the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings" target="_blank">standard numeric format strings</a>. You can set the values of the labels to showcase, for example, currency, percentage, and so on.
 
->caption Use the Format parameter to showcase currency. The result from the code snippet below.
+>caption Use the Format parameter to showcase currency.
 
-![Format parameter example](images/format-parameter-labels.png)
-
-````RAZOR
-@* Use the {0:C0} format string to format the values of the labels as currency. *@
-
-<TelerikRadialGauge>
-    <RadialGaugeScales>
-
-        <RadialGaugeScale>
-            <RadialGaugeScaleLabels Format="{0:C0}">
-            </RadialGaugeScaleLabels>
-        </RadialGaugeScale>
-
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-        
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/labels/format-parameter-showcase-cu-4/" height="420"></demo>
 
 ## Color
 
 The `Color` (`string`) parameter controls the color of the labels. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the color of the labels. The result from the code snippet below.
+>caption Change the color of the labels.
 
-![Color parameter screenshot](images/color-parameter-labels.png)
-
-````RAZOR
-@* Change the color of the labels to blue *@
-
-<TelerikRadialGauge>
-    <RadialGaugeScales>
-        <RadialGaugeScale>
-            <RadialGaugeScaleLabels Color="blue">
-            </RadialGaugeScaleLabels>
-        </RadialGaugeScale>
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>       
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/labels/color-labels-result-code-3/" height="420"></demo>
 
 ## Visible
 
 The `Visible` (`bool`) parameter controls whether the labels will be rendered.
 
->caption Hide the labels by using the Visible parameter. The result from the code snippet below
+>caption Hide the labels by using the Visible parameter.
 
-![Hide the labels](images/visible-parameter-labels.png)
-
-````RAZOR
-@* Set the Visible parameter to false to hide the labels *@
-
-<TelerikRadialGauge>
-    <RadialGaugeScales>
-        <RadialGaugeScale>
-            <RadialGaugeScaleLabels Visible="false">
-            </RadialGaugeScaleLabels>
-        </RadialGaugeScale>
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>        
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/labels/hide-labels-visible-paramete-2/" height="420"></demo>
 
 ## Additional Customization
 
 @[template](/_contentTemplates/gauges/additional-customization.md#radial-gauge-additional-customization)
 
->caption Customize the background and the margin of the Labels. The result from the code snippet below.
+>caption Customize the background and the margin of the Labels.
 
-![Custom Label background](images/labels-custom-background.png)
-
-````RAZOR
-@* Provide background color and margin to the labels *@
-
-<TelerikRadialGauge>
-    <RadialGaugeScales>
-
-        <RadialGaugeScale>
-            <RadialGaugeScaleLabels Background="yellow">
-                <RadialGaugeScaleLabelsMargin Top="10" Bottom="10" Left="10" Right="10"></RadialGaugeScaleLabelsMargin>
-            </RadialGaugeScaleLabels>
-        </RadialGaugeScale>
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/labels/background-margin-labels-res-1/" height="420"></demo>
 
 ## See Also
 

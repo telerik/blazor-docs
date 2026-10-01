@@ -32,28 +32,9 @@ The scale of the arc gauge renders the values, pointers and labels. You can cust
 
 * The `Min` (`double`) parameter controls the lowest value of the component.
 
->caption Change the lowest and the highest values for the scale. The result from the code snippet below.
+>caption Change the lowest and the highest values for the scale.
 
-![Min and max parameters example](images/min-and-max-arc-gauge.png)
-
-````RAZOR
-@* Use the Min and Max parameters to change the lowest and highest values for the scale *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="10" Max="100">
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/scale/lowest-highest-values-scale-5/" height="420"></demo>
 
 ## MinorUnit and MajorUnit
 
@@ -61,28 +42,9 @@ The scale of the arc gauge renders the values, pointers and labels. You can cust
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component. In order to use the `MinorUnit` ticks you must [enable them](#example-enable-the-minorunit-ticks) explicitly.
 
->caption Change the rendering frequency of the major unit divisions. The result from the code snippet below.
+>caption Change the rendering frequency of the major unit divisions.
 
-![Minor and major units parameters](images/minor-and-major-units-arc-gauge.png)
-
-````RAZOR
-@* Update the rendering of the major ticks *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100" MajorUnit="10">
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/scale/rendering-frequency-major-un-4/" height="420"></demo>
 
 ## StartAngle and EndAngle
 
@@ -92,55 +54,17 @@ The scale of the arc gauge renders the values, pointers and labels. You can cust
 
 By default the `StartAngle` is set to `0` and the `EndAngle` to `180`. These values represent the angles on the coordinate system. 
 
->caption Change the StartAngle and the EndAngle of the scale. The result from the code snippet below.
+>caption Change the StartAngle and the EndAngle of the scale.
 
-![Min and max parameters example](images/start-end-angle-arc-gauge.png)
-
-````RAZOR
-@* Use the StartAngle and EndAngle parameters to curve the scale differently. *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100" StartAngle="-45" EndAngle="180">
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/scale/startangle-endangle-scale-re-3/" height="420"></demo>
 
 ## Reverse
 
 If you set the `Reverse` (`bool`) parameter to `true` the values of the scale will increase from the right side to the left side of the scale. By default they will raise from the left to right.
 
->caption Reverse the scale of the component. The result from the code snippet below.
+>caption Reverse the scale of the component.
 
-![reverse parameter example](images/reverse-arc-gauge.png)
-
-````RAZOR
-@* Set the Reverse parameter to true *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100" Reverse="true">
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/scale/reverse-scale-component-resu-2/" height="420"></demo>
 
 ## Additional Customization
 
@@ -150,29 +74,9 @@ If you set the `Reverse` (`bool`) parameter to `true` the values of the scale wi
 
 You can enable the MinorUnit ticks on the scale by using the `<ArcGaugeScaleMinorTicks>` nested tag and its `Visible` parameter.
 
->caption Add the MinorUnit ticks to the scale. The result from the code snippet below.
+>caption Add the MinorUnit ticks to the scale.
 
-![Add the MinorUnit ticks](images/add-minorunit-ticks-arc-gauge.png)
-
-````RAZOR
-@* Add the MinorUnit ticks. *@
-
-<TelerikArcGauge>
-    <ArcGaugeScales>
-        <ArcGaugeScale Min="0" Max="100" MajorUnit="20" MinorUnit="5">
-            <ArcGaugeScaleMinorTicks Visible="true" />
-            <ArcGaugeScaleLabels Visible="true" />
-        </ArcGaugeScale>
-    </ArcGaugeScales>
-
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30">
-        </ArcGaugePointer>
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-````
+<demo metaUrl="client/arcgauge/scale/add-minorunit-ticks-scale-1/" height="420"></demo>
 
 ## See Also
 

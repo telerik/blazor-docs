@@ -21,19 +21,7 @@ The Blazor DateTime Picker component allows the user to choose both a date and a
 
 >caption Basic datetime picker with custom format, min and max
 
-````RAZOR
-Selected time: @selectedTime
-<br />
-
-<TelerikDateTimePicker Min="@Min" Max="@Max" @bind-Value="@selectedTime"
-                       Format="dd MMM yyyy HH:mm:ss" Width="250px"></TelerikDateTimePicker>
-
-@code {
-    private DateTime? selectedTime = DateTime.Now;
-    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-}
-````
+<demo metaUrl="client/datetimepicker/basic-2/" height="620"></demo>
 
 ## Date Input Typing Settings
 
@@ -78,7 +66,7 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 ## Adaptive Rendering
 
-<demo metaUrl="client/datetimepicker/adaptive/" height="420"></demo>
+<demo metaUrl="client/datetimepicker/adaptive/" height="670"></demo>
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
@@ -135,26 +123,7 @@ Add a reference to the component instance to use the [Date Time Picker's methods
 | `FocusAsync` | Focuses the DateTimePicker textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `Open` | Opens the Calendar popup. |
 
-````RAZOR
-<TelerikDateTimePicker @ref="@DateTimePickerRef"
-                       @bind-Value="@DateTimePickerValue"
-                       Width="300px">
-</TelerikDateTimePicker>
-
-<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
-
-@code {  
-    // the datetime picker is a generic component and its type comes from the value field type
-    private TelerikDateTimePicker<DateTime> DateTimePickerRef { get; set; }
-
-    private DateTime DateTimePickerValue = DateTime.Now;
-
-    private void OpenPopup()
-    {
-        DateTimePickerRef.Open();
-    }
-}
-````
+<demo metaUrl="client/datetimepicker/basic-1/" height="420"></demo>
 
 ## Next Steps
 

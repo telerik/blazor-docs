@@ -32,33 +32,9 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 * The `Min` (`double`) parameter controls the minimum value of the component.
 
->caption Change the minimum and the maximum values for the scale. The result from the code snippet below.
+>caption Change the minimum and the maximum values for the scale.
 
-![Min and max parameters example](images/min-and-max-radial-gauge.png)
-
-````RAZOR
-@* Use the Min and Max parameters to change the minimum and the maximum values for the scale *@
-
-<TelerikRadialGauge>
-    <RadialGaugeScales>
-        <RadialGaugeScale Min="10" Max="100"></RadialGaugeScale>
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="10">
-        </RadialGaugePointer>
-
-        <RadialGaugePointer Value="40">
-        </RadialGaugePointer>
-
-        <RadialGaugePointer Value="70">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-
-````
+<demo metaUrl="client/radialgauge/scale/minimum-maximum-values-scale-5/" height="420"></demo>
 
 ## MinorUnit and MajorUnit
 
@@ -66,27 +42,9 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
->caption Change the rendering frequency of the minor and major unit divisions. The result from the code snippet below.
+>caption Change the rendering frequency of the minor and major unit divisions.
 
-![Minor and major units parameters](images/minor-and-major-units-radial-gauge.png)
-
-````RAZOR
-@* Update the rendering of the major and minor units *@
-
-<TelerikRadialGauge>
-
-    <RadialGaugeScales>
-        <RadialGaugeScale MajorUnit="10" MinorUnit="5"></RadialGaugeScale>
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/scale/rendering-frequency-minor-ma-4/" height="420"></demo>
 
 ## StartAngle and EndAngle
 
@@ -96,29 +54,9 @@ The gauge is rendered clockwise (0 degrees are the 180 degrees in the polar coor
 
 * `EndAngle` - defines the end angle of the gauge, its default value is 180. 
 
->caption Change the StartAngle and EndAngle of the radial gauge. The result from the code snippet below
+>caption Change the StartAngle and EndAngle of the radial gauge.
 
-![StartAngle and EndAngle of the gauge](images/start-end-angles.png)
-
-````RAZOR
-@* Change the StartAngle and EndAngle of the radial gauge *@
-
-<TelerikRadialGauge>
-    <RadialGaugeScales>
-
-        <RadialGaugeScale StartAngle="30" EndAngle="150">
-        </RadialGaugeScale>
-
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers> 
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/scale/startangle-endangle-radial-g-3/" height="420"></demo>
 
 ## Reverse
 
@@ -126,24 +64,7 @@ If you set the `Reverse` (`bool`) parameter to `true` the gauge will be rendered
 
 >caption Reverse the component. The result from the code snippet below.
 
-![reverse parameter example](images/reverse-radial-gauge.png)
-
-````RAZOR
-@* Set the Reverse parameter to true *@
-
-<TelerikRadialGauge>
-
-    <RadialGaugeScales>
-        <RadialGaugeScale Reverse="true"></RadialGaugeScale>
-    </RadialGaugeScales>
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/scale/reverse-component-result-cod-2/" height="420"></demo>
 
 
 
@@ -157,26 +78,7 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 >caption Remove the MinorUnit ticks. The result from the code snippet below.
 
-![Remove the MinorUnit ticks](images/remove-minorunit-ticks-radial-gauge.png)
-
-````RAZOR
-@* Remove the MinorUnit ticks. *@
-
-<TelerikRadialGauge>
-    <RadialGaugeScales>
-        <RadialGaugeScale>
-            <RadialGaugeScaleMinorTicks Visible="false"></RadialGaugeScaleMinorTicks>
-        </RadialGaugeScale>
-    </RadialGaugeScales>
-
-    <RadialGaugePointers>
-
-        <RadialGaugePointer Value="30">
-        </RadialGaugePointer>
-
-    </RadialGaugePointers>
-</TelerikRadialGauge>
-````
+<demo metaUrl="client/radialgauge/scale/remove-minorunit-ticks-resul-1/" height="420"></demo>
 
 ## See Also
 
