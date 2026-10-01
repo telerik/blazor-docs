@@ -26,6 +26,8 @@ To configure Chart series for drill-down:
 
 <demo metaUrl="client/chart/drilldown/overview/" height="500"></demo>
 
+For more than one drill-down level and troubleshooting when a later level does not open, see [Configure Multiple Chart DrillDown Levels](slug:chart-kb-drilldown-multiple-levels).
+
 ## Configuring Breadcrumb Navigation
 
 Optionally, you can display a Breadcrumb component to show the drill-down levels.

@@ -22,6 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
     * [Setting the Marker Type](#setting-the-marker-type)
     * [Color](#color)
     * [ColorField](#colorfield)
+    * [Handling Long Y-axis Labels](#handling-long-y-axis-labels)
     * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements-nested-tags-settings)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
@@ -86,6 +87,79 @@ The `ColorField` parameter allows you to control the color of an individual mark
 >caption Provide a custom color to all markers in the Heatmap.
 
 <demo metaUrl="client/chart/types/heatmap/color-field/" height="500"></demo>
+````RAZOR
+@* Use the ColorField to provide custom color to each individual marker *@
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="@ChartSeriesType.Heatmap"
+                     Name="Commits Made per developer"
+                     Data="@HeatmapData"
+                     XField="@(nameof(MyHeatmapDataModel.Week))"
+                     YField="@(nameof(MyHeatmapDataModel.Day))"
+                     Field="@(nameof(MyHeatmapDataModel.CommitsNumber))"
+                     ColorField="@(nameof(MyHeatmapDataModel.Color))">
+        </ChartSeries>
+    </ChartSeriesItems>
+</TelerikChart>
+
+@code {
+    public List<MyHeatmapDataModel> HeatmapData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        HeatmapData = GetMyHeatmapData();
+    }
+
+    private List<MyHeatmapDataModel> GetMyHeatmapData()
+    {
+        List<MyHeatmapDataModel> data = new List<MyHeatmapDataModel>()
+        {
+            new MyHeatmapDataModel("blue","John", 14, 1, "Mon"),
+            new MyHeatmapDataModel("darkblue", "Idell", 8, 2, "Mon"),
+            new MyHeatmapDataModel("blueviolet", "Ines", 13, 3, "Mon"),
+            new MyHeatmapDataModel("deepskyblue", "Stephen", 22, 4, "Mon"),
+            new MyHeatmapDataModel("green", "John", 7, 1, "Tue"),
+            new MyHeatmapDataModel("darkgreen", "Idell", 18, 2, "Tue"),
+            new MyHeatmapDataModel("darkolivegreen", "Ines", 2, 3, "Tue"),
+            new MyHeatmapDataModel("darkseagreen", "Stephen", 5, 4, "Tue"),
+            new MyHeatmapDataModel("orange", "John", 10, 1, "Wed"),
+            new MyHeatmapDataModel("orangered", "Idell", 11, 2, "Wed"),
+            new MyHeatmapDataModel("red", "Ines", 20, 3, "Wed"),
+            new MyHeatmapDataModel("darkred", "Stephen", 15, 4, "Wed")
+        };
+
+        return data;
+    }
+
+    public class MyHeatmapDataModel
+    {
+        public MyHeatmapDataModel() { }
+
+        public MyHeatmapDataModel(string color, string devName, int commits, int week, string day)
+        {
+            Color = color;
+            DeveloperName = devName;
+            CommitsNumber = commits;
+            Week = week;
+            Day = day;
+        }
+
+        public string Color { get; set; }
+        public string DeveloperName { get; set; }
+        public int CommitsNumber { get; set; }
+        public int Week { get; set; }
+        public string Day { get; set; }
+    }
+}
+````
+
+### Handling Long Y-axis Labels
+
+The Heatmap Y axis displays categories from the `YField` or the `Categories` collection. These categories can be text, such as names or descriptions. To prevent long labels from being truncated, use the settings under `ChartYAxisLabels` to adjust the label font, margin, position, or density. You can also rotate labels with the nested `ChartYAxisLabelsRotation` tag or provide custom label text through the `Template` parameter.
+
+The Chart does not provide a Heatmap-specific parameter that automatically wraps Y-axis labels. If the labels still do not fit, increase the available chart width, shorten the category text, or hide the labels when the category information is available elsewhere. For general label rotation and density examples, see [Prevent crowded labels in the Chart](slug:chart-kb-crowded-labels). For custom label output and line breaks, see [Label Template and Format](slug:components/chart/label-template-format).
+
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 

@@ -104,6 +104,8 @@ The available series data point information in the `context` is:
 <demo metaUrl="client/chart/tooltip/overview/template/" height="500"></demo>
 
 
+For a PieChart tooltip value formatted as currency, see [Format PieChart Tooltip Values as Currency](slug:chart-kb-tooltip-currency-format).
+
 ## See Also
 
 * [Chart Overview](slug:components/chart/overview)

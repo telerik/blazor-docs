@@ -39,6 +39,56 @@ The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `Csv
 
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
+To define exactly which data fields the export contains, clear the `args.Columns` collection and add one `GridExcelExportColumn` for each field. The `Field` property must match a property in the Grid data item.
+
+>caption Define the exported Grid columns
+
+````RAZOR
+<TelerikGrid Data="@Products">
+  <GridToolBar>
+    <GridToolBarExcelExportTool>Export to Excel</GridToolBarExcelExportTool>
+  </GridToolBar>
+  <GridSettings>
+    <GridExcelExport OnBeforeExport="@OnBeforeExcelExport" />
+  </GridSettings>
+  <GridColumns>
+    <GridColumn Field="@nameof(Product.Name)" />
+    <GridColumn Field="@nameof(Product.Price)" />
+  </GridColumns>
+</TelerikGrid>
+
+@code {
+  private List<Product> Products { get; set; } = new()
+  {
+    new Product { Name = "Product 1", Price = 12.50m },
+    new Product { Name = "Product 2", Price = 24.00m }
+  };
+
+  private void OnBeforeExcelExport(GridBeforeExcelExportEventArgs args)
+  {
+    args.Columns.Clear();
+    args.Columns.Add(new GridExcelExportColumn
+    {
+      Field = nameof(Product.Name),
+      Title = "Product",
+      Width = "180px"
+    });
+    args.Columns.Add(new GridExcelExportColumn
+    {
+      Field = nameof(Product.Price),
+      Title = "Price",
+      NumberFormat = "$#,##0.00"
+    });
+  }
+
+  public class Product
+  {
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+  }
+}
+````
+
 
 * `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid](slug:grid-kb-export-selected-rows).
 

@@ -331,6 +331,81 @@ The following algorithm follows the commonly used approach to replace a CSS file
     }
     ````
 
+## Show Theme Color Previews
+
+To show a color preview next to each theme name, add an `ItemTemplate` to the `TelerikDropDownList`. Use a custom collection of representative colors for each theme option.
+
+The `ColorPalettePresets` are predefined color lists for the `TelerikColorPalette`. They are not mappings for the Telerik themes. A non-interactive swatch preview is more suitable here because the user selects a theme, not an individual color.
+
+Add a `PreviewColors` property to the existing `ThemeModel` class:
+
+````RAZOR
+public class ThemeModel
+{
+    public int Id { get; set; }
+    public string Theme { get; set; }
+    public string Swatch { get; set; }
+    public string FullName => $"{Theme} {Swatch}";
+    public List<string> PreviewColors { get; set; } = new();
+
+    public ThemeModel(int id, string themeName, string swatchName)
+    {
+        Id = id;
+        Theme = themeName;
+        Swatch = swatchName;
+    }
+}
+````
+
+Then add representative colors when you populate `ThemeData` and update the existing dropdown markup:
+
+````RAZOR
+<TelerikDropDownList Data="@ThemeData"
+                     Value="@ThemeSwatchValue"
+                     ValueChanged="@ThemeSwatchValueChanged"
+                     TItem="@ThemeModel"
+                     TValue="@int"
+                     ValueField="@nameof(ThemeModel.Id)"
+                     TextField="@nameof(ThemeModel.FullName)"
+                     Width="240px">
+    <ItemTemplate Context="theme">
+        <div class="theme-preview-item">
+            <span class="theme-preview-swatches" aria-hidden="true">
+                @foreach (string previewColor in theme.PreviewColors)
+                {
+                    <span class="theme-preview-swatch"
+                          style="background-color: @previewColor;"></span>
+                }
+            </span>
+            <span>@theme.FullName</span>
+        </div>
+    </ItemTemplate>
+</TelerikDropDownList>
+
+<style>
+    .theme-preview-item {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .theme-preview-swatches {
+        display: inline-flex;
+        gap: 2px;
+        flex: none;
+    }
+
+    .theme-preview-swatch {
+        width: 16px;
+        height: 16px;
+        border: 1px solid currentColor;
+        border-radius: 2px;
+    }
+</style>
+````
+
+Use representative values from the CSS variables of the corresponding theme, such as the app surface, component surface, primary, secondary, and border colors. Pin the theme version in the stylesheet URL and update the preview values when you upgrade the theme. Avoid `@latest` when the preview colors have to stay synchronized with a specific theme version.
+
 ## Next Steps
 
 * [Implement CDN Fallback](slug:common-kb-cdn-fallback)
