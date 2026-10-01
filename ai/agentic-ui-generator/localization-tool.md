@@ -87,7 +87,7 @@ A mode is the specific action that the Telerik localization tool performs. For b
 
 ### Review Localization Plan
 
-If you need to review the plan from the `preview` stage in detail, consider the following prompt. Note the usage of the `PlannedSourceChanges` and `TargetResourceFiles` properties.
+The AI client should output the localization plan at the end of the `preview` stage. If you need to obtain or display the plan in a different way, you can use a separate prompt. Note the usage of the `PlannedSourceChanges` and `TargetResourceFiles` properties.
 
 ````PROMPT Output full localization plan for review
 Locate the persisted localization plan for project <projectPath> with plan ID <planId>. Display PlannedSourceChanges and TargetResourceFiles as tables. Include the source text, resource key, file and line, replacement expression, locale, and entry counts. Do not modify or apply any files.
