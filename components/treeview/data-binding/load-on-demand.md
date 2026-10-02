@@ -12,8 +12,8 @@ components: ["treeview"]
 # Treeview Load on Demand
 
 This article explains how to load nodes on demand the TreeView for Blazor. 
-@[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
+>tip @[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
 You don't have to provide all the data the treeview will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treeview to provide [flat](slug:components/treeview/data-binding/flat-data) or [hierarchical](slug:components/treeview/data-binding/hierarchical-data) data to the node that was just expanded. Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
 
