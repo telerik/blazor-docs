@@ -13,7 +13,7 @@ components: ["treeview"]
 
 This article explains how to bind the TreeView for Blazor to hierarchical data. 
 
-@[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
+>tip @[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
 Hierarchical data means that the child items are provided in a property of the parent item. By default, the TreeView expects this property to be called `Items`, otherwise set the property name in the `ItemsField` parameter. If a certain node has non-`null` child items collection, it will render an expand icon. The `HasChildren` model property can override this, but it is not required for hierarchical data binding.
 
