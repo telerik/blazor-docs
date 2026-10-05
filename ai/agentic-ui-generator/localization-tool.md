@@ -32,7 +32,7 @@ Before using the Telerik localization assistant:
 
 To use the Telerik localization assistant:
 
-1. Locate the global or project-specific `mcp.json` or `.mcp.json` file that contains the `"telerik-blazor-mcp"` configuration. For more information on editing the file, see the [Manual Setup tab in the Quick Start section](slug:agentic-ui-generator-getting-started#quick-start).
+1. Locate the global or project-specific `mcp.json` or `.mcp.json` file that contains the `"telerik-blazor-mcp"` configuration. The file location and name depends on your code editor. For more information on editing the file, see the [Manual Setup tab in the Quick Start section](slug:agentic-ui-generator-getting-started#quick-start).
 1. In the `"env"` section, set some additional environment variables:
     * `"TELERIK_BLAZOR_MCP_ENABLE_LOCALIZATION": "true"`
     * `"TELERIK_LOCALIZATION_PROVIDER_BASE_URL": "YOUR_API_ENDPOINT"`
