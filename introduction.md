@@ -67,6 +67,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Floating Action Button" href="slug:fab-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Drawer" href="slug:drawer-overview"></IntroTableAnchor>
       <IntroTableAnchor title="DropDownButton" href="slug:dropdownbutton-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="FloatingToolbar" href="slug:floatingtoolbar-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Menu" href="slug:components/menu/overview"></IntroTableAnchor>
       <IntroTableAnchor title="Context Menu" href="slug:contextmenu-overview"></IntroTableAnchor>
       <IntroTableAnchor title="PanelBar" href="slug:panelbar-overview"></IntroTableAnchor>
