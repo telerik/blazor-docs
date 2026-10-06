@@ -28,6 +28,7 @@ This article contains the following sections:
     * [Set custom font icon size](#set-custom-font-icon-size)
     * [Render font icons with HTML](#render-font-icons-with-html)
 * [`SvgIcon` component](#svgicon-component)
+    * [Use SVG icon variants](#use-svg-icon-variants)
     * [Render custom SVG Icons with HTML](#render-custom-svg-icons-with-html)
     * [Use custom SVG icon collection](#use-custom-svg-icon-collection)
 * [Set global icon type for the whole application](#set-global-blazor-icon-type)
@@ -237,6 +238,7 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 | `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.SvgIcon.Size` class](slug:telerik.blazor.themeconstants.svgicon.size). |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.SvgIcon.ThemeColor` class](slug:telerik.blazor.themeconstants.svgicon.themecolor) properties. |
+| `Variant` | `string` <br /> (`outline`) | The SVG icon variant. Use `ThemeConstants.SvgIcon.Variant` constants. |
 
 >caption Using TelerikSvgIcon
 
@@ -247,6 +249,34 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
                 Size="@ThemeConstants.SvgIcon.Size.Large"
                 ThemeColor="@ThemeConstants.SvgIcon.ThemeColor.Primary" />
 ````
+
+### Use SVG Icon Variants
+
+Starting with Telerik UI for Blazor 5.1.0, SVG icons support `outline`, `solid`, and `duotone` variants. The `outline` variant is the default. Use the `Variant` parameter with `TelerikSvgIcon`.
+
+Components with configurable icons expose a corresponding variant parameter. Use `IconVariant` for a primary icon, an icon-slot-specific parameter such as `RemoveIconVariant` for a named icon, or `IconVariantField` for data-bound items. A missing or unsupported variant renders the default icon content.
+
+````RAZOR
+<TelerikSvgIcon Icon="@SvgIcon.Gear"
+                Variant="@ThemeConstants.SvgIcon.Variant.Duotone" />
+
+<TelerikButton Icon="@SvgIcon.Gear"
+               IconVariant="@ThemeConstants.SvgIcon.Variant.Outline">
+    Settings
+</TelerikButton>
+````
+
+### Set Outline and Duotone Stroke Width
+
+Set the `--kendo-icon-stroke-width` CSS variable to change the stroke width of outline and duotone SVG icons. The setting does not affect solid icons.
+
+````CSS
+:root {
+    --kendo-icon-stroke-width: 2;
+}
+````
+
+The `TelerikSvgIcon` component applies the required variant CSS class automatically. The default outline variant also supports this CSS variable when no `Variant` value is set.
 
 ### Render Custom SVG Icons with HTML
 
