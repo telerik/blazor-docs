@@ -49,6 +49,11 @@ The Telerik Blazor MCP server uses an orchestration-first model, centered on the
         </Component>
     </Column>
     <Column count={[24,12,8]}>
+      <Component className="tile card-icon" href="#localization-assistant">
+        <ComponentTitle>Localization Assistant</ComponentTitle>
+        </Component>
+    </Column>
+    <Column count={[24,12,8]}>
         <Component className="tile card-icon" href="#styling-assistant">
         <ComponentTitle>Styling Assistant</ComponentTitle>
     </Column>
@@ -116,6 +121,12 @@ Use the Icon Assistant to choose icons that match user actions and UI context. T
 It is useful for toolbars, navigation menus, cards, and any new section where icon consistency matters.
 
 ![Icon Assistant](../images/icon-assistant.png)
+
+### Localization Assistant
+
+Use the Localization Assistant to translate UI strings or complete resource `.resx` files in your Blazor app. See the dedicated [Telerik UI for Blazor Localization Assistant page](slug:agentic-ui-generator-localization-assistant) for setup and usage instructions.
+
+<!-- ![Localization Assistant](../images/localization-assistant.png) -->
 
 ### Accessibility Assistant
 
