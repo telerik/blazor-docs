@@ -1,27 +1,29 @@
 ---
-title: Drag Support
-page_title: Floating Toolbar Drag Support
+title:  Drag And Drop
+page_title: Floating Toolbar Drag And Drop
 description: Enable pointer drag and keyboard Move mode for the Blazor Floating Toolbar.
 slug: floatingtoolbar-drag-and-drop
 tags: telerik,blazor,floating toolbar,drag,keyboard navigation
 published: True
-position: 3
+position: 30
 components: ["floatingtoolbar"]
 ---
 
-# Floating Toolbar Drag Support
+# Floating Toolbar Drag And Drop
 
 Set `Draggable` to `true` to allow users to move a Floating Toolbar in free-position mode. The component displays a drag handle and keeps the component inside the viewport while users move it.
 
+Do not set `Draggable` when the Floating Toolbar uses an effective `AnchorSelector`. Anchored and draggable behavior cannot be combined.
+
 ````RAZOR
-<TelerikFloatingToolBar Visible="@true"
-                         Draggable="@true"
-                         HorizontalAlign="@FloatingToolBarHorizontalAlign.Center"
-                         VerticalAlign="@FloatingToolBarVerticalAlign.Top"
-                         VerticalOffset="600"
-                         HorizontalOffset="-650"
-                         AriaLabel="Canvas tools"
-                         OnMove="@OnToolbarMove">
+<TelerikFloatingToolBar AriaLabel="Canvas tools"
+                        Draggable="@true"
+                        HorizontalAlign="@FloatingToolBarHorizontalAlign.Center"
+                        HorizontalOffset="-650"
+                        OnMove="@OnToolbarMove"
+                        VerticalAlign="@FloatingToolBarVerticalAlign.Top"
+                        VerticalOffset="600"
+                        Visible="@true">
     <ToolBarButton>Select</ToolBarButton>
     <ToolBarButton>Pan</ToolBarButton>
     <ToolBarButton>Zoom</ToolBarButton>
@@ -43,7 +45,6 @@ The component supports pointer drag and keyboard Move mode:
 | Arrow keys | Moves the component in the selected direction while Move mode is active. |
 | `Enter` | Commits the position, raises `OnDragEnd`, and exits Move mode. |
 
-Do not set `Draggable` when the Floating Toolbar uses an effective `AnchorSelector`. Anchored and draggable behavior cannot be combined.
 
 ## Tracking Position Changes
 

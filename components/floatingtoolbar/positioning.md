@@ -5,7 +5,7 @@ description: Position the Blazor Floating Toolbar next to an anchor element or a
 slug: floatingtoolbar-positioning
 tags: telerik,blazor,floating toolbar,positioning
 published: True
-position: 1
+position: 10
 components: ["floatingtoolbar"]
 ---
 
@@ -34,7 +34,12 @@ An invalid or unmatched `AnchorSelector` prevents the show operation. Clear the 
 
 ## Using Free-Position Mode
 
-Omit `AnchorSelector` to position the Floating Toolbar inside its containing element. Use `HorizontalAlign` and `VerticalAlign` with `HorizontalOffset` and `VerticalOffset` to define the initial location.
+Omit `AnchorSelector` to position the Floating Toolbar inside its containing element. Configure the initial location with the following parameters:
+
+* `HorizontalAlign` - Aligns the component to the left, center, or right edge of its containing element.
+* `VerticalAlign` - Aligns the component to the top, center, or bottom edge of its containing element.
+* `HorizontalOffset` - Sets the horizontal distance in pixels from the aligned edge.
+* `VerticalOffset` - Sets the vertical distance in pixels from the aligned edge.
 
 ````RAZOR
 <span class="container">Container
@@ -129,17 +134,7 @@ Use a component reference to position the Floating Toolbar programmatically. All
 }
 ````
 
-Use the following methods to control component placement and visibility:
-
-| Method | Description |
-| --- | --- |
-| `ShowAsync()` | Shows the component with its configured anchor or free-position settings. |
-| `ShowAsync(string anchorSelector)` | Shows the component against the supplied anchor for the current show operation. |
-| `ShowAsync(FloatingToolBarPosition position)` | Shows the component at viewport-relative coordinates. |
-| `SetAnchorAsync(string anchorSelector)` | Changes the anchor of a visible component and reruns collision handling. |
-| `SetPositionAsync(FloatingToolBarPosition position)` | Moves a visible component in free-position mode. Throws an exception when an effective anchor is active. |
-| `HideAsync()` | Hides the component. |
-| `FocusAsync()` | Focuses the hosted ToolBar item at the current roving-tabindex position. |
+Refer to the [Floating Toolbar API Reference](slug:Telerik.Blazor.Components.TelerikFloatingToolBar) for all available methods.
 
 Calling `ShowAsync()` while the component is visible updates its position without changing `Visible` or raising `VisibleChanged`.
 

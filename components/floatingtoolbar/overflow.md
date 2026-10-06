@@ -5,17 +5,21 @@ description: Configure overflow behavior for the Blazor Floating Toolbar.
 slug: floatingtoolbar-overflow
 tags: telerik,blazor,floating toolbar,toolbar,overflow
 published: True
-position: 2
+position: 20
 components: ["floatingtoolbar"]
 ---
 
 # Floating Toolbar Overflow
 
-The Floating Toolbar uses the same overflow behavior as the [Telerik ToolBar](slug:toolbar-overview). Configure `OverflowMode` to control how the component reacts when its tools do not fit on one row.
+The Floating Toolbar uses the same overflow behavior as the [Telerik ToolBar](slug:toolbar-overview). Configure the `OverflowMode` parameter to control how the component reacts when its tools do not fit on one row.
+
+> `ToolBarOverflowMode.Section` is not supported by the Floating Toolbar.
 
 ## Using an Overflow Menu
 
 Set `OverflowMode` to `ToolBarOverflowMode.Menu` to move tools that do not fit into an overflow menu. Use this option for desktop interfaces and toolbars with mixed controls.
+
+The component recalculates visible and overflowed items as the available width changes.
 
 ````RAZOR
 <div id="anchor-2" aria-label="anchor-2"></div>
@@ -31,8 +35,6 @@ Set `OverflowMode` to `ToolBarOverflowMode.Menu` to move tools that do not fit i
     <ToolBarButton>Archive</ToolBarButton>
 </TelerikFloatingToolBar>
 ````
-
-The component recalculates visible and overflowed items as the available width changes.
 
 ## Using Horizontal Scrolling
 
@@ -57,8 +59,6 @@ Set `OverflowMode` to `ToolBarOverflowMode.Scroll` to keep all tools on one row 
 ````
 
 Scroll mode supports touch and mouse scrolling. Set `ScrollButtonsVisibility` and `ScrollButtonsPosition` to configure its navigation buttons. These settings have no effect unless `OverflowMode` is set to `Scroll`.
-
-`ToolBarOverflowMode.Section` is not supported by the Floating Toolbar.
 
 ## See Also
 
