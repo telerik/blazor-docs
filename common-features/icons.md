@@ -238,7 +238,7 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 | `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.SvgIcon.Size` class](slug:telerik.blazor.themeconstants.svgicon.size). |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.SvgIcon.ThemeColor` class](slug:telerik.blazor.themeconstants.svgicon.themecolor) properties. |
-| `Variant` | `string` <br /> (`outline`) | The SVG icon variant. Use `ThemeConstants.SvgIcon.Variant` constants. |
+| `Variant` | `string` <br /> (`outline`) | The SVG icon variant. Use [`ThemeConstants.SvgIcon.Variant`](slug:telerik.blazor.themeconstants.svgicon.variant) constants. |
 
 >caption Using TelerikSvgIcon
 
@@ -268,7 +268,7 @@ Components with configurable icons expose a corresponding variant parameter. Use
 
 ### Set Outline and Duotone Stroke Width
 
-Set the `--kendo-icon-stroke-width` CSS variable to change the stroke width of outline and duotone SVG icons. The setting does not affect solid icons.
+Set the `--kendo-icon-stroke-width` CSS variable to change the stroke width of outline and duotone SVG icons. The default value is `1.5`. The setting does not affect solid icons.
 
 ````CSS
 :root {
