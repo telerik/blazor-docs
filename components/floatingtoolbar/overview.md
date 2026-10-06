@@ -11,13 +11,13 @@ components: ["floatingtoolbar"]
 
 # Blazor Floating Toolbar Overview
 
-The Telerik Floating Toolbar for Blazor displays toolbar actions close to the current application context. Use it to provide formatting tools in editors, document viewers, design tools, and similar interfaces. The component hosts the same tools and supports the same overflow behavior as the [Telerik ToolBar](slug:toolbar-overview).
+The Telerik Floating Toolbar for Blazor displays toolbar actions close to the current application context. Use it to provide formatting tools in editors, document viewers, design tools, and similar interfaces. To add content to a Floating Toolbar, use the [ToolBar built-in tools](slug:toolbar-built-in-tools). The component supports the same tools as the [Telerik ToolBar](slug:toolbar-overview).
 
 ## Creating Blazor Floating Toolbar
 
 1. Add a `<TelerikFloatingToolBar>` tag to a Razor file.
 1. Add ToolBar child tags, such as `<ToolBarButton>`, `<ToolBarToggleButton>`, or `<ToolBarButtonGroup>`.
-1. Set `Visible` to display the component. Use `@bind-Visible` to track its visibility.
+1. Set `Visible` to display the component. Use `@bind-Visible` or the [`VisibleChanged` event](slug:floatingtoolbar-events) to track its visibility.
 1. Set `AnchorSelector` to position the component next to an element. Omit `AnchorSelector` to use free-position mode.
 1. Set `AriaLabel` to provide an accessible name when the surrounding context does not provide one.
 
