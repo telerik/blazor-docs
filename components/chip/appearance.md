@@ -18,6 +18,10 @@ You can control the appearance of the Chip by using the following parameters:
 * [`Size`](#size)
 * [`ThemeColor`](#themecolor)
 
+## Icons
+
+For SVG icons, use `IconVariant` to select the chip icon variant and `RemoveIconVariant` to select the remove button icon variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 ## FillMode
 
 The `FillMode` affects the presence of a background and borders. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.FillMode` class:

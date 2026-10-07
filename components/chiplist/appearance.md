@@ -21,6 +21,10 @@ You can use all of them together to achieve the desired appearance. This article
 
 Also see how to set [`ThemeColor`](slug:chip-appearance#themecolor) and [`FillMode`](slug:chip-appearance#fillmode) separately for each [chip in the ChipList](slug:chiplist-bound).
 
+## Icons
+
+For SVG icons, use `RemoveIconVariant` to select the remove button icon variant. To configure each chip icon variant, use `IconVariantField`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 ## FillMode
 
 The `FillMode` controls how all the chips are filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.FillMode` class:

@@ -19,6 +19,8 @@ To use Drawer item icons, define a property in the component model class and ass
 
 If the icon property name in the Drawer model is `Icon`, there is no need to set the `IconField` parameter.
 
+To select an SVG icon variant for each item, set `IconVariantField` to the model property that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in the Telerik Drawer

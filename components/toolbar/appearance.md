@@ -37,6 +37,10 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 | `Medium`<br /> default value   |`md`|
 | `Large`   |`lg`| 
 
+## Icons
+
+For SVG icons in `ToolBarButton` and `ToolBarToggleButton` items, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 >caption The built-in sizes
 
 <demo metaUrl="client/toolbar/appearance/example-2/" height="520"></demo>

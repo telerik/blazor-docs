@@ -52,6 +52,10 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 |`Light`|`light`|
 |`Inverse`|`inverse`|
 
+## Icon
+
+For SVG icons, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 ## Example
 
 <demo metaUrl="client/floatingactionbutton/appearance/example-1/" height="420"></demo>

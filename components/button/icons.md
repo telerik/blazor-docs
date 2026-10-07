@@ -22,6 +22,8 @@ The `Icon` parameter type is `object` and it accepts:
 * A member of the `FontIcon` enum;
 * A `string` that is a CSS class for a custom icon.
 
+For SVG icons, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in Telerik Button

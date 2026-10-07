@@ -17,6 +17,9 @@ You can control the appearance of the ColorPicker by setting the following attri
 * [Rounded](#rounded)
 * [FillMode](#fillmode)
 
+## Icon
+
+For SVG icons, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 ## Size
 
