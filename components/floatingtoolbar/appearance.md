@@ -39,74 +39,7 @@ Set `Class` to apply a custom CSS class to the Floating Toolbar. Use the class i
 
 ## Example
 
-````RAZOR
-<div class="floating-toolbar-settings">
-    <fieldset>
-        <legend>Size</legend>
-        <TelerikRadioGroup Data="@Sizes" @bind-Value="@SelectedSize" />
-    </fieldset>
-
-    <fieldset>
-        <legend>Fill mode</legend>
-        <TelerikRadioGroup Data="@FillModes" @bind-Value="@SelectedFillMode" />
-    </fieldset>
-
-    <div class="floating-toolbar-wrapper">
-        <TelerikFloatingToolBar Visible="@true"
-                                AnchorSelector="#appearance-toolbar-anchor"
-                                Position="@PopoverPosition.Bottom"
-                                OverflowMode="@ToolBarOverflowMode.None"
-                                Size="@SelectedSize"
-                                FillMode="@SelectedFillMode"
-                                AriaLabel="Formatting tools">
-            <ToolBarButton Icon="@SvgIcon.Bold" FillMode="@SelectedFillMode">Bold</ToolBarButton>
-            <ToolBarToggleButton Icon="@SvgIcon.Italic" FillMode="@SelectedFillMode">Italic</ToolBarToggleButton>
-        </TelerikFloatingToolBar>
-        <span id="appearance-toolbar-anchor" class="floating-toolbar-anchor">Formatting tools</span>
-    </div>
-</div>
-
-<style>
-    .floating-toolbar-settings {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-    }
-
-    .floating-toolbar-wrapper {
-        position: relative;
-        min-height: 60px;
-        min-width: 220px;
-        border: 1px dashed #ccc;
-        padding: 8px;
-    }
-
-    .floating-toolbar-anchor {
-        font-size: 12px;
-        color: #666;
-    }
-</style>
-
-@code {
-    private static readonly string[] Sizes =
-    {
-        ThemeConstants.ToolBar.Size.Small,
-        ThemeConstants.ToolBar.Size.Medium,
-        ThemeConstants.ToolBar.Size.Large
-    };
-
-    private static readonly string[] FillModes =
-    {
-        ThemeConstants.ToolBar.FillMode.Solid,
-        ThemeConstants.ToolBar.FillMode.Outline,
-        ThemeConstants.ToolBar.FillMode.Flat
-    };
-
-    private string SelectedSize { get; set; } = ThemeConstants.ToolBar.Size.Medium;
-
-    private string SelectedFillMode { get; set; } = ThemeConstants.ToolBar.FillMode.Solid;
-}
-````
+<demo metaUrl="client/floatingtoolbar/appearance/" height="420"></demo>
 
 ## See Also
 

@@ -23,30 +23,7 @@ The Telerik Floating Toolbar for Blazor displays toolbar actions close to the cu
 
 The following example displays formatting actions below a note field.
 
-````RAZOR
-<TelerikButton OnClick="@ShowFormattingTools">Show Toolbar</TelerikButton>
-
-<div id="anchor-1" aria-label="anchor-1"></div>
-
-<TelerikFloatingToolBar @bind-Visible="@IsFormattingToolsVisible"
-                        AnchorSelector="#anchor-1"
-                        Position="@PopoverPosition.Bottom"
-                        AriaLabel="Note formatting">
-    <ToolBarButton>Bold</ToolBarButton>
-    <ToolBarButton>Italic</ToolBarButton>
-    <ToolBarSeparator />
-    <ToolBarButton>Clear formatting</ToolBarButton>
-</TelerikFloatingToolBar>
-
-@code {
-    private bool IsFormattingToolsVisible;
-
-    private void ShowFormattingTools()
-    {
-        IsFormattingToolsVisible = true;
-    }
-}
-````
+<demo metaUrl="client/floatingtoolbar/overview/" height="340"></demo>
 
 ## Positioning
 
@@ -56,7 +33,7 @@ Without `AnchorSelector`, the Floating Toolbar uses free-position mode. Configur
 
 ## Overflow Behavior
 
-Set `OverflowMode` to control how tools react when horizontal space is limited. Use `ToolBarOverflowMode.Menu` to move tools to an overflow menu, or use `ToolBarOverflowMode.Scroll` to keep tools in one scrollable row. Read more about [Floating Toolbar overflow behavior](slug:floatingtoolbar-overflow).
+Set `OverflowMode` to control how tools react when horizontal space is limited. Use `FloatingToolBarOverflowMode.Menu` to move tools to an overflow menu, or use `FloatingToolBarOverflowMode.Scroll` to keep tools in one scrollable row. Read more about [Floating Toolbar overflow behavior](slug:floatingtoolbar-overflow).
 
 ## Drag Support
 

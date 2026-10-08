@@ -13,50 +13,21 @@ components: ["floatingtoolbar"]
 
 The Floating Toolbar uses the same overflow behavior as the [Telerik ToolBar](slug:toolbar-overview). Configure the `OverflowMode` parameter to control how the component reacts when its tools do not fit on one row.
 
-> `ToolBarOverflowMode.Section` is not supported by the Floating Toolbar.
+The `FloatingToolBarOverflowMode` enum supports `None`, `Menu`, and `Scroll`.
 
 ## Using an Overflow Menu
 
-Set `OverflowMode` to `ToolBarOverflowMode.Menu` to move tools that do not fit into an overflow menu. Use this option for desktop interfaces and toolbars with mixed controls.
+Set `OverflowMode` to `FloatingToolBarOverflowMode.Menu` to move tools that do not fit into an overflow menu. Use this option for desktop interfaces and toolbars with mixed controls.
 
 The component recalculates visible and overflowed items as the available width changes.
 
-````RAZOR
-<div id="anchor-2" aria-label="anchor-2"></div>
-
-<TelerikFloatingToolBar Visible="@true"
-                        OverflowMode="@ToolBarOverflowMode.Menu"
-                        AriaLabel="Document tools"
-                        AnchorSelector="#anchor-2">
-    <ToolBarButton>Save</ToolBarButton>
-    <ToolBarButton>Download</ToolBarButton>
-    <ToolBarButton>Share</ToolBarButton>
-    <ToolBarButton>Print</ToolBarButton>
-    <ToolBarButton>Archive</ToolBarButton>
-</TelerikFloatingToolBar>
-````
+<demo metaUrl="client/floatingtoolbar/overflow/menu/" height="340"></demo>
 
 ## Using Horizontal Scrolling
 
-Set `OverflowMode` to `ToolBarOverflowMode.Scroll` to keep all tools on one row and allow horizontal scrolling. This option is useful on mobile devices and narrow viewports where vertical space is limited.
+Set `OverflowMode` to `FloatingToolBarOverflowMode.Scroll` to keep all tools on one row and allow horizontal scrolling. This option is useful on mobile devices and narrow viewports where vertical space is limited.
 
-````RAZOR
-<div id="anchor-4" aria-label="anchor-4"></div>
-
-<TelerikFloatingToolBar Visible="@true"
-                        OverflowMode="@ToolBarOverflowMode.Scroll"
-                        ScrollButtonsVisibility="@ToolBarScrollButtonsVisibility.Auto"
-                        ScrollButtonsPosition="@ToolBarScrollButtonsPosition.Split"
-                        AriaLabel="Mobile formatting tools"
-                        AnchorSelector="#anchor-4">
-    <ToolBarButton>Bold</ToolBarButton>
-    <ToolBarButton>Italic</ToolBarButton>
-    <ToolBarButton>Underline</ToolBarButton>
-    <ToolBarButton>Align left</ToolBarButton>
-    <ToolBarButton>Align center</ToolBarButton>
-    <ToolBarButton>Align right</ToolBarButton>
-</TelerikFloatingToolBar>
-````
+<demo metaUrl="client/floatingtoolbar/overflow/scroll/" height="340"></demo>
 
 Scroll mode supports touch and mouse scrolling. Set `ScrollButtonsVisibility` and `ScrollButtonsPosition` to configure its navigation buttons. These settings have no effect unless `OverflowMode` is set to `Scroll`.
 
