@@ -39,7 +39,7 @@ Set `Class` to apply a custom CSS class to the Floating Toolbar. Use the class i
 
 ## Example
 
-<demo metaUrl="client/floatingtoolbar/appearance/example-1/" height="420"></demo>
+<demo metaUrl="client/floatingtoolbar/appearance/" height="420"></demo>
 
 ## See Also
 

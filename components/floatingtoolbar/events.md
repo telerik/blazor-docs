@@ -92,7 +92,7 @@ The `VisibleChanged` event fires after the effective visibility changes. It rece
 
 The following example demonstrates all Floating Toolbar events.
 
-<demo metaUrl="client/floatingtoolbar/events/example-1/" height="500"></demo>
+<demo metaUrl="client/floatingtoolbar/events/" height="500"></demo>
 
 ## See Also
 

@@ -21,13 +21,13 @@ Set `OverflowMode` to `FloatingToolBarOverflowMode.Menu` to move tools that do n
 
 The component recalculates visible and overflowed items as the available width changes.
 
-<demo metaUrl="client/floatingtoolbar/overflow/menu/example-1/" height="340"></demo>
+<demo metaUrl="client/floatingtoolbar/overflow/menu/" height="340"></demo>
 
 ## Using Horizontal Scrolling
 
 Set `OverflowMode` to `FloatingToolBarOverflowMode.Scroll` to keep all tools on one row and allow horizontal scrolling. This option is useful on mobile devices and narrow viewports where vertical space is limited.
 
-<demo metaUrl="client/floatingtoolbar/overflow/scroll/example-1/" height="340"></demo>
+<demo metaUrl="client/floatingtoolbar/overflow/scroll/" height="340"></demo>
 
 Scroll mode supports touch and mouse scrolling. Set `ScrollButtonsVisibility` and `ScrollButtonsPosition` to configure its navigation buttons. These settings have no effect unless `OverflowMode` is set to `Scroll`.
 

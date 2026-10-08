@@ -15,7 +15,7 @@ Set `Draggable` to `true` to allow users to move a Floating Toolbar in free-posi
 
 Do not set `Draggable` when the Floating Toolbar uses an effective `AnchorSelector`. Anchored and draggable behavior cannot be combined.
 
-<demo metaUrl="client/floatingtoolbar/drag-and-drop/example-1/" height="420"></demo>
+<demo metaUrl="client/floatingtoolbar/drag-and-drop/" height="420"></demo>
 
 The component supports pointer drag and keyboard Move mode:
 

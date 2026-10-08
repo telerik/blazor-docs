@@ -17,7 +17,7 @@ The Floating Toolbar supports anchored and free-position modes. The `AnchorSelec
 
 Set `AnchorSelector` to a CSS selector for the target element. Set `Position` to choose the preferred side of the anchor. The component can change the final position when collision handling is required.
 
-<demo metaUrl="client/floatingtoolbar/positioning/anchor/example-1/" height="340"></demo>
+<demo metaUrl="client/floatingtoolbar/positioning/anchor/" height="340"></demo>
 
 An invalid or unmatched `AnchorSelector` prevents the show operation. Clear the anchor before switching to a free position.
 
@@ -30,7 +30,7 @@ Omit `AnchorSelector` to position the Floating Toolbar inside its containing ele
 * `HorizontalOffset` - Sets the horizontal distance in pixels from the aligned edge.
 * `VerticalOffset` - Sets the vertical distance in pixels from the aligned edge.
 
-<demo metaUrl="client/floatingtoolbar/positioning/free-position/example-1/" height="340"></demo>
+<demo metaUrl="client/floatingtoolbar/positioning/free-position/" height="340"></demo>
 
 Use the `FloatingToolBarHorizontalAlign` values `Left`, `Center`, and `Right` for `HorizontalAlign`. Use the `FloatingToolBarVerticalAlign` values `Top`, `Center`, and `Bottom` for `VerticalAlign`.
 
@@ -38,13 +38,13 @@ Use the `FloatingToolBarHorizontalAlign` values `Left`, `Center`, and `Right` fo
 
 Anchor the Floating Toolbar to an element with `position: sticky` to keep the toolbar visible while the user scrolls its container.
 
-<demo metaUrl="client/floatingtoolbar/positioning/sticky/example-1/" height="560"></demo>
+<demo metaUrl="client/floatingtoolbar/positioning/sticky/" height="560"></demo>
 
 ## Positioning with Methods
 
 Use a component reference to position the Floating Toolbar programmatically. All methods are asynchronous so the app can observe DOM positioning and JavaScript errors.
 
-<demo metaUrl="client/floatingtoolbar/positioning/methods/example-1/" height="340"></demo>
+<demo metaUrl="client/floatingtoolbar/positioning/methods/" height="340"></demo>
 
 Refer to the [Floating Toolbar API Reference](slug:Telerik.Blazor.Components.TelerikFloatingToolBar) for all available methods.
 

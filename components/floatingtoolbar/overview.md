@@ -23,7 +23,7 @@ The Telerik Floating Toolbar for Blazor displays toolbar actions close to the cu
 
 The following example displays formatting actions below a note field.
 
-<demo metaUrl="client/floatingtoolbar/overview/example-1/" height="340"></demo>
+<demo metaUrl="client/floatingtoolbar/overview/" height="340"></demo>
 
 ## Positioning
 
