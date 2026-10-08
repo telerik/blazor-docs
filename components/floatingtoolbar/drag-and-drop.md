@@ -15,27 +15,7 @@ Set `Draggable` to `true` to allow users to move a Floating Toolbar in free-posi
 
 Do not set `Draggable` when the Floating Toolbar uses an effective `AnchorSelector`. Anchored and draggable behavior cannot be combined.
 
-````RAZOR
-<TelerikFloatingToolBar AriaLabel="Canvas tools"
-                        Draggable="@true"
-                        HorizontalAlign="@FloatingToolBarHorizontalAlign.Center"
-                        HorizontalOffset="-650"
-                        OnMove="@OnToolbarMove"
-                        VerticalAlign="@FloatingToolBarVerticalAlign.Top"
-                        VerticalOffset="600"
-                        Visible="@true">
-    <ToolBarButton>Select</ToolBarButton>
-    <ToolBarButton>Pan</ToolBarButton>
-    <ToolBarButton>Zoom</ToolBarButton>
-</TelerikFloatingToolBar>
-
-@code {
-    private void OnToolbarMove(FloatingToolBarMoveEventArgs args)
-    {
-        Console.WriteLine($"Toolbar moved to {args.Left}, {args.Top}.");
-    }
-}
-````
+<demo metaUrl="client/floatingtoolbar/drag-and-drop/example-1/" height="420"></demo>
 
 The component supports pointer drag and keyboard Move mode:
 

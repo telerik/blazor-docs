@@ -23,30 +23,7 @@ The Telerik Floating Toolbar for Blazor displays toolbar actions close to the cu
 
 The following example displays formatting actions below a note field.
 
-````RAZOR
-<TelerikButton OnClick="@ShowFormattingTools">Show Toolbar</TelerikButton>
-
-<div id="anchor-1" aria-label="anchor-1"></div>
-
-<TelerikFloatingToolBar @bind-Visible="@IsFormattingToolsVisible"
-                        AnchorSelector="#anchor-1"
-                        Position="@PopoverPosition.Bottom"
-                        AriaLabel="Note formatting">
-    <ToolBarButton>Bold</ToolBarButton>
-    <ToolBarButton>Italic</ToolBarButton>
-    <ToolBarSeparator />
-    <ToolBarButton>Clear formatting</ToolBarButton>
-</TelerikFloatingToolBar>
-
-@code {
-    private bool IsFormattingToolsVisible;
-
-    private void ShowFormattingTools()
-    {
-        IsFormattingToolsVisible = true;
-    }
-}
-````
+<demo metaUrl="client/floatingtoolbar/overview/example-1/" height="340"></demo>
 
 ## Positioning
 

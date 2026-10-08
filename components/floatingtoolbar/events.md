@@ -92,56 +92,7 @@ The `VisibleChanged` event fires after the effective visibility changes. It rece
 
 The following example demonstrates all Floating Toolbar events.
 
-````RAZOR
-<TelerikFloatingToolBar Visible="@IsToolbarVisible"
-                        VisibleChanged="@OnFloatingToolBarVisibleChanged"
-                        Draggable="@true"
-                        AriaLabel="Map tools"
-                        OnDragStart="@OnFloatingToolBarDragStart"
-                        OnMove="@OnFloatingToolBarMove"
-                        OnDragEnd="@OnFloatingToolBarDragEnd">
-    <ToolBarButton>Zoom In</ToolBarButton>
-    <ToolBarButton>Zoom Out</ToolBarButton>
-</TelerikFloatingToolBar>
-
-<label>
-    <TelerikCheckBox @bind-Value="@IsToolbarClosable" />
-    Users can hide the Floating Toolbar:
-</label>
-
-<TelerikButton OnClick="@(() => IsToolbarVisible = !IsToolbarVisible)">Toggle tools</TelerikButton>
-
-<p>Toolbar Visible: @IsToolbarVisible</p>
-
-@code {
-    private bool IsToolbarVisible { get; set; }
-
-    private bool IsToolbarClosable { get; set; } = true;
-
-    private void OnFloatingToolBarDragEnd(FloatingToolBarDragEndEventArgs args)
-    {
-        Console.WriteLine($"Toolbar position: {args.Left}, {args.Top}.");
-    }
-
-    private void OnFloatingToolBarDragStart(FloatingToolBarDragStartEventArgs args)
-    {
-        Console.WriteLine($"Toolbar drag started at {args.Left}, {args.Top}.");
-    }
-
-    private void OnFloatingToolBarMove(FloatingToolBarMoveEventArgs args)
-    {
-        Console.WriteLine($"Toolbar moved to {args.Left}, {args.Top}.");
-    }
-
-    private void OnFloatingToolBarVisibleChanged(bool newValue)
-    {
-        if (IsToolbarClosable)
-        {
-            IsToolbarVisible = newValue;
-        }
-    }
-}
-````
+<demo metaUrl="client/floatingtoolbar/events/example-1/" height="500"></demo>
 
 ## See Also
 
