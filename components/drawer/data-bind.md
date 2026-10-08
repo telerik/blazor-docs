@@ -27,6 +27,7 @@ The drawer items provide the following features that you control through the cor
 
 * `Text` - the text that will be shown on the item.
 * `Icon` - the [Telerik Font or SVG icon](slug:common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug:breadcrumb-icons).
+* `IconVariant` - the SVG icon variant that will be rendered in the item.
 * `Url` - the view the item will navigate to by generating a link.
 * `Separator` - whether the item will be a separator line instead of a clickable item.
 
@@ -36,8 +37,11 @@ The properties of a drawer item match directly to a field of the model the drawe
 
 * TextField => Text
 * IconField => Icon
+* IconVariantField => IconVariant
 * UrlField => Url
 * SeparatorField => Separator
+
+To select an SVG icon variant for each item, set `IconVariantField` to the model property that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
 

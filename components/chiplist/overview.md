@@ -58,6 +58,7 @@ The table below lists the ChipList parameters. Also check the [ChipList API Refe
 | `Data` | `IEnumerable<TItem>` | The collection of the items that will be rendered as chips. |
 | `Removable` | `bool` | Specifies if the chips can be removed by the user. If set to `true` a remove icon will be rendered on each available chip. |
 | `RemoveIcon` | `object` | Defines the icon that will be rendered if the `Removable` parameter is set to `true`. |
+| `RemoveIconVariant` | `string` | Selects the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) of the remove icon. |
 
 ## Next Steps
 

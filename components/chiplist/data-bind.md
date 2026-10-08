@@ -41,7 +41,7 @@ The `IconField` model property can hold:
 * A member of the `FontIcon` enum;
 * A `string` that is a CSS class for a custom icon.
 
-Set `IconVariantField` to the model property that provides the SVG icon variant for each chip. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+Set `IconVariantField` to the model property that provides the SVG icon variant for each chip. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 

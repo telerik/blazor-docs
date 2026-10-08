@@ -47,9 +47,11 @@ The table below lists the Chip parameters. Also check the [Chip API Reference](s
 | `Class` | `string` | An additional CSS class for the `<div class="k-chip">` element. Use it to [customize the component styles and override the theme](slug:themes-override). |
 | `Disabled` | `bool` | Specifies if the Chip is disabled. |
 | `Icon` | `object` | Use this parameter to render an icon in the chip. |
+| `IconVariant` | `string` | Selects the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants). |
 | `Id` | `string` | Renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
 | `Removable` | `bool` | Specifies if the chip can be removed by the user. If set to `true` a remove icon will be rendered on each available chip. |
 | `RemoveIcon` | `object` | Defines the icon that will be rendered if the `Removable` parameter is set to `true`. |
+| `RemoveIconVariant` | `string` | Selects the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) of the remove icon. |
 | `Selectable` | `bool` <br/> (`true`) | Specifies if the Chip can be selected. Overrides the `Selected` parameter value.|
 | `Selected` | `bool` | Controls the selected state of the Chip. |
 | `TabIndex` | `int` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
