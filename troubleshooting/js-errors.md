@@ -19,6 +19,7 @@ This page provides solutions for JavaScript errors that you may encounter while 
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
 * [Object doesn't support property or method `assign`](#object-doesn-t-support-property-or-method-assign)
 * [Microsoft.JSInterop.JSException: Maximum call stack size exceeded](#maximum-call-stack-size-exceeded)
+* [`TelerikBlazor.getWindowWidth` was undefined](#telerikblazor-getwindowwidth-was-undefined)
 
 ## TelerikBlazor was undefined
 
@@ -132,6 +133,10 @@ Under IE, you may get errors similar to `Object doesn't support property or meth
 ## Maximum call stack size exceeded
 
 The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier](slug:common-kb-maximum-call-stack-exceeded). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache and you may need to [add a cache buster for the Telerik CSS and JavaScript files](slug:common-kb-browser-cache-buster).
+
+## TelerikBlazor.getWindowWidth was undefined
+
+The error means that the app is using an outdated `telerik-blazor.js` file after upgrading to version 15.x. See the dedicated KB article [How to Fix `TelerikBlazor.getWindowWidth` Was Undefined](slug:common-kb-getwindowwidth-was-undefined-and-not-a-function) for next steps.
 
 ## See Also
 
