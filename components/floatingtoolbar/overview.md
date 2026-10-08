@@ -33,7 +33,7 @@ Without `AnchorSelector`, the Floating Toolbar uses free-position mode. Configur
 
 ## Overflow Behavior
 
-Set `OverflowMode` to control how tools react when horizontal space is limited. Use `ToolBarOverflowMode.Menu` to move tools to an overflow menu, or use `ToolBarOverflowMode.Scroll` to keep tools in one scrollable row. Read more about [Floating Toolbar overflow behavior](slug:floatingtoolbar-overflow).
+Set `OverflowMode` to control how tools react when horizontal space is limited. Use `FloatingToolBarOverflowMode.Menu` to move tools to an overflow menu, or use `FloatingToolBarOverflowMode.Scroll` to keep tools in one scrollable row. Read more about [Floating Toolbar overflow behavior](slug:floatingtoolbar-overflow).
 
 ## Drag Support
 

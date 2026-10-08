@@ -13,11 +13,11 @@ components: ["floatingtoolbar"]
 
 The Floating Toolbar uses the same overflow behavior as the [Telerik ToolBar](slug:toolbar-overview). Configure the `OverflowMode` parameter to control how the component reacts when its tools do not fit on one row.
 
-> `ToolBarOverflowMode.Section` is not supported by the Floating Toolbar.
+The `FloatingToolBarOverflowMode` enum supports `None`, `Menu`, and `Scroll`.
 
 ## Using an Overflow Menu
 
-Set `OverflowMode` to `ToolBarOverflowMode.Menu` to move tools that do not fit into an overflow menu. Use this option for desktop interfaces and toolbars with mixed controls.
+Set `OverflowMode` to `FloatingToolBarOverflowMode.Menu` to move tools that do not fit into an overflow menu. Use this option for desktop interfaces and toolbars with mixed controls.
 
 The component recalculates visible and overflowed items as the available width changes.
 
@@ -25,7 +25,7 @@ The component recalculates visible and overflowed items as the available width c
 
 ## Using Horizontal Scrolling
 
-Set `OverflowMode` to `ToolBarOverflowMode.Scroll` to keep all tools on one row and allow horizontal scrolling. This option is useful on mobile devices and narrow viewports where vertical space is limited.
+Set `OverflowMode` to `FloatingToolBarOverflowMode.Scroll` to keep all tools on one row and allow horizontal scrolling. This option is useful on mobile devices and narrow viewports where vertical space is limited.
 
 <demo metaUrl="client/floatingtoolbar/overflow/scroll/example-1/" height="340"></demo>
 
