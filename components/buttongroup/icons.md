@@ -13,6 +13,8 @@ components: ["buttongroup"]
 
 You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the ButtonGroup items to illustrate its purpose by using the `Icon` parameter.
 
+For SVG icons, use `IconVariant` on each ButtonGroup item to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 The example below also includes conditional logic to show different icons in the different button states.
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)

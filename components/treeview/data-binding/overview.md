@@ -61,6 +61,7 @@ The above model properties have the following meaning for the TreeView:
 | `Items` | Defines the item's children. Required for [binding to **hierarchical data**](slug:components/treeview/data-binding/hierarchical-data). The children's type can be different from the parent item type. The TreeView will render an expand arrow on the parent node if its child `Items` collection is not `null`. Also see `HasChildren`. |
 | [**Graphics**](slug:treeview-icons) | |
 | `Icon` | Defines a [Telerik Font and Svg icon](slug:common-features-icons) |
+| `IconVariant` | Defines the SVG icon variant |
 | [**Navigation**](slug:treeview-navigation) | |
 | `Url` | If set, the TreeView will generate a link to another page in the app, or an external page. |
 
@@ -80,8 +81,11 @@ Each `TreeViewBinding` tag exposes the following parameters that refer to model 
 | `ItemsField` (hierarchical data) | `"Items"` |
 | [**Graphics**](slug:treeview-icons) | |
 | `IconField` | `"Icon"` |
+| `IconVariantField` | `"IconVariant"` |
 | [**Navigation**](slug:treeview-navigation) | |
 | `UrlField` | `"Url"` |
+
+To select an SVG icon variant for each item, set `IconVariantField` to the model property that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 It is possible to [configure different bindings for different item levels](#multiple-level-bindings). Usually one binding configuration is enough. For example, if the model properties are...
 

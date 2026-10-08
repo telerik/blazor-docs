@@ -20,6 +20,10 @@ The Notification component provides parameters and properties that allows you to
 
 You can use all three together to get the desired appearance. This article will explain their effect one by one.
 
+## Icon
+
+For SVG icons in a `NotificationModel`, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 ## AnimationType
 
 The `AnimationType` parameter controls the way the Notification will appear on the screen. It takes a member of the `Telerik.Blazor.AnimationType` enum:

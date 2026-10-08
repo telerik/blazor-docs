@@ -252,7 +252,7 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 
 ### Use SVG Icon Variants
 
-Starting with Telerik UI for Blazor 5.1.0, SVG icons support `outline`, `solid`, and `duotone` variants. The `outline` variant is the default. Use the `Variant` parameter with `TelerikSvgIcon`.
+Starting with v5 of the [Telerik Icon Set](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) the default SVG icon variant is `outline`. This matches the appearance of most SVG icons in previous versions. SVG icons in v5 support `outline`, `solid`, and `duotone` variants. The `outline` variant is the default. Use the `Variant` parameter with `TelerikSvgIcon`.
 
 Components with configurable icons expose a corresponding variant parameter. Use `IconVariant` for a primary icon, an icon-slot-specific parameter such as `RemoveIconVariant` for a named icon, or `IconVariantField` for data-bound items. A missing or unsupported variant renders the default icon content.
 
@@ -265,6 +265,9 @@ Components with configurable icons expose a corresponding variant parameter. Use
     Settings
 </TelerikButton>
 ````
+
+> `Variant` parameters do not work with v4 of the Telerik Icon Set.
+> Telerik Icon Set v5 removes and renames some icons previously available in v4 and deprecates font icon aliases. Review the v5.0.0 notes in the [Icon Package Changelog](https://www.telerik.com/design-system/docs/foundation/iconography/changelog/). 
 
 ### Set Outline and Duotone Stroke Width
 
