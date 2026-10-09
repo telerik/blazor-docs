@@ -16,6 +16,8 @@ position: 1
 
 Telerik UI for Blazor components support WebMCP out-of-the-box. When enabled, a component registers its operations (sorting, filtering, navigation, value changes, and more) as tools that an AI agent can call directly. For example, an AI can sort a Grid, navigate a Scheduler to a date, or set a value in an input — all from a natural language prompt.
 
+Use WebMCP when you want an AI agent to operate a running application through explicitly enabled component actions. To use AI assistance while you build or update an application in an IDE, use the [Telerik Blazor MCP Server](slug:agentic-ui-generator-overview). See the [AI Tools Overview](slug:ai-overview) to compare the workflows.
+
 ## How It Works
 
 When a component has WebMCP enabled, a connected AI agent can control it through natural language. The user types a prompt and the component reacts without the need to click buttons and fill-in forms.
@@ -44,7 +46,7 @@ To learn more, visit the [AI-Ready Components](https://www.telerik.com/ai-compon
 
 </div>
 
-## Enable Browser WebMCP
+## Set Up WebMCP
 
 ### 1. Enable the Browser Flag
 
@@ -60,14 +62,31 @@ The browser flag enables the WebMCP API, but you still need an AI client that ca
 
 [Install the Telerik WebMCP Browser Extension](https://chromewebstore.google.com/detail/telerik-kendo-ui/bikfklddeekcicbafiejfbbpdjnaaiid) from the Chrome Web Store. Then, see the [Extension Documentation](slug:web-mcp-extension) for details on the extension features and settings.
 
-### 3. Try the Demos
+### 3. Enable a Telerik Component
+
+Set the `EnableWebMcpTools` parameter to `true` on a supported component. The component registers the tools that match its configuration when the page loads.
+
+>caption Enable WebMCP tools for a NumericTextBox
+
+````RAZOR.skip-repl
+<TelerikNumericTextBox @bind-Value="@Discount"
+                       EnableWebMcpTools="true" />
+
+@code {
+    private int? Discount { get; set; }
+}
+````
+
+Open the page, then use the extension **Tools** tab to confirm that the component registered its tools. See [Supported Components](slug:web-mcp-supported-components) for the complete list of tools and registration conditions.
+
+### 4. Try the Demos
 
  Once you enable WebMCP in your browser and [configure the Telerik WebMCP browser extension](slug:web-mcp-extension#settings), you can explore WebMCP in action:
 
 * [WebMCP Operations Hub Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-operations-hub)
 * [Zero Click Dashboard Demo](https://demos.telerik.com/blazor-ui/marketing-campaigns/webmcp-zero-click-dashboard)
 
-## Enable WebWMCP for Telerik Components
+## Configure WebMCP Tools
 
 All Telerik Blazor components that support WebMCP follow the same configuration pattern.
 
@@ -80,6 +99,8 @@ Each Telerik Blazor component that supports WebMCP has an `EnableWebMcpTools` pa
 Components register tools based on their configuration. For example, the Grid registers the `grid-sort` tool only when `Sortable` is `true`. Some tools like `grid-highlight` are always registered. See [Supported Components](slug:web-mcp-supported-components) for a list of all component tools and their registration conditions.
 
 Some tools are never registered by default even when `EnableWebMcpTools` is `true`. For example, `grid-get-data` returns all Grid rows to the AI model, which can expose sensitive data or bloat the AI context. Such tools are useful when you want the AI to read and process your data, but they require an explicit opt-in. Set `Enabled="true"` on the tool override in the component settings. See the [example below](#componentwebmcptool-parameters).
+
+Review each enabled tool before you deploy it. Enable data-returning tools only when the data is appropriate to send to the configured AI model provider. For information about the extension data flow and origin allowlist, see [Privacy Policy](slug:web-mcp-extension#privacy-policy).
 
 Each component has a corresponding settings element named after it, for example:
 
@@ -199,5 +220,6 @@ For the full list of components, their available tools, and tool conditions, see
 
 ## Next Steps
 
+* [Compare AI Tools Workflows](slug:ai-overview)
 * [Learn about the Telerik WebMCP Extension](slug:web-mcp-extension)
 * [Find out which Telerik Blazor components support WebMCP](slug:web-mcp-supported-components)
