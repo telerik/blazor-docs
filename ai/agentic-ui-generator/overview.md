@@ -1,30 +1,32 @@
 ---
-title: Overview
-page_title: Telerik Blazor MCP Server Overview
-description: Learn about the Telerik Blazor MCP Server, its modes of operation, and how it enhances AI-powered development with Telerik UI for Blazor components.
-slug: ai-overview
+title: Agentic UI Generator Overview
+page_title: Telerik UI for Blazor Agentic UI Generator Overview
+description: Learn how the Telerik UI for Blazor Agentic UI Generator uses specialized assistants to help build and update Blazor applications.
+slug: agentic-ui-generator-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
-previous_url: /ai/overview, /ai/ai-coding-assistant/overview
+previous_url: /ai/ai-coding-assistant/overview
 position: 1
 tag: updated
 ---
 
-# Telerik UI for Blazor AI Tools Overview
+# Agentic UI Generator Overview
 
-The Telerik UI for Blazor AI Tools are delivered through a single [Model Context Protocol (MCP) server](https://modelcontextprotocol.io/docs/getting-started/intro) that connects your AI client to UI-generation capabilities and knowledge specific to Telerik UI for Blazor.
+The Agentic UI Generator provides AI assistance for building and updating Telerik UI for Blazor applications. It uses the Telerik Blazor [Model Context Protocol (MCP) server](https://modelcontextprotocol.io/docs/getting-started/intro) to connect your AI client to UI-generation capabilities and knowledge specific to Telerik UI for Blazor.
 
-From idea to implementation, you can use the MCP server to generate complete pages, configure components correctly, align with the Progress Design System, and reduce repetitive setup work.
+Use the Agentic UI Generator to generate complete pages, configure components, align with the Progress Design System, and reduce repetitive setup work. For AI interaction with components in a running browser application, use [WebMCP](slug:web-mcp-overview). See the [AI Tools Overview](slug:ai-overview) to compare the development-time and runtime browser AI tools.
 
-## What Are the Telerik UI for Blazor AI Tools
+Set up the Agentic UI Generator with the Telerik CLI, the AI plugin, or a manual MCP server configuration. The [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started#quick-start) article explains each option. The AI plugin provides the same capabilities as skills and starts the MCP server automatically. Do not configure the plugin and the Telerik MCP server separately in the same AI client.
+
+## What the Agentic UI Generator Does
 
 The Telerik Blazor MCP Server is a local MCP server that is distributed through the [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP) NuGet package.
 
-The Telerik Blazor MCP server uses an orchestration-first model, centered on the Agentic UI Generator tool. It contains a core set of specialized assistants. Click the cards below for more details on each assistant:
+The Agentic UI Generator can use specialized assistants for different development tasks. Use the full generator for a complete page or select a specialized assistant when you need focused help. The following cards describe the available assistants:
 
 <Row>
     <Column count={[24,12,8]}>
-        <Component className="tile card-icon" href="#how-the-agentic-flow-works">
+        <Component className="tile card-icon" href="#use-the-right-assistant-for-your-task">
             <ComponentTitle>UI Generator (Orchestrator)</ComponentTitle>
         </Component>
     </Column>
@@ -74,13 +76,26 @@ The Telerik Blazor MCP server uses an orchestration-first model, centered on the
     </Column>
 </Row>
 
-The Agentic UI Generator orchestrates all assistants so you can build pages and components, apply styling and theming, and stay aligned with the design system in one seamless process. You can use the full end-to-end flow when you need complete page generation, or call a specific assistant directly when you need a focused change.
+The Agentic UI Generator coordinates the assistants that are relevant to your request. It can build pages and components, apply styling and theming, and follow the design system in one request.
 
 ![MCP Server Assistants Diagram](../images/ai-assistants.png)
 
-## How the Agentic Flow Works
+## Use the Right Assistant for Your Task
 
-The Agentic UI Generator takes one prompt and manages the flow for you. It decides which assistants to use and combines their output into a single result. Use it when you want to generate a full page quickly, or call a specific assistant when you need a focused update to the layout, components, styling, theme, or icons in your project.
+Use the Agentic UI Generator for a complete task, such as creating a dashboard or adding a page with several components. It interprets the request, selects relevant assistants, and combines their output into one response.
+
+Use a specialized assistant when you need focused help with an area, such as:
+
+* Component configuration
+* Responsive layout
+* Custom theme
+* Icon selection
+* Accessibility requirements
+* Localization tasks
+* License issue
+* Upgrade
+
+When you use the MCP server directly, start a complete request with `#telerik_ui_generator` or use natural-language. When you use the AI plugin, invoke the `telerik-blazor-ui-generator` skill explicitly. See [Prompt Library](slug:agentic-ui-generator-prompt-library) for examples of both approaches.
 
 ![Full Pages](../images/ui-templates.png)
 
@@ -144,16 +159,6 @@ Not designed to be invoked manually. It is called automatically by the UI Genera
 Use the Upgrade Assistant to migrate existing Blazor applications to the latest version of Telerik UI for Blazor. It automates detection and resolution of [breaking API changes](slug:versions-with-breaking-changes), NuGet version bumps, and CDN reference updates.
 
 For best results, use the Upgrade Assistant with the highest-tier model available in your AI client. More capable models reason more accurately over complex migration scenarios and produce more reliable file edits.
-
-### When to Use Orchestrated vs Targeted Mode
-
-Use `#telerik_ui_generator` for a complete orchestration-first workflow from a single prompt. When you need finer control or want to adjust just one aspect (such as layout, theme, or a component), you can call a specialized assistant directly by its dedicated handle. For details, see [Target the Assistants (Advanced)](slug:agentic-ui-generator-prompt-library#assistant-specific-prompts).
-
-## AI Plugin
-
-The Agentic UI Generator also comes with an AI `telerik-blazor-plugin` that brings the same capabilities directly into your agent without any manual MCP configuration. Instead of tools, the plugin delivers the functionality as skills: purpose-built instructions that your agent picks up automatically from context or that you can call explicitly with a slash command. It is a convenient way to get started and an alternative to setting up the MCP Server through the Telerik CLI.
-
-To explore the available skills and usage examples, see [Prompt Library](slug:agentic-ui-generator-prompt-library#skills-and-assistant-prompts).
 
 ## Start Building in Minutes
 
