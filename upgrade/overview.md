@@ -12,9 +12,7 @@ position: 0
 
 This article explains how to upgrade to a new version of Telerik UI for Blazor.
 
-To upgrade the Telerik components, you need to update their NuGet package reference, and, if you use them, the CDN links.
-
-The **latest** available version of UI for Blazor is **{{site.uiForBlazorLatestVersion}}**.
+The latest available version of UI for Blazor is **{{site.uiForBlazorLatestVersion}}**.
 
 >tip Before starting an upgrade of your project, you may find it useful to review the following information:
 >
@@ -25,6 +23,7 @@ The **latest** available version of UI for Blazor is **{{site.uiForBlazorLatestV
 In this article:
 
 * [Upgrade Process](#upgrade-process)
+* [AI Assisted Upgrade](#ai-assisted-upgrade)
 * [Upgrade with Upgrade Wizard](#upgrade-wizard)
 * [Upgrade from Trial to Commercial](#upgrade-from-trial-to-commercial)
 * [Troubleshooting](#troubleshooting)
@@ -52,17 +51,19 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. Clear the browser cache and optionally [add a cache buster for the Telerik CSS and JavaScript files](slug:common-kb-browser-cache-buster).
 
+## AI Assisted Upgrade
+
+Telerik UI for Blazor provides AI-assisted migration through the [Upgrade Assistant](slug:ai-overview#upgrade-assistant)&mdash;a dedicated tool in the Telerik UI for Blazor MCP server that helps you upgrade between major versions. The assistant combines deterministic modifications with AI-powered code analysis to provide the migration experience that takes into account any [breaking changes](slug:versions-with-breaking-changes) that may have occurred.
+
+Refer to [Getting Started with the Telerik UI for Blazor Agentic UI Generator](slug:agentic-ui-generator-getting-started) for usage prerequisites and installation details.
+
 ## Upgrade Wizard
 
 To upgrade the version of Telerik UI for Blazor you can use the [Upgrade Wizard](slug:getting-started-vs-integration-upgrade-project) that comes as part of the [Telerik UI for Blazor Visual Studio Extension](slug:getting-started-vs-integration-overview).
 
 ## Upgrade from Trial to Commercial
 
-If you have just purchased a license and you need to migrate from the trial package to the licensed version, perform the following steps:
-
-1. [Update your Telerik license key](slug:installation-license-key#license-key-updates) after you purchase or renew a license.
-
-1. To upgrade to the latest product version, follow the steps for [updating the Telerik UI for Blazor version](#upgrade-process).
+If you were on a trial and then purchased a license, then [update your Telerik license key](slug:installation-license-key#license-key-updates).
 
 ## Troubleshooting
 
