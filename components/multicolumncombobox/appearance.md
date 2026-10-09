@@ -30,52 +30,7 @@ You can increase or decrease the size of the MultiColumnComboBox by setting the 
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ComboBox.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikMultiColumnComboBox Data="@myComboData"
-                                Size="@size"
-                                TextField="MyTextField"
-                                ValueField="MyValueField"
-                                    @bind-Value="selectedValue"
-                                Placeholder="Select an item..."
-                                ShowClearButton="true"
-                                Filterable="true">
-                <MultiColumnComboBoxColumns>
-                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
-                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)"></MultiColumnComboBoxColumn>
-                </MultiColumnComboBoxColumns>
-            </TelerikMultiColumnComboBox>
-        </div>
-    }
-}
-
-@code {
-    IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    int selectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
-
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/appearance/example-1/" height="500"></demo>
 
 ## Rounded
 
@@ -90,54 +45,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the MultiColumnC
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ComboBox.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikMultiColumnComboBox Data="@myComboData"
-                                Rounded="@rounded"
-                                TextField="MyTextField"
-                                ValueField="MyValueField"
-                                @bind-Value="selectedValue"
-                                Placeholder="Select an item..."
-                                ShowClearButton="true"
-                                Filterable="true">
-                <MultiColumnComboBoxColumns>
-                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
-                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)"></MultiColumnComboBoxColumn>
-                </MultiColumnComboBoxColumns>
-            </TelerikMultiColumnComboBox>
-        </div>
-    }
-}
-
-@code {
-    IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    int selectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
-
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/appearance/example-2/" height="520"></demo>
 
 ## FillMode
 
@@ -151,53 +59,6 @@ The `FillMode` controls how the TelerikMultiColumnComboBox is filled. You can se
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ComboBox.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikMultiColumnComboBox Data="@myComboData"
-                                FillMode="@fillMode"
-                                TextField="MyTextField"
-                                ValueField="MyValueField"
-                                @bind-Value="selectedValue"
-                                Placeholder="Select an item..."
-                                ShowClearButton="true"
-                                Filterable="true">
-                <MultiColumnComboBoxColumns>
-                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
-                    <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyValueField)"></MultiColumnComboBoxColumn>
-                </MultiColumnComboBoxColumns>
-            </TelerikMultiColumnComboBox>
-        </div>
-    }
-}
-
-@code {
-    IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    int selectedValue { get; set; }
-
-    protected override void OnInitialized()
-    {
-        selectedValue = 3;
-    }
-
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/appearance/example-3/" height="500"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

@@ -30,53 +30,7 @@ To implement your own paging in the listview, you need to:
 
 >caption Custom Paging in the ListView
 
-````RAZOR
-@* This example simulates fetching the page data from a service *@
-
-<TelerikListView TItem="@SampleData"
-                 OnRead="@OnReadHandler"
-                 Pageable="true" PageSize="@PageSize">
-    <Template>
-        <h6>@context.Name</h6>
-    </Template>
-</TelerikListView>
-
-@code{
-    int PageSize { get; set; } = 15;
-    async Task OnReadHandler(ListViewReadEventArgs args)
-    {
-        args.Data = await GetListViewPageData(args.Request.Page, args.Request.PageSize);
-        args.Total = await GetTotalItemsCount();
-    }
-
-    async Task<List<SampleData>> GetListViewPageData(int pageIndex, int pageSize)
-    {
-        // this is just a simulation of a service call, implement as appropriate in your app
-
-        await Task.Delay(500); // simulate real network/database delay. Remove in a real app
-
-        return _allData.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-    }
-
-    async Task<int> GetTotalItemsCount()
-    {
-        return _allData.Count;
-    }
-
-    private List<SampleData> _allData { get; set; } = Enumerable.Range(1, 500).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/manual-operations/example-1/" height="620"></demo>
 
 ## Filter and Sort
 
@@ -86,72 +40,7 @@ The example below shows a relatively simple way to filter and sort over all data
 
 >caption Filter and Sort data in a listview
 
-````RAZOR
-@* This is one sample implementation, you should optimize the queries according to your project and needs *@
-
-<TelerikListView Data="@ListViewData" Pageable="true">
-    <HeaderTemplate>
-        Sort Name: <TelerikDropDownList Data="@( new List<string>() { "None", "Ascending", "Descending" } )"
-                                        Value="@sort" ValueChanged="@( (string dir) => SortName(dir) )" />
-        <br />
-        Filter: <TelerikTextBox Value="@filter" ValueChanged="@( (string val) => FilterData(val) )" />
-    </HeaderTemplate>
-    <Template>
-        <h6>@context.Name</h6>
-    </Template>
-</TelerikListView>
-
-@code{
-    int TotalItems { get; set; }
-    List<SampleData> ListViewData { get; set; }
-
-    string sort { get; set; }
-    string filter { get; set; }
-
-    private List<SampleData> _allData { get; set; } = Enumerable.Range(1, 500).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    protected override void OnInitialized()
-    {
-        ListViewData = new List<SampleData>(_allData);
-    }
-
-    void FilterData(string filterVal)
-    {
-        filter = filterVal;
-        string lowercaseFilter = filterVal.ToLowerInvariant();
-        // you can optimize and implement this query as desired
-        ListViewData = _allData.Where(itm => itm.Name.ToLowerInvariant().Contains(lowercaseFilter) || itm.Id.ToString() == lowercaseFilter).ToList();
-    }
-
-    void SortName(string dir)
-    {
-        sort = dir;
-        // you can optimize and implement this query as desired
-        switch (dir)
-        {
-            case "Ascending":
-                ListViewData = ListViewData.OrderBy(o => o.Name).ToList();
-                break;
-            case "Descending":
-                ListViewData = ListViewData.OrderByDescending(o => o.Name).ToList();
-                break;
-            default:
-                ListViewData = ListViewData.OrderBy(o => o.Id).ToList();
-                break;
-        }
-    }
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/manual-operations/example-2/" height="670"></demo>
 
 >tip To optimize queries, you can store the `DataSourceRequest` from the `OnRead` event in a view-model field to easily access the current page.
 >

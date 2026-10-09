@@ -45,9 +45,7 @@ The properties of a drawer item match directly to a field of the model the drawe
 
 >caption Default field names for drawer item bindings. If you use these, you don't have to specify them in the `TelerikDrawer` tag explicitly.
 
-<div class="skip-repl"></div>
-
-````RAZOR
+````RAZOR.skip-repl
 public class DrawerItem
 {
 	public string Text { get; set; }
@@ -59,35 +57,7 @@ public class DrawerItem
 
 ## Example - Data Binding to Non-Default Field Names
 
-````RAZOR
-@* This example shows how you can data bind the drawer and set the field names it will use from the model 
-Place it in the MainLayout.razor so you can use it for navigation:
-https://docs.telerik.com/blazor-ui/components/drawer/navigation
-*@
-
-<TelerikDrawer Data="@Data" UrlField="ItemUrl" TextField="ItemText" IconField="ItemIcon"
-               MiniMode="true" Mode="@DrawerMode.Push" Expanded="true">
-    <DrawerContent>
-        ...Drawer Content...
-    </DrawerContent>
-</TelerikDrawer>
-
-@code {
-    private IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { ItemText = "Counter", ItemIcon = SvgIcon.Plus, ItemUrl = "counter" },
-            new DrawerItem { ItemText = "FetchData", ItemIcon = SvgIcon.GridLayout, ItemUrl = "fetchdata" },
-            };
-
-    public class DrawerItem
-    {
-        public string ItemText { get; set; }
-        public ISvgIcon ItemIcon { get; set; }
-        public string ItemUrl { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/data-bind/default-fields-1/" height="420"></demo>
 
 
 ## See Also

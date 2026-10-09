@@ -42,75 +42,7 @@ You can alter the following scheduler parameters through code:
 
 >caption Navigate the scheduler programmatically
 
-````RAZOR
-Change active date:
-<TelerikDatePicker @bind-Value="@StartDate" />
-<br />
-Change current View:
-<TelerikDropDownList Data="@AvailableViews" @bind-Value="@CurrView" />
-
-
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px">
-    <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" />
-        <SchedulerWeekView StartTime="@DayStart" />
-        <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
-    </SchedulerViews>
-</TelerikScheduler>
-
-@code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
-    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    public List<SchedulerView> AvailableViews { get; set; } = new List<SchedulerView>(Enum.GetValues(typeof(SchedulerView)).AsQueryable() as IEnumerable<SchedulerView>);
-
-    //sample data to get things shown
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-            new SchedulerAppointment
-            {
-                Title = "Board meeting",
-                Description = "Q4 is coming to a close, review the details.",
-                Start = new DateTime(2019, 12, 5, 10, 00, 0),
-                End = new DateTime(2019, 12, 5, 11, 30, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Vet visit",
-                Description = "The cat needs vaccinations and her teeth checked.",
-                Start = new DateTime(2019, 12, 2, 11, 30, 0),
-                End = new DateTime(2019, 12, 2, 12, 0, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Planning meeting",
-                Description = "Kick off the new project.",
-                Start = new DateTime(2019, 12, 6, 9, 30, 0),
-                End = new DateTime(2019, 12, 6, 12, 45, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Trip to Hawaii",
-                Description = "An unforgettable holiday!",
-                IsAllDay = true,
-                Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 05)
-            }
-    };
-
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+<demo metaUrl="client/scheduler/navigation/example-1/" height="780"></demo>
 
 ## See Also
 

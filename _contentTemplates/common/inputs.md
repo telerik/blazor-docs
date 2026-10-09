@@ -17,24 +17,5 @@ When using the [`PrefixTemplate`](slug:common-features/input-adornments#adding-a
 
 To ensure both the FloatingLabel and the prefix content are properly displayed, move the label with CSS:
 
-````RAZOR
-<style>
-    .custom-label-class .k-floating-label {
-        margin-left: 30px;
-    }
-</style>
-
-<TelerikFloatingLabel Class="custom-label-class" Text="Enter email">
-    <TelerikTextBox @bind-Value="@TextValue"
-                    Width="300px">
-        <TextBoxPrefixTemplate>
-            <TelerikSvgIcon Icon="@SvgIcon.Envelop" />
-        </TextBoxPrefixTemplate>
-    </TelerikTextBox>
-</TelerikFloatingLabel>
-
-@code{
-    public string TextValue { get; set; }
-}
-````
+<demo metaUrl="client/floatinglabel/prefix-adornment/" height="300"></demo>
 #end

@@ -76,41 +76,7 @@ The Dialog methods are accessible through its reference.
 
 >caption Get a reference to the Dialog and use its methods.
 
-````RAZOR
-@* This code snippet showcases an example usage of the Refresh() method. *@
-
-<TelerikButton  OnClick="OpenDialog">Open Dialog</TelerikButton>
-
-<TelerikDialog @ref="DialogRef" @bind-Visible="_dialogVisible">
-    <DialogContent>
-        <p role="status">Current count: @_currentCount</p>
-    </DialogContent>
-    <DialogButtons>
-        <TelerikButton OnClick="IncrementCount">Increment Count</TelerikButton>
-        <TelerikButton OnClick="@(() => { _dialogVisible = false; })">Close</TelerikButton>
-    </DialogButtons>
-</TelerikDialog>
-
-@code {
-    TelerikDialog DialogRef;
-
-    private bool _dialogVisible;
-
-    private int _currentCount = 0;
-
-    private void IncrementCount()
-    {
-        _currentCount++;
-
-        DialogRef.Refresh(); //Need refresh to reflect the change here.
-    }
-
-    private void OpenDialog()
-    {
-        _dialogVisible = true;
-    }
-}
-````
+<demo metaUrl="client/dialog/methods/" height="420"></demo>
 
 ## Next Steps
 

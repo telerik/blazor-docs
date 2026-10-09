@@ -21,77 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
 
 >caption TreeView with flat self-referencing data and icons
 
-````RAZOR
-<TelerikTreeView Data="@FlatData"
-                 @bind-ExpandedItems="@ExpandedItems" />
-
-@code {
-    IEnumerable<TreeItem> FlatData { get; set; }
-    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
-
-    protected override void OnInitialized()
-    {
-        FlatData = GetFlatData();
-
-        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
-    }
-
-    List<TreeItem> GetFlatData()
-    {
-        List<TreeItem> items = new List<TreeItem>();
-
-        items.Add(new TreeItem()
-        {
-            Id = 1,
-            Text = "wwwroot",
-            ParentId = null,
-            HasChildren = true,
-            Icon = SvgIcon.Folder
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 2,
-            Text = "css",
-            ParentId = 1,
-            HasChildren = true,
-            Icon = SvgIcon.Folder
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 3,
-            Text = "js",
-            ParentId = 1,
-            HasChildren = true,
-            Icon = SvgIcon.Folder
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 4,
-            Text = "site.css",
-            ParentId = 2,
-            Icon = SvgIcon.Css
-        });
-        items.Add(new TreeItem()
-        {
-            Id = 5,
-            Text = "scripts.js",
-            ParentId = 3,
-            Icon = SvgIcon.Js
-        });
-
-        return items;
-    }
-
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public int? ParentId { get; set; }
-        public bool HasChildren { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/treeview/overview/example-1/" height="420"></demo>
 
 ## Data Binding
 
@@ -152,8 +82,9 @@ The table below lists the TreeView methods. Also consult the [TreeView API](slug
 | `Rebind` | [Refreshes the component data](slug:treeview-refresh-data#rebind-method). |
 | `GetItemFromDropIndex` <br /> `(string index)` | gets the corresponding `TItem` of the destination TreeView from the passed [`DestinationIndex`](slug:grid-drag-drop-overview#event-arguments) |
 
-<div class="skip-repl"></div>
-````RAZOR
+>caption TreeView reference
+
+````RAZOR.skip-repl
 <TelerikTreeView @ref="@TreeViewRef" .../>
 
 @code{

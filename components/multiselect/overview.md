@@ -76,7 +76,7 @@ When `EnableCheckBoxes="true"` is combined with [`EnableSelectAll="true"`](slug:
 
 ## Parameters
 
-The Blazor MultiSelect provides various parameters that allow you to configure the component:
+The Blazor MultiSelect provides various parameters that allow you to configure the component. Also see the [MultiSelect API Reference](slug:Telerik.Blazor.Components.TelerikMultiSelect-2) for a complete list of parameters, methods, and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -96,17 +96,19 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering](slug:multiselect-filter). |
 | `Id` | `string` | Renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
-| `LoaderShowDelay` | `int ` <br /> 300 | Time in milliseconds between opening the popup and showing the loading skeleton in it when the data is not yet available. |
+| `LoaderShowDelay` | `int ` <br /> (`300`) | Time in milliseconds between opening the popup and showing the loading skeleton in it when the data is not yet available. |
+| `MaxAllowedTags` | `int` <br /> (`10`) | The largest number of chips that the user sees when there are a lot of selected items. Also see [Summarized Tags Based on the Number of Selections](slug:multiselect-tag-mode#summarized-tags-based-on-the-number-of-selections). |
 | `MinLength` | `int` | How many characters the user must type before the suggestion list appears. Often works together with [filtering](slug:multiselect-filter). |
 | `PersistFilterOnSelect` | `bool` | Controls whether the filter input will be cleared when the user selects an item. Applies when [MultiSelect filtering](slug:multiselect-filter) is enabled and `AutoClose="false"`. 
 | `Placeholder` | `string` | The text the user sees as a hint when there is no selection. |
 | `ShowArrowButton` | `bool` | Controls whether the MultiSelect will show an arrow button, which hints about its dropdown. When enabled, an empty MultiSelect component looks similar to a ComboBox, otherwise it looks similar to a TextBox. |
-| `TextField` | `string` <br /> (`Text`)| The field in the model from which the text of the items is taken. |
+| `TagMode` | `MultiSelectTagMode` <br /> (`Multiple`) | Defines if selected items display as multiple separate chips or as a single chip. Also see `MaxAllowedTags` and the [MultiSelect Tag Mode](slug:multiselect-tag-mode) article. |
+| `TextField` | `string` <br /> (`"Text"`)| The field in the model from which the text of the items is taken. |
 | `TItem` | `Type` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the value field in the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
 | `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`](slug:adaptive-rendering). |
 | `Value` and `bind-Value` | `List<TValue>` | Get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `List<TValue>`. |
-| `ValueField` | `string`  <br /> (`Value`)| The name of the field from the model that will be used as values in the selection. |
+| `ValueField` | `string`  <br /> (`"Value"`)| The name of the field from the model that will be used as values in the selection. |
 | `TabIndex` | `int?` | Mps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 
 ### Styling and Appearance

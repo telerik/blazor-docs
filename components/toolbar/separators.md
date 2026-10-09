@@ -22,27 +22,7 @@ You can visually separate the items in the Telerik ToolBar for Blazor. Depending
 
 >caption Use ToolBarButtonGroup, ToolBarSeparator and ToolBarSpace to separate items in the ToolBar
 
-![toolbar spacers](images/toolbar-separators.png)
-
-````RAZOR
-@* Use the ToolBarSpacer to add space between the button group and the rest and the separator to separate the toggle button and the undo button *@
-
-<TelerikToolBar>
-    <ToolBarButtonGroup>
-        <ToolBarButton Icon="@SvgIcon.Bold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Underline">Underline</ToolBarButton>
-    </ToolBarButtonGroup>
-    <ToolBarSpacer />
-    <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
-    <ToolBarSeparator />
-    <ToolBarButton Icon="@SvgIcon.Undo">Undo</ToolBarButton>
-</TelerikToolBar>
-
-@code {
-    public bool Selected { get; set; } = true;
-}
-````
+<demo metaUrl="client/toolbar/separators/example-1/" height="420"></demo>
 
 ## See Also
 

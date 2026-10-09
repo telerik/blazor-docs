@@ -21,43 +21,7 @@ The template receives a `context` argument that represents the current item from
 
 >caption Use ItemTemplate to render item text with a conditional notification count badge
 
-````RAZOR
-<TelerikSegmentedControl Data="@Items"
-                         @bind-Value="@SelectedValue"
-                         TItem="SegmentItem"
-                         TValue="string">
-    <ItemTemplate>
-        <span>@context.Text</span>
-        @if (context.Count > 0)
-        {
-            <span style="margin-left: 0.4em; padding: 0 0.4em;
-                         background: var(--kendo-color-primary);
-                         color: var(--kendo-color-on-primary);
-                         border-radius: 9999px; font-size: 0.75em;">@context.Count</span>
-        }
-    </ItemTemplate>
-</TelerikSegmentedControl>
-
-<p>Selected: @SelectedValue</p>
-
-@code {
-    private string SelectedValue { get; set; } = "inbox";
-
-    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
-    {
-        new SegmentItem() { Text = "Inbox", Value = "inbox", Count = 4 },
-        new SegmentItem() { Text = "Drafts", Value = "drafts", Count = 1 },
-        new SegmentItem() { Text = "Sent", Value = "sent", Count = 0 },
-    };
-
-    public class SegmentItem
-    {
-        public string Text { get; set; } = string.Empty;
-        public string Value { get; set; } = string.Empty;
-        public int Count { get; set; }
-    }
-}
-````
+<demo metaUrl="client/segmentedcontrol/templates/example-1/" height="320"></demo>
 
 ## See Also
 

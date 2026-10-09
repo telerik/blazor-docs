@@ -17,26 +17,9 @@ This article explains how to customize the ProgressBar label position and conten
 
 To access the customization settings use the `<ProgressBarLabel>`. It provides a `Context` which exposes a `Value` parameter which is representation of the current value of the component.
 
->caption Customize the label for the ProgressBar. The result from the code snippet below.
+>caption Customize the label for the ProgressBar.
 
-![customize the labels of the progress bar](images/progress-bar-customize-label.png)
-
-````RAZOR
-<TelerikProgressBar Max="@MaxValue" Value="@PBValue">
-    <ProgressBarLabel Visible="true" Position="@ProgressBarLabelPosition.Center">
-        <Template>
-            <div>
-                The value of the ProgressBar is: <span style="font-weight:bold">@(context.Value)</span>
-            </div>
-        </Template>
-    </ProgressBarLabel>
-</TelerikProgressBar>
-
-@code {
-    public double MaxValue { get; set; } = 50;
-    public double PBValue { get; set; } = 10;
-}
-````
+<demo metaUrl="client/progressbar/label/example-1/" height="300"></demo>
 
 ## Features
 

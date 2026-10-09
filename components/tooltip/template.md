@@ -29,72 +29,13 @@ This article contains the following examples for generating the tooltip content:
 
 >caption Different content for different targets, generated from the same tooltip
 
-````RAZOR
-@* You can add more than text, you can also use the data to generate attributes for images
-    or even entire components *@
-
-<TelerikTooltip TargetSelector="p strong[title]">
-    <Template>
-        @{
-            var dataAttributes = context.DataAttributes;
-            var title = context.Title;
-            <div>
-                This is a tooltip for:
-                <ul>
-                    <li>target title: @title</li>
-                    <li>target data-id: @dataAttributes["id"]</li>
-                </ul>
-            </div>
-        }
-    </Template>
-</TelerikTooltip>
-
-<p>
-    Hover these targets to see different tooltip contents generated from the same tooltip:<br />
-    <strong title="one" data-id="first">target one</strong>
-    and also
-    <strong title="two" data-id="second">the second target</strong>.
-</p>
-````
+<demo metaUrl="client/tooltip/template/example-1/" height="320"></demo>
 
 ## Markup from Generated String
 
 >caption Generate tooltip content based on target metadata through a method
 
-````RAZOR
-@* Generate the HTML content through a markup string *@
-
-<TelerikTooltip TargetSelector="p strong[title]">
-    <Template>
-        @(new MarkupString(GetTooltipContent(context.DataAttributes, context.Title)))
-    </Template>
-</TelerikTooltip>
-
-@code{
-    string GetTooltipContent(Dictionary<string, string> targetMetadata, string targetTitle)
-    {
-        if (targetMetadata == null && string.IsNullOrEmpty(targetTitle))
-        {
-            return "<strong>no data for this element</strong>";
-        }
-        string result = "<ul>";
-        result += $"<li>title: {targetTitle}</li>";
-        foreach (string key in targetMetadata.Keys)
-        {
-            result += $"<li>key: {key} | value: {targetMetadata[key]}</li>";
-        }
-        result += "</ul>";
-        return result;
-    }
-}
-
-<p>
-    Hover these targets to see different tooltip contents generated from the same tooltip:<br />
-    <strong title="one" data-id="first" data-someField="data1">target one</strong>
-    and also
-    <strong title="two" data-id="second" data-someField="third">the second target</strong>.
-</p>
-````
+<demo metaUrl="client/tooltip/template/example-2/" height="320"></demo>
 
 ## Separate Component and Load on Demand
 

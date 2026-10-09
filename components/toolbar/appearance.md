@@ -25,28 +25,7 @@ The `FillMode` parameter controls if the ToolBar will have a background and bord
 
 >caption The built-in fill modes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ToolBar.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public
-            | System.Reflection.BindingFlags.Static
-            | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikToolBar FillMode="@fillMode">
-                <ToolBarButton Icon="@SvgIcon.Cut">Cut</ToolBarButton>
-                <ToolBarButton Icon="@SvgIcon.Copy">Copy</ToolBarButton>
-                <ToolBarButton Icon="@SvgIcon.Clipboard">Paste</ToolBarButton>
-            </TelerikToolBar>
-        </div>
-    }
-}
-````
+<demo metaUrl="client/toolbar/appearance/example-1/" height="520"></demo>
 
 ## Size
 
@@ -60,28 +39,7 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ToolBar.Size)
-        .GetFields(System.Reflection.BindingFlags.Public 
-        | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikToolBar Size="@size">
-                <ToolBarButton Icon="@SvgIcon.Cut">Cut</ToolBarButton>
-                <ToolBarButton Icon="@SvgIcon.Copy">Copy</ToolBarButton>
-                <ToolBarButton Icon="@SvgIcon.Clipboard">Paste</ToolBarButton>
-            </TelerikToolBar>
-        </div>
-    }
-}
-````
+<demo metaUrl="client/toolbar/appearance/example-2/" height="520"></demo>
 
 ## See Also
 

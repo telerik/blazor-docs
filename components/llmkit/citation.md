@@ -25,27 +25,7 @@ To use the Citation component:
 
 >caption Inline citation attached to an AI-generated response
 
-````RAZOR
-<p>
-    Together the top five customers account for $465,200 — approximately 67% of total quarterly revenue.
-    <br />
-    <TelerikCitation Data="@Sources" Label="acme-corp.com" />
-</p>
-
-@code {
-    private List<CitationSource> Sources { get; set; } = new()
-    {
-        new CitationSource { Title = "Acme Corp Q1 2025 Revenue Report", Url = "https://acme-corp.com/reports/q1-2025" },
-        new CitationSource { Title = "Analytics DB Export", Url = "https://analytics.internal/export/revenue-q1-2025" }
-    };
-
-    public class CitationSource
-    {
-        public string Title { get; set; } = string.Empty;
-        public string Url { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/llmkit/citation/example-1/" height="300"></demo>
 
 ## Citation API
 

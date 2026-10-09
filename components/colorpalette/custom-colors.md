@@ -15,18 +15,7 @@ You can provide your own set of colors to the Blazor Color Palette component. Yo
 
 >caption Custom collection of colors in the Color Palette component
 
-````RAZOR
-@MyColor
-<br />
-
-<TelerikColorPalette Colors="@MyCustomColorList" @bind-Value="@MyColor">
-</TelerikColorPalette>
-
-@code {
-    string MyColor { get; set; }
-    List<string> MyCustomColorList { get; set; } = new List<string> { "red", "#0f0", "#0000ff" };
-}
-````
+<demo metaUrl="client/colorpalette/custom-colors/" height="420"></demo>
 
 >caption The result from the code snippet above
 

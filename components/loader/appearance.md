@@ -32,18 +32,7 @@ See them in action in the [Loader Overview live demo](https://demos.telerik.com/
 
 >caption Loader Types
 
-![loader types](images/loader-types.gif)
-
-````RAZOR
-@foreach (LoaderType type in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderType)))
-{
-    <div style="float: left; margin: 20px;">
-        @type
-        <br /><br />
-        <TelerikLoader Type="@type"></TelerikLoader>
-    </div>
-}
-````
+<demo metaUrl="client/loader/appearance/example-1/" height="420"></demo>
 
 
 ## Size
@@ -58,26 +47,7 @@ See them in action in the [Loader Overview live demo](https://demos.telerik.com/
 
 >caption Loader Size
 
-![loader size](images/loader-size.png)
-
-````RAZOR
-@foreach (string size in LoaderSizes)
-{
-    <div style="float: left; margin: 20px;">
-        @size
-        <br /><br />
-        <TelerikLoader Size="@size"></TelerikLoader>
-    </div>
-}
-
-@code {
-    List<string> LoaderSizes { get; set; } = new List<string>() {
-        ThemeConstants.Loader.Size.Small,
-        ThemeConstants.Loader.Size.Medium,
-        ThemeConstants.Loader.Size.Large
-    };
-}
-````
+<demo metaUrl="client/loader/appearance/example-2/" height="420"></demo>
 
 
 ## ThemeColor
@@ -92,24 +62,7 @@ These predefined options match the main [Telerik Theme](slug:themes-overview) an
 
 >caption Built-in Theme Colors
 
-````RAZOR
-@{
-    var fields = typeof(ThemeConstants.Loader.ThemeColor)
-                    .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static |
-                       System.Reflection.BindingFlags.FlattenHierarchy)
-                    .Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
-    foreach (var f in fields)
-    {
-        string color = f.GetValue(null).ToString();
-        <div style="display: inline-block; margin: 20px;">
-            @color
-            <br /><br />
-            <TelerikLoader ThemeColor="@color"></TelerikLoader>
-        </div>
-    }
-}
-````
-
+<demo metaUrl="client/loader/appearance/example-3/" height="420"></demo>
 
 ### Custom Loader Colors
 
@@ -117,16 +70,7 @@ The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on t
 
 >caption Custom Loader color without customizing the Telerik Theme
 
-![Custom loader color](images/loader-custom-color.png)
-
-````RAZOR
-<style>
-    .k-loader-custom-color .k-loader-segment {
-        background-color: cyan;
-    }
-</style>
-<TelerikLoader ThemeColor="custom-color"></TelerikLoader>
-````
+<demo metaUrl="client/loader/appearance/example-4/" height="320"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

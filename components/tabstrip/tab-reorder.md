@@ -59,46 +59,7 @@ The tab reorder and tab pin fatures obey the following rules:
 
 >caption Using TabStrip tab reordering and pinning
 
-````RAZOR
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
-                 EnableTabReorder="true">
-    <TabStripTab Id="tab1"
-                 Pinnable="true"
-                 @bind-Pinned="@Tab1Pinned"
-                 Title="Tab 1">
-        First tab content.
-    </TabStripTab>
-    <TabStripTab Id="tab2"
-                 Pinnable="true"
-                 @bind-Pinned="@Tab2Pinned"
-                 Title="Tab 2">
-        Second tab content.
-    </TabStripTab>
-    <TabStripTab Id="tab3"
-                 Title="Tab 3 Not Pinnable">
-        Third tab content.
-    </TabStripTab>
-    <TabStripTab Id="tab4"
-                 Pinnable="true"
-                 @bind-Pinned="@Tab4Pinned"
-                 Title="Tab 4">
-        Fourth tab content.
-    </TabStripTab>
-    <TabStripTab Id="tab5"
-                 Disabled="true"
-                 Title="Disabled Tab 5">
-        Fifth tab content.
-    </TabStripTab>
-</TelerikTabStrip>
-
-@code {
-    private string TabStripActiveTabId { get; set; } = "tab1";
-
-    private bool Tab1Pinned { get; set; }
-    private bool Tab2Pinned { get; set; }
-    private bool Tab4Pinned { get; set; }
-}
-````
+<demo metaUrl="client/tabstrip/tab-reorder/example-1/" height="320"></demo>
 
 ## Next Steps
 

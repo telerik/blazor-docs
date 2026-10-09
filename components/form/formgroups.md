@@ -35,42 +35,7 @@ The `FormGroup` tag exposes the following parameters:
 
 You can organize some FormItems into logical groups. You can configure the label of the group, the number of columns and the spacing between the items.
 
->caption The result from the code snippet below
-
-![FormItem example](images/formgroups-example.png)
-
-````RAZOR
-<TelerikForm Model="@Employee" Columns="2" ColumnSpacing="24px">
-    <FormItems>
-        <FormGroup LabelText="Personal Information" Columns="2" ColumnSpacing="12px" RowSpacing="6px">
-            <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
-            <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
-            <FormItem Field="@nameof(Person.BirthDate)" LabelText="Birth Date" ColSpan="2"></FormItem>
-            <FormItem Field="@nameof(Person.Email)" ColSpan="2"></FormItem>
-        </FormGroup>
-        <FormGroup LabelText="Employee Information" Columns="1" RowSpacing="6px">
-            <FormItem Field="@nameof(Person.CompanyName)" LabelText="Company Name" />
-            <FormItem Field="@nameof(Person.Position)" />
-            <FormItem Field="@nameof(Person.HirehDate)" LabelText="Hire Date" />
-        </FormGroup>
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public DateTime? BirthDate { get; set; }
-        public string Email { get; set; } = string.Empty;
-        public string CompanyName { get; set; } = string.Empty;
-        public string Position { get; set; } = string.Empty;
-        public DateTime HirehDate { get; set; } = DateTime.Today;
-    }
-}
-````
+<demo metaUrl="client/form/formgroups/example-1/" height="550"></demo>
 
 ## See Also
 

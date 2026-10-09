@@ -30,55 +30,7 @@ The `OnChange` event handler is defined in the respective `<WizardStep>` tag.
 
 >caption Handle the `OnChange` event of the first and second step (code snippet below)
 
-![OnChange](images/onchange-example.gif)
-
-````RAZOR
-@* Handle the OnChange event of the steps *@
-
-Next targeted step index: @TargetIndex
-
-<div style="text-align:center">
-    <TelerikWizard Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep OnChange="@OnChangeHandler1" Text="1">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep OnChange="@OnChangeHandler2" Text="2">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="3">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-
-@code{
-    public int? TargetIndex { get; set; } = null;
-
-    async Task OnChangeHandler1(WizardStepChangeEventArgs args)
-    {
-        TargetIndex = args.TargetIndex;
-    }
-
-    async Task OnChangeHandler2(WizardStepChangeEventArgs args)
-    {
-        args.IsCancelled = true;
-
-        await Dialog.AlertAsync("Please complete step 2 first", "You cannot proceed");
-
-    }
-
-    [CascadingParameter]
-    public DialogFactory Dialog { get; set; }
-}
-````
+<demo metaUrl="client/wizard/events/example-1/" height="520"></demo>
 
 ## ValueChanged
 
@@ -86,42 +38,7 @@ The `ValueChanged` event fires after the [`OnChange`](#onchange) event, if the l
 
 >caption Handle the `ValueChanged` event of the Wizard
 
-````RAZOR
-<TelerikWizard ValueChanged="@ValueChangedHandler" Value="@WizardValue">
-    <WizardSteps>
-        <WizardStep Text="1">
-            <Content>
-                <h2>Content for Wizard Step 1</h2>
-            </Content>
-        </WizardStep>
-        <WizardStep Text="2">
-            <Content>
-                <h2>Content for Wizard Step 2</h2>
-            </Content>
-        </WizardStep>
-        <WizardStep Text="3">
-            <Content>
-                <h2>Content for Wizard Step 3</h2>
-            </Content>
-        </WizardStep>
-    </WizardSteps>
-</TelerikWizard>
-
-<p>ValueChanged log: @Logger </p>
-
-@code{
-
-    string Logger { get; set; }
-
-    int WizardValue { get; set; }
-
-    void ValueChangedHandler(int newValue)
-    {
-        WizardValue = newValue;
-        Logger = "ValueChanged fired, the new Wizard Step index is " + WizardValue;
-    }
-}
-````
+<demo metaUrl="client/wizard/events/example-2/" height="520"></demo>
 
 ## OnFinish
 
@@ -131,43 +48,7 @@ The `OnFinish` event fires when the **Done** button of the Wizard is clicked.
 
 >caption Handle the `OnFinish` event of the Wizard (code snippet below)
 
-````RAZOR
-@* Handle the OnFinish event of the Wizard *@
-
-<div style="text-align:center">
-    <TelerikWizard OnFinish="@OnFinishHandler" Width="600px" Height="300px">
-        <WizardSteps>
-            <WizardStep Text="1">
-                <Content>
-                    <h2>Content for Wizard Step 1</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="2">
-                <Content>
-                    <h2>Content for Wizard Step 2</h2>
-                </Content>
-            </WizardStep>
-            <WizardStep Text="3">
-                <Content>
-                    <h2>Content for Wizard Step 3</h2>
-                </Content>
-            </WizardStep>
-        </WizardSteps>
-    </TelerikWizard>
-</div>
-
-@code{
-
-    async Task OnFinishHandler()
-    {
-        await Dialog.AlertAsync("You completed the Wizard!", "Congratulations!");
-    }
-
-    [CascadingParameter]
-    public DialogFactory Dialog { get; set; }
-
-}
-````
+<demo metaUrl="client/wizard/events/example-3/" height="520"></demo>
 
 ## See Also
 

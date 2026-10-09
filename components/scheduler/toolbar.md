@@ -43,70 +43,7 @@ Add a `<SchedulerToolBar>` tag inside `<TelerikScheduler>` to configure the tool
 
 >caption Customize the Scheduler toolbar
 
-````RAZOR
-<TelerikScheduler Data="@Appointments"
-                  @bind-Date="@SchedulerStartDate"
-                  Height="600px">
-    <SchedulerToolBar>
-        <SchedulerToolBarNewEventTool />
-        <SchedulerToolBarViewsTool />
-        <SchedulerToolBarNavigationTool />
-        <SchedulerToolBarSpacerTool />
-        <SchedulerToolBarCustomTool>
-            <TelerikButton OnClick="@OnCustomToolClick">Show When the Trip to Hawaii Ends</TelerikButton>
-        </SchedulerToolBarCustomTool>
-    </SchedulerToolBar>
-    <SchedulerViews>
-        <SchedulerDayView />
-        <SchedulerWeekView />
-        <SchedulerMonthView />
-    </SchedulerViews>
-</TelerikScheduler>
-
-@code {
-    private DateTime SchedulerStartDate { get; set; } = DateTime.Today;
-
-    private void OnCustomToolClick()
-    {
-        var hawaiiTrip = Appointments.Where(x => x.Title == "Trip to Hawaii").FirstOrDefault();
-        if (hawaiiTrip != null)
-        {
-            SchedulerStartDate = hawaiiTrip.End;
-        }
-    }
-
-    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-        new SchedulerAppointment
-        {
-            Title = "Planning meeting",
-            Start = DateTime.Today,
-            End = DateTime.Today.AddHours(3)
-    },
-        new SchedulerAppointment
-        {
-            Title = "Vet visit",
-            Start = DateTime.Today.AddDays(2),
-            End = DateTime.Today.AddDays(2).AddHours(1)
-        },
-        new SchedulerAppointment
-        {
-            Title = "Trip to Hawaii",
-            IsAllDay = true,
-            Start = DateTime.Today.AddDays(3),
-            End = DateTime.Today.AddDays(35)
-        }
-    };
-
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+<demo metaUrl="client/scheduler/toolbar/example-1/" height="780"></demo>
 
 ## See Also
 

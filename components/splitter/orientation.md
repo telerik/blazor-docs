@@ -18,49 +18,7 @@ You can customize the Splitter orientation through the its `Orientation` paramet
 
 >caption Splitter with vertical orientation
 
-````RAZOR
-<p>
-    Configure the Splitter Orientation:
-
-    <TelerikRadioGroup Data="@OrientationOptions" Layout="RadioGroupLayout.Horizontal"
-                       @bind-Value="@SelectedSplitterOrientation.Value" />
-</p>
-
-<TelerikSplitter Orientation="@SelectedSplitterOrientation.Value"
-                 Width="400px" Height="200px">
-    <SplitterPanes>
-        <SplitterPane>
-            <div>First Pane content</div>
-        </SplitterPane>
-        <SplitterPane>
-            <div>Second Pane content</div>
-        </SplitterPane>
-    </SplitterPanes>
-</TelerikSplitter>
-
-@code {
-    public Orientation SelectedSplitterOrientation { get; set; }
-
-    protected override void OnInitialized()
-    {
-        SelectedSplitterOrientation = OrientationOptions[0];
-        base.OnInitialized();
-    }
-
-    public List<Orientation> OrientationOptions { get; set; } = new List<Orientation>()
-    {
-        new Orientation() { Text = "Horizontal", Value = SplitterOrientation.Horizontal },
-        new Orientation() { Text = "Vertical", Value = SplitterOrientation.Vertical},
-    };
-
-    public class Orientation
-    {
-        public string Text { get; set; }
-        public SplitterOrientation Value { get; set; }
-    }
-
-}
-````
+<demo metaUrl="client/splitter/orientation/example-2/" height="500"></demo>
 
 ## Nested Splitters With Different Orientation
 
@@ -68,42 +26,7 @@ You can create more complex layouts that include both horizontal and vertical Sp
 
 >caption Layout with nested Splitters
 
-````RAZOR
-<TelerikSplitter Orientation="@SplitterOrientation.Horizontal"
-                 Height="100vh"
-                 Width="100vw">
-    <SplitterPanes>
-        <SplitterPane Size="120px">
-            <div>Spltter 1 (horizontal), Left Pane</div>
-        </SplitterPane>
-        <SplitterPane>
-
-            <TelerikSplitter Height="100%"
-                             Orientation="@SplitterOrientation.Vertical">
-                <SplitterPanes>
-                    <SplitterPane Size="20%">
-                        <div>Splitter 2 (vertical), Top Pane</div>
-                    </SplitterPane>
-                    <SplitterPane>
-                        <TelerikSplitter Height="100%"
-                                         Orientation="@SplitterOrientation.Horizontal">
-                            <SplitterPanes>
-                                <SplitterPane>
-                                    <div>Splitter 3 (horizontal), Left Pane</div>
-                                </SplitterPane>
-                                <SplitterPane>
-                                    <div>Splitter 3 (horizontal), Right Pane</div>
-                                </SplitterPane>
-                            </SplitterPanes>
-                        </TelerikSplitter>
-                    </SplitterPane>
-                </SplitterPanes>
-            </TelerikSplitter>
-
-        </SplitterPane>
-    </SplitterPanes>
-</TelerikSplitter>
-````
+<demo metaUrl="client/splitter/orientation/example-1/" height="570"></demo>
 
 ## Next Steps
 

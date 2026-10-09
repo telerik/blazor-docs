@@ -47,42 +47,7 @@ To create the Telerik Diagram for Blazor declaratively:
 
 >caption Basic Blazor Diagram
 
-````RAZOR
-<TelerikDiagram Height="420px" Zoom="0.8">
-    <DiagramConnectionDefaults Type="@DiagramConnectionType.Cascading" />
-    <DiagramLayout Type="@DiagramLayoutType.Tree" />
-    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle" />
-
-    <DiagramShapes>
-        <DiagramShape Id="shape1">
-            <DiagramShapeContent Text="Shape 1" />
-        </DiagramShape>
-        <DiagramShape Id="shape2">
-            <DiagramShapeContent Text="Shape 2" />
-        </DiagramShape>
-        <DiagramShape Id="shape3">
-            <DiagramShapeContent Text="Shape 3" />
-        </DiagramShape>
-        <DiagramShape Id="shape4">
-            <DiagramShapeContent Text="Shape 4" />
-        </DiagramShape>
-        <DiagramShape Id="shape5">
-            <DiagramShapeContent Text="Shape 5" />
-        </DiagramShape>
-        <DiagramShape Id="shape6">
-            <DiagramShapeContent Text="Shape 6" />
-        </DiagramShape>
-    </DiagramShapes>
-
-    <DiagramConnections>
-        <DiagramConnection FromId="shape1" ToId="shape2" />
-        <DiagramConnection FromId="shape1" ToId="shape3" />
-        <DiagramConnection FromId="shape2" ToId="shape4" />
-        <DiagramConnection FromId="shape2" ToId="shape5" />
-        <DiagramConnection FromId="shape3" ToId="shape6" />
-    </DiagramConnections>
-</TelerikDiagram>
-````
+<demo metaUrl="client/diagram/basic-2/" height="570"></demo>
 
 ### Bind the Diagram to Data
 
@@ -113,101 +78,7 @@ The Diagram provides a `SaveAsJsonAsync()` method that returns the current shape
 
 >caption Loading and saving the Diagram shape and connection state
 
-````RAZOR
-Make changes and
-<TelerikButton OnClick="@OnSaveButtonClick">Save Diagram to JSON</TelerikButton>
-
-Make more changes and restore with
-<TelerikButton OnClick="@OnLoadButtonClick">Load Diagram from JSON</TelerikButton>
-
-<TelerikDiagram @ref="@DiagramRef" Height="320px" Zoom="0.9">
-    <DiagramConnectionDefaults Type="@DiagramConnectionType.Cascading" />
-    <DiagramLayout Type="@DiagramLayoutType.Tree" />
-    <DiagramShapeDefaults Type="@DiagramShapeType.Rectangle" />
-</TelerikDiagram>
-
-<div style="overflow:auto;max-height:90px;max-width:90vw;">
-    @DiagramJson
-</div>
-
-@code {
-    private TelerikDiagram? DiagramRef { get; set; }
-
-    private async Task OnSaveButtonClick()
-    {
-        DiagramJson = await DiagramRef!.SaveAsJsonAsync();
-    }
-
-    private async Task OnLoadButtonClick()
-    {
-        await DiagramRef!.LoadFromJsonAsync(DiagramJson);
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && DiagramRef is not null)
-        {
-            await Task.Delay(1); // wait for HTML and client-side Diagram instance
-            await DiagramRef.LoadFromJsonAsync(DiagramJson);
-            StateHasChanged();
-        }
-
-        await base.OnAfterRenderAsync(firstRender);
-    }
-
-    private string DiagramJson { get; set; } = @"
-    {
-      ""shapes"": [
-        {
-          ""id"": ""shape1"",
-          ""content"": {
-            ""text"": ""Shape 1""
-          },
-          ""x"": 200,
-          ""y"": 50
-        },
-        {
-          ""id"": ""shape2"",
-          ""content"": {
-            ""text"": ""Shape 2""
-          },
-          ""height"": 100,
-          ""width"": 160,
-          ""x"": 50,
-          ""y"": 200
-        },
-        {
-          ""id"": ""shape3"",
-          ""content"": {
-            ""text"": ""Shape 3""
-          },
-          ""x"": 300,
-          ""y"": 200
-        }
-      ],
-      ""connections"": [
-        {
-          ""from"": {
-            ""shapeId"": ""shape1""
-          },
-          ""to"": {
-            ""shapeId"": ""shape2""
-          }
-        },
-        {
-          ""from"": {
-            ""shapeId"": ""shape1"",
-            ""connector"":""Right""
-          },
-          ""to"": {
-            ""shapeId"": ""shape3"",
-            ""connector"":""Top""
-          }
-        }
-      ]
-    }";
-}
-````
+<demo metaUrl="client/diagram/state-1/" height="720"></demo>
 
 ## Layouts
 
