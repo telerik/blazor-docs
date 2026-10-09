@@ -339,7 +339,7 @@ The `ColorPalettePresets` are predefined color lists for the `TelerikColorPalett
 
 Add a `PreviewColors` property to the existing `ThemeModel` class:
 
-````RAZOR
+````RAZOR.skip-repl
 public class ThemeModel
 {
     public int Id { get; set; }
@@ -359,7 +359,7 @@ public class ThemeModel
 
 Then add representative colors when you populate `ThemeData` and update the existing dropdown markup:
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikDropDownList Data="@ThemeData"
                      Value="@ThemeSwatchValue"
                      ValueChanged="@ThemeSwatchValueChanged"

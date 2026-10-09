@@ -4,9 +4,7 @@ description: How to measure the position of the Slider handle and display conten
 type: how-to
 page_title: Measure the Slider Handle Position
 slug: slider-kb-measure-handle-position
-position: 
 tags: telerik,blazor,slider,handle,position,javascript
-ticketid: 
 res_type: kb
 components: ["slider"]
 ---
@@ -36,14 +34,17 @@ How to display a value below the Slider handle while the user drags it?
 
 The Slider does not expose the handle coordinates through a parameter or event. To position a value below the handle of a horizontal Slider, wrap the component in a positioned element and measure the rendered handle with JavaScript interop. Use the [`ValueChanged` event](slug:slider-events) to request a new measurement while the user drags the handle.
 
+The following example demonstrates how to measure the Slider handle position:
+
 >caption Measure the Slider handle position
 
 ````RAZOR
 @inject IJSRuntime JS
 
 <div @ref="@SliderWrapper" class="slider-wrapper">
-	<TelerikSlider Value="@SliderValue"
-				   ValueChanged="@OnSliderValueChanged"
+	<TelerikSlider TValue="int"
+				   Value="@SliderValue"
+				   ValueChanged="@((int newValue) => OnSliderValueChanged(newValue))"
 				   Min="0"
 				   Max="100"
 				   SmallStep="1"
@@ -95,6 +96,8 @@ The Slider does not expose the handle coordinates through a parameter or event. 
 ````
 
 Add the following function to a JavaScript file loaded by the application:
+
+>caption Add the JavaScript function that measures the Slider handle position
 
 ````JS
 window.sliderInterop = {

@@ -4,7 +4,6 @@ description: Display multiline text in a Telerik predefined Alert dialog and pre
 type: how-to
 page_title: How to Display Multiline Text in a Predefined Alert
 slug: dialog-kb-dialogfactory-multiline-alert
-position:
 tags: telerik, blazor, dialog, alert, multiline, newline
 res_type: kb
 components: ["dialog"]
@@ -31,22 +30,27 @@ Display a multiline message in a predefined `AlertAsync` dialog.
 
 ## Solution
 
-The `AlertAsync` method accepts a `string`. Use the `\n` escape sequence or a verbatim string to include a line break in the message.
+The `AlertAsync` method accepts a `string`. Use a verbatim string to include line breaks in the message. The `white-space: pre-line` rule preserves those line breaks in the predefined Alert.
 
 ````RAZOR
+<style>
+    .k-dialog.k-alert .k-messagebox {
+        white-space: pre-line;
+    }
+</style>
+
 @code {
+    [CascadingParameter]
+    public DialogFactory? Dialogs { get; set; }
+
     private async Task ShowMultilineAlert()
     {
-        await Dialogs.AlertAsync("Something went wrong!\nmammaggia");
+        if (Dialogs is not null)
+        {
+            await Dialogs.AlertAsync(@"Something went wrong!
+mammaggia");
+        }
     }
-}
-````
-
-The predefined Alert renders the message as text. Do not convert a `MarkupString` to a string or pass `<br />` markup to `AlertAsync`, because the method does not accept HTML content. If the active theme collapses newline characters, preserve them with a scoped CSS rule:
-
-````CSS
-.k-dialog.k-alert .k-messagebox {
-    white-space: pre-line;
 }
 ````
 

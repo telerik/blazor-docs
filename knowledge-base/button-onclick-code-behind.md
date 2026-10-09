@@ -4,7 +4,6 @@ description: Assign and handle the Telerik Button OnClick event from a Blazor co
 type: how-to
 page_title: How to Handle Button OnClick in a Code-Behind File
 slug: button-kb-onclick-code-behind
-position:
 tags: telerik, blazor, button, onclick, code-behind
 res_type: kb
 components: ["button"]

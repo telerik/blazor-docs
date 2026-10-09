@@ -17,7 +17,7 @@ When you add that template, the form will no longer render the built-in Blazor F
 
 To make all form buttons fill the available width equally, set the Form's `ButtonsLayout` parameter to `FormButtonsLayout.Stretch`:
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikForm ButtonsLayout="FormButtonsLayout.Stretch">
     <FormButtons>
         <TelerikButton ButtonType="ButtonType.Submit">Submit</TelerikButton>

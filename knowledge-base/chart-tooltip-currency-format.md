@@ -4,7 +4,6 @@ description: Format Telerik Chart for Blazor PieChart tooltip values as currency
 type: how-to
 page_title: How to Format PieChart Tooltip Values as Currency
 slug: chart-kb-tooltip-currency-format
-position:
 tags: telerik, blazor, chart, piechart, tooltip, currency, format
 res_type: kb
 components: ["charts"]
@@ -32,6 +31,8 @@ Display a PieChart tooltip value as currency with a custom tooltip template.
 ## Solution
 
 Bind the series to a model and format the value from `context.DataItem` in the tooltip `Template`. The `C2` format displays the currency symbol and two decimal places according to the current culture.
+
+The following example demonstrates how to format a PieChart tooltip value as currency:
 
 >caption Format a PieChart tooltip value as currency
 

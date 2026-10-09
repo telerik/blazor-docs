@@ -26,7 +26,89 @@ To configure Chart series for drill-down:
 
 <demo metaUrl="client/chart/drilldown/overview/" height="500"></demo>
 
-For more than one drill-down level and troubleshooting when a later level does not open, see [Configure Multiple Chart DrillDown Levels](slug:chart-kb-drilldown-multiple-levels).
+## Configuring Multiple DrillDown Levels
+
+Set `DrilldownField` on the `<ChartSeries>` tag and on every intermediate `ChartSeriesDescriptor`. The `DrilldownField` value must name the property on each data item that contains the next `ChartSeriesDescriptor`. The descriptor at the last level does not need a `DrilldownField`.
+
+The following example shows a three-level hierarchy:
+
+````RAZOR.skip-repl
+<TelerikChart>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Column"
+					 Data="@Companies"
+					 Field="@nameof(CompanyModel.Sales)"
+					 CategoryField="@nameof(CompanyModel.Name)"
+					 DrilldownField="@nameof(CompanyModel.Details)" />
+	</ChartSeriesItems>
+</TelerikChart>
+
+@code {
+	private List<CompanyModel> Companies { get; set; } = new()
+	{
+		new CompanyModel
+		{
+			Name = "Company A",
+			Sales = 100,
+			Details = new ChartSeriesDescriptor
+			{
+				Name = "Company A Sales by Department",
+				Type = ChartSeriesType.Column,
+				Field = nameof(DepartmentModel.Sales),
+				CategoryField = nameof(DepartmentModel.Name),
+				DrilldownField = nameof(DepartmentModel.Details),
+				Data = new List<DepartmentModel>
+				{
+					new DepartmentModel
+					{
+						Name = "Sales",
+						Sales = 60,
+						Details = new ChartSeriesDescriptor
+						{
+							Name = "Sales by Product",
+							Type = ChartSeriesType.Column,
+							Field = nameof(ProductModel.Sales),
+							CategoryField = nameof(ProductModel.Name),
+							Data = new List<ProductModel>
+							{
+								new ProductModel { Name = "Product 1", Sales = 30 },
+								new ProductModel { Name = "Product 2", Sales = 30 }
+							}
+						}
+					}
+				}
+			}
+		}
+	};
+
+	public class CompanyModel
+	{
+		public string Name { get; set; }
+		public decimal Sales { get; set; }
+		public ChartSeriesDescriptor Details { get; set; }
+	}
+
+	public class DepartmentModel
+	{
+		public string Name { get; set; }
+		public decimal Sales { get; set; }
+		public ChartSeriesDescriptor Details { get; set; }
+	}
+
+	public class ProductModel
+	{
+		public string Name { get; set; }
+		public decimal Sales { get; set; }
+	}
+}
+````
+
+When a later drill-down level does not open, check the following:
+
+1. The descriptor displayed at the current level has a `DrilldownField`.
+1. Every clicked data item has a non-null descriptor in that property.
+1. `Field`, `CategoryField`, and `ColorField` match the properties of the objects in the descriptor's `Data` collection.
+1. The field names match the serialized property names. With default serialization, use the C# property names, preferably through `nameof(...)`. If the application changes the serialized property names, use the serialized names instead, as described in the [Chart data binding article](slug:chart-data-bind#chart-model-with-jsonproperty).
 
 ## Configuring Breadcrumb Navigation
 

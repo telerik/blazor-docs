@@ -4,7 +4,6 @@ description: Configure multiple drill-down levels in the Telerik Chart for Blazo
 type: how-to
 page_title: How to Configure Multiple Chart DrillDown Levels
 slug: chart-kb-drilldown-multiple-levels
-position:
 tags: telerik, blazor, chart, drilldown, multiple levels
 res_type: kb
 components: ["charts"]
@@ -110,10 +109,10 @@ The following example shows a three-level hierarchy:
 
 When a later drill-down level does not open, check the following:
 
-* The descriptor displayed at the current level has a `DrilldownField`.
-* Every clicked data item has a non-null descriptor in that property.
-* `Field`, `CategoryField`, and `ColorField` match the properties of the objects in the descriptor's `Data` collection.
-* The field names match the serialized property names. With default serialization, use the C# property names, preferably through `nameof(...)`. If the application changes the serialized property names, use the serialized names instead, as described in the [Chart data binding article](slug:chart-data-bind#chart-model-with-jsonproperty).
+1. The descriptor displayed at the current level has a `DrilldownField`.
+1. Every clicked data item has a non-null descriptor in that property.
+1. `Field`, `CategoryField`, and `ColorField` match the properties of the objects in the descriptor's `Data` collection.
+1. The field names match the serialized property names. With default serialization, use the C# property names, preferably through `nameof(...)`. If the application changes the serialized property names, use the serialized names instead, as described in the [Chart data binding article](slug:chart-data-bind#chart-model-with-jsonproperty).
 
 ## See Also
 

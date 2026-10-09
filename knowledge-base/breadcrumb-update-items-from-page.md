@@ -36,15 +36,15 @@ This KB article answers the following questions:
 
 ## Solution
 
-Do not create separate `Items` lists in the layout and the page. Store the items in a scoped state service that both components use.
+Store the items in a scoped state service that both the layout and the page use, rather than keeping separate `Items` lists in each component.
 
-Register the state service in `Program.cs`:
+1. Register the state service in `Program.cs`:
 
 ````C#
 builder.Services.AddScoped<BreadcrumbState>();
 ````
 
-Create the state service and the model for the Breadcrumb items:
+1. Create the state service and the model for the Breadcrumb items:
 
 ````C#
 using System;
@@ -71,9 +71,9 @@ public class BreadcrumbItemModel
 }
 ````
 
-Inject the service into `MainLayout.razor`, bind the Breadcrumb to its `Items` property, and re-render the layout when the state changes:
+1. Inject the service into `MainLayout.razor`, bind the Breadcrumb to its `Items` property, and re-render the layout when the state changes:
 
-````RAZOR
+````RAZOR.skip-repl
 @inherits LayoutComponentBase
 @implements IDisposable
 @inject BreadcrumbState BreadcrumbState
@@ -100,9 +100,9 @@ Inject the service into `MainLayout.razor`, bind the Breadcrumb to its `Items` p
 }
 ````
 
-Inject the same service into the page and update it after the page data loads. `ProductService` represents the existing application service that loads the page data:
+1. Inject the same service into the page and update it after the page data loads. `ProductService` represents the existing application service that loads the page data:
 
-````RAZOR
+````RAZOR.skip-repl
 @page "/products/{ProductId:int}"
 @inject BreadcrumbState BreadcrumbState
 @inject ProductService ProductService

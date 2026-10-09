@@ -150,29 +150,6 @@ To execute Scheduler methods, obtain reference to the component instance with `@
 | `Rebind` | Use to refresh the component data. |
 | `Refresh` | Use to programmatically re-render the Scheduler. |
 
-<div class="skip-repl"></div>
-
-````RAZOR
-<TelerikButton OnClick="@RefreshScheduler">Refresh Scheduler</TelerikButton>
-<TelerikButton OnClick="@RefreshScheduler">Rebind Scheduler</TelerikButton>
-
-<TelerikScheduler @ref="SchedulerRef" />
-
-@code {
-    private TekerikScheduler<Appointment>? SchedulerRef { get; set; }
-
-    private void RefreshScheduler()
-    {
-        SchedulerRef?.Refresh();
-    }
-
-    private void RebindScheduler()
-    {
-        SchedulerRef?.Rebind();
-    }
-}
-````
-
 ## Next Steps
 
 * [Bind the Scheduler to data](slug:scheduler-appointments-databinding)

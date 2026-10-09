@@ -188,8 +188,6 @@ Set a `k-body` CSS class to the `<body>` element to apply typography, text color
 </body>
 ````
 
-If a [Grid](slug:grid-overview) appears unstyled or its icons do not match the rest of the Telerik UI, verify these theme and icon assets before adding component-specific CSS. Use assets from the same Telerik UI for Blazor package version.
-
 ### JavaScript File
 
 Telerik Blazor components rely on a JavaScript JSInterop file for some interactive features and communication between the .NET runtime and the web page.

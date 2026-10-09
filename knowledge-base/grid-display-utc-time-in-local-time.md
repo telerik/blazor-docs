@@ -4,9 +4,7 @@ description: How to display UTC date and time values in a Telerik Grid according
 type: how-to
 page_title: Display UTC Time in the User's Local Time in Grid for Blazor
 slug: grid-display-utc-time-in-local-time
-position: 
-tags: 
-ticketid: 
+tags: telerik, blazor, grid, date, datetime, utc, timezone, javascript
 res_type: kb
 components: ["grid"]
 ---

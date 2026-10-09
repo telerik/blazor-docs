@@ -94,7 +94,7 @@ If you use our CDN to load the script file, make sure the file URL matches the p
 
 Another common reason is browser caching, if the file comes from the static NuGet assets or a local folder. Clear the browser cache or "hard refresh" the page to fix that. Consider a [cache buster for the Telerik CSS and JavaScript files](slug:common-kb-browser-cache-buster).
 
-## Telerik components render but do not respond
+## Telerik Components Render but Do Not Respond
 
 If the Telerik components render but their buttons, commands, or event handlers do not respond, verify that the page uses an interactive Blazor render mode. A successful request for `telerik-blazor.js` does not make a statically rendered page interactive.
 

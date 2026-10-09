@@ -4,9 +4,7 @@ description: How to change the Grid filter mode at runtime and recreate the Grid
 type: how-to
 page_title: Change the Grid Filter Mode at Runtime
 slug: grid-kb-change-filter-mode-at-runtime
-position: 
 tags: telerik,blazor,grid,filtering,filtermode,runtime
-ticketid: 
 res_type: kb
 components: ["grid"]
 ---
@@ -30,17 +28,21 @@ components: ["grid"]
 
 How to change the Grid `FilterMode` at runtime?
 
-How to disable filtering and show the filter row or filter menu again?
+This KB also answers the following question:
+
+* How to disable filtering and show the filter row or filter menu again?
 
 ## Solution
 
 Set the Grid `FilterMode` parameter to one of the following values:
 
-* `GridFilterMode.None` - hides the filtering UI.
-* `GridFilterMode.FilterRow` - displays a filter row below the column headers.
-* `GridFilterMode.FilterMenu` - displays a filter button in the column headers.
+1. Set `FilterMode` to `GridFilterMode.None` to hide the filtering UI.
+1. Set `FilterMode` to `GridFilterMode.FilterRow` to display a filter row below the column headers.
+1. Set `FilterMode` to `GridFilterMode.FilterMenu` to display a filter button in the column headers.
 
 When you change the filter mode at runtime, recreate the Grid so that it rebuilds the columns and filter templates. Use a render flag around the Grid, update the filter mode, and render the Grid again.
+
+The following example demonstrates how to recreate the Grid after changing the filter mode:
 
 >caption Change the Grid FilterMode at runtime
 
