@@ -46,6 +46,8 @@ For example, a `.Where()` filter can be used to return only items based on certa
 
 This would be the same approach as handling any other data that needs to be behind authentication mechanisms.
 
+`AuthorizeView` controls which UI the application renders. It does not protect a routable page, an event handler, or a backend endpoint. Use the Blazor [`[Authorize]` attribute](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-9.0#authorize-attribute) with `AuthorizeRouteView` for page authorization, and secure any server or API endpoints that provide the data.
+
 ## Notes
 
 

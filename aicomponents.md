@@ -14,7 +14,7 @@ Telerik UI for Blazor provides components and Grid features for building AI-assi
 The available tools fit into four categories:
 
 1. [Conversational UI](#conversational-ui)&mdash;Chat, PromptBox, Inline AI Prompt, and AI Prompt for conversational and prompt-driven interfaces.
-2. [Smart Grid Features](#smart-grid-features)&mdash;Semantic Search, AI Data Operations, AI Data Highlight, AI Column Assistant, and AI Chat Integration for AI-assisted Telerik UI for Blazor Grid workflows.
+2. [Smart Grid Features](#smart-grid-features)&mdash;Semantic Search, AI Data Operations, AI Data Highlight, AI Column Assistant, AI Chat Integration, and Grid Smart Box for AI-assisted Telerik UI for Blazor Grid workflows.
 3. [Editor AI Integration](#editor-ai-integration)&mdash;AI-assisted writing and content operations in the Telerik UI for Blazor Editor.
 4. [Utility Components](#utility-components)&mdash;SmartPaste for mapping clipboard content to form inputs, and WebMCP Support for enabling natural-language control of application UI through MCP.
 

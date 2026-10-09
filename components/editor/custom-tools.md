@@ -36,6 +36,8 @@ To create a custom tool:
 
 1. Manipulate the editor content as desired from the custom content events (like clicks) - either through the [editor commands](slug:editor-built-in-tools), or with your own code that manipulates its `Value` field contents.
 
+For a custom hyperlink dialog, see [Replace the CreateLink Tool](slug:editor-kb-custom-create-link-tool). The browser owns the current text selection, so preserve the selection before opening the custom dialog if the command has to apply to selected text. For more information, see [getting the selected content from the Editor](slug:editor-kb-get-selection).
+
 ## Examples
 
 When [choosing which Editor tools to render](slug:editor-toolbar#choose-toolbar-items), it is possible to [create a tools collection from scratch](slug:editor-toolbar#create-a-toolbar-from-scratch) or [append additional tools to a preset collection](slug:editor-toolbar#add-remove-tools-from-existing-toolbar).

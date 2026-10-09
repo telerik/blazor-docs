@@ -55,7 +55,6 @@ The alert dialog is a Blazor popup message. It shows the user that something wen
 
 <demo metaUrl="client/dialog/predefined/alert-3/" height="420"></demo>
 
-
 ## Confirm
 
 The confirm dialog returns a `bool` value that indicates which button the user clicked - `true` for the `OK` button and `false` for the `Cancel` button. This lets you `await` its execution, and then continue the application logic based on that decision. The method that calls it must be `async Task` and *not* `async void` in order to await the execution.
