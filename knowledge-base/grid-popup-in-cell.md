@@ -80,7 +80,7 @@ Here is an example implementation:
 
     private async Task OnPopupShowButtonClick(GridCommandEventArgs args)
     {
-        ModelInPopup = (SampleModel)args.Item;
+        ModelInPopup = (SampleModel)args.Items.First();
 
         PopoverRef?.Hide();
         PopoverAnchorSelector = $"#button{ModelInPopup.Id}";

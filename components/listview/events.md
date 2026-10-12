@@ -114,20 +114,20 @@ In the common case, you provide all the data to the listview's Data collection a
         await GetListViewData();
     }
 
-    async Task EditHandler(ListViewCommandEventArgs e)
+    async Task EditHandler(ListViewCommandEventArgs args)
     {
-        Employee currItem = e.Item as Employee;
+        Employee currItem = (Employee)args.Item;
 
         // prevent opening an item for editing on condition
         if (currItem.Id < 2)
         {
-            e.IsCancelled = true;
+            args.IsCancelled = true;
         }
     }
 
-    async Task CancelHandler(ListViewCommandEventArgs e)
+    async Task CancelHandler(ListViewCommandEventArgs args)
     {
-        Employee changedItem = e.Item as Employee;
+        Employee changedItem = (Employee)args.Item;
         // this is the item as the user edited it, but chose to cancel editing/inserting
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
     }
@@ -281,20 +281,20 @@ In the common case, you provide all the data to the listview's Data collection a
         await GetListViewData();
     }
 
-    async Task EditHandler(ListViewCommandEventArgs e)
+    async Task EditHandler(ListViewCommandEventArgs args)
     {
-        Employee currItem = e.Item as Employee;
+        Employee currItem = (Employee)args.Item;
 
         // prevent opening an item for editing on condition
         if (currItem.Id < 2)
         {
-            e.IsCancelled = true;
+            args.IsCancelled = true;
         }
     }
 
-    async Task CancelHandler(ListViewCommandEventArgs e)
+    async Task CancelHandler(ListViewCommandEventArgs args)
     {
-        Employee changedItem = e.Item as Employee;
+        Employee changedItem = (Employee)args.Item;
         // this is the item as the user edited it, but chose to cancel editing/inserting
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
     }
@@ -455,20 +455,20 @@ In the common case, you provide all the data to the listview's Data collection a
         await GetListViewData();
     }
 
-    async Task EditHandler(ListViewCommandEventArgs e)
+    async Task EditHandler(ListViewCommandEventArgs args)
     {
-        Employee currItem = e.Item as Employee;
+        Employee currItem = (Employee)args.Item;
 
         // prevent opening an item for editing on condition
         if (currItem.Id < 2)
         {
-            e.IsCancelled = true;
+            args.IsCancelled = true;
         }
     }
 
-    async Task CancelHandler(ListViewCommandEventArgs e)
+    async Task CancelHandler(ListViewCommandEventArgs args)
     {
-        Employee changedItem = e.Item as Employee;
+        Employee changedItem = (Employee)args.Item;
         // this is the item as the user edited it, but chose to cancel editing/inserting
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
     }

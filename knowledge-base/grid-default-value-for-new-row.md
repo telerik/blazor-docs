@@ -72,14 +72,14 @@ public class Order
 
 ### OnAdd Event
 
-The [Grid `OnAdd` event](slug:grid-editing-overview#events) fires when the user clicks on the **Add** command button and before the Grid renders the new row. Set the default values to the `Item` property of the [`GridCommandEventArgs` event argument](slug:grid-editing-overview#gridcommandeventargs).
+The [Grid `OnAdd` event](slug:grid-editing-overview#events) fires when the user clicks on the **Add** command button and before the Grid renders the new row. Set the default values to the first member of the `Items` property of the [`GridCommandEventArgs` event argument](slug:grid-editing-overview#gridcommandeventargs).
 
 >caption Set default values in the Grid OnAdd event
 
 ````C#.skip-repl
 private void OnGridAdd(GridCommandEventArgs args)
 {
-    var newItem = (Order)args.Item;
+    var newItem = (Order)args.Items.First();
     newItem.Quantity = 10;
     newItem.Received = DateTime.Now;
 }
