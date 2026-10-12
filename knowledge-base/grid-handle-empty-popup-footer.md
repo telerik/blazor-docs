@@ -67,7 +67,7 @@ To display custom buttons in the footer and handle form submission, follow these
         <GridPopupEditFormSettings ButtonsLayout="@FormButtonsLayout.Stretch" Context="FormContext">
             <FormTemplate>
                 @{
-                    EditItem = FormContext.Item as Person;
+                    EditItem = (Person)FormContext.Item;
 
                     <TelerikForm Model="@EditItem"
                                  ColumnSpacing="20px"
@@ -277,7 +277,7 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
         <GridPopupEditFormSettings Context="FormContext">
             <FormTemplate>
                 @{
-                    EditItem = FormContext.Item as Person;
+                    EditItem = (Person)FormContext.Item;
 
                     <TelerikForm Model="@EditItem"
                                  ColumnSpacing="20px"

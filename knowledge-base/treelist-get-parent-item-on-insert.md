@@ -19,10 +19,6 @@ components: ["treelist"]
             <td>Product</td>
             <td>TreeList for Blazor</td>
         </tr>
-        <tr>
-            <td>Version</td>
-            <td>2.18.0 and later</td>
-        </tr>
     </tbody>
 </table>
 
@@ -92,7 +88,7 @@ The approaches to handle this would depend of the type of data the component is 
 
     public void AddItem(TreeListCommandEventArgs args)
     {
-        var parentId = (args.Item as Employee).ParentId;
+        var parentId = ((Employee)args.Items.First()).ParentId;
         Employee itemToInsert = new Employee();
         itemToInsert.ParentId = parentId; // and/or other metadata
         var state = new TreeListState<Employee>();
@@ -223,7 +219,7 @@ The approaches to handle this would depend of the type of data the component is 
 
     void AddItem(TreeListCommandEventArgs args)
     {
-        Employee currItem = args.Item as Employee;
+        Employee currItem = (Employee)args.Items.First();
         var state = new TreeListState<Employee>();
         var itemToInsert = new Employee();
         itemToInsert.ParentData = $"Parent: {currItem.Name}"; // and/or other metadata

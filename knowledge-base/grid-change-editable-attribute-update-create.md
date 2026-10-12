@@ -96,9 +96,9 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
         }
     }
 
-    public void CreateHandler(GridCommandEventArgs e)
+    public void CreateHandler(GridCommandEventArgs args)
     {
-        SampleData itm = e.Item as SampleData;
+        SampleData itm = (SampleData)args.Items.First();
         itm.ID = MyData.Count + 1; // make sure an ID is available for the inserted item, this is what this logic uses
         MyData.Insert(0, itm);
     }

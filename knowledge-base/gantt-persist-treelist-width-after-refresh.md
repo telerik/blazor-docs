@@ -125,7 +125,7 @@ To persist the current TreeList width, follow the steps below:
     
     private void UpdateItem(GanttUpdateEventArgs args)
     {
-        var item = args.Item as FlatModel;
+        var item = (FlatModel)args.Item;
 
         var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
@@ -140,7 +140,7 @@ To persist the current TreeList width, follow the steps below:
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as FlatModel).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals(((FlatModel)args.Item).Id));
 
         RemoveChildRecursive(item);
     }

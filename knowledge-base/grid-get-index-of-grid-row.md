@@ -79,7 +79,7 @@ The Grid does not directly alter the collection of items passed to its `Data` pa
     void OnRowClick(GridRowClickEventArgs args)
     {
         // same logic as in SelectedItemsChanged, use either event
-        //ClickedItem = args.Item as MainModel;
+        //ClickedItem = (MainModel)args.Item;
         //PrintTheRowIndex(ClickedItem);
     }
 

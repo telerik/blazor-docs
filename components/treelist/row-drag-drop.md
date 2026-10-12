@@ -676,7 +676,7 @@ The functionality allows dragging items between TreeList, [Grid](slug:grid-drag-
     }
     private void TreeListDrop(TreeListRowDropEventArgs<FlatItem> args)
     {
-        var item = args.Item as FlatItem;
+        var item = (FlatItem)args.Item;
         if (args.DestinationComponentId == "TreeList1")
         {
             var destinationItem = (FlatItem)TreeListRef.GetItemFromDropIndex(args.DestinationIndex);

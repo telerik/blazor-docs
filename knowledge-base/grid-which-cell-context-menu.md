@@ -84,7 +84,7 @@ This example uses a simple boolean flag for brevity, you can extend the logic to
     {
         if (args.EventArgs is MouseEventArgs e)
         {
-            await InitializeMenu(args.Item as SampleData, false, e.ClientX, e.ClientY);
+            await InitializeMenu((SampleData)args.Item, false, e.ClientX, e.ClientY);
         }
     }
 

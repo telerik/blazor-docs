@@ -110,7 +110,7 @@ This KB article answers the following questions:
         {
             Field = nameof(User.Admin),
             IsNew = false,
-            Item = user,
+            Items = new List<User>() { user },
             Value = user.Admin
         });
     }
@@ -120,7 +120,7 @@ This KB article answers the following questions:
         // simulate network delay
         await Task.Delay(100);
 
-        var user = (User)args.Item;
+        var user = (User)args.Items.First();
         var index = Users.FindIndex(x => x.Id == user.Id);
 
         if (index >= 0)
@@ -134,7 +134,7 @@ This KB article answers the following questions:
         // simulate network delay
         await Task.Delay(100);
 
-        var user = (User)args.Item;
+        var user = (User)args.Items.First();
         user.Id = ++LastId;
 
         Users.Insert(0, user);
