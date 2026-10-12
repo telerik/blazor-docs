@@ -67,7 +67,7 @@
 
     private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
-        var item = args.Item as GanttTask;
+        var item = (GanttTask)args.Item;
 
         var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
@@ -82,7 +82,7 @@
 
     private void OnGanttDelete(GanttDeleteEventArgs args)
     {
-        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals(((GanttTask)args.Item).Id));
 
         RemoveChildRecursive(item);
     }
@@ -227,7 +227,7 @@
 
     private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
-        var item = args.Item as GanttTask;
+        var item = (GanttTask)args.Item;
 
         var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
@@ -242,7 +242,7 @@
 
     private void OnGanttDelete(GanttDeleteEventArgs args)
     {
-        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals(((GanttTask)args.Item).Id));
 
         RemoveChildRecursive(item);
     }
@@ -393,7 +393,7 @@
 
     private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
-        var item = args.Item as GanttTask;
+        var item = (GanttTask)args.Item;
 
         var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
@@ -408,7 +408,7 @@
 
     private void OnGanttDelete(GanttDeleteEventArgs args)
     {
-        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals(((GanttTask)args.Item).Id));
 
         RemoveChildRecursive(item);
     }
@@ -544,7 +544,7 @@
 
     private void OnGanttUpdate(GanttUpdateEventArgs args)
     {
-        var item = args.Item as GanttTask;
+        var item = (GanttTask)args.Item;
 
         var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
@@ -559,7 +559,7 @@
 
     private void OnGanttDelete(GanttDeleteEventArgs args)
     {
-        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals(((GanttTask)args.Item).Id));
 
         RemoveChildRecursive(item);
     }

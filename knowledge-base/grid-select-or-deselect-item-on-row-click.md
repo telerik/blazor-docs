@@ -66,7 +66,7 @@ The snippet below demonstrates how to achieve the described approach.
     //Handle the OnRowClick event to programmatically update the SelectedItems collection. Check if an item exists in the collection (is selected). Add it to the collection to select it. Remove it from the collection to deselect it.
     async Task OnRowClickHandler(GridRowClickEventArgs args)
     {
-        var currItem = args.Item as SampleData;
+        var currItem = (SampleData)args.Item;
 
         if (SelectedItems.Any(x => x.Id == currItem.Id))
         {

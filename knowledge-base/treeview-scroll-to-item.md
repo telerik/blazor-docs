@@ -292,7 +292,7 @@ The example uses simplified logic for parent-child item relationship. In product
 
     private async Task OnTreeViewExpand(TreeViewExpandEventArgs args)
     {
-        var item = args.Item as TreeItem;
+        var item = (TreeItem)args.Item;
 
         if (args.Expanded && !TreeData.Any(x => x.ParentId == item.Id))
         {

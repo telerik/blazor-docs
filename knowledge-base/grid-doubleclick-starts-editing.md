@@ -61,7 +61,7 @@ See the following example for reference:
 
     void OnRowDoubleClickHandler(GridRowClickEventArgs args)
     {
-        var updatedItem = args.Item as SampleData;
+        var updatedItem = (SampleData)args.Item;
         EditItem(updatedItem);
     }
 

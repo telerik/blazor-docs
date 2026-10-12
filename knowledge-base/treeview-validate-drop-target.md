@@ -74,7 +74,7 @@ This TreeView does not allow the user to drop items from the Documents folder in
     {
         if (args.DestinationItem != null)
         {
-            var draggedItem = args.Item as TreeItem;
+            var draggedItem = (TreeItem)args.Item;
             var destinationItem = args.DestinationItem as TreeItem;
 
             if (draggedItem.ParentId == 1 && (destinationItem.ParentId == 7 || destinationItem.Id == 6 || destinationItem.Id == 7))
@@ -96,7 +96,7 @@ This TreeView does not allow the user to drop items from the Documents folder in
         }
         else
         {
-            var item = args.Item as TreeItem;
+            var item = (TreeItem)args.Item;
             var destinationItem = args.DestinationItem as TreeItem;
 
             if (destinationItem != null && IsChild(item, destinationItem))

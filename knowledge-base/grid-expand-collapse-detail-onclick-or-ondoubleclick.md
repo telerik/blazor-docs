@@ -65,7 +65,7 @@ In the event handlers, get the [Grid State](slug:grid-state) and modify its `Exp
 
     async Task OnRowClickHandler(GridRowClickEventArgs args)
     {
-        var currItem = args.Item as MainModel;
+        var currItem = (MainModel)args.Item;
 
         var state = Grid.GetState();
 
@@ -145,7 +145,7 @@ In the event handlers, get the [Grid State](slug:grid-state) and modify its `Exp
 
     async Task OnRowDoubleClickHandler(GridRowClickEventArgs args)
     {
-        var currItem = args.Item as MainModel;
+        var currItem = (MainModel)args.Item;
 
         var state = Grid.GetState();
 

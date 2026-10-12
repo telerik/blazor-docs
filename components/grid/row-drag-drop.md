@@ -180,7 +180,7 @@ The functionality allows dragging items between Grid, [TreeList](slug:treelist-d
     }
     private void TreeListDrop(TreeListRowDropEventArgs<FlatItem> args)
     {
-        var item = args.Item as FlatItem;
+        var item = (FlatItem)args.Item;
         if (args.DestinationComponentId == "TreeList1")
         {
             var destinationItem = (FlatItem)TreeListRef.GetItemFromDropIndex(args.DestinationIndex);
@@ -518,7 +518,7 @@ public enum ProductSize
 
     private void TreeViewDrop(TreeViewDropEventArgs args)
     {
-        var item = args.Item as BaseFlatItem;
+        var item = (BaseFlatItem)args.Item;
 
         if (args.DestinationComponentId == "TreeView1")
         {
@@ -1008,7 +1008,7 @@ public class BaseFlatItem
 
     void AddAppointment(SchedulerCreateEventArgs args)
     {
-        Appointment item = args.Item as Appointment;
+        Appointment item = (Appointment)args.Item;
 
         Data.Add(item);
     }
