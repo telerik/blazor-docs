@@ -103,6 +103,46 @@ The available series data point information in the `context` is:
 
 <demo metaUrl="client/chart/tooltip/overview/template/" height="500"></demo>
 
+#### Format Tooltip Values
+
+To format a tooltip value, cast `context.DataItem` to the data item type and apply a standard .NET numeric format string. The `C2` format displays the currency symbol and two decimal places according to the current culture.
+
+>caption Format a PieChart tooltip value as currency
+
+````RAZOR
+<TelerikChart>
+	<ChartSeriesItems>
+		<ChartSeries Type="ChartSeriesType.Pie"
+					 Data="@PieData"
+					 Field="@nameof(PiePoint.Value)"
+					 CategoryField="@nameof(PiePoint.Category)">
+			<ChartSeriesTooltip Visible="true">
+				<Template>
+					@{
+						var point = (PiePoint)context.DataItem;
+					}
+					@point.Category: @point.Value.ToString("C2")
+				</Template>
+			</ChartSeriesTooltip>
+		</ChartSeries>
+	</ChartSeriesItems>
+</TelerikChart>
+
+@code {
+	private List<PiePoint> PieData { get; set; } = new List<PiePoint>
+	{
+		new PiePoint { Category = "Product 1", Value = 1250.50m },
+		new PiePoint { Category = "Product 2", Value = 980.00m }
+	};
+
+	public class PiePoint
+	{
+		public string Category { get; set; }
+		public decimal Value { get; set; }
+	}
+}
+````
+
 
 ## See Also
 

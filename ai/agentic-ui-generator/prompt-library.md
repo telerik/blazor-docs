@@ -20,7 +20,7 @@ The prompts provided here are intended and optimized for use with the Telerik UI
 
 The prompts in this library target the [Agentic UI Generator](slug:agentic-ui-generator-getting-started). Depending on your setup, you can invoke them in two ways:
 
-* Call the **AI Plugin skills** — The [telerik-blazor-plugin](slug:agentic-ui-generator-getting-started#tab-2-ai-plugin) wraps the MCP server and starts it automatically — no manual `mcp.json` configuration required. If you have the plugin installed, use the `/telerik-blazor-plugin:<skill-name>` slash command to call a skill and follow with a prompt. 
+* Call the **AI Plugin skills** — The [telerik-blazor-plugin](slug:agentic-ui-generator-getting-started#tab-2-ai-plugin) wraps the MCP server and starts it automatically, so no manual `mcp.json` configuration is required. The plugin still uses the MCP server and does not bypass its gRPC, HTTP/2, proxy, or firewall requirements. If you have the plugin installed, use the `/telerik-blazor-plugin:<skill-name>` slash command to call a skill and follow with a prompt.
 * Call the **Assistants** — Use the dedicated `#handle` syntax (for example, `#telerik_ui_generator`) to prefix your prompt, when working with GitHub Copilot and the Telerik Blazor MCP Server.
 
 Make sure that you have [installed and enabled](slug:agentic-ui-generator-getting-started#quick-start) the Agentic UI Generator before attempting to run the prompts.

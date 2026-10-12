@@ -29,6 +29,8 @@ The following parameters allow you to configure the Agenda view:
 | `NumberOfDays` | `int` <br /> (`7`) | Represents the number of days shown in the view. |
 | `HideEmptyAgendaDays` | `bool` <br /> (`true`) | Defines whether dates with no appointments are rendered. |
 
+>note The Agenda view does not support the `SlotTemplate` or a dedicated time-cell template. It renders appointments in a summary table. To customize Scheduler time slots, use a Day, Multiday, Month, Timeline, or Week view with the [`SlotTemplate`](slug:scheduler-templates-slot). To customize appointment content, use the [appointment templates](slug:scheduler-templates-appointment).
+
 ## Example
 
 >tip You can declare other views as well, this example adds only the Agenda view for brevity.

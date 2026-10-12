@@ -15,6 +15,8 @@ When the Drawer is collapsed, it is not visible at all by default. You can, howe
 
 To enable the mini view when the drawer is collapsed (minimized), set the `MiniMode` parameter to `true`. By default this parameter is set to `false`.
 
+The icon-only behavior applies to the Drawer's built-in item rendering. If you use an [`ItemTemplate`](slug:drawer-templates#itemtemplate) or a [`Template`](slug:drawer-templates#template), the template controls the item content. In that case, render the text conditionally based on the `Expanded` value.
+
 >caption Mini View behavior
 
 ![drawer expanded example](images/drawer-mini-mode-overview.jpg)

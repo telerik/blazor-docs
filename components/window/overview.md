@@ -72,7 +72,7 @@ The following table lists the Window parameters. Also check the [Window API](slu
 | `CloseOnOverlayClick` | `bool` | Sets if a modal Window will close when the user clicks on the modal overlay that covers the rest of the page content. |
 | `ContainmentSelector` | `string` | A CSS selector that points to a unique HTML element on the page. The Window will render inside the specified container. Window resizing and dragging will be restricted by the boundaries of the specified container. Do not use `ContainmentSelector` with modal Windows. |
 | `Draggable` | `bool` | Sets if the Window allows moving. |
-| `FooterLayoutAlign` | `WindowFooterLayoutAlign` enum <br /> (`Stretch`) | The alignment of the HTML elements in the `WindowFooter`. The possible options are `Stretch`, `Start`, `End`, and `Center`. |
+| `FooterLayoutAlign` | [`WindowFooterLayoutAlign`](https://www.telerik.com/blazor-ui/documentation/api/telerik.blazor.windowfooterlayoutalign) enum <br /> (`Stretch`) | The alignment of the HTML elements in the `WindowFooter`. The possible options are `Stretch`, `Start`, `End`, and `Center`. |
 | `Height` | `string` | The `height` style of the `<div class="k-window">` element. The parameter supports two-way binding. |
 | `Id` | `string` | The `id` attribute of the `<div class="k-window">` element. |
 | `Left` | `string` | The `left` style of the Window relative to the browser viewport. The parameter supports two-way binding. If `ContainmentSelector` is set, the left position is with regard to the defined container. |
