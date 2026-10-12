@@ -77,7 +77,7 @@ Then, if you want to hide the expand icon, set a CSS class to the row that will 
     // conditionally hide the hierarchy expand button
     void OnRowRenderHandler(GridRowRenderEventArgs args)
     {
-        MainModel item = args.Item as MainModel;
+        MainModel item = (MainModel)args.Item;
 
         bool hasNoHierarchy = item.Orders == null || item.Orders.Count == 0;
         args.Class = hasNoHierarchy ? "no-children" : "";

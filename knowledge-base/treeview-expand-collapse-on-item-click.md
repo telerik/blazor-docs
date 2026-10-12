@@ -60,7 +60,7 @@ To expand a TreeView item when you click on it:
 
     private async Task OnItemClickHandler(TreeViewItemClickEventArgs args)
     {
-        var currItem = args.Item as TreeItem;
+        var currItem = (TreeItem)args.Item;
 
         //verify if the clicked item is a parent one
         if (currItem.HasChildren)

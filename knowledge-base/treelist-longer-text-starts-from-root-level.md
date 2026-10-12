@@ -73,7 +73,7 @@ To align all lines of text to the same level do the following:
 
     private void OnCellRenderHandler(TreeListCellRenderEventArgs args)
     {
-        var item = args.Item as Employee;
+        var item = (Employee)args.Item;
 
         if (item.ReportsTo != null)
         {

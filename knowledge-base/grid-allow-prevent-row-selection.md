@@ -71,7 +71,7 @@ The key points in the required implementation are:
     
     private void OnRowRenderHandler(GridRowRenderEventArgs args)
     {
-        var item = args.Item as SampleData;
+        var item = (SampleData)args.Item;
         // Applying a custom class conditionally.
         if (item.Name.Contains("3") || item.Name.Contains("4"))
         {
