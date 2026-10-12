@@ -86,7 +86,7 @@ Use [Predefined Confirm Dialog](slug:dialog-predefined#confirm) with the desired
 
     private async Task CancelHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         CancelEdit = await Dialogs.ConfirmAsync("Are you sure you want to cancel editing?", "Please confirm!");
 
@@ -177,7 +177,7 @@ Using the [Dialog component](slug:dialog-overview) will let you have fully custo
 
     private async Task CancelHandler(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        SampleData item = (SampleData)args.Items.First();
 
         //clean the value, so you can always get the updated one
         ContinueEdit = null;
