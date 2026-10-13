@@ -19,6 +19,8 @@ To use Menu item icons, define a property in the component model class and assig
 
 If the icon property name in the Menu model is `Icon`, there is no need to set the `IconField` parameter.
 
+To select an SVG icon variant for each item, set `IconVariantField` to the model property name that holds the variant name. The default name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants) and [Menu Data Binding](slug:components/menu/data-binding/overview).
+
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in the Telerik Menu

@@ -252,7 +252,7 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 
 ### Use SVG Icon Variants
 
-Starting with Telerik UI for Blazor 5.1.0, SVG icons support `outline`, `solid`, and `duotone` variants. The `outline` variant is the default. Use the `Variant` parameter with `TelerikSvgIcon`.
+Starting with version `5.0.0` of the [`Telerik.SvgIcons` package](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) the SVG icons support `outline`, `solid`, and `duotone` variants. The default variant is `outline`, which matches the appearance of most SVG icons in previous versions. Use the optional `TelerikSvgIcon` `Variant` parameter.
 
 Components with configurable icons expose a corresponding variant parameter. Use `IconVariant` for a primary icon, an icon-slot-specific parameter such as `RemoveIconVariant` for a named icon, or `IconVariantField` for data-bound items. A missing or unsupported variant renders the default icon content.
 
@@ -380,7 +380,9 @@ It is possible to configure the icon type for the whole application:
 
 The <a href="https://www.telerik.com/design-system/docs/" target="_blank">Progress Design System</a> website provides a list of all <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">built-in icons in Telerik UI for Blazor</a>.
 
-To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `plus-outline` should become `FontIcon.PlusOutline` or `SvgIcon.PlusOutline`.
+> Version 5.0.0 of the Telerik icon packages remove and rename some icons previously available as deprecated font icon aliases. Review the v5.0.0 release notes in the [Icon Packages Changelog](https://www.telerik.com/design-system/docs/foundation/iconography/changelog/).
+
+To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `qr-code` should become `FontIcon.QrCode` or `SvgIcon.QrCode`.
 
 Each icon box in the icon list is clickable and reveals the following details:
 

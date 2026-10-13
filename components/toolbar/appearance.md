@@ -41,6 +41,10 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 
 <demo metaUrl="client/toolbar/appearance/example-2/" height="520"></demo>
 
+## Icon Variant
+
+When using SVG icons in `ToolBarButton` and `ToolBarToggleButton` items, set the `IconVariant` to select an available icon variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 ## See Also
 
 * [Live Demo: ToolBar Appearance](https://demos.telerik.com/blazor-ui/toolbar/appearance)

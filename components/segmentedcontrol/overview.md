@@ -41,6 +41,7 @@ public class SegmentItem
     public string Value { get; set; } = string.Empty;
     public object? Icon { get; set; }
     public string IconClass { get; set; } = string.Empty;
+    public string IconVariant { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public bool Disabled { get; set; } = false;
     public bool Visible { get; set; } = true;
@@ -63,6 +64,7 @@ The above model properties have the following meaning for the SegmentedControl:
 | `Value` | Sets the value that `@bind-Value` uses when the item is selected. Controlled by the `ValueField` parameter (default: `"Value"`). |
 | `Icon` | Sets an optional icon for the item using an `ISvgIcon` or a font icon ligature. Controlled by the `IconField` parameter (default: `"Icon"`). |
 | `IconClass` | Sets a CSS class for a font icon to display in the item. Controlled by the `IconClassField` parameter (default: `"IconClass"`). |
+| `IconVariant` | Sets the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) for the item icon. Controlled by the `IconVariantField` parameter (default: `"IconVariant"`). |
 | `Title` | Sets the tooltip text shown on hover. Controlled by the `TitleField` parameter (default: `"Title"`). |
 | `Disabled` | When `true`, the item is rendered but cannot be selected or focused. Controlled by the `DisabledField` parameter (default: `"Disabled"`). |
 | `Visible` | When `false`, the item is not rendered. Controlled by the `VisibleField` parameter (default: `"Visible"`). |

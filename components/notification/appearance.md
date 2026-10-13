@@ -17,6 +17,7 @@ The Notification component provides parameters and properties that allows you to
 * [Size](#size)
 * [ThemeColor](#themecolor)
 * [Z-Index](#z-index)
+* [Icon Variant](#icon-variant)
 
 You can use all three together to get the desired appearance. This article will explain their effect one by one.
 
@@ -88,6 +89,10 @@ You can use the `Class` of the notification to set a higher z-index for the noti
 <demo metaUrl="client/notification/appearance/z-index/" height="500"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
+## Icon Variant
+
+When using SVG icons in the `NotificationModel`, set the `IconVariant` property to select an available icon variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 ## See Also
 
