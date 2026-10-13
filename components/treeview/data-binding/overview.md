@@ -85,8 +85,6 @@ Each `TreeViewBinding` tag exposes the following parameters that refer to model 
 | [**Navigation**](slug:treeview-navigation) | |
 | `UrlField` | `"Url"` |
 
-To select an SVG icon variant for each item, set `IconVariantField` to the model property that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
-
 It is possible to [configure different bindings for different item levels](#multiple-level-bindings). Usually one binding configuration is enough. For example, if the model properties are...
 
 <div class="skip-repl"></div>

@@ -19,7 +19,7 @@ To use PanelBar item icons, define a property in the component model class and a
 
 If the icon property name in the PanelBar model is `Icon`, there is no need to set the `IconField` parameter.
 
-To select an SVG icon variant for each item, set `IconVariantField` on the PanelBar binding to the model property that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+To select an SVG icon variant for each item, set `IconVariantField` on the PanelBar binding to the model property name that holds the variant name. The default name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants) and [PanelBar Data Binding](slug:panelbar-data-binding-overview).
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 

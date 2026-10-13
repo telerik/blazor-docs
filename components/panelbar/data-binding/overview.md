@@ -73,8 +73,6 @@ Each `PanelBarBinding` tag exposes the following properties that refer to item p
 
 * Level&mdash;this is used for defining [custom field bindings](#custom-field-bindings) or [different bindings for different levels](#multiple-level-bindings). If no level is set, the bindings are taken as default for any level that does not have explicit settings. You must have one `TelerikPanelBarBinding` without a level to set the default bindings.
 
-To select an SVG icon variant for each item, set `IconVariantField` to the model property that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
-
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
 
 @[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)

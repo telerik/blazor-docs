@@ -70,7 +70,7 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
 
 ## Icon Variant
 
-When using SVG icons, set `RemoveIconVariant` to select the remove button icon variant. To configure each chip icon variant, use `IconVariantField`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+When using SVG icons, set `RemoveIconVariant` to select the remove button icon variant. To configure each chip icon variant, use `IconVariantField`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants) and [ChipList Data Binding](slug:chiplist-bound).
 
 ## See Also
 

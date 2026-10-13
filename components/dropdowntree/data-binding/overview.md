@@ -81,8 +81,6 @@ The DropDownTree item content and the parent-child relationships depend on `Drop
 | `TextField` | `"Text"` |
 | `UrlField` | `"Url"` |
 
-Set `IconVariantField` to the model property that provides the SVG icon variant for each item. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
-
 It is possible to [configure different bindings for different item levels](#multiple-level-bindings) with the `Level` parameter of `DropDownTreeBinding`. Usually one binding configuration is enough. For example, the following model class requires the binding configuration below:
 
 >caption DropDownTree Model Class
