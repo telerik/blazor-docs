@@ -92,7 +92,7 @@ Use a specialized assistant when you need focused help with an area, such as:
 * Icon selection
 * Accessibility requirements
 * Localization tasks
-* License issue
+* License key issues
 * Upgrade
 
 When you use the MCP server directly, start a complete request with `#telerik_ui_generator` or use natural-language. When you use the AI plugin, invoke the `telerik-blazor-ui-generator` skill explicitly. See [Prompt Library](slug:agentic-ui-generator-prompt-library) for examples of both approaches.
