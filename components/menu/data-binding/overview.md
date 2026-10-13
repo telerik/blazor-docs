@@ -41,7 +41,7 @@ The menu items provide the following features that you control through the corre
 
 * `Icon` - The [Telerik Font or SVG icon](slug:common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug:breadcrumb-icons).
 
-* `IconVariant` - the SVG icon variant that will be rendered in the item.
+* `IconVariant` - the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) to use for the item icon.
 
 * `Url` - the view the item will navigate to by generating a link.
 
