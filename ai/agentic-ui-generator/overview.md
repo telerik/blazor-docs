@@ -88,7 +88,7 @@ Use a specialized assistant when you need focused help with an area, such as:
 
 * Component configuration
 * Responsive layout
-* Custom theme
+* Custom themes
 * Icon selection
 * Accessibility requirements
 * Localization tasks
