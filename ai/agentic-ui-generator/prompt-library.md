@@ -12,25 +12,34 @@ tag: updated
 
 # Agentic UI Generator Prompt Library
 
-The prompts provided here are intended and optimized for use with the Telerik UI for Blazor AI tools — the Telerik Blazor MCP Server and the `telerik-blazor-plugin` AI plugin. They can help you accelerate the creation and styling of modern web applications, from individual components to complete responsive pages and custom themes.
+Use these prompts with the Agentic UI Generator to create or update Telerik UI for Blazor applications. The examples cover complete pages, individual components, layout, styling, icons, and accessibility.
 
 >tip [Go straight to the prompts ⬇️](#general-prompts)
 
-## How to Use the Prompts
+## Choose How to Invoke the Agentic UI Generator
 
-The prompts in this library target the [Agentic UI Generator](slug:agentic-ui-generator-getting-started). Depending on your setup, you can invoke them in two ways:
+Before you use a prompt, [set up the Agentic UI Generator](slug:agentic-ui-generator-getting-started). Then use the option that matches your setup and task:
 
-* Call the **AI Plugin skills** — The [telerik-blazor-plugin](slug:agentic-ui-generator-getting-started#tab-2-ai-plugin) wraps the MCP server and starts it automatically — no manual `mcp.json` configuration required. If you have the plugin installed, use the `/telerik-blazor-plugin:<skill-name>` slash command to call a skill and follow with a prompt. 
-* Call the **Assistants** — Use the dedicated `#handle` syntax (for example, `#telerik_ui_generator`) to prefix your prompt, when working with GitHub Copilot and the Telerik Blazor MCP Server.
+| Setup and task | How to invoke it |
+| --- | --- |
+| AI plugin and a general task | Describe the task in natural language. The agent can select the relevant skills automatically. |
+| AI plugin and a focused task | Start with `/telerik-blazor-plugin:<skill-name>`, then describe the task. |
+| MCP server and a complete page or feature | Start with `#telerik_ui_generator`, then describe the task. |
+| MCP server and a focused task | Start with the dedicated assistant handle, then describe the task. |
 
-Make sure that you have [installed and enabled](slug:agentic-ui-generator-getting-started#quick-start) the Agentic UI Generator before attempting to run the prompts.
+The AI plugin and direct MCP server configuration are two ways to use the same Agentic UI Generator capabilities. Do not configure both in the same AI client. See [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started#quick-start) for setup details.
 
-1. Browse the [prompt library](#general-prompts) to find a prompt that suits your needs.
-2. Copy the prompt text, including the handle or slash command prefix if shown.
-3. (optional) Customize the prompt as needed for your specific use case.
-4. Run the prompt against your AI-powered IDE.
+## Use a General Prompt
 
-### General Prompts
+Start with a general prompt when you want the Agentic UI Generator to coordinate the complete task. Select an example below, replace the business scenario and requirements with your own, and send it in your AI chat.
+
+When you use the AI plugin, send the adapted prompt as is. When you use the MCP server directly, add `#telerik_ui_generator` before the prompt:
+
+````TEXT.skip-repl
+#telerik_ui_generator Create a responsive sales dashboard with a Grid, a Chart, and a DateRangePicker.
+````
+
+## General Prompts
 
 This section provides examples of common UI creation tasks that demonstrate the capabilities of the Agentic UI Generator. The UI generator is the main tool for building full UI flows, which coordinates all other tools to deliver complete solutions.
 
@@ -94,9 +103,9 @@ Create an employee onboarding wizard (using the Telerik Wizard) with step icons:
 ```Razor
 ```
 
-### Skills and Assistant Prompts
+## Target a Specific Skill or Assistant
 
-For more precise control, you can target a specific skill or assistant directly.
+Target a specific skill or assistant when you want help with one area instead of a complete page or feature. Use the **AI Plugin Skills** tab when you installed the plugin. Use the **MCP Server Assistants** tab when you configured the Telerik MCP server directly.
 
 <TabStrip>
 <TabStripTab title="AI Plugin Skills">
@@ -192,7 +201,7 @@ Skills are triggered automatically when your agent recognizes a relevant prompt.
 ```
 
 </TabStripTab>
-<TabStripTab title="Assistants">
+<TabStripTab title="MCP Server Assistants">
 
 You can invoke the specialized assistants individually using their dedicated handles.
 
