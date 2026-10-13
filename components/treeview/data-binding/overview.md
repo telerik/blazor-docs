@@ -61,7 +61,7 @@ The above model properties have the following meaning for the TreeView:
 | `Items` | Defines the item's children. Required for [binding to **hierarchical data**](slug:components/treeview/data-binding/hierarchical-data). The children's type can be different from the parent item type. The TreeView will render an expand arrow on the parent node if its child `Items` collection is not `null`. Also see `HasChildren`. |
 | [**Graphics**](slug:treeview-icons) | |
 | `Icon` | Defines a [Telerik Font and Svg icon](slug:common-features-icons) |
-| `IconVariant` | Defines the SVG icon variant |
+| `IconVariant` | Defines the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) | |
 | [**Navigation**](slug:treeview-navigation) | |
 | `Url` | If set, the TreeView will generate a link to another page in the app, or an external page. |
 

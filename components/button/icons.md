@@ -16,7 +16,7 @@ You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the Butt
 
 ## Icon Parameter
 
-The `Icon` parameter type is `object` and it accepts:
+The `Icon` parameter is of type `object` and it accepts:
 
 * A property of the static `SvgIcon` class;
 * A member of the `FontIcon` enum;

@@ -19,7 +19,7 @@ To use Breadcrumb icons, define a property in the component model class and assi
 
 If the icon property name in the Breadcrumb model is `Icon`, there is no need to set the `IconField` parameter.
 
-To select an SVG icon variant for each item, set `IconVariantField` to the model property that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+To select an SVG icon variant for each item, set `IconVariantField` to the model property name that holds the variant name. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants) and [Breadcrumb item features](slug:breadcrumb-data-binding#breadcrumb-item-features).
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 

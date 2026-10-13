@@ -17,10 +17,7 @@ You can control the appearance of the Chip by using the following parameters:
 * [`Rounded`](#rounded)
 * [`Size`](#size)
 * [`ThemeColor`](#themecolor)
-
-## Icons
-
-For SVG icons, use `IconVariant` to select the chip icon variant and `RemoveIconVariant` to select the remove button icon variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+* [Icon variant](#icon-variant)
 
 ## FillMode
 
@@ -82,6 +79,10 @@ The `ThemeColor` parameter applies a predefined text color and background color.
 <demo metaUrl="client/chip/appearance/theme-color/" height="350"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
+## Icon Variant
+
+When using SVG icons, you can set `IconVariant` to select the Chip icon variant and `RemoveIconVariant` to select the remove button's icon variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 ## Next Steps
 

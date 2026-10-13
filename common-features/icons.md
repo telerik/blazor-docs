@@ -266,9 +266,6 @@ Components with configurable icons expose a corresponding variant parameter. Use
 </TelerikButton>
 ````
 
-> `Variant` parameters do not work with v4 of the Telerik Icon Set.
-> Telerik Icon Set v5 removes and renames some icons previously available in v4 and deprecates font icon aliases. Review the v5.0.0 notes in the [Icon Package Changelog](https://www.telerik.com/design-system/docs/foundation/iconography/changelog/). 
-
 ### Set Outline and Duotone Stroke Width
 
 Set the `--kendo-icon-stroke-width` CSS variable to change the stroke width of outline and duotone SVG icons. The default value is `1.5`. The setting does not affect solid icons.
@@ -383,7 +380,9 @@ It is possible to configure the icon type for the whole application:
 
 The <a href="https://www.telerik.com/design-system/docs/" target="_blank">Progress Design System</a> website provides a list of all <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">built-in icons in Telerik UI for Blazor</a>.
 
-To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `plus-outline` should become `FontIcon.PlusOutline` or `SvgIcon.PlusOutline`.
+> Version 5.0.0 of the Telerik icon packages remove and rename some icons previously available as deprecated font icon aliases. Review the v5.0.0 release notes in the [Icon Packages Changelog](https://www.telerik.com/design-system/docs/foundation/iconography/changelog/).
+
+To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `qr-code` should become `FontIcon.QrCode` or `SvgIcon.QrCode`.
 
 Each icon box in the icon list is clickable and reveals the following details:
 

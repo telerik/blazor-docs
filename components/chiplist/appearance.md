@@ -16,14 +16,11 @@ You can control the appearance of the chips in the ChipList by setting the follo
 * [`FillMode`](#fillmode)
 * [`Rounded`](#rounded)
 * [`Size`](#size)
+* [Icon Variant](#icon-variant)
 
 You can use all of them together to achieve the desired appearance. This article will explain their effect one by one.
 
 Also see how to set [`ThemeColor`](slug:chip-appearance#themecolor) and [`FillMode`](slug:chip-appearance#fillmode) separately for each [chip in the ChipList](slug:chiplist-bound).
-
-## Icons
-
-For SVG icons, use `RemoveIconVariant` to select the remove button icon variant. To configure each chip icon variant, use `IconVariantField`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 ## FillMode
 
@@ -70,6 +67,10 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
 <demo metaUrl="client/chiplist/appearance/size/" height="350"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
+## Icon Variant
+
+When using SVG icons, set `RemoveIconVariant` to select the remove button icon variant. To configure each chip icon variant, use `IconVariantField`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 ## See Also
 
