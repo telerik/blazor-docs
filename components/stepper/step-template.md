@@ -20,3 +20,4 @@ You can customize the whole appearance of the steps through their Template. It a
 ## See Also
 
 * [Live Demo: Stepper Template](https://demos.telerik.com/blazor-ui/stepper/template)
+* [Show Tooltips Over Stepper Steps](slug:kb-stepper-show-step-tooltip)
