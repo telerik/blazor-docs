@@ -558,6 +558,8 @@ This event fires when each Grid row renders. This can happen in the following ca
 * `Item` - an object you can cast to your model class to obtain the current data item.
 * `Class` - the custom CSS class that will be applied to the table row.
 
+For classes on individual cells or column headers, use the [`OnCellRender`](slug:grid-column-events#oncellrender) event or the column [`HeaderClass`](slug:components/grid/columns/bound#appearance) parameter.
+
 >caption Use the OnRowRender event to apply custom styles to Grid rows based on certain condition
 
 <demo metaUrl="client/grid/events-row-render/" height="500"></demo>
