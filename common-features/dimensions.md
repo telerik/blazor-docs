@@ -18,6 +18,8 @@ Component parameters for dimensions and positions are usually `string` propertie
 
 The string you provide is usually rendered as an inline `style` attribute, so you must provide a valid value that will not break other options. You do not need to include a semicolon (`;`) in the parameter value.
 
+Parameters such as `Width` or `Height` render as the respective `width` and `height` CSS styles. If you need to define maximum or minimum dimensions, use the `Class` parameter where applicable, or custom styles that target the desired HTML element.
+
 ## Percentages
 
 When setting percentage values like `100%` or `50%`, keep in mind the following: web standards require elements with percentage heights to have a parent with an explicit height. This requirement applies recursively until either an element with a pixel height or the `html` element is reached.
