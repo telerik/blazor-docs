@@ -39,6 +39,8 @@ The general approach to customize the Chart is to apply settings using nested ta
 * for [categorical charts](slug:components/chart/databind#series-types) -  `<ChartCategoryAxisLabels>` under the `<ChartCategoryAxis>`.
 * for [numerical charts](slug:components/chart/databind#series-types) - `<ChartXAxisLabels>` and `<ChartYAxisLabels>` under the `<ChartXAxis>` and `<ChartYAxis>`.
 
+Date axes are categorical axes. Set the `Type` property of the `ChartCategoryAxis` to `ChartCategoryAxisType.Date` and provide `DateTime` categories to the chart. Place the `ChartCategoryAxisLabelsRotation` tag under `ChartCategoryAxisLabels` for date-axis labels.
+
 
 You can control the `Labels` by applying the following settings to the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>` tags depending on the Chart type:
 * **Angle** - rotate the Labels to a desired degree - can be useful for long texts even if you have few items
@@ -98,6 +100,45 @@ You can also control other visual settings of the Labels such as `Padding`, `Bor
 >caption The result from the code snippet above
 
 ![rotate chart labels](images/chart-label-rotation-example.png)
+
+### Example - Rotate Date Axis Labels
+
+The following example rotates the labels of a date axis. The `ChartCategoryAxisLabelsRotation` tag must be nested inside `ChartCategoryAxisLabels`, which is a child of the `ChartCategoryAxis`.
+
+````RAZOR
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column"
+                     Data="@ChartData"
+                     CategoryField="@nameof(ChartDataItem.Date)"
+                     Field="@nameof(ChartDataItem.Value)" />
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Type="@ChartCategoryAxisType.Date"
+                           BaseUnit="@ChartCategoryAxisBaseUnit.Months">
+            <ChartCategoryAxisLabels>
+                <ChartCategoryAxisLabelsRotation Angle="-90" />
+            </ChartCategoryAxisLabels>
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+</TelerikChart>
+
+@code {
+    private List<ChartDataItem> ChartData { get; set; } = new()
+    {
+        new ChartDataItem { Date = new DateTime(2025, 1, 1), Value = 10 },
+        new ChartDataItem { Date = new DateTime(2025, 2, 1), Value = 15 },
+        new ChartDataItem { Date = new DateTime(2025, 3, 1), Value = 12 }
+    };
+
+    public class ChartDataItem
+    {
+        public DateTime Date { get; set; }
+        public int Value { get; set; }
+    }
+}
+````
 
 #### Example - Automatic Rotation
 

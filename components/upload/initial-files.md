@@ -13,6 +13,8 @@ components: ["upload"]
 
 The Blazor Upload component enables you to display specific files in the file list when the component loads for the first time. This is a convenient way to show previously uploaded files.
 
+The `Files` parameter displays `UploadFileInfo` records in the Upload file list. It does not add a new local file to the browser's selected-file queue. To select a new local file, use the Upload **Select files** button or call [`OpenSelectFilesDialog()`](slug:upload-overview#upload-reference-and-methods), then handle the [`OnSelect` event](slug:upload-events#onselect) and upload the selected file through the normal Upload workflow.
+
 To configure the initially displayed files, use the `Files` parameter of the Upload—it accepts an `IEnumerable<UploadFileInfo>` collection that stores a set of pre-selected files.
 
 >caption Display initial files in Upload's list.

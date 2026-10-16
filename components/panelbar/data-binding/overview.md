@@ -121,6 +121,8 @@ There can be maximum one binding for each level and one ("default") binding with
 
 If a certain level does not have an explicit data binding tag, it will use the default one that has no level.
 
+The binding without a `Level` is a default binding; omitting `Level` does not create another hierarchy level. The hierarchy comes from the data and its field mappings, such as `Items` for hierarchical data or `ParentId` and `HasChildren` for flat data. For example, if the root items have children and only the default binding defines a `ContentTemplate`, that template can apply to the child level because the child level has no explicit binding. To target a specific level, define a binding for that level.
+
 >caption How to use per-level data binding settings to change model fields
 
 <demo metaUrl="client/panelbar/data-binding/multiple-level-bindings/" height="500"></demo>
