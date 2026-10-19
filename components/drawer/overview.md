@@ -25,7 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 5. Set the `@ref` parameter to obtain reference to the component instance. Use this instance to toggle the Drawer.
 
-6. Add a button inside the content to toggle the Drawer.
+6. Add a button inside the content to toggle the Drawer. Wire the button to the Drawer reference and call `ToggleAsync()`; the button is application-provided and is responsible for changing the Drawer state.
 
 >caption Basic configuration of the Drawer.
 

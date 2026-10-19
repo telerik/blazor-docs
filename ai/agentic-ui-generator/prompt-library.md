@@ -27,6 +27,8 @@ Before you use a prompt, [set up the Agentic UI Generator](slug:agentic-ui-gener
 | MCP server and a complete page or feature | Start with `#telerik_ui_generator`, then describe the task. |
 | MCP server and a focused task | Start with the dedicated assistant handle, then describe the task. |
 
+The [telerik-blazor-plugin](slug:agentic-ui-generator-getting-started#tab-2-ai-plugin) wraps the MCP server and starts it automatically, so no manual `mcp.json` configuration is required. The plugin still uses the MCP server and does not bypass its gRPC, HTTP/2, proxy, or firewall requirements.
+
 The AI plugin and direct MCP server configuration are two ways to use the same Agentic UI Generator capabilities. Do not configure both in the same AI client. See [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started#quick-start) for setup details.
 
 ## Use a General Prompt
