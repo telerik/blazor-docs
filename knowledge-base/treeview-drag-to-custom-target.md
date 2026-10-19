@@ -105,7 +105,7 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
 
     private void TreeViewDropHandler(TreeViewDropEventArgs args)
     {
-        var item = args.Item as TreeItem;
+        var item = (TreeItem)args.Item;
         var destinationItem = args.DestinationItem as TreeItem;
 
         if (destinationItem != null && IsChild(item, destinationItem))

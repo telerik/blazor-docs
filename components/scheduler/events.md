@@ -78,7 +78,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
     async Task AddAppointment(SchedulerCreateEventArgs args)
     {
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
 
         // perform actual data source operations here through your service
         await MyService.Create(item);
@@ -103,7 +103,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     //Handlers for application logic flexibility
     void EditHandler(SchedulerEditEventArgs args)
     {
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
         if (!args.IsNew) // an edit operation, otherwise - an insert operation
         {
             // you can prevent opening an item for editing based on a condition
@@ -125,7 +125,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     {
         // you can know when a user wanted to modify an appointment but decided not to
         // the model you get contains the new data from the edit form so you can see what they did
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
     }
 
 
@@ -263,7 +263,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
     async Task AddAppointment(SchedulerCreateEventArgs args)
     {
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
 
         // perform actual data source operations here through your service
         await MyService.Create(item);
@@ -288,7 +288,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     //Handlers for application logic flexibility
     void EditHandler(SchedulerEditEventArgs args)
     {
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
         if (!args.IsNew) // an edit operation, otherwise - an insert operation
         {
             // you can prevent opening an item for editing based on a condition
@@ -310,7 +310,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     {
         // you can know when a user wanted to modify an appointment but decided not to
         // the model you get contains the new data from the edit form so you can see what they did
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
     }
 
     public interface IAppointment
@@ -460,7 +460,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 
     async Task AddAppointment(SchedulerCreateEventArgs args)
     {
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
 
         // perform actual data source operations here through your service
         await MyService.Create(item);
@@ -485,7 +485,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     //Handlers for application logic flexibility
     void EditHandler(SchedulerEditEventArgs args)
     {
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
         if (!args.IsNew) // an edit operation, otherwise - an insert operation
         {
             // you can prevent opening an item for editing based on a condition
@@ -507,7 +507,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     {
         // you can know when a user wanted to modify an appointment but decided not to
         // the model you get contains the new data from the edit form so you can see what they did
-        SchedulerAppointment item = args.Item as SchedulerAppointment;
+        SchedulerAppointment item = (SchedulerAppointment)args.Item;
     }
 
     public abstract class AppointmentBase

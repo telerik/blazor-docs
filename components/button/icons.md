@@ -16,11 +16,13 @@ You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the Butt
 
 ## Icon Parameter
 
-The `Icon` parameter type is `object` and it accepts:
+The `Icon` parameter is of type `object` and it accepts:
 
 * A property of the static `SvgIcon` class;
 * A member of the `FontIcon` enum;
 * A `string` that is a CSS class for a custom icon.
+
+For SVG icons, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 

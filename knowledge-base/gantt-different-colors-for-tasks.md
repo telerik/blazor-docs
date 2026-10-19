@@ -137,7 +137,7 @@ Follow these steps to apply the desired colors to the Gantt tasks:
 
     private void UpdateItem(GanttUpdateEventArgs args)
     {
-        var item = args.Item as FlatModel;
+        var item = (FlatModel)args.Item;
 
         var foundItem = Data.FirstOrDefault(i => i.Id.Equals(item.Id));
 
@@ -152,7 +152,7 @@ Follow these steps to apply the desired colors to the Gantt tasks:
 
     private void DeleteItem(GanttDeleteEventArgs args)
     {
-        var item = Data.FirstOrDefault(i => i.Id.Equals((args.Item as FlatModel).Id));
+        var item = Data.FirstOrDefault(i => i.Id.Equals(((FlatModel)args.Item).Id));
 
         RemoveChildRecursive(item);
     }

@@ -119,7 +119,7 @@ To hide the dates from other months in the month view of the Scheduler component
 
     private void AddAppointment(SchedulerCreateEventArgs args)
     {
-        Appointment item = args.Item as Appointment;
+        Appointment item = (Appointment)args.Item;
 
         Data.Add(item);
     }

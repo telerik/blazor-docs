@@ -233,7 +233,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     {
         await Task.Delay(2000); // artificial delay to showcase the concept
 
-        Appointments.Remove(args.Item as SchedulerAppointment);
+        Appointments.Remove((SchedulerAppointment)args.Item);
     }
 
     public class SchedulerAppointment
@@ -298,7 +298,7 @@ This sample shows a loading panel over the treeview container (tweak as required
 
     async Task LoadChildren(TreeViewExpandEventArgs args)
     {
-        TreeViewItem currItem = args.Item as TreeViewItem;
+        TreeViewItem currItem = (TreeViewItem)args.Item;
         if (args.Expanded && currItem.Items == null)
         {
             await Task.Delay(1000); // artificial delay to showcase the concept
@@ -467,7 +467,7 @@ Make sure to have the proper cascade so that you do not break other components o
 
     async Task LoadChildren(TreeViewExpandEventArgs args)
     {
-        TreeViewItem currItem = args.Item as TreeViewItem;
+        TreeViewItem currItem = (TreeViewItem)args.Item;
         if (args.Expanded && currItem.Items == null)
         {
             await Task.Delay(2000); // artificial delay to showcase the concept - no loading signs now

@@ -65,7 +65,7 @@ To achieve this, implement a context menu for the Grid and include a "Copy to Cl
 
     private async Task OnContextMenu(GridRowClickEventArgs args)
     {
-        SelectedPerson = args.Item as SampleData;
+        SelectedPerson = (SampleData)args.Item;
 
         if (args.EventArgs is MouseEventArgs mouseEventArgs)
         {

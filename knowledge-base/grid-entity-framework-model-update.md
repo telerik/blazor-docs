@@ -23,7 +23,7 @@ components: ["grid"]
 
 ## Description
 
-When binding the Grid directly to Entity Framework models or `DbSet`, and using `GridCommandEventArgs.Item` in your database update method, you can get one of the following exceptions:
+When binding the Grid directly to Entity Framework models or `DbSet`, and using `GridCommandEventArgs.Items` in your database update method, you can get one of the following exceptions:
 
 * `The instance of entity type ... cannot be tracked because another instance with the same key value for ... is already being tracked.`
 * `This is a DynamicProxy2 error: The interceptor attempted to 'Proceed' for method 'Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader get_LazyLoader()' which has no target.`.
@@ -56,7 +56,7 @@ Perform the database update as follows:
 
 private async Task OnGridUpdate(GridCommandEventArgs args)
 {
-    var updatedProduct = (Product)args.Item;
+    var updatedProduct = (Product)args.Items.First();
 
     var originalProduct = await DbContextEF.Products.FirstOrDefaultAsync(x => x.Id == updatedProduct.Id);
 
@@ -81,7 +81,7 @@ private async Task OnGridUpdate(GridCommandEventArgs args)
 
 private async Task OnGridUpdate(GridCommandEventArgs args)
 {
-    var updatedProduct = (Product)args.Item;
+    var updatedProduct = (Product)args.Items.First();
 
     var originalProduct = await DbContextEF.Products.FirstOrDefaultAsync(x => x.Id == updatedProduct.Id);
 
@@ -107,7 +107,7 @@ private async Task OnGridUpdate(GridCommandEventArgs args)
 
 private async Task OnGridUpdate(GridCommandEventArgs args)
 {
-    var updatedProduct = (Product)args.Item;
+    var updatedProduct = (Product)args.Items.First();
 
     var originalProduct = await DbContextEF.Products.FirstOrDefaultAsync(x => x.Id == updatedProduct.Id);
 

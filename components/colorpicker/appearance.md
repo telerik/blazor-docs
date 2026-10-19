@@ -16,7 +16,7 @@ You can control the appearance of the ColorPicker by setting the following attri
 * [Size](#size)
 * [Rounded](#rounded)
 * [FillMode](#fillmode)
-
+* [Icon Variant](#icon-variant)
 
 ## Size
 
@@ -62,3 +62,7 @@ The `FillMode` controls how the TelerikColorPicker is filled. You can set it to 
 <demo metaUrl="client/colorpicker/appearance/fill-mode/" height="250"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
+## Icon Variant
+
+When using SVG icons, set the `IconVariant` parameter to select an available icon variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).

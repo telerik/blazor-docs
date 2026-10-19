@@ -87,7 +87,7 @@ To freeze Grid rows you can:
 @code {
     private void RowRenderHandler(GridRowRenderEventArgs args)
     {
-        var gridRow = args.Item as Employee;
+        var gridRow = (Employee)args.Item;
 
         foreach (var pinnedRowIndex in pinnedGridRows)
         {

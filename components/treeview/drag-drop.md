@@ -205,7 +205,7 @@ The functionality allows dragging items between TreeView, [Grid](slug:grid-drag-
 
     private void TreeViewDrop(TreeViewDropEventArgs args)
     {
-        var item = args.Item as BaseFlatItem;
+        var item = (BaseFlatItem)args.Item;
 
         if (args.DestinationComponentId == "TreeView1")
         {
@@ -552,7 +552,7 @@ See more applicable examples in the [Grid Drag and Drop article](slug:grid-drag-
 
     private void OnDrop(TreeViewDropEventArgs args)
     {
-        var item = args.Item as BaseFlatItem;
+        var item = (BaseFlatItem)args.Item;
         var destinationItem = args.DestinationItem as BaseFlatItem;
 
         FlatData = TreeViewFlatDataService.ReorderItems(args.DropPosition, item, destinationItem);
@@ -717,7 +717,7 @@ using TelerikBlazorAppSource.Models;
 
     private void OnDrop(TreeViewDropEventArgs args)
     {
-        var item = args.Item as BaseHierarchicalItem;
+        var item = (BaseHierarchicalItem)args.Item;
         var destinationItem = args.DestinationItem as BaseHierarchicalItem;
 
         HierarchicalData = TreeViewHierarchicalDataService.ReorderHierarchicalItems(args.DropPosition, item, destinationItem);
@@ -950,7 +950,7 @@ When you drag and drop items from one instance of the TreeView to another, the `
 
     private void OnDropFirst(TreeViewDropEventArgs args)
     {
-        var item = args.Item as BaseFlatItem;
+        var item = (BaseFlatItem)args.Item;
         var destinationItem = args.DestinationItem as BaseFlatItem;
 
         if (args.DestinationTreeView != FirstTree)
@@ -967,7 +967,7 @@ When you drag and drop items from one instance of the TreeView to another, the `
 
     private void OnDropSecond(TreeViewDropEventArgs args)
     {
-        var item = args.Item as BaseFlatItem;
+        var item = (BaseFlatItem)args.Item;
         var destinationItem = args.DestinationItem as BaseFlatItem;
 
         if (args.DestinationTreeView != SecondTree)

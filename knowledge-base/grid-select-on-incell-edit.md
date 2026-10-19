@@ -86,7 +86,7 @@ Use the [Grid events](slug:grid-events#cud-events) to update the `SelectedItems`
 @code {
     void OnRowClickHandler(GridRowClickEventArgs args)
     {
-        var item = args.Item as Product;
+        var item = (Product)args.Item;
 
         AddToSelectedCollection(item);
     }

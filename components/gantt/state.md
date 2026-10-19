@@ -291,7 +291,7 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
 
     private void OnTaskUpdate(GanttUpdateEventArgs args)
     {
-        var item = args.Item as GanttTask;
+        var item = (GanttTask)args.Item;
 
         var foundItem = GanttData.FirstOrDefault(i => i.Id.Equals(item.Id));
 
@@ -306,7 +306,7 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
 
     private void OnTaskDelete(GanttDeleteEventArgs args)
     {
-        var item = GanttData.FirstOrDefault(i => i.Id.Equals((args.Item as GanttTask).Id));
+        var item = GanttData.FirstOrDefault(i => i.Id.Equals(((GanttTask)args.Item).Id));
 
         RemoveChildRecursive(item);
     }

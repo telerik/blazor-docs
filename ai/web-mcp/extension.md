@@ -18,7 +18,14 @@ The [Telerik & Kendo UI WebMCP browser extension](https://chromewebstore.google.
 
 [Install the Telerik WebMCP Browser Extension](https://chromewebstore.google.com/detail/telerik-kendo-ui/bikfklddeekcicbafiejfbbpdjnaaiid) from the Chrome Web Store.
 
-The next required steps are to [add AI model API credentials](#api-credentials) and [allow web page access](#page-access). Here is how the running extension looks like in the browser:
+Before you start a conversation, complete the following steps:
+
+1. [Add AI model API credentials](#api-credentials).
+1. [Allow access to your application origin](#page-access).
+1. Open a page with [enabled WebMCP tools](slug:web-mcp-overview#enable-a-telerik-component).
+1. Open the extension and use the **Tools** tab to verify the available page tools.
+
+The following image shows the extension in the browser:
 
 ![Telerik WebMCP Extension](../images/extension-chat-placeholder.png)
 
@@ -30,7 +37,7 @@ The browser extension toolbar contains four tabs:
 
 | Tab | Description |
 |---|---|
-| **Chat** | The main conversation interface. It send prompts and the AI model invokes WebMCP tools on the page. |
+| **Chat** | The main conversation interface. It sends prompts and the AI model invokes WebMCP tools on the page. |
 | **Tools** | Lists all `WebMCP` tools registered on the current page. View tool names, descriptions, and parameters. |
 | **Usage** | Shows AI usage metrics, including input tokens, output tokens, and the total consumption across conversations. |
 | **Settings** | Configures API credentials, prompting behavior, and page access. See [Settings](#settings). |
@@ -114,4 +121,6 @@ These are important boundaries for the current extension implementation.
 
 ## See Also
 
+* [AI Tools Overview](slug:ai-overview)
+* [WebMCP Tools Overview](slug:web-mcp-overview)
 * [WebMCP Supported Components](slug:web-mcp-supported-components)

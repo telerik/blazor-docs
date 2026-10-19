@@ -41,6 +41,8 @@ The menu items provide the following features that you control through the corre
 
 * `Icon` - The [Telerik Font or SVG icon](slug:common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug:contextmenu-icons).
 
+* `IconVariant` - the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) to use for the ContextMenu item icon.
+
 * `Url` - the view the item will navigate to by generating a link.
 
 * `Separator` - when set to `true`, the item will be just a line that makes a distinction between its neighbors clearly visible. Thus, you can place logically grouped items between two separators to distinguish them. A separator item does not render text, icons, children or a navigable link.
@@ -55,6 +57,7 @@ The properties of a menu item match directly to a field of the model the menu is
 * ParentIdField => ParentId
 * TextField => Text
 * IconField => Icon
+* IconVariantField => IconVariant
 * UrlField => Url
 * HasChildrenField => HasChildren
 * ItemsField => Items

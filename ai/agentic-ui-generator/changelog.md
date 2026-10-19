@@ -17,7 +17,7 @@ Learn about the latest changes, improvements and bug fixes in the Telerik UI for
 
 ### Highlights
 
-* Added [`telerik_upgrade_assistant`](slug:ai-overview#upgrade-assistant) to Agentic UI Generator.
+* Added [`telerik_upgrade_assistant`](slug:agentic-ui-generator-overview#upgrade-assistant) to Agentic UI Generator.
 
 ## July, 2026
 

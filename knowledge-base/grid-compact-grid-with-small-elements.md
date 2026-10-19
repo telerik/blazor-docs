@@ -134,7 +134,8 @@ I am using the [Grid sizing feature](slug:grid-sizing) and my Grid is a Compact 
 
     private async Task MyCustomCommandOnClickHandler(GridCommandEventArgs args)
     {
-        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", ((Product)args.Item).Id));
+        var product = (Product)args.Items.First();
+        CustomCommandResult = new MarkupString(CustomCommandResult + string.Format("<br />Custom command triggered for item {0}", product.Id));
 
         Console.WriteLine("The Custom command fired. Please wait for the long operation to finish");
     }

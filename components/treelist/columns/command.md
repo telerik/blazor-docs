@@ -79,7 +79,7 @@ The command column provides access to the data item via `context`. This may be u
 The `OnClick` handler of the commands receives an argument of type `TreeListCommandEventArgs` that exposes the following properties:
 
 * `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
-* `Item` - the model item of the treelist row. You can use it to access the model fields and preform the actual data source operations. This property is applicable only for command buttons that are inside a treelist row, not the toolbar.
+* `Items` - the first member of this generic `IEnumerable` is the model item of the TreeList row. You can use it to access the model fields and preform the actual data source operations. This property is applicable only for command buttons that are inside a treelist row, not the toolbar.
 * `ParentItem` - the parent item of the current item, if any, otherwise `null`.
 * `IsNew` - a boolean field indicating whether the item was just added through the treelist interface.
 

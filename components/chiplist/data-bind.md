@@ -28,6 +28,7 @@ The table below lists the available data binding parameters for the Blazor ChipL
 | `DisabledField`| `"Disabled"` | Defines if the chip is disabled (non-clickable). |
 | `FillModeField`| `"FillMode"` | Defines the [`FillMode` of each chip](slug:chip-appearance#fillmode). |
 | `IconField` | `"Icon"` | The icon that renders in the chip. See [Icons](#icons) below. |
+| `IconVariantField` | `"IconVariant"` | Defines the model property name that controls the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) for each chip. Also see [Icons](#icons) below. |
 | `RemovableField`| `"Removable"` | Defines if the users can remove the chip. |
 | `TextField` | `"Text"` | The text that renders in the chip. |
 | `ThemeColorField`| `"ThemeColor"` | Defines the [`ThemeColor` of each chip](slug:chip-appearance#themecolor). |

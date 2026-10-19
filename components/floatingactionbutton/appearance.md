@@ -56,6 +56,10 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 
 <demo metaUrl="client/floatingactionbutton/appearance/example-1/" height="420"></demo>
 
+## Icon Variant
+
+When using SVG icons, set the `IconVariant` parameter to select an available icon variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 ## See Also
 
 * [Appearance - Design System Docs](https://www.telerik.com/design-system/docs/components/floatingactionbutton/#appearance)

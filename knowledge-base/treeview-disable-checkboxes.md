@@ -72,7 +72,7 @@ To disable checkboxes for specific TreeView items based on a condition, use the 
 
     private void HandleOnItemRender(TreeViewItemRenderEventArgs args)
     {
-        var item = args.Item as TreeViewItem;
+        var item = (TreeViewItem)args.Item;
         if (!item.IsActive)
         {
             args.Class = DisabledCheckboxClass;

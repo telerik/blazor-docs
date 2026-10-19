@@ -17,6 +17,8 @@ Each segment in the SegmentedControl can display a text label, an icon, or both.
 
 Set `IconField` to the name of the model property that holds the icon identifier. The model property supports the same value types as other Telerik Blazor icon parameters.
 
+Set `IconVariantField` to the model property that holds the SVG icon variant for each segment. The default field name is `IconVariant`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 @[template](/_contentTemplates/common/icons.md#icon-property-supported-types)
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
