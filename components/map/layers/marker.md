@@ -30,6 +30,8 @@ To define a Marker layer in the Map:
 4. Set the `LocationField` and `TitleField` parameters to the respective property names of the model class.
 5. (optional) Provide the [tooltip settings](#setting-marker-tooltips) or choose the [Marker shape](#defining-marker-shapes).
 
+The Map aligns the bottom-center of each marker element to its coordinates. You can [shift the Map marker position for a different alignment with CSS](slug:map-kb-markers-misaligned).
+
 The following example demonstrates how to configure the Marker layer of the Map.
 
 >caption The Marker Map layer configuration
@@ -339,3 +341,4 @@ The `MapLayerMarkerSettingsTooltip` tag allows you to fine-tune the content, app
 ## See Also
 
 * [How to Change Map Marker Colors](slug:map-kb-change-marker-colors)
+* [How to Change the Map Marker Alignment and Position](slug:map-kb-markers-misaligned)
