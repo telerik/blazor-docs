@@ -83,18 +83,20 @@ Some components provide icon-related parameters, which can rely on the above pac
 
 ### Font Icon Stylesheet
 
-In version 4.6.0 of Telerik UI for Blazor, the font icon styles were separated in their own stylesheet. Register it in a similar way as the component theme:
+Register the font icon styles in a similar way as the [component theme](slug:themes-overview#using-a-theme).
+
+Note the duplicate At signs `@` in the CDN URL below. This syntax is compatible with `.razor` files. When loading a theme from `index.html`, use just one `@`.
 
 >caption Using the font icon CSS file
 
 <div class="skip-repl"></div>
 
-````RAZOR
+````HTML
 <!-- If using static assets from the NuGet package -->
 <link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
 
-<!-- If using the Telerik Blazor CDN - set the correct version number in the URL -->
-<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
+<!-- If using the Telerik CDN - setting a fixed version number in the URL is recommended with older component versions. -->
+<link href="https://unpkg.com/@@progress/kendo-font-icons@@latest/dist/index.css" rel="stylesheet" type="text/css" />
 ````
 
 
