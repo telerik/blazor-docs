@@ -63,6 +63,10 @@ To implement a custom command column:
 * Column visibility depends on including a `<td>` element for the column in the Row Template.
 * To implement column locking, add the `k-grid-content-sticky` class to the `<td>` element of the columns that you want locked, and calculate and set the correct `left` and `right` CSS properties, as the content inside the Row Template can be any valid HTML.
 
+### Column Reordering
+
+Learn how to [use Grid column reordering with a `RowTemplate`](slug:grid-kb-cell-dont-move-with-headers-during-grid-column-reorder).
+
 ## Example
 
 >caption Row selection, Column resizing and visibility, Editing, Sorting, and Filtering when using Row Template
@@ -299,6 +303,7 @@ To implement a custom command column:
 
 ## See Also
 
+* [Use Grid Column Reordering with a `RowTemplate`](slug:grid-kb-cell-dont-move-with-headers-during-grid-column-reorder)
 * [Grid Row Template](slug:grid-templates-row)
 * [Grid Row Selection](slug:grid-selection-row)
 * [Grid Command Column](slug:components/grid/columns/command)
