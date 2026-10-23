@@ -1,42 +1,45 @@
 ---
-title: Prevent RowTemplate Cell Content from Shifting During Header Reordering in Telerik Blazor TreeList
-description: Learn how to ensure that cell content in a RowTemplate does not shift when reordering headers in a Telerik Blazor TreeList.
+title: Data Cells Don't Move During Grid Column Reordering with RowTemplate
+description: Learn how to ensure that table data cells in a RowTemplate reorder together with the column headers during column reordering in a Telerik Blazor Grid and TreeList.
 type: troubleshooting
-page_title: Fix RowTemplate Cell Misalignment with Header Reordering in Telerik Blazor TreeList
-meta_title: Fix RowTemplate Cell Misalignment with Header Reordering in Telerik Blazor TreeList
-slug: prevent-rowtemplate-cell-shifting-header-reordering-treelist
-tags: blazor, treelist, rowtemplate, column-reordering, cell-alignment
+page_title: Data Cells Don't Move During Grid Column Reordering with RowTemplate
+meta_title: Data Cells Don't Move During Grid Column Reordering with RowTemplate
+slug: grid-kb-cell-dont-move-with-headers-during-grid-column-reorder
+tags: blazor, grid, treelist, rowtemplate, reordering
 res_type: kb
 ticketid: 1719992
 ---
 
 ## Environment
+
 <table>
-<tbody>
-<tr>
-<td> Product </td>
-<td>
-Grid for UI for Blazor
-</td>
-</tr>
-</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid Blazor, <br /> TreeList for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
 
-I want to prevent cell content in the [TreeList](https://docs.telerik.com/blazor-ui/components/treelist/overview) RowTemplate from shifting when headers are reordered. Currently, when moving columns, the content in the cells does not move along with the headers.
+I am using a Grid with a [`RowTemplate`](slug:grid-templates-row) and [column reordering](slug:components/grid/columns/reorder) is enabled. When users drag a column to reorder it, the data cells don't move along with the column header cells. How to avoid this cell misalignment?
 
 ## Cause
 
-The TreeList does not control the content in a RowTemplate. If column reordering is enabled, the application must ensure the correct table cell order in the RowTemplate to align with the header.
+Components like the Grid and TreeList have no control over custom template content, including `RowTemplate`. If column reordering is enabled, the app must programmatically reorder the data cells in the template after users reorder columns.
 
 ## Solution
 
-To fix this issue, ensure that the cells in the RowTemplate are ordered dynamically based on the column states. Use the `OnStateChanged` event to track column reordering and update the cell order accordingly.
+The following algorithm and example are applicable to both the Telerik Blazor Grid and the TreeList.
 
-1. Use the `OnStateChanged` event to track column reordering.
-2. Dynamically order the cells in the RowTemplate based on the column states.
-3. Use `TreeListColumnStates` to align the cell order with the header order.
+To reorder data cells together with header cells during column reordering:
+
+1. Use the [Grid `OnStateChanged` event](slug:grid-state#onstatechanged) to find out the [new column order](slug:grid-kb-column-state).
+1. Render the table cells in the `RowTemplate`, depending on the current column order.
+1. (optional) Use additional application logic to apply cell value formatting or other rendering customizations.
+
+>caption Reorder Grid table data cells during column header reordering
 
 ```razor
 @using System.Globalization
@@ -136,6 +139,7 @@ To fix this issue, ensure that the cells in the RowTemplate are ordered dynamica
 
 ## See Also
 
-- [TreeList RowTemplate](https://docs.telerik.com/blazor-ui/components/treelist/templates/row)
-- [Enable Column Reordering in the TreeList](https://docs.telerik.com/blazor-ui/components/treelist/reordering)
-- [TreeList GetState Method](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1#getstate)
+* [Use Built-In Grid and TreeList Features Together with `RowTemplate`](slug:grid-kb-row-template-simulate-built-in-functions)
+* [Get Grid or TreeList Column State, Index, Width and Visibility](slug:grid-kb-column-state)
+* [Grid `RowTemplate`](slug:grid-templates-row)
+* [TreeList `RowTemplate`](slug:treelist-templates-row)
