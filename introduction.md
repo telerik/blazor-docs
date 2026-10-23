@@ -179,6 +179,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
     <IntroTableSection title="Conversational UI">
       <IntroTableAnchor title="AIPrompt" href="slug:aiprompt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Chat" href="slug:chat-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Data Insights Composer" href="slug:datainsightscomposer-overview"></IntroTableAnchor>
       <IntroTableAnchor title="InlineAIPrompt" href="slug:inlineaiprompt-overview"></IntroTableAnchor>
       <IntroTableAnchor title="LLM Kit" href="slug:llmkit-overview"></IntroTableAnchor>
       <IntroTableAnchor title="PromptBox" href="slug:promptbox-overview"></IntroTableAnchor>
