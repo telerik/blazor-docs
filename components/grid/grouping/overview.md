@@ -34,6 +34,8 @@ To remove a group setting, click the `[x]` button on its indicator in the group 
 
 To prevent grouping by a field, set `Groupable="false"` on its column. This can be useful for fields with unique values like IDs or names.
 
+To let users group data from the toolbar, add the [`GridToolBarGroupTool`](slug:components/grid/features/toolbar#built-in-tools) to the Grid toolbar.
+
 You can also use [aggregates](slug:grid-aggregates) for the grouped data.
 
 >caption Enable grouping in Telerik Grid
