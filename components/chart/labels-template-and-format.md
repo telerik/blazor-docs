@@ -129,6 +129,44 @@ function chartLabelFunction(context) {
 
 <demo metaUrl="client/chart/labels-template-and-format/numerical-templates/" height="500"></demo>
 
+## Series Labels Overlap
+
+Use the `ChartSeriesLabelsOverlap` tag to control how the Chart handles overlapping labels in its series. You can configure the setting for individual series or set it as a default for all series.
+
+Configure overlap handling with the following properties:
+
+* `Enabled` - Set to `true` to allow labels to overlap. Set to `false` or leave it unset to use the client default behavior.
+* `Mode` - Set to `None` to leave overlapping labels visible, or to `Hide` to hide the label with the lower `Priority` value.
+* `Threshold` - Defines the allowed overlap ratio from `0` to `1`. The ratio uses the area of the smaller label. A value of `0` hides the lower-priority label when any overlap occurs.
+
+The following example configures each series label to hide overlapping labels in a dense stacked column Chart. The labels use different `Priority` values, so labels with higher priority remain visible when an overlap occurs:
+
+>caption Hide lower-priority labels in dense stacked columns
+
+<demo metaUrl="client/chart/labels-template-and-format/series-label-overlap/" height="500"></demo>
+
+To configure overlap handling for one series, add `ChartSeriesLabelsOverlap` inside `ChartSeriesLabels`:
+
+````RAZOR.skip-repl
+<ChartSeries Type="@ChartSeriesType.Column" Data="@Data" Field="@nameof(ChartData.Value)">
+	<ChartSeriesLabels Visible="true">
+		<ChartSeriesLabelsOverlap Mode="@ChartSeriesLabelsOverlapMode.Hide"
+								  Threshold="0.1" />
+	</ChartSeriesLabels>
+</ChartSeries>
+````
+
+To apply the setting to all series, add `ChartSeriesDefaultsLabelsOverlap` inside `ChartSeriesDefaultsLabels`:
+
+````RAZOR.skip-repl
+<ChartSeriesDefaults>
+	<ChartSeriesDefaultsLabels Visible="true">
+		<ChartSeriesDefaultsLabelsOverlap Mode="@ChartSeriesLabelsOverlapMode.Hide"
+										  Threshold="0.1" />
+	</ChartSeriesDefaultsLabels>
+</ChartSeriesDefaults>
+````
+
 ### Hide Label Conditionally
 
 In some cases, you want the series to have labels, but certain data points must not have a label. For example, in a [stacked series](slug:components/chart/stack) where a certain value is `0`.
