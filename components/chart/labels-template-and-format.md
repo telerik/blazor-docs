@@ -131,12 +131,48 @@ function chartLabelFunction(context) {
 
 ## Series Labels Overlap
 
-Use the `ChartSeriesLabelsOverlap` tag to control how the Chart handles overlapping labels in its series. You can configure the setting for individual series or set it as a default for all series.
+Series labels in the Chart may overlap, especially when visualizing dense data, for example, in the following scenarios: 
+
+* stacked columns or bars
+* close points in Line/Scatter/Bubble charts
+* small Pie/Donut segments
+* Heatmap cells 
+
+Use the `ChartSeriesLabelsOverlap` tag (nested in a `ChartSeriesLabels` tag) to control how the Chart handles overlapping labels in its series. You can configure the setting for individual series or set it as a default for all series.
+
+To configure overlap handling for one series, add `ChartSeriesLabelsOverlap` inside `ChartSeriesLabels`:
+
+````RAZOR.skip-repl
+<ChartSeries Type="@ChartSeriesType.Column" Data="@Data" Field="@nameof(ChartData.Value)">
+    <ChartSeriesLabels Visible="true" Priority="10">
+        <ChartSeriesLabelsOverlap Mode="@ChartSeriesLabelsOverlapMode.Hide"
+                                  Threshold="0.1" />
+    </ChartSeriesLabels>
+</ChartSeries>
+````
+
+To apply the setting to all series, add `ChartSeriesDefaultsLabelsOverlap` inside `ChartSeriesDefaultsLabels`:
+
+````RAZOR.skip-repl
+<TelerikChart>
+    <ChartSeriesDefaults>
+        <ChartSeriesDefaultsLabels Visible="true" Priority="10">
+            <ChartSeriesDefaultsLabelsOverlap
+                Mode="@ChartSeriesLabelsOverlapMode.Hide"
+                Threshold="0.1" />
+        </ChartSeriesDefaultsLabels>
+    </ChartSeriesDefaults>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column" />
+    </ChartSeriesItems>
+</TelerikChart>
+````
 
 Configure overlap handling with the following properties:
 
-* `Enabled` - Set to `true` to allow labels to overlap. Set to `false` or leave it unset to use the client default behavior.
-* `Mode` - Set to `None` to leave overlapping labels visible, or to `Hide` to hide the label with the lower `Priority` value.
+* `Enabled` - Set to `true` to allow labels to overlap. Set to `false` or leave it unset to use the default behavior.
+* `Mode` - Set to `None` to leave overlapping labels visible, or to `Hide` to hide labels. When `Mode` is `Hide`, set `Priority` on `ChartSeriesLabels` or `ChartSeriesDefaultsLabels` to determine which labels remain visible. Labels with an explicit `Priority` take precedence over labels without one, and higher values take precedence over lower values. When `Priority` is not set, the Chart ranks labels by the absolute value of their data points.
 * `Threshold` - Defines the allowed overlap ratio from `0` to `1`. The ratio uses the area of the smaller label. A value of `0` hides the lower-priority label when any overlap occurs.
 
 The following example configures each series label to hide overlapping labels in a dense stacked column Chart. The labels use different `Priority` values, so labels with higher priority remain visible when an overlap occurs:
@@ -144,28 +180,6 @@ The following example configures each series label to hide overlapping labels in
 >caption Hide lower-priority labels in dense stacked columns
 
 <demo metaUrl="client/chart/labels-template-and-format/series-label-overlap/" height="500"></demo>
-
-To configure overlap handling for one series, add `ChartSeriesLabelsOverlap` inside `ChartSeriesLabels`:
-
-````RAZOR.skip-repl
-<ChartSeries Type="@ChartSeriesType.Column" Data="@Data" Field="@nameof(ChartData.Value)">
-	<ChartSeriesLabels Visible="true">
-		<ChartSeriesLabelsOverlap Mode="@ChartSeriesLabelsOverlapMode.Hide"
-								  Threshold="0.1" />
-	</ChartSeriesLabels>
-</ChartSeries>
-````
-
-To apply the setting to all series, add `ChartSeriesDefaultsLabelsOverlap` inside `ChartSeriesDefaultsLabels`:
-
-````RAZOR.skip-repl
-<ChartSeriesDefaults>
-	<ChartSeriesDefaultsLabels Visible="true">
-		<ChartSeriesDefaultsLabelsOverlap Mode="@ChartSeriesLabelsOverlapMode.Hide"
-										  Threshold="0.1" />
-	</ChartSeriesDefaultsLabels>
-</ChartSeriesDefaults>
-````
 
 ### Hide Label Conditionally
 
