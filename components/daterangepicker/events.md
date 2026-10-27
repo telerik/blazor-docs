@@ -54,7 +54,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 The `OnOpen` event fires before the DateRangePicker popup renders. 
 
-The event handler receives as an argument an `DateRangePickerOpenEventArgs` object that contains:
+The event handler receives a `DateRangePickerOpenEventArgs` object that contains:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -66,13 +66,13 @@ The event handler receives as an argument an `DateRangePickerOpenEventArgs` obje
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
->tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
+>tip The `OnOpen` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
 ## OnClose
 
 The `OnClose` event fires before the DateRangePicker popup closes.
 
-The event handler receives as an argument an `DateRangePickerCloseEventArgs` object that contains:
+The event handler receives a `DateRangePickerCloseEventArgs` object that contains:
 
 | Property | Description |
 | --- | --- |
@@ -94,7 +94,7 @@ The `ViewChanged` event fires when the user changes the view they are seeing in 
 
 The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
 
-The event handler receives as an argument an `DateRangePickerCalendarCellRenderEventArgs` object that contains:
+The event handler receives a `DateRangePickerCalendarCellRenderEventArgs` object that contains:
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ The event handler receives as an argument an `DateRangePickerCalendarCellRenderE
 | `Date` | `DateTime` | The date of the calendar cell. |
 | `View` | `CalendarView` enum <br /> (`Month`) | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
 
->caption Handle the OnCalendarCellRender event.
+>caption Handle the OnCalendarCellRender event
 
 <demo metaUrl="client/daterangepicker/events/calendarcellrender-1/" height="520"></demo>
 

@@ -46,12 +46,12 @@ You can use the following properties on bound columns:
 ### Data Binding
 
 * `Expandable` - (defaults to `false`) - when set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. You should set this to at least one column of your treelist to showcase the hierarchical nature of the data.
-* `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
+* `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set it as a plain string (`Field="SomeField"`) or have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeField)`).
 
 ### Appearance
 
 * `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
-* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the Treelist is in display mode. Read more in the [Column Display Format](slug:gantt-columns-displayformat) article.
+* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the TreeList is in display mode. Read more in the [Column Display Format](slug:treelist-columns-displayformat) article.
 * `TextAlign` - specifies the horizontal alignment of the **data** cells. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction. Header cell alignment requires a different approach with `HeaderClass` and [custom CSS](slug:themes-override) - see [Center Grid column header text](slug:grid-kb-center-column-header-content).
 * `Width` -  (defaults to `null`) - the width of the column. See the [Dimensions](slug:common-features/dimensions) article for information about the supported formats. See [TreeList Column Width Behavior](slug:treelist-columns-width) for detailed information about the TreeList behavior with different column width configurations.
 * `HeaderClass` - `string` - adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default TreeList styles](slug:themes-override).

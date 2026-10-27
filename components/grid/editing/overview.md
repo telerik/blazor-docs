@@ -35,7 +35,7 @@ The Grid CRUD operations rely on the following algorithm:
 
 Adding or editing rows in the Grid sets the following requirements on the Grid model:
 
-* The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instances). Optinally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
+* The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instances). Optionally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
 * There must be a non-editable property that serves as a unique identifier.
 * All editable properties must be `public` and have setters. These properties must not be `readonly`.
 * All complex properties used in the Grid must be instantiated in the [Grid `OnModelInit` event](slug:grid-events#onmodelinit).
@@ -113,13 +113,13 @@ The following table describes the Grid events, which are related to adding, dele
 
 | Event | Required | Description | [Item Instance](#gridcommandeventargs) | If&nbsp;Cancelled |
 | --- | --- | --- | --- | --- |
-| `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters add mode. This event preceeds `OnCreate` or `OnCancel`. | [New](#item-instances) | Grid remains in read mode. |
+| `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters add mode. This event precedes `OnCreate` or `OnCancel`. | [New](#item-instances) | Grid remains in read mode. |
 | `OnCancel` | No | Fires on `Cancel` command invocation. | [New or cloned](#item-instances) | Grid remains in add or edit mode. |
-| `OnCreate` | To add new items. | Fires on `Save` command invocation for new items. This event succeeds `OnAdd`. | [New](#item-instances) | Grid remains in add mode. |
+| `OnCreate` | To add new items. | Fires on `Save` command invocation for new items. This event follows `OnAdd`. | [New](#item-instances) | Grid remains in add mode. |
 | `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | [Original or cloned](#item-instances) | Grid won't rebind. Deletion depends on the app itself. |
-| `OnEdit` | No | Fires on `Edit` command invocation, before the Grid actually enters edit mode. This event preceeds `OnUpdate` or `OnCancel`. | Original | Grid remains in read mode. |
+| `OnEdit` | No | Fires on `Edit` command invocation, before the Grid actually enters edit mode. This event precedes `OnUpdate` or `OnCancel`. | Original | Grid remains in read mode. |
 | `OnModelInit` | [Depends on the Grid model type](slug:grid-events#onmodelinit) | Fires when the Grid requires a [new model instance](#item-instances), which is immediately before `OnAdd` or immediately after `OnEdit`. <br /> Use this event when the Grid model type is an [interface, abstract class, or has no parameterless constructor](slug:grid-events#onmodelinit). | No event arguments | Not cancellable |
-| `OnUpdate` | To edit existing items. | Fires on `Save` command invocation for existing items. This event succeeds `OnEdit`. | [Cloned](#item-instances) | Grid remains in edit mode. |
+| `OnUpdate` | To edit existing items. | Fires on `Save` command invocation for existing items. This event follows `OnEdit`. | [Cloned](#item-instances) | Grid remains in edit mode. |
 
 The following considerations apply for the Grid CRUD events:
 
@@ -221,12 +221,16 @@ This configuration is available in InCell and Inline edit modes. For more detail
 ````C#
 private void OnCreate(GridCommandEventArgs args)
 {
+    var newItem = (MyModel)args.Items.First();
+
     if (NewRowPosition == GridNewRowPosition.Bottom)
     {
+        // Use the same collection that you assign to the Grid Data parameter.
         dataCollection.Add(newItem);
     }
-    else // Top
+    else
     {
+        // Insert the new item before the existing items.
         dataCollection.Insert(0, newItem);
     }
 }    

@@ -13,7 +13,7 @@ components: ["charts"]
 
 The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Blazor Column chart</a> displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
 
-![column chart](images/column-chart.png)
+![Column chart showing data by category](images/column-chart.png)
 
 The Column Chart is similar to the [Range Column Chart](slug:components/chart/types/rangecolumn), which allows the column's low end to start above the horizontal axis.
 

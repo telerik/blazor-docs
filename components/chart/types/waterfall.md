@@ -15,7 +15,7 @@ The Blazor Waterfall Chart is a form of data visualization that helps users unde
 
 A Waterfall Chart is useful for different types of quantitative analysis related to inventory, cash flows, performance, etc.
 
-![waterfall chart](images/waterfall-chart.png)
+![Waterfall chart showing cumulative changes](images/waterfall-chart.png)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
@@ -43,9 +43,9 @@ The Waterfall Chart provides dedicated properties that allow you to customize it
 Waterfall Charts fall into two types: 
 
 * Traditional Waterfall Charts—They display changes vertically. To use this Waterfall Chart, set the series type to `ChartSeriesType.Waterfall`.
-   ![vertical waterfall chart](images/vertical-waterfall-chart.png)
+   ![Vertical waterfall chart showing cumulative changes](images/vertical-waterfall-chart.png)
 * Horizontal Waterfall Charts—They present changes horizontally. To use this type of Waterfall Chart, set the series type to `ChartSeriesType.HorizontalWaterfall`.
-   ![horizontal waterfall chart](images/horizontal-waterfall-chart.png)
+   ![Horizontal waterfall chart showing cumulative changes](images/horizontal-waterfall-chart.png)
 
 ### Labels
 

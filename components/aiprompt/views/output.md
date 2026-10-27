@@ -17,11 +17,11 @@ If `OutputActions` are configured at the component level, the output card also f
 
 By default, the Output view is rendered and is part of the predefined views. However, if you provide a render fragment of type `AIPromptViews` to the `TelerikAIPrompt` tag, you override the default rendering, meaning you must explicitly add `AIPromptOutputView` tag within it.
 
->caption Use the `ButtonText` and `ButtonIcon` to alter the appearance of view button.
+>caption Use `ButtonText` and `ButtonIcon` to customize the view button
 
 <demo metaUrl="client/aiprompt/views/output/view-button-2/" height="420"></demo>
 
->caption Use `OutputActions` to include visuals related to upvoting or downvoting a specific output.
+>caption Use `OutputActions` to add upvote and downvote buttons to an output
 
 <demo metaUrl="client/aiprompt/views/output/outputactions-1/" height="420"></demo>
 

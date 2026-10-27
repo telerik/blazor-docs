@@ -102,11 +102,11 @@ The functionality allows dragging items between Grid, [TreeList](slug:treelist-d
 
 <div class="skip-repl"></div>
 ````RAZOR Index.razor
-@using System.Collections.Generic;
-@using System.Collections.ObjectModel;
+@using System.Collections.Generic
+@using System.Collections.ObjectModel
 
-@inject PersonService PersonService;
-@inject TreeListService TreeService;
+@inject PersonService PersonService
+@inject TreeListService TreeService
 
 <TelerikGrid Data="@GridData"
              Id="Grid1"
@@ -442,10 +442,10 @@ public enum ProductSize
 ````RAZOR Index.razor
 @* Drag and drop in Grid and TreeView. *@
 
-@using System.Collections.Generic;
-@using System.Collections.ObjectModel;
+@using System.Collections.Generic
+@using System.Collections.ObjectModel
 
-@inject PersonService PersonService;
+@inject PersonService PersonService
 
 <TelerikGrid Data="@GridData"
              Id="Grid1"
@@ -844,12 +844,12 @@ public class BaseFlatItem
 ````RAZOR Index.razor
 @* Drag and drop in Grid and TreeView. *@
 
-@using System.Collections.Generic;
-@using System.Collections.ObjectModel;
+@using System.Collections.Generic
+@using System.Collections.ObjectModel
 
-@inject PersonService PersonService;
-@inject AppointmentService appointmentService;
-@inject ResourceService resourceService;
+@inject PersonService PersonService
+@inject AppointmentService appointmentService
+@inject ResourceService resourceService
 
 <TelerikGrid Data="@GridData"
              Id="Grid1"

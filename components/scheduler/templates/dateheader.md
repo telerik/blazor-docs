@@ -21,7 +21,7 @@ The `DateHeaderTemplate` can be defined for the [day and week Scheduler views](s
 
 >caption The result from the code snippet above
 
-![Appointment templates in the scheduler](images/scheduler-dateheadertemplate-example.png)
+![Scheduler appointment date header template](images/scheduler-dateheadertemplate-example.png)
 
 ## See Also
 

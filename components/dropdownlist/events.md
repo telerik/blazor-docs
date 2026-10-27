@@ -61,7 +61,7 @@ Find out how to [get the applied filtering and grouping criteria](slug:common-fe
 
 You can also call remote data through `async` operations.
 
->caption Custom Data according to the user input in the DropDownList
+>caption Provide custom data based on user input in the DropDownList
 
 >tip You can also debounce the service calls and implement minimum filter length. An example of such approach is available in [this knowledge base article for the ComboBox](slug:combo-kb-debounce-onread). The same approach is applicable for the DropDownList.
 
@@ -81,7 +81,7 @@ You can also call remote data through `async` operations.
 
 The `OnOpen` event fires before the DropDownList popup renders. 
 
-The event handler receives as an argument an `DropDownListOpenEventArgs` object that contains:
+The event handler receives a `DropDownListOpenEventArgs` object that contains:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -95,7 +95,7 @@ The event handler receives as an argument an `DropDownListOpenEventArgs` object 
 
 The `OnClose` event fires before the DropDownList popup closes.
 
-The event handler receives as an argument an `DropDownListCloseEventArgs` object that contains:
+The event handler receives a `DropDownListCloseEventArgs` object that contains:
 
 | Property | Description |
 | --- | --- |

@@ -53,11 +53,11 @@ The event arguments that are received by the `OnEdit`, `OnUpdate`, and `OnDelete
 
 >caption Some examples of the UX related to appointments, read more in the list after the figure
 
-![scheduler event handling UX explanation](../images/ux-explanations.png)
+![Scheduler appointment editing workflow](../images/ux-explanations.png)
 
 >caption Recurring appointments appearance and indicators
 
-![UI of recurring appointments and exceptions](../images/recurring-event-ui-explanation.png)
+![Scheduler recurring appointment and exception interface](../images/recurring-event-ui-explanation.png)
 
 
 The UI for the scheduler provides the following options for interacting with the appointments collection:

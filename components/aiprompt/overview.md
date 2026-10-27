@@ -11,16 +11,16 @@ components: ["aiprompt"]
 
 # Blazor AIPrompt Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/ai-prompt" target="_blank">Blazor AIPrompt component</a> helps you write input (prompt) instructing the Generative AI to produce the desired response. 
+The <a href="https://www.telerik.com/blazor-ui/ai-prompt" target="_blank">Blazor AIPrompt component</a> helps you write input (prompt) instructing the Generative AI to produce the desired response.
 
-The component allows you to interact with the output from the AI and execute a set of predefined commands. Furthermore, the AIPrompt comes with three predefined views—Prompt, Output, and Command, as well as the option to define custom views. Users can navigate the views through the AIPrompt's ToolBar.
+The component allows you to interact with the output from the AI and execute a set of predefined commands. Furthermore, the AIPrompt comes with three predefined views—Prompt, Output, and Commands, as well as the option to define custom views. Users can navigate the views through the AIPrompt's ToolBar.
 
 ## Creating Blazor AIPrompt
 
 1. Add the `<TelerikAIPrompt>` tag.
 1. Subscribe to the `OnPromptRequest` event that will fire whenever the user sends a prompt request. The handler expects an argument of type `AIPromptPromptRequestEventArgs`.
 1. (optional) Set the `Commands` parameter to a `List<AIPromptCommandDescriptor>`. If the parameter is not set, the AIPrompt will not render the Commands view.
-1. (optional) Subscribe to the `OnCommandExecute` event that will fire whenever the user executes a command. The handler expects an argument of type `AIPromptCommandDescriptorExecuteEventArgs`.
+1. (optional) Subscribe to the `OnCommandExecute` event that will fire whenever the user executes a command. The handler expects an argument of type `AIPromptCommandExecuteEventArgs`.
 
 >caption Basic configuration of the Telerik AIPrompt
 
@@ -81,6 +81,7 @@ For advanced configuration options and more details about the SpeechToTextButton
 @code {
     private void OnPromptChanged(string prompt)
     {
+        // Keep the one-way Prompt value in sync with the speech recognition result.
         Prompt = prompt;
     }
 }

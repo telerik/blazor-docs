@@ -19,7 +19,7 @@ The template of all items is defined in the `ItemTemplate` tag of the Menu.
 
 The template receives the respective Menu data item as its `context`. You can use it to render the desired content. You can also set the `Context` parameter of the `ItemTemplate` tag and use a [named context variable. This is useful in nested template scenarios](slug:nest-renderfragment).
 
-The Menu item template can contain arbitrary content according such as HTML markup and other components. You can also use standard event handlers like `@onclick` or `@onmouseover`.
+The Menu item template can contain arbitrary content, such as HTML markup and other components. You can also use standard event handlers like `@onclick` or `@onmouseover`.
 
 ## Examples
 

@@ -11,7 +11,7 @@ components: ["treelist"]
 
 # Blazor TreeList Component Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/treelist" target="_blank">Blazor TreeList component</a> displays hierarchical data in a tabular format and allows [sorting](slug:treelist-sorting), [filtering](slug:treelist-filtering), [data editing](slug:treelist-editing-overview); provides item [selection](slug:treelist-selection-overview), [templates](slug:treelist-templates-overview) and [load on demand](slug:treelist-data-binding-load-on-demand).
+The <a href="https://www.telerik.com/blazor-ui/treelist" target="_blank">Blazor TreeList component</a> displays hierarchical data in a tabular format and allows [sorting](slug:treelist-sorting), [filtering](slug:treelist-filtering), and [data editing](slug:treelist-editing-overview). It also provides item [selection](slug:treelist-selection-overview), [templates](slug:treelist-templates-overview), and [load on demand](slug:treelist-data-binding-load-on-demand).
 
 
 ## Creating Blazor TreeList
@@ -20,7 +20,7 @@ The TreeList supports both flat data and hierarchical data. The example below us
 
 1. Use the `<TelerikTreeList>` tag.
 1. Assign the TreeList `Data` attribute to an `IEnumerable<TItem>` property. The model class `TItem` should have two properties that describe the parent-child relations, for example: `Id` (`int`) and `ParentId` (`int?`).
-1. Set the following TreeList parameters, based on the `ITem` property names: `IdField` and `ParentIdField`.
+1. Set the following TreeList parameters, based on the `TItem` property names: `IdField` and `ParentIdField`.
 1. Add some `<TreeListColumn>` instances inside a `<TreeListColumns>` tag.
 1. For each column, set a `Field` and an optional `Title`.
 1. Set `Expandable="true"` for the column that should render expand/collapse arrows.
@@ -112,16 +112,16 @@ The following table lists Tree List parameters, which are not related to other f
 
 ## TreeList Reference and Methods
 
-The TreeList component has methods to to execute actions such as:
+The TreeList component has methods to execute actions such as:
 
 * [Rebind to refresh the data](slug:treelist-refresh-data#rebind-method)
 * [Automatically resize columns to fit their content](slug:treelist-columns-resize)
 * [Get or set the TreeList configuration state](slug:treelist-state)
 * [Get the dragged data item and its drop index from the destination TreeList](slug:treelist-drag-drop-overview)
 
-To execute these methods, obtain reference to the Grid instance via `@ref`. 
+To execute these methods, obtain a reference to the TreeList instance via `@ref`.
 
-The TreeList is a generic component.Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug:common-features-data-binding-overview#component-type).
+The TreeList is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug:common-features-data-binding-overview#component-type).
 
 >caption Store the TreeList instance reference and execute methods
 

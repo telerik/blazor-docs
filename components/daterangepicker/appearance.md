@@ -11,7 +11,7 @@ components: ["daterangepicker"]
 
 # Appearance Settings
 
-You can control the appearance of the DateRangePicker by setting the following attribute:
+You can control the appearance of the DateRangePicker by setting the following parameters:
 
 * [Size](#size)
 * [Rounded](#rounded)
@@ -34,7 +34,7 @@ You can increase or decrease the size of the DateRangePicker by setting the `Siz
 
 ## Rounded
 
-The `Rounded` attribute applies the `border-radius` CSS rule to the DateRangePicker to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.DateRangePicker.Rounded` class:
+The `Rounded` parameter applies the `border-radius` CSS rule to the DateRangePicker. You can set it to a member of the `Telerik.Blazor.ThemeConstants.DateRangePicker.Rounded` class:
 
 | Class members | Manual declarations |
 |------------|--------|

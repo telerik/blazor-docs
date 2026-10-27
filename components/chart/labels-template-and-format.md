@@ -113,7 +113,7 @@ To add a new line in the label, use the new line character `\n`.
 
 ````JS
 function chartLabelFunction(context) {
-	return "foo \n " + contenxt.value;
+    return "foo \n " + context.value;
 }
 ````
 

@@ -108,8 +108,8 @@ You can use the following properties on bound columns:
     ````C#
     public class MyModel
     {
-        public int WorkinProperty { get; set; } // has public getter and setter so it can be shown and edited
-        public int NonWorkingField // no public getter, so the grid cannot display this
+        public int WorkingProperty { get; set; } // Has a public getter and setter, so the Grid can display and edit it.
+        public int NonWorkingProperty { private get; set; } // Has no public getter, so the Grid cannot display it.
     }
     ````
 

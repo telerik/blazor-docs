@@ -13,7 +13,7 @@ components: ["charts"]
 
 The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor Heatmap chart</a> shows the data in a grid-like structure that shows the magnitude of a value over two dimensions.
 
-![heatmap chart](images/heatmap-chart.png)
+![Heatmap chart showing values across two dimensions](images/heatmap-chart.png)
 
 #### In this article:
 
@@ -52,7 +52,7 @@ When you are data binding the Heatmap Chart you should have the following points
 
 >caption Heatmap Chart where the data for the `Categories` does not match the `YField` value. **Problematic behavior**. The result from the code snippet below.
 
-![problematic behavior](images/heatmap-problematic-behavior.png)
+![Heatmap chart with mismatched category values](images/heatmap-problematic-behavior.png)
 
 
 <demo metaUrl="client/chart/types/heatmap/categories-mismatch/" height="500"></demo>
