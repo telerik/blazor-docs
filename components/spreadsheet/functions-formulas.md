@@ -33,7 +33,7 @@ To use `=` as a string at the beginning of a cell, start with an apostrophe: `'=
 
 ## Function List
 
-The Telerik Spreadsheet supports a large variety of functions. They work in the same way as in other Excel editors, so the following documentations are also applicable:
+The Telerik Spreadsheet supports a large variety of functions. They work in the same way as in other Excel editors, so the following documentation is also applicable:
 
 * [Microsoft Excel functions](https://support.microsoft.com/en-us/office/excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188)
 * [Google Sheets functions](https://support.google.com/docs/table/25273)
@@ -149,7 +149,7 @@ The function names are case insensitive.
 | `HARMEAN` | Returns the harmonic mean of a sequence. |
 | `HLOOKUP` | Looks for a matching value in the first row of a given table and returns the value of the indicated row. |
 | `HOUR` | Converts a serial number to an hour. |
-| `HYPERLINK `| Creates a hyperlink involving an evaluated expression. |
+| `HYPERLINK` | Creates a hyperlink involving an evaluated expression. |
 | `IF` | Returns one of two values, depending on a condition. |
 | `IFERROR` | Returns a specified value if a formula evaluates to an error; otherwise, returns the result of the formula. |
 | `INDEX` | Returns a value or a reference to a value from within a table or range. |

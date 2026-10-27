@@ -69,7 +69,7 @@ You can call application code from the editor tools to, for example, save the cu
 <!--
 ### More Examples
 
-The [blazor-ui repo]() contains more exmaples of creating custom tools - they also include custom dropdowns, custom dialogs, and extracting the rendering and main logic of the custom tool to a separate component to declutter the main view.
+The [blazor-ui repo]() contains more examples of creating custom tools. They also include custom dropdowns, custom dialogs, and extracting the rendering and main logic of the custom tool to a separate component to declutter the main view.
 -->
 
 

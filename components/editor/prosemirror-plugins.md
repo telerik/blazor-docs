@@ -1,7 +1,7 @@
 ---
 title: ProseMirror Plugins
-page_title:  ProseMirror Plugins
-description: Explore how to use the ProseMirror Plugins in the Editor for Blazor uses.
+page_title: ProseMirror Plugins
+description: Explore how to use ProseMirror plugins in the Editor for Blazor.
 slug: editor-prosemirror-plugins
 tags: telerik,blazor,editor,prosemirror,plugins
 published: True

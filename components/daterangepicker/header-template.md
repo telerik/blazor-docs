@@ -13,7 +13,7 @@ components: ["daterangepicker"]
 
 The `<HeaderTemplate>` allows you to customize the header of the calendar popup. If the application defines this template, the component will not render any of the built-in buttons and labels in the calendar header area.
 
-The example below is using a [DateRangePicker reference and methods](slug:daterangepicker-overview#daterangepicker-reference-and-methods).
+The example below uses a [DateRangePicker reference and methods](slug:daterangepicker-overview#daterangepicker-reference-and-methods).
 
 >caption Header template with custom content in the DateRangePicker Calendar header
 

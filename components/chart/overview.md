@@ -12,9 +12,9 @@ components: ["charts"]
 
 # Blazor Chart Overview
 
-The <a href="https://demos.telerik.com/blazor-ui/chart/overview" target="_blank">Blazor Charts</a> components enables you to present data in a visually meaningful way, helping users draw insights effectively. It offers a wide range of graph types and provides full control over its appearance, including colors, fonts, paddings, margins, and templates.
+The <a href="https://demos.telerik.com/blazor-ui/chart/overview" target="_blank">Blazor Chart</a> component enables you to present data in a visually meaningful way, helping users draw insights effectively. It offers a wide range of graph types and provides full control over its appearance, including colors, fonts, paddings, margins, and templates.
 
-<span class="cta-panel-big-module--container--c08a9 d-print-none "><span class="row align-items-center justify-content-center cta-panel-big-module--row--9b71a"><span class="col-auto"><img class="cta-panel-big-module--icon--a648c" src="/images/avatar-ninja.svg" alt="ninja-icon"></span><span class="col-12 col-sm"><span class="cta-panel-big-module--message--40a0f">Tired of reading docs? With our new AI Coding Assistants, you can add, configure, and troubleshoot Telerik UI for Blazor components—right inside your favorite AI-powered IDE: Visual Studio, VS Code, Cursor, and more. Start building faster, smarter, and with contextual intelligence powered by our docs/APIs:</span></span><span class="col-12 col-lg-auto"><a class="cta-panel-big-module--btnTrial--38b3e" href="https://www.telerik.com/blazor-ui/documentation/ai/overview?utm_source=ai-assistants-docs" target="_blank">Try AI Assistants</a></span></span></span>
+<span class="cta-panel-big-module--container--c08a9 d-print-none "><span class="row align-items-center justify-content-center cta-panel-big-module--row--9b71a"><span class="col-auto"><img class="cta-panel-big-module--icon--a648c" src="/images/avatar-ninja.svg" alt="AI coding assistants icon"></span><span class="col-12 col-sm"><span class="cta-panel-big-module--message--40a0f">Tired of reading docs? With our new AI Coding Assistants, you can add, configure, and troubleshoot Telerik UI for Blazor components—right inside your favorite AI-powered IDE: Visual Studio, VS Code, Cursor, and more. Start building faster, smarter, and with contextual intelligence powered by our docs/APIs:</span></span><span class="col-12 col-lg-auto"><a class="cta-panel-big-module--btnTrial--38b3e" href="https://www.telerik.com/blazor-ui/documentation/ai/overview?utm_source=ai-assistants-docs" target="_blank">Try AI Assistants</a></span></span></span>
 
 ## Creating Blazor Chart
 
@@ -38,7 +38,7 @@ You can add a short description of the Chart's purpose by using the `ChartTitle`
 
 You can also add a secondary title through `ChartSubtitle` and configure its `Position`.
 
->caption Using Chart Title, Description and 
+>caption Using Chart Title, Description, and Subtitle
 
 <div class="skip-repl"></div>
 
@@ -98,9 +98,11 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 <TelerikChart @ref="@ChartRef" />
 
 @code {
+    private TelerikChart? ChartRef { get; set; }
+
 	private void RefreshChart()
 	{
-		ChartRef.Refresh();
+        ChartRef?.Refresh();
 	}
 }
 ````

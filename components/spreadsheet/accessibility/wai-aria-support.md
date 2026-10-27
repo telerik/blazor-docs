@@ -37,11 +37,11 @@ The Spreadsheet is a composite component that is used to render spreadsheet data
  - Sheets bar Menu Button
  - Sheets bar TabStrip
 
-### SpreadSheet Wrapping Element
+### Spreadsheet Wrapping Element
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| `.k-spreadsheet` | `role=application` | Indicates the Spreadsheets' role as an application. |
+| `.k-spreadsheet` | `role=application` | Indicates the Spreadsheet's role as an application. |
 
 ### Quick access elements
 
@@ -96,7 +96,7 @@ The Name editor must implement the spec for a ComboBox component.
 ### Sheet area
 
 
-The Sheet area must implement the spec for a Grid component. The column header cells are header cells are the members of the `.k-spreadsheet-column-header` element. The row header cells are the members of the `.k-spreadsheet-row-header` element.
+The Sheet area must implement the spec for a Grid component. The column header cells are the members of the `.k-spreadsheet-column-header` element. The row header cells are the members of the `.k-spreadsheet-row-header` element.
 
 [Grid accessibility specification]({{grid_a11y_link}})
 

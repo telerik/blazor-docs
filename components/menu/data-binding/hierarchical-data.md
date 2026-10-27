@@ -1,7 +1,7 @@
 ---
 title: Hierarchical Data
 page_title: Menu - Data Binding to Hierarchical Data
-description: Data Binding the Menu for Blazor to hierarchical data.
+description: Bind the Menu for Blazor to hierarchical data.
 slug: components/menu/data-binding/hierarchical-data
 tags: telerik,blazor,menu,data,bind,databind,databinding,hierarchical
 published: True
@@ -25,7 +25,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 >caption The result from the code snippet above, after hovering the "Company" item
 
-![Blazor Menu Hierarchical Data Overview](images/menu-hierarchical-data-overview.png)
+![Blazor Menu displaying hierarchical data after hovering a menu item](images/menu-hierarchical-data-overview.png)
 
 
 ## See Also

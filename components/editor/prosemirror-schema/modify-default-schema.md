@@ -1,7 +1,7 @@
 ---
 title: Modify the Default Schema
-page_title:  Modify the Default Schema
-description: Expore how to modify the default schema the Editor for Blazor uses.
+page_title: Modify the Default Schema
+description: Explore how to modify the default schema that the Editor for Blazor uses.
 slug: editor-modify-default-schema
 tags: telerik,blazor,editor,prosemirror,schema
 published: True
@@ -25,7 +25,7 @@ This article describes how you can modify the default [ProseMirror schema that t
 
 ## Modifying the Schema
 
-The below example shows how to:
+The following example shows how to:
 
 * Get the default ProseMirror schema.
 * Add a `data-id` attribute to the `<p>` node.
@@ -33,7 +33,7 @@ The below example shows how to:
 * Add a `mark` for the `<s>` element.
 * Return the updated schema, so the Editor can use it.
 
->tip The Editor in this example uses the [`Div` edit mode](slug:editor-edit-modes-iframe), so the style for the `<hr>` element is applied. If you use the default [`Iframe` edit mode](slug:editor-edit-modes-div), you have to plug the styles with JavaScript as shown in [this example](slug:editor-prosemirror-plugins).
+>tip The Editor in this example uses the [`Div` edit mode](slug:editor-edit-modes-div), so the style for the `<hr>` element is applied. If you use the default [`Iframe` edit mode](slug:editor-edit-modes-iframe), you have to plug the styles with JavaScript as shown in [this example](slug:editor-prosemirror-plugins).
 
 >caption Modify the default ProseMirror Schema
 

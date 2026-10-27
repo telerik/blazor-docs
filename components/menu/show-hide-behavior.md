@@ -13,7 +13,7 @@ components: ["menu"]
 
 You can control the user interaction with the Menu items by defining how the child items show and hide. 
 
-The `ShownOn` and `HideOn` parameters allow you to set the event that will show and hide the child Menu items.
+The `ShowOn` and `HideOn` parameters allow you to set the event that will show and hide the child Menu items.
 
 * The `ShowOn` parameter accepts a value from the `Telerik.Blazor.MenuShowEvent` enum:
 

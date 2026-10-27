@@ -13,7 +13,7 @@ components: ["charts"]
 
 The <a href="https://www.telerik.com/blazor-ui/bar-chart" target="_blank">Blazor Bar chart</a> displays data as horizontal bars whose lengths vary according to their value. You can use a Bar chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
 
-![bar chart](images/bar-chart.png)
+![Bar chart showing horizontal data bars](images/bar-chart.png)
 
 The Bar Chart is similar to the [Range Bar Chart](slug:components/chart/types/rangebar), which allows the bar to move away from the category axis.
 

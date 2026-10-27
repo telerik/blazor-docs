@@ -106,14 +106,14 @@ It is important to keep in mind the behavior of the series with multiple categor
 
 <div class="skip-repl"></div>
 ````RAZOR LargeCrossingPoint
-Potentially unwanted behavior 1
+@* Potentially unwanted behavior 1 *@
 
 <TelerikChart>
 	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@ChartData" CategoryAxis="firstAxis" Color="red"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
 		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@ChartData" CategoryAxis="secondAxis" Color="blue"
 							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
 		</ChartSeries>
 	</ChartSeriesItems>
@@ -124,7 +124,7 @@ Potentially unwanted behavior 1
 	</ChartCategoryAxes>
 
 	<ChartValueAxes>
-		<ChartValueAxis AxisCrossingValue="@crossingPoints"></ChartValueAxis>
+			<ChartValueAxis AxisCrossingValue="@CrossingPoints"></ChartValueAxis>
 	</ChartValueAxes>
 </TelerikChart>
 
@@ -137,7 +137,7 @@ Potentially unwanted behavior 1
 		public int Product2 { get; set; }
 	}
 
-	public List<MyDataModel> chartData = new List<MyDataModel>()
+	  private List<MyDataModel> ChartData { get; set; } = new()
     {
 		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
 		new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 3 },
@@ -145,18 +145,18 @@ Potentially unwanted behavior 1
 		new MyDataModel() { FirstSeriesCategories = "d",  SecondSeriesCategories = "h", Product1 = 4, Product2 = 5 },
 	};
 
-	public object[] crossingPoints = new object[] { -9999999, 9999999 };
+	private object[] CrossingPoints { get; set; } = new object[] { -9999999, 9999999 };
 }
 ````
 ````RAZOR OverlappingValues
-Potentially unwanted behavior 2
+@* Potentially unwanted behavior 2 *@
 
 <TelerikChart>
 	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@chartData" CategoryAxis="firstAxis" Color="red"
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@ChartData" CategoryAxis="firstAxis" Color="red"
 							Field="@nameof(MyDataModel.Product1)" CategoryField="@nameof(MyDataModel.FirstSeriesCategories)">
 		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@chartData" CategoryAxis="secondAxis" Color="blue"
+		<ChartSeries Type="ChartSeriesType.Column" Name="Product 2" Data="@ChartData" CategoryAxis="secondAxis" Color="blue"
 							Field="@nameof(MyDataModel.Product2)" CategoryField="@nameof(MyDataModel.SecondSeriesCategories)">
 		</ChartSeries>
 	</ChartSeriesItems>
@@ -176,7 +176,7 @@ Potentially unwanted behavior 2
 		public int Product2 { get; set; }
 	}
 
-	public List<MyDataModel> chartData = new List<MyDataModel>()
+	  private List<MyDataModel> ChartData { get; set; } = new()
     {
 		new MyDataModel() { FirstSeriesCategories = "a",  SecondSeriesCategories = "e", Product1 = 1, Product2 = 2 },
 		new MyDataModel() { FirstSeriesCategories = "match",  SecondSeriesCategories = "match", Product1 = 2, Product2 = 3 },

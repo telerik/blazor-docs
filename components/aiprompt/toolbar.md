@@ -36,12 +36,12 @@ The `AIPromptToolBarButton` tag exposes parameters that allow you to customize t
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AIPromptToolBarButton. You could use that class to cascade styles. |
 | `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article](slug:common-features-icons#icon-namespaces). |
-| `OnClick` | `EventCallback<MouseEventArgs>` | The onclick event handler. |
+| `OnClick` | `EventCallback<MouseEventArgs>` | The event handler for the button click. |
 | `ChildContent` | `RenderFragment` | The child content rendered within the button. |
 
 ### AIPromptToolBarSpacer
 
-The spacer consumes the available empty space and push the rest of the tools next to one another.
+The spacer consumes the available empty space and pushes the rest of the tools next to one another.
 
 ## Custom Tools
 

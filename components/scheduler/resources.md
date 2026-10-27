@@ -31,7 +31,8 @@ To use resources:
     ````
 1. Define one or more collections of resources.
     ````C#.skip-repl
-        private List<Resource> Rooms { get; set; } = new List<Resource>()
+        // The resource order determines the order of resource fields in the edit form.
+        private List<Resource> Rooms { get; set; } = new()
             {
                 new Resource()
                 {
