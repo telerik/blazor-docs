@@ -18,6 +18,7 @@ This article explains the events available in the Telerik FileManager for Blazor
     * [OnDelete](#ondelete)
     * [OnEdit](#onedit)
     * [OnUpdate](#onupdate)
+* [OnContextMenu](#oncontextmenu)
 * [OnDownload](#ondownload)
 * [OnModelInit](#onmodelinit)
 * [OnRead Event](#onread) - event related to obtaining data.
@@ -30,6 +31,10 @@ This article explains the events available in the Telerik FileManager for Blazor
 The `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that the user changed so you can transfer the user action to the actual data source.
 
 The `OnEdit` event let you respond to user actions - when they want to edit an item. See the [example](#example).
+
+## OnContextMenu
+
+The `OnContextMenu` event fires before the context menu opens for a file or folder. Its event handler receives a [FileManagerContextMenuEventArgs](slug:Telerik.Blazor.Components.FileManagerContextMenuEventArgs) object as an argument. Set `args.IsCancelled` to `true` to prevent the context menu from opening.
 
 ### OnCreate
 

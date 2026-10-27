@@ -47,9 +47,23 @@ The `Delete` command of the FileManager ContextMenu allows deleting of the selec
 
 Clicking the command will open a delete confirmation dialog. Pressing the `OK` button will fire the [`OnDelete`](slug:filemanager-events#ondelete) event, so you can handle the deletion of the actual files in the data source. Pressing the `Cancel` button will close the dialog and prevent the deletion.
 
+## Customization
+
+Configure the context menu through the `FileManagerContextMenuSettings` tag and its `Data` parameter. Provide a collection of `FileManagerContextMenuItem` objects, and assign each item's `CommandName` to one of the following [FileManagerCommands](slug:Telerik.Blazor.Components.FileManagerCommands) string values to retain the built-in FileManager behavior:
+
+* `FileManagerCommands.Rename`
+* `FileManagerCommands.Download`
+* `FileManagerCommands.Delete`
+
+A custom `CommandName` value triggers the [`OnClick`](slug:filemanager-events#onclick) event of `FileManagerContextMenuSettings`, where you can implement the required action. The FileManager [`OnContextMenu`](slug:filemanager-events#oncontextmenu) event lets you provide different menu items for each file or folder. To prevent the menu from opening for a specific item, set `args.IsCancelled` to `true`.
+
+>caption The following example defines custom commands, changes the available commands by item type, and disables the context menu for a specific file.
+
+<demo metaUrl="client/filemanager/context-menu/customization/" height="570"></demo>
+
 # Example
 
-The following example demonstrates handling of the ContextMenu commends.
+The following example demonstrates handling of the ContextMenu commands.
 
 <demo metaUrl="client/filemanager/context-menu/example-1/" height="570"></demo>
 
