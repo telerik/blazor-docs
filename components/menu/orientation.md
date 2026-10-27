@@ -1,6 +1,6 @@
 ---
 title: Orientation
-page_title: Menu - Orienatation
+page_title: Menu - Orientation
 description: Orientation on the Menu for Blazor.
 slug: components/menu/orientation
 tags: telerik,blazor,menu,events
@@ -17,7 +17,7 @@ The default orientation is horizontal.
 
 >caption Changing the orientation of a menu
 
-![Blazor Menu Change Orientation](images/menu-change-orientation.gif)
+![Blazor Menu displayed in a different orientation](images/menu-change-orientation.gif)
 
 >caption Set orientation
 

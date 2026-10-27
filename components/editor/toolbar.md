@@ -11,9 +11,9 @@ components: ["editor"]
 
 # Editor Toolbar
 
-The toolbar of the editor is where it command buttons reside and they let the end user apply various formatting and styling - from bold and italic words, to creating lists, tables, inserting images or [custom tools](slug:editor-custom-tools) you can define.
+The toolbar of the Editor is where its command buttons reside. They let the end user apply various formatting and styling, from bold and italic text to creating lists and tables, inserting images, or using [custom tools](slug:editor-custom-tools).
 
-![The Editor Toolbar](images/editor-toolbar-overview.png)
+![Editor toolbar with formatting controls](images/editor-toolbar-overview.png)
 
 This article contains the following sections:
 
@@ -27,7 +27,7 @@ This article contains the following sections:
 
 ## Basics
 
-The Editor tools and commands are in the `Telerik.Blazor.Components.Editor` namespace. If you will be applying settings related to the tools (such as choosing a different built-in toolset or adding custom tools), you should add an `using` statement for this namespace.
+The Editor tools and commands are in the `Telerik.Blazor.Components.Editor` namespace. If you apply settings related to the tools, such as choosing a different built-in toolset or adding custom tools, add a `using` directive for this namespace.
 
 To control the collection of buttons and commands available to the user, you provide the desired collection to the `Tools` parameter of the editor, which takes a `List<IEditorTool>`.
 
@@ -108,9 +108,9 @@ Button groups can take only buttons, and dropdowns and custom tools cannot be ad
 This example shows how to start from the existing `Default` toolbar collection of the editor and to modify it to:
 
 * add Undo and Redo to the beginning, in their own tool group;
-* add Supercript tool to the Bold, Italic, Underline group;
+* add the Superscript tool to the Bold, Italic, Underline group;
 * Remove the Format tool;
-* add ViewHtml at the end, in its own toolgroup.
+* add ViewHtml at the end, in its own tool group.
 
 >caption Modify the Default toolset
 
@@ -128,7 +128,7 @@ This example shows how you can keep adding tools to the toolbar to get the desir
 
 ### Customize Built-in Tools
 
-When adding a built-in tool to the collection, you can set various parameters to it, such as `Class`, `Icon`, `Title` for buttons; `DefaultText` or a customized `Data` collection for dropdowns. The tools have default values, and you can alter them. You also have access to the default `Data` collections of the drodown tools through the `EditorDropDownListToolItems` static class.
+When adding a built-in tool to the collection, you can set various parameters to it, such as `Class`, `Icon`, and `Title` for buttons, or `DefaultText` and a customized `Data` collection for dropdowns. The tools have default values, and you can alter them. You also have access to the default `Data` collections of the dropdown tools through the `EditorDropDownListToolItems` static class.
 
 >caption Customize the default values of the built-in tools - tooltips, available items, class and appearance
 

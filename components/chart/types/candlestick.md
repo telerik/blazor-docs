@@ -13,7 +13,7 @@ components: ["charts"]
 
 The <a href="https://www.telerik.com/blazor-ui/candlestick-chart" target="_blank"> Candlestick chart </a>shows data for the movement of the price of a financial unit. It consists of a bar (the candle), representing the open and close values, and vertical lines, the candlesticks, which illustrate the highest and lowest values.
 
-![candlestick chart](images/candlestick-chart.png)
+![Candlestick chart showing open, high, low, and close values](images/candlestick-chart.png)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 

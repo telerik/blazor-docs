@@ -20,7 +20,7 @@ First, review:
 * The available (bindable) [features of a menu item](#menu-item-features).
 * How to match fields in the model with the menu item [data bindings](#data-bindings).
 
-There are two modes of providing data to a menu, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
+There are two modes of providing data to a menu, and both use the items' features. Once you are familiar with this article, choose the data binding mode you want to use:
 
 * [Hierarchical data](slug:components/menu/data-binding/hierarchical-data) - separate collections of items and their child items.
 * [Flat data](slug:components/menu/data-binding/flat-data) - a single collection of items with defined parent-child relationships.
@@ -61,7 +61,7 @@ The properties of a menu item match directly to a field of the model the menu is
 * UrlField => Url
 * HasChildrenField => HasChildren
 * ItemsField => Items
-* DisabledField => DisabledField
+* DisabledField => Disabled
 * SeparatorField => Separator
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
@@ -90,7 +90,7 @@ public class MenuItem
 
 >caption The result from the snippet above
 
-![menu data binding example](images/menu-databinding-example.png)
+![Menu data binding example with custom field names](images/menu-databinding-example.png)
 
 
 

@@ -27,7 +27,7 @@ The event handler receives an argument object of type `MenuItemRenderEventArgs` 
 | `Item` | `object` | The current item that renders in the Menu. |
 | `Class` | `string` | The custom CSS class that will be added to the item. |
 
->caption Customizing the appearance of the Menu items.
+>caption Customizing the appearance of Menu items
 
 <demo metaUrl="client/menu/events/example-1/" height="320"></demo>
 

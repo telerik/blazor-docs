@@ -47,7 +47,7 @@ The `ValueTemplate` exposes a `context` which represents the selected item objec
 
 ## Example
 
->caption Using AutoComplete Templates
+>caption Using DropDownList Templates
 
 <demo metaUrl="client/dropdownlist/templates/" height="500"></demo>
 

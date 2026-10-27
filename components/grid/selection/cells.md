@@ -1,7 +1,7 @@
 ---
 title: Cell Selection
 page_title: Grid - Cells Selection
-description: Learn how to select cell in Blazor Grid component. Explore the selected cells. Discover cell selection bevahior when combined with other Grid features. Try the practical sample code for cell selection.
+description: Learn how to select cell in Blazor Grid component. Explore the selected cells. Discover cell selection behavior when combined with other Grid features. Try the practical sample code for cell selection.
 slug: grid-selection-cell
 tags: telerik,blazor,grid,selection,cells
 position: 5
@@ -22,7 +22,7 @@ You can also select a cell range by holding and dragging the mouse cursor. The d
 
 To enable cell selection:
 
-1. Set the Grid `SelectedCells` parameter to a collection of type `IEnumerable<GridSelectedCellDescriptor>`. The collection must be initialized in advance. See [`GridSelectedCellDescriptor`](#gridselectedcelldescriptor) for infomation about the object properties.
+1. Set the Grid `SelectedCells` parameter to a collection of type `IEnumerable<GridSelectedCellDescriptor>`. The collection must be initialized in advance. See [`GridSelectedCellDescriptor`](#gridselectedcelldescriptor) for information about the object properties.
 1. Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to the `GridSelectionType.Cell`.
 
 >caption Grid multiple cell selection
@@ -56,7 +56,7 @@ The `GridSelectedCellDescriptor` type exposes the following properties:
 When the Grid `Data` collection changes, the `SelectedCells` collection has the following behavior:
 
 * When the user updates a selected cell and the item instance is replaced, you have to also replace the `DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event](slug:grid-editing-overview#events).
-* When the user deletes a row with selected cells, update the `SelectedCells` collection in the the Grid `OnDelete` event handler.
+* When the user deletes a row with selected cells, update the `SelectedCells` collection in the Grid `OnDelete` event handler.
 * To select cells from a new item in the Grid you can use the [`OnCreate` event](slug:grid-editing-overview#events) to update the `SelectedCells` collection.
 
 ### Equals Comparison
@@ -70,7 +70,7 @@ In such cases, the selected cells may not appear as expected. You have to [overr
 
 ## Cell Selection and Other Grid Features
 
-The selection feature behavior may vary when the Grid configuration combines cell selection and other Grid features, such as editing, virtualization, paging, templates. In such cases you need to consider certain limitation or include some modications.
+The selection feature behavior may vary when the Grid configuration combines cell selection and other Grid features, such as editing, virtualization, paging, and templates. In such cases you need to consider certain limitations or include some modifications.
 
 ### Selection and Editing Modes
 

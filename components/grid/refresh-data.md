@@ -76,8 +76,11 @@ async Task UpdateHandler(GridCommandEventArgs args)
     using var dbContext = contextFactory.CreateDbContext();
     MyModel item = (MyModel)args.Items.First();
     var original = await dbContext.MyTable.FindAsync(item.Id);
-    dbContext.Entry(original).CurrentValues.SetValues(item);
-    await dbContext.SaveChangesAsync();
+    if (original != null)
+    {
+        dbContext.Entry(original).CurrentValues.SetValues(item);
+        await dbContext.SaveChangesAsync();
+    }
 }
 ````
 

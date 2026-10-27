@@ -11,11 +11,11 @@ components: ["editor"]
 
 # Blazor Editor Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor HTML Editor component</a> enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
+The <a href="https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor HTML Editor component</a> enables your users to create rich textual content through a What-You-See-Is-What-You-Get (WYSIWYG) interface and delivers a set of tools for creating, editing, and formatting text, paragraphs, lists, and other HTML elements.
 
 ## Creating Blazor Editor
 
-1. Use the `TelerikEditor` tag to add the component to your razor page.
+1. Use the `TelerikEditor` tag to add the component to your Razor page.
 1. Bind its `Value` to the `string` field you want to get the HTML content in.
 
 <demo metaUrl="client/editor/overview/" height="520"></demo>
@@ -76,8 +76,8 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 | `Width`  | `string` | Defines the width of the Editor. The default width is `null` but the themes apply `100%`. |
 | `Height`  | `string` <br /> (`250px`) | Defines the height of the Editor. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-| `AriaLabelledBy`  | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
-| `AriaDescribedBy`  | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
+| `AriaLabelledBy`  | `string` | Maps to the `aria-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
+| `AriaDescribedBy`  | `string` | Maps to the `aria-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
 
 ## Editor Reference and Methods
 

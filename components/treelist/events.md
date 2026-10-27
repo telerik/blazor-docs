@@ -37,7 +37,7 @@ You can read more about the CUD events in the [Editing Overview](slug:treelist-e
 * [OnRowRender](#onrowrender)
 * [OnRowDrop](#onrowdrop)
 * [PageChanged](#pagechanged)
-* [PageSizeChanged](#pagechanged)
+* [PageSizeChanged](#pagesizechanged)
 
 ## OnExpand and OnCollapse
 
