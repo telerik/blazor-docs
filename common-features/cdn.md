@@ -14,7 +14,7 @@ The Telerik Blazor CDN is a complimentary service that can be used in developmen
 
 The CDN hosts theme CSS files for the Telerik UI for Blazor components.
 
->warning The `blazor.cdn.telerik.com` CDN is deprecated and will be shut down in the future. The newest CSS files that it hosts are for version `15.1.0` released in October 2026. Use `unpkg.com` instead.
+>warning The `blazor.cdn.telerik.com` CDN is deprecated and will be shut down in the future. The newest CSS and JS files that it hosts are for version `15.2.0` released in October 2026. Use `unpkg.com` instead.
 
 ## CSS Theme URLs
 
