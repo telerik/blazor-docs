@@ -5,7 +5,7 @@ description: Learn how to configure the data visualization components, which are
 slug: datainsightscomposer-components
 tags: telerik, blazor, data insights composer, AI
 published: True
-position: 50
+position: 20
 components: ["datainsightscomposer"]
 ---
 
@@ -17,30 +17,57 @@ This article describes the data visualization components, which the DatAInsights
 
 Each user prompt can result in a single rendered component and its selection depends on the AI response:
 
-* [ArcGauge](#arcgauge)
+* ArcGauge
 * [Chart](#chart)
 * [Grid](#grid)
-* [LinearGauge](#lineargauge)
-* [RadialGauge](#Radialgauge)
+* LinearGauge
+* RadialGauge
 
-The specific configuration of the data visuzalization component depends on the user prompt and the default DatAInsightsComposer logic. There are two ways to control the component settings and enabled features:
+The specific configuration of the data visuzalization component depends on the user prompt and the DatAInsightsComposer algorithms. There are two ways to control some of the component settings and enable or disable features:
 
 * Use the [`<DatAInsightsComposerComponentConfigSettings>`](#component-configuration-settings) child tag inside `<TelerikDatAInsightsComposer>`.
 * Use the [`OnDataProcess` event](slug:datainsightscomposer-events#ondataprocess)
+* Use the [`OnGenerate` event](slug:datainsightscomposer-events#ongenerate). Unlike the `OnDataProcess` event, this one does not provide an `args.Dataset` argument.
 
 ## Component Configuration Settings
 
-The DatAInsightsComposer allows you to enforce specific visuzalization component settings in the component declaration.
-
-## ArcGauge
-
-...
+The DatAInsightsComposer allows you to enforce specific visuzalization component settings in the component declaration. The following sections show available component configuration parameters and the default component behavior if the parameters are not set.
 
 ## Chart
 
-...
+Generated Chart components can display one of the following series types:
+
+* Area
+* Bar
+* Bubble
+* Column
+* Donut
+* Line
+* Pie
+* Scatter
+* ScatterLine
+* Waterfall
+
+The declarative Chart configuration settings allow you to control the visibility of the tooltip and the legend. If not used, the effective Chart behavior matches the following code.
+
+>caption Default Chart configuration settings
+
+````RAZOR.skip-repl
+<TelerikDatAInsightsComposer>
+    <DatAInsightsComposerComponentConfigSettings>
+        <ChartConfigSettings>
+            <ChartLegendSettings Visible="true" />
+            <ChartTooltipSettings Visible="false" />
+        </ChartConfigSettings>
+    </DatAInsightsComposerComponentConfigSettings>
+</TelerikDatAInsightsComposer>
+````
 
 ## Grid
+
+The declarative Grid configuration settings allow you to enable or disable data and column operations. If not set, the effective Grid behavior and UI matches the code below.
+
+Note that the `FilterMode` parameter expects a value of type `Telerik.Blazor.Components.DatAInsightsComposer.GridFilterMode` and not `Telerik.Blazor.GridFilterMode`, which is the type of the Grid `FilterMode` parameter.
 
 >caption Default Grid configuration settings
 
@@ -58,15 +85,11 @@ The DatAInsightsComposer allows you to enforce specific visuzalization component
 </TelerikDatAInsightsComposer>
 ````
 
-## LinearGauge
+## Next Steps
 
-...
-
-## RadialGauge
-
-...
+* [Manage the DatAInsightsComposer State](slug:datainsightscomposer-state)
+* [Handle DatAInsightsComposer Events](slug:datainsightscomposer-events)
 
 ## See Also
 
-* [Data Insights Composer Overview](slug:datainsightscomposer-overview)
 * [Data Insights Composer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)

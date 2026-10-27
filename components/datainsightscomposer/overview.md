@@ -15,13 +15,11 @@ The [Data Insights Composer for Blazor](https://www.telerik.com/blazor-ui) lets 
 
 The DatAInsightsComposer component abstracts the following processes:
 
-* AI orchestration
-* Dataset selection
-* UI component selection, configuration and generation
+* [Communication with AI](#ai-integration).
+* [Dataset](slug:datainsightscomposer-data-binding) selection.
+* [UI component selection, configuration and generation](slug:datainsightscomposer-components).
 
 The DatAInsightsComposer enables developers to plug into the above processes and customize them.
-
->tip The DatAInsightsComposer sends only dataset field metadata to the AI service. It does not send the actual data items.
 
 ## Installation
 
@@ -33,82 +31,101 @@ After package installation:
     >caption Program.cs
 
     ````C#.skip-repl
+    // Telerik UI for Blazor
     builder.Services.AddTelerikBlazor();
-    builder.Services.AddTelerikBlazorDatAInsightsComposer();
-    ````
-1. Optionally, override the base service interface [`IDatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.IDatAInsightsComposerAIService) and register the derived service afterwards:
-    >caption Program.cs
 
-    ````C#.skip-repl
-    builder.Services.AddTelerikBlazor();
+    // Telerik DatAInsightsComposer
     builder.Services.AddTelerikBlazorDatAInsightsComposer();
-    builder.Services.AddScoped<IDatAInsightsComposerAIService, MyDatAInsightsAIService>();
     ````
 
 1. Import the `DatAInsightsComposer` namespace in `_Imports.razor` or in specific `.razor` files.
     >caption _Imports.razor
 
     ````RAZOR.skip-repl
+    @* Telerik UI for Blazor *@
     @using Telerik.Blazor
     @using Telerik.Blazor.Components
+
+    @* Telerik DatAInsightsComposer *@
     @using Telerik.Blazor.Components.DatAInsightsComposer
     ````
 
 ## Creating Blazor Data Insights Composer
 
-1. Register an `IChatClient` implementation in the app dependency injection container, or provide a custom AI service transport.
-1. Create a `DatasetDescriptor` with field metadata and, when local rendering needs it, the dataset's data rows.
-1. Set the `Datasets` parameter on the `<TelerikDatAInsightsComposer>` component.
+1. Register an `IChatClient` implementation in the app dependency injection container, or [provide a custom AI service transport](#ai-integration).
+1. Create one or more [`DatasetDescriptor`s](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatasetDescriptor) with field metadata and data items.
+1. Set the `<TelerikDatAInsightsComposer>` `Datasets` parameter to an `IEnumerable<DatasetDescriptor>`.
 
-The following example makes a sales dataset available to the component:
+The following example makes a sales dataset available to the component.
 
->caption Basic configuration of the Data Insights Composer
+>caption Basic Data Insights Composer
 
-````RAZOR
-<TelerikDatAInsightsComposer Datasets="@Datasets" />
+````RAZOR.skip-repl
+<TelerikDatAInsightsComposer Datasets="@DAICDatasets"
+                             @bind-Prompt="@DAICPrompt" />
 
 @code {
-    private List<DatasetDescriptor> Datasets { get; } = new()
+    private string DAICPrompt { get; set; } = string.Empty;
+
+    private List<DatasetDescriptor> DAICDatasets { get; set; } = new()
     {
-        new DatasetDescriptor
+        new DatasetDescriptor()
         {
             Id = "monthly-sales",
-            Description = "Monthly sales totals",
-            Fields = new List<DatasetFieldDescriptor>
+            Description = "Total monthly sales",
+            Fields = new List<DatasetFieldDescriptor>()
             {
                 new() { Name = "Month", Type = DatasetFieldType.String },
                 new() { Name = "Revenue", Type = DatasetFieldType.Number }
             },
-            Data = new List<object>
+            Data = new List<DAICModel>()
             {
-                new { Month = "January", Revenue = 12000 },
-                new { Month = "February", Revenue = 14500 },
-                new { Month = "March", Revenue = 13800 }
+                new() { Month = "January", Revenue = 12000 },
+                new() { Month = "February", Revenue = 14500 },
+                new() { Month = "March", Revenue = 13800 }
             }
         }
     };
+
+    public class DAICModel
+    {
+        public string Month { get; set; } = string.Empty;
+        public decimal Revenue { get; set; }
+    }
 }
 ````
 
-## Multiple Datasets and Visualizations
+## Datasets
 
-Provide one or more datasets. For multiple datasets, the AI can select the dataset and visualization for each result. A response can contain more than one component configuration.
-
-## Supported Visualization Types
-
-The Composer can generate a [Grid](slug:grid-overview), a [Chart](slug:components/chart/overview), or a gauge from the [gauge family](slug:gauges-overview). Supported chart types include bar, column, line, area, pie, donut, and scatter charts. Supported gauge types are LinearGauge, RadialGauge, CircularGauge, and ArcGauge.
+The DatAInsightsComposer supports multiple datasets and the AI model selects the most appropriate one, depending on the user prompt and the dataset metadata. [Learn mode about how to define datasets and provide data](slug:datainsightscomposer-data-binding).
 
 ## Data Processing
 
-The component applies generated filtering, sorting, grouping, aggregation, and paging settings to [Grid](slug:grid-overview) and [Chart](slug:components/chart/overview) data. Handle the [`OnDataProcess` event](slug:datainsightscomposer-events#ondataprocess) to process data in the host app instead.
+The component applies generated filtering, sorting, paging, grouping, and aggregation to data, based on the user prompt. You can handle the [DatAInsightsComposer `OnDataProcess` event](slug:datainsightscomposer-events#ondataprocess) to process data in the host app instead.
 
-## AI Backend Integration
+## Visualization Components
 
-The default AI service uses the `IChatClient` abstraction from **Microsoft.Extensions.AI**. You can also override the service's request and response transport methods to call an external backend without using `IChatClient`.
+The DatAInsightsComposer can generate a [Grid](slug:grid-overview), a [Chart](slug:components/chart/overview), or a [Gauge](slug:gauges-overview). The app can [configure component settings](slug:datainsightscomposer-components) declaratively in the DatAInsightsComposer definition, or at runtime in the DatAInsightsComposer events.
 
-## Configuration and State
+## AI Integration
 
-Use declarative configuration settings to constrain supported [Grid](slug:grid-overview) and [Chart](slug:components/chart/overview) options before the AI request. The component also provides a method to restore its prompt and generated component history.
+The DatAInsightsComposer initiates AI service calls, including system prompt, context provision, and instructions about the expected response format
+
+By default, the DatAInsightsComposer uses an AI service that implements the [`IDatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.IDatAInsightsComposerAIService) interface and relies on a registered [`Microsoft.Extensions.AI.IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient) in the app. You can override the service if you provide your own implementation of `IDatAInsightsComposerAIService` and register it after the default one:
+
+>caption Program.cs
+
+````C#.skip-repl
+// Default Telerik DatAInsightsComposer AI service
+builder.Services.AddTelerikBlazorDatAInsightsComposer();
+
+// Custom Telerik DatAInsightsComposer AI service
+builder.Services.AddScoped<IDatAInsightsComposerAIService, MyDatAInsightsAIService>();
+````
+
+## State
+
+The DatAInsightsComposer allows the app to [get or set the component state](slug:datainsightscomposer-state) programmatically for greater flexibility.
 
 ## Events
 
@@ -120,7 +137,7 @@ For the complete list of component parameters, methods, and event arguments, see
 
 ## Data Insights Composer Reference
 
-The component exposes methods for programmatic operation, including `SetStateAsync`. Define a reference with the `@ref` directive. Blazor populates component references in `OnAfterRenderAsync`, so the reference is not available earlier.
+The component exposes methods for programmatic operation. To call them, define a reference with the `@ref` directive. Blazor populates component references in `OnAfterRenderAsync`, so the reference is not available earlier.
 
 >caption Define a reference to the Data Insights Composer
 
@@ -128,12 +145,14 @@ The component exposes methods for programmatic operation, including `SetStateAsy
 <TelerikDatAInsightsComposer @ref="@DatAInsightsComposerRef" />
 
 @code {
-    private TelerikDatAInsightsComposer? DatAInsightsComposerRef { get; set; }
+    private TelerikDatAInsightsComposer? DatAInsightsComposerRef;
 }
 ````
 
 ## Next Steps
 
+* [Provide Data to the Data Insights Composer](slug:datainsightscomposer-data-binding)
+* [Configure Generated Components](slug:datainsightscomposer-components)
 * [Handle Data Insights Composer events](slug:datainsightscomposer-events)
 
 ## See Also

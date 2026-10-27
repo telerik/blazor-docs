@@ -25,9 +25,14 @@ This article describes the events that the Telerik Data Insights Composer for Bl
 
 ## OnDataProcess
 
-The `OnDataProcess` event fires once for each generated component, before that component renders. For a response with a Grid and a Chart, the event fires twice. The `OnGenerate` event fires first after the configuration is generated or refined successfully.
+The `OnDataProcess` event fires once for each generated component, before that component renders. The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerDataProcessEventArgs) argument. Use its `ComponentType`, `Config`, and `Dataset` properties to inspect the current result. The event enables you to:
 
-The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerDataProcessEventArgs) argument. Use its `ComponentType`, `Config`, and `Dataset` properties to inspect the current result. Set `ProcessedData` to provide data that the component uses as-is. Leave it unset to use the built-in data processing.
+* Check or modify the planned data operations in `args.DataSourceRequest`.
+* Completely skip the automatic built-in data processing and perform the required data operations manually. Then, set the `ProcessedData` property of the event argument to supply the exact data for the component to use as-is.
+
+`OnDataProcess` fires before [`OnGenerate`](#ongenerate) or [`OnHistoryItemRestore`](#onhistoryitemrestore).
+
+>caption Use OnDataProcess to provide data and modify component configuration
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnDataProcess="@OnDAICDataProcess" />
@@ -50,7 +55,9 @@ The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik
 
 ## OnGenerate
 
-The `OnGenerate` event fires after the AI generates or refines a valid component configuration. The handler receives a [`DatAInsightsComposerGenerateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerGenerateEventArgs) argument with the prompt, serialized JSON response, and generated configurations.
+The `OnGenerate` event fires after the AI generates or refines a valid component configuration. The handler receives a [`DatAInsightsComposerGenerateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerGenerateEventArgs) argument with the prompt, serialized JSON response, and generated configuration. You can use the event to modify a component configuration, including settings that are not exposed as [declarative parameters](slug:datainsightscomposer-components).
+
+`OnGenerate` fires after [`OnDataProcess`](#ondataprocess).
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnGenerate="@OnDAICGenerate" />
@@ -58,6 +65,11 @@ The `OnGenerate` event fires after the AI generates or refines a valid component
 @code {
     private Task OnDAICGenerate(DatAInsightsComposerGenerateEventArgs args)
     {
+        if (args.Configs.First() is GridComponentConfig gridComponent)
+        {
+            gridComponent.Config.PageSize = 100;
+        }
+
         return Task.CompletedTask;
     }
 }
@@ -65,7 +77,9 @@ The `OnGenerate` event fires after the AI generates or refines a valid component
 
 ## OnHistoryItemCreate
 
-The `OnHistoryItemCreate` event fires when the component creates a history item for an accepted generated result. The handler receives a [`DatAInsightsComposerHistoryItemCreateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemCreateEventArgs) argument. Its `Item` property contains the created history item.
+The `OnHistoryItemCreate` event fires when the user clicks the **Save** button to accept a generated component, and the DatAInsigntsComposer creates a history item for a potential restore later. The event handler receives a [`DatAInsightsComposerHistoryItemCreateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemCreateEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
+
+`OnHistoryItemCreate` fires before [`OnSave`](#onsave).
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnHistoryItemCreate="@OnDAICHistoryItemCreate" />
@@ -73,6 +87,8 @@ The `OnHistoryItemCreate` event fires when the component creates a history item 
 @code {
     private Task OnDAICHistoryItemCreate(DatAInsightsComposerHistoryItemCreateEventArgs args)
     {
+        ComponentHistoryItemDescriptor historyItem = args.Item;
+
         return Task.CompletedTask;
     }
 }
@@ -80,7 +96,15 @@ The `OnHistoryItemCreate` event fires when the component creates a history item 
 
 ## OnHistoryItemRestore
 
-The `OnHistoryItemRestore` event fires when the user restores a history item. The handler receives a [`DatAInsightsComposerHistoryItemRestoreEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemRestoreEventArgs) argument. Its `Item` property contains the restored history item.
+The `OnHistoryItemRestore` event fires when the user:
+
+1. Edits a generated component configuration.
+1. Clicks the **History** button next to **Save** and **Discard**.
+1. Restores an existing history item.
+
+The handler receives a [`DatAInsightsComposerHistoryItemRestoreEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemRestoreEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
+
+Before `OnHistoryItemRestore`, the DatAInsightsComposer also fires [`OnDataProcess`](#ondataprocess).
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnHistoryItemRestore="@OnDAICHistoryItemRestore" />
@@ -88,6 +112,8 @@ The `OnHistoryItemRestore` event fires when the user restores a history item. Th
 @code {
     private Task OnDAICHistoryItemRestore(DatAInsightsComposerHistoryItemRestoreEventArgs args)
     {
+        ComponentHistoryItemDescriptor historyItem = args.Item;
+
         return Task.CompletedTask;
     }
 }
@@ -95,7 +121,7 @@ The `OnHistoryItemRestore` event fires when the user restores a history item. Th
 
 ## OnPromptCancel
 
-The `OnPromptCancel` event fires when the user clicks **Stop** while a prompt request is in progress. The event fires before cancellation. The handler receives a [`DatAInsightsComposerPromptCancelEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerPromptCancelEventArgs) argument. Set its `IsCancelled` property to `false` to keep the request running.
+The `OnPromptCancel` event fires when the user aborts the current component generation by clicking on the **Generating** button with a **Stop** icon while a prompt request is in progress. The handler receives a [`DatAInsightsComposerPromptCancelEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerPromptCancelEventArgs) argument. Set its `IsCancelled` property to `false` to keep the request running.
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnPromptCancel="@OnDAICPromptCancel" />
@@ -103,6 +129,8 @@ The `OnPromptCancel` event fires when the user clicks **Stop** while a prompt re
 @code {
     private Task OnDAICPromptCancel(DatAInsightsComposerPromptCancelEventArgs args)
     {
+        string userPrompt = args.Prompt;
+
         return Task.CompletedTask;
     }
 }
@@ -110,7 +138,7 @@ The `OnPromptCancel` event fires when the user clicks **Stop** while a prompt re
 
 ## OnPromptSubmit
 
-The `OnPromptSubmit` event fires when the user submits a prompt while no dataset is available. Use this event to provide a dataset or handle the request in the host app. The handler receives a [`DatAInsightsComposerPromptSubmitEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerPromptSubmitEventArgs) argument with the prompt and an `IsCancelled` property.
+The `OnPromptSubmit` event fires when the user submits a prompt. The handler receives a [`DatAInsightsComposerPromptSubmitEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerPromptSubmitEventArgs) argument with the prompt that you can optionally modify on the fly. You can also cancel the request by setting the `IsCancelled` property of the event argument to `true`.
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnPromptSubmit="@OnDAICPromptSubmit" />
@@ -118,6 +146,11 @@ The `OnPromptSubmit` event fires when the user submits a prompt while no dataset
 @code {
     private Task OnDAICPromptSubmit(DatAInsightsComposerPromptSubmitEventArgs args)
     {
+        if (args.Prompt.Contains("something invalid"))
+        {
+            args.IsCancelled = true;
+        }
+
         return Task.CompletedTask;
     }
 }
@@ -125,7 +158,7 @@ The `OnPromptSubmit` event fires when the user submits a prompt while no dataset
 
 ## OnRemove
 
-The `OnRemove` event fires when the user removes a generated component. The handler receives a [`DatAInsightsComposerRemoveEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerRemoveEventArgs) argument with the component configuration and matching dataset descriptor.
+The `OnRemove` event fires when the user deletes an already saved generated component. The handler receives a [`DatAInsightsComposerRemoveEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerRemoveEventArgs) argument with the component configuration and matching dataset descriptor.
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnRemove="@OnDAICRemove" />
@@ -133,6 +166,9 @@ The `OnRemove` event fires when the user removes a generated component. The hand
 @code {
     private Task OnDAICRemove(DatAInsightsComposerRemoveEventArgs args)
     {
+        ComponentConfig config = args.Config;
+        DatasetDescriptor? dataset = args.Dataset;
+
         return Task.CompletedTask;
     }
 }
@@ -142,12 +178,16 @@ The `OnRemove` event fires when the user removes a generated component. The hand
 
 The `OnSave` event fires when the user saves the current configuration. The handler receives a [`DatAInsightsComposerSaveEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerSaveEventArgs) argument with the serialized configuration JSON in its `Json` property.
 
+`OnSave` fires after [`OnHistoryItemCreate`](#onhistoryitemcreate).
+
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnSave="@OnDAICSave" />
 
 @code {
     private Task OnDAICSave(DatAInsightsComposerSaveEventArgs args)
     {
+        string json = args.Json;
+
         return Task.CompletedTask;
     }
 }
@@ -155,106 +195,18 @@ The `OnSave` event fires when the user saves the current configuration. The hand
 
 ## PromptChanged
 
-The `PromptChanged` event fires when the prompt text changes. The handler receives the new prompt as a `string`. Use this event with one-way binding to update the `Prompt` value in the host app. For two-way binding, use `@bind-Prompt`.
+The `PromptChanged` event fires when the prompt text changes. The handler receives the new prompt as a `string`. Use this event with one-way `Prompt` parameter binding to detect prompt changes and update the `Prompt` value manually.
 
 ````RAZOR.skip-repl
-<TelerikDatAInsightsComposer Prompt="@Prompt" PromptChanged="@OnDAICPromptChanged" />
+<TelerikDatAInsightsComposer Prompt="@DAICPrompt"
+                             PromptChanged="@DAICPromptChanged" />
 
 @code {
-    private string Prompt { get; set; } = string.Empty;
+    private string DAICPrompt { get; set; } = string.Empty;
 
-    private void OnDAICPromptChanged(string newPrompt)
+    private void DAICPromptChanged(string newPrompt)
     {
-        Prompt = newPrompt;
-    }
-}
-````
-
-## Example
-
-The following example connects each event to a handler. Register an `IChatClient` implementation or configure a custom AI service transport in the host app to enable AI requests.
-
->caption Handle Data Insights Composer events
-
-````RAZOR
-<TelerikDatAInsightsComposer Datasets="@Datasets"
-                             Prompt="@Prompt"
-                             PromptChanged="@OnDAICPromptChanged"
-                             OnDataProcess="@OnDAICDataProcess"
-                             OnGenerate="@OnDAICGenerate"
-                             OnHistoryItemCreate="@OnDAICHistoryItemCreate"
-                             OnHistoryItemRestore="@OnDAICHistoryItemRestore"
-                             OnPromptCancel="@OnDAICPromptCancel"
-                             OnPromptSubmit="@OnDAICPromptSubmit"
-                             OnRemove="@OnDAICRemove"
-                             OnSave="@OnDAICSave" />
-
-@code {
-    private string Prompt { get; set; } = string.Empty;
-
-    private List<DatasetDescriptor> Datasets { get; } = new()
-    {
-        new DatasetDescriptor
-        {
-            Id = "monthly-sales",
-            Description = "Monthly sales totals",
-            Fields = new List<DatasetFieldDescriptor>
-            {
-                new() { Name = "Month", Type = DatasetFieldType.String },
-                new() { Name = "Revenue", Type = DatasetFieldType.Number }
-            },
-            Data = new List<object>
-            {
-                new { Month = "January", Revenue = 12000 },
-                new { Month = "February", Revenue = 14500 },
-                new { Month = "March", Revenue = 13800 }
-            }
-        }
-    };
-
-    private Task OnDAICDataProcess(DatAInsightsComposerDataProcessEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private Task OnDAICGenerate(DatAInsightsComposerGenerateEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private Task OnDAICHistoryItemCreate(DatAInsightsComposerHistoryItemCreateEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private Task OnDAICHistoryItemRestore(DatAInsightsComposerHistoryItemRestoreEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private Task OnDAICPromptCancel(DatAInsightsComposerPromptCancelEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private Task OnDAICPromptSubmit(DatAInsightsComposerPromptSubmitEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private Task OnDAICRemove(DatAInsightsComposerRemoveEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private Task OnDAICSave(DatAInsightsComposerSaveEventArgs args)
-    {
-        return Task.CompletedTask;
-    }
-
-    private void OnDAICPromptChanged(string newPrompt)
-    {
-        Prompt = newPrompt;
+        DAICPrompt = newPrompt;
     }
 }
 ````
