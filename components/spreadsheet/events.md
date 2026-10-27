@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: Spreadsheet - Events
-description: Discover and handler the Spreadsheet events and event arguments. Find complete runnable example with all Spreadsheet events.
+description: Discover and handle the Spreadsheet events and event arguments. Find a complete runnable example with all Spreadsheet events.
 slug: spreadsheet-events
 tags: telerik,blazor,spreadsheet
 published: True
@@ -41,7 +41,7 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 
 | Property Name | Type | Description |
 | --- | --- | --- |
-| `Files` | `List<FileSelectFileInfo>` | The `List` contains one member and it is the file that the user opened. Check the [`FileSelectFileInfo` section in the FileSelect Events documentation](slug:fileselect-events#fileselectfileinfo) for more information about the `FileSelectFileInfo` properties `Name`, `Size,` `Extension`, and `Stream`. |
+| `Files` | `List<FileSelectFileInfo>` | The `List` contains one member, which is the file that the user opened. Check the [`FileSelectFileInfo` section in the FileSelect Events documentation](slug:fileselect-events#fileselectfileinfo) for more information about the `FileSelectFileInfo` properties `Name`, `Size`, `Extension`, and `Stream`. |
 | `IsCancelled` | `bool` | Sets if the open action should be prevented. |
 
 

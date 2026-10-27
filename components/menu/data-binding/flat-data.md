@@ -1,7 +1,7 @@
 ---
 title: Flat Data
 page_title: Menu - Data Binding to Flat Data
-description: Data Binding the Menu for Blazor to flat data.
+description: Bind the Menu for Blazor to flat data.
 slug: components/menu/data-binding/flat-data
 tags: telerik,blazor,menu,data,bind,databind,databinding,flat
 published: True
@@ -27,7 +27,7 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 
 >caption The result from the code snippet above, after hovering the "Roadmap" item
 
-![Blazor Menu Flat Data Overview](images/menu-flat-data-overview.png)
+![Blazor Menu displaying flat data after hovering a menu item](images/menu-flat-data-overview.png)
 
 
 ## See Also

@@ -19,11 +19,11 @@ When the `OnRead` event is used, the internal operations are disabled and you mu
 
 ## Examples
 
-Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](editing/overview) article.
+Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [Scheduler Appointment Editing](slug:scheduler-appointments-edit) article.
 
 The comments in the code provide explanations on what is done and why.
 
->tip You can also use a synchronous version of the event. Its signature is `void ReadItems(GridReadEventArgs args)`.
+>tip You can also use a synchronous version of the event. Its signature is `void ReadItems(SchedulerReadEventArgs args)`.
 
 >caption Custom paging with a remote service
 
@@ -37,7 +37,7 @@ The comments in the code provide explanations on what is done and why.
 
 ## See Also
 
-* [CRUD Operations Overview](slug:grid-editing-overview)
-* [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
-* [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
+* [Scheduler Appointment Editing](slug:scheduler-appointments-edit)
+* [Scheduler Data Binding](slug:scheduler-appointments-databinding)
+* [Scheduler Overview](slug:scheduler-overview)
   

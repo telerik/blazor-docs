@@ -37,7 +37,7 @@ The `SpreadsheetToolSetItem` class has the following properties:
 | Property Name | Type | Description |
 | --- | --- | --- |
 | `Title` | `string` | The tool set name. Regard this as a single Menu item. |
-| `Tools` | `List<SpreadsheetTool>` | The collection of tools in the tool set item. Regard this collection as one TooBar instance. |
+| `Tools` | `List<SpreadsheetTool>` | The collection of tools in the tool set item. Regard this collection as one ToolBar instance. |
 
 The Spreadsheet provides ready-to-use `SpreadsheetToolSet` objects, for example, `SpreadsheetToolSets.All`. A tool set provides a specific distribution and order of tools across tool set items. However, each tool can exist in any tool set item.
 

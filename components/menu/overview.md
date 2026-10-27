@@ -15,7 +15,7 @@ The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu
 
 ## Creating Blazor Menu
 
-1. Use the `TelerikMenu` tag to add the component to your razor page.
+1. Use the `TelerikMenu` tag to add the component to your Razor page.
 
 1. Populate the `Data` property with the collection of items that you want to appear in the menu. The Menu will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names](slug:components/menu/data-binding/overview#data-bindings).
 
@@ -58,14 +58,14 @@ The Blazor Menu generates events that you can handle and further customize its b
 
 ## Menu Parameters
 
-The following table lists Context Menu parameters, which are not related to other features on this page. Check the [Menu API Reference](slug:Telerik.Blazor.Components.TelerikMenu-1) for a full list of properties, methods and events.
+The following table lists Menu parameters, which are not related to other features on this page. Check the [Menu API Reference](slug:Telerik.Blazor.Components.TelerikMenu-1) for a full list of properties, methods, and events.
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme](slug:themes-override). |
-| `CloseOnClick` | `bool` | Determines whether the Menu popups should close when they are clicked.
+| `CloseOnClick` | `bool` | Determines whether the Menu popups should close when they are clicked. |
 | `ShowOn` | `MenuShowEvent` enum <br /> (`MouseEnter`) | The browser event that will trigger child Menu items to show (mouse enter or click). |
-| `HideOn` | `MenuHideEvent` enum <br /> (`MouseLeave`) | The browser event that will trigger child Menu items to hide (mouse leave or click).
+| `HideOn` | `MenuHideEvent` enum <br /> (`MouseLeave`) | The browser event that will trigger child Menu items to hide (mouse leave or click). |
 
 ### Popup settings
 

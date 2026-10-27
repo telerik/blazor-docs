@@ -60,7 +60,7 @@ The [Spreadsheet events](slug:spreadsheet-events) allow you to implement custom 
 
 ## Spreadsheet Parameters
 
-The table below lists the Spreadsheet parameters. For a full list of the ListBox API members (parameters, methods, and events), check the [Spreadsheet API Reference](slug:Telerik.Blazor.Components.TelerikSpreadsheet).
+The table below lists the Spreadsheet parameters. For a full list of the Spreadsheet API members (parameters, methods, and events), check the [Spreadsheet API Reference](slug:Telerik.Blazor.Components.TelerikSpreadsheet).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

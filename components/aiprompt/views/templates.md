@@ -19,7 +19,7 @@ This article explains the available templates for the views of the AIPrompt for 
 
 ## View Template
 
-The `ViewTemplate` allows you to control the rendering of view's content. You can define it for each of the predefined views:
+The `ViewTemplate` allows you to control the rendering of the view content. You can define it for each of the predefined views:
 
 >caption Using the `ViewTemplate` to alter the appearance of the Prompt view
 
@@ -29,7 +29,7 @@ The `ViewTemplate` allows you to control the rendering of view's content. You ca
 
 The `FooterTemplate` allows you to control the rendering of the footer within individual views.
 
->caption Using the `FooterTemplate` to define a custom button.
+>caption Using the `FooterTemplate` to define a custom button
 
 <demo metaUrl="client/aiprompt/views/templates/footertemplate-1/" height="420"></demo>
 
