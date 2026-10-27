@@ -34,7 +34,7 @@ The `OnEdit` event let you respond to user actions - when they want to edit an i
 
 ## OnContextMenu
 
-The `OnContextMenu` event fires before the context menu opens for a file or folder. Its event handler receives a [FileManagerContextMenuEventArgs](api/telerik.blazor.components.filemanagercontextmenueventargs) object as an argument. The event is cancellable. Set `args.IsCancelled` to `true` to prevent the context menu from opening.
+The `OnContextMenu` event fires before the context menu opens for a file or folder. Its event handler receives a [FileManagerContextMenuEventArgs](slug:Telerik.Blazor.Components.FileManagerContextMenuEventArgs) object as an argument. Set `args.IsCancelled` to `true` to prevent the context menu from opening.
 
 ### OnCreate
 

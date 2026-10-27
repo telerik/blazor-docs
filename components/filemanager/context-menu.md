@@ -49,13 +49,13 @@ Clicking the command will open a delete confirmation dialog. Pressing the `OK` b
 
 ## Customization
 
-Configure the context menu through the `FileManagerContextMenuSettings` tag and its `Data` parameter. Provide a collection of `FileManagerContextMenuItem` objects, and assign each item's `CommandName` to one of the following [FileManagerCommands](api/telerik.blazor.components.filemanagercommands) values to retain the built-in FileManager behavior:
+Configure the context menu through the `FileManagerContextMenuSettings` tag and its `Data` parameter. Provide a collection of `FileManagerContextMenuItem` objects, and assign each item's `CommandName` to one of the following [FileManagerCommands](slug:Telerik.Blazor.Components.FileManagerCommands) string values to retain the built-in FileManager behavior:
 
 * `FileManagerCommands.Rename`
 * `FileManagerCommands.Download`
 * `FileManagerCommands.Delete`
 
-A custom `CommandName` value triggers the `OnClick` event of `FileManagerContextMenuSettings`, where you can implement the required action. The FileManager `OnContextMenu` event lets you provide different menu items for each file or folder. To prevent the menu from opening for a specific item, set `args.IsCancelled` to `true`.
+A custom `CommandName` value triggers the [`OnClick`](slug:filemanager-events#onclick) event of `FileManagerContextMenuSettings`, where you can implement the required action. The FileManager [`OnContextMenu`](slug:filemanager-events#oncontextmenu) event lets you provide different menu items for each file or folder. To prevent the menu from opening for a specific item, set `args.IsCancelled` to `true`.
 
 >caption The following example defines custom commands, changes the available commands by item type, and disables the context menu for a specific file.
 
