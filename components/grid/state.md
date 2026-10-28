@@ -1,7 +1,7 @@
 ---
 title: State
 page_title: Grid - State
-description: Save, load, change the Grid for Blazor state - grouping, sorting, filtering and so on.
+description: Save, load, and change Telerik UI for Blazor Grid state for grouping, sorting, filtering, paging, columns, and editing.
 slug: grid-state
 tags: telerik,blazor,grid,state,save,load,layout,set,change,management
 published: True
@@ -30,21 +30,21 @@ The Grid state is a generic [class `GridState<TItem>`](slug:Telerik.Blazor.Compo
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `CollapsedGroups` | `ICollection<int>` | The indexes of all collapsed [groups](slug:components/grid/features/grouping) when `LoadGroupsOnDemand="false"`, i.e. when not [loading groups on demand](slug:grid-group-lod). |
+| `CollapsedGroups` | `ICollection<int>` | The indexes of all collapsed [groups](slug:components/grid/features/grouping) when `LoadGroupsOnDemand="false"`, that is, when not [loading groups on demand](slug:grid-group-lod). |
 | `ColumnStates` | `ICollection<GridColumnState>` | Information about each [column's reorder index, width, visibility, locked state, `Id` parameter value and `Field`](slug:components/grid/columns/bound). The column order in the collection matches the column order in the Grid declaration. On the other hand, the `Index` property matches the current column's position in the UI. **`Id` and `Field` are always `null` after deserialization, because these properties have no public setters.** |
 | `EditField` | `string` | The currently edited data item property in [`Incell` edit mode](slug:grid-editing-incell). |
 | `EditItem` | `TItem`* | The currently edited data item in [any edit mode](slug:grid-editing-overview). |
 | `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)](slug:components/grid/features/hierarchy). |
 | `FilterDescriptors` | `ICollection<IFilterDescriptor>` | A collection of [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering), except the ones that relate to the [`GridSearchBox`](slug:grid-searchbox). |
 | `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping](slug:components/grid/features/grouping). |
-| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing](slug:grid-editing-incell#events). |
+| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `InCell` editing](slug:grid-editing-incell#events). |
 | `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
 | `Page` | `int?` | The current [page index](slug:components/grid/features/paging). Some user actions reset the page index to 1, such as filtering or changing the page size. |
 | `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering) that holds the filter descriptors for the [`GridSearchBox`](slug:grid-searchbox). |
 | `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)](slug:grid-selection-overview). |
 | `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling](slug:components/grid/virtual-scrolling). In other words, this is the number of rows above the currently visible ones. |
 | `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts](slug:components/grid/features/sorting). |
-| `TableWidth` | `string` | The sum of all visible column widths. The initial value is always `null` regardless of the column configuration. The `TableWidth` value changes during column resizing together with `ColumnStates` and the`OnStateChanged` event does not fire separately for it. When you resize a column programmatically, and all other columns already have widths, you must update the `TableWidth` too, otherwise the other columns will resize unexpectedly. |
+| `TableWidth` | `string` | The sum of all visible column widths. The initial value is always `null` regardless of the column configuration. The `TableWidth` value changes during column resizing together with `ColumnStates`, and the `OnStateChanged` event does not fire separately for it. When you resize a column programmatically and all other columns already have widths, you must update `TableWidth` too; otherwise, the other columns resize unexpectedly. |
 
 \* `TItem` is the Grid model type.
 
@@ -87,7 +87,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 Here is some additional information about certain `PropertyName` values:
 
 * `EditItem` is used when the user starts editing an existing item.
-* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It's [not applicable for `Incell` editing](slug:grid-editing-incell#events).
+* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It is [not applicable for `InCell` editing](slug:grid-editing-incell#events).
 * `OriginalEditItem` is used when the user exits edit or insert mode via save or cancel.
 * `ColumnStates` is used for several column actions such as hiding, showing, locking, reordering and resizing.
 

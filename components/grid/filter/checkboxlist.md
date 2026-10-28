@@ -1,7 +1,7 @@
 ---
 title: CheckBoxList
 page_title: Grid - Filtering CheckBoxList
-description: Enable and configure filtering CheckBoxList in Grid for Blazor.
+description: Enable Telerik UI for Blazor Grid CheckBoxList filtering and customize its data, field mapping, and filter menu template.
 slug: grid-checklist-filter
 tags: telerik,blazor,grid,filtering,filter,CheckBoxList
 published: True
@@ -11,16 +11,14 @@ components: ["grid"]
 
 # Grid CheckBoxList Filtering
 
-You can change the [filter menu](slug:grid-filter-menu) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
+You can change the [Filter Menu](slug:grid-filter-menu) to show a list of checkboxes with distinct values from the data source. This lets users filter records by a common value and select multiple values. The behavior is similar to Excel filtering.
 
 ## Enabling CheckBoxList Filtering
 
-To enable the CheckBoxList filtering in the Telerik Grid for Blazor:
-
-1. Set the `FilterMode` parameter to `GridFilterMode.FilterMenu`
+1. Set the `FilterMode` parameter to `GridFilterMode.FilterMenu`.
 1. Set the `FilterMenuType` parameter to `FilterMenuType.CheckBoxList`. It defaults to `Menu` for the default behavior.
 
->caption CheckList filter in the DataGrid
+>caption CheckBoxList filter in the Grid
 
 <demo metaUrl="client/grid/filter-checkbox-list/" height="500"></demo>
 
@@ -28,7 +26,7 @@ To enable the CheckBoxList filtering in the Telerik Grid for Blazor:
 
 By default, the Telerik Grid takes the `Distinct` values from its `Data` to populate the checkbox list filter for each field.
 
-Using the [`OnRead` event](slug:components/grid/manual-operations) to customize or perform data operations on the server/service limits the Grid to the current page of data, restricting user options. You may want to provide the full list.
+Using the [`OnRead` event](slug:components/grid/manual-operations) to customize or perform data operations on a server limits the Grid to the current page of data, restricting user options. You may want to provide the full list.
 
 To customize the CheckBoxList behavior, use the [Filter Menu Template](slug:grid-templates-filter#filter-menu-template). Place the `TelerikCheckBoxListFilter` component inside the `FilterMenuTemplate` to get the default CheckBoxList filtering UI. The template provides the following settings:
 

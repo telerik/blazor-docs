@@ -1,7 +1,7 @@
 ---
 title: Command Column Header
-meta_title: Grid - Command Column Header Template
-description: Use custom command column header template in Grid for Blazor.
+meta_title: Telerik UI for Blazor Grid - Command Column Header Template
+description: Use a custom Telerik UI for Blazor Grid command column header template to control header content and actions.
 slug: grid-templates-command-column-header
 tags: telerik,blazor,grid,templates,command,column,header
 published: True
@@ -9,7 +9,7 @@ position: 23
 components: ["grid"]
 ---
 
-# Command Column Header Template
+# Grid Command Column Header Template
 
 The `HeaderTemplate` of the Grid command column enables you to customize the header cell's rendering and add custom content or components in the command column header.
 

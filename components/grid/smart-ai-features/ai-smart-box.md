@@ -1,7 +1,7 @@
 ---
 title: AI Smart Box
 page_title: Grid - AI Smart Box
-description: Learn how to use the GridToolBarSmartBoxTool to enable search, semantic search, and AI assistant features in the Blazor Grid.
+description: Configure the Telerik UI for Blazor Grid Smart Box for standard search, semantic search, and AI assistant features.
 slug: grid-ai-smart-box
 tags: telerik,blazor,grid,ai,smart,box,search,semantic
 published: True
@@ -70,7 +70,7 @@ Use the `PromptSuggestions` parameter to provide a list of predefined prompts th
 
 Configure AI assistant history through the `GridToolBarSmartBoxToolAIAssistantHistorySettings` nested tag.
 
-## Example
+## Smart Box Example
 
 The following example demonstrates how to configure the `GridToolBarSmartBoxTool` with all three features: standard search, semantic search, and AI Assistant.
 

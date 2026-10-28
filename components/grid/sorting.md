@@ -1,7 +1,7 @@
 ---
 title: Sorting
 page_title: Grid - Sorting
-description: Enable and configure sorting in Grid for Blazor.
+description: Enable Telerik UI for Blazor Grid sorting and configure single-column, multi-column, and programmatic sorting.
 slug: components/grid/features/sorting
 tags: telerik,blazor,grid,sorting
 published: True
@@ -40,7 +40,7 @@ To allow sorting on more than one column at a time, set the Grid `SortMode` para
 
 <demo metaUrl="client/grid/sorting-multiple/" height="600"></demo>
 
-## Sort From Code
+## Sorting from Code
 
 You can sort the grid from your own code through its [state](slug:grid-state).
 
@@ -56,9 +56,9 @@ You can sort the grid from your own code through its [state](slug:grid-state).
 
 The following articles and sample projects can be helpful when implementing sorting:
 
-* [Capture Sorted event](slug:grid-state#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change
+* [Capture the Sorted event](slug:grid-state#onstatechanged)&mdash;The Grid state lets you know when it changes so you can capture different aspects of the change.
 
-* [Server Sorting](slug:components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+* [Server Sorting](slug:components/grid/manual-operations)&mdash;This article explains how to implement manual data source operations so you can offload work to the server. It provides an overview of how to set up the Grid and includes examples with local data and REST API endpoints.
 
 ## See Also
 

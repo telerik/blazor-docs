@@ -1,7 +1,7 @@
 ---
 title: Command Column
 page_title: Grid - Command Column
-description: Command buttons per row in Grid for Blazor.
+description: Configure Telerik UI for Blazor Grid command columns with built-in or custom commands for editing and row actions.
 slug: components/grid/columns/command
 tags: telerik,blazor,grid,column,command
 published: True
@@ -17,48 +17,48 @@ To define it, add a `GridCommandColumn` in the `GridColumns` collection of a gri
 
 In this article:
 
-* [Grid Command Column Features](#features)
-   * [GridCommandButton](#the-gridcommandbutton-tag)
+* [Grid Command Column Features](#grid-command-column-features)
+    * [Configuring Command Buttons](#configuring-command-buttons)
    * [Built-in Commands](#built-in-commands)
-   * [OnClick Handler](#the-onclick-handler)
+    * [Handling Command Clicks](#handling-command-clicks)
    * [Context](#context)
    * [Header Template](#header-template)
 * [Code Example](#example)
 
-## Features
+## Grid Command Column Features
 
 The section describes the available features and their use.
 
-### The GridCommandButton Tag
+### Configuring Command Buttons
 
 The `GridCommandButton` tag offers the following features:
 
-* `Command` - the command that will be invoked. Can be one of the built-in commands (see below), or a custom command name.
-* `Icon` - the command button icon, which can be a font icon, an SVG icon or a custom icon. Use in the same way as the [Button component `Icon`](slug:button-icons).
-* `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event](slug:grid-editing-overview). Cancelling it will prevent the built-in CRUD event from firing.
-* `ShowInEdit` - a boolean property indicating whether the button is visible only in edit mode or only in display mode.
-* `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
+* `Command`&mdash;the command to invoke. Can be one of the built-in commands listed below or a custom command name.
+* `Icon`&mdash;the command button icon, which can be a font icon, an SVG icon, or a custom icon. Use it in the same way as the [Button component `Icon`](slug:button-icons).
+* `OnClick`&mdash;the event handler that the button fires. For a built-in command, this handler fires before the [corresponding CRUD event](slug:grid-editing-overview). Cancelling it prevents the built-in CRUD event from firing.
+* `ShowInEdit`&mdash;a Boolean property that indicates whether the button is visible only in edit mode or only in display mode.
+* `ChildContent`&mdash;the text that the button renders. You can also place it between the command button's opening and closing tags.
 * You can customize the appearance of the `GridCommandButton` by applying the [appearance attributes available for the TelerikButton](slug:button-appearance).
 
 ### Built-in Commands
 
 There are five built-in commands:
 
-* `Add` - initiates the creation of a new item.
-* `Edit` - initiates the inline or popup editing (depending on the GridEditMode configuration of the grid).
-* `Delete` - initiates the [deletion of an existing item](slug:grid-editing-overview#delete-operations).
-* `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
-* `Cancel` - aborts the current operation (edit or insert).
+* `Add`&mdash;initiates the creation of a new item.
+* `Edit`&mdash;initiates inline or popup editing, depending on the `GridEditMode` configuration of the Grid.
+* `Delete`&mdash;initiates the [deletion of an existing item](slug:grid-editing-overview#delete-operations).
+* `Save`&mdash;performs the update operation after the data changes. Triggers the `OnUpdate` or `OnCreate` event so you can update the data source. The event depends on whether the item was created or edited.
+* `Cancel`&mdash;aborts the current operation, either edit or insert.
 
-> All commands, except `Delete` require [enabled editing](slug:grid-editing-overview).
+>important All commands except `Delete` require [enabled editing](slug:grid-editing-overview).
 
-### The OnClick handler
+### Handling Command Clicks
 
 The `OnClick` handler of the commands receives an argument of type `GridCommandEventArgs` that exposes the following properties:
 
-* `IsCancelled` - set this to true to prevent the operation if the business logic requires it.
-* `Items` - the first member of the generic `IEnumerable` is model item of the Grid row. You can use it to access the model fields and preform the actual data source operations. This property is applicable only for command buttons that are inside a Grid row, not the toolbar.
-* `IsNew` - a boolean field indicating whether the item was just added through the grid interface.
+* `IsCancelled`&mdash;set this to `true` to prevent the operation when required by business logic.
+* `Items`&mdash;the first member of the generic `IEnumerable`, which is the model item of the Grid row. Use it to access model fields and perform data source operations. This property applies only to command buttons inside a Grid row, not the toolbar.
+* `IsNew`&mdash;a Boolean field indicating whether the item was just added through the Grid interface.
 
 >tip For handling CRUD operations we recommend that you use the grid events (`OnEdit`, `OnUpdate`, `OnCancel`, `OnCreate`). The `OnClick` handler is available for the built-in commands to provide consistency of the API.
 
@@ -66,7 +66,7 @@ The `OnClick` handler of the commands receives an argument of type `GridCommandE
 
 The command column provides access to the data item via `context`. This may be useful for conditional statements or passing parameters to custom business logic.
 
-Use a **named** context variable to avoid errors when nesting components or `RenderFragment`s in general. In such cases, the exception will be similar to ["Child content element ... uses the same parameter name ('context') as enclosing child content element ..."](slug:nest-renderfragment).
+Use a named context variable to avoid errors when nesting components or `RenderFragment`s. In such cases, the exception will be similar to ["Child content element ... uses the same parameter name ('context') as enclosing child content element ..."](slug:nest-renderfragment).
 
 >caption Using GridCommandColumn context
 

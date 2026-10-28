@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid - Filtering Overview
-description: Enable and configure filtering in Grid for Blazor.
+description: Learn how to filter Telerik UI for Blazor Grid data with Filter Row, Filter Menu, CheckBoxList, SearchBox, and custom filtering options.
 slug: components/grid/filtering
 tags: telerik,blazor,grid,filtering,filter
 published: True
@@ -12,20 +12,20 @@ components: ["grid"]
 
 # Grid Filtering Overview
 
-This article describes the basics of the filtering functionality of the Telerik Grid for Blazor.
+This article describes the basic filtering functionality of the Telerik UI for Blazor Grid.
 
 The Grid provides two alternative user interfaces for filtering:
 
-* [Filter Row](#filterrow)
-* [Filter Menu](#filtermenu)
+* [Filter Row](#filter-row)
+* [Filter Menu](#filter-menu)
 
-## FilterRow
+## Filter Row
 
-The `FilterRow` filtering mode renders a row below the column headers, providing a UI where you can fill in the filter criteria. Read more about enabling and fine-tuning the filtering row in the [Grid Filter Row](slug:grid-filter-row) article.
+The `FilterRow` filtering mode renders a row below the column headers, providing a UI where you can enter filter criteria. For more information about enabling and configuring the Filter Row, see the [Grid Filter Row](slug:grid-filter-row) article.
 
-## FilterMenu
+## Filter Menu
 
-The `FilterMenu` filter mode renders a button in the column header. Clicking the button opens a popup with filtering options, allowing you to apply two filter criteria, choose a filter operator, and use buttons to apply or clear the filter. Read more about enabling and fine-tuning the filtering menu in the [Grid Filter Menu](slug:grid-filter-menu) article.
+The `FilterMenu` filter mode renders a button in the column header. Clicking the button opens a popup with filtering options, allowing you to apply two filter criteria, choose a filter operator, and use buttons to apply or clear the filter. For more information about enabling and configuring the Filter Menu, see the [Grid Filter Menu](slug:grid-filter-menu) article.
 
 ## Changing the Filter Mode at Runtime
 
@@ -51,21 +51,21 @@ You can get the applied filtering criteria for each filtered field. Use the [Gri
 
 There are two approaches to customize the Grid filtering behavior, and you can use them together:
 
-* Perform the data operations yourself (e.g., by outsourcing them to some API backend or other service) - to do that, use the [`OnRead` event](slug:components/grid/manual-operations). This will let you fetch only the current page of data for the Grid, instead of pulling the entire data set and storing it in-memory in the view-model.
+* Perform data operations yourself by outsourcing them to an API backend or other service. Use the [`OnRead` event](slug:components/grid/manual-operations) to fetch only the current page of data instead of pulling the entire data set into the view model.
 
-* Customize the appearance and behavior of the filters - for that, use the [Filter Templates](slug:grid-templates-filter) the Grid provides.
+* Customize the appearance and behavior of the filters. Use the [Filter Templates](slug:grid-templates-filter) that the Grid provides.
 
 ## Advanced Examples
 
 The following articles and sample projects can be helpful when implementing filtering:
 
-* [Capture Filtered event](slug:grid-state#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change.
+* [Capture the Filtered event](slug:grid-state#onstatechanged)&mdash;The Grid state lets you know when it changes so you can capture different aspects of the change.
 
-* [Server Filtering](slug:components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+* [Server Filtering](slug:components/grid/manual-operations)&mdash;This article explains how to implement manual data source operations so you can offload work to the server. It provides an overview of how to set up the Grid and includes examples with local data and REST API endpoints.
 
 * [Filter and Edit Enum fields](slug:grid-kb-filter-edit-enum)
 
-* [Leave only one option in the Filter Menu](slug:grid-kb-only-one-filtermenu-option) - this is a CSS approach, or you can implement a [custom filter template](slug:grid-templates-filter).
+* [Leave only one option in the Filter Menu](slug:grid-kb-only-one-filtermenu-option)&mdash;Use this CSS approach, or implement a [custom filter template](slug:grid-templates-filter).
 
 ## Next Steps
 

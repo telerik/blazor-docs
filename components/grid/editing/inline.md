@@ -1,7 +1,7 @@
 ---
 title: Inline Editing
 page_title: Grid - Inline Editing
-description: Inline (row) editing of data in Grid for Blazor.
+description: Edit Telerik UI for Blazor Grid rows inline with command buttons, validation, keyboard navigation, and row-level events.
 slug: grid-editing-inline
 tags: telerik, blazor, grid, editing, inline
 published: True
@@ -11,18 +11,18 @@ components: ["grid"]
 
 # Grid Inline Editing
 
-Inline Grid editing lets users modify all values on a Grid row. The edit process starts and ends with clicking of command buttons on the respective row. Inline editing can be more intuitive for beginner users, compared to in-cell editing.
+Inline Grid editing lets users modify all values in a Grid row. The edit process starts and ends when users click command buttons in the row. Inline editing can be more intuitive for beginner users than in-cell editing.
 
 @[template](/_contentTemplates/grid/editing.md#overview-required)
 
-## Basics
+## Using Inline Editing
 
 To use inline Grid editing, [set the Grid `EditMode` parameter to `GridEditMode.Inline`](slug:grid-editing-overview#edit-modes). During inline editing, only one table row is in edit mode at a time. Users can:
 
-* Press **Tab** or **Shift** + **Tab** to focus the next or previous editable cell.
-* Click the **Save** command button or press **Enter** to confirm the current row changes and exit edit mode.
-* Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
-* Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
+* Press `Tab` or `Shift+Tab` to focus the next or previous editable cell.
+* Click the **Save** command button or press `Enter` to confirm the current row changes and exit edit mode.
+* Click the **Cancel** command button or press `Esc` to cancel the current row changes and exit edit mode.
+* Perform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
 
 ## Commands
 
@@ -40,7 +40,7 @@ The built-in `GridToolBarAddTool` starts the add operation and does not require 
 
 In inline edit mode, the Grid commands execute row by row and the corresponding [Grid events](slug:grid-editing-overview#events) also fire row by row. This is similar to [popup editing](slug:grid-editing-popup) and unlike [in-cell editing](slug:grid-editing-incell), where commands and events relate to cells.
 
-When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons have no effect, but users can still navigate between all input components in the row to complete the editing.
+When validation is not satisfied, clicking the **Save**, **Delete**, or **Add** command buttons has no effect, but users can still navigate between all input components in the row to complete the editing.
 
 ## New Row Position
 
@@ -53,16 +53,16 @@ The `NewRowPosition` parameter accepts values from the `GridNewRowPosition` enum
 
 ## Integration with Other Features
 
-Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the [common information on this topic for all edit modes](slug:grid-editing-overview#integration-with-other-features).
+The following sections explain how the component behaves when users combine add and edit operations with other component features. Also check the [common information on this topic for all edit modes](slug:grid-editing-overview#integration-with-other-features).
 
-### Add, Edit
+### Handling Add and Edit Operations
 
 This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another row.
 
 * If the validation is not satisfied, the component blocks the user action until they complete or cancel the current add or edit operation.
 * If the validation is satisfied, then editing aborts and the component fires `OnCancel`.
 
-### Delete, Filter, Group, Page, Search, Sort
+### Handling Other Data Operations
 
 If the component is already in add or edit mode, and the user tries to perform another data operation, then editing aborts and the component fires `OnCancel`.
 
@@ -70,18 +70,18 @@ Deleting items that are currently in edit mode [fires `OnDelete` with a cloned d
 
 ## Examples
 
-### Basic
+### Basic Inline Editing Example
 
-The example below shows how to:
+This example demonstrates how to:
 
-* Implement inline Grid CRUD operations with the simplest and minimal required setup.
+* Implement inline Grid CRUD operations with the minimum required setup.
 @[template](/_contentTemplates/grid/editing.md#basic-example-description)
 
 >caption Basic Grid inline editing configuration
 
 <demo metaUrl="client/grid/editing-inline-basic/" height="600"></demo>
 
-### Advanced
+### Advanced Inline Editing Example
 
 The example below shows how to:
 

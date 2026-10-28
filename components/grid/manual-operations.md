@@ -1,7 +1,7 @@
 ---
 title: Manual Data Source Operations
 page_title: Grid - Manual Operations
-description: How to implement your own read, page, fiter, sort operations for the grid data and load data on demand.
+description: Learn how to implement custom read, paging, filtering, and sorting operations for Telerik UI for Blazor Grid data and load data on demand.
 slug: components/grid/manual-operations
 tags: telerik,blazor,grid,read,filter,sort,page,manual,data,data source
 published: True
@@ -13,7 +13,7 @@ components: ["grid"]
 
 By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging](slug:components/grid/features/paging), [sorting](slug:components/grid/features/sorting), [filtering](slug:components/grid/filtering)) internally.
 
-You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation](slug:grid-editing-overview) as well, to ensure fresh data.
+You can perform all data operations yourself, for example on the server, and load data on demand by using the `OnRead` event of the Grid. The data source is also read after each [CUD operation](slug:grid-editing-overview) to ensure fresh data.
 
 >tip Make sure to get familiar with all the general [`OnRead` event documentation](slug:common-features-data-binding-onread) first.
 
@@ -33,7 +33,7 @@ Examples:
 * [Virtual Scrolling with OnRead](#virtual-scrolling-with-onread)
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
-* [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
+* [Serialize the DataSourceRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
 * [Debounce Data Source Operations and Requests](slug:grid-kb-debounce-operations)
 
 ## Custom paging with a remote service
@@ -48,7 +48,7 @@ If you have all the data at once, the Telerik .ToDataSourceResult(request) exten
 
 >tip You can find examples of how to use this object to easily retrieve data on the server in a performant manner in the following repo: [https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server).
 >
-> We support the `System.Text.Json` serialization that is built-in in Blazor.
+>note The `System.Text.Json` serialization is built into Blazor.
 
 >caption Use Telerik .ToDataSourceResult() extension method to filter, sort and page data.
 

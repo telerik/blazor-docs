@@ -1,7 +1,7 @@
 ---
 title: Column Footer
 page_title: Grid - Column Footer Template
-description: Use custom column footer templates for grand total data in Grid for Blazor.
+description: Use custom Telerik UI for Blazor Grid column footer templates to display grand totals and other footer content.
 slug: grid-templates-column-footer
 tags: telerik,blazor,grid,templates,column,footer,grand,total
 published: True
@@ -9,9 +9,9 @@ position: 20
 components: ["grid"]
 ---
 
-# Column Footer Template
+# Grid Column Footer Template
 
-You can display a grand total row at the bottom of the grid through the `FooterTemplate` of each [bound](slug:components/grid/columns/bound) column.
+You can display a grand total row at the bottom of the Grid through the `FooterTemplate` of each [bound Grid column](slug:components/grid/columns/bound).
 
 You can use [aggregates](slug:grid-aggregates) for the current field directly from the `context`, and its `AggregateResults` field lets you get aggregates for other fields that you have defined through their field name and aggregate function.
 
@@ -25,6 +25,8 @@ You can use [aggregates](slug:grid-aggregates) for the current field directly fr
 @[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
 
 ## Notes
+
+The following note applies to column footer templates:
 
 Footer templates usually display aggregates. Here are some things to keep in mind.
 

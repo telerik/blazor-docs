@@ -1,9 +1,9 @@
 ---
 title: Row Drag and Drop
 page_title: Grid Row Drag and Drop
-description: Overview of the Row Drag and Drop functionality for Grid for Blazor.
+description: Enable Telerik UI for Blazor Grid row drag and drop to move rows within a Grid or between Grid instances.
 slug: grid-drag-drop-overview
-tags: telerik,blazor,grid,drap,drop,dragdrop,row,rows,overview
+tags: telerik,blazor,grid,drag,drop,dragdrop,row,rows,overview
 published: True
 position: 41
 components: ["grid"]
@@ -22,16 +22,16 @@ This article contains the following sections:
     * [Drag and Drop a Row in the same Grid](#drag-and-drop-a-row-in-the-same-grid)
     * [Drag and Drop a Row between Grids](#drag-and-drop-a-row-between-grids)
     * [Drag and Drop between Grid, TreeList, TreeView and Scheduler](#drag-and-drop-between-grid-treelist-treeview-and-scheduler)
-    * [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
+    * [Drag and Drop Multiple Rows](#drag-and-drop-multiple-rows)
 * [Limitations](#limitations)
 
 ## Basics
 
 To enable the Drag and Drop functionality:
 
-1. Set the `RowDraggable` parameter of the `<TelerikGrid>` to `true`
+1. Set the `RowDraggable` parameter of the `<TelerikGrid>` to `true`.
 
-1. Use the `OnRowDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
+1. Use the `OnRowDrop` event to handle drag and drop operations and modify the data source according to your business logic.
 
 The row drag and drop functionality works with a dedicated column which is always rendered as the first column when the feature is enabled.
 

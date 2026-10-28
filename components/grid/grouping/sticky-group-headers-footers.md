@@ -1,7 +1,7 @@
 ---
 title: Sticky Group Headers and Footers
 page_title: Grid - Sticky Group Headers and Footers
-description: How to enable sticky group header and footer rows in the Grid for Blazor so they remain visible while scrolling.
+description: Keep Telerik UI for Blazor Grid group headers and footers visible while users scroll through grouped data.
 slug: sticky-groups
 tags: telerik,blazor,grid,grouping,sticky,headers,footers,pinned
 published: True
@@ -11,7 +11,7 @@ components: ["grid"]
 
 # Sticky Group Headers and Footers
 
-The Grid supports sticky (pinned) group headers and footers. When the user scrolls past a group header, the header remains fixed at the top of the Grid scrollable area. Similarly, group footers stay pinned at the bottom of the scrollable area while the group data rows are partially visible.
+The Grid supports sticky (pinned) group headers and footers. When the user scrolls past a group header, the header remains fixed at the top of the Grid's scrollable area. Similarly, group footers stay pinned at the bottom of the scrollable area while the group data rows are partially visible.
 
 The sticky group header and footer rows display the same content as the original rows, including group field values, aggregates, and any custom cell content from [templates](slug:grid-templates-group-header).
 
@@ -28,6 +28,8 @@ When the user scrolls past a group header row, a duplicate of that header render
 With multiple group levels (for example, Team and then Active Projects), all ancestor group headers that are scrolled out of view stack in the top overlay. The shallowest (outermost) level displays at the top, and the deepest level displays at the bottom. As the scroll position approaches the end of a group, the sticky header for that group is pushed upward, making room for the next group header.
 
 >caption Enable sticky group headers
+
+The following snippet shows the relevant Grid settings. Add them inside a complete Grid definition.
 
 ````RAZOR.skip-repl
 <TelerikGrid>
@@ -58,7 +60,7 @@ The footer overlay appears at the bottom of the scrollable area while the group 
 </TelerikGrid>
 ````
 
-## Example
+## Sticky Headers and Footers Example
 
 The following example enables both sticky group headers and sticky group footers. Scroll the Grid to observe how the group header remains pinned at the top and the group footer remains pinned at the bottom of the scrollable area.
 
@@ -67,6 +69,8 @@ The following example enables both sticky group headers and sticky group footers
 <demo metaUrl="client/grid/grouping-sticky/" height="500"></demo>
 
 ## Limitations
+
+Sticky group headers and footers have the following limitations:
 
 * The feature is not available when the Grid uses [virtual scrolling]({%slug components/grid/virtual-scrolling%}), because grouping is not supported with virtualization.
 * Sticky group headers and footers do not work with [`LoadGroupsOnDemand`](slug:grid-group-lod), because load-on-demand mode does not support [aggregates](slug:grid-aggregates).

@@ -1,22 +1,22 @@
 ---
 title: Wai-Aria Support
 page_title: Telerik UI for Blazor Grid Documentation | Grid Accessibility
-description: "Get started with the Telerik UI for Blazor Grid and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.2."
+description: "Reference the Telerik UI for Blazor Grid selectors, ARIA roles, attributes, and accessibility behavior for keyboard navigation and screen readers."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: grid-wai-aria-support 
-position: 50 
+slug: grid-wai-aria-support
+position: 50
 ---
 
-# Blazor Grid Accessibility
+# Blazor Grid WAI-ARIA Support
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 
 
-Out of the box, the Telerik UI for Blazor Grid provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
+By default, the Telerik UI for Blazor Grid provides extensive accessibility support and helps users with disabilities interact with its features.
 
 
-The Grid is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The Grid meets the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements. It follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for [keyboard navigation](#keyboard-navigation) for its `component` role. It provides options for managing focus and is tested with popular screen readers.
 
 ## WAI-ARIA
 
@@ -24,121 +24,121 @@ The Grid is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 
-The Grid is a composite component that consists of 4 logically separated structural elements:
+The Grid is a composite component that consists of four logically separated structural elements:
 
 
- - Toolbar (`role=toolbar`);
- - Group header (`role=toolbar`);
- - Data Grid (`role=grid`);
- - Pager (`role=application`);
+- Toolbar (`role=toolbar`).
+- Group header (`role=toolbar`).
+- Data Grid (`role=grid`).
+- Pager (`role=application`).
 
 ### Grid Toolbar
 
 
-Grid Toolbar follows the specification of the ToolBar component.
+The Grid Toolbar follows the accessibility specification of the ToolBar component.
 
 [ToolBar accessibility specification]({{toolbar_a11y_link}})
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-grid-toolbar` | `role=toolbar` | The toolbar is a collection of command buttons and inputs. |
-|  | `aria-label` | Clarifies the purpose of the toolbar. |
-|  | `aria-controls=.k-grid-aria-root id` | Pointing to the id of the element with `role=grid`. |
+| `.k-grid-toolbar` | `aria-label` | Clarifies the purpose of the toolbar. |
+| `.k-grid-toolbar` | `aria-controls=.k-grid-aria-root id` | Points to the ID of the element with `role=grid`. |
 
 ### Grid Grouping Header
 
 
-Grid Grouping Header follows the specification of the ToolBar component.
+The Grid Grouping Header follows the accessibility specification of the ToolBar component.
 
 [ToolBar accessibility specification]({{toolbar_a11y_link}})
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| `.k-grouping-header` | `role=toolbar` | The Grouping header is a ToolBar (collection of buttons). |
-|  | `aria-label` | Clarifies the purpose of the header. |
-|  | `aria-controls=.k-grid-aria-root id` | Pointing to the id of the element with `role=grid`. |
+| `.k-grouping-header` | `role=toolbar` | The grouping header is a ToolBar that contains buttons. |
+| `.k-grouping-header` | `aria-label` | Clarifies the purpose of the header. |
+| `.k-grouping-header` | `aria-controls=.k-grid-aria-root id` | Points to the ID of the element with `role=grid`. |
 | `.k-grouping-header .k-chip-list .k-chip` | `role=button` | If the element used is not `<button>`, then the role must be specified. |
-| `.k-grouping-header .k-chip-list` | `role=none/` | The ChipList default listbox role is removed to keep the toolbar --> button roles hierarchy. |
-|  | `title` | Present on the element or its child if sorting is enabled for that field. |
+| `.k-grouping-header .k-chip-list` | `role=none` | Removes the default ChipList listbox role to preserve the toolbar-to-button role hierarchy. |
+| `.k-grouping-header .k-chip-list` | `title` | Present on the element or its child if sorting is enabled for that field. |
 
 ### Data Grid (excluding Toolbars and Pager)
 
 
 The element with `role=grid` must not include the ToolBar and the Pager elements as those do not belong to the `role=grid` element itself.
 
-#### Grid element
+#### Grid Element Attributes
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-grid:not(.k-treelist) .k-grid-aria-root` | `role=grid` | The role specifies the element is a Data Grid. |
-| `.k-grid-aria-root` | `aria-colcount` | The total number of columns in the Grid. Needed only for Virtual columns and Hidden columns scenarios, when not all columns are rendered in the DOM. If the total number of columns is unknown, the value of `aria-colcount` must be set to -1. |
-|  | `aria-rowcount` | The total number of rows in the table (header rows + master rows + detail rows + data rows + footer rows + aggregates rows). Needed only when Paging (and more that 1 page is present in the component), Virtual rows, or Master/Detail rows (Hierarchical Grid, Detail Template Grid) are enabled. If data is also Grouped, the proper number of all rows could not be calculated. In that case the value must be set to -1. |
+| `.k-grid-aria-root` | `aria-colcount` | The total number of columns in the Grid. This attribute is needed for virtual or hidden columns when not all columns are rendered in the DOM. If the total number of columns is unknown, set `aria-colcount` to `-1`. |
+| `.k-grid-aria-root` | `aria-rowcount` | The total number of rows in the table, including header, master, detail, data, footer, and aggregate rows. This attribute is needed when paging has more than one page, virtual rows are enabled, or master/detail rows are present. If the data is grouped, the correct row count cannot be calculated. In that case, set `aria-rowcount` to `-1`. |
 
 
-In scenarios when master and detail rows are present in the Grid (Hierarchical Grid, Detail Template Grid), the `aria-rowcount` (the total number of rows) must be calculated: 2 * (total number of items) + header rows + footer rows. That is because for each item in the Grid there is a master row and a detail row duplicating this way the number of rows.
+When master and detail rows are present in the Grid, such as in a Hierarchical Grid or Detail Template Grid, calculate `aria-rowcount` as follows: `2 * (total number of items) + header rows + footer rows`. Each item has one master row and one detail row.
 
 
-If the Grid is composed of a single table (there is no separate `<table>` element for its header), no `role` attributes should be set on its inner elements(`<thead>`, `<body>`, `<tr>`, `<th>`, and `<td>`). Their semantic meaning will be used instead.
+If the Grid uses a single table with no separate `<table>` element for its header, do not set `role` attributes on its inner elements (`<thead>`, `<tbody>`, `<tr>`, `<th>`, and `<td>`). Their native semantic meaning is used instead.
 
-#### Grid header
+#### Grid Header Attributes
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-grid-header-wrap>table` | `role=presentation/none` | Negates the default semantic role of the `<table>` element. |
 | `.k-grid-header-wrap>table>thead` | `role=rowgroup` | Required as the owner `<table>` element has its semantic role removed. |
-| `.k-grid-header-wrap>table>thead>tr` | `role=row` | Required as the owner `<table>` element has its semantic role removed. |
-|  | `aria-rowindex` | Row number including all headers, data (including master and detail) rows, and footers starting from 1. Needed only when Paging (and more that 1 page is present in the component), Virtual rows, or Master/Detail rows (Hierarchical Grid, Detail Template Grid) are enabled. If data is also Grouped, the proper indexing could not be calculated. Hence, the attribute must not be set. |
+| `.k-grid-header-wrap>table>thead>tr` | `role=row` | Required because the owner `<table>` element has its semantic role removed. |
+| `.k-grid-header-wrap>table>thead>tr` | `aria-rowindex` | The row number, including all header, data, and footer rows, starting from 1. This attribute is needed when paging has more than one page, virtual rows are enabled, or master/detail rows are present. If the data is grouped, the correct index cannot be calculated, so do not set the attribute. |
 | `.k-grid-header-wrap>table>thead>tr>th:not(.k-hierarchy-cell):not(.k-group-cell):not(.k-drag-cell)` | `role=columnheader` | Required as the owner `<table>` element has its semantic role removed. |
-|  | `aria-sort=none/ascending/descending` | Present if sorting is enabled for that column. |
-|  | `title` or `aria-label` | Present on the element or its child if sorting is enabled for that field. |
-|  | `aria-colindex` | Col number, based on leaf columns, starting from 1. Needed only for Virtual columns and Hidden columns scenarios, when not all columns are rendered in the DOM. Otherwise, can be interpreted from the DOM structure. Can be calculated by summing previous columns colspans. |
-|  | `aria-haspopup=dialog` | The attribute must be present if the column has a ColumnMenu. |
-|  | `aria-haspopup=dialog` | The attribute must be present if the column has a FilterMenu and no ColumnMenu. |
+| `.k-grid-header-wrap>table>thead>tr>th:not(.k-hierarchy-cell):not(.k-group-cell):not(.k-drag-cell)` | `aria-sort=none/ascending/descending` | Present if sorting is enabled for that column. |
+| `.k-grid-header-wrap>table>thead>tr>th:not(.k-hierarchy-cell):not(.k-group-cell):not(.k-drag-cell)` | `title` or `aria-label` | Present on the element or its child if sorting is enabled for that field. |
+| `.k-grid-header-wrap>table>thead>tr>th:not(.k-hierarchy-cell):not(.k-group-cell):not(.k-drag-cell)` | `aria-colindex` | The column number, based on leaf columns, starting from 1. This attribute is needed for virtual or hidden columns when not all columns are rendered in the DOM. Otherwise, the column number can be inferred from the DOM structure. Calculate it by summing the colspans of previous columns. |
+| `.k-grid-header-wrap>table>thead>tr>th:not(.k-hierarchy-cell):not(.k-group-cell):not(.k-drag-cell)` | `aria-haspopup=dialog` | Present if the column has a Column Menu. |
+| `.k-grid-header-wrap>table>thead>tr>th:not(.k-hierarchy-cell):not(.k-group-cell):not(.k-drag-cell)` | `aria-haspopup=dialog` | Present if the column has a Filter Menu and no Column Menu. |
 
-#### Grid filter row
+#### Grid Filter Row
 
 
 Even if part of the `<thead>`, the Filter row must be composed of `<td>` elements.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| `.k-grid-header-wrap>table>thead>tr.k-filter-row>td` | `role=gridcell` | Required as the owner `<table>` element has its semantic role removed. |
-|  | `aria-label` | Has a label indicating that the cell is part of a filter row. |
+| `.k-grid-header-wrap>table>thead>tr.k-filter-row>td` | `role=gridcell` | Required because the owner `<table>` element has its semantic role removed. |
+| `.k-grid-header-wrap>table>thead>tr.k-filter-row>td` | `aria-label` | Provides a label indicating that the cell is part of a filter row. |
 
-#### Grid filter menu
+#### Grid Filter Menu
 
 
 Implements the FilterMenu specification.
 
 [FilterMenu accessibility specification]({{filtermenu_a11y_link}})
 
-#### Grid column menu
+#### Grid Column Menu
 
 
 Implements the ColumnMenu specification.
 
 [ColumnMenu accessibility specification]({{columnmenu_a11y_link}})
 
-#### Grid content
+#### Grid Content Attributes
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-grid-content>table` | `role=none/presentation` | Negates the default semantic role of the `<table>` element. |
 | `.k-grid-content>table>tbody` | `role=rowgroup` | Required as the owner `<table>` element has its semantic role removed. |
-| `.k-grid-content>table>tbody>tr` | `role=row` | Required as the owner `<table>` element has its semantic role removed. |
-|  | `aria-rowindex` | Row number including all headers, data (including master and detail) rows, and footers starting from 1. Needed only when Paging (and more that 1 page is present in the component), Virtual rows, or Master/Detail rows (Hierarchical Grid, Detail Template Grid) are enabled. If data is also Grouped, the proper indexing could not be calculated. Hence, the attribute must not be set. In scenarios when master and detail rows are present in the Grid (Hierarchical Grid, Detail Template Grid), both master and detail rows must always be indexed. For example, if the first master row has `aria-rowindex=2`, even if its detail row is not present in the DOM, the next master row must have `aria-rowindex=4`. When rendered, the detail row must receive the missing index between the two master rows. In this example it would be `aria-rowindex=3`. |
-| `.k-grid-content tr.k-selected` | `aria-selected=true` | Set on the currently selected row(s). Only used wen selection mode is set to `row`. |
-| `.k-grid-content>table>tbody>tr>td` | `role=gridcell` | Required as the owner `<table>` element has its semantic role removed. |
-|  | `aria-colindex` | Col number, based on leaf columns, starting from 1. Needed only for Virtual columns and Hidden columns scenarios, when not all columns are rendered in the DOM. Otherwise, can be interpreted from the DOM structure. Can be calculated by summing previous columns colspans. |
+| `.k-grid-content>table>tbody>tr` | `role=row` | Required because the owner `<table>` element has its semantic role removed. |
+| `.k-grid-content>table>tbody>tr` | `aria-rowindex` | The row number, including all header, data, and footer rows, starting from 1. This attribute is needed when paging has more than one page, virtual rows are enabled, or master/detail rows are present. If the data is grouped, the correct index cannot be calculated, so do not set the attribute. When master and detail rows are present, index both rows. For example, if the first master row has `aria-rowindex=2` and its detail row is not in the DOM, the next master row must have `aria-rowindex=4`. When rendered, the detail row receives the missing index, `aria-rowindex=3`. |
+| `.k-grid-content tr.k-selected` | `aria-selected=true` | Set on the currently selected row or rows. Used only when the selection mode is set to `row`. |
+| `.k-grid-content>table>tbody>tr>td` | `role=gridcell` | Required because the owner `<table>` element has its semantic role removed. |
+| `.k-grid-content>table>tbody>tr>td` | `aria-colindex` | The column number, based on leaf columns, starting from 1. This attribute is needed for virtual or hidden columns when not all columns are rendered in the DOM. Otherwise, the column number can be inferred from the DOM structure. Calculate it by summing the colspans of previous columns. |
 | `td.k-selected` | `aria-selected=true` | Set on the currently selected cell(s). Only used when selection mode is set to cell. |
 | `.k-master-row .k-hierarchy-cell,.k-grouping-row>td` | `aria-expanded=true/false` | Optionally for cells holding grouping criteria values and for Master row cells in Detail template scenario. |
 | `.k-drag-cell` | `aria-label` | Must be present in a Drag Row scenario on the cell containing the drag handle. |
-| `.k-grid-header-locked .k-grid-header-table .k-table-row` | `aria-owns` | When there are locked columns, the rows from the `locked` header table should `own` the cells from the corresponding non-locked header table rows. Value should be a space-separated list of `id`s. |
-| `.k-grid-content-locked .k-grid-table .k-table-row` | `aria-owns` | When there are locked columns, the rows from the `locked` content table should `own` the cells from the corresponding non-locked content table rows. Value should be a space-separated list of `id`s. |
-| `.k-grid-header-wrap .k-grid-header-table .k-table-row` | `role=presentation/none` | When there are locked columns, the rows from the non-locked header table should have their default semantic role removed, as their children are owned by the corresponding row from the locked table. |
-| `.k-grid-content .k-grid-table .k-table-row` | `role=presentation/none` | When there are locked columns, the rows from the non-locked content table should have their default semantic role removed, as their children are owned by the corresponding row from the locked table. |
+| `.k-grid-header-locked .k-grid-header-table .k-table-row` | `aria-owns` | When locked columns are present, the rows from the locked header table own the cells from the corresponding non-locked header table rows. The value is a space-separated list of IDs. |
+| `.k-grid-content-locked .k-grid-table .k-table-row` | `aria-owns` | When locked columns are present, the rows from the locked content table own the cells from the corresponding non-locked content table rows. The value is a space-separated list of IDs. |
+| `.k-grid-header-wrap .k-grid-header-table .k-table-row` | `role=presentation/none` | When locked columns are present, the rows from the non-locked header table have their default semantic role removed because their children are owned by the corresponding row from the locked table. |
+| `.k-grid-content .k-grid-table .k-table-row` | `role=presentation/none` | When locked columns are present, the rows from the non-locked content table have their default semantic role removed because their children are owned by the corresponding row from the locked table. |
 
-#### Grid popup editor
+#### Grid Popup Editor
 
 
 The popup editor consists of a Window component containing a Form component.
@@ -147,27 +147,27 @@ The popup editor consists of a Window component containing a Form component.
 
 [Form accessibility specification]({{form_a11y_link}})
 
-#### Grid footer
+#### Grid Footer Attributes
 
 
-The Aggregates totals are placed within a `<tfoot>` element in the Content `<table>`.
+Aggregate totals are placed within a `<tfoot>` element in the content `<table>`.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `tfoot` | `role=rowgroup` | Required as the owner `<table>` element has its semantic role removed. |
-| `tfoot>tr` | `role=row` | Required as the owner `<table>` element has its semantic role removed. |
-|  | `aria-rowindex` | Row number including all headers, data (including master and detail) rows, and footers starting from 1. Footer rows are always the last ones in a Grid. Needed only when Paging (and more that 1 page is present in the component), Virtual rows, or Master/Detail rows (Hierarchical Grid, Detail Template Grid) are enabled. If data is also Grouped, the proper indexing could not be calculated. Hence, the attribute must not be set. |
-| `tfoot>tr>td` | `role=gridcell` | Required as the owner `<table>` element has its semantic role removed. |
-|  | `aria-colindex` | Col number, based on leaf columns, starting from 1. Needed only for Virtual columns and Hidden columns scenarios, when not all columns are rendered in the DOM. Otherwise, can be interpreted from the DOM structure. Can be calculated by summing previous columns colspans. |
+| `tfoot>tr` | `role=row` | Required because the owner `<table>` element has its semantic role removed. |
+| `tfoot>tr` | `aria-rowindex` | The row number, including all header, data, and footer rows, starting from 1. Footer rows are always the last rows in a Grid. This attribute is needed when paging has more than one page, virtual rows are enabled, or master/detail rows are present. If the data is grouped, the correct index cannot be calculated, so do not set the attribute. |
+| `tfoot>tr>td` | `role=gridcell` | Required because the owner `<table>` element has its semantic role removed. |
+| `tfoot>tr>td` | `aria-colindex` | The column number, based on leaf columns, starting from 1. This attribute is needed for virtual or hidden columns when not all columns are rendered in the DOM. Otherwise, the column number can be inferred from the DOM structure. Calculate it by summing the colspans of previous columns. |
 
-### Pager
+### Grid Pager Accessibility
 
 
-For the Grid Pager WAI-ARIA spec, please review the Pager component.
+For the Grid Pager WAI-ARIA specification, refer to the Pager component.
 
 [Pager accessibility specification]({{pager_a11y_link}})
 
-#### Grid selection aggregates
+### Grid Selection Aggregates
 
 
 The selection aggregates are placed within a `.k-grid-selection-aggregates` element after the Grid `.k-grid-aria-root` element.
@@ -179,13 +179,13 @@ The selection aggregates are placed within a `.k-grid-selection-aggregates` elem
 ### Data Grid Stacked Layout
 
 
-The element is a regular Grid cell (td element) that holds a stacked layout content representing all available column headers and content for the given row. All internal "stacked cell" elements become focusable when focus is moved within the cell.
+The element is a regular Grid cell (`td`) that holds stacked layout content representing all available column headers and content for the row. All internal "stacked cell" elements become focusable when focus moves within the cell.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| `.k-grid-stack-cell` | `tabindex=0` | "Stacked cell" elements receive tabindex '0' when focus is within their parent '.k-grid-stack-row' element. This allows the end user to navigate through the content using Tab. The tabindex attribute is removed when focus leaves the '.k-grid-stack-row' element. |
+| `.k-grid-stack-cell` | `tabindex=0` | "Stacked cell" elements receive `tabindex=0` when focus is within their parent `.k-grid-stack-row` element. This allows users to navigate through the content with Tab. The `tabindex` attribute is removed when focus leaves the `.k-grid-stack-row` element. |
 
-## Resources
+## Grid WAI-ARIA Resources
 
 [WAI-ARIA specification for grid](https://www.w3.org/TR/wai-aria-1.2/#grid)
 
@@ -194,17 +194,17 @@ The element is a regular Grid cell (td element) that holds a stacked layout cont
 
 The Grid is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
-## Testing
+## Testing Grid Accessibility
 
 
 The Grid has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
+>note To report accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
 
 
-The Grid has been tested with the following screen readers and browsers combinations:
+The Grid has been tested with the following screen reader and browser combinations:
 
 | Environment | Tool |
 | ----------- | ---- |
