@@ -13,9 +13,7 @@ components: ["stockchart"]
 
 A **Candlestick** chart shows data for the movement of the price of a financial unit. It consists of a bar (the candle), representing the open and close values, and vertical lines, the candlesticks, which illustrate the highest and lowest values.
 
->caption Candlestick series in a stock chart. Results from the first code snippet below.
-
-![Blazor Basic Candlestick Chart](images/basic-candlestick-chart.png)
+>caption Candlestick series in a stock chart.
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 
@@ -30,90 +28,7 @@ To add a `Candlestick` chart to a stock chart component::
 
 >caption Candlestick chart that shows the deviation of stock prices.
 
-````RAZOR
-@* Candlestick stock chart *@
-
-<TelerikStockChart Height="450px" 
-                   Width="700px"
-                   DateField="@nameof(StockDataPoint.Date)">
-
-    <StockChartCategoryAxes>
-        <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months">
-        </StockChartCategoryAxis>
-    </StockChartCategoryAxes>
-
-    <StockChartSeriesItems>
-        <StockChartSeries Type="StockChartSeriesType.Candlestick"
-                          Name="Product 1"
-                          Data="@StockChartProduct1Data"
-                          OpenField="@nameof(StockDataPoint.Open)"
-                          CloseField="@nameof(StockDataPoint.Close)"
-                          HighField="@nameof(StockDataPoint.High)"
-                          LowField="@nameof(StockDataPoint.Low)">
-        </StockChartSeries>
-    </StockChartSeriesItems>
-
-    <StockChartNavigator>
-        <StockChartNavigatorSeriesItems>
-            <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
-                                       Name="Product 1"
-                                       Data="@StockChartProduct1Data"
-                                       Field="@(nameof(StockDataPoint.High))"
-                                       CategoryField="@(nameof(StockDataPoint.Date))">
-            </StockChartNavigatorSeries>
-        </StockChartNavigatorSeriesItems>
-    </StockChartNavigator>
-
-</TelerikStockChart>
-
-@code {
-    public List<StockDataPoint> StockChartProduct1Data { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GenerateChartData();
-    }
-
-    public async Task GenerateChartData()
-    {
-        StockChartProduct1Data = new List<StockDataPoint>()
-        {
-            new StockDataPoint(new DateTime(2019, 1, 1), 41.62m, 40.12m, 41.69m, 39.81m, 2632000),
-            new StockDataPoint(new DateTime(2019, 2, 1), 39.88m, 40.12m, 41.12m, 39.75m, 3584700),
-            new StockDataPoint(new DateTime(2019, 3, 1), 42m, 42.62m, 43.31m, 41.38m, 7631700),
-            new StockDataPoint(new DateTime(2019, 4, 1), 42.25m, 43.06m, 43.31m, 41.12m, 4922200)
-        };
-
-        await Task.FromResult(StockChartProduct1Data);
-    }
-
-    public class StockDataPoint
-    {
-        public StockDataPoint() { }
-
-        public StockDataPoint(DateTime date, decimal open, decimal close, decimal high, decimal low, int volume)
-        {
-            Date = date;
-            Open = open;
-            Close = close;
-            High = high;
-            Low = low;
-            Volume = volume;
-        }
-        public DateTime Date { get; set; }
-
-        public decimal Open { get; set; }
-
-        public decimal Close { get; set; }
-
-        public decimal High { get; set; }
-
-        public decimal Low { get; set; }
-
-        public int Volume { get; set; }
-    }
-}
-````
+<demo metaUrl="client/stockchart/types/candlestick/example-1/" height="520"></demo>
 
 
 ## Candlestick Specific Appearance Settings

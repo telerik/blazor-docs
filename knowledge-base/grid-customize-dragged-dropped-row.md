@@ -116,7 +116,7 @@ Here is an example. Note that the customized item will match only the last dropp
 
     void OnRowRenderHandler(GridRowRenderEventArgs args)
     {
-        var item = args.Item as SampleData;
+        var item = (SampleData)args.Item;
 
         if (item.Id == droppedItem.Id)
         {

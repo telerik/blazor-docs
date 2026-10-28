@@ -28,22 +28,7 @@ To use the Reasoning component:
 
 >caption Completed Reasoning block showing agent scratchpad content
 
-````RAZOR
-<TelerikReasoning Label="Thought"
-                  SecondaryLabel="for 5s"
-                  Expandable="true"
-                  @bind-Expanded="@IsExpanded"
-                  Completed="true">
-    <ContentTemplate>
-        <p>I need to sum revenue per customer for Q1 2025 and return the top 5 results ordered descending.</p>
-        <p>I'll use query_database with a GROUP BY on customer_name and limit to 5 results.</p>
-    </ContentTemplate>
-</TelerikReasoning>
-
-@code {
-    private bool IsExpanded { get; set; } = true;
-}
-````
+<demo metaUrl="client/llmkit/reasoning/example-1/" height="300"></demo>
 
 ## Reasoning API
 

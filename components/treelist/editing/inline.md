@@ -76,33 +76,7 @@ The example below shows how to:
 
 >caption TreeList inline editing
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(Employee.Id)"
-                 ParentIdField="@nameof(Employee.ParentId)"
-                 ConfirmDelete="true"
-                 EditMode="@TreeListEditMode.Inline"
-@[template](/_contentTemplates/treelist/editing.md#basic-example-parameters-columns)
-        <TreeListCommandColumn Width="200px">
-            <TreeListCommandButton Command="Add">Add</TreeListCommandButton>
-            <TreeListCommandButton Command="Edit">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" ShowInEdit="true">Save</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete">Delete</TreeListCommandButton>
-        </TreeListCommandColumn>
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-@[template](/_contentTemplates/treelist/editing.md#basic-example-code)
-
-@[template](/_contentTemplates/treelist/editing.md#flat-crud-service-and-model)
-}
-````
+<demo metaUrl="client/treelist/editing/inline/example-1/" height="720"></demo>
 
 ## See Also
 

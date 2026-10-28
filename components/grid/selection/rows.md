@@ -1,7 +1,7 @@
 ---
 title: Row Selection
 page_title: Grid - Rows Selection
-description: Learn how to select row in Blazor Grid component. Explore the selected rows. Discover row selection bevahior when combined with other Grid features. Try the practical sample code for row selection.
+description: Learn how to select row in Blazor Grid component. Explore the selected rows. Discover row selection behavior when combined with other Grid features. Try the practical sample code for row selection.
 slug: grid-selection-row
 tags: telerik,blazor,grid,selection,rows
 previous_url: /components/grid/selection/single,/components/grid/selection/multiple

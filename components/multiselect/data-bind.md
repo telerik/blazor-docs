@@ -33,50 +33,12 @@ To bind the MultiSelect, you need to:
 
 >caption Data binding an MultiSelect to a simple string data source
 
-````RAZOR
-@*Bind to an IEnumerable<string>*@
-
-<TelerikMultiSelect Data="@Options" @bind-Value="@TheValues" />
-
-@if (TheValues?.Count > 0)
-{
-    <ul>
-        @foreach (var item in TheValues)
-        {
-            <li>@item</li>
-        }
-    </ul>
-}
-
-@code{
-    List<string> TheValues { get; set; }
-    List<string> Options { get; set; } = new List<string> { "first", "second", "third" };
-}
-````
+<demo metaUrl="client/multiselect/data-bind/example-1/" height="420"></demo>
 
 
 >caption Data binding an MultiSelect to a simple number data source
 
-````RAZOR
-@*Bind to an IEnumerable<int>*@
-
-<TelerikMultiSelect Data="@Options" @bind-Value="@TheValues" />
-
-@if (TheValues?.Count > 0)
-{
-    <ul>
-        @foreach (int item in TheValues)
-        {
-            <li>@item</li>
-        }
-    </ul>
-}
-
-@code{
-    List<int> TheValues { get; set; }
-    List<int> Options { get; set; } = Enumerable.Range(1,20).ToList();
-}
-````
+<demo metaUrl="client/multiselect/data-bind/example-2/" height="420"></demo>
 
 
 
@@ -92,38 +54,7 @@ To bind the MultiSelect to a model:
 
 >caption Data binding an MultiSelect to a model
 
-````RAZOR
-@*Bind to an IEnumerable<model>*@
-
-<TelerikMultiSelect Data="@Options" @bind-Value="@TheValues"
-                    TextField="StringRepresentation" ValueField="MyValueField" />
-
-@if (TheValues?.Count > 0)
-{
-    <ul>
-        @foreach (int item in TheValues)
-        {
-            <li>@item</li>
-        }
-    </ul>
-}
-
-@code{
-    List<int> TheValues { get; set; }
-    List<OptionsModel> Options { get; set; } = new List<OptionsModel>
-    {
-        new OptionsModel { StringRepresentation = "first",  MyValueField = 1 },
-        new OptionsModel { StringRepresentation = "second", MyValueField = 2 },
-        new OptionsModel { StringRepresentation = "third",  MyValueField = 3 }
-    };
-
-    public class OptionsModel
-    {
-        public string StringRepresentation { get; set; }
-        public int MyValueField { get; set; } // this determines the type of the values list
-    }
-}
-````
+<demo metaUrl="client/multiselect/data-bind/example-3/" height="420"></demo>
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
@@ -137,29 +68,7 @@ In case you cannot provide either of a `Value`, or `Data`, or both when the comp
 
 >caption MultiSelect configuration if you cannot provide Value or Data
 
-````RAZOR
-@*How to declare the MultiSelect if no Value or Data are provided*@
-
-<TelerikMultiSelect Data="@MultiSelectData"
-                    TItem="@MultiSelectItem"
-                    TValue="@int"
-                    TextField="@nameof(MultiSelectItem.Text)"
-                    ValueField="@nameof(MultiSelectItem.Value)">
-</TelerikMultiSelect>
-
-@code {
-    //The same configuration applies if MultiSelectData is null initially and is populated later
-    private IEnumerable<MultiSelectItem> MultiSelectData = Enumerable.Range(1, 20)
-        .Select(x => new MultiSelectItem { Text = "item " + x, Value = x });
-
-    public class MultiSelectItem
-    {
-        public string Text { get; set; } = string.Empty;
-
-        public int Value { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multiselect/data-bind/example-4/" height="420"></demo>
 
 
 ## See Also

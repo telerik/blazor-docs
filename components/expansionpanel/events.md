@@ -24,39 +24,7 @@ Make sure to update the value of the `Expanded` parameter by using the boolean a
 
 >caption Using the ExpansionPanel events
 
-````RAZOR
-<p>Last Event: @ExpansionPanelEventLog</p>
-
-<p><TelerikButton OnClick="@OnToggleButtonClick">Toggle</TelerikButton></p>
-
-<TelerikExpansionPanel @ref="ExpansionPanelRef"
-                       Expanded="@ExpansionPanelExpanded"
-                       ExpandedChanged="@ExpansionPanelExpandedChanged"
-                       Title="Expansion Panel Title">
-    <Content>
-        ExpansionPanel Content
-    </Content>
-</TelerikExpansionPanel>
-
-@code {
-    private TelerikExpansionPanel? ExpansionPanelRef;
-
-    private bool ExpansionPanelExpanded { get; set; }
-
-    private string ExpansionPanelEventLog { get; set; } = string.Empty;
-
-    private void ExpansionPanelExpandedChanged(bool newExpanded)
-    {
-        ExpansionPanelExpanded = newExpanded;
-        ExpansionPanelEventLog = $"ExpansionPanel ExpandedChanged event fired with new value: {newExpanded}";
-    }
-
-    private async Task OnToggleButtonClick()
-    {
-        await ExpansionPanelRef!.ToggleAsync();
-    }
-}
-````
+<demo metaUrl="client/expansionpanel/events/events-1/" height="420"></demo>
 
 ## See Also
 

@@ -25,36 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazo
 
 >caption Basic Radio Button Group configuration.
 
-````RAZOR
-Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString() )
-<br />
-
-<TelerikRadioGroup Data="@GenderOptions"
-                   @bind-Value="@ChosenGender"
-                   ValueField="@nameof(GenderModel.GenderId)"
-                   TextField="@nameof(GenderModel.GenderText)">
-</TelerikRadioGroup>
-
-@code{
-    TelerikRadioGroup<GenderModel, int?> RadioGroupRef { get; set; }
-
-    int ChosenGender { get; set; }
-
-    List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
-    {
-        new GenderModel { GenderId = 1, GenderText = "Female" },
-        new GenderModel { GenderId = 2, GenderText = "Male" },
-        new GenderModel { GenderId = 3, GenderText = "Other" },
-        new GenderModel { GenderId = 4, GenderText = "Prefer not to say" },
-    };
-
-    public class GenderModel
-    {
-        public int GenderId { get; set; }
-        public string GenderText { get; set; }
-    }
-}
-````
+<demo metaUrl="client/radiogroup/overview/example-2/" height="420"></demo>
 
 ## Data Binding
 
@@ -108,40 +79,7 @@ The RadioGroup provides a `FocusItemAsync` method that allows the application to
 
 >caption Using RadioGroup `FocusItemAsync` method
 
-````RAZOR
-<TelerikButton OnClick="@FocusLastRadioItem">Focus Last Radio Item</TelerikButton>
-
-<TelerikRadioGroup @ref="@RadioGroupRef"
-                   Data="@RadioGroupData"
-                   @bind-Value="@RadioGroupValue"
-                   ValueField="@nameof(ListItem.Id)"
-                   TextField="@nameof(ListItem.Text)">
-</TelerikRadioGroup>
-
-@code{
-    private TelerikRadioGroup<ListItem, int?>? RadioGroupRef { get; set; }
-
-    private int? RadioGroupValue { get; set; }
-
-    List<ListItem> RadioGroupData { get; set; } = new List<ListItem>() {
-        new ListItem { Id = 1, Text = "Foo" },
-        new ListItem { Id = 2, Text = "Bar" },
-        new ListItem { Id = 3, Text = "Baz" }
-    };
-
-    private async Task FocusLastRadioItem()
-    {
-        // focus last radio item
-        await RadioGroupRef!.FocusItemAsync(2);
-    }
-
-    public class ListItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-    }
-}
-````
+<demo metaUrl="client/radiogroup/overview/example-1/" height="420"></demo>
 
 ## Next Steps
 

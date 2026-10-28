@@ -24,23 +24,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange and use two-way binding for the Value
 
-````RAZOR
-@MyColor
-<br />
-
-<TelerikColorPalette @bind-Value="@MyColor" OnChange="@OnChangeHandler">
-</TelerikColorPalette>
-
-@code {
-    string MyColor { get; set; }
-    
-    async Task OnChangeHandler(object color)
-    {
-        string selectedColor = (string)color;
-        Console.WriteLine($"two-way binding: {MyColor}, event argument: {selectedColor}");
-    }
-}
-````
+<demo metaUrl="client/colorpalette/events/on-change/" height="420"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -53,25 +37,7 @@ The `ValueChanged` event fires upon every change (selection of color) in the com
 
 >caption Handle ValueChanged
 
-````RAZOR
-@MyColor
-<br />
-
-<TelerikColorPalette Value="@MyColor" ValueChanged="@ValueChangedHandler">
-</TelerikColorPalette>
-
-@code {
-    string MyColor { get; set; }
-    
-    async Task ValueChangedHandler(string color)
-    {
-        // make sure to update the view-model. If you don't, you will effectively cancel the event
-        MyColor = color;
-
-        Console.WriteLine($"The user selected the color {MyColor}");
-    }
-}
-````
+<demo metaUrl="client/colorpalette/events/value-changed/" height="420"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -84,24 +50,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-@MyColor
-<br />
-
-<TelerikColorPalette @bind-Value="@MyColor" OnBlur="@OnBlurHandler">
-</TelerikColorPalette>
-
-@code {
-    string MyColor { get; set; }
-    
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"Lost focus. The color is {MyColor}");
-    }
-}
-````
+<demo metaUrl="client/colorpalette/events/on-blur/" height="420"></demo>
 
 ## See Also
 

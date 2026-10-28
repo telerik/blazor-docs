@@ -19,61 +19,7 @@ The group headers stick to the top of the dropdown during scrolling. In other wo
 
 >caption Grouping in the MultiColumnComboBox
 
-````RAZOR
-<TelerikMultiColumnComboBox Data="@MultiComboData"
-                            @bind-Value="@SelectedProduct"
-                            ValueField="@nameof(Product.Id)"
-                            TextField="@nameof(Product.Name)"
-                            GroupField="Category.Name"
-                            Width="300px">
-    <MultiColumnComboBoxColumns>
-        <MultiColumnComboBoxColumn Field="@nameof(Product.Name)" Title="Product"></MultiColumnComboBoxColumn>
-        <MultiColumnComboBoxColumn Field="@nameof(Product.Quantity)"></MultiColumnComboBoxColumn>
-    </MultiColumnComboBoxColumns>
-</TelerikMultiColumnComboBox>
-
-<TelerikGrid Data="@MultiComboData" Pageable="true" Groupable="true">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)"></GridColumn>
-        <GridColumn Field="Category.Name"></GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Product> MultiComboData { get; set; }
-
-    private int SelectedProduct { get; set; }
-
-    protected override void OnInitialized()
-    {
-        var rnd = new Random();
-
-        MultiComboData = Enumerable.Range(1, 30).Select(x => new Product()
-        {
-            Id = x,
-            Name = $"Product {x}",
-            Category = new Category() { Id = x % 7 + 1, Name = $"Category {x % 7 + 1}" },
-            Quantity = rnd.Next(0, 30)
-        }).ToList();
-
-        base.OnInitialized();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public Category Category { get; set; }
-        public int Quantity { get; set; }
-    }
-
-    public class Category
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/grouping/example-1/" height="420"></demo>
 
 # Notes
 

@@ -15,76 +15,13 @@ The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu
 
 ## Creating Blazor Menu
 
-1. Use the `TelerikMenu` tag to add the component to your razor page.
+1. Use the `TelerikMenu` tag to add the component to your Razor page.
 
 1. Populate the `Data` property with the collection of items that you want to appear in the menu. The Menu will automatically recognize property names like `Id`, `ParentId`, `Text` and a few others. Otherwise, [use bindings to configure custom property names](slug:components/menu/data-binding/overview#data-bindings).
 
 >caption Basic Menu with hierarchical data binding and built-in navigation
 
-````RAZOR
-@*Use a Menu to navigate between views*@
-
-<TelerikMenu Data="@MenuItems"/>
-
-@code {
-    public List<MenuItem> MenuItems { get; set; }
-
-    public class MenuItem
-    {
-        public string Text { get; set; }
-        public string Url { get; set; }
-        public List<MenuItem> Items { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        MenuItems = new List<MenuItem>()
-        {
-            new MenuItem()
-            {
-                Text = "Company", // items that don't have a URL will not render links
-                Items = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Text = "Overview",
-                        Url = "company/overview"
-                    },
-                    new MenuItem()
-                    {
-                        Text = "Events",
-                        Url = "company/events"
-                    },
-                    new MenuItem()
-                    {
-                        Text = "Careers",
-                        Url = "company/careers"
-                    }
-                }
-            },
-            new MenuItem()
-            {
-                Text = "Services",
-                Items = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Text = "Consulting",
-                        Url = "consultingservices"
-                    },
-                    new MenuItem()
-                    {
-                        Text = "Education",
-                        Url = "education"
-                    }
-                }
-            }
-        };
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/menu/overview/example-1/" height="320"></demo>
 
 ## Data Binding
 
@@ -121,14 +58,14 @@ The Blazor Menu generates events that you can handle and further customize its b
 
 ## Menu Parameters
 
-The following table lists Context Menu parameters, which are not related to other features on this page. Check the [Menu API Reference](slug:Telerik.Blazor.Components.TelerikMenu-1) for a full list of properties, methods and events.
+The following table lists Menu parameters, which are not related to other features on this page. Check the [Menu API Reference](slug:Telerik.Blazor.Components.TelerikMenu-1) for a full list of properties, methods, and events.
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme](slug:themes-override). |
-| `CloseOnClick` | `bool` | Determines whether the Menu popups should close when they are clicked.
+| `CloseOnClick` | `bool` | Determines whether the Menu popups should close when they are clicked. |
 | `ShowOn` | `MenuShowEvent` enum <br /> (`MouseEnter`) | The browser event that will trigger child Menu items to show (mouse enter or click). |
-| `HideOn` | `MenuHideEvent` enum <br /> (`MouseLeave`) | The browser event that will trigger child Menu items to hide (mouse leave or click).
+| `HideOn` | `MenuHideEvent` enum <br /> (`MouseLeave`) | The browser event that will trigger child Menu items to hide (mouse leave or click). |
 
 ### Popup settings
 
@@ -136,13 +73,7 @@ The popup of the component can be additionally customized via nested tags:
 
 <div class="skip-repl"></div>
 
-````RAZOR
-<TelerikMenu>
-    <MenuSettings>
-        <MenuPopupSettings HorizontalCollision="..."/>
-    </MenuSettings>
-</TelerikMenu>
-````
+<demo metaUrl="client/menu/overview/example-2/" height="320"></demo>
 
 The Menu provides the following popup settings:
 

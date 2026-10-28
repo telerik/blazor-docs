@@ -23,27 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 
 >caption Basic Splitter
 
-````RAZOR
-<TelerikSplitter Orientation="@SplitterOrientation.Horizontal"
-                 Width="80%"
-                 Height="200px">
-    <SplitterPanes>
-
-        <SplitterPane Size="100px" Min="50px" Max="150px" Collapsible="true">
-            Left pane. Users can collapse it or resize it between 50px and 150px.
-        </SplitterPane>
-
-        <SplitterPane Collapsible="false">
-            Middle pane, which cannot be collapsed.
-        </SplitterPane>
-
-        <SplitterPane Collapsed="true" Collapsible="true" Resizable="false" Size="100px">
-            Right pane that is 100px wide and initially collapsed. Users cannot resize it.
-        </SplitterPane>
-
-    </SplitterPanes>
-</TelerikSplitter>
-````
+<demo metaUrl="client/splitter/overview/example-2/" height="420"></demo>
 
 >tip The following sample app shows how to create a 100%-high page layout with a Splitter that includes a header, footer, and sidebar: <a href="https://github.com/telerik/blazor-ui/tree/master/splitter/use-100-percent-viewport" target="_blank">How to make the Splitter take up 100% of the viewport</a>.
 
@@ -88,30 +68,7 @@ Add a reference to the component instance to use the [Splitter methods](slug:Tel
 | `GetState` | Gets the current [state](slug:splitter-state) of the Splitter.
 | `SetState` | Sets the current [state](slug:splitter-state) of the Splitter.
 
-````RAZOR
-<TelerikButton OnClick="@GetSplitterState">Get Splitter State</TelerikButton>
-
-<TelerikSplitter @ref="@SplitterRef"
-                 Height="200px">
-    <SplitterPanes>
-        <SplitterPane>
-            <div>left sidebar</div>
-        </SplitterPane>
-        <SplitterPane>
-            <div>right hand side pane - content.</div>
-        </SplitterPane>
-    </SplitterPanes>
-</TelerikSplitter>
-
-@code {
-    private TelerikSplitter? SplitterRef { get; set; }
-
-    private void GetSplitterState()
-    {
-        var splitterState = SplitterRef?.GetState();
-    }
-}
-````
+<demo metaUrl="client/splitter/overview/example-1/" height="420"></demo>
 
 ## Next Steps
 

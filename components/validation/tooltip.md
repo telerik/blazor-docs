@@ -61,47 +61,7 @@ The following example sets a `Tooltip` `ValidationMessageType` on the Form. This
 
 >caption Use Telerik ValidationTooltip in a Telerik Form
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             Width="300px"
-             ValidationMessageType="@FormValidationMessageType.Tooltip">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name">
-            <Template>
-                <label for="first-name" class="k-label k-form-label">First Name</label>
-                <div class="k-form-field-wrap">
-                    <TelerikTextBox @bind-Value="@Employee.FirstName"
-                                    Id="first-name" />
-                    <TelerikValidationTooltip For="@(() => Employee.FirstName)"
-                                              Position="@TooltipPosition.Right"
-                                              TargetSelector="#first-name" />
-                </div>
-            </Template>
-        </FormItem>
-        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "Please enter a first name")]
-        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
-        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/validation/tooltip/example-1/" height="420"></demo>
 
 ## Using with EditForm
 
@@ -109,45 +69,7 @@ In an existing Blazor `EditForm`, replace the `<ValidationMessage>` tags with `<
 
 >caption Use Telerik Validation Tooltip in an EditForm
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<EditForm Model="@Employee" style="width:300px">
-    <DataAnnotationsValidator />
-
-    <label for="first-name">First Name</label>
-    <TelerikTextBox @bind-Value="@Employee.FirstName" Id="first-name" />
-    <TelerikValidationTooltip For="@(() => Employee.FirstName)"
-                              Position="@TooltipPosition.Right"
-                              TargetSelector="#first-name" />
-
-
-    <label for="last-name">Last Name</label>
-    <TelerikTextBox @bind-Value="@Employee.LastName" Id="last-name" />
-    <TelerikValidationTooltip For="@(() => Employee.LastName)"
-                              Position="@TooltipPosition.Right"
-                              TargetSelector="#last-name" />
-
-    <div>
-        <TelerikButton>Submit</TelerikButton>
-    </div>
-</EditForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "Please enter a first name")]
-        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
-        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/validation/tooltip/example-2/" height="420"></demo>
 
 ## Position
 
@@ -159,74 +81,13 @@ The Telerik ValidationTooltip allows you to customize its rendering with a neste
 
 >caption Using ValidationTooltip Template
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             Width="300px"
-             ValidationMessageType="@FormValidationMessageType.Tooltip">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name">
-            <Template>
-                <label for="first-name" class="k-label k-form-label">First Name</label>
-                <div class="k-form-field-wrap">
-                    <TelerikTextBox @bind-Value="@Employee.FirstName"
-                                    Id="first-name" />
-                    <TelerikValidationTooltip For="@(() => Employee.FirstName)"
-                                              Position="@TooltipPosition.Right"
-                                              TargetSelector="#first-name">
-                        <Template Context="validationMessages">
-                            @foreach (string message in validationMessages)
-                            {
-                                <div>
-                                    <span style="display:flex; gap: .4em;">
-                                        <TelerikSvgIcon Icon="@SvgIcon.ExclamationCircle" />
-                                        @message
-                                    </span>
-                                </div>
-                            }
-                        </Template>
-                    </TelerikValidationTooltip>
-                </div>
-            </Template>
-        </FormItem>
-        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "Please enter a first name")]
-        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
-        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/validation/tooltip/example-3/" height="420"></demo>
 
 ## Class
 
 Use the `Class` parameter of the Validation Tooltip to add a custom CSS class to `div.k-animation-container`. This element wraps the `div.k-tooltip` and element and its child `div.k-tooltip`.
 
-````RAZOR
-<TelerikValidationTooltip Class="bold-red" />
-
-<style>
-    .bold-red .k-tooltip-content {
-        font-weight: bold;
-        color: var(--kendo-color-error);
-    }
-</style>
-````
+<demo metaUrl="client/validation/tooltip/example-4/" height="420"></demo>
 
 ## See Also
 

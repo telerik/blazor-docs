@@ -23,17 +23,7 @@ The <a href = "https://www.telerik.com/blazor-ui/colorgradient" target="_blank">
 
 >caption Blazor ColorGradient with initially selected color.
 
-````RAZOR
-@* Blazor ColorGradient *@
-
-<TelerikColorGradient @bind-Value="@ColorGradientValue"
-                      ValueFormat="@ColorFormat.Hex">
-</TelerikColorGradient>
-
-@code {
-   private string ColorGradientValue { get; set; } = "#282f89";
-}
-````
+<demo metaUrl="client/colorgradient/overview/" height="470"></demo>
 
 ## Events
 

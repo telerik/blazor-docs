@@ -17,33 +17,7 @@ To keep Tab content in the DOM after the Tab is deactivated, set the `PersistCon
 
 >caption Persist the TabStrip content
 
-````RAZOR
-<h3>PersistTabContent="true"</h3>
-
-<TelerikTabStrip PersistTabContent="true">
-    <TabStripTab Title="First">
-        Type something in the textbox. Go to the other tab and then return.
-        <br />
-        <TelerikTextBox Width="200px" />
-    </TabStripTab>
-    <TabStripTab Title="Second">
-        Go back to the first tab to see the typed content.
-    </TabStripTab>
-</TelerikTabStrip>
-
-<h3>PersistTabContent="false"</h3>
-
-<TelerikTabStrip>
-    <TabStripTab Title="First">
-        Type something in the textbox. Go to the other tab and then return.
-        <br />
-        <TelerikTextBox Width="200px" />
-    </TabStripTab>
-    <TabStripTab Title="Second">
-        The TextBox value in the first tab will not be persisted.
-    </TabStripTab>
-</TelerikTabStrip>
-````
+<demo metaUrl="client/tabstrip/persist-content/example-1/" height="580"></demo>
 
 ## Next Steps
 

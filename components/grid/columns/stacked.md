@@ -13,7 +13,7 @@ components: ["grid"]
 
 Stacked columns is an adaptive Grid feature that allows the component to display data item values vertically in one or more cards, instead of horizontally in classic table cells. This facilitates browsing the Grid data on narrow screens like mobile phones in portrait orientation.
 
-The Grid stacked columns functionality depends on three configuraton settings:
+The Grid stacked columns functionality depends on three configuration settings:
 
 * The [`DataLayoutMode` parameter](#data-layout-mode) of the Grid.
 * The [`ColumnsCount` parameter](#stacked-columns-count) of `<GridStackedLayoutSettings>`.
@@ -23,7 +23,7 @@ Only the `DataLayoutMode` parameter is required to use stacked Grid columns.
 
 ## Data Layout Mode
 
-The show stacked Grid columns, set the `DataLayoutMode` component parameter to `GridDataLayoutMode.Stacked`. The default parameter value is `GridDataLayoutMode.Columns`.
+To show stacked Grid columns, set the `DataLayoutMode` component parameter to `GridDataLayoutMode.Stacked`. The default parameter value is `GridDataLayoutMode.Columns`.
 
 >caption Enable stacked columns in the Grid
 
@@ -33,9 +33,9 @@ The show stacked Grid columns, set the `DataLayoutMode` component parameter to `
 
 ## Stacked Columns Count
 
-`ColumnsCount` is a an optional parameter of `<GridStackedLayoutSettings>`, which is a child tag of `<GridSettings>`. The `ColumnsCount` parameter sets how many stacked columns will show. The default value is `1`, which means that all data row values will display one below the other in a single column.
+`ColumnsCount` is an optional parameter of `<GridStackedLayoutSettings>`, which is a child tag of `<GridSettings>`. The `ColumnsCount` parameter sets how many stacked columns will show. The default value is `1`, which means that all data row values will display one below the other in a single column.
 
-When using multiple stacked columns, the data row values are arranged first horizontally and then vertically. The following code snippet uses 2 stacked columns, so that the odd columns (`Name`, `Quantity` and `IsActive`) display in the first stacked column, while the even columns (`Price`, `StartDate`, and the command buttons) display in the second stacked column.
+When using multiple stacked columns, the data row values are arranged first horizontally and then vertically. The following code snippet uses 2 stacked columns, so that the odd columns (`Name`, `Quantity` and `IsActive`) display in the first stacked column, while the even columns (`Price` and `StartDate`) display in the second stacked column. In `Stacked` mode, use [Toolbar command tools](slug:components/grid/features/toolbar#command-tools) for Grid operations instead of a command column.
 
 >caption Display 2 stacked columns in the Grid
 
@@ -50,9 +50,6 @@ When using multiple stacked columns, the data row values are arranged first hori
         <GridColumn Field="@nameof(Product.Quantity)" />
         <GridColumn Field="@nameof(Product.StartDate)" />
         <GridColumn Field="@nameof(Product.IsActive)" />
-        <GridCommandColumn>
-            <GridCommandButton />
-        </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 ````

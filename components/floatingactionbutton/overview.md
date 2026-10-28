@@ -26,23 +26,7 @@ The Floating Action Button comes with built-in customization features that lets 
 
 >caption Basic Blazor Floating Action Button
 
-````RAZOR
-Current time: @Result
-<TelerikFloatingActionButton Size="@ThemeConstants.Button.Size.Large"
-                             VerticalAlign="@FloatingActionButtonVerticalAlign.Top"
-                             HorizontalAlign="@FloatingActionButtonHorizontalAlign.Center"
-                             ThemeColor="@ThemeConstants.Button.ThemeColor.Info"
-                             Icon="@SvgIcon.Clock"
-                             OnClick="@HandleClickEvent" />
-@code {
-    private string Result { get; set; } = DateTime.Now.ToString("HH:MM:ss:fff");
-
-    private void HandleClickEvent()
-    {
-        Result = DateTime.Now.ToString("HH:MM:ss:fff");
-    }
-}
-````
+<demo metaUrl="client/floatingactionbutton/overview/example-1/" height="220"></demo>
 
 ## Position and Alignment
 
@@ -63,6 +47,7 @@ The Blazor Floating Action Button provides various parameters that allow you to 
 | `Enabled` | `bool` <br /> (`true`) | Whether the Floating Action Button is enabled. |
 | `Id` | `string` | The `id` attribute of the Floating Action Button. |
 | `Icon` | `object` | The icon rendered in the Floating Action Button. Can be set to a predefined Telerik icon or a custom one. | 
+| `IconVariant` | `string` | Selects the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants). |
 | `Title` | `string` | The `title` attribute of the Floating Action Button. |
 | `PositionMode` | `FloatingActionButtonPositionMode` enum <br /> (`Fixed`) | The position of the Floating Action Button relative to the container. |
 | `HorizontalAlign` | `FloatingActionButtonHorizontalAlign` <br /> (`End`) | Determines if the left or the right side of the Floating Action Button will touch its parent container. [Read more about Floating Action Button positioning.](slug:fab-positions) |

@@ -67,6 +67,8 @@ The Blazor ColorPicker accepts values by the application code in the following f
 
 The ColorPicker does not support color keywords.
 
+Make sure that the initial `Value` uses one of the supported formats. For example, `#ebebeff` is not a valid hexadecimal value because it contains seven hexadecimal digits after the `#` character. Use a 6-digit hexadecimal value such as `#ebebef`, or an 8-digit hexadecimal value that includes alpha opacity, such as `#ebebefff`.
+
 ## Adaptive Rendering
 
 <demo metaUrl="client/colorpicker/adaptive/" height="555"></demo>
@@ -92,6 +94,7 @@ The ColorPicker tag exposes the following features through its attributes:
 | `ShowButtons` | `bool` <br /> (`true`) | Controls the visibility of the **Apply** and **Cancel** buttons. |
 | `ShowClearButton` | `bool` <br /> (`true`) | Sets the visibility of the **Clear** button. |
 | `Icon` | `object` | Adds a font icon inside the [main component button](#interface). You can find more information on adding a font icon to a Telerik Component in the [Telerik Font and Svg Icons article](slug:common-features-icons#icon-namespaces). |
+| `IconVariant` | `string` | Selects the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants). |
 
 ### Styling and Appearance
 

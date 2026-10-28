@@ -13,7 +13,7 @@ components: ["charts"]
 
 The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor Heatmap chart</a> shows the data in a grid-like structure that shows the magnitude of a value over two dimensions.
 
-![heatmap chart](images/heatmap-chart.png)
+![Heatmap chart showing values across two dimensions](images/heatmap-chart.png)
 
 #### In this article:
 
@@ -22,6 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
     * [Setting the Marker Type](#setting-the-marker-type)
     * [Color](#color)
     * [ColorField](#colorfield)
+    * [Handling Long Y-axis Labels](#handling-long-y-axis-labels)
     * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements-nested-tags-settings)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
@@ -51,7 +52,7 @@ When you are data binding the Heatmap Chart you should have the following points
 
 >caption Heatmap Chart where the data for the `Categories` does not match the `YField` value. **Problematic behavior**. The result from the code snippet below.
 
-![problematic behavior](images/heatmap-problematic-behavior.png)
+![Heatmap chart with mismatched category values](images/heatmap-problematic-behavior.png)
 
 
 <demo metaUrl="client/chart/types/heatmap/categories-mismatch/" height="500"></demo>
@@ -86,6 +87,13 @@ The `ColorField` parameter allows you to control the color of an individual mark
 >caption Provide a custom color to all markers in the Heatmap.
 
 <demo metaUrl="client/chart/types/heatmap/color-field/" height="500"></demo>
+
+### Handling Long Y-axis Labels
+
+The Heatmap Y axis displays categories from the `YField` or the `Categories` collection. These categories can be text, such as names or descriptions. To prevent long labels from being truncated, use the settings under `ChartYAxisLabels` to adjust the label font, margin, position, or density. You can also rotate labels with the nested `ChartYAxisLabelsRotation` tag or provide custom label text through the `Template` parameter.
+
+The Chart does not provide a Heatmap-specific parameter that automatically wraps Y-axis labels. If the labels still do not fit, increase the available chart width, shorten the category text, or hide the labels when the category information is available elsewhere. For general label rotation and density examples, see [Prevent crowded labels in the Chart](slug:chart-kb-crowded-labels). For custom label output and line breaks, see [Label Template and Format](slug:components/chart/label-template-format).
+
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 

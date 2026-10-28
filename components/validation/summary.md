@@ -27,76 +27,11 @@ Optionally, [disable the built-in inline validation messages of the Telerik Form
 
 >caption Use Telerik ValidationSummary at the top of a TelerikForm
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             ValidationMessageType="@FormValidationMessageType.None"
-             Width="300px">
-    <FormValidation>
-        <DataAnnotationsValidator />
-        <TelerikValidationSummary />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
-        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "Please enter a first name")]
-        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
-        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/validation/summary/example-1/" height="420"></demo>
 
 >caption Use Telerik ValidationSummary at the bottom of a TelerikForm
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             ValidationMessageType="@FormValidationMessageType.None"
-             Width="300px">
-    <FormValidation>
-        <DataAnnotationsValidator />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
-        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
-    </FormItems>
-    <FormButtons>
-        <div>
-            <TelerikValidationSummary />
-            <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Submit</TelerikButton>
-        </div>
-    </FormButtons>
-</TelerikForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "Please enter a first name")]
-        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
-        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/validation/summary/example-2/" height="420"></demo>
 
 ## Using with EditForm
 
@@ -104,40 +39,7 @@ In a standard Blazor `EditForm`, place a `<TelerikValidationSummary />` instead 
 
 >caption Use Telerik ValidationSummary in an EditForm
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<EditForm Model="@Employee" style="width:300px">
-    <DataAnnotationsValidator />
-
-    <TelerikValidationSummary />
-
-    <label for="first-name">First Name</label>
-    <TelerikTextBox @bind-Value="@Employee.FirstName" Id="first-name" />
-
-    <label for="last-name">Last Name</label>
-    <TelerikTextBox @bind-Value="@Employee.LastName" Id="last-name" />
-
-    <div>
-        <TelerikButton>Submit</TelerikButton>
-    </div>
-</EditForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "Please enter a first name")]
-        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
-        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/validation/summary/example-3/" height="420"></demo>
 
 ## Template
 
@@ -145,56 +47,7 @@ The Telerik ValidationSummary allows you to customize its rendering with a neste
 
 >caption Using ValidationSummary Template
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm Model="@Employee"
-             ValidationMessageType="@FormValidationMessageType.None"
-             Width="300px">
-    <FormValidation>
-        <DataAnnotationsValidator />
-        <TelerikValidationSummary>
-            <Template Context="validationMessages">
-                @if (validationMessages.Any())
-                {
-                    <div class="k-validation-summary k-messagebox k-messagebox-error" role="alert">
-                        <ul style="list-style-type: none; margin-bottom: 0; padding-left: .4em;">
-                            @foreach (string message in validationMessages)
-                            {
-                                <li @key="@message" style="display: flex; gap: .4em; padding: .2em 0;">
-                                    <TelerikSvgIcon Icon="@SvgIcon.ExclamationCircle" />
-                                    @message
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                }
-            </Template>
-        </TelerikValidationSummary>
-
-        <TelerikValidationSummary />
-    </FormValidation>
-    <FormItems>
-        <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name" />
-        <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name" />
-    </FormItems>
-</TelerikForm>
-
-@code {
-    private Person Employee { get; set; } = new();
-
-    public class Person
-    {
-        [Required(ErrorMessage = "Please enter a first name")]
-        [MinLength(2, ErrorMessage = "The first name must be at least 2 characters long")]
-        [MaxLength(40, ErrorMessage = "The first name must be up to 40 characters long")]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        public string LastName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/validation/summary/example-4/" height="420"></demo>
 
 ## Class
 

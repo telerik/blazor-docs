@@ -1,7 +1,7 @@
 ---
 title: Data Binding
-page_title: DropDown List - Data Binding
-description: Data Binding the DropdownList for Blazor.
+page_title: DropDownList - Data Binding
+description: Data Binding for the DropDownList for Blazor.
 slug: components/dropdownlist/databind
 tags: telerik,blazor,dropdownlist,dropdown,list,data,bind,binding,databind
 published: True
@@ -69,7 +69,7 @@ Handling such "unexpected" values is up to the application - for example, throug
 
 ### Missing Value or Data
 
- In case you cannot provide either of a `Value`, or `Data`, or both when the component initializes, you need to set the corresponding type properties to the `TItem` and `TValue` properties as shown below.
+In case you cannot provide a `Value`, `Data`, or either of them when the component initializes, you need to set the corresponding type properties to the `TItem` and `TValue` properties as shown below.
 
 >caption DropDownList configuration if you cannot provide Value or Data
 

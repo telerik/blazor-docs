@@ -17,58 +17,13 @@ If `OutputActions` are configured at the component level, the output card also f
 
 By default, the Output view is rendered and is part of the predefined views. However, if you provide a render fragment of type `AIPromptViews` to the `TelerikAIPrompt` tag, you override the default rendering, meaning you must explicitly add `AIPromptOutputView` tag within it.
 
->caption Use the `ButtonText` and `ButtonIcon` to alter the appearance of view button.
+>caption Use `ButtonText` and `ButtonIcon` to customize the view button
 
-````RAZOR
-<TelerikAIPrompt @bind-Prompt="@Prompt">
-    <AIPromptViews>
-        <AIPromptPromptView ButtonText="Prompt View" ButtonIcon="@SvgIcon.Sparkles" />
-        <AIPromptOutputView ButtonText="Output View" ButtonIcon="@SvgIcon.Comment" />
-    </AIPromptViews>
-</TelerikAIPrompt>
+<demo metaUrl="client/aiprompt/views/output/view-button-2/" height="420"></demo>
 
-@code {
-    private string Prompt { get; set; }
-}
-````
+>caption Use `OutputActions` to add upvote and downvote buttons to an output
 
->caption Use `OutputActions` to include visuals related to upvoting or downvoting a specific output.
-
-````RAZOR
-<TelerikAIPrompt @bind-Prompt="@Prompt"
-                 OnPromptRequest="@OnPromptRequestHandler"
-                 OutputActions="@OutputActions"
-                 OnOutputActionClick="@OnOutputActionClick">
-    <AIPromptViews>
-        <AIPromptPromptView ButtonText="Prompt View" ButtonIcon="@SvgIcon.Sparkles" />
-        <AIPromptOutputView ButtonText="Output View" ButtonIcon="@SvgIcon.Comment" />
-    </AIPromptViews>
-</TelerikAIPrompt>
-
-@code {
-    private string Prompt { get; set; }
-
-    private void OnOutputActionClick(AIPromptOutputActionClickEventArgs args)
-    {
-        // Handle the output action click event
-        Console.WriteLine($"Action clicked: {args.Action.Name}");
-    }
-
-    private void OnPromptRequestHandler(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel pretium lectus quam id leo in.";
-    }
-
-    private List<AIPromptOutputActionDescriptor> OutputActions { get; set; } = new List<AIPromptOutputActionDescriptor>()
-    {
-        new AIPromptOutputActionDescriptor() { Name = "Copy", Icon = nameof(SvgIcon.Copy) },
-        new AIPromptOutputActionDescriptor() { Name = "Retry", Icon = nameof(SvgIcon.Share) },
-        new AIPromptOutputActionDescriptor() { Name = "Thumbs Up", Icon = SvgIcon.ThumbUp },
-        new AIPromptOutputActionDescriptor() { Name = "Thumbs Down", Icon = SvgIcon.ThumbDown }
-    };
-}
-````
+<demo metaUrl="client/aiprompt/views/output/outputactions-1/" height="420"></demo>
 
 ## See Also
 

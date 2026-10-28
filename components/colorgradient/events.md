@@ -25,24 +25,7 @@ When using this event, make sure to update the component `Format` programmatical
 
 >caption Handle the ColorGradient FormatChanged event
 
-````RAZOR
-@* Handle the ColorGradient FormatChanged event *@
-
-<TelerikColorGradient
-    @bind-Value="@Value"
-    Format="@Format"
-    FormatChanged="@FormatChangedHandler" />
-
-@code {
-    string Value { get; set; }
-    ColorFormat Format { get; set; }
-
-    async Task FormatChangedHandler(ColorFormat newFormat)
-    {
-        Format = newFormat;
-    }
-}
-````
+<demo metaUrl="client/colorgradient/events/format-changed/" height="470"></demo>
 
 ## ValueChanged
 
@@ -52,23 +35,7 @@ When using this event, make sure to update the component `Value` programmaticall
 
 >caption Handle the ColorGradient ValueChanged event
 
-````RAZOR
-@* Handle the ColorGradient ValueChanged event *@
-
-<TelerikColorGradient
-    Value="@Value"
-    ValueChanged="@ValueChangedHandler" />
-
-@code {
-    string Value { get; set; }
-
-    async Task ValueChangedHandler(string newValue)
-    {
-        Value = newValue;
-    }
-}
-
-````
+<demo metaUrl="client/colorgradient/events/value-changed/" height="470"></demo>
 
 
 ## See Also

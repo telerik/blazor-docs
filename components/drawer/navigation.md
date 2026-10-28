@@ -26,40 +26,7 @@ To use the Drawer for navigating between pages:
 
 <div class="skip-repl"></div>
 
-````RAZOR
-@* This is a very basic layout to showcase the concept. You may want to add a header, footer, 
-    collapse/expand button and add desired heights to the layout and drawer *@
-
-@inherits LayoutComponentBase
-
-<TelerikRootComponent>
-
-    <TelerikDrawer Data="@NavigablePages" Expanded="true" MiniMode="true" Mode="@DrawerMode.Push">
-        <DrawerContent>
-            @Body
-        </DrawerContent>
-    </TelerikDrawer>
-
-</TelerikRootComponent>
-
-@code{ 
-    List<DrawerItem> NavigablePages { get; set; } = new List<DrawerItem>
-    {
-        new DrawerItem { Text = "Home", Url = "/", Icon = SvgIcon.Home },
-        new DrawerItem { Separator = true },
-        new DrawerItem { Text = "Counter", Url = "counter", Icon = SvgIcon.PlusOutline },
-        new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = SvgIcon.Grid }
-    };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public string Url { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public bool Separator { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/navigation/navigation-1/" height="420"></demo>
 
 ## Additional Examples
 

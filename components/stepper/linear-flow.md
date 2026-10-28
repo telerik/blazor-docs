@@ -17,23 +17,9 @@ To enable Linear flow of the Stepper, set its `Linear` parameter to `true`. By d
 
 <br/>
 
->caption Enable the Linear Flow of the Stepper. The result from the snippet.
+>caption Enable the Linear Flow of the Stepper.
 
-![Linear Flow](images/linear-flow-example.gif)
-
-````RAZOR
-@* Stepper with Linear Flow enabled *@
-
-<TelerikStepper Linear="true">
-    <StepperSteps>
-        <StepperStep Icon="@SvgIcon.Cart" Label="Cart"></StepperStep>
-        <StepperStep Icon="@SvgIcon.MapMarkerTarget" Label="Delivery Address"></StepperStep>
-        <StepperStep Icon="@SvgIcon.Dollar" Label="Payment Method"></StepperStep>
-        <StepperStep Icon="@SvgIcon.Eye" Label="Preview"></StepperStep>
-        <StepperStep Icon="@SvgIcon.TrackChangesAccept" Label="Finish Order"></StepperStep>
-    </StepperSteps>
-</TelerikStepper>
-````
+<demo metaUrl="client/stepper/linear-flow/example-1/" height="320"></demo>
 
 
 ## See Also

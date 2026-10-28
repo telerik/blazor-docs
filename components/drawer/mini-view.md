@@ -15,41 +15,15 @@ When the Drawer is collapsed, it is not visible at all by default. You can, howe
 
 To enable the mini view when the drawer is collapsed (minimized), set the `MiniMode` parameter to `true`. By default this parameter is set to `false`.
 
+The icon-only behavior applies to the Drawer's built-in item rendering. If you use an [`ItemTemplate`](slug:drawer-templates#itemtemplate) or a [`Template`](slug:drawer-templates#template), the template controls the item content. In that case, render the text conditionally based on the `Expanded` value.
+
 >caption Mini View behavior
 
 ![drawer expanded example](images/drawer-mini-mode-overview.jpg)
 
 >caption Observe the behavior of the MiniMode.
 
-````RAZOR
-@* Click on the Toggle MiniMode button to enable or disable it. *@
-@* The same behavior will be observed in both Push and Overlay modes *@
-
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
-<TelerikButton OnClick="@(() => MiniMode = !MiniMode)">Toggle MiniMode</TelerikButton>
-<TelerikDrawer Data="@Data"
-               MiniMode="@MiniMode"
-               Mode="@DrawerMode.Push"
-               @ref="@DrawerRef">
-</TelerikDrawer>
-
-@code {
-    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    public bool MiniMode { get; set; } = true;
-    public IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
-            };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/mini-view/mini-mode-1/" height="420"></demo>
 
 ## See Also
 

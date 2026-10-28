@@ -45,7 +45,7 @@ The Telerik themes provide a test class you can easily test against to determine
 <div class="skip-repl"></div>
 
 ````RAZOR
-<link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default-aaaaa/all.css" />
+<link rel="stylesheet" href="https://unpkg.com/@@progress/kendo-theme-meridian@@{{site.themesVersion}}/dist/meridian-main-aaa.css" />
 <script>
     function cdnTest() {
         var testElem = document.createElement("div");
@@ -73,7 +73,7 @@ To test for the script, just check if the `TelerikBlazor` object exists. If not,
 <div class="skip-repl"></div>
 
 ````RAZOR
-<script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}-aaaaa/telerik-blazor.min.js"></script>
+<script src="https://www.telerik.com/wrong-url/telerik-blazor.js"></script>
 <script>
     if (!window.TelerikBlazor) { // the Telerik object is not present
         var newScript = document.createElement("script");
@@ -85,13 +85,13 @@ To test for the script, just check if the `TelerikBlazor` object exists. If not,
 
 ### Stylesheet Fallback for Server-Side Blazor
 
-A server-side Blazor app is bootstrapped in a Razor page (`_Host.cshtml`) and so you can benefit from framework features such as the [built-in framework CDN fallback option](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/link-tag-helper?view=aspnetcore-3.1#asp-fallback-href) instead of implementing your own stylesheet fallback.
+In server-side Blazor apps you can benefit from the [built-in framework CDN fallback option](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/link-tag-helper) instead of implementing your own stylesheet fallback.
 
 <div class="skip-repl"></div>
 
 ````RAZOR
 <link rel="stylesheet"
-      href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default-aaaaa/all.css"
+      href="https://unpkg.com/@@progress/kendo-theme-meridian@@{{site.themesVersion}}/dist/meridian-main-aaa.css"
       asp-fallback-href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css"
       asp-fallback-test-class="k-theme-test-class"
       asp-fallback-test-property="opacity"

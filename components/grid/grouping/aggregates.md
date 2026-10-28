@@ -82,7 +82,7 @@ To enable aggregates:
 ````CS
 private async Task OnGridRead(GridReadEventArgs args)
 {
-    DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
+    DataSourceResult result = await AllGridData.ToDataSourceResultAsync(args.Request);
 
     args.Data = result.Data;
     args.Total = result.Total;

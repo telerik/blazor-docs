@@ -51,74 +51,7 @@ When using horizontal tabs, the `Start` and `End` alignment values take into acc
 
 >caption Using TabStrip Alignment and Position
 
-````RAZOR
-<div style="display: flex; gap: 2em; flex-wrap: wrap; margin: 0 0 2em;">
-    <div>
-        <strong>Tab Alignment:</strong>
-        <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-            @foreach (TabStripTabAlignment alignment in TabStripTabAlignments)
-            {
-                <ButtonGroupToggleButton Selected="@(TabStripTabAlignment == alignment)"
-                                         SelectedChanged="@((bool selected) => { if (selected) TabStripTabAlignment = alignment; })">
-                    @alignment
-                </ButtonGroupToggleButton>
-            }
-        </TelerikButtonGroup>
-    </div>
-    <div>
-        <strong>Tab Position:</strong>
-        <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-            @foreach (TabPosition position in TabPositions)
-            {
-                <ButtonGroupToggleButton Selected="@(TabStripTabPosition == position)"
-                                         SelectedChanged="@((bool selected) => { if (selected) TabStripTabPosition = position; })">
-                    @position
-                </ButtonGroupToggleButton>
-            }
-        </TelerikButtonGroup>
-    </div>
-</div>
-
-<TelerikTabStrip @bind-ActiveTabId="@TabStripActiveTabId"
-                 TabAlignment="@TabStripTabAlignment"
-                 TabPosition="@TabStripTabPosition"
-                 Height="300px">
-    @for (int i = 1; i <= 5; i++)
-    {
-        string tabId = $"tab{i}";
-        string tabTitle = $"Tab {i}";
-        <TabStripTab @key="@tabId"
-                     Id="@tabId"
-                     Title="@tabTitle">
-            <p>Content of @tabTitle</p>
-        </TabStripTab>
-    }
-</TelerikTabStrip>
-
-@code {
-    private string TabStripActiveTabId { get; set; } = "tab1";
-
-    private TabStripTabAlignment TabStripTabAlignment { get; set; } = TabStripTabAlignment.Start;
-    private TabPosition TabStripTabPosition { get; set; } = TabPosition.Top;
-
-    private readonly TabStripTabAlignment[] TabStripTabAlignments = new[]
-    {
-        TabStripTabAlignment.Center,
-        TabStripTabAlignment.End,
-        TabStripTabAlignment.Justify,
-        TabStripTabAlignment.Start,
-        TabStripTabAlignment.Stretched
-    };
-
-    private readonly TabPosition[] TabPositions = new[]
-    {
-        TabPosition.Bottom,
-        TabPosition.Left,
-        TabPosition.Right,
-        TabPosition.Top
-    };
-}
-````
+<demo metaUrl="client/tabstrip/tabs-position/example-1/" height="620"></demo>
 
 ## Next Steps
 

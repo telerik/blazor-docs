@@ -31,22 +31,7 @@ The **Loader** is placed inside another component or HTML element. Typically, it
 
 >caption Blazor Loader with non-default appearance settings
 
-````RAZOR
-<TelerikButton OnClick="@( _ => LoaderVisible = !LoaderVisible )">Toggle Loader</TelerikButton>
-
-<TelerikLoader Visible="@LoaderVisible"
-               Size="@ThemeConstants.Loader.Size.Large"
-               ThemeColor="@ThemeConstants.Loader.ThemeColor.Tertiary"
-               Type="@LoaderType.ConvergingSpinner" />
-
-<p>Default settings (Medium size, Primary color, Pulsing type):</p>
-
-<TelerikLoader Visible="@LoaderVisible" />
-
-@code {
-    bool LoaderVisible { get; set; } = true;
-}
-````
+<demo metaUrl="client/loader/overview/example-1/" height="420"></demo>
 
 > Do not show or hide the Loader in a method, which is blocking the UI thread with synchronous operations. If this happens, the Loader may not appear when expected. A possible workaround is to use `await Task.Delay(...)` to give Blazor time to refresh the UI.
 

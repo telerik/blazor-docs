@@ -31,32 +31,7 @@ In this case, the Window will render inside the specified container and not as a
 
 >caption Using ContainmentSelector to limit Window dragging and resizing
 
-````RAZOR
-<div id="window-container"
-     style="position: relative; border: 1px solid red; margin: 20vh; height: 50vh; width: 50vw;">
-
-    <TelerikWindow ContainmentSelector="#window-container"
-                   @bind-Width="@WindowWidth"
-                   @bind-Visible="@WindowVisible">
-        <WindowActions>
-            <WindowAction Name="Maximize" />
-            <WindowAction Name="Close" />
-        </WindowActions>
-        <WindowTitle>Contained Window</WindowTitle>
-        <WindowContent>
-            This Window can be dragged, resized, and maximized within the boundaries of the red box.
-        </WindowContent>
-    </TelerikWindow>
-
-    <TelerikButton OnClick="@( () => WindowVisible = !WindowVisible )">Toggle Window</TelerikButton>
-</div>
-
-@code {
-    private bool WindowVisible { get; set; } = true;
-
-    private string WindowWidth { get; set; } = "300px";
-}
-````
+<demo metaUrl="client/window/position/example-1/" height="420"></demo>
 
 
 ## Top and Left
@@ -75,39 +50,7 @@ If the application is using special CSS positioning, margins, or other offsets o
 
 >caption Use Top and Left to manage the Window position
 
-````RAZOR
-<p>
-    <code>WindowLeft</code>: @WindowLeft
-    <br />
-    <code>WindowTop</code>: @WindowTop
-</p>
-
-<TelerikWindow @ref="@WindowRef"
-               @bind-Left="@WindowLeft"
-               @bind-Top="@WindowTop"
-               Visible="true"
-               Width="300px">
-    <WindowTitle>Window</WindowTitle>
-    <WindowContent>
-        The values of <code>WindowLeft</code> and <code>WindowTop</code> change after the user ends dragging or resizing.
-    </WindowContent>
-    <WindowFooter>
-        <TelerikButton OnClick="@CenterWindow">Center Window</TelerikButton>
-    </WindowFooter>
-</TelerikWindow>
-
-@code {
-    private TelerikWindow? WindowRef;
-    private string WindowLeft { get; set; } = "50px";
-    private string WindowTop { get; set; } = "80px";
-
-    private void CenterWindow()
-    {
-        WindowLeft = WindowTop = string.Empty;
-        WindowRef?.Refresh();
-    }
-}
-````
+<demo metaUrl="client/window/position/example-2/" height="420"></demo>
 
 ## See Also
 

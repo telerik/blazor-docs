@@ -28,31 +28,7 @@ The <a href="https://www.telerik.com/blazor-ui/segmented-control" target="_blank
 
 >caption Basic SegmentedControl for Blazor
 
-````RAZOR
-<TelerikSegmentedControl Data="@Items"
-                         @bind-Value="@SelectedValue">
-</TelerikSegmentedControl>
-
-<p>Selected value: @SelectedValue</p>
-
-@code {
-    private string SelectedValue { get; set; } = "edit";
-
-    private List<SegmentItem> Items { get; set; } = new List<SegmentItem>()
-    {
-        new SegmentItem() { Text = "Edit", Value = "edit", Icon = SvgIcon.Pencil },
-        new SegmentItem() { Text = "Preview", Value = "preview", Icon = SvgIcon.Eye },
-        new SegmentItem() { Text = "Split", Value = "split", Icon = SvgIcon.Columns },
-    };
-
-    public class SegmentItem
-    {
-        public string Text { get; set; } = string.Empty;
-        public string Value { get; set; } = string.Empty;
-        public object? Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/segmentedcontrol/overview/example-1/" height="320"></demo>
 
 ## Data Binding
 
@@ -65,6 +41,7 @@ public class SegmentItem
     public string Value { get; set; } = string.Empty;
     public object? Icon { get; set; }
     public string IconClass { get; set; } = string.Empty;
+    public string IconVariant { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public bool Disabled { get; set; } = false;
     public bool Visible { get; set; } = true;
@@ -87,6 +64,7 @@ The above model properties have the following meaning for the SegmentedControl:
 | `Value` | Sets the value that `@bind-Value` uses when the item is selected. Controlled by the `ValueField` parameter (default: `"Value"`). |
 | `Icon` | Sets an optional icon for the item using an `ISvgIcon` or a font icon ligature. Controlled by the `IconField` parameter (default: `"Icon"`). |
 | `IconClass` | Sets a CSS class for a font icon to display in the item. Controlled by the `IconClassField` parameter (default: `"IconClass"`). |
+| `IconVariant` | Sets the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) for the item icon. Controlled by the `IconVariantField` parameter (default: `"IconVariant"`). |
 | `Title` | Sets the tooltip text shown on hover. Controlled by the `TitleField` parameter (default: `"Title"`). |
 | `Disabled` | When `true`, the item is rendered but cannot be selected or focused. Controlled by the `DisabledField` parameter (default: `"Disabled"`). |
 | `Visible` | When `false`, the item is not rendered. Controlled by the `VisibleField` parameter (default: `"Visible"`). |

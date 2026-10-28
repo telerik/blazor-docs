@@ -21,19 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 1. (optional) Add a [Center Label Template](slug:arc-gauge-labels#center-template)
 
 
-````RAZOR
-@* Setup a basic arc gauge *@
-
-<TelerikArcGauge>
-    <ArcGaugePointers>
-        <ArcGaugePointer Value="@GaugeValue" />
-    </ArcGaugePointers>
-</TelerikArcGauge>
-
-@code {
-    private double GaugeValue { get; set; } = 40;
-}
-````
+<demo metaUrl="client/arcgauge/overview/example-2/" height="420"></demo>
 
 ## Scale
 
@@ -66,32 +54,7 @@ The labels are rendered on the scale of the component to give information to the
 
 >caption Get a reference to the Arc Gauge and use the Refresh method
 
-````RAZOR
-@* Change the Width of the component *@
-
-<TelerikButton OnClick="@ChangeTheHeight">Change the Width of the component</TelerikButton>
-
-<TelerikArcGauge @ref="@ArcGaugeRef" Width="@Width">
-    <ArcGaugePointers>
-
-        <ArcGaugePointer Value="30" />
-
-    </ArcGaugePointers>
-</TelerikArcGauge>
-
-@code {
-    Telerik.Blazor.Components.TelerikArcGauge ArcGaugeRef { get; set; }
-
-    public string Width { get; set; } = "300px";
-
-    private void ChangeTheHeight()
-    {
-        Width = "450px";
-
-        ArcGaugeRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/arcgauge/overview/get-reference-arc-gauge-1/" height="420"></demo>
 
 ## Next Steps
 

@@ -102,11 +102,11 @@ The functionality allows dragging items between Grid, [TreeList](slug:treelist-d
 
 <div class="skip-repl"></div>
 ````RAZOR Index.razor
-@using System.Collections.Generic;
-@using System.Collections.ObjectModel;
+@using System.Collections.Generic
+@using System.Collections.ObjectModel
 
-@inject PersonService PersonService;
-@inject TreeListService TreeService;
+@inject PersonService PersonService
+@inject TreeListService TreeService
 
 <TelerikGrid Data="@GridData"
              Id="Grid1"
@@ -180,7 +180,7 @@ The functionality allows dragging items between Grid, [TreeList](slug:treelist-d
     }
     private void TreeListDrop(TreeListRowDropEventArgs<FlatItem> args)
     {
-        var item = args.Item as FlatItem;
+        var item = (FlatItem)args.Item;
         if (args.DestinationComponentId == "TreeList1")
         {
             var destinationItem = (FlatItem)TreeListRef.GetItemFromDropIndex(args.DestinationIndex);
@@ -442,10 +442,10 @@ public enum ProductSize
 ````RAZOR Index.razor
 @* Drag and drop in Grid and TreeView. *@
 
-@using System.Collections.Generic;
-@using System.Collections.ObjectModel;
+@using System.Collections.Generic
+@using System.Collections.ObjectModel
 
-@inject PersonService PersonService;
+@inject PersonService PersonService
 
 <TelerikGrid Data="@GridData"
              Id="Grid1"
@@ -518,7 +518,7 @@ public enum ProductSize
 
     private void TreeViewDrop(TreeViewDropEventArgs args)
     {
-        var item = args.Item as BaseFlatItem;
+        var item = (BaseFlatItem)args.Item;
 
         if (args.DestinationComponentId == "TreeView1")
         {
@@ -844,12 +844,12 @@ public class BaseFlatItem
 ````RAZOR Index.razor
 @* Drag and drop in Grid and TreeView. *@
 
-@using System.Collections.Generic;
-@using System.Collections.ObjectModel;
+@using System.Collections.Generic
+@using System.Collections.ObjectModel
 
-@inject PersonService PersonService;
-@inject AppointmentService appointmentService;
-@inject ResourceService resourceService;
+@inject PersonService PersonService
+@inject AppointmentService appointmentService
+@inject ResourceService resourceService
 
 <TelerikGrid Data="@GridData"
              Id="Grid1"
@@ -1008,7 +1008,7 @@ public class BaseFlatItem
 
     void AddAppointment(SchedulerCreateEventArgs args)
     {
-        Appointment item = args.Item as Appointment;
+        Appointment item = (Appointment)args.Item;
 
         Data.Add(item);
     }

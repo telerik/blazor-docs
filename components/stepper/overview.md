@@ -28,25 +28,7 @@ The Stepper provides several features out of the box, including the ability to d
 
 >caption Simple setup of a Stepper component.
 
-````RAZOR
-@* Simple Stepper setup. *@
-
-<div style="width:700px">
-    <TelerikStepper @bind-Value="@CurrentStepIndex">
-        <StepperSteps>
-            <StepperStep Icon="@SvgIcon.Cart" Label="Cart"></StepperStep>
-            <StepperStep Icon="@SvgIcon.MapMarkerTarget" Label="Delivery Address"></StepperStep>
-            <StepperStep Icon="@SvgIcon.Dollar" Label="Payment Method"></StepperStep>
-            <StepperStep Icon="@SvgIcon.Eye" Label="Preview"></StepperStep>
-            <StepperStep Icon="@SvgIcon.TrackChangesAccept" Label="Finish Order"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-
-@code {
-    public int CurrentStepIndex { get; set; } = 2;
-}
-````
+<demo metaUrl="client/stepper/overview/example-1/" height="320"></demo>
 
 ## Steps
 

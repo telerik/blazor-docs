@@ -25,25 +25,11 @@ The generated image from the component is a machine-readable label that contains
 
 >caption Basic QRCode
 
-````RAZOR
-<TelerikQRCode Value="https://www.telerik.com/blazor-ui"
-               Size="200px" />
-````
+<demo metaUrl="client/qrcode/overview/example-2/" height="420"></demo>
 
 >caption QRCode with additional settings
 
-````RAZOR
-<TelerikQRCode Background="white"
-               Color="black"
-               ErrorCorrection="@QRCodeErrorCorrectionLevel.M"
-               Padding="10"
-               RenderAs="@RenderingMode.SVG"
-               Size="264px"
-               Value="https://www.telerik.com/blazor-ui">
-    <QRCodeOverlay Type="@QRCodeOverlayType.Swiss" Width="60" Height="60" />
-    <QRCodeBorder Color="black" Width="2" />
-</TelerikQRCode>
-````
+<demo metaUrl="client/qrcode/overview/example-1/" height="420"></demo>
 
 ## Encoding
 

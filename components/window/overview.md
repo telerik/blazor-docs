@@ -72,7 +72,7 @@ The following table lists the Window parameters. Also check the [Window API](slu
 | `CloseOnOverlayClick` | `bool` | Sets if a modal Window will close when the user clicks on the modal overlay that covers the rest of the page content. |
 | `ContainmentSelector` | `string` | A CSS selector that points to a unique HTML element on the page. The Window will render inside the specified container. Window resizing and dragging will be restricted by the boundaries of the specified container. Do not use `ContainmentSelector` with modal Windows. |
 | `Draggable` | `bool` | Sets if the Window allows moving. |
-| `FooterLayoutAlign` | `WindowFooterLayoutAlign` enum <br /> (`Stretch`) | The alignment of the HTML elements in the `WindowFooter`. The possible options are `Stretch`, `Start`, `End`, and `Center`. |
+| `FooterLayoutAlign` | [`WindowFooterLayoutAlign`](https://www.telerik.com/blazor-ui/documentation/api/telerik.blazor.windowfooterlayoutalign) enum <br /> (`Stretch`) | The alignment of the HTML elements in the `WindowFooter`. The possible options are `Stretch`, `Start`, `End`, and `Center`. |
 | `Height` | `string` | The `height` style of the `<div class="k-window">` element. The parameter supports two-way binding. |
 | `Id` | `string` | The `id` attribute of the `<div class="k-window">` element. |
 | `Left` | `string` | The `left` style of the Window relative to the browser viewport. The parameter supports two-way binding. If `ContainmentSelector` is set, the left position is with regard to the defined container. |
@@ -99,31 +99,7 @@ The Window methods are accessible through its reference.
 
 >caption Get a reference to the Window and use its Refresh method.
 
-````RAZOR
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-               OnClick="@RefreshWindow">Refresh Window</TelerikButton>
-
-<TelerikWindow @ref="WindowRef"
-               Visible="true">
-    <WindowTitle>
-        Window Title
-    </WindowTitle>
-    <WindowContent>
-        <p>The time is @DateTime.Now.ToString("HH:mm:ss.fff")</p>
-    </WindowContent>
-</TelerikWindow>
-
-@code {
-    private TelerikWindow? WindowRef;
-
-    private bool WindowVisible { get; set; } = true;
-
-    private void RefreshWindow()
-    {
-        WindowRef?.Refresh();
-    }
-}
-````
+<demo metaUrl="client/window/overview/example-1/" height="420"></demo>
 
 ## Important Notes
 

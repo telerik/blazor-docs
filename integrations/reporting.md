@@ -40,6 +40,8 @@ The [Telerik Native Blazor Report Viewer Component](https://docs.telerik.com/rep
 
 The [Telerik Blazor Report Designer Component](https://docs.telerik.com/reporting/how-to-blazor-web-report-designer) empowers you to embed a Report Designer tool within your Blazor application. This feature enables end users to edit existing reports or create new report definitions from scratch, enhancing the versatility of your Blazor Reporting capabilities. Experience this component in action through the [Web Report Designer Demo](https://demos.telerik.com/reporting/designer).
 
+For Web Report Designer appearance customization, including the use of an external Kendo UI or ThemeBuilder theme, see [Styling the Web Report Designer](https://www.telerik.com/products/reporting/documentation/designing-reports/report-designer-tools/web-report-designer/styling-the-web-report-designer). The Web Report Designer documentation describes external theming rather than a built-in dark-mode toggle.
+
 By integrating these components, you can significantly enhance the Blazor Reporting functionalities of your application, providing users with comprehensive tools for report viewing, customization, and creation.
 
 >caption Web Report Designer Demo

@@ -78,13 +78,13 @@ You can use the [grid state](slug:grid-state) to make sure only one item is expa
     async Task OnRowClickHandler(GridRowClickEventArgs args)
     {
         args.ShouldRender = true;
-        await EnsureOnlyCurrentRowExpanded(args.Item as MainModel);
+        await EnsureOnlyCurrentRowExpanded((MainModel)args.Item);
     }
 
     async Task OnRowExpandHandler(GridRowExpandEventArgs args)
     {
         args.ShouldRender = true;
-        await EnsureOnlyCurrentRowExpanded(args.Item as MainModel);
+        await EnsureOnlyCurrentRowExpanded((MainModel)args.Item);
     }
 
     async Task OnReadHandler(GridReadEventArgs args)

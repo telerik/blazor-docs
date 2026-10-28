@@ -25,25 +25,7 @@ All values default to `1` to provide every possible option. If you set a value l
 
 >caption Change the steps (intervals) in the time picker
 
-````RAZOR
-@* Show every 4th hour, every 10th minute, every 15th second *@
-
-@selectedTime.ToLongTimeString()
-
-<TelerikTimePicker Format="hh:mm:ss tt" @bind-Value="@selectedTime">
-    <TimePickerSteps Hour="4" Minute="10" Second="15" />
-</TelerikTimePicker>
-
-@code {
-    DateTime selectedTime { get; set; } = DateTime.Now;
-}
-````
-
->caption Show only every 4th hour, every 10th minute, every 15th second in the time picker
-
-![Intervals (steps) in the time picker](images/time-picker-intevals.png)
-
-
+<demo metaUrl="client/timepicker/increment-steps/example-1/" height="420"></demo>
 
 ## See Also
 

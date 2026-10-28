@@ -1,17 +1,19 @@
 ---
 title: Aggregates
-page_title: Grid - Aggregates
-description: Enable and configure field aggregates in Grid for Blazor.
+page_title: TreeList - Aggregates
+description: TreeList does not support built-in aggregates.
 slug: treelist-aggregates
-tags: telerik,blazor,grid,aggreagates,aggregate
+tags: telerik,blazor,treelist,aggregates
 published: false
 position: 23
 components: ["treelist"]
 ---
 
-# Grid Aggregates
+# TreeList Aggregates
 
-The Grid component provides built-in aggregates for column values based on [grouping](slug:components/grid/features/grouping).
+The TreeList does not support built-in aggregate functions or aggregate templates. This page remains unpublished so that the old Grid aggregate example is not presented as a TreeList feature.
+
+<!-- The old Grid aggregate content is retained below for historical reference only.
 
 There are several available aggregate functions under the `Telerik.Blazor.GridAggregateType` enum:
 
@@ -122,5 +124,6 @@ If you try to use an aggregate that is not defined, or an aggregate over an unsu
 ## See Also
 
 * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
-   
+-->
   
+

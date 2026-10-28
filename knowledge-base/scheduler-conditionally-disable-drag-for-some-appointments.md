@@ -72,9 +72,9 @@ To conditionally disable dragging an appointment based on your desired condition
 
     private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
 
-    private void OnItemRenderHandler(SchedulerItemRenderEventArgs e)
+    private void OnItemRenderHandler(SchedulerItemRenderEventArgs args)
     {
-        SchedulerAppointment appt = e.Item as SchedulerAppointment;
+        SchedulerAppointment appt = (SchedulerAppointment)args.Item;
         
         //add custom class to stop the pointer events of the appointment
         if (appt.NonDraggable)

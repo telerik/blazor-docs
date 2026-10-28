@@ -21,11 +21,11 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 <demo metaUrl="client/dropdownlist/grouping/" height="350"></demo>
 
-# Notes
+## Notes
 
 * One level of grouping is supported.
 * The `DefaultText` (e.g. "Select item...") is always rendered above the sticky group header in the dropdown.
-* A grouped DropDownList will provide a `Groups` property with a single [`GroupDescriptor`](slug:Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](slug:Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug:components/dropdownlist/events#onread). This will allow the developer to apply grouping with [manual data operations](slug:components/grid/manual-operations).
+* A grouped DropDownList will provide a `Groups` property with a single [`GroupDescriptor`](slug:Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](slug:Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug:components/dropdownlist/events#onread). This will allow the developer to apply grouping with [manual data operations](slug:common-features-data-binding-onread#todatasourceresult-method).
 
 ## See Also
 

@@ -19,44 +19,9 @@ The Form component for Blazor allows you control its orientation through the `Or
 * `Vertical` - by default the Form will be vertical.
 
 
->caption Change the orientation of the Form. The result of the code snippet below
+>caption Change the orientation of the Form.
 
-![Form Orientation example](images/form-orientation-example.gif)
-
-````RAZOR
-@* Use the dropdownlist to change the orientation of the Form *@
-
-<div>
-    <TelerikDropDownList @bind-Value="@Orientation" Data="@OrientationTypes"></TelerikDropDownList>
-</div>
-
-<div>
-    <TelerikForm Model="@person"
-                 Orientation="@Orientation">
-    </TelerikForm>
-</div>
-
-
-@code {
-    public FormOrientation Orientation { get; set; }
-    public List<FormOrientation> OrientationTypes { get; set; } = new List<FormOrientation>()
-    {
-        FormOrientation.Horizontal,
-        FormOrientation.Vertical,
-    };
-
-    public Person person = new Person();
-
-    public class Person
-    {
-        public int Id { get; set; } = 10;
-        public string FirstName { get; set; } = "John";
-        public string LastName { get; set; } = "Doe";
-        public DateTime DOB { get; set; } = DateTime.Today.AddYears(-20);
-        public bool IsOnVacation { get; set; } = true;
-    }
-}
-````
+<demo metaUrl="client/form/orientation/example-1/" height="570"></demo>
 
 ## See Also
   

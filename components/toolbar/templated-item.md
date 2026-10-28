@@ -17,48 +17,7 @@ You can use that item to add complex toolbars to your application, which have dr
 
 >caption Add a Telerik DropDownList to the ToolBar
 
-![templated item for the ToolBar](images/toolbar-templated-item.png)
-
-````RAZOR
-@*Use the templated item to add a Telerik DropDownList to the ToolBar*@
-
-<TelerikToolBar>
-    <ToolBarButtonGroup>
-        <ToolBarButton Icon="@SvgIcon.Bold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Underline">Underline</ToolBarButton>
-    </ToolBarButtonGroup>
-    <ToolBarSeparator />
-
-    <ToolBarTemplateItem>
-        <TelerikDropDownList Data="@Roles" Value="@SelectedRole" ValueChanged="@( (string v) => RoleChange(v) )"></TelerikDropDownList>
-    </ToolBarTemplateItem>
-</TelerikToolBar>
-
-
-@code {
-    public bool Selected { get; set; } = true;
-
-    public string SelectedRole { get; set; }
-
-    public List<string> Roles { get; set; } = new List<string>()
-    {
-         "Manager", "QA", "Developer", "Support"
-    };
-
-    protected override void OnInitialized()
-    {
-        SelectedRole = Roles.FirstOrDefault();
-    }
-
-    void RoleChange(string newRole)
-    {
-        // use the argument, or use the Value with two-way binding and other events like OnChange
-        SelectedRole = newRole;
-        Console.WriteLine($"The user is now in the {SelectedRole} role");
-    }
-}
-````
+<demo metaUrl="client/toolbar/templated-item/example-1/" height="420"></demo>
 
 ## Notes
 

@@ -47,52 +47,7 @@ The `<SankeyTitle>` tag exposes nested tags for further customization. The struc
 
 >caption Customizing the Sankey title by using nested tag settings
 
-````RAZOR
-<TelerikSankey Data="@Data"
-               DisableAutoLayout="true"
-               Height="400px">
-    <SankeyLinks ColorType="@SankeyLinksColorType.Source" />
-    <SankeyTitle Text="Sample Sankey Diagram" Description="Sample Sankey Diagram" Font="bold 17px sans-serif">
-        <SankeyTitleBorder Color="grey" DashType="@DashType.Solid" Width="1" />
-        <SankeyTitleMargin Bottom="10" />
-    </SankeyTitle>
-</TelerikSankey>
-
-@code {
-    private SankeyData? Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        var sourceNodes = 3;
-        var destinationNodes = 3;
-
-        Data = new SankeyData()
-            {
-                Nodes = new SankeyDataNodes(),
-                Links = new SankeyDataLinks()
-            };
-
-        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
-        {
-            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
-            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
-        }
-
-        for (int i = 1; i <= sourceNodes; i++)
-        {
-            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
-            {
-                Data.Links.Add(new SankeyDataLink()
-                    {
-                        SourceId = i,
-                        TargetId = j,
-                        Value = Random.Shared.Next(5, 30)
-                    });
-            }
-        }
-    }
-}
-````
+<demo metaUrl="client/sankey/title/example-1/" height="620"></demo>
 
 ## See Also
 

@@ -1,7 +1,7 @@
 ---
 title: Hierarchical Data
 page_title: Menu - Data Binding to Hierarchical Data
-description: Data Binding the Menu for Blazor to hierarchical data.
+description: Bind the Menu for Blazor to hierarchical data.
 slug: components/menu/data-binding/hierarchical-data
 tags: telerik,blazor,menu,data,bind,databind,databinding,hierarchical
 published: True
@@ -21,85 +21,11 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 >caption Example of using hierarchical data in a menu (for brevity, URLs are omitted)
 
-````RAZOR
-@* Hierarchical menu data source and navigation through different views *@
-
-<TelerikMenu Data="@MenuItems"
-             ItemsField="@nameof(MenuItem.SubSectionList)"
-             TextField="@nameof(MenuItem.Section)"
-             UrlField="@nameof(MenuItem.Page)">
-</TelerikMenu>
-
-@code {
-    public List<MenuItem> MenuItems { get; set; }
-
-    public class MenuItem
-    {
-        public string Section { get; set; }
-        public string Page { get; set; }
-        public List<MenuItem> SubSectionList { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        MenuItems = new List<MenuItem>()
-        {
-            // sample URLs for SPA navigation
-            new MenuItem()
-            {
-                Section = "Company",
-                SubSectionList = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Section = "Overview",
-                        Page = "company/overview"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Events",
-                        Page = "events/all"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Careers",
-                        Page = "careers"
-                    }
-                }
-            },
-            // sample URLs for external navigation
-            new MenuItem()
-            {
-                Section = "Services",
-                SubSectionList = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Section = "Consulting",
-                        Page = "https://mycompany.com/services/consulting"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Education",
-                        Page = "https://mycompany.com/services/education"
-                    }
-                }
-            },
-            new MenuItem()
-            {
-                Section = "Contact",
-                Page = "https://mycompany.com/contact"
-            }
-        };
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/menu/hierarchical-data/example-1/" height="320"></demo>
 
 >caption The result from the code snippet above, after hovering the "Company" item
 
-![Blazor Menu Hierarchical Data Overview](images/menu-hierarchical-data-overview.png)
+![Blazor Menu displaying hierarchical data after hovering a menu item](images/menu-hierarchical-data-overview.png)
 
 
 ## See Also

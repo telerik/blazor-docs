@@ -35,40 +35,7 @@ The `ValueChanged` event fires when signature is fully drawn.
 
 >caption Handle the Blazor Signature Events
 
-````RAZOR
-<p>Last event: @EventLog</p>
-
-<TelerikSignature Value="@SignatureValue"
-                  ValueChanged="@ValueChangedHandler"
-                  OnBlur="@OnSignatureBlur"
-                  OnChange="@OnSignatureChange"
-                  Width="300px"
-                  Height="300px">
-</TelerikSignature>
-
-@code {
-    private string SignatureValue { get; set; }
-
-    private string EventLog { get; set; } = "...";
-
-    private void ValueChangedHandler(string value)
-    {
-        SignatureValue = value;
-
-        EventLog = $"ValueChanged event fired at {DateTime.Now.ToLongTimeString()}";
-    }
-
-    private void OnSignatureBlur()
-    {
-        EventLog = $"OnBlur event fired";
-    }
-
-    private void OnSignatureChange(string value)
-    {
-        EventLog = $"OnChange event fired";
-    }
-}
-````
+<demo metaUrl="client/signature/events/example-1/" height="550"></demo>
 
 
 ## See Also

@@ -24,27 +24,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tilelayout" target="_blank">Bla
 
 >caption Basic Tile Layout
 
-````RAZOR
-<TelerikTileLayout Columns="3"
-                   RowHeight="150px"
-                   Resizable="true"
-                   Reorderable="true">
-    <TileLayoutItems>
-        <TileLayoutItem HeaderText="Tile 1">
-            <Content>Regular-sized first tile.</Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Tile 2">
-            <Content>You can put components in the tiles too.</Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Tile 3" RowSpan="3">
-            <Content>This tile is three rows tall.</Content>
-        </TileLayoutItem>
-        <TileLayoutItem HeaderText="Tile 4" RowSpan="2" ColSpan="2">
-            <Content>This tile is two rows tall and two columns wide</Content>
-        </TileLayoutItem>
-    </TileLayoutItems>
-</TelerikTileLayout>
-````
+<demo metaUrl="client/tilelayout/overview/example-2/" height="720"></demo>
 
 ## Layout and Appearance
 
@@ -119,20 +99,7 @@ Use the component reference to execute methods and [get or set the TileLayout st
 
 <div class="skip-repl"></div>
 
-````RAZOR
-<TelerikTileLayout @ref="@TileLayoutRef" />
-
-<TelerikButton OnClick="@GetTileLayoutState">Get TileLayout State</TelerikButton>
-
-@code{
-    TelerikTileLayout TileLayoutRef { get; set; }
-
-    async Task GetTileLayoutState()
-    {
-        var tileState = TileLayoutRef.GetState();
-    }
-}
-````
+<demo metaUrl="client/tilelayout/overview/example-1/" height="720"></demo>
 
 
 ## Next Steps

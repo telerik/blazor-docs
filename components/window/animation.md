@@ -47,69 +47,7 @@ The `WindowAnimationType` enumeration includes the following options:
 
 ## Example
 
-````RAZOR
-<TelerikWindow @bind-Visible="@Visible"
-               Height="300px"
-               Width="300px"
-               @bind-Top="@Top"
-               @bind-Left="@Left"
-               AnimationType="@Animation"
-               AnimationDuration="@Duration">
-    <WindowTitle>Window Animations</WindowTitle>
-    <WindowContent>Animation type: <code>@Animation</code></WindowContent>
-</TelerikWindow>
-
-<p>Select animation type and duration:</p>
-
-<TelerikDropDownList Data="@AnimationTypes"
-                     Value="@Animation"
-                     ValueChanged="@((WindowAnimationType animation) => ChangeAnimation(animation))"
-                     Width="160px" />
-
-<TelerikNumericTextBox @bind-Value="@Duration"
-                       Width="120px" />
-
-<TelerikButton OnClick="@(() => Visible = !Visible)">Toggle Window</TelerikButton>
-
-@code {
-    private bool Visible { get; set; }
-    private int Duration { get; set; } = 300;
-
-     // Center the Window based on initial dimensions
-    private string Top { get; set; } = "calc(50% - 150px)";
-    private string Left { get; set; } = "calc(50% - 150px)";
-
-    private List<WindowAnimationType>? AnimationTypes { get; set; }
-    private WindowAnimationType Animation { get; set; } = WindowAnimationType.ZoomOut;
-
-    private async Task ChangeAnimation(WindowAnimationType animation)
-    {
-        Animation = WindowAnimationType.None;
-        Visible = false;
-        // Artificial delay to reset the animation for demonstration purposes
-        await Task.Delay(500);
-        Animation = animation;
-        Visible = true;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        AnimationTypes = new List<WindowAnimationType>();
-
-        // Populate the list of animation types.
-        foreach (WindowAnimationType animation in Enum.GetValues(typeof(WindowAnimationType)))
-        {
-            AnimationTypes.Add(animation);
-        }
-
-        // Artificial delay to show the window after initialization for the sake of the example
-        await Task.Delay(500);
-        Visible = true;
-
-        await base.OnInitializedAsync();
-    }
-}
-````
+<demo metaUrl="client/window/animation/example-1/" height="620"></demo>
 
 ## Limitations
 

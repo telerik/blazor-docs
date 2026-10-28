@@ -57,6 +57,8 @@ To review all available values for the `Rounded` parameter, see the [Button Roun
 
 Set the `Icon` parameter to display an icon. You can use a predefined [Telerik icon](slug:common-features-icons) or a custom one.
 
+For SVG icons, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 >caption Example of customizing the default icon
 
 <demo metaUrl="client/speechtotextbutton/icon/" height="150"></demo>

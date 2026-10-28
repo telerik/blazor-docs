@@ -48,70 +48,7 @@ Generally, the views are designed around the timeframe that they show and the da
 
 >caption Declare the Timeline view in the markup
 
-````RAZOR
-@* Define the Timeline view. *@
-
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="1000px">
-    <SchedulerViews>
-        <SchedulerTimelineView StartTime="@DayStart" EndTime="@DayEnd"
-                               WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd" 
-                               ColumnWidth="50"/>
-    </SchedulerViews>
-</TelerikScheduler>
-
-@code {
-    private DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
-    //the time portions are important
-    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    private DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    private DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
-    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-{
-            new SchedulerAppointment
-            {
-                Title = "Board meeting",
-                Description = "Q4 is coming to a close, review the details.",
-                Start = new DateTime(2019, 12, 5, 10, 00, 0),
-                End = new DateTime(2019, 12, 5, 11, 30, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Vet visit",
-                Description = "The cat needs vaccinations and her teeth checked.",
-                Start = new DateTime(2019, 12, 2, 11, 30, 0),
-                End = new DateTime(2019, 12, 2, 12, 0, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Planning meeting",
-                Description = "Kick off the new project.",
-                Start = new DateTime(2019, 12, 6, 9, 30, 0),
-                End = new DateTime(2019, 12, 6, 12, 45, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Trip to Hawaii",
-                Description = "An unforgettable holiday!",
-                IsAllDay = true,
-                Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 05)
-            }
-    };
-
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+<demo metaUrl="client/scheduler/timeline/example-1/" height="780"></demo>
 
 ## Time Range Constraints
 
@@ -123,70 +60,7 @@ To render the view until the end of the day, set `EndTime` (and `WorkDayEnd` if 
 
 >caption Set EndTime and WorkDayEnd to the last moment of the day
 
-````RAZOR
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="1000px">
-    <SchedulerViews>
-        <SchedulerTimelineView StartTime="@DayStart" 
-                               EndTime="@DayEnd"
-                               WorkDayStart="@WorkDayStart" 
-                               WorkDayEnd="@WorkDayEnd"
-                               ColumnWidth="50" />
-    </SchedulerViews>
-</TelerikScheduler>
-
-@code {
-    private DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
-    //the time portions are important
-    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 23, 59, 59);
-    private DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    private DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 23, 59, 59);
-    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-            new SchedulerAppointment
-            {
-                Title = "Board meeting",
-                Description = "Q4 is coming to a close, review the details.",
-                Start = new DateTime(2019, 12, 5, 10, 00, 0),
-                End = new DateTime(2019, 12, 5, 11, 30, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Vet visit",
-                Description = "The cat needs vaccinations and her teeth checked.",
-                Start = new DateTime(2019, 12, 2, 11, 30, 0),
-                End = new DateTime(2019, 12, 2, 12, 0, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Planning meeting",
-                Description = "Kick off the new project.",
-                Start = new DateTime(2019, 12, 6, 9, 30, 0),
-                End = new DateTime(2019, 12, 6, 12, 45, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Trip to Hawaii",
-                Description = "An unforgettable holiday!",
-                IsAllDay = true,
-                Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 05)
-            }
-    };
-
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+<demo metaUrl="client/scheduler/timeline/example-2/" height="780"></demo>
 
 ## See Also
 

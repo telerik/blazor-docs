@@ -254,37 +254,7 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
 
 <div class="skip-repl"></div>
 
-````RAZOR
-<p>
-    <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
-    <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
-    <TelerikButton OnClick="@Upload">Start Upload</TelerikButton>
-</p>
-
-<TelerikUpload @ref="@UploadRef"
-               SaveUrl="/api/upload/save"
-               RemoveUrl="/api/upload/remove"
-               AutoUpload="false" />
-
-@code {
-    private TelerikUpload UploadRef { get; set; }
-
-    private void SelectFiles()
-    {
-        UploadRef.OpenSelectFilesDialog();
-    }
-
-    private void Clear()
-    {
-        UploadRef.ClearFiles();
-    }
-
-    private void Upload()
-    {
-        UploadRef.UploadFiles();
-    }
-}
-````
+<demo metaUrl="client/upload/overview/example-1/" height="420"></demo>
 
 
 ## Troubleshooting

@@ -151,6 +151,12 @@ The PdfViewer does not currently have the capability to manage digital signature
 * You can use Telerik PdfProcessing to digitally sign the PDF on the server side.
 * The web application cannot access the user's guest operating system's X509 Certificate Store due to security restrictions in modern web browsers. Your application will only have access to X509 certificates installed on the server side. 
 
+## Cloud Signing and MFA
+
+The example in this article uses an `X509Certificate2` that is available to the server and contains the private key required for signing. If a cloud signing provider manages the certificate and requires multi-factor authentication (MFA), the provider's authentication and signing flow must run through its own server-side SDK or API. PdfViewer does not provide cloud-provider authentication or MFA.
+
+Do not send the provider credentials, MFA codes, certificate passwords, or private keys to the browser. The provider must return a completed signed PDF or a signing result that the current PdfProcessing API supports. Confirm the required integration with the cloud signing provider and, when necessary, Telerik Support because the workflow depends on the provider's API.
+
 ## See Also
 
 * [PdfViewer - Overview](https://docs.telerik.com/blazor-ui/components/pdfviewer/overview)

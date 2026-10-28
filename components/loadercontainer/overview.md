@@ -27,22 +27,7 @@ The **LoaderContainer** is designed to cover a whole component, HTML element, or
 
 >caption Basic LoaderContainer
 
-````RAZOR
-<p> Data Count: @Data?.Count </p>
-
-<TelerikLoaderContainer Visible="@( Data == null )" Text="Please wait..." />
-
-@code {
-    List<string> Data { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Delay(3000); // simulate slow loading of data
-
-        Data = Enumerable.Range(1, 10).Select(x => $"data item {x}").ToList();
-    }
-}
-````
+<demo metaUrl="client/loadercontainer/overview/example-1/" height="420"></demo>
 
 > Do not show or hide the LoaderContainer in a method, which is blocking the UI thread with synchronous operations. If this happens, the LoaderContainer may not appear when expected. A possible workaround is to use `await Task.Delay(...)` to give Blazor time to refresh the UI.
 
@@ -71,11 +56,7 @@ The Blazor LoaderContainer can expand to fill only a specific parent container. 
 
 >caption Use the LoaderContainer to fill a parent element
 
-````RAZOR
-<div style="position: relative; width: 600px; height: 400px;">
-    <TelerikLoaderContainer />
-</div>
-````
+<demo metaUrl="client/loadercontainer/overview/example-2/" height="520"></demo>
 
 
 ## LoaderContainer Parameters
@@ -114,19 +95,7 @@ So, if you want to make the loader container block all content on the app while 
 
 The panel is the white rectangular area that surrounds the animated loader indicator and the `Text`. Its purpose is to increase contrast and improve readability. To remove the white rectangle, use custom CSS code:
 
-````RAZOR
-@* LoaderContainer with transparent panel *@
-
-<TelerikLoaderContainer Class="no-panel"
-                        ThemeColor="@ThemeConstants.Loader.ThemeColor.Dark" />
-
-<style>
-    .no-panel .k-loader-container-panel {
-        background-color: transparent;
-        border-width: 0;
-    }
-</style>
-````
+<demo metaUrl="client/loadercontainer/overview/example-3/" height="420"></demo>
 
 >note The panel is not rendered when using a [LoaderContainer Template](slug:loadercontainer-template).
 

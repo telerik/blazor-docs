@@ -14,11 +14,13 @@ This page provides solutions for JavaScript errors that you may encounter while 
 
 * [`TelerikBlazor` was undefined](#telerikblazor-was-undefined)
 * [`init[Component]` was undefined](#init-component-was-undefined) (also applies to errors about missing Telerik JavaScript functions)
+* [Telerik components render but do not respond](#telerik-components-render-but-do-not-respond)
 * [Cannot read properties of null (reading `addEventListener`)](#cannot-read-properties-of-null-reading-addeventlistener)
 * [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
 * [Object doesn't support property or method `assign`](#object-doesn-t-support-property-or-method-assign)
 * [Microsoft.JSInterop.JSException: Maximum call stack size exceeded](#maximum-call-stack-size-exceeded)
+* [`TelerikBlazor.getWindowWidth` was undefined](#telerikblazor-getwindowwidth-was-undefined)
 
 ## TelerikBlazor was undefined
 
@@ -93,6 +95,14 @@ If you use our CDN to load the script file, make sure the file URL matches the p
 
 Another common reason is browser caching, if the file comes from the static NuGet assets or a local folder. Clear the browser cache or "hard refresh" the page to fix that. Consider a [cache buster for the Telerik CSS and JavaScript files](slug:common-kb-browser-cache-buster).
 
+## Telerik Components Render but Do Not Respond
+
+If the Telerik components render but their buttons, commands, or event handlers do not respond, verify that the page uses an interactive Blazor render mode. A successful request for `telerik-blazor.js` does not make a statically rendered page interactive.
+
+In a Blazor Web App, apply an interactive render mode to the application or to the page that contains the Telerik components. For example, the `Routes` component can use `InteractiveServer` when the app uses global server interactivity. For more information, see [Interactive Render Mode](slug:getting-started-workflow-details#interactive-render-mode).
+
+Also verify that the project uses one hosting model consistently. A Blazor Web App uses `App.razor` and `blazor.web.js`, while a Blazor WebAssembly Standalone app uses its `index.html` host and the WebAssembly framework script. Do not combine the document and startup configuration from both hosting models.
+
 ## Cannot read properties of null (reading 'addEventListener')
 
 The error message may also mention `removeEventListener` instead of `addEventListener`.
@@ -132,6 +142,10 @@ Under IE, you may get errors similar to `Object doesn't support property or meth
 ## Maximum call stack size exceeded
 
 The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier](slug:common-kb-maximum-call-stack-exceeded). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache and you may need to [add a cache buster for the Telerik CSS and JavaScript files](slug:common-kb-browser-cache-buster).
+
+## TelerikBlazor.getWindowWidth was undefined
+
+The error means that the app is using an outdated `telerik-blazor.js` file after upgrading to version 15.x. See the dedicated KB article [How to Fix `TelerikBlazor.getWindowWidth` Was Undefined](slug:common-kb-getwindowwidth-was-undefined-and-not-a-function) for next steps.
 
 ## See Also
 

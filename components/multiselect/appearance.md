@@ -30,48 +30,7 @@ You can increase or decrease the size of the MultiSelect by setting the `Size` a
 
 >caption The built-in sizes
 
-````RAZOR
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.MultiSelect.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikMultiSelect Data="@Countries"
-                                Size="@size"
-                                @bind-Value="@Values"
-                                Width="350px"
-                                AutoClose="false">
-            </TelerikMultiSelect>
-        </div>
-    }
-}
-
-@code {
-    List<string> Countries { get; set; } = new List<string>();
-    List<string> Values { get; set; } = new List<string>();
-
-    protected override void OnInitialized()
-    {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/multiselect/appearance/example-1/" height="420"></demo>
 
 ## Rounded
 
@@ -86,50 +45,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the MultiSelect 
 
 >caption The built-in values of the Rounded attribute
 
-````RAZOR
-@* The built-in values of the Rounded attribute.  *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.MultiSelect.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string rounded = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikMultiSelect Data="@Countries"
-                                Rounded="@rounded"
-                                @bind-Value="@Values"
-                                Width="350px"
-                                AutoClose="false">
-            </TelerikMultiSelect>
-        </div>
-    }
-}
-
-@code {
-    List<string> Countries { get; set; } = new List<string>();
-    List<string> Values { get; set; } = new List<string>();
-
-    protected override void OnInitialized()
-    {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/multiselect/appearance/example-2/" height="620"></demo>
 
 ## FillMode
 
@@ -143,49 +59,6 @@ The `FillMode` controls how the TelerikMultiSelect is filled. You can set it to 
 
 >caption The built-in Fill modes
 
-````RAZOR
-@* These are all built-in fill modes *@
-
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.MultiSelect.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string fillMode = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikMultiSelect Data="@Countries"
-                                FillMode="@fillMode"
-                                @bind-Value="@Values"
-                                Width="350px"
-                                AutoClose="false">
-            </TelerikMultiSelect>
-        </div>
-    }
-}
-
-@code {
-    List<string> Countries { get; set; } = new List<string>();
-    List<string> Values { get; set; } = new List<string>();
-
-    protected override void OnInitialized()
-    {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/multiselect/appearance/example-3/" height="420"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

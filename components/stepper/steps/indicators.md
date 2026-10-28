@@ -22,23 +22,9 @@ This article explains the configuration of the content that will be rendered in 
 
 Stepper component allows you to use text for its step indicators. You can define the desired `string` for each step through the `Text` parameter the `StepperStep` exposes.
 
->caption Stepper component with a text indicators. The result form the snippet below.
+>caption Stepper component with a text indicators.
 
-![Text Indicators](images/text-indicators-example.png)
-
-````RAZOR
-@* Stepper with text indicators *@
-
-<div style="width:500px">
-    <TelerikStepper>
-        <StepperSteps>
-            <StepperStep Text="1"></StepperStep>
-            <StepperStep Text="2"></StepperStep>
-            <StepperStep Text="3"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/steps/indicators/example-2/" height="320"></demo>
 
 ## Indicator Icon
 
@@ -48,20 +34,7 @@ Stepper component allows you to use Font and SVG icons for its step indicators. 
 
 More details as well as a list of the available Telerik font icons you can find in the [Built-in Icons article](slug:common-features-icons).
 
-![Icon Indicators](images/icon-indicators-example.png)
-
-````RAZOR
-@* Stepper with icon indicators *@
-
-<div style="width:500px">
-    <TelerikStepper>
-        <StepperSteps>
-            <StepperStep Icon="@SvgIcon.Globe" Label="Font Icon"></StepperStep>
-            <StepperStep Icon="@SvgIcon.Pin" Label="Svg Icon"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-````
+<demo metaUrl="client/stepper/steps/indicators/example-1/" height="320"></demo>
 
 ## Notes
 

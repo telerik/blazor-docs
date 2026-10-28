@@ -47,7 +47,7 @@
     
     void OnRowRenderHandler(GridRowRenderEventArgs args)
     {
-        AccountingData item = args.Item as AccountingData;
+        AccountingData item = (AccountingData)args.Item;
 
         args.Class = item.NetBalance > 0 ? "positiveValuesRowFormatting" : "negativeValuesRowFormatting";
     }

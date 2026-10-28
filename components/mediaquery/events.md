@@ -22,26 +22,7 @@ The `OnChange` event fires to notify you whether the media query string provided
 
 >caption Use the OnChange event to resize a parent container
 
-````RAZOR
-@* Resize the parent container *@
-
-<TelerikMediaQuery Media="@MediaQuery" OnChange="@OnChange"></TelerikMediaQuery>
-
-<div style="width: @(IsSmallScreen ? "500px" : "100%"); height: 400px; border: 1px solid black">
-    Shrink the browser to less than 767px to resize the container.
-</div>
-
-@code {
-    private bool IsSmallScreen { get; set; }
-
-    private string MediaQuery { get; set; } = "(max-width: 767px)";
-
-    private void OnChange(bool doesMatch)
-    {
-        IsSmallScreen = doesMatch;
-    }
-} 
-````
+<demo metaUrl="client/mediaquery/events/example-1/" height="420"></demo>
 
 ## See Also
 

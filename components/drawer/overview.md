@@ -25,7 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 5. Set the `@ref` parameter to obtain reference to the component instance. Use this instance to toggle the Drawer.
 
-6. Add a button inside the content to toggle the Drawer.
+6. Add a button inside the content to toggle the Drawer. Wire the button to the Drawer reference and call `ToggleAsync()`; the button is application-provided and is responsible for changing the Drawer state.
 
 >caption Basic configuration of the Drawer.
 
@@ -99,36 +99,7 @@ The Drawer methods are accessible through it's reference. These methods change t
 
 >caption Get a reference to the drawer and use its methods
 
-````RAZOR
-@* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
-
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon="@SvgIcon.Menu">
-    Toggle drawer
-</TelerikButton>
-
-<TelerikDrawer Data="@Data" Mode="@DrawerMode.Push"
-               @ref="@DrawerRef">
-    <DrawerContent>lorem ipsum</DrawerContent>
-</TelerikDrawer>
-
-@code {
-    Telerik.Blazor.Components.TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-
-    IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
-            };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/methods-1/" height="420"></demo>
 
 ## Next Steps
 

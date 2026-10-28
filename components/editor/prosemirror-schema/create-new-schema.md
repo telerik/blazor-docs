@@ -1,7 +1,7 @@
 ---
 title: Create a New Schema
-page_title:  Create a New Schema
-description: Expore how to create a new schema for the Editor for Blazor.
+page_title: Create a New Schema
+description: Explore how to create a new schema for the Editor for Blazor.
 slug: editor-create-new-schema
 tags: telerik,blazor,editor,prosemirror,schema
 published: True
@@ -35,7 +35,7 @@ Note that with the last two options you will lose the functionality that comes w
 
 ## Creating a New Schema
 
-The below example shows how to:
+The following example shows how to:
 
 * Create a new instance of the `Schema` object and include several nodes and marks in it. The new schema supports only a couple of HTML elements such as `<p>`, `<ul>`, `<ol>` and `<a>`.
 * Remove a plugin that requires a node which is not part of your schema. The new Schema in this example does not include `<ol>` or `<ul>` elements, so we are removing the plugin that requires these nodes.

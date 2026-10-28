@@ -24,6 +24,7 @@ The Telerik UI for Blazor components use a [`ITelerikStringLocalizer`](slug:Tele
 
 The `Telerik.UI.for.Blazor` NuGet package includes a [`Telerik.Blazor.Resources.Messages` class](slug:telerik.blazor.resources.messages) and a resource file with the default English message strings. The components use the built-in `resx` file internally if the app does not define another localization service for the Telerik components. The API reference for the `Messages` class lists all supported localization keys.
 
+Once you [enable localization and culture swithing](#step-1-set-the-blazor-app-culture), the [Telerik Localization Assistant](slug:agentic-ui-generator-localization-assistant) can help you localize your Blazor app faster and more easily.
 
 ## Localize Telerik Blazor Components
 
@@ -49,6 +50,7 @@ The purpose of this step is to supply the correct application culture to the `Re
 
 Create and add localization resource `resx` files to your app, based on the languages that the app must support. Use the following links for reference:
 
+* The [Telerik Localization Assistant](slug:agentic-ui-generator-localization-assistant) can help you translate both Telerik and non-Telerik UI strings in your app, and create or update `.resx` files.
 * A full up-to-date list of localization keys is available in the [`Telerik.Blazor.Resources.Messages` API reference](slug:Telerik.Blazor.Resources.Messages).
 * An up-to-date English resource file is available in the [Telerik UI for Blazor demo site](https://demos.telerik.com/blazor-ui). Download the [UI for Blazor automated installer](slug:installation-msi) or [UI for Blazor ZIP archive](slug:installation-zip). Go to the installation location and open the folder `\demos\TelerikBlazorDemos\Resources\`. The folder contains `resx` localization files for a few different languages.
 * Community resource files are available in the <a href="https://github.com/telerik/blazor-ui-messages" target="_blank">`blazor-ui-messages` GitHub repository</a>. These resource files are updated and maintained by the Telerik community. They may not be compatible with the latest product version. You are welcome to contribute your own resource files.
@@ -58,7 +60,7 @@ Create and add localization resource `resx` files to your app, based on the lang
 > * Missing or non-translated messages in the UI
 > * [Exceptions related to missing localization keys](slug:common-kb-null-value-parameter-format)
 
-> Telerik supports the default English strings. The `resx` files for the other languages exist only for demo purposes and are provided as-is. You can use them as a base for implementing your own.
+> Telerik supports the default English strings. The `resx` files for the other languages exist only for demo purposes and are provided as-is. You can use them as a base for implementing your own. When using the [Telerik Localization Assistant](slug:agentic-ui-generator-localization-assistant) to create new resource files for the UI labels in the Telerik Blazor components, use the Telerik Blazor English resource file as a base.
 
 #### Embed the Resource Files
 
@@ -192,5 +194,6 @@ This is not related to the Telerik components, but setting `ResourcePath` in `se
 
 ## See Also
 
-* [Globalization Overview](slug:globalization-overview)
+* [Telerik Localization Assistant](slug:agentic-ui-generator-localization-assistant)
 * [Localize Only Some Component Labels](slug:common-kb-localize-selected-localization-keys)
+* [Globalization Overview](slug:globalization-overview)

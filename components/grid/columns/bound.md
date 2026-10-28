@@ -53,7 +53,7 @@ You can use the following properties on bound columns:
 ### Appearance
 
 * `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
-* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format](slug:grid-columns-displayformat) article.
+* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format](slug:grid-columns-displayformat) article. `DisplayFormat` does not convert UTC values to the browser user's local timezone. For an example, see [Display UTC Time in the User's Local Time](slug:grid-display-utc-time-in-local-time).
 * `TextAlign` - specifies the horizontal alignment of the **data** cells. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction. Header cell alignment requires a different approach with `HeaderClass` and [custom CSS](slug:themes-override) - see [Center Grid column header text](slug:grid-kb-center-column-header-content).
 * `OnCellRender` - an event that fires upon the rendering of the Grids columns. For more information read the columns [events](slug:grid-column-events#oncellrender) article.
 * `HeaderClass` - `string` - adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default Grid styles](slug:themes-override).
@@ -108,8 +108,8 @@ You can use the following properties on bound columns:
     ````C#
     public class MyModel
     {
-        public int WorkinProperty { get; set; } // has public getter and setter so it can be shown and edited
-        public int NonWorkingField // no public getter, so the grid cannot display this
+        public int WorkingProperty { get; set; } // Has a public getter and setter, so the Grid can display and edit it.
+        public int NonWorkingProperty { private get; set; } // Has no public getter, so the Grid cannot display it.
     }
     ````
 

@@ -29,36 +29,7 @@ To use the single tag mode, set the `TagMode` parameter to `MultiSelectTagMode.S
 
 >caption MultiSelect with single tag mode
 
-````RAZOR
-<TelerikMultiSelect Data="@Countries"
-                    @bind-Value="@SelectedCountries"
-                    TagMode="@MultiSelectTagMode.Single"
-                    Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" 
-                    ShowClearButton="true"
-                    AutoClose="false">
-</TelerikMultiSelect>
-
-@code {
-    private List<string> Countries { get; set; } = new List<string>();
-
-    private List<string> SelectedCountries { get; set; } = new List<string>();
-
-    protected override void OnInitialized()
-    {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/multiselect/tag-mode/example-1/" height="420"></demo>
 
 ## Multiple Mode
 
@@ -66,38 +37,7 @@ When the multiple tag mode is enabled, each selected item will be displayed as a
 
 >caption MultiSelect with multiple tag mode
 
-````RAZOR
-@*This is the default mode, so you do not need to explicitly set it.*@
-
-<TelerikMultiSelect Data="@Countries"
-                    @bind-Value="@SelectedCountries"
-                    TagMode="@MultiSelectTagMode.Multiple"
-                    Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" 
-                    ShowClearButton="true"
-                    AutoClose="false">
-</TelerikMultiSelect>
-
-@code {
-    private List<string> Countries { get; set; } = new List<string>();
-
-    private List<string> SelectedCountries { get; set; } = new List<string>();
-
-    protected override void OnInitialized()
-    {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/multiselect/tag-mode/example-2/" height="420"></demo>
 
 ## Summarized Tags Based on the Number of Selections
 
@@ -107,39 +47,9 @@ To restrict the allowed number of individual tags, use the `MaxAllowedTags` para
 
 >caption MultiSelect accepting up to 2 individual tags
 
-````RAZOR
-<TelerikMultiSelect Data="@Countries"
-                    @bind-Value="@SelectedCountries"
-                    TagMode="@MultiSelectTagMode.Multiple"
-                    MaxAllowedTags="2"     
-                    Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" 
-                    ShowClearButton="true" 
-                    AutoClose="false">
-</TelerikMultiSelect>
-
-@code {
-    private List<string> Countries { get; set; } = new List<string>();
-
-    private List<string> SelectedCountries { get; set; } = new List<string>();
-    
-    protected override void OnInitialized()
-    {
-        Countries.Add("Albania");
-        Countries.Add("Bosnia & Herzegovina");
-        Countries.Add("Bulgaria");
-        Countries.Add("Croatia");
-        Countries.Add("Kosovo");
-        Countries.Add("North Macedonia");
-        Countries.Add("Montenegro");
-        Countries.Add("Serbia");
-        Countries.Add("Slovenia");
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/multiselect/tag-mode/example-3/" height="420"></demo>
 
 ## See Also
 
 * [Live Demo: MultiSelect Tag Mode](https://demos.telerik.com/blazor-ui/multiselect/tag-mode)
-   
+

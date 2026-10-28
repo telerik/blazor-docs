@@ -65,7 +65,7 @@ I have a Grid with hierarchy enabled. When I expand one row, I want to programma
 
         GridState<MainModel> desiredState = GridRef.GetState();
 
-        desiredState.ExpandedItems = new List<MainModel> { args.Item as MainModel };
+        desiredState.ExpandedItems = new List<MainModel> { (MainModel)args.Item };
 
         await GridRef.SetStateAsync(desiredState);
     }

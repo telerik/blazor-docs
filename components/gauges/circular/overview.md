@@ -22,27 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/circular-gauge" target="_blank"
 
 >caption Basic Telerik Circular Gauge for Blazor.
 
-````RAZOR
-@* Setup a basic circular gauge with center label template *@
-
-<TelerikCircularGauge Width="100px" Height="100px">
-
-    <CircularGaugePointers>
-        <CircularGaugePointer Value="30" Size="10" />
-    </CircularGaugePointers>
-
-    <CircularGaugeCenterLabel>
-        <Template>
-            @{
-                var pointer = context.Pointers.FirstOrDefault();
-
-                <div style="font-weight: bold; font-size:30px">@pointer.Value</div>
-            }
-        </Template>
-    </CircularGaugeCenterLabel>
-
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/basic-2/" height="420"></demo>
 
 ## Scale
 
@@ -74,35 +54,7 @@ The labels are rendered on the scale of the component to give information to the
 | --- | --- |
 | `Refresh` | Programatically re-render the Circular Gauge. |
 
-````RAZOR
-@* Change the Height of the component *@
-
-<TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>
-
-<TelerikCircularGauge @ref="@CircularGaugeRef" Height="@Height">
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="30" />
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-
-@code {
-    Telerik.Blazor.Components.TelerikCircularGauge CircularGaugeRef { get; set; }
-
-    public string Height { get; set; } = "300px";
-
-    async Task ChangeTheHeight()
-    {
-        Height = "450px";
-
-        //give time to the framework and browser to resize the actual DOM so the gauge can use the expected size
-        await Task.Delay(30);
-
-        CircularGaugeRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/circulargauge/basic-1/" height="420"></demo>
 
 ## Next Steps
 

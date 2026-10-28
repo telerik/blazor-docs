@@ -25,75 +25,7 @@ The `SchedulerPopupEditFormSettings` nested tag exposes a `ButtonsLayout` parame
 
 >caption Customize the popup edit form
 
-````RAZOR
-@*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
-
-<TelerikScheduler Data="@Appointments"
-                  @bind-Date="@StartDate"
-                  @bind-View="@CurrView"
-                  AllowCreate="true"
-                  AllowUpdate="true"
-                  Height="600px"
-                  Width="800px">
-
-    <SchedulerSettings>
-        <SchedulerPopupEditSettings Width="600px"
-                                    MinWidth="500px"
-                                    MaxHeight="99vh"
-                                    Title="Edit Event"
-                                    Class="custom-popup">
-        </SchedulerPopupEditSettings>
-        <SchedulerPopupEditFormSettings ButtonsLayout="FormButtonsLayout.Stretch">
-        </SchedulerPopupEditFormSettings>
-    </SchedulerSettings>
-    <SchedulerViews>
-        <SchedulerWeekView StartTime="@DayStart" />
-    </SchedulerViews>
-</TelerikScheduler>
-
-@code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
-    public SchedulerView CurrView { get; set; } = SchedulerView.Week;
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);//the time portion is important
-
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
-    {
-            new SchedulerAppointment
-            {
-                Title = "Vet visit",
-                Description = "The cat needs vaccinations and her teeth checked.",
-                Start = new DateTime(2019, 11, 26, 11, 30, 0),
-                End = new DateTime(2019, 11, 26, 12, 0, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Planning meeting",
-                Description = "Kick off the new project.",
-                Start = new DateTime(2019, 11, 25, 9, 30, 0),
-                End = new DateTime(2019, 11, 25, 12, 45, 0)
-            },
-
-            new SchedulerAppointment
-            {
-                Title = "Trip to Hawaii",
-                Description = "An unforgettable holiday!",
-                IsAllDay = true,
-                Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 07)
-            }
-    };
-
-    public class SchedulerAppointment
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
-    }
-}
-````
+<demo metaUrl="client/scheduler/edit-popup-customization/example-1/" height="780"></demo>
 
 
 ## See Also

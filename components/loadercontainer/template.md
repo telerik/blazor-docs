@@ -23,125 +23,14 @@ This article provides examples that show how to:
 
 This example shows how to change the contents of the loading text and animation that are shown by default. Once you set the template up, the default white background of that container will be gone so you can have full control over its appearance.
 
-````RAZOR
-@* Customize the LoaderContainer content using its Template *@
-
-<TelerikLoaderContainer Visible="@(GridData == null ? true : false)">
-    <Template>
-        <TelerikLoader></TelerikLoader>
-        <div>
-            <span><TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon></span>
-            <span>Please wait, the application is loading...</span>
-        </div>
-    </Template>
-</TelerikLoaderContainer>
-
-<TelerikGrid Data="@GridData" AutoGenerateColumns="true"
-             Pageable="true" PageSize="4" Width="700px">
-</TelerikGrid>
-
-@code {
-    public List<GridDataModel> GridData { get; set; }
-    public class GridDataModel
-    {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime? RegistrationDate { get; set; }
-        public DateTime? LocalTime { get; set; }
-    }
-
-    public List<GridDataModel> GenerateGridData()
-    {
-        var data = Enumerable.Range(1, 15).Select(i => new GridDataModel()
-        {
-            Id = i,
-            Username = $"Username {i}",
-            EmailAddress = $"user{i}@mail.com",
-            RegistrationDate = DateTime.Now.AddDays(-2),
-            LocalTime = DateTime.Now
-        }).ToList();
-
-        return data;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Delay(6000);
-        GridData = GenerateGridData();
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Loadercontainer Template Basic](images/loadercontainer-template-basic.png)
+<demo metaUrl="client/loadercontainer/template/example-1/" height="420"></demo>
 
 ## Implement a Custom Panel
 
 You can use CSS to target the DOM elements that create the Panel around the template so you can style them as required. By default, the Panel is white to contrast with the default dark overlay. This example shows how you can customize its color and content.
 
 
-````RAZOR
-@*Create a custom panel to highlight the custom loading indicator and loading text*@
-
-<style>
-    .my-loader-container .k-loader-container-inner{
-        background-color: indianred;
-        padding: 80px;
-    }
-</style>
-
-<TelerikLoaderContainer Class="my-loader-container" Visible="@(GridData == null ? true : false)">
-    <Template>
-        <TelerikLoader ThemeColor="light"></TelerikLoader>
-        <div>
-            <span><TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon></span>
-            <span style="color:white">Loading...</span>
-        </div>
-    </Template>
-</TelerikLoaderContainer>
-
-<TelerikGrid Data="@GridData" AutoGenerateColumns="true"
-             Pageable="true" PageSize="4" Width="700px">
-</TelerikGrid>
-
-@code {
-    public List<GridDataModel> GridData { get; set; }
-    public class GridDataModel
-    {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime? RegistrationDate { get; set; }
-        public DateTime? LocalTime { get; set; }
-    }
-
-    public List<GridDataModel> GenerateGridData()
-    {
-        var data = Enumerable.Range(1, 15).Select(i => new GridDataModel()
-        {
-            Id = i,
-            Username = $"Username {i}",
-            EmailAddress = $"user{i}@mail.com",
-            RegistrationDate = DateTime.Now.AddDays(-2),
-            LocalTime = DateTime.Now
-        }).ToList();
-
-        return data;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Delay(6000);
-        GridData = GenerateGridData();
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![Blazor Loadercontainer Template Custom Panel](images/loadercontainer-template-custom-panel.png)
+<demo metaUrl="client/loadercontainer/template/example-2/" height="420"></demo>
 
 ## See Also
 

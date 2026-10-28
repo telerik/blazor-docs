@@ -30,27 +30,7 @@ To use a CheckBox component in the Dialog:
 
 >caption Using CheckBox in Dialog
 
-````RAZOR
-@using Telerik.DataSource
-
-<TelerikDialog @ref="DialogRef" Visible="true">
-    <DialogContent>
-        <TelerikCheckBox Id="MyCheckBox" @bind-Value="@IsSelected" OnChange="@OnCheckBoxValueChanged" />
-        <label for="MyCheckBox">@(IsSelected ? "Selected" : "Not selected")</label>
-    </DialogContent>
-</TelerikDialog>
-
-@code {
-    private bool IsSelected { get; set; }
-
-    private TelerikDialog DialogRef { get; set; }
-
-    private void OnCheckBoxValueChanged()
-    {
-        DialogRef.Refresh();
-    }
-}
-````
+<demo metaUrl="client/dialog/integration/checkbox-2/" height="420"></demo>
 
 ## Filter in a Dialog
 
@@ -62,39 +42,4 @@ To use a Filter component in the Dialog:
 
 >caption Using Filter in Dialog
 
-````RAZOR
-@using Telerik.DataSource
-
-<TelerikDialog @ref="DialogRef" Visible="true" Width="66vw" Height="66vh">
-    <DialogContent>
-        <TelerikFilter Value="@FilterValue" OnUpdate="@OnFilterUpdate">
-            <FilterFields>
-                <FilterField Name="@(nameof(Product.Name))" Type="@(typeof(string))" />
-                <FilterField Name="@(nameof(Product.Price))" Type="@(typeof(decimal))" />
-                <FilterField Name="@(nameof(Product.Quantity))" Type="@(typeof(int))" />
-                <FilterField Name="@(nameof(Product.Discontinued))" Type="@(typeof(bool))" />
-            </FilterFields>
-        </TelerikFilter>
-    </DialogContent>
-</TelerikDialog>
-
-@code {
-    private TelerikDialog? DialogRef { get; set; }
-
-    private CompositeFilterDescriptor FilterValue { get; set; } = new();
-
-    private void OnFilterUpdate()
-    {
-        DialogRef?.Refresh();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public bool Discontinued { get; set; }
-    }
-}
-````
+<demo metaUrl="client/dialog/integration/filter-1/" height="420"></demo>

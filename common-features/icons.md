@@ -28,6 +28,7 @@ This article contains the following sections:
     * [Set custom font icon size](#set-custom-font-icon-size)
     * [Render font icons with HTML](#render-font-icons-with-html)
 * [`SvgIcon` component](#svgicon-component)
+    * [Use SVG icon variants](#use-svg-icon-variants)
     * [Render custom SVG Icons with HTML](#render-custom-svg-icons-with-html)
     * [Use custom SVG icon collection](#use-custom-svg-icon-collection)
 * [Set global icon type for the whole application](#set-global-blazor-icon-type)
@@ -82,18 +83,20 @@ Some components provide icon-related parameters, which can rely on the above pac
 
 ### Font Icon Stylesheet
 
-In version 4.6.0 of Telerik UI for Blazor, the font icon styles were separated in their own stylesheet. Register it in a similar way as the component theme:
+Register the font icon styles in a similar way as the [component theme](slug:themes-overview#using-a-theme).
+
+Note the duplicate At signs `@` in the CDN URL below. This syntax is compatible with `.razor` files. When loading a theme from `index.html`, use just one `@`.
 
 >caption Using the font icon CSS file
 
 <div class="skip-repl"></div>
 
-````RAZOR
+````HTML
 <!-- If using static assets from the NuGet package -->
 <link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
 
-<!-- If using the Telerik Blazor CDN - set the correct version number in the URL -->
-<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
+<!-- If using the Telerik CDN - setting a fixed version number in the URL is recommended with older component versions. -->
+<link href="https://unpkg.com/@@progress/kendo-font-icons@@latest/dist/index.css" rel="stylesheet" type="text/css" />
 ````
 
 
@@ -237,6 +240,7 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 | `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.SvgIcon.Size` class](slug:telerik.blazor.themeconstants.svgicon.size). |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.SvgIcon.ThemeColor` class](slug:telerik.blazor.themeconstants.svgicon.themecolor) properties. |
+| `Variant` | `string` <br /> (`outline`) | The SVG icon variant. Use [`ThemeConstants.SvgIcon.Variant`](slug:telerik.blazor.themeconstants.svgicon.variant) constants. |
 
 >caption Using TelerikSvgIcon
 
@@ -247,6 +251,34 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
                 Size="@ThemeConstants.SvgIcon.Size.Large"
                 ThemeColor="@ThemeConstants.SvgIcon.ThemeColor.Primary" />
 ````
+
+### Use SVG Icon Variants
+
+Starting with version `5.0.0` of the [`Telerik.SvgIcons` package](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) the SVG icons support `outline`, `solid`, and `duotone` variants. The default variant is `outline`, which matches the appearance of most SVG icons in previous versions. Use the optional `TelerikSvgIcon` `Variant` parameter.
+
+Components with configurable icons expose a corresponding variant parameter. Use `IconVariant` for a primary icon, an icon-slot-specific parameter such as `RemoveIconVariant` for a named icon, or `IconVariantField` for data-bound items. A missing or unsupported variant renders the default icon content.
+
+````RAZOR
+<TelerikSvgIcon Icon="@SvgIcon.Gear"
+                Variant="@ThemeConstants.SvgIcon.Variant.Duotone" />
+
+<TelerikButton Icon="@SvgIcon.Gear"
+               IconVariant="@ThemeConstants.SvgIcon.Variant.Outline">
+    Settings
+</TelerikButton>
+````
+
+### Set Outline and Duotone Stroke Width
+
+Set the `--kendo-icon-stroke-width` CSS variable to change the stroke width of outline and duotone SVG icons. The default value is `1.5`. The setting does not affect solid icons.
+
+````CSS
+:root {
+    --kendo-icon-stroke-width: 2;
+}
+````
+
+The `TelerikSvgIcon` component applies the required variant CSS class automatically. The default outline variant also supports this CSS variable when no `Variant` value is set.
 
 ### Render Custom SVG Icons with HTML
 
@@ -350,7 +382,9 @@ It is possible to configure the icon type for the whole application:
 
 The <a href="https://www.telerik.com/design-system/docs/" target="_blank">Progress Design System</a> website provides a list of all <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">built-in icons in Telerik UI for Blazor</a>.
 
-To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `plus-outline` should become `FontIcon.PlusOutline` or `SvgIcon.PlusOutline`.
+> Version 5.0.0 of the Telerik icon packages remove and rename some icons previously available as deprecated font icon aliases. Review the v5.0.0 release notes in the [Icon Packages Changelog](https://www.telerik.com/design-system/docs/foundation/iconography/changelog/).
+
+To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `qr-code` should become `FontIcon.QrCode` or `SvgIcon.QrCode`.
 
 Each icon box in the icon list is clickable and reveals the following details:
 
@@ -358,6 +392,8 @@ Each icon box in the icon list is clickable and reveals the following details:
 * Unicode representation of the font icon glyph. For example, `\e11e` corresponds to the `plus` icon.
 * Ability to copy the glyph symbol of the font icon.
 * Ability to copy the HTML markup (`<svg>` tag) of the SVG icon.
+
+The built-in SVG icons are exposed to Blazor through `ISvgIcon` objects such as `SvgIcon.Droplet`; their path data is not a separate documented property of the `SvgIcon` class. To use the exact path in custom SVG markup, copy the SVG markup from the icon list. For application-defined icons, use a custom `SvgIconBase` implementation and set its `Content` and `ViewBox` properties.
 
 The icon list may contain icons which are not available in older versions of Telerik UI for Blazor or even in the latest one. Such icons will be added in the next product version.
 

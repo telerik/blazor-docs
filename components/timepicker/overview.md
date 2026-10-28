@@ -23,20 +23,7 @@ The Time Picker component supports `DateTime`, `DateTime?`, `DateTimeOffset` and
 
 >caption Basic Time Picker with custom format, min and max
 
-````RAZOR
-Selected time: @selectedTime?.ToLongTimeString()
-<br />
-
-<TelerikTimePicker Min="@Min" Max="@Max" Format="hh:mm:ss tt" @bind-Value="@selectedTime"></TelerikTimePicker>
-
-@code  {
-    private DateTime? selectedTime = DateTime.Now;
-
-    // only the time portions are used
-    public DateTime Min = new DateTime(1900, 1, 1, 8, 15, 0);
-    public DateTime Max = new DateTime(1900, 1, 1, 19, 30, 45);
-}
-````
+<demo metaUrl="client/timepicker/overview/example-2/" height="420"></demo>
 
 ## Date Input Typing Settings
 
@@ -124,26 +111,7 @@ Add a reference to the component instance to use the [Time Picker's methods](slu
 | `FocusAsync` | Focuses the Time Picker textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `Open` | Opens the Calendar popup. |
 
-````RAZOR
-<TelerikTimePicker @ref="@TimePickerRef"
-                   @bind-Value="@TimePickerValue"
-                   Width="300px">
-</TelerikTimePicker>
-
-<TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
-
-@code {    
-    // the datetime picker is a generic component and its type comes from the value field type
-    private TelerikTimePicker<DateTime> TimePickerRef { get; set; }
-
-    private DateTime TimePickerValue = DateTime.Now;
-
-    private void OpenPopup()
-    {
-        TimePickerRef.Open();
-    }
-}
-````
+<demo metaUrl="client/timepicker/overview/example-1/" height="420"></demo>
 
 ## Next Steps
 

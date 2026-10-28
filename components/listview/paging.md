@@ -28,31 +28,7 @@ The ListView component can page the entire data source automatically. Alternativ
 
 >caption Enable Paging in the ListView component and set a custom page size
 
-````RAZOR
-@* The Listview can page the entire data source your provide to it so only certain items are rendered at once *@
-
-<TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
-    <Template>
-        <div class="listview-item">
-            <strong>@context.Name</strong>
-        </div>
-    </Template>
-</TelerikListView>
-
-@code{
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 250).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/paging/example-1/" height="620"></demo>
 
 ## Events
 
@@ -75,46 +51,7 @@ In addition to `Page` and `PageSize`, the ListView provides advanced pager confi
 
 >caption ListView Pager Settings
 
-````RAZOR
-@*Configure the Pager Settings*@
-
-<TelerikListView Data="@ListViewData"
-                 Pageable="true"
-                 @bind-PageSize="@PageSize"
-                 @bind-Page="@CurrentPage">
-    <ListViewSettings>
-        <ListViewPagerSettings InputType="PagerInputType.Input"
-                               PageSizes="@PageSizes"
-                               ButtonCount="5"
-                               Adaptive="true"
-                               Position="PagerPosition.Top">
-        </ListViewPagerSettings>
-    </ListViewSettings>
-    <Template>
-        <div class="listview-item">
-            <strong>@context.Name</strong>
-        </div>
-    </Template>
-</TelerikListView>
-
-@code {
-    int PageSize { get; set; } = 15;
-    int CurrentPage { get; set; } = 3;
-    protected List<int?> PageSizes { get; set; } = new List<int?> { 15, 30, null };
-
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 250).Select(x => new SampleData
-        {
-            Id = x,
-            Name = $"Name {x}"
-        }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/paging/example-2/" height="620"></demo>
 
 ## See Also
 

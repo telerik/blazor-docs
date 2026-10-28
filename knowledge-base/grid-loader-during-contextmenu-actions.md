@@ -94,7 +94,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
 
     private async Task OnContextMenu(GridRowClickEventArgs args)
     {
-        var argsItem = args.Item as SampleData;
+        var argsItem = (SampleData)args.Item;
 
         SelectedPerson = argsItem;
 

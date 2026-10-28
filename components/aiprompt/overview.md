@@ -11,56 +11,20 @@ components: ["aiprompt"]
 
 # Blazor AIPrompt Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/ai-prompt" target="_blank">Blazor AIPrompt component</a> helps you write input (prompt) instructing the Generative AI to produce the desired response. 
+The <a href="https://www.telerik.com/blazor-ui/ai-prompt" target="_blank">Blazor AIPrompt component</a> helps you write input (prompt) instructing the Generative AI to produce the desired response.
 
-The component allows you to interact with the output from the AI and execute a set of predefined commands. Furthermore, the AIPrompt comes with three predefined views—Prompt, Output, and Command, as well as the option to define custom views. Users can navigate the views through the AIPrompt's ToolBar.
+The component allows you to interact with the output from the AI and execute a set of predefined commands. Furthermore, the AIPrompt comes with three predefined views—Prompt, Output, and Commands, as well as the option to define custom views. Users can navigate the views through the AIPrompt's ToolBar.
 
 ## Creating Blazor AIPrompt
 
 1. Add the `<TelerikAIPrompt>` tag.
 1. Subscribe to the `OnPromptRequest` event that will fire whenever the user sends a prompt request. The handler expects an argument of type `AIPromptPromptRequestEventArgs`.
 1. (optional) Set the `Commands` parameter to a `List<AIPromptCommandDescriptor>`. If the parameter is not set, the AIPrompt will not render the Commands view.
-1. (optional) Subscribe to the `OnCommandExecute` event that will fire whenever the user executes a command. The handler expects an argument of type `AIPromptCommandDescriptorExecuteEventArgs`.
+1. (optional) Subscribe to the `OnCommandExecute` event that will fire whenever the user executes a command. The handler expects an argument of type `AIPromptCommandExecuteEventArgs`.
 
 >caption Basic configuration of the Telerik AIPrompt
 
-````RAZOR
-<TelerikAIPrompt OnPromptRequest="@HandlePromptRequest"
-                 OnCommandExecute="@HandleCommandExecute"
-                 Commands="@PromptCommands">
-</TelerikAIPrompt>
-
-@code {
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-    }
-
-    private void HandleCommandExecute(AIPromptCommandExecuteEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Vel pretium lectus quam id leo in. Nisl pretium fusce id velit ut tortor pretium.";
-    }
-
-    private List<AIPromptCommandDescriptor> PromptCommands { get; set; } = new List<AIPromptCommandDescriptor>()
-    {
-        new AIPromptCommandDescriptor() { Id = "1", Title = "Correct spelling and grammar", Icon = SvgIcon.SpellChecker },
-        new AIPromptCommandDescriptor() { Id = "2", Title = "Change Tone", Icon = SvgIcon.TellAFriend,
-            Children = new List<AIPromptCommandDescriptor>
-            {
-                new AIPromptCommandDescriptor() { Id = "3", Title = "Professional" },
-                new AIPromptCommandDescriptor() { Id = "4", Title = "Conversational" },
-                new AIPromptCommandDescriptor() { Id = "5", Title = "Humorous" },
-                new AIPromptCommandDescriptor() { Id = "6", Title = "Empathic" },
-                new AIPromptCommandDescriptor() { Id = "7", Title = "Academic" },
-            }
-        },
-        new AIPromptCommandDescriptor() { Id = "8", Title = "Simplify", Icon = SvgIcon.MinWidth },
-        new AIPromptCommandDescriptor() { Id = "9", Title = "Expand", Icon = SvgIcon.MaxWidth },
-    };
-}
-````
+<demo metaUrl="client/aiprompt/basic-configuration-2/" height="420"></demo>
 
 ## Integration with Microsoft.Extensions.AI
 
@@ -93,44 +57,7 @@ For a complete list of available parameters and methods, refer to the [AIPrompt 
 
 To use component methods, define a reference to the AIPrompt instance with the `@ref` directive. For example:
 
-````RAZOR
-<TelerikAIPrompt @ref="@AIPromptRef" 
-                 OnPromptRequest="@HandlePromptRequest"
-                 PromptSuggestions="@Suggestions">
-</TelerikAIPrompt>
-<div style="margin-top: 2em;">
-    <TelerikTextBox @bind-Value="@CustomPrompt"></TelerikTextBox>
-    <TelerikButton OnClick="@ExternalGenerateHandler">Generate</TelerikButton>
-</div>
-
-@code {
-    private string CustomPrompt { get; set; }
-    private TelerikAIPrompt AIPromptRef { get; set; }
-    private List<string> Suggestions { get; set; } = new List<string>()
-    {
-        "Explain quantum physics in simple terms.",
-        "What are the three laws of thermodynamics?"
-    };
-
-    private void ExternalGenerateHandler()
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        AIPromptRef.AddOutput(
-            output: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            title: "Generated from an external prompt",
-            subtitle: string.Empty,
-            prompt: CustomPrompt,
-            commandId: null,
-            openOutputView: true);
-    }
-
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-    }
-}
-````
+<demo metaUrl="client/aiprompt/basic-configuration-1/" height="420"></demo>
 
 ## SpeechToTextButton Integration
 
@@ -154,6 +81,7 @@ For advanced configuration options and more details about the SpeechToTextButton
 @code {
     private void OnPromptChanged(string prompt)
     {
+        // Keep the one-way Prompt value in sync with the speech recognition result.
         Prompt = prompt;
     }
 }

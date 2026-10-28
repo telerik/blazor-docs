@@ -15,33 +15,15 @@ The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank"
 
 ## Creating Blazor Date Range Picker
 
-1. Use the `TelerikDateRangePicker` tag to add the component to your razor page.
+1. Use the `TelerikDateRangePicker` tag to add the component to your Razor page.
 1. Bind its `StartValue` and `EndValue` parameters to `DateTime` objects.
 1. (optional) Provide custom `Format`, `Min` and `Max` values.
-1. (optional) Set the `AllowReverse` parameter and define if the range is valid and highlighed when the end date preceeds the start date.
+1. (optional) Set the `AllowReverse` parameter to define whether the range is valid and highlighted when the end date precedes the start date.
 
 
 >caption Basic Date Range Picker with custom format, min and max and reverse range
 
-````RAZOR
-@StartValue?.ToString("dd MMM yyyy")
-<br />
-@EndValue?.ToString("dd MMM yyyy")
-<br />
-<TelerikDateRangePicker @bind-StartValue="@StartValue"
-                        @bind-EndValue="@EndValue"
-                        Format="dd MMMM yyyy"
-                        Min="@Min" Max="@Max"
-                        AllowReverse="true">
-</TelerikDateRangePicker>
-
-@code {
-    public DateTime? StartValue { get; set; } = DateTime.Now;
-    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
-    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-}
-````
+<demo metaUrl="client/daterangepicker/basic-2/" height="570"></demo>
 
 ## Date Input Typing Settings
 
@@ -65,7 +47,7 @@ The DateRangePicker allows you to customize the rendering of the Calendar popup 
 
 ## Adaptive Rendering
 
-<demo metaUrl="client/daterangepicker/adaptive/" height="420"></demo>
+<demo metaUrl="client/daterangepicker/adaptive/" height="570"></demo>
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
@@ -79,7 +61,7 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 |----------|----------|----------|
 | `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode](slug:adaptive-rendering) of the component. |
 | `AllowReverse` | `bool` | Defines if the range is valid when the selected end date is a date before the start date. |
-| `BottomView` | ` CalendarView` enum <br/> (`Month`) | Defines the bottommost view in the popup calendar to which the user can navigate to. |
+| `BottomView` | `CalendarView` enum <br/> (`Month`) | Defines the bottommost view in the popup calendar to which the user can navigate. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that can not be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>. |
 | `Enabled` | `bool` | Whether typing in the inputs is allowed. |
@@ -96,8 +78,8 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | `ShowOtherMonthDays` | `bool` | Defines whether the leading and trailing days from other months in the Calendar popup are visible in the current month view. |
 | `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding. |
 | `TabIndex` | `int?` | The `tabindex` attribute of both `input` HTML elements in the component. They both will have the same `tabindex`. Use it to customize the tabbing (focus) order of the inputs on your page. |
-| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`](slug:adaptive-rendering). |
-| `View` | ` CalendarView` enum <br/> (`Month`) | The current view that will be displayed in the popup calendar. |
+| `Title` | `string` | The title text rendered in the header of the popup (action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`](slug:adaptive-rendering). |
+| `View` | `CalendarView` enum <br/> (`Month`) | The current view that will be displayed in the popup calendar. |
 
 The date range picker is, essentially, two [DateInputs](slug:components/dateinput/overview) and a [Calendar](slug:components/calendar/overview) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
@@ -109,8 +91,8 @@ The following parameters enable you to customize the appearance of the Blazor Da
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Date Range Picker.
-| `PopupClass` | `string` | additional CSS class to customize the appearance of the Date Range Picker's dropdown.
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Date Range Picker. |
+| `PopupClass` | `string` | An additional CSS class to customize the appearance of the Date Range Picker popup. |
 
 You can find more options for customizing the Date Range Picker styling in the [Appearance article](slug:daterangepicker-appearance).
 
@@ -130,39 +112,7 @@ Add a reference to the component instance to use the [Date Range Picker's method
 | `Refresh` | Re-renders the Calendar popup. |
 
 
-````RAZOR
-<TelerikButton OnClick="@FocusStart">Focus Start TextBox</TelerikButton>
-<TelerikButton OnClick="@FocusEnd">Focus End TextBox</TelerikButton>
-<TelerikButton OnClick="@OpenPicker">Open DateRangePicker</TelerikButton>
-
-<TelerikDateRangePicker @ref="@DateRangePickerRef"
-                        @bind-StartValue="@DateRangePickerStartValue"
-                        @bind-EndValue="@DateRangePickerEndValue" />
-
-@code {
-    // the component type depends on the value type, could be also DateTime?
-    private TelerikDateRangePicker<DateTime> DateRangePickerRef { get; set; }
-
-    private DateTime DateRangePickerStartValue { get; set; } = DateTime.Now;
-
-    private DateTime DateRangePickerEndValue { get; set; } = DateTime.Now.AddDays(10);
-
-    private async Task FocusStart()
-    {
-        await DateRangePickerRef.FocusStartAsync();
-    }
-
-    async Task FocusEnd()
-    {
-        await DateRangePickerRef.FocusEndAsync();
-    }
-
-    void OpenPicker()
-    {
-        DateRangePickerRef.Open();
-    }
-}
-````
+<demo metaUrl="client/daterangepicker/basic-1/" height="570"></demo>
 
 ## Next Steps
 

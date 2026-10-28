@@ -24,70 +24,15 @@ You can customize the appearance of the labels rendered on the [scale](slug:circ
 
 The `Format` (`string`) parameter allows you to customize the rendering of the labels by using the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings" target="_blank">standard numeric format strings</a>. You can set the values of the labels to showcase, for example, currency, percentage, and so on.
 
->caption Use the Format parameter to showcase currency. The result from the code snippet below.
-
-![Format parameter example](images/format-parameter-labels.png)
-
-````RAZOR
-@* Use the {0:C0} format string to format the values of the labels as currency. *@
-
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>           
-            <CircularGaugeScaleLabels Format="{0:C0}" Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="50">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/labels/label-format-6/" height="420"></demo>
 
 ## Center Template
 
 The center template allows you to take control of the rendering of the central section of the Circular Gauge. To use it, add the `<CircularGaugeCenterLabel>` a child of the `<TelerikCircularGauge>` It provides a `context` object (`GaugeCenterLabelTemplateContext`) which exposes a list with the pointers in the component and their values.
 
->caption Use the Center Template to display the Value of the pointer. The result from the code snippet below.
+>caption Use the Center Template to display the Value of the pointer.
 
-![center template](images/center-template-circular.png)
-
-````RAZOR
-@* Print the value of the pointer in the center of the component *@
-
-<TelerikCircularGauge>
-    <CircularGaugeCenterLabel>
-        <Template>
-            @{
-                var pointer = context.Pointers.FirstOrDefault();
-
-                <div style="font-weight: bold">@pointer.Value</div>
-            }
-        </Template>
-    </CircularGaugeCenterLabel>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="30" Color="blue">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-
-    <CircularGaugeScales>
-
-        <CircularGaugeScale Min="0" Max="100">
-            <CircularGaugeScaleLabels Visible="true" />
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/labels/center-template-5/" height="420"></demo>
 
 ## Position
 
@@ -95,125 +40,31 @@ The `Position` parameter is of enum type `CircularGaugeScaleLabelsPosition` and 
 
 >caption Setting Circular Gauge label position
 
-````RAZOR
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-        <CircularGaugeScale>
-            <CircularGaugeScaleLabels Visible="true"
-                                      Position="@CircularGaugeScaleLabelsPosition.Inside" />
-        </CircularGaugeScale>
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-        <CircularGaugePointer Value="66">
-        </CircularGaugePointer>
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-        <CircularGaugeScale>
-            <CircularGaugeScaleLabels Visible="true"
-                                      Position="@CircularGaugeScaleLabelsPosition.Outside" />
-        </CircularGaugeScale>
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-        <CircularGaugePointer Value="66">
-        </CircularGaugePointer>
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/labels/position-4/" height="420"></demo>
 
 ## Color
 
 The `Color` (`string`) parameter controls the color of the labels. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the color of the labels. The result from the code snippet below.
+>caption Change the color of the labels.
 
-![Color parameter screenshot](images/color-parameter-labels.png)
-
-````RAZOR
-@* Change the color of the labels to blue *@
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>           
-            <CircularGaugeScaleLabels Color="blue" Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="60">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/labels/label-color-3/" height="420"></demo>
 
 ## Visible
 
 The `Visible` (`bool`) parameter controls whether the labels will be rendered. Its default value is `false`. If you want to display the labels include the `<CircularGaugeScaleLabels>` tag in the `<CircularGaugeScale>` and set its `Visible` parameter to `true`.
 
->caption Show the labels by using the Visible parameter. The result from the code snippet below
+>caption Show the labels by using the Visible parameter.
 
-![Hide the labels](images/visible-parameter-labels.png)
-
-````RAZOR
-@* Set the Visible parameter to true to show the labels *@
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>           
-            <CircularGaugeScaleLabels Visible="true"></CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="40">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/labels/label-visibility-2/" height="420"></demo>
 
 ## Additional Customization
 
 @[template](/_contentTemplates/gauges/additional-customization.md#circular-gauge-additional-customization)
 
->caption Customize the background and the margin of the Labels. The result from the code snippet below.
+>caption Customize the background and the margin of the Labels.
 
-![Custom Labels](images/labels-customize.png)
-
-````RAZOR
-@* Customize the position, border and padding of the labels. *@
-
-<TelerikCircularGauge>
-    <CircularGaugeScales>
-
-        <CircularGaugeScale>
-            <CircularGaugeScaleLabels Position="CircularGaugeScaleLabelsPosition.Outside" Visible="true">
-                <CircularGaugeScaleLabelsBorder Width="1" Color="rgb(255,99,88)" DashType="DashType.Solid"></CircularGaugeScaleLabelsBorder>
-                <CircularGaugeScaleLabelsPadding Top="3" Bottom="3" Left="3" Right="3"></CircularGaugeScaleLabelsPadding>
-            </CircularGaugeScaleLabels>
-        </CircularGaugeScale>
-
-    </CircularGaugeScales>
-
-    <CircularGaugePointers>
-
-        <CircularGaugePointer Value="40">
-        </CircularGaugePointer>
-
-    </CircularGaugePointers>
-</TelerikCircularGauge>
-````
+<demo metaUrl="client/circulargauge/labels/label-style-1/" height="420"></demo>
 
 ## See Also
 

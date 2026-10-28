@@ -69,7 +69,7 @@ Follow these steps to set up the Agentic UI Generator and use it in your IDE:
 </TabStripTab>
 <TabStripTab title="AI Plugin">
 
-The `telerik-blazor-plugin` provides an alternative to setting up the Telerik MCP Server via the Telerik CLI. The plugin wraps the Telerik MCP server and starts it automatically - no manual `mcp.json` configuration required.
+The `telerik-blazor-plugin` provides an alternative to setting up the Telerik MCP Server via the Telerik CLI. The plugin wraps the Telerik MCP server and starts it automatically, so no manual `mcp.json` configuration is required. The plugin does not bypass the MCP server's network requirements, such as gRPC, HTTP/2, proxy, and firewall access.
 
 <TabStrip>
 <TabStripTab title="VS Code Copilot">
@@ -130,6 +130,8 @@ Once installed, invoke the UI Generator skill in the IDE chat interface:
 ````
 
 > caution If you already have the Telerik MCP server configured in your IDE, disable or remove it before installing the plugin. The plugin wraps the same MCP server and starts it automatically — [running both simultaneously may cause conflicts](slug:ai-troubleshooting#inconsistent-output-or-increased-token-usage) and increased token usage.
+
+> If a corporate proxy or firewall blocks the HTTP/2 connection required by the MCP server, installing the plugin does not resolve that network restriction. Use the [Blazor REPL](https://blazorrepl.telerik.com/) to try the Agentic UI Generator in the browser, or ask your network administrator to allow the required connection.
 
 </TabStripTab>
 <TabStripTab title="Manual Setup">

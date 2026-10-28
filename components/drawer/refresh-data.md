@@ -29,70 +29,7 @@ In this article:
 
 >caption Create new collection reference to refresh the Drawer data.
 
-````RAZOR
-@* Add/remove an item or change the data collection to see how the Drawer reacts to that change. *@
-
-<TelerikButton OnClick="@AddItem">Add item</TelerikButton>
-
-<TelerikButton OnClick="@RemoveItem">Remove item</TelerikButton>
-
-<TelerikButton OnClick="@ChangeData">Change data</TelerikButton>
-
-<TelerikDrawer Data="@Data"
-               MiniMode="true"
-               Mode="DrawerMode.Push"
-               @ref="@DrawerRef"
-               @bind-SelectedItem="@SelectedItem">
-    <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
-        <div class="m-5">
-            Selected Item: @SelectedItem?.Text
-        </div>
-    </DrawerContent>
-</TelerikDrawer>
-
-@code {
-    TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    DrawerItem SelectedItem { get; set; }
-
-    void AddItem()
-    {
-        Data.Add(new DrawerItem { Text = "Info", Icon = SvgIcon.InfoCircle });
-        Data = new List<DrawerItem>(Data);
-    }
-
-    void RemoveItem()
-    {
-        if (Data.Count > 0)
-        {
-            Data.RemoveAt(Data.IndexOf(Data.Last()));
-            Data = new List<DrawerItem>(Data);
-        }
-    }
-
-    void ChangeData()
-    {
-        Data = new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Overview", Icon = SvgIcon.InfoCircle },
-            new DrawerItem { Text = "Events", Icon = SvgIcon.Star },
-        };
-    }
-
-    List<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-            {
-            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
-                            };
-
-    public class DrawerItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-    }
-}
-````
+<demo metaUrl="client/drawer/refresh-data/refresh-data-1/" height="420"></demo>
 
 ## See Also
 

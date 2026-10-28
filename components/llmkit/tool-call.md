@@ -30,50 +30,11 @@ To use the ToolCall component:
 
 >caption Completed ToolCall showing tool name, parameters, and execution metadata
 
-````RAZOR
-<TelerikToolCall Label="query_database"
-                 SecondaryLabel="analytics · db · 120ms"
-                 State="ToolCallState.Completed"
-                 Expandable="true"
-                 Expanded="true"
-                 Parameters="@ToolParameters" />
-
-@code {
-    private object ToolParameters { get; } = new
-    {
-        database = "analytics",
-        query = "SELECT customer_name, SUM(revenue) AS total FROM orders WHERE quarter = 'Q1 2025' GROUP BY customer_name ORDER BY total DESC LIMIT 5"
-    };
-}
-````
+<demo metaUrl="client/llmkit/tool-call/example-1/" height="420"></demo>
 
 >caption ToolCall awaiting user approval before execution
 
-````RAZOR
-<TelerikToolCall Label="send_email"
-                 State="@ToolState"
-                 ApprovalText="Send a summary email to the top 5 customers."
-                 Parameters="@ToolParameters"
-                 OnAction="@OnToolAction"
-                 Expandable="true"
-                 Expanded="@Expanded" />
-
-@code {
-    private bool Expanded { get; set; } = true;
-    private ToolCallState ToolState { get; set; } = ToolCallState.AwaitingApproval;
-
-    private object ToolParameters { get; } = new
-    {
-        recipients = "top-5-customers",
-        subject = "Q1 2025 Revenue Summary"
-    };
-
-    private void OnToolAction(ToolCallAction action)
-    {
-        ToolState = action == ToolCallAction.Approve ? ToolCallState.Completed : ToolCallState.Error;
-    }
-}
-````
+<demo metaUrl="client/llmkit/tool-call/example-2/" height="500"></demo>
 
 ## ToolCall API
 

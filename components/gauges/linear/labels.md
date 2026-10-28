@@ -27,138 +27,33 @@ The LinearGauge scale width decreases when the `Min` and `Max` label length incr
 
 The `Format` (`string`) parameter allows you to customize the rendering of the labels by using the <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings" target="_blank">standard numeric format strings</a>. You can set the values of the labels to showcase, for example, currency, percentage, and so on.
 
->caption Use the Format parameter to showcase currency. The result from the code snippet below.
+>caption Use the Format parameter to showcase currency.
 
-![Format parameter example](images/format-parameter-labels.png)
-
-````RAZOR
-@* Use the {0:C0} format string to format the values of the labels as currency. *@
-
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleLabels Format="{0:C0}">
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
-
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/labels/format-parameter-showcase-cu-4/" height="420"></demo>
 
 ## Color
 
 The `Color` (`string`) parameter controls the color of the labels. It accepts **CSS**, **HEX** and **RGB** colors.
 
->caption Change the color of the labels. The result from the code snippet below.
+>caption Change the color of the labels.
 
-![Color parameter screenshot](images/color-parameter-labels.png)
-
-````RAZOR
-@* Change the color of the labels to blue *@
-
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleLabels Color="blue">
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
-
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/labels/color-labels-result-code-3/" height="420"></demo>
 
 ## Visible
 
 The `Visible` (`bool`) parameter controls whether the labels will be rendered.
 
->caption Hide the labels by using the Visible parameter. The result from the code snippet below
+>caption Hide the labels by using the Visible parameter.
 
-![Hide the labels](images/visible-parameter-labels.png)
-
-````RAZOR
-@* Set the Visible parameter to false to hide the labels *@
-
-<TelerikLinearGauge>
-    <LinearGaugeScales>
-        <LinearGaugeScale>
-            <LinearGaugeScaleLabels Visible="false">
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
-
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/labels/hide-labels-visible-paramete-2/" height="420"></demo>
 
 ## Additional Customization
 
 @[template](/_contentTemplates/gauges/additional-customization.md#linear-gauge-additional-customization)
 
->caption Customize the borders of the Labels. The result from the code snippet below.
+>caption Customize the borders of the Labels.
 
-![Custom Label borders](images/labels-custom-borders.png)
-
-````RAZOR
-@* Provide color, solid outline and custom width to the label borders *@
-
-<TelerikLinearGauge Width="25%">
-    <LinearGaugeScales>
-        <LinearGaugeScale Vertical="false">
-            <LinearGaugeScaleLabels>
-                <LinearGaugeScaleLabelsBorder Color="blue" DashType="@DashType.Solid" Width="1"></LinearGaugeScaleLabelsBorder>
-            </LinearGaugeScaleLabels>
-        </LinearGaugeScale>
-    </LinearGaugeScales>
-
-    <LinearGaugePointers>
-
-        <LinearGaugePointer Value="10">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="20">
-        </LinearGaugePointer>
-
-        <LinearGaugePointer Value="30">
-        </LinearGaugePointer>
-
-    </LinearGaugePointers>
-</TelerikLinearGauge>
-````
+<demo metaUrl="client/lineargauge/labels/borders-labels-result-code-1/" height="420"></demo>
 
 ## See Also
 

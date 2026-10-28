@@ -18,9 +18,9 @@ This article explains which are the built-in tools and commands of the Editor, h
 
 This article describes the Editor *tools* and *commands*.
 
-An Editor *tool* is the visible interface for a given action. For example, the button that bolds text is a tool. Built-in  tools can render as buttons, color pickers or dropdown lists. The Editor also supports [custom tools with custom rendering](slug:editor-custom-tools).
+An Editor *tool* is the visible interface for a given action. For example, the button that bolds text is a tool. Built-in tools can render as buttons, color pickers, or dropdown lists. The Editor also supports [custom tools with custom rendering](slug:editor-custom-tools).
 
-An Editor *command* is the action, which modifies the HTML value in some way. Each built-in Editor tool has an associated command. Custom tools can execute business logic or invoke built-in commands.
+An Editor *command* is the action which modifies the HTML value in some way. Each built-in Editor tool has an associated command. Custom tools can execute business logic or invoke built-in commands.
 
 The information about the Editor tools and commands is organized in tables below. Here is what the table headers mean:
 
@@ -98,7 +98,7 @@ The inline tools add or work with inline HTML elements. For example, such elemen
             <td>CreateLink</td>
             <td>createLink</td>
             <td>button</td>
-            <td>Creates a hyperlink</td>
+            <td>Creates a hyperlink. To customize the hyperlink dialog UI, replace this tool with a <a href="slug:editor-custom-tools#replace-the-createlink-tool">custom tool</a>.</td>
             <td>new LinkCommandArgs(string href, string text, string target, string title, null)</td>
         </tr>
         <tr>
@@ -167,7 +167,7 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 | Property | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Colors` | `IEnumerable<string>`. | The list of available colors to set from the Color tool. You can provide a member of [`ColorPalettePresets`](slug:Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats](slug:colorpicker-overview#supported-value-formats). |
+| `Colors` | `IEnumerable<string>` | The list of available colors to set from the Color tool. You can provide a member of [`ColorPalettePresets`](slug:Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats](slug:colorpicker-overview#supported-value-formats). |
 | `Title` | `string` | The tooltip content that shows on tool mouse over. |
 | `ValueFormat` | `ColorFormat` enum <br /> (`Rgb`) | The format, which the Color tool will set in the generated HTML markup. Use `Rgb` or `Hex`. |
 

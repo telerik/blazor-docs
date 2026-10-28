@@ -23,48 +23,7 @@ The <a href = "https://www.telerik.com/blazor-ui/sankey-chart" target="_blank">B
 
 >caption Sankey diagram with width, height and link colors based on the source nodes
 
-````RAZOR
-<TelerikSankey Data="@Data"
-               Width="1000px"
-               Height="400px">
-    <SankeyLinks ColorType="@SankeyLinksColorType.Source" />
-</TelerikSankey>
-
-@code {
-    private SankeyData? Data { get; set; }
-
-    protected override void OnInitialized()
-    {
-        var sourceNodes = 3;
-        var destinationNodes = 3;
-
-        Data = new SankeyData()
-            {
-                Nodes = new SankeyDataNodes(),
-                Links = new SankeyDataLinks()
-            };
-
-        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
-        {
-            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
-            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
-        }
-
-        for (int i = 1; i <= sourceNodes; i++)
-        {
-            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
-            {
-                Data.Links.Add(new SankeyDataLink()
-                    {
-                        SourceId = i,
-                        TargetId = j,
-                        Value = Random.Shared.Next(5, 30)
-                    });
-            }
-        }
-    }
-}
-````
+<demo metaUrl="client/sankey/overview/example-1/" height="580"></demo>
 
 ## Data Members
 

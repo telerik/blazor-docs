@@ -59,72 +59,7 @@ The PivotGrid is an integrated product that includes several Razor components:
 
 >caption PivotGrid with configurator and local data
 
-<div class="skip-repl"></div>
-
-````RAZOR
-<TelerikPivotGridContainer>
-
-    <TelerikPivotGridConfigurator />
-
-    <TelerikPivotGridConfiguratorButton />
-
-    <TelerikPivotGrid Data="@PivotData"
-                      DataProviderType="@PivotGridDataProviderType.Local">
-        <PivotGridColumns>
-            <PivotGridColumn Name="@nameof(PivotModel.City)" Title="City" />
-        </PivotGridColumns>
-        <PivotGridRows>
-            <PivotGridRow Name="@nameof(PivotModel.Category)" Title="Category" />
-            <PivotGridRow Name="@nameof(PivotModel.Product)" />
-        </PivotGridRows>
-        <PivotGridMeasures>
-            <PivotGridMeasure Name="@nameof(PivotModel.ContractValue)"
-                              Title="Contract Value"
-                              Aggregate="@PivotGridAggregateType.Sum" />
-        </PivotGridMeasures>
-    </TelerikPivotGrid>
-
-</TelerikPivotGridContainer>
-
-@code {
-    private List<PivotModel> PivotData { get; set; } = new List<PivotModel>();
-
-    protected override void OnInitialized()
-    {
-        var dataItemCount = 100;
-        var categoryCount = 3;
-        var productCount = 5 + 1; // effectively 5, as rnd.Next() will never return 6
-        var cityCount = 3 + 1; // effectively 3
-        var rnd = new Random();
-
-        for (int i = 1; i <= dataItemCount; i++)
-        {
-            var productNumber = rnd.Next(1, productCount);
-
-            PivotData.Add(new PivotModel()
-            {
-                Category = $"Category {productNumber % categoryCount + 1}",
-                Product = $"Product {productNumber}",
-                City = $"City {rnd.Next(1, cityCount)}",
-                ContractDate = DateTime.Now.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5)),
-                ContractValue = rnd.Next(123, 987)
-            });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class PivotModel
-    {
-        public string Category { get; set; } = null!;
-        public string Product { get; set; } = null!;
-        public string City { get; set; } = null!;
-        public DateTime ContractDate { get; set; }
-        public decimal ContractValue { get; set; }
-    }
-}
-````
-
+<demo metaUrl="client/pivotgrid/overview/example-2/" height="800"></demo>
 
 ## Data Binding
 

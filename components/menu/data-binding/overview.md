@@ -20,7 +20,7 @@ First, review:
 * The available (bindable) [features of a menu item](#menu-item-features).
 * How to match fields in the model with the menu item [data bindings](#data-bindings).
 
-There are two modes of providing data to a menu, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
+There are two modes of providing data to a menu, and both use the items' features. Once you are familiar with this article, choose the data binding mode you want to use:
 
 * [Hierarchical data](slug:components/menu/data-binding/hierarchical-data) - separate collections of items and their child items.
 * [Flat data](slug:components/menu/data-binding/flat-data) - a single collection of items with defined parent-child relationships.
@@ -41,6 +41,8 @@ The menu items provide the following features that you control through the corre
 
 * `Icon` - The [Telerik Font or SVG icon](slug:common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug:breadcrumb-icons).
 
+* `IconVariant` - the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) to use for the item icon.
+
 * `Url` - the view the item will navigate to by generating a link.
 
 * `Separator` - when set to `true`, the item will be just a line that makes a distinction between its neighbors clearly visible. Thus, you can place logically grouped items between two separators to distinguish them. A separator item does not render text, icons, children or a navigable link.
@@ -55,10 +57,11 @@ The properties of a menu item match directly to a field of the model the menu is
 * ParentIdField => ParentId
 * TextField => Text
 * IconField => Icon
+* IconVariantField => IconVariant
 * UrlField => Url
 * HasChildrenField => HasChildren
 * ItemsField => Items
-* DisabledField => DisabledField
+* DisabledField => Disabled
 * SeparatorField => Separator
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
@@ -83,108 +86,11 @@ public class MenuItem
 
 >caption Data bind the menu to a model with custom field names
 
-````RAZOR
-@* This example shows flat data binding with custom fields, and two separator items around a disabled item at the root level and in the nested menu *@
-
-<TelerikMenu Data="@MenuItems"
-             ParentIdField="@nameof(MenuItem.SectionId)"
-             IdField="@nameof(MenuItem.Id)"
-             TextField="@nameof(MenuItem.Section)"
-             UrlField="@nameof(MenuItem.Page)"
-             DisabledField="@nameof(MenuItem.IsDisabled)"
-             SeparatorField="@nameof(MenuItem.IsItemSeparator)">
-</TelerikMenu>
-
-@code {
-    public List<MenuItem> MenuItems { get; set; }
-
-    public class MenuItem
-    {
-        public int Id { get; set; }
-        public int? SectionId { get; set; }
-        public string Section { get; set; }
-        public string Page { get; set; }
-        public bool IsDisabled { get; set; }
-        public bool IsItemSeparator { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        MenuItems = new List<MenuItem>()
-        {
-            // sample URLs for SPA navigation
-            new MenuItem()
-            {
-                Id = 1,
-                Section = "Overview",
-                Page = "menu/overview"
-            },
-            new MenuItem()
-            {
-                Id = 2,
-                Section = "Demos",
-                Page = "menu/demos"
-            },
-            new MenuItem() // separator item
-            {
-                Id = 3,
-                IsItemSeparator = true
-            },
-            new MenuItem() // disabled item
-            {
-                Id = 4,
-                Section = "Disbled Item",
-                IsDisabled = true
-            },
-            new MenuItem()
-            {
-                Id = 5,
-                IsItemSeparator = true
-            },
-            new MenuItem()
-            {
-                Id = 6,
-                Section = "Roadmap"
-            },
-            // sample URLs for external navigation
-            new MenuItem()
-            {
-                Id = 7,
-                SectionId = 6,
-                Section = "What's new",
-                Page = "https://www.telerik.com/support/whats-new"
-            },
-            new MenuItem()
-            {
-                Id = 9,
-                SectionId = 6,
-                Section = "Release History",
-                Page = "https://www.telerik.com/support/whats-new/blazor-ui/release-history"
-            },
-            new MenuItem()
-            {
-                Id = 10,
-                IsItemSeparator = true,
-                SectionId = 6
-            },
-            new MenuItem()
-            {
-                Id = 11,
-                SectionId = 6,
-                Section = "Roadmap",
-                Page = "https://www.telerik.com/support/whats-new/blazor-ui/roadmap"
-
-            }
-        };
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/menu/overview/example-3/" height="320"></demo>
 
 >caption The result from the snippet above
 
-![menu data binding example](images/menu-databinding-example.png)
+![Menu data binding example with custom field names](images/menu-databinding-example.png)
 
 
 

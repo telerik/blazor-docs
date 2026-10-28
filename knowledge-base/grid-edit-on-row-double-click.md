@@ -55,7 +55,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 
     private async void OnRowDoubleClickHandler(GridRowClickEventArgs args)
     {
-        SampleData clickedItem = args.Item as SampleData;
+        SampleData clickedItem = (SampleData)args.Item;
         var currentState = GridRef.GetState();
 
         currentState.InsertedItem = null;
@@ -245,7 +245,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
         //open the edit window
         isInEdit = true;
 
-        var model = args.Item as SampleData;
+        var model = (SampleData)args.Item;
 
         OriginalEditedEmployee = model;
 

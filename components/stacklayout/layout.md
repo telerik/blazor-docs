@@ -32,52 +32,7 @@ The `Orientation` parameter controls whether the items nested inside the `Telere
 
 >caption Change the orientation of the StackLayout from the DropDownList
 
-````RAZOR
-@* Observe the behavior of the StackLayout in its different orientation options *@
-
-<style>
-    .red {
-        background-color: red;
-    }
-
-    .green {
-        background-color: green;
-    }
-
-    .yellow {
-        background-color: yellow;
-    }
-</style>
-
-<TelerikDropDownList @bind-Value="@orientation" 
-                     Data="@stackLayoutOrientationOptions">
-</TelerikDropDownList>
-
-<TelerikStackLayout Orientation="@orientation" Width="30%">
-    <div class="red">
-        Box 1
-    </div>
-    <div class="green">
-        Box 2
-    </div>
-    <div class="yellow">
-        Box 3
-    </div>
-</TelerikStackLayout>
-
-@code {
-    public StackLayoutOrientation orientation { get; set; }
-
-    public List<StackLayoutOrientation> stackLayoutOrientationOptions { get; set; } = new List<StackLayoutOrientation>() {
-        StackLayoutOrientation.Horizontal,
-        StackLayoutOrientation.Vertical
-    };
-}
-````
-
->caption The result from the code snippet above
-
-![orientation example](images/stacklayout-layout-orientation-example.gif)
+<demo metaUrl="client/stacklayout/layout/example-4/" height="420"></demo>
 
 ## Spacing
 
@@ -85,45 +40,7 @@ The `Spacing` parameter controls the spacing of the elements nested inside the `
 
 >caption Use the NumericTextBox to alter the Spacing parameter
 
-````RAZOR
-@* Use the NumericTextBox to alter the Spacing parameter *@
-
-<style>
-    .red {
-        background-color: red;
-    }
-
-    .green {
-        background-color: green;
-    }
-
-    .yellow {
-        background-color: yellow;
-    }
-</style>
-
-<TelerikNumericTextBox @bind-Value="@SpacingValue"></TelerikNumericTextBox>
-
-<TelerikStackLayout Spacing="@($"{SpacingValue}px")" Width="30%">
-    <div class="red">
-        Box 1
-    </div>
-    <div class="green">
-        Box 2
-    </div>
-    <div class="yellow">
-        Box 3
-    </div>
-</TelerikStackLayout>
-
-@code {
-    public int SpacingValue { get; set; }
-}
-````
-
->caption The result from the code snippet above
-
-![spacing example](images/stacklayout-layout-spacing-example.gif)
+<demo metaUrl="client/stacklayout/layout/example-3/" height="420"></demo>
 
 ## HorizontalAlign
 
@@ -139,54 +56,7 @@ The `HorizontalAlign` parameter controls the alignment of the items in the `Tele
 
 >caption Change the alignment of the StackLayout from the DropDownList
 
-````RAZOR
-@* Observe the behavior of the StackLayout in its different horizontal alignment options *@
-
-<style>
-    .red {
-        background-color: red;
-    }
-
-    .green {
-        background-color: green;
-    }
-
-    .yellow {
-        background-color: yellow;
-    }
-</style>
-
-<TelerikDropDownList @bind-Value="@align"
-                     Data="@stackLayoutOrientationOptions">
-</TelerikDropDownList>
-
-<TelerikStackLayout HorizontalAlign="@align" Width="30%">
-    <div class="red">
-        Box 1
-    </div>
-    <div class="green">
-        Box 2
-    </div>
-    <div class="yellow">
-        Box 3
-    </div>
-</TelerikStackLayout>
-
-@code {
-    public StackLayoutHorizontalAlign align { get; set; }
-
-    public List<StackLayoutHorizontalAlign> stackLayoutOrientationOptions { get; set; } = new List<StackLayoutHorizontalAlign>() {
-        StackLayoutHorizontalAlign.Left,
-        StackLayoutHorizontalAlign.Right,
-        StackLayoutHorizontalAlign.Center,
-        StackLayoutHorizontalAlign.Stretch
-    };
-}
-````
-
->caption The result from the code snippet above
-
-![horizontalalign example](images/stacklayout-layout-horizontalalign-example.gif)
+<demo metaUrl="client/stacklayout/layout/example-2/" height="420"></demo>
 
 ## VerticalAlign
 
@@ -202,57 +72,7 @@ The `VerticalAlign` parameter controls the alignment of the items in the `Teleri
 
 >caption Change the alignment of the StackLayout from the DropDownList
 
-````RAZOR
-@* Observe the behavior of the StackLayout in its different vertical alignment options *@
-
-<style>
-    .red {
-        background-color: red;
-    }
-
-    .green {
-        background-color: green;
-    }
-
-    .yellow {
-        background-color: yellow;
-    }
-</style>
-
-<TelerikDropDownList @bind-Value="@align"
-                     Data="@stackLayoutOrientationOptions">
-</TelerikDropDownList>
-
-<TelerikStackLayout VerticalAlign="@align"
-                    Orientation="@StackLayoutOrientation.Vertical"
-                    Width="30%"
-                    Height="400px">
-    <div class="red">
-        Box 1
-    </div>
-    <div class="green">
-        Box 2
-    </div>
-    <div class="yellow">
-        Box 3
-    </div>
-</TelerikStackLayout>
-
-@code {
-    public StackLayoutVerticalAlign align { get; set; }
-
-    public List<StackLayoutVerticalAlign> stackLayoutOrientationOptions { get; set; } = new List<StackLayoutVerticalAlign>() {
-        StackLayoutVerticalAlign.Top,
-        StackLayoutVerticalAlign.Bottom,
-        StackLayoutVerticalAlign.Center,
-        StackLayoutVerticalAlign.Stretch
-    };
-}
-````
-
->caption The result from the code snippet above
-
-![horizontalalign example](images/stacklayout-layout-verticalalign-example.gif)
+<demo metaUrl="client/stacklayout/layout/example-1/" height="420"></demo>
 
 ## See Also
 

@@ -36,12 +36,12 @@ The `AIPromptToolBarButton` tag exposes parameters that allow you to customize t
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AIPromptToolBarButton. You could use that class to cascade styles. |
 | `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article](slug:common-features-icons#icon-namespaces). |
-| `OnClick` | `EventCallback<MouseEventArgs>` | The onclick event handler. |
+| `OnClick` | `EventCallback<MouseEventArgs>` | The event handler for the button click. |
 | `ChildContent` | `RenderFragment` | The child content rendered within the button. |
 
 ### AIPromptToolBarSpacer
 
-The spacer consumes the available empty space and push the rest of the tools next to one another.
+The spacer consumes the available empty space and pushes the rest of the tools next to one another.
 
 ## Custom Tools
 
@@ -51,40 +51,7 @@ The example below omits any event handlers for brevity. Custom buttons are to be
 
 >caption Setting up the AIPrompt ToolBar
 
-````RAZOR
-<TelerikAIPrompt OnPromptRequest="@HandlePromptRequest">
-    <AIPromptToolBar>
-        <AIPromptToolBarButton OnClick="@OnToolBarButtonClick">My Button</AIPromptToolBarButton>
-        <AIPromptToolBarSpacer/>
-        <AIPromptToolBarTemplateItem>
-            <TelerikSplitButton OnClick="@OnSplitButtonClick">
-                <SplitButtonContent>Insert</SplitButtonContent>
-                <SplitButtonItems>
-                    <SplitButtonItem>Insert above</SplitButtonItem>
-                    <SplitButtonItem>Insert below</SplitButtonItem>
-                </SplitButtonItems>
-            </TelerikSplitButton>
-        </AIPromptToolBarTemplateItem>
-    </AIPromptToolBar>
-</TelerikAIPrompt>
-
-@code {
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // handle the prompt request here.
-    }
-
-    private void OnToolBarButtonClick()
-    {
-        // handle the toolbar button click here.
-    }
-
-    private void OnSplitButtonClick()
-    {
-        // handle the split button click here.
-    }
-}
-````
+<demo metaUrl="client/aiprompt/toolbar/configuration-1/" height="420"></demo>
 
 
 ## Next Steps

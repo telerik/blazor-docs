@@ -35,42 +35,12 @@ The AIPrompt views provide various parameters that allow you to configure the co
 By default, the AIPrompt will always render both the Prompt and the Output view. The Commands view will be rendered only if you pass a custom set of commands through the `Commands` parameter:
 
 
-````RAZOR
-@* The user can only navigate between the Prompt and Output views - the Commands view, for example, will not be rendered, as no commands have been passed to the `Commands` parameter. *@
-
-<TelerikAIPrompt OnPromptRequest="@HandlePromptRequest"></TelerikAIPrompt>
-
-@code {
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-    }
-}
-````
+<demo metaUrl="client/aiprompt/views/example-2/" height="420"></demo>
 
 >caption Using the `ButtonText` and `ButtonIcon` parameters to customize the appearance of the toolbar buttons
 
 
-````RAZOR
-@* The example showcases how to customize the appearance of the toolbar through the `ButtonText` and `ButtonIcon` parameters. *@
-
-<TelerikAIPrompt OnPromptRequest="@HandlePromptRequest">
-    <AIPromptViews>
-        <AIPromptPromptView ButtonText="Custom Prompt" ButtonIcon="@SvgIcon.Star" />
-        <AIPromptOutputView ButtonText="Custom Output" ButtonIcon="@SvgIcon.Clipboard" />
-        <AIPromptCommandView ButtonText="Custom Commands" ButtonIcon="@SvgIcon.Grid" />
-    </AIPromptViews>
-</TelerikAIPrompt>
-
-@code {
-    private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
-    {
-        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
-        args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel pretium lectus quam id leo in.";
-    }
-}
-````
+<demo metaUrl="client/aiprompt/views/toolbar-buttons-1/" height="420"></demo>
 
 ## See Also
 

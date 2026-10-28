@@ -22,41 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 1. Use the `OnChange` event to determine when the `Media` is matched. 
 
 
-````RAZOR
-@* Resize a container based on the browser size *@
-
-<TelerikMediaQuery Media="@SmallScreenMediaQuery" OnChange="@((doesMatch) => IsSmallScreen = doesMatch)"></TelerikMediaQuery>
-<TelerikMediaQuery Media="@LargeScreenMediaQuery" OnChange="@((doesMatch) => isLarge = doesMatch)"></TelerikMediaQuery>
-
-<div style="width:@GetContainerWidth(); height: 400px; border: 1px solid black">
-    Shrink the browser to resize the container.
-</div>
-
-
-@code {
-    private bool IsSmallScreen { get; set; }
-    private bool isLarge { get; set; }
-
-    private string SmallScreenMediaQuery { get; set; } = "(max-width: 767px)";
-    private string LargeScreenMediaQuery { get; set; } = "(min-width: 1199px)";
-
-    private string GetContainerWidth()
-    {
-        string width = "900px";
-
-        if (IsSmallScreen)
-        {
-            width = "500px";
-        }
-        if (isLarge)
-        {
-            width = "100%";
-        }
-
-        return width;
-    }
-} 
-````
+<demo metaUrl="client/mediaquery/overview/example-1/" height="620"></demo>
 
 ## MediaQuery Parameters
 

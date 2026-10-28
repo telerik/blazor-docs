@@ -61,6 +61,7 @@ The above model properties have the following meaning for the TreeView:
 | `Items` | Defines the item's children. Required for [binding to **hierarchical data**](slug:components/treeview/data-binding/hierarchical-data). The children's type can be different from the parent item type. The TreeView will render an expand arrow on the parent node if its child `Items` collection is not `null`. Also see `HasChildren`. |
 | [**Graphics**](slug:treeview-icons) | |
 | `Icon` | Defines a [Telerik Font and Svg icon](slug:common-features-icons) |
+| `IconVariant` | Defines the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) | |
 | [**Navigation**](slug:treeview-navigation) | |
 | `Url` | If set, the TreeView will generate a link to another page in the app, or an external page. |
 
@@ -80,6 +81,7 @@ Each `TreeViewBinding` tag exposes the following parameters that refer to model 
 | `ItemsField` (hierarchical data) | `"Items"` |
 | [**Graphics**](slug:treeview-icons) | |
 | `IconField` | `"Icon"` |
+| `IconVariantField` | `"IconVariant"` |
 | [**Navigation**](slug:treeview-navigation) | |
 | `UrlField` | `"Url"` |
 
@@ -130,75 +132,7 @@ To define multiple bindings, add multiple `TreeViewBinding` tags and set their `
 
 >caption How to use different model fields and binding settings for different levels
 
-````RAZOR
-The third level will use the main data bindings settings that do not have a level specified
-
-<TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">
-    <TreeViewBindings>
-        <TreeViewBinding ParentIdField="Parent" />
-        <TreeViewBinding Level="1" TextField="SecondText" ParentIdField="Parent" />
-    </TreeViewBindings>
-</TelerikTreeView>
-
-@code {
-    public IEnumerable<TreeItem> FlatData { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
-
-    public class TreeItem
-    {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public string SecondText { get; set; }
-        public int? Parent { get; set; }
-        public bool HasChildren { get; set; }
-    }
-
-    protected override void OnInitialized()
-    {
-        LoadFlat();
-        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
-    }
-
-    private void LoadFlat()
-    {
-        List<TreeItem> items = new List<TreeItem>();
-
-        for (int i = 1; i <= 4; i++)
-        {
-            items.Add(new TreeItem()
-            {
-                Id = i,
-                Text = "Parent " + i,
-                Parent = null,
-                HasChildren = i < 3
-            });
-        }
-
-        for (int i = 5; i < 15; i++)
-        {
-            items.Add(new TreeItem()
-            {
-                Id = i,
-                SecondText = "Child " + i, //this is the field used at level 1 - it is a different field than at levels 0 and 2
-                Parent = i < 10 ? 1 : 2,
-                HasChildren = i == 5
-            });
-        }
-
-        for (int i = 16; i < 20; i++)
-        {
-            items.Add(new TreeItem()
-            {
-                Id = i,
-                Text = "Second Child " + i,
-                Parent = 5
-            });
-        }
-
-        FlatData = items;
-    }
-}
-````
+<demo metaUrl="client/treeview/data-binding/overview/example-1/" height="420"></demo>
 
 >note For better performance, define the same `ParentIdField` for all levels, when using flat data.
 

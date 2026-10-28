@@ -23,41 +23,7 @@ When custom input is allowed, the [`ValueChanged` event](slug:multiselect-events
 
 >caption Allow custom user input in the MultiSelect component
 
-````RAZOR
-<TelerikMultiSelect Data="@Cities"
-                    @bind-Value="@SelectedCities"
-                    TextField="@nameof(City.CityName)" 
-                    ValueField="@nameof(City.CityName)"
-                    AllowCustom="true"
-                    Placeholder="Select a city for the list or type a custom one"
-                    Width="400px">
-</TelerikMultiSelect>
-
-@code {
-    private List<City> Cities { get; set; } = new();
-    private List<string> SelectedCities { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-        Cities = new List<City>
-        {
-            new City { CityId = 1, CityName = "New York"},
-            new City { CityId = 2, CityName = "London"},
-            new City { CityId = 3, CityName = "Tokyo"},
-            new City { CityId = 4, CityName = "Paris"},
-            new City { CityId = 5, CityName = "Sydney"}
-        };
-
-        base.OnInitialized();
-    }
-
-    public class City
-    {
-        public int CityId { get; set; }
-        public string CityName { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/multiselect/custom-value/example-1/" height="420"></demo>
 
 ## Limitations
 

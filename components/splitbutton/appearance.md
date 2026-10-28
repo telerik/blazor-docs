@@ -32,27 +32,7 @@ The following two configurations will produce the same result.
 
 >caption Two ways to set SplitButton appearance parameters
 
-````RAZOR
-<TelerikSplitButton FillMode="@ThemeConstants.SplitButton.FillMode.Solid"
-                    Rounded="@ThemeConstants.SplitButton.Rounded.Large"
-                    Size="@ThemeConstants.SplitButton.Size.Large"
-                    ThemeColor="@ThemeConstants.SplitButton.ThemeColor.Primary">
-    <SplitButtonContent> Foo </SplitButtonContent>
-    <SplitButtonItems>
-        <SplitButtonItem> Bar </SplitButtonItem>
-    </SplitButtonItems>
-</TelerikSplitButton>
-
-<TelerikSplitButton FillMode="solid"
-                    Rounded="lg"
-                    Size="lg"
-                    ThemeColor="primary">
-    <SplitButtonContent> Foo </SplitButtonContent>
-    <SplitButtonItems>
-        <SplitButtonItem> Bar </SplitButtonItem>
-    </SplitButtonItems>
-</TelerikSplitButton>
-````
+<demo metaUrl="client/splitbutton/appearance/example-5/" height="420"></demo>
 
 
 ## FillMode
@@ -68,33 +48,7 @@ The `FillMode` parameter controls if the SplitButton will have a background and 
 
 >caption SplitButton FillMode example
 
-````RAZOR
-<p>SplitButton FillMode</p>
-
-@foreach (var item in FillModes)
-{
-    var fillMode = item.GetValue(null).ToString();
-
-    <TelerikSplitButton FillMode="@fillMode">
-        <SplitButtonContent> @fillMode </SplitButtonContent>
-        <SplitButtonItems>
-            <SplitButtonItem> secondary </SplitButtonItem>
-        </SplitButtonItems>
-    </TelerikSplitButton>
-}
-
-@code {
-    List<System.Reflection.FieldInfo> FillModes { get; set; }
-
-    protected override void OnInitialized()
-    {
-        FillModes = typeof(ThemeConstants.SplitButton.FillMode)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/splitbutton/appearance/example-4/" height="420"></demo>
 
 
 ## Rounded
@@ -110,33 +64,7 @@ The `Rounded` parameter affects the SplitButton `border-radius` CSS styles. To s
 
 >caption SplitButton Rounded example
 
-````RAZOR
-<p>SplitButton Rounded</p>
-
-@foreach (var item in RoundedOptions)
-{
-    var rounded = item.GetValue(null).ToString();
-
-    <TelerikSplitButton Rounded="@rounded">
-        <SplitButtonContent> @rounded </SplitButtonContent>
-        <SplitButtonItems>
-            <SplitButtonItem> secondary </SplitButtonItem>
-        </SplitButtonItems>
-    </TelerikSplitButton>
-}
-
-@code {
-    List<System.Reflection.FieldInfo> RoundedOptions { get; set; }
-
-    protected override void OnInitialized()
-    {
-        RoundedOptions = typeof(ThemeConstants.SplitButton.Rounded)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/splitbutton/appearance/example-3/" height="420"></demo>
 
 ## Size
 
@@ -150,33 +78,7 @@ The `Size` parameter can change some SplitButton dimensions, such as height, mar
 
 >caption SplitButton Size example
 
-````RAZOR
-<p>SplitButton Size</p>
-
-@foreach (var item in Sizes)
-{
-    var size = item.GetValue(null).ToString();
-
-    <TelerikSplitButton Size="@size">
-        <SplitButtonContent> @size </SplitButtonContent>
-        <SplitButtonItems>
-            <SplitButtonItem> secondary </SplitButtonItem>
-        </SplitButtonItems>
-    </TelerikSplitButton>
-}
-
-@code {
-    List<System.Reflection.FieldInfo> Sizes { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Sizes = typeof(ThemeConstants.SplitButton.Size)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/splitbutton/appearance/example-2/" height="420"></demo>
 
 
 ## ThemeColor
@@ -197,33 +99,7 @@ The `ThemeColor` parameter sets the SplitButton's background and text color from
 
 >caption SplitButton ThemeColor example
 
-````RAZOR
-<p>SplitButton ThemeColor</p>
-
-@foreach (var item in ThemeColors)
-{
-    var themeColor = item.GetValue(null).ToString();
-
-    <TelerikSplitButton ThemeColor="@themeColor">
-        <SplitButtonContent> @themeColor </SplitButtonContent>
-        <SplitButtonItems>
-            <SplitButtonItem> secondary </SplitButtonItem>
-        </SplitButtonItems>
-    </TelerikSplitButton>
-}
-
-@code {
-    List<System.Reflection.FieldInfo> ThemeColors { get; set; }
-
-    protected override void OnInitialized()
-    {
-        ThemeColors = typeof(ThemeConstants.SplitButton.ThemeColor)
-            .GetFields().ToList();
-
-        base.OnInitialized();
-    }
-}
-````
+<demo metaUrl="client/splitbutton/appearance/example-1/" height="550"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

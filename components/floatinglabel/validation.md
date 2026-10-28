@@ -15,68 +15,7 @@ The Blazor FloatingLabel integrates with form validation of [compatible Telerik 
 
 >caption Floating Label Integration with Forms and Validation
 
-````RAZOR
-@using System.ComponentModel.DataAnnotations
-
-@if (ValidSubmit)
-{
-    <p>The form was submitted successfully.</p>
-}
-else
-{
-    <EditForm Model="@TestUser"
-              OnValidSubmit="@HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <TelerikValidationSummary />
-
-        <div>
-            <TelerikFloatingLabel Text="Username *">
-                <TelerikTextBox @bind-Value="@TestUser.Username" />
-            </TelerikFloatingLabel>
-        </div>
-
-        <div>
-            <TelerikFloatingLabel Text="Password *">
-                <TelerikTextBox @bind-Value="@TestUser.Password" Password="true" />
-            </TelerikFloatingLabel>
-        </div>
-
-        <p>
-            <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
-        </p>
-    </EditForm>
-}
-
-@code {
-    User TestUser { get; set; } = new User();
-
-    bool ValidSubmit { get; set; }
-
-    async void HandleValidSubmit()
-    {
-        ValidSubmit = true;
-
-        await Task.Delay(2000);
-
-        ValidSubmit = false;
-        TestUser = new User();
-
-        StateHasChanged();
-    }
-
-    public class User
-    {
-        [Display(Name = "Username")]
-        [Required(ErrorMessage = "Username is required")]
-        public string Username { get; set; }
-
-        [Display(Name = "Password")]
-        [MinLength(8, ErrorMessage = "Password should be at least 8 characters")]
-        [Required(ErrorMessage = "Password is required")]
-        public string Password { get; set; }
-    }
-}
-````
+<demo metaUrl="client/floatinglabel/validation/example-1/" height="420"></demo>
 
 
 ## See Also

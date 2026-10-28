@@ -31,62 +31,7 @@ To enable row selection:
 
 >caption TreeList multiple row selection
 
-````RAZOR
-<TelerikTreeList Data="@TreeListData"
-                  IdField="@nameof(Employee.Id)"
-                  ParentIdField="@nameof(Employee.ParentId)"
-                  SelectionMode="@TreeListSelectionMode.Multiple"
-                  @bind-SelectedItems="@SelectedEmployees"
-                  Pageable="true">
-    <TreeListColumns>
-        <TreeListColumn Field="@nameof(Employee.FirstName)" Title="First Name" Width="350px" Expandable="true" />
-        <TreeListColumn Field="@nameof(Employee.LastName)" Title="Last Name" />
-        <TreeListColumn Field="@nameof(Employee.Position)" Title="Position" Width="200px" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-<h3>Selected Employees:</h3>
-
-<ul>
-    @foreach (Employee employee in SelectedEmployees)
-    {
-        <li>@employee.FirstName</li>
-    }
-</ul>
-
-@code {
-    private List<Employee> TreeListData { get; set; } = new();
-    private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
-
-    protected override void OnInitialized()
-    {
-        TreeListData = new List<Employee>();
-
-        for (int i = 1; i <= 9; i++)
-        {
-            TreeListData.Add(new Employee()
-                {
-                    Id = i,
-                    ParentId = i <= 3 ? null : i % 3 + 1,
-                    FirstName = "First " + i,
-                    LastName = "Last " + i,
-                    Position = i <= 3 ? "Team Lead" : "Software Engineer"
-                });
-        }
-
-        SelectedEmployees = new List<Employee>() { TreeListData.ElementAt(2) };
-    }
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string Position { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/treelist/selection/rows/example-1/" height="720"></demo>
 
 ## SelectedItemsChanged Event
 
@@ -96,77 +41,7 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 >caption Using the TreeList SelectedItemsChanged event
 
-````RAZOR
-@* Select rows and handle the SelectedItemsChanged event *@
-
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(Employee.Id)"
-                 ParentIdField="@nameof(Employee.ParentId)"
-                 SelectionMode="@TreeListSelectionMode.Multiple"
-                 SelectedItems="@SelectedEmployees"
-                 SelectedItemsChanged="@( (IEnumerable<Employee> newSelected) => OnRowSelect(newSelected) )"
-                 Pageable="true">
-    <TreeListColumns>
-        <TreeListColumn Field="@nameof(Employee.FirstName)" Title="First Name" Width="350px" Expandable="true" />
-        <TreeListColumn Field="@nameof(Employee.LastName)" Title="Last Name" />
-        <TreeListColumn Field="@nameof(Employee.Position)" Title="Position" Width="200px" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-<p><code>SelectedItemsChanged</code> fired at: @SelectedItemsChangedLog</p>
-
-<h3>Selected Employees:</h3>
-
-<ul>
-    @foreach (Employee employee in SelectedEmployees)
-    {
-        <li>@employee.FirstName</li>
-    }
-</ul>
-
-@code {
-    private List<Employee> TreeListData { get; set; } = new();
-
-    private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
-
-    private string SelectedItemsChangedLog { get; set; } = string.Empty;
-
-    protected void OnRowSelect(IEnumerable<Employee> employees)
-    {
-        // Update the SelectedItems collection manually.
-        // When using two-way binding, this happens automatically.
-        SelectedEmployees = employees;
-
-        SelectedItemsChangedLog = DateTime.Now.ToLongTimeString();
-    }
-
-    protected override void OnInitialized()
-    {
-        for (int i = 1; i <= 9; i++)
-        {
-            TreeListData.Add(new Employee()
-                {
-                    Id = i,
-                    ParentId = i <= 3 ? null : i % 3 + 1,
-                    FirstName = "First " + i,
-                    LastName = "Last " + i,
-                    Position = i <= 3 ? "Team Lead" : "Software Engineer"
-                });
-        }
-
-        SelectedEmployees = new List<Employee>() { TreeListData.ElementAt(2) };
-    }
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string Position { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/treelist/selection/rows/example-2/" height="720"></demo>
 
 ## Selection When Data Changes
 

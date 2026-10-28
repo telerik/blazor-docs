@@ -41,34 +41,7 @@ The nested `ToolBarButton` tag exposes parameters that allow you to customize th
 
 >caption The Telerik ToolBar with ToolBarButtons
 
-![Blazor Toolbar Toolbarbutton Example](images/toolbar-toolbarbutton-example.png)
-
-````RAZOR
-@*This example shows the TelerikToolBar with ToolBarButtons and their features*@
-
-<TelerikToolBar>
-    <ToolBarButton Icon="@("bold")" Class="myBoldButton" Enabled="@true" Visible="true" Title="Bold Button" OnClick="@OnBold">Bold</ToolBarButton>
-    <ToolBarButton Icon="@SvgIcon.Italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
-    <ToolBarButton Icon="SvgIcon.Underline" Class="myUnderlineButton" Enabled="@true" Visible="true" Title="Underline Button" OnClick="@OnUnderline">Underline</ToolBarButton>
-</TelerikToolBar>
-
-@code {
-    public void OnBold()
-    {
-        Console.WriteLine("The user clicked on the bold button");
-    }
-
-    public void OnItalic()
-    {
-        Console.WriteLine("The user clicked on the italic button");
-    }
-
-    public void OnUnderline()
-    {
-        Console.WriteLine("The user clicked on the underline button");
-    }
-}
-````
+<demo metaUrl="client/toolbar/built-in-tools/example-1/" height="420"></demo>
 
 ## ToolBarToggleButton
 
@@ -94,37 +67,7 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
 
 >caption The Telerik ToolBar with ToolBarToggleButtons
 
-![Blazor Toolbar Togglebutton Example](images/toolbar-togglebutton-example.png)
-
-````RAZOR
-@*This example shows the TelerikToolBar with ToolBarToggleButton and its available features*@
-
-<TelerikToolBar>
-    <ToolBarToggleButton @bind-Selected="@Selected"
-                         Enabled="true"
-                         Class="myToggleFullScreenButton"
-                         Icon="@SvgIcon.ToggleFullScreenMode"
-                         OnClick="@ToggleFullScreen">
-        Toggle Fullscreen
-    </ToolBarToggleButton>
-</TelerikToolBar>
-
-@code {
-    public bool Selected { get; set; } = true;
-
-    public void ToggleFullScreen()
-    {
-        if (Selected)
-        {
-            Console.WriteLine("The user is in full screen");
-        }
-        else
-        {
-            Console.WriteLine("The user exited full screen");
-        }
-    }
-}
-````
+<demo metaUrl="client/toolbar/built-in-tools/example-2/" height="420"></demo>
 
 ## ToolBarButtonGroup
 
@@ -148,22 +91,7 @@ The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customi
 
 >caption The Telerik ToolBar with grouped buttons
 
-![Blazor Toolbar Grouped Buttons](images/toolbar-grouped-buttons.png)
-
-````RAZOR
-@*This example shows the TelerikToolBar with grouped ToolBarButtons*@
-
-<TelerikToolBar>
-    <ToolBarButtonGroup Visible="true"
-                        SelectionMode="@ButtonGroupSelectionMode.Multiple"
-                        Class="formattingButtons"
-                        Enabled="true">
-        <ToolBarButton Icon="@("bold")">Bold</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@SvgIcon.Underline">Underline</ToolBarButton>
-    </ToolBarButtonGroup>
-</TelerikToolBar>
-````
+<demo metaUrl="client/toolbar/built-in-tools/example-3/" height="420"></demo>
 
 ## See Also
 

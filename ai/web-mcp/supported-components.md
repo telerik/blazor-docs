@@ -12,7 +12,7 @@ position: 5
 
 This article lists all Telerik UI for Blazor components that expose WebMCP tools, their default tool names, and the conditions under which each tool is registered.
 
-For general information about the WebMCP API and how to configure tool overrides, see the [WebMCP Tools Overview](slug:web-mcp-overview).
+Use this article as a tool reference after you [set up WebMCP](slug:web-mcp-overview). For a comparison of WebMCP with development-time AI assistance, see the [AI Tools Overview](slug:ai-overview).
 
 >tip In the tables below, a condition "Always" indicates a tool that is [enabled by default](slug:web-mcp-overview#settings-and-tool-overrides), no matter the component configuration. You can disable such tools by [setting `Enabled="false"`](slug:web-mcp-overview#componentwebmcptool-parameters) for the respective `<ComponentWebMcpTool>` tag and `Command` parameter.
 
@@ -340,4 +340,5 @@ For general information about the WebMCP API and how to configure tool overrides
 
 ## See Also
 
+* [AI Tools Overview](slug:ai-overview)
 * [WebMCP Tools Overview](slug:web-mcp-overview)

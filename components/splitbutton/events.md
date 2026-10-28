@@ -24,37 +24,7 @@ The `OnClick` event fires when the user clicks or taps the primary button or a s
 
 >caption SplitButton OnClick event
 
-````RAZOR
-<TelerikSplitButton OnClick="@OnReply">
-    <SplitButtonContent>Reply</SplitButtonContent>
-    <SplitButtonItems>
-        <SplitButtonItem OnClick="@OnReplyAll">Reply All</SplitButtonItem>
-    </SplitButtonItems>
-</TelerikSplitButton>
-
-Last action: <strong> @LastAction </strong>
-at <strong> @ClickTimeString </strong>.
-
-@code {
-    string LastAction { get; set; } = "...";
-    string ClickTimeString { get; set; } = "...";
-
-    void OnReply(MouseEventArgs args)
-    {
-        LastAction = "Reply (sync)";
-        DateTime now = DateTime.Now;
-        ClickTimeString = $"{now.ToLongTimeString()}.{now.Millisecond}";
-    }
-
-    async Task OnReplyAll(MouseEventArgs args)
-    {
-        DateTime now = DateTime.Now;
-        await Task.Delay(300);
-        LastAction = "Reply All (async)";
-        ClickTimeString = $"{now.ToLongTimeString()}.{now.Millisecond}";
-    }
-}
-````
+<demo metaUrl="client/splitbutton/events/example-1/" height="420"></demo>
 
 ## Next Steps
 

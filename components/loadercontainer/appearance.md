@@ -34,24 +34,7 @@ The `LoaderPosition` parameter controls the position of the animated loading ind
 
 >caption The position of the Loader indicator
 
-````RAZOR
-@*The different positions of the loader indicator based on the predefault values.*@
-
-<div class="row">
-    <div class="col-4" style="position: relative; height: 200px">
-        <TelerikLoaderContainer LoaderPosition="@LoaderPosition.Top"></TelerikLoaderContainer>
-    </div>
-    <div class="col-4" style="position: relative; height: 200px">
-        <TelerikLoaderContainer LoaderPosition="@LoaderPosition.Start"></TelerikLoaderContainer>
-    </div>
-    <div class="col-4" style="position: relative; height: 200px"> 
-        <TelerikLoaderContainer LoaderPosition="@LoaderPosition.End"></TelerikLoaderContainer>
-    </div>
-</div>
-````
-
-![Blazor Loadercontainer Loader Position](images/loadercontainer-loader-position.png)
-
+<demo metaUrl="client/loadercontainer/appearance/example-1/" height="650"></demo>
 
 ## LoaderType
 
@@ -61,9 +44,7 @@ See the [Loader `Type` documentation](slug:loader-appearance#type) for the possi
 
 >caption Setting TelerikLoaderContainer LoaderType
 
-````RAZOR
-<TelerikLoaderContainer LoaderType="@LoaderType.InfiniteSpinner" />
-````
+<demo metaUrl="client/loadercontainer/appearance/example-2/" height="420"></demo>
 
 
 ## Size
@@ -74,9 +55,7 @@ See [Loader `Size`](slug:loader-appearance#size) for a list of possible values a
 
 >caption Setting TelerikLoaderContainer Size
 
-````RAZOR
-<TelerikLoaderContainer Size="@ThemeConstants.Loader.Size.Large" />
-````
+<demo metaUrl="client/loadercontainer/appearance/example-3/" height="420"></demo>
 
 
 ## ThemeColor
@@ -87,9 +66,7 @@ See [Loader `ThemeColor`](slug:loader-appearance#themecolor) for a list of possi
 
 >caption Setting TelerikLoaderContainer ThemeColor
 
-````RAZOR
-<TelerikLoaderContainer ThemeColor="@ThemeConstants.Loader.ThemeColor.Primary" />
-````
+<demo metaUrl="client/loadercontainer/appearance/example-4/" height="420"></demo>
 
 ### Custom LoaderContainer Colors
 
@@ -97,32 +74,7 @@ The following example shows [how to override the CSS styles in the theme](slug:t
 
 >caption Custom LoaderContainer colors
 
-````RAZOR
-<TelerikLoaderContainer Class="custom-loading-colors" />
-
-<style>
-    /* overlay */
-    .custom-loading-colors .k-loader-container-overlay {
-        background-color: yellow;
-    }
-
-    /* panel */
-    .custom-loading-colors .k-loader-container-panel {
-        background-color: pink;
-    }
-
-    /* animation */
-    .custom-loading-colors .k-loader {
-        color: blue;
-    }
-
-    /* text */
-    .custom-loading-colors .k-loader-container-label {
-        color: purple !important;
-        font-weight: bold;
-    }
-</style>
-````
+<demo metaUrl="client/loadercontainer/appearance/example-5/" height="420"></demo>
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 

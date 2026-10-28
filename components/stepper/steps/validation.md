@@ -31,100 +31,17 @@ If the Stepper uses the default display mode ([`Steps`](slug:stepper-display-mod
 
 When validation icons are rendered inside the indicators, they will override the content of the step indicator (text, icon etc). They have priority over the step indicator content in order to notify whether the corresponding step is valid or not.
 
->caption Setup Steps validation in a Stepper with Display mode: Steps. The result from the snippet.
+>caption Setup Steps validation in a Stepper with Display mode: Steps.
 
-![Validation for Steps](images/validation-for-steps-example.gif)
-
-````RAZOR
-@* Set validation in Stepper with display mode Steps(default) *@
-
-<div style="width:700px">
-    <TelerikStepper Linear="true" Value="@StepperValue" ValueChanged="@HandleValueChanged">
-        <StepperSteps>
-            <StepperStep Valid="@ValidStep" Label="Cart" Icon="@SvgIcon.Cart" ></StepperStep>
-            <StepperStep Valid="@InvalidStep" Label="Delivery address" Icon="@SvgIcon.MapMarkerTarget"></StepperStep>
-            <StepperStep Valid="@ValidStep2" Label="Payment method" Icon="@SvgIcon.Dollar"></StepperStep>
-            <StepperStep Label="Finish Order" Icon="@SvgIcon.TrackChangesAccept"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-
-@code {
-    public bool? ValidStep { get; set; }
-    public bool? ValidStep2 { get; set; }
-    public bool? InvalidStep { get; set; }
-
-    public int StepperValue { get; set; }
-
-    public void HandleValueChanged(int index)
-    {
-        StepperValue = index;
-
-        if (index == 1)
-        {
-            ValidStep = true;
-        }
-        if (index == 2)
-        {
-            InvalidStep = false;
-        }
-        if (index == 3)
-        {
-            ValidStep2 = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/stepper/steps/validation/example-2/" height="320"></demo>
 
 ## Validation in Stepper with Display mode: Labels
 
 If the Stepper uses the [`Labels`](slug:stepper-display-modes#labels)display mode, the validation icons will be displayed as part of the step label.
 
->caption Setup Steps validation in a Stepper with Display mode: Labels. The result from the snippet.
+>caption Setup Steps validation in a Stepper with Display mode: Labels.
 
-![Validation for Labels](images/validation-for-labels-example.gif)
-
-````RAZOR
-@* Set validation in Stepper with display mode Labels *@
-
-<div style="width:700px">
-    <TelerikStepper StepType="@StepperStepType.Labels" Linear="true" 
-                    Value="@StepperValue" ValueChanged="@HandleValueChanged" >
-        <StepperSteps>
-            <StepperStep Valid="@ValidStep"  Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
-            <StepperStep Valid="@InvalidStep" Label="Education" Icon="@SvgIcon.Book"></StepperStep>
-            <StepperStep Valid="@ValidStep2" Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
-        </StepperSteps>
-    </TelerikStepper>
-</div>
-
-@code {
-    public bool? ValidStep { get; set; }
-    public bool? ValidStep2 { get; set; }
-    public bool? InvalidStep { get; set; }
-
-    public int StepperValue { get; set; }
-
-    public void HandleValueChanged(int index)
-    {
-        StepperValue = index;
-
-        if (index == 1)
-        {
-            ValidStep = true;
-        }
-        if (index == 2)
-        {
-            InvalidStep = false;
-        }
-        if (index == 3)
-        {
-            ValidStep2 = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/stepper/steps/validation/example-1/" height="320"></demo>
 
 
 ## See Also

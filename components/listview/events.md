@@ -114,20 +114,20 @@ In the common case, you provide all the data to the listview's Data collection a
         await GetListViewData();
     }
 
-    async Task EditHandler(ListViewCommandEventArgs e)
+    async Task EditHandler(ListViewCommandEventArgs args)
     {
-        Employee currItem = e.Item as Employee;
+        Employee currItem = (Employee)args.Item;
 
         // prevent opening an item for editing on condition
         if (currItem.Id < 2)
         {
-            e.IsCancelled = true;
+            args.IsCancelled = true;
         }
     }
 
-    async Task CancelHandler(ListViewCommandEventArgs e)
+    async Task CancelHandler(ListViewCommandEventArgs args)
     {
-        Employee changedItem = e.Item as Employee;
+        Employee changedItem = (Employee)args.Item;
         // this is the item as the user edited it, but chose to cancel editing/inserting
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
     }
@@ -281,20 +281,20 @@ In the common case, you provide all the data to the listview's Data collection a
         await GetListViewData();
     }
 
-    async Task EditHandler(ListViewCommandEventArgs e)
+    async Task EditHandler(ListViewCommandEventArgs args)
     {
-        Employee currItem = e.Item as Employee;
+        Employee currItem = (Employee)args.Item;
 
         // prevent opening an item for editing on condition
         if (currItem.Id < 2)
         {
-            e.IsCancelled = true;
+            args.IsCancelled = true;
         }
     }
 
-    async Task CancelHandler(ListViewCommandEventArgs e)
+    async Task CancelHandler(ListViewCommandEventArgs args)
     {
-        Employee changedItem = e.Item as Employee;
+        Employee changedItem = (Employee)args.Item;
         // this is the item as the user edited it, but chose to cancel editing/inserting
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
     }
@@ -455,20 +455,20 @@ In the common case, you provide all the data to the listview's Data collection a
         await GetListViewData();
     }
 
-    async Task EditHandler(ListViewCommandEventArgs e)
+    async Task EditHandler(ListViewCommandEventArgs args)
     {
-        Employee currItem = e.Item as Employee;
+        Employee currItem = (Employee)args.Item;
 
         // prevent opening an item for editing on condition
         if (currItem.Id < 2)
         {
-            e.IsCancelled = true;
+            args.IsCancelled = true;
         }
     }
 
-    async Task CancelHandler(ListViewCommandEventArgs e)
+    async Task CancelHandler(ListViewCommandEventArgs args)
     {
-        Employee changedItem = e.Item as Employee;
+        Employee changedItem = (Employee)args.Item;
         // this is the item as the user edited it, but chose to cancel editing/inserting
         Console.WriteLine($"user changed item {changedItem.Id} to have Name: {changedItem.Name} and Team: {changedItem.Team}");
     }
@@ -557,35 +557,7 @@ The event fires when the user pages the listview. If you will be providing the `
 
 >caption Handle the PageChanged event
 
-````RAZOR
-@result
-
-<TelerikListView Data="@ListViewData" Pageable="true" PageChanged="@PageChangedHandler">
-    <Template>
-        <h6>@context.Name</h6>
-    </Template>
-</TelerikListView>
-
-@code{
-    string result { get; set; }
-    async Task PageChangedHandler(int currPageIndex)
-    {
-        result = $"The user is now on page {currPageIndex}";
-    }
-
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/events/example-1/" height="620"></demo>
 
 ### PageSizeChanged
 
@@ -597,37 +569,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````RAZOR
-<TelerikListView Data="@ListViewData"
-                 Pageable="true"
-                 PageSize="@PageSize"
-                 PageSizeChanged="@PageSizeChangedHandler">
-    <Template>
-        <h6>@context.Name</h6>
-    </Template>
-</TelerikListView>
-
-@code{
-    int PageSize { get; set; } = 15;
-    
-    async Task PageSizeChangedHandler(int newPageSize)
-    {
-        PageSize = newPageSize;
-    }
-
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}"
-    }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/listview/events/example-2/" height="620"></demo>
 
 ## See Also
 

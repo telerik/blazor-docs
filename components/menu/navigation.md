@@ -26,63 +26,7 @@ To use the Blazor Menu for navigating between pages:
 
 >caption Use the Menu to navigate between pages
 
-````RAZOR
-@* This a basic example of a Menu used as Navigation. *@
-
-<TelerikMenu Data="@MenuData"></TelerikMenu>
-
-
-@code {
-    public List<MenuModel> MenuData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GenerateMenuData();
-    }
-
-    public void GenerateMenuData()
-    {
-        MenuData = new List<MenuModel>()
-        {
-            new MenuModel()
-            {
-                Text = "Contact us",
-                Url = "/contacts",
-                Icon = SvgIcon.Envelope
-            },
-            new MenuModel()
-            {
-                Text = "Settings",
-                Url = "/settings",
-                Icon = SvgIcon.Gear,
-                Items = new List<MenuModel>()
-                {
-                    new MenuModel()
-                    {
-                        Text = "Profile Settings",
-                        Url = "/profile",
-                        Icon = SvgIcon.User
-                    },
-                    new MenuModel()
-                    {
-                        Text = "Language Settings",
-                        Url = "/language",
-                        Icon = SvgIcon.Globe
-                    }
-                }
-            }
-        };
-    }
-
-    public class MenuModel
-    {
-        public string Text { get; set; }
-        public string Url { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public List<MenuModel> Items { get; set; }
-    }
-}
-````
+<demo metaUrl="client/menu/navigation/example-1/" height="320"></demo>
 
 ## Notes
 

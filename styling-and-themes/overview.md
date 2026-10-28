@@ -65,8 +65,7 @@ To register a theme:
 
 There are three ways to load a Telerik theme, in terms of physical CSS file location. Note that each option provides access to a different number of theme swatches.
 
-* [Load a CSS theme as a static asset from the `Telerik.UI.for.Blazor` NuGet package](#loading-themes-in-blazor-from-the-nuget-package). This is the easiest option and it doesn't require maintenance during [Telerik UI for Blazor version upgrades](slug:upgrade-tutorial). However, you can use only the *Main* swatch of each theme and the *Ocean Blue* swatch of the *Default* theme.
-* Load a CSS theme from a remote URL, for example, CDN. The dedicated <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/meridian/" target="_blank">documentation of each theme provides a list of swatches and their URLs</a>.
+* [Load a CSS theme as a static asset from the `Telerik.UI.for.Blazor` NuGet package](#loading-themes-in-blazor-from-the-nuget-package). This is the easiest option and it doesn't require maintenance during [Telerik UI for Blazor version upgrades](slug:upgrade-tutorial).
 * Load a CSS theme as a local file in the `wwwroot` folder in the Blazor app. This option is relevant to the following cases:
     * When using [custom themes](slug:themes-customize).
     * When [creating](slug:getting-started-vs-integration-new-project) or [converting](slug:getting-started-vs-integration-convert-project) Telerik Blazor apps with the [Telerik UI for Blazor Visual Studio extension](slug:getting-started-vs-integration-overview).
@@ -82,9 +81,14 @@ The easiest way to load a Telerik theme in a Blazor app is to reference a static
 * The application relies on available local resources, instead of third parties and remote URLs.
 * The theme URL does not change across component versions, which makes product updates easier. [Add a cache buster to avoid possible browser caching issues](slug:common-kb-browser-cache-buster).
 
-The `Telerik.UI.for.Blazor` NuGet package includes only the *Main* swatch of each theme and the *Ocean Blue* swatch of the *Default* theme. The code snippet below shows all available CSS files in the NuGet package and their correct URLs. To use another swatch, see the section [Using a Theme](#using-a-theme) above.
+> The `Telerik.UI.for.Blazor` NuGet package includes a different variety of [swatches](#what-is-a-swatch), depending on the package version:
+>
+> * Version `15.1.0` and newer ones contain all swatches.
+> * Older versions contain only the *Main* swatch of each theme and the *Ocean Blue* swatch of the *Default* theme.
 
->caption Load a Telerik theme as a static NuGet asset
+The code snippets below show how to load CSS files from the NuGet package and the correct file URLs. Also see the section [Using a Theme](#using-a-theme) above.
+
+>caption Load a Telerik theme as a static NuGet asset in any version
 
 <div class="skip-repl"></div>
 
@@ -103,6 +107,42 @@ The `Telerik.UI.for.Blazor` NuGet package includes only the *Main* swatch of eac
     -->
 </head>
 ````
+
+Starting from Telerik UI for Blazor version `15.1.0`, you can load a theme swatch with the following URL:
+
+`_content/Telerik.UI.for.Blazor/css/kendo-theme-[THEME_NAME]/swatches/[THEME_NAME]-[SWATCH_NAME].css`
+
+The [Telerik UI for Blazor demo site](https://demos.telerik.com/blazor-ui/) allows you to [preview all available swatches](#comparing-themes-and-swatches).
+
+>caption Load a Telerik theme as a static NuGet asset in version `15.1.0` and newer ones
+
+<div class="skip-repl"></div>
+
+````HTML
+<head>
+    <!-- Choose only one theme. -->
+    
+    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/swatches/meridian-main.css" />
+
+    <!-- 
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/swatches/meridian-main.css" rel="stylesheet" />
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-meridian/swatches/meridian-main-dark.css" rel="stylesheet" />
+
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/swatches/default-main.css" rel="stylesheet" />
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/swatches/default-main-dark.css" rel="stylesheet" />
+
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/swatches/bootstrap-main.css" rel="stylesheet" />
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/swatches/bootstrap-main-dark.css" rel="stylesheet" />
+
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-material/swatches/material-main.css" rel="stylesheet" />
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-material/swatches/material-main-dark.css" rel="stylesheet" />
+
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-fluent/swatches/fluent-main.css" rel="stylesheet" />
+    <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-fluent/swatches/fluent-main-dark.css" rel="stylesheet" />
+    -->
+</head>
+````
+
 
 ## Compatibility and Maintenance
 

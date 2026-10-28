@@ -25,33 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">Stac
 
 >caption StackLayout basic configuration.
 
-````RAZOR
-@* This example showcases how the StackLayout fills the entire parent container and some of its core features. *@
-
-<style>
-    .parent-container {
-        height: 500px;
-        width: 500px;
-        border: 1px solid black;
-    }
-</style>
-
-<div class="parent-container">
-    <TelerikStackLayout Orientation="@StackLayoutOrientation.Horizontal" 
-                        Width="100%" 
-                        Height="100%">
-        <div style="background-color: aqua;">
-            Aqua colored stack item
-        </div>
-        <div style="background-color: cornflowerblue;">
-            Cornflowerblue colored stack item
-        </div>
-        <div style="background-color: blue;">
-            Blue colored stack item
-        </div>
-    </TelerikStackLayout>
-</div>
-````
+<demo metaUrl="client/stacklayout/overview/example-2/" height="420"></demo>
 
 ## Layout
 
@@ -79,57 +53,7 @@ Sometimes you may need to create a more complex layout that includes both horizo
 
 >caption Use nested StackLayout to create a page layout.
 
-````RAZOR
-<TelerikStackLayout Orientation="StackLayoutOrientation.Vertical" Height="100%">
-    <div class="red">
-        Header
-    </div>
-    <TelerikStackLayout Orientation="StackLayoutOrientation.Horizontal">
-        <div class="green">
-            Navigation
-        </div>
-        <div class="yellow">
-            Content
-        </div>
-        <div class="orange">
-            Right side content
-        </div>
-    </TelerikStackLayout>
-    <div class="purple">
-        Footer
-    </div>
-</TelerikStackLayout>
-
-<style>
-    .red {
-        background-color: #dc3545;
-    }
-
-    .green {
-        background-color: #198754;
-    }
-
-    .yellow {
-        background-color: #ffc107;
-    }
-
-    .orange {
-        background-color: #fd7e14;
-    }
-
-    .purple {
-        background-color: #6f42c1;
-    }
-
-    body, html {
-        height: 100%;
-    }
-
-    app {
-        display: initial !important;
-    }
-</style>
-````
+<demo metaUrl="client/stacklayout/overview/example-1/" height="320"></demo>
 
 ## Next Steps
 

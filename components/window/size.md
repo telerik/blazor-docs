@@ -36,28 +36,7 @@ If you set dimensions and the Window content does not fit, scrollbars will show.
 
 >caption Configure Window Width and Height, and min/max dimensions
 
-````RAZOR
-<TelerikWindow @bind-Height="@WindowHeight"
-               MaxHeight="400px"
-               MinHeight="200px"
-               @bind-Width="@WindowWidth"
-               MaxWidth="800px"
-               MinWidth="400px"
-               @bind-Visible="@WindowVisible">
-    <WindowTitle>Window Title</WindowTitle>
-    <WindowContent>
-        <p>The default width is 600px. The user can resize from 400px to 800px.</p>
-        <p>The default height is 300px. The user can resize from 200px to 400px.</p>
-    </WindowContent>
-</TelerikWindow>
-
-@code {
-    private bool WindowVisible { get; set; } = true;
-
-    private string WindowHeight { get; set; } = "300px";
-    private string WindowWidth { get; set; } = "600px";
-}
-````
+<demo metaUrl="client/window/size/example-1/" height="420"></demo>
 
 ## Maximize and Minimize
 
@@ -75,36 +54,7 @@ You can invoke those actions by setting the `State` parameter. It takes a member
 
 >caption Maximize, Minimize and Restore the Window programmatically
 
-````RAZOR
-<TelerikWindow @bind-State="@WindowState"
-               Height="200px"
-               Width="400px"
-               Resizable="false"
-               Visible="true">
-    <WindowTitle>Window Title</WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-    </WindowActions>
-    <WindowContent>
-        <select @bind=@WindowState>
-            <option value="@WindowState.Default">Default</option>
-            <option value="@WindowState.Maximized">Maximized</option>
-            <option value="@WindowState.Minimized">Minimized</option>
-        </select>
-    </WindowContent>
-</TelerikWindow>
-
-<select @bind="@WindowState">
-    <option value="@WindowState.Default">Default</option>
-    <option value="@WindowState.Maximized">Maximized</option>
-    <option value="@WindowState.Minimized">Minimized</option>
-</select>
-
-@code {
-    private WindowState WindowState { get; set; } = WindowState.Default;
-}
-````
+<demo metaUrl="client/window/size/example-2/" height="420"></demo>
 
 >tip With a maximized window you may want to ensure all other content stays "behind" it. To do that, see the [Block all content with a Window](slug:window-kb-block-all-content) article on ensuring that the CSS rules in the project can enable that.
 
@@ -117,31 +67,7 @@ To disable resizing, set the `Resizable` parameter to `false`.
 
 >caption Window Resizing
 
-````RAZOR
-<TelerikWindow @bind-Visible="@WindowVisible"
-               @bind-Height="@WindowHeight"
-               @bind-Width="@WindowWidth"
-               Resizable="@WindowResizable">
-    <WindowTitle>Window Title</WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Minimize"></WindowAction>
-        <WindowAction Name="Maximize"></WindowAction>
-        <WindowAction Name="Close"></WindowAction>
-    </WindowActions>
-    <WindowContent>
-        <TelerikButton OnClick="@(() => WindowResizable = !WindowResizable)">Toggle Resizable</TelerikButton>
-    </WindowContent>
-</TelerikWindow>
-
-<TelerikButton OnClick="@(() => WindowVisible = !WindowVisible)">Toggle Visible</TelerikButton>
-
-@code {
-    private string WindowHeight { get; set; } = "200px";
-    private string WindowWidth { get; set; } = "400px";
-    private bool WindowResizable { get; set; } = true;
-    private bool WindowVisible { get; set; } = true;
-}
-````
+<demo metaUrl="client/window/size/example-3/" height="420"></demo>
 
 ## See Also
 

@@ -21,29 +21,15 @@ You can put a Font or Svg Icon in the toggle button to illustrate its purpose fo
 |---|---|---|
 | `Icon`| `object` | Use it to display a [Telerik Font and SVG Icons](slug:common-features-icons). |
 
+For SVG icons, use `IconVariant` to select an available variant. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
 The following example shows how to use SVG and Font icons. If you don't add text to the button, the button will center the icon on all sides.
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in the Telerik Toggle Button
 
-````RAZOR
-@* This sample shows how you can use conditional logic to show different icons in the different states.*@
-
-<TelerikToggleButton Icon="@( SvgSelected ? SvgIcon.VolumeUp : SvgIcon.VolumeDown )"
-                     @bind-Selected="@SvgSelected">Svg Icon</TelerikToggleButton>
-
-<TelerikToggleButton Icon="@( FontSelected ? FontIcon.VolumeUp : FontIcon.VolumeDown )"
-                     @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
-
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
-
-@code {
-    private bool SvgSelected { get; set; }
-
-    private bool FontSelected { get; set; }
-}
-````
+<demo metaUrl="client/togglebutton/icons/example-1/" height="320"></demo>
 
 
 ## Icon Size

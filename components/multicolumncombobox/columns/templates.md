@@ -23,44 +23,7 @@ The `HeaderTemplate` allows you to control the rendering of the column's header.
 
 >caption Use the HeaderTemplate to add an icon to the header cells
 
-````RAZOR
-<TelerikMultiColumnComboBox Data="@MultiComboData"
-                            @bind-Value="@BoundValue"
-                            ValueField="@nameof(SampleData.Id)"
-                            TextField="@nameof(SampleData.Name)"
-                            Width="300px">
-    <MultiColumnComboBoxColumns>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)">
-            <HeaderTemplate>
-                <TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon>
-                Unique identifier
-            </HeaderTemplate>
-        </MultiColumnComboBoxColumn>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)">
-            <HeaderTemplate>
-                <TelerikSvgIcon Icon="@SvgIcon.StarOutline"></TelerikSvgIcon>
-                Employee Name
-            </HeaderTemplate>
-        </MultiColumnComboBoxColumn>
-    </MultiColumnComboBoxColumns>
-</TelerikMultiColumnComboBox>
-
-@code {
-    public int BoundValue { get; set; }
-
-    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
-        {
-            Id = x,
-            Name = "Name " + x
-        }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/templates/example-2/" height="420"></demo>
 
 ## Template
 
@@ -68,47 +31,4 @@ The `Template` (Cell Template) allows you to control the rendering of the cells 
 
 >caption Use the Template to visually distinguish some Ids
 
-````RAZOR
-<TelerikMultiColumnComboBox Data="@MultiComboData"
-                            @bind-Value="@BoundValue"
-                            ValueField="@nameof(SampleData.Id)"
-                            TextField="@nameof(SampleData.Name)"
-                            Width="300px">
-    <MultiColumnComboBoxColumns>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)">
-            <Template>
-                @{
-                    var currentEmployee = context as SampleData;
-
-                    @if(currentEmployee.Id % 3 == 0)
-                    {
-                        <span style="font-weight:bold">Important id: @currentEmployee.Id</span>
-                    }
-                    else
-                    {
-                        <span style="font-style:italic">@currentEmployee.Id</span>
-                    }
-                }
-            </Template>
-        </MultiColumnComboBoxColumn>
-        <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)">
-        </MultiColumnComboBoxColumn>
-    </MultiColumnComboBoxColumns>
-</TelerikMultiColumnComboBox>
-
-@code {
-    public int BoundValue { get; set; }
-
-    public List<SampleData> MultiComboData { get; set; } = Enumerable.Range(0, 30).Select(x => new SampleData()
-        {
-            Id = x,
-            Name = "Name " + x
-        }).ToList();
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multicolumncombobox/templates/example-3/" height="420"></demo>

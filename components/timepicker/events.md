@@ -27,29 +27,7 @@ The event handler receives the new value as an argument and you must update the 
 
 >caption Handle the TimePicker ValueChanged event
 
-````RAZOR
-@Result
-<br />
-TimePicker Value: @TimePickerValue
-<br />
-
-<TelerikTimePicker Value="@TimePickerValue"
-                   ValueChanged="@( (DateTime d) => TimePickerValueChanged(d) )">
-</TelerikTimePicker>
-
-@code {
-    private string Result { get; set; } = string.Empty;
-
-    private DateTime TimePickerValue { get; set; } = DateTime.Now;
-
-    private void TimePickerValueChanged(DateTime newValue)
-    {
-        Result = $"The user entered: {newValue}";
-
-        TimePickerValue = newValue;
-    }
-}
-````
+<demo metaUrl="client/timepicker/events/example-5/" height="420"></demo>
 
 ## OnChange
 
@@ -65,25 +43,7 @@ The TimePicker is a generic component, so you must either provide a `Value`, or 
 
 >caption Handle DateTimePicker OnChange and use two-way Value binding
 
-````RAZOR
-<TelerikTimePicker @bind-Value="@TimePickerValue"
-                   OnChange="@TimePickerValueChanged"
-                   Width="150px">
-</TelerikTimePicker>
-
-<span><code>OnChange</code> fired at <strong>@LastOnChange?.ToString("HH:mm:ss.fff")</strong></span>
-
-@code {
-    private DateTime? TimePickerValue { get; set; }
-    private DateTime? LastOnChange { get; set; }
-
-    private void TimePickerValueChanged(object currentValue)
-    {
-        LastOnChange = DateTime.Now;
-        Console.WriteLine($"The current Value is {(DateTime?)currentValue}");
-    }
-}
-````
+<demo metaUrl="client/timepicker/events/example-4/" height="420"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -101,26 +61,7 @@ The event handler receives as an argument an `TimePickerOpenEventArgs` object th
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````RAZOR
-<TelerikTimePicker Min="@Min"
-                   OnOpen="@OnTimePickerPopupOpen"
-                   Max="@Max"
-                   Format="hh:mm:ss tt"
-                   @bind-Value="@TimePickerValue">
-</TelerikTimePicker>
-
-@code {
-    private DateTime? TimePickerValue = DateTime.Now;
-    private DateTime Min = new DateTime(1900, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(1900, 1, 1, 19, 30, 45);
-
-    private void OnTimePickerPopupOpen(TimePickerOpenEventArgs args)
-    {
-        //set the IsCancelled to true to cancel the OnOpen event
-        args.IsCancelled = false;
-    }
-}
-````
+<demo metaUrl="client/timepicker/events/example-3/" height="420"></demo>
 
 ## OnClose
 
@@ -132,31 +73,7 @@ The event handler receives as an argument an `TimePickerCloseEventArgs` object t
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````RAZOR
-@* Cancel the OnClose event based on a condition *@
-
-<TelerikTimePicker Min="@Min"
-                   OnClose="@OnTimePickerPopupClose"
-                   Max="@Max"
-                   Format="hh:mm:ss tt"
-                   @bind-Value="@TimePickerValue">
-</TelerikTimePicker>
-
-@code {
-    private DateTime? TimePickerValue = DateTime.Now;
-    private DateTime Min = new DateTime(1900, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(1900, 1, 1, 19, 30, 45);
-
-    private void OnTimePickerPopupClose(TimePickerCloseEventArgs args)
-    {
-        //cancel the OnClose event based on a condition
-        if (TimePickerValue > DateTime.Now.AddHours(1))
-        {
-            args.IsCancelled = true;
-        }
-    }
-}
-````
+<demo metaUrl="client/timepicker/events/example-2/" height="420"></demo>
 
 ## OnBlur
 
@@ -164,22 +81,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-<TelerikTimePicker @bind-Value="@TheTime"
-                   OnBlur="@OnBlurHandler">
-</TelerikTimePicker>
-
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current value is {TheTime}.");
-    }
-
-    DateTime? TheTime { get; set; } = DateTime.Now;
-}
-````
+<demo metaUrl="client/timepicker/events/example-1/" height="420"></demo>
 
 
 ## See Also

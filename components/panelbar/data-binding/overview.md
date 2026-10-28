@@ -43,6 +43,8 @@ The PanelBar items provide the following features that you control through the c
 
 * `Icon` - The [Telerik Font or SVG icon](slug:common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug:panelbar-icons).
 
+* `IconVariant` - the [SVG icon variant](slug:common-features-icons#use-svg-icon-variants) to use for the item icon.
+
 * `Url` - the view the item will navigate to by generating a link.
 
 ## Data Bindings
@@ -60,6 +62,8 @@ Each `PanelBarBinding` tag exposes the following properties that refer to item p
 * DisabledField => Disabled
 
 * IconField => Icon
+
+* IconVariantField => IconVariant
 
 * UrlField => Url
 

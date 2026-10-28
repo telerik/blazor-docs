@@ -30,83 +30,7 @@ You can read more details on how to tie the treelist to your data fields and chi
 
 >caption Provide data to the treelist and choose which columns (fields) to see
 
-````RAZOR
-@* define data, model and columns for a treelist *@
-
-@using System.ComponentModel.DataAnnotations
-@* This Using is for the model class attributes only *@
-
-<TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px">
-    <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" />
-        <TreeListColumn Field="@nameof(Employee.HireDate)" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-    private List<Employee> Data { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
-
-    // sample models and data generation
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        [Display(Name = "Employee Name")]
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public string Team { get; set; } // in this example we don't use this field (in the treelist)
-    }
-
-    private async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
-        for (int i = 1; i < 15; i++)
-        {
-            data.Add(new Employee
-            {
-                Id = i,
-                ParentId = null,
-                Name = $"root: {i}",
-                HireDate = DateTime.Now.AddYears(-i)
-            }); ;
-
-            for (int j = 1; j < 4; j++)
-            {
-                int currId = i * 100 + j;
-                data.Add(new Employee
-                {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child {j} of {i}",
-                    HireDate = DateTime.Now.AddDays(-currId)
-                });
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = currId * 1000 + k;
-                    data.Add(new Employee
-                    {
-                        Id = nestedId,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
-                }
-            }
-        }
-
-        return await Task.FromResult(data);
-    }
-}
-````
+<demo metaUrl="client/treelist/columns/bound/example-1/" height="720"></demo>
 
 >tip You can also use a string for the field name, using the `nameof` operator is not necessary. For example, the ID column can be defined like this: `<TreeListColumn Field="Id" />`. The field name is, however, **case-sensitive**.
 
@@ -122,12 +46,12 @@ You can use the following properties on bound columns:
 ### Data Binding
 
 * `Expandable` - (defaults to `false`) - when set to true, the column shows an expand/collapse arrow in front of the value and denotes hierarchy be intending it. You should set this to at least one column of your treelist to showcase the hierarchical nature of the data.
-* `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set its as a plain string (`Field="SomeField"`) or to have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeFIeld)`).
+* `Field` - (defaults to `null`) - the name of the field in the data source that the column will render as a string (case-sensitive). You can set it as a plain string (`Field="SomeField"`) or have .NET extract the field name from the model for flat models (`Field=@nameof(MyModelClass.SomeField)`).
 
 ### Appearance
 
 * `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
-* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the Treelist is in display mode. Read more in the [Column Display Format](slug:gantt-columns-displayformat) article.
+* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the TreeList is in display mode. Read more in the [Column Display Format](slug:treelist-columns-displayformat) article.
 * `TextAlign` - specifies the horizontal alignment of the **data** cells. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction. Header cell alignment requires a different approach with `HeaderClass` and [custom CSS](slug:themes-override) - see [Center Grid column header text](slug:grid-kb-center-column-header-content).
 * `Width` -  (defaults to `null`) - the width of the column. See the [Dimensions](slug:common-features/dimensions) article for information about the supported formats. See [TreeList Column Width Behavior](slug:treelist-columns-width) for detailed information about the TreeList behavior with different column width configurations.
 * `HeaderClass` - `string` - adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default TreeList styles](slug:themes-override).

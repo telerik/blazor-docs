@@ -28,23 +28,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````RAZOR
-@* You do not have to use OnChange to react to loss of focus *@
-
-<TelerikMultiSelect @bind-Value="@TheValues" Data="@Options"
-                    OnBlur="@OnBlurHandler">
-</TelerikMultiSelect>
-
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current selections count is {TheValues.Count}.");
-    }
-
-    List<string> TheValues { get; set; } = new List<string>();
-    List<string> Options { get; set; } = new List<string> { "one", "two", "three" };
-}
-````
+<demo metaUrl="client/multiselect/events/example-1/" height="420"></demo>
 
 ## OnChange
 
@@ -57,34 +41,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange
 
-````RAZOR
-@result
-<br />
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" OnChange="@MyOnChangeHandler" />
-<br />
-from the model:
-<ul>
-    @foreach (var item in TheValues)
-    {
-        <li>@item</li>
-    }
-</ul>
-
-@code{
-    string result { get; set; }
-    void MyOnChangeHandler(object theUserChoice)
-    {
-        List<string> theData = theUserChoice as List<string>;
-        result = $"there are now {theData.Count} items selected";
-    }
-
-    List<string> TheValues { get; set; } = new List<string>();
-
-    List<string> Roles { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
-    };
-}
-````
+<demo metaUrl="client/multiselect/events/example-2/" height="420"></demo>
 
 ## OnClose
 
@@ -96,41 +53,7 @@ The event handler receives as an argument an `MultiSelectCloseEventArgs` object 
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````RAZOR
-@* Cancel the OnClose event based on a condition *@
-
-<TelerikMultiSelect Data="@Items"
-                    OnClose="@OnMultiSelectPopupClose"
-                    ValueField="@nameof(ItemDescriptor.ItemId)"
-                    TextField="@nameof(ItemDescriptor.ItemText)"
-                    @bind-Value="@MultiSelectValue">
-</TelerikMultiSelect>
-
-@code {
-    private List<int> MultiSelectValue { get; set; } = new();
-
-    private void OnMultiSelectPopupClose(MultiSelectCloseEventArgs args)
-    {
-        // cancel the OnClose event based on a condition
-        if (MultiSelectValue.Any(x => x == 2))
-        {
-            args.IsCancelled = true;
-        }
-    }
-
-    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
-        {
-            ItemId = x,
-            ItemText = $"Item {x}"
-        }).ToList();
-
-    public class ItemDescriptor
-    {
-        public int ItemId { get; set; }
-        public string ItemText { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multiselect/events/example-3/" height="420"></demo>
 
 ## OnItemRender
 
@@ -143,50 +66,7 @@ The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TIt
 | `Item`   | The current item that renders in the MultiSelect. |
 | `Class`  | The custom CSS class that will be added to the item.     |
 
-````RAZOR
-@* Customize an item in the MultiSelect *@
-
-<style>
-    .customized-item {
-        font-weight:bold;
-        color: white;
-        background-color: blue;
-    }
-</style>
-
-<TelerikMultiSelect Data="@Options"
-                    OnItemRender="@OnItemRenderHandler"
-                    @bind-Value="@MultiSelectValues"
-                    TextField="StringRepresentation"
-                    ValueField="UniqueIdentifier" />
-
-@code {
-    private List<int> MultiSelectValues { get; set; }
-
-    private void OnItemRenderHandler(MultiSelectItemRenderEventArgs<OptionsModel> args)
-    {
-        OptionsModel currentItem = args.Item;
-
-        if (currentItem.StringRepresentation == "third" && currentItem.UniqueIdentifier == 3)
-        {
-            args.Class = "customized-item";
-        }
-    }
-
-    private List<OptionsModel> Options { get; set; } = new List<OptionsModel>
-    {
-        new OptionsModel { StringRepresentation = "first",  UniqueIdentifier = 1 },
-        new OptionsModel { StringRepresentation = "second", UniqueIdentifier = 2 },
-        new OptionsModel { StringRepresentation = "third",  UniqueIdentifier = 3 }
-    };
-
-    public class OptionsModel
-    {
-        public string StringRepresentation { get; set; }
-        public int UniqueIdentifier { get; set; } 
-    }
-}
-````
+<demo metaUrl="client/multiselect/events/example-4/" height="420"></demo>
 
 ## OnOpen
 
@@ -200,36 +80,7 @@ The event handler receives as an argument an `MultiSelectOpenEventArgs` object t
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````RAZOR
-<TelerikMultiSelect Data="@Items"
-                    @bind-Value="@MultiSelectValue"
-                    ValueField="@nameof(ItemDescriptor.ItemId)"
-                    TextField="@nameof(ItemDescriptor.ItemText)"
-                    OnOpen="@OnMultiSelectPopupOpen">
-</TelerikMultiSelect>
-
-@code {
-    private List<int> MultiSelectValue { get; set; } = new();
-
-    private void OnMultiSelectPopupOpen(MultiSelectOpenEventArgs args)
-    {
-        //set the IsCancelled to true to cancel the OnOpen event
-        args.IsCancelled = false;
-    }
-
-    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
-        {
-            ItemId = x,
-            ItemText = $"Item {x}"
-        }).ToList();
-
-    public class ItemDescriptor
-    {
-        public int ItemId { get; set; }
-        public string ItemText { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multiselect/events/example-5/" height="420"></demo>
 
 ## OnRead
 
@@ -245,122 +96,11 @@ Find out how to [get the applied filtering and grouping criteria](slug:common-fe
 
 >caption Custom Data according to the user input in the MultiSelect
 
-````RAZOR
-@* this sample simulates fetching options based on the user input *@
-
-<TelerikMultiSelect TItem="@String" TValue="@String"
-                    OnRead="@ReadItems"
-                    @bind-Value="@TheValues"
-                    Filterable="true"
-                    Placeholder="Type anything" />
-
-<p>Selected values:</p>
-<ul>
-    @foreach (var item in TheValues)
-    {
-        <li>@item</li>
-    }
-</ul>
-
-@code{
-    List<string> TheValues { get; set; } = new List<string>();
-
-    async Task ReadItems(MultiSelectReadEventArgs args)
-    {
-        if (args.Request.Filters.Count > 0) // wait for user input to load data
-        {
-            Telerik.DataSource.FilterDescriptor filter = args.Request.Filters[0] as Telerik.DataSource.FilterDescriptor;
-            string userInput = filter.Value.ToString();
-            string method = filter.Operator.ToString();
-
-            //new data collection comes from the service
-            args.Data = await GetSuggestionsData(userInput, method);
-        }
-    }
-
-    async Task<List<string>> GetSuggestionsData(string userInput, string filterOperator)
-    {
-        await Task.Delay(500); // simulate network delay, remove it for a real app
-
-        //sample logic for getting options - here they are generated, you can call a remote service
-        //for brevity, this example does not use the filter operator, but your actual service can
-        List<string> optionssData = new List<string>();
-        for (int i = 1; i <= 5; i++)
-        {
-            optionssData.Add($"suggestion {i} for input {userInput}");
-        }
-
-        return optionssData;
-    }
-}
-````
+<demo metaUrl="client/multiselect/events/example-6/" height="420"></demo>
 
 >caption Filter large local data through the Telerik DataSource extensions
 
-````RAZOR
-@using Telerik.DataSource.Extensions
-
-<TelerikMultiSelect TItem="@Car" TValue="@int"
-                    OnRead="@ReadItems"
-                    @bind-Value="@TheValues"
-                    ValueField="@(nameof(Car.Id))"
-                    TextField="@(nameof(Car.Make))"
-                    Filterable="true"
-                    Placeholder="Type a car brand" />
-
-<p>Selected values</p>
-<ul>
-    @foreach (var item in TheValues)
-    {
-        <li>@item</li>
-    }
-</ul>
-
-@code {
-    List<int> TheValues { get; set; } = new List<int>();
-    List<Car> AllOptions { get; set; }
-
-    List<Car> CurrentOptions { get; set; } = new List<Car>();
-
-    async Task ReadItems(MultiSelectReadEventArgs args)
-    {
-        //using Telerik extension methods to filter the data
-        var datasourceResult = AllOptions.ToDataSourceResult(args.Request);
-        args.Data = datasourceResult.Data;
-    }
-
-    protected override void OnInitialized()
-    {
-        AllOptions = new List<Car>()
-        {
-            new Car { Id = 1, Make = "Honda" },
-            new Car { Id = 2, Make = "Opel" },
-            new Car { Id = 3, Make = "Audi" },
-            new Car { Id = 4, Make = "Lancia" },
-            new Car { Id = 5, Make = "BMW" },
-            new Car { Id = 6, Make = "Mercedes" },
-            new Car { Id = 7, Make = "Tesla" },
-            new Car { Id = 8, Make = "Vw" },
-            new Car { Id = 9, Make = "Alpha Romeo" },
-            new Car { Id = 10, Make = "Chevrolet" },
-            new Car { Id = 11, Make = "Ford" },
-            new Car { Id = 12, Make = "Cadillac" },
-            new Car { Id = 13, Make = "Dodge" },
-            new Car { Id = 14, Make = "Jeep" },
-            new Car { Id = 15, Make = "Chrysler" },
-            new Car { Id = 16, Make = "Lincoln" }
-        };
-
-        base.OnInitialized();
-    }
-
-    public class Car
-    {
-        public int Id { get; set; }
-        public string Make { get; set; }
-    }
-}
-````
+<demo metaUrl="client/multiselect/events/example-7/" height="420"></demo>
 
 ## OnSelectAll
 
@@ -370,67 +110,7 @@ Using `OnSelectAll` requires the [MultiSelect `EnableSelectAll` parameter value 
 
 >caption Using the MultiSelect OnSelectAll event
 
-````RAZOR
-<p><code>OnSelectAll</code> Log: @OnSelectAllLog</p>
-
-<TelerikMultiSelect Data="@ListItems"
-                    @bind-Value="@MultiSelectValues"
-                    AutoClose="false"
-                    EnableSelectAll="true"
-                    Filterable="true"
-                    FilterOperator="@StringFilterOperator.Contains"
-                    OnSelectAll="@((MultiSelectSelectAllEventArgs<ListItem> args) => OnMultiSelectAll(args))" />
-
-@code {
-    private List<ListItem> ListItems { get; set; } = new();
-
-    private List<int> MultiSelectValues { get; set; } = new() { 1, 3 };
-
-    private string OnSelectAllLog { get; set; } = string.Empty;
-
-    private void OnMultiSelectAll(MultiSelectSelectAllEventArgs<ListItem> args)
-    {
-        List<int> itemValues = args.Items.Select(x => x.Value).ToList();
-        string action = itemValues.All(x => MultiSelectValues.Contains(x)) ? "Deselected" : "Selected";
-
-        OnSelectAllLog = $"{action} {args.Items.Count()} items at {DateTime.Now.ToString("HH:mm:ss")}.";
-    }
-
-    protected override void OnInitialized()
-    {
-        ListItems = new List<ListItem>();
-
-        for (int i = 1; i <= 32; i++)
-        {
-            ListItems.Add(new ListItem()
-            {
-                Value = i,
-                Text = $"{i} {GetRandomChars(3)}"
-            });
-        }
-
-        base.OnInitialized();
-    }
-
-    private string GetRandomChars(int? length = 1)
-    {
-        string result = string.Empty;
-
-        for (int i = 0; i < length; i++)
-        {
-            result += (char)Random.Shared.Next(65, 91);
-        }
-
-        return result;
-    }
-
-    public class ListItem
-    {
-        public int Value { get; set; }
-        public string Text { get; set; } = string.Empty;
-    }
-}
-````
+<demo metaUrl="client/multiselect/events/example-8/" height="420"></demo>
 
 ## ValueChanged
 
@@ -442,27 +122,7 @@ The `ValueChanged` event fires when the user selection changes (the user adds or
 
 >caption Handle MultiSelect ValueChanged
 
-````RAZOR
-Selected items count: @( MultiValues?.Count ?? 0 ) <br />
-
-<TelerikMultiSelect Data="@MultiData"
-                    Value="@MultiValues"
-                    ValueChanged="@( (List<string> newValues) => OnMultiValueChanged(newValues) )">
-</TelerikMultiSelect>
-
-@code{
-    private List<string> MultiData { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
-    };
-
-    private List<string> MultiValues { get; set; } = new List<string>() { "Developer" };
-
-    private void OnMultiValueChanged(List<string> newValues)
-    {
-        MultiValues = newValues;
-    }
-}
-````
+<demo metaUrl="client/multiselect/events/example-9/" height="420"></demo>
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
