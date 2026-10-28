@@ -1,7 +1,7 @@
 ---
 title: AI Service Setup
 page_title: Grid - AI Service Setup
-description: Learn how to set up the Smart Extensions library to handle AI requests from Smart Grid and automatically generate Grid commands from natural language prompts.
+description: Build a backend service with Smart Extensions that converts natural language prompts into executable Telerik UI for Blazor Grid commands.
 slug: grid-ai-service-setup
 previous_url: /common-features/integration-with-telerik-ai-smartcomponents-extensions
 tags: telerik,blazor,grid,ai,service,setup,smart,extensions
@@ -550,7 +550,7 @@ if (request.Contents == null || !request.Contents.Any())
 
 ### Model Not Found
 
-* Confirm the model ID (e.g., "gpt-4") is deployed in your Azure OpenAI resource
+* Confirm the model ID, such as `gpt-4`, is deployed in your Azure OpenAI resource.
 * Check that the model name in `appsettings.json` matches exactly
 * Verify the deployment name matches the model configuration
 
@@ -558,7 +558,7 @@ if (request.Contents == null || !request.Contents.Any())
 
 * Reduce the number of columns sent in requests
 * Limit the size of the `Values` arrays for columns
-* Consider using a model with higher token limits (e.g., gpt-4-32k)
+* Consider using a model with higher token limits, such as `gpt-4-32k`.
 * Break complex requests into smaller, more focused prompts
 
 ### Invalid Responses

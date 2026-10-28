@@ -20,7 +20,7 @@ The Telerik [Blazor Grid](slug:grid-overview) enables you to highlight rows and 
 * Combine row and cell highlighting.
 * Highlighting uses a visual style similar to selection, but does not affect selection state or user interaction.
 
-To see the Grid highlighting in action, check the below [example](#example).
+To see Grid highlighting in action, view the [highlighting example](#example).
 
 ## API Reference
 

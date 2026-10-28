@@ -1,7 +1,7 @@
 ---
 title: AI Toolbar Assistant
 page_title: Grid - AI Toolbar Assistant
-description: Learn how to use the GridToolBarAIAssistantTool to enable AI-powered operations in the Blazor Grid.
+description: Configure the Telerik UI for Blazor Grid AI Toolbar Assistant to process natural language prompts and apply AI-suggested Grid operations.
 slug: grid-ai-toolbar-assistant
 tags: telerik,blazor,grid,ai,assistant,toolbar
 published: True
@@ -61,6 +61,10 @@ Implement the `OnPromptRequest` event handler of the AIPrompt that is used inter
 1. Submit the `Request` property of the `OnPromptRequest` event argument to the API endpoint of your AI service.
 1. Return a serialized `GridAIResponse` from your API endpoint.
 1. Set the `Response` property of the `AIPromptPromptRequestEventArgs` event argument to the `string` response of the API endpoint. Alternatively, execute the Grid `ProcessAIResponseAsync()` method and provide the API response as a `string` argument.
+
+Replace the placeholder endpoint URL in the following example with the endpoint for your AI service.
+
+Inject `HttpClient` as `HttpClientInstance` before using the following handler.
 
 ````C#.skip-repl
 private async Task OnAIPromptRequest(AIPromptPromptRequestEventArgs args)

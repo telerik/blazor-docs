@@ -1,7 +1,7 @@
 ---
 title: Reorder
 page_title: Grid - Reorder Columns
-description: Drag to reorder columns in the Grid for Blazor.
+description: Enable users to reorder Telerik UI for Blazor Grid columns by dragging their headers and control which columns can move.
 slug: components/grid/columns/reorder
 tags: telerik,blazor,grid,column,reorder,drag
 published: True
@@ -11,11 +11,11 @@ components: ["grid"]
 
 # Reorder Columns
 
-The Grid lets the user reorder its columns by dragging their headers.
+The Grid allows users to reorder columns by dragging their headers.
 
-To enable the column reordering, set the `Reorderable` parameter of the grid to `true`.
+To enable column reordering, set the `Reorderable` parameter of the Grid to `true`.
 
-To prevent the user from moving a certain column, set the column's `Reorderable` parameter to `false`. Note that the user can still re-arrange other columns around it.
+To prevent users from moving a specific column, set its `Reorderable` parameter to `false`. Users can still rearrange other columns around it.
 
 >caption Enable column reordering in Telerik Grid
 

@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: Grid - Events
-description: Events of the Grid for Blazor.
+description: Reference Telerik UI for Blazor Grid events for data operations, state changes, rows, columns, commands, selection, and paging.
 slug: grid-events
 tags: telerik,blazor,grid,events
 published: True
@@ -13,8 +13,8 @@ components: ["grid"]
 
 This article explains the events available in the Telerik Grid for Blazor. They are grouped logically.
 
-* [CUD Events](#cud-events) - events related to Creating, Updating and Deleting items
-* [Read Event](#read-event) - event related to obtaining data
+* [CUD Events](#cud-events)&mdash;Events related to creating, updating, and deleting items.
+* [Read Event](#read-event)&mdash;The event related to obtaining data.
 * [State Events](#state-events)
 * [Column Events](#column-events)
 * [Command Button Click](#command-button-click)
@@ -36,7 +36,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 
 The `OnAdd`, `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that the user changed so you can transfer the user action to the actual data source.
 
-The `OnEdit` and `OnCancel` events let you respond to user actions - when they want to edit an item and when the want to cancel changes on an item they have been editing. You can use them to, for example, prevent editing of certain items based on some condition.
+The `OnEdit` and `OnCancel` events let you respond to user actions&mdash;when users edit an item or cancel changes to an item they are editing. You can use them, for example, to prevent editing of certain items based on a condition.
 
 You can read more about the CUD events in the [Editing Overview](slug:grid-editing-overview) article.
 
@@ -46,7 +46,7 @@ In the common case, you provide all the data to the Grid's `Data` collection and
 
 ## State Events
 
-The grid state lets you control through code the aspects of the grid the user can control in the UI - such as filtering, sorting, grouping. The grid provides two events related to the state:
+The Grid state lets you control through code the aspects of the Grid that users can control in the UI, such as filtering, sorting, and grouping. The Grid provides two events related to the state:
 
 * `OnStateInit` - fires when the grid initializes so you can provide a stored version of the grid.
 
@@ -60,7 +60,7 @@ The Grid columns emit the `OnCellRender` event, so you can customize each cell s
 
 ## Command Button Click
 
-The command buttons of a grid provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column](slug:components/grid/columns/command), and from a [Toolbar Button](slug:components/grid/features/toolbar)
+The command buttons of a Grid provide an `OnClick` event before firing their built-in command, such as opening a row for editing or adding a new row. Use it to implement additional logic and handle custom commands from a [Command Column](slug:components/grid/columns/command) or [Toolbar Button](slug:components/grid/features/toolbar).
 
 ## Export Events
 

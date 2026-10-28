@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid - CRUD Overview
-description: CRUD basics for the Grid for Blazor.
+description: Learn how to add, edit, and delete Telerik UI for Blazor Grid data with built-in edit modes, commands, events, and validation.
 slug: grid-editing-overview
 tags: telerik, blazor, grid, editing
 published: True
@@ -10,9 +10,9 @@ position: 0
 components: ["grid"]
 ---
 
-# Blazor Grid CRUD Operations
+# Grid CRUD Operations
 
-The Telerik Grid for Blazor supports create, update, and delete operations (CRUD) with different modes and user experience. The component also supports built-in `DataAnnotations` or custom validation. This page describes:
+The Telerik UI for Blazor Grid supports create, update, and delete operations (CRUD) with different edit modes and user experiences. The component also supports built-in `DataAnnotations` and custom validation. This article describes:
 
 * [How the create, update, and delete operations work in the Grid](#basics).
 * [What are the available edit modes and how to enable them](#edit-modes).
@@ -27,15 +27,15 @@ The Telerik Grid for Blazor supports create, update, and delete operations (CRUD
 The Grid CRUD operations rely on the following algorithm:
 
 1. Users execute [Grid commands (**Edit**, **Save**, **Delete**, and more)](#commands) with the mouse or keyboard.
-1. The Grid fires [events (`OnCreate`, `OnDelete`, `OnUpdate` and more)](#events), which provide information what the user did or how the component data changed.
-1. The application applies the changes to the Grid data source in the above event handlers.
+1. The Grid fires [events (`OnCreate`, `OnDelete`, `OnUpdate`, and more)](#events), which provide information about the user action or component data changes.
+1. The application applies the changes to the Grid data source in these event handlers.
 1. The Grid rebinds to display the latest data.
 
 ### Model Requirements
 
 Adding or editing rows in the Grid sets the following requirements on the Grid model:
 
-* The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instances). Optionally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
+* The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instances). Optionally, you can also [set default values](slug://grid-kb-default-value-for-new-row).
 * There must be a non-editable property that serves as a unique identifier.
 * All editable properties must be `public` and have setters. These properties must not be `readonly`.
 * All complex properties used in the Grid must be instantiated in the [Grid `OnModelInit` event](slug:grid-events#onmodelinit).
@@ -69,7 +69,7 @@ To allow users to add or edit values in the Grid:
 
 >tip See the Grid add and edit operations in action in the complete examples for Grid [inline](slug:grid-editing-inline#examples), [in-cell](slug:grid-editing-incell#examples), and [popup](slug:grid-editing-popup#examples) editing.
 
-> Editing multiple rows at the same time is not supported. You can [render editors in all Grid data cells through column `<Template>`s](slug:grid-kb-edit-all-rows-cells) as an alternative.
+>important Editing multiple rows at the same time is not supported. You can [render editors in all Grid data cells through column `<Template>`s](slug:grid-kb-edit-all-rows-cells) as an alternative.
 
 ### Delete Operations
 
@@ -111,13 +111,13 @@ The following table describes the Grid events, which are related to adding, dele
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Event | Required | Description | [Item Instance](#gridcommandeventargs) | If&nbsp;Cancelled |
+| Event | Required | Description | [Item Instance](#item-instances) | If&nbsp;Cancelled |
 | --- | --- | --- | --- | --- |
-| `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters add mode. This event precedes `OnCreate` or `OnCancel`. | [New](#item-instances) | Grid remains in read mode. |
+| `OnAdd` | No | Fires when the user clicks the `Add` [command button](slug://components/grid/columns/command), before the Grid enters add mode. This event precedes `OnCreate` or `OnCancel`. | [New](#item-instances) | Grid remains in read mode. |
 | `OnCancel` | No | Fires on `Cancel` command invocation. | [New or cloned](#item-instances) | Grid remains in add or edit mode. |
 | `OnCreate` | To add new items. | Fires on `Save` command invocation for new items. This event follows `OnAdd`. | [New](#item-instances) | Grid remains in add mode. |
-| `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | [Original or cloned](#item-instances) | Grid won't rebind. Deletion depends on the app itself. |
-| `OnEdit` | No | Fires on `Edit` command invocation, before the Grid actually enters edit mode. This event precedes `OnUpdate` or `OnCancel`. | Original | Grid remains in read mode. |
+| `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | [Original or cloned](#item-instances) | Grid will not rebind. Deletion depends on the app itself. |
+| `OnEdit` | No | Fires when the user invokes the `Edit` command, before the Grid enters edit mode. This event precedes `OnUpdate` or `OnCancel`. | Original | Grid remains in read mode. |
 | `OnModelInit` | [Depends on the Grid model type](slug:grid-events#onmodelinit) | Fires when the Grid requires a [new model instance](#item-instances), which is immediately before `OnAdd` or immediately after `OnEdit`. <br /> Use this event when the Grid model type is an [interface, abstract class, or has no parameterless constructor](slug:grid-events#onmodelinit). | No event arguments | Not cancellable |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command invocation for existing items. This event follows `OnEdit`. | [Cloned](#item-instances) | Grid remains in edit mode. |
 
@@ -134,7 +134,7 @@ Some events always fire in the same sequence, based on the user actions. In the 
 
 Both user workflows can end with the `OnCancel` event instead of `OnCreate` or `OnUpdate`.
 
-> Use `async Task` instead of `async void` for event handlers that execute awaitable operations. Otherwise the Grid may show incorrect data, or the app may throw exceptions related to disposed objects or concurrency.
+>note Use `async Task` instead of `async void` for event handlers that execute awaitable operations. Otherwise, the Grid may show incorrect data, or the app may throw exceptions related to disposed objects or concurrency.
 
 ### Item Instances
 
@@ -182,9 +182,9 @@ During add, edit, and delete operations, the Grid expects the application to mak
 In the `OnCreate`, `OnDelete`, and `OnUpdate` event handler, the application must do one of the following:
 
 * Make a read request to the database. Retrieve the latest data and set it as the new value of the Grid `Data` parameter. The Grid will rebind automatically. The following examples demonstrate this approach:
-    * [Inline Grid Editing](slug:grid-editing-inline#advanced)
-    * [Popup Grid Editing](slug:grid-editing-popup#advanced)
-    * [In-Cell Grid Editing](slug:grid-editing-incell#advanced)
+    * [Inline Grid Editing](slug:grid-editing-inline#advanced-inline-editing-example)
+    * [Popup Grid Editing](slug:grid-editing-popup#advanced-popup-editing-example)
+    * [In-Cell Grid Editing](slug:grid-editing-incell#advanced-in-cell-editing-example)
 * [Use the event arguments to update the local item collection in the `Data` parameter manually](slug:grid-kb-load-cached-data-after-crud-operations#data-parameter).
 
 ### OnRead Event
@@ -213,7 +213,7 @@ You can control whether a newly added item appears at the top or bottom of the G
 
 This configuration is available in InCell and Inline edit modes. For more details, see the [InCell Editing](slug:grid-editing-incell#new-row-position) and [Inline Editing](slug:grid-editing-inline#new-row-position) articles.
 
-> When you set `NewRowPosition` to `Bottom`, add the new item at the end of your data collection in the `OnCreate` event handler. When set to `Top`, insert the new item at the beginning of the collection. This ensures the new row appears in the correct position in the view after successfully creating the new record.
+>tip When you set `NewRowPosition` to `Bottom`, add the new item at the end of your data collection in the `OnCreate` event handler. When set to `Top`, insert the new item at the beginning of the collection. This ensures the new row appears in the correct position in the view after creating the new record.
 
 >caption Example of adding a new item to the Grid based on the `NewRowPosition` value
 

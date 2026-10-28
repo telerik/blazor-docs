@@ -1,7 +1,7 @@
 ---
 title: Hierarchy
 page_title: Grid - Hierarchy
-description: Enable and configure hierarchy and detail records in Grid for Blazor.
+description: Enable Telerik UI for Blazor Grid hierarchy and detail records to display related parent and child data.
 slug: components/grid/features/hierarchy
 tags: telerik,blazor,grid,hierarchy,detail,detail template
 published: True
@@ -29,7 +29,7 @@ When a detail template is defined, an expand/collapse button is rendered at the 
 
 <demo metaUrl="client/grid/hierarchy/" height="600"></demo>
 
->tip To have more levels, simply nest more grids and name the `context` variables. You can find an example in the [Multi-Level Hierarchy](slug:grid-three-level-hierarchy) KB article.
+>tip To add more levels, nest additional Grids and name the `context` variables. You can find an example in the [Multi-Level Hierarchy](slug:grid-three-level-hierarchy) KB article.
 
 
 ## Expand Rows From Code
@@ -38,7 +38,7 @@ You can choose which detail templates will be expanded from your code through th
 
 The `ExpandedItems` collection is compared against the Grid Data collection in order to determine which rows will be expanded. The default behavior of the framework is to compare objects by their reference.
 
-When the `ExpandedItems` are obtained from a different data source to the Grid (e.g., from a separate service method and not from the view-model), the references may not match and so there will be no expanded items. In such cases, you have to override the [`Equals`](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals) method of the underlying model class so that it matches them, for example, by a unique identifier rather than by reference so that two objects can be equal regardless of their origin, but according to their contents. When you are overriding the `Equals` method, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method as well. A similar example is available at [Save and Load Grid State from Browser LocalStorage](slug:grid-kb-save-load-state-localstorage).
+When `ExpandedItems` comes from a data source other than the Grid, such as a separate service method instead of the view model, the references may not match and no rows will expand. In such cases, override the [`Equals`](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals) method of the underlying model class to compare items by a unique identifier. Also override [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode). See [Save and Load Grid State from Browser LocalStorage](slug:grid-kb-save-load-state-localstorage) for a similar example.
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 

@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid - Templates Overview
-description: Use custom templates in Grid for Blazor.
+description: Learn how to use Telerik UI for Blazor Grid templates to customize columns, rows, editors, filters, headers, footers, and the pager.
 slug: components/grid/features/templates
 tags: telerik,blazor,grid,templates
 published: True
@@ -10,31 +10,39 @@ position: 0
 components: ["grid"]
 ---
 
-# Grid Templates
+# Grid Templates Overview
 
 You can customize the grid appearance and behavior through the various templates it provides so you can add more details for your users such as aggregate data, format numbers and dates, use custom editing logic, implement custom filters and more.
 
 The Grid component can use templates for: 
 
-* [columns (cells)](slug:grid-templates-column) - the rendering of each cell (column). You can, for example, change string formats or add your own components.
+* [Columns (cells)](slug:grid-templates-column)&mdash;the rendering of each cell (column). You can, for example, change string formats or add your own components.
 
-* [rows](slug:grid-templates-row) - the entire rendering of the `tr` element of the row, so you can fully customize the grid behavior and rendering.
+* [Rows](slug:grid-templates-row)&mdash;the entire rendering of the `tr` element of the row, so you can fully customize Grid behavior and rendering.
 
-* [editing of a field](slug:grid-templates-editor) - when a cell is in edit mode, it will render this template where you can use custom editors, components and logic.
+* [Editing of a field](slug:grid-templates-editor)&mdash;when a cell is in edit mode, it renders this template where you can use custom editors, components, and logic.
 
-* [column header](slug:grid-templates-column-header) - the title portion of the column.
+* [Column header](slug:grid-templates-column-header)&mdash;the title portion of the column.
 
-* [column group footer](slug:grid-templates-column-group-footer) - the footer of the column when the grid is [grouped](slug:components/grid/features/grouping). You can use it, for example, to display [aggregates](slug:grid-aggregates).
+* [Column group footer](slug:grid-templates-column-group-footer)&mdash;the footer of the column when the Grid is [grouped](slug:components/grid/features/grouping). You can use it, for example, to display [aggregates](slug:grid-aggregates).
 
-* [group header](slug:grid-templates-group-header) - the shared section that denotes each grid [group](slug:components/grid/features/grouping).
+* [Column footer](slug:grid-templates-column-footer)&mdash;the footer of the column for the Grid grand total row.
 
-* [filter](slug:grid-templates-filter)  - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
+* [Group header](slug:grid-templates-group-header)&mdash;the shared section that denotes each Grid [group](slug:components/grid/features/grouping).
 
-* [no data available](slug:grid-templates-no-data) - when the Grid Data collection is empty or null, you can customize the content inside.
+* [Filter](slug:grid-templates-filter)&mdash;the content of the filter cell or filter menu where you can implement custom rendering and logic for filters.
 
-* [column chooser](slug:grid-templates-column-chooser)  - the contents of the column chooser in the column menu. You can use this template to provide custom rendering.
+* [No data available](slug:grid-templates-no-data)&mdash;when the Grid `Data` collection is empty or null, you can customize the content inside.
 
-* [pager](slug:grid-templates-pager) - the template modifies the layout, content, and functionality of the Pager.
+* [Column chooser](slug:grid-templates-column-chooser)&mdash;the contents of the column chooser in the Column Menu. You can use this template to provide custom rendering.
+
+* [Pager](slug:grid-templates-pager)&mdash;the template modifies the layout, content, and functionality of the Pager.
+
+* [Command column header](slug:grid-templates-command-column-header)&mdash;the header content for a Grid command column.
+
+* [Popup buttons](slug:grid-templates-popup-buttons)&mdash;the buttons in the Grid popup edit form.
+
+* [Popup form](slug:grid-templates-popup-form)&mdash;the content and layout of the Grid popup edit form.
 
 
 Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the grid to a named model. The filter and header templates are the exception as they are not related to rows and models.

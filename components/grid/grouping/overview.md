@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid - Grouping
-description: Enable and configure grouping in Grid for Blazor.
+description: Learn how to group Telerik UI for Blazor Grid data, use aggregates, load groups on demand, and configure grouping settings.
 slug: components/grid/features/grouping
 tags: telerik,blazor,grid,grouping
 published: True
@@ -10,27 +10,27 @@ position: 0
 components: ["grid"]
 ---
 
-# Grid Grouping
+# Grid Grouping Overview
 
-The Grid component offers support for grouping.
+The Telerik UI for Blazor Grid supports grouping.
 
 * [Basics](#basics)
 * [Aggregates](#aggregates)
 * [Sticky Group Headers and Footers](#sticky-group-headers-and-footers)
 * [Load On Demand](#load-on-demand)
-* [Group From Code](#group-from-code)
+* [Grouping from Code](#grouping-from-code)
 * [Grouping Settings](#grouping-settings)
 * [More Examples](#more-examples)
 
 ## Basics
 
-To enable grouping, set the grid's `Groupable` property to `true`.
+To enable grouping, set the Grid's `Groupable` property to `true`.
 
-Drag a column header to the group panel and the grid will create groups in the data rows based on the available values for that field. An indicator will be shown for the column that is used for grouping. The group header shows the value for the field by which it is grouping.
+Drag a column header to the group panel and the Grid will create groups in the data rows based on the available values for that field. An indicator will be shown for the column that is used for grouping. The group header shows the value for the field by which it is grouping.
 
 You can also group by multiple fields and groups for subsequent fields will be nested within their parent groups. When adding a group, you can drag it in the desired position in the list of current groups.
 
-To remove a group setting, click the `[x]` button on its indicator in the group panel.
+To remove a group setting, click the **[x]** button on its indicator in the group panel.
 
 To prevent grouping by a field, set `Groupable="false"` on its column. This can be useful for fields with unique values like IDs or names.
 
@@ -42,7 +42,7 @@ You can also use [aggregates](slug:grid-aggregates) for the grouped data.
 
 ## Aggregates
 
-The grid lets you define and use aggregates that it can calculate for you. You can read more about using them in the [Aggregates](slug:grid-aggregates) article.
+The Grid lets you define and use aggregates that it can calculate for you. For more information, see the [Aggregates](slug:grid-aggregates) article.
 
 ## Sticky Group Headers and Footers
 
@@ -50,12 +50,12 @@ The Grid can pin group headers and footers while the user scrolls through the gr
 
 ## Load On Demand
 
-The grid can load the grouped data on demand only. This can be useful if you have many groups and you want the user to first scroll through them without having to load all their data at once. Instead, the child items for a group can be loaded only when the user expands the group. This mode can also be used with Virtual Scrolling. You can read more about this feature in the [Grid - Load Group Data On Demand](slug:grid-group-lod) article.
+The Grid can load grouped data on demand. This is useful when you have many groups and want users to scroll through them without loading all their data at once. The Grid loads a group's child items only when the user expands that group. This mode can also be used with Virtual Scrolling. For more information, see the [Grid - Load Group Data On Demand](slug:grid-group-lod) article.
 
 
-## Group From Code
+## Grouping from Code
 
-You can group the Grid from your code through the [Grid state](slug:grid-state). This is possible even if `Groupable="false"` and the group panel is not visible. You can define the list of fields by which the grid is grouped and indexes of groups that will be collapsed (all groups are expanded by default).
+You can group the Grid from your code through the [Grid state](slug:grid-state). This is possible even if `Groupable="false"` and the group panel is not visible. You can define the list of fields by which the Grid is grouped and indexes of groups that will be collapsed (all groups are expanded by default).
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
@@ -75,9 +75,9 @@ The Grid provides grouping configuration options via the [`GridGroupableSettings
 
 The following articles and sample projects can be helpful when implementing grouping:
 
-* [Capture Group event](slug:grid-state#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change.
+* [Capture the Group event](slug:grid-state#onstatechanged)&mdash;The Grid state lets you know when it changes so you can capture different aspects of the change.
 
-* [Server Grouping](slug:components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+* [Server Grouping](slug:components/grid/manual-operations)&mdash;This article explains how to implement manual data source operations so you can offload work to the server. It provides an overview of how to set up the Grid and includes examples with local data and REST API endpoints.
 
 * [Static group that is always present](slug:grid-kb-static-group)
 

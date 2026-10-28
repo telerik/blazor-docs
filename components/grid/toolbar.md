@@ -1,7 +1,7 @@
 ---
 title: Toolbar
 page_title: Grid - Toolbar
-description: Use toolbar and custom actions in Grid for Blazor.
+description: Configure the Telerik UI for Blazor Grid toolbar with built-in tools, custom actions, adaptive behavior, and custom layouts.
 slug: components/grid/features/toolbar
 tags: telerik,blazor,grid,toolbar
 published: True
@@ -30,14 +30,14 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Delete | `GridToolBarDeleteTool` | A `Delete` command for the selected row that fires [`OnDelete`](slug:grid-editing-overview#events). Row selection and editing are required. |
 | Edit | `GridToolBarEditTool` | An `Edit` command button for the selected row that fires [`OnEdit`](slug:grid-editing-overview#events). Row selection and `Inline` or `Popup` editing mode are required. |
 | ExcelExport | `GridToolBarExcelExportTool` | An `ExcelExport` command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
-| Filter | `GridToolBarFilterTool` | A toggle button that opens UI for filtering. On desktop screens, it displays a popup with a filter menu; on mobile devices, it renders an `ActionSheet`. The filter component has two views: one for selecting the column to filter, and another for applying the filter to the selected column. The tool also exposes an `Icon` parameter that allows you to override the default icon.  |
+| Filter | `GridToolBarFilterTool` | A toggle button that opens UI for filtering. On desktop screens, it displays a popup with a filter menu; on mobile devices, it renders an `ActionSheet`. The filter component has two views: one for selecting the column to filter, and another for applying the filter to the selected column. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
 | Group | `GridToolBarGroupTool` | A toggle button that opens a list of the groupable columns. Click a column to group by it. On mobile devices, the popup renders as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
 | Save | `GridToolBarSaveEditTool` | A `Save` command button for the row in edit mode that fires [`OnUpdate` or `OnCreate`](slug:grid-editing-overview#events). [`Inline`](slug:grid-editing-inline) or [`Popup`](slug:grid-editing-popup) editing mode is required. |
 | Select All | `GridToolBarSelectAllTool` | A checkbox that selects all rows, according to the [Grid Checkbox column](slug:components/grid/columns/checkbox) configuration. |
 | Sort | `GridToolBarSortTool` | A toggle button that opens a list of the sortable columns. Click a column to sort by it. On mobile devices, the popup renders as an `ActionSheet`. The tool also exposes an `Icon` parameter that allows you to override the default icon. |
 | SearchBox | `GridToolBarSearchBoxTool` | A [searchbox that filters multiple string columns](slug:grid-searchbox) simultaneously. |
 
-The **Edit** command button is disabled if there is no [selected Grid row](slug:grid-selection-row). The **Save** and **Cancel** buttons are disabled when there is no row in edit mode.
+The **Edit** command button is disabled when no [Grid row is selected](slug:grid-selection-row). The **Save** and **Cancel** buttons are disabled when no row is in edit mode.
 
 ### Layout Tools
 
@@ -47,14 +47,14 @@ The **Edit** command button is disabled if there is no [selected Grid row](slug:
 
 ## Custom Tools
 
-In addition to the built-in tools, the Grid also supports custom tools. Use the `<GridToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
+In addition to the built-in tools, the Grid also supports custom tools. Use the `<GridToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the [Toolbar Tools Configuration](#toolbar-tools-configuration) demo.
 
 ## Toolbar Tools Configuration
 
 Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for example:
 
-* Arrange the Grid tools in a specific order;
-* Remove some of the built-in tools;
+* Arrange the Grid tools in a specific order.
+* Remove some of the built-in tools.
 * Add custom tools.
 
 >important `<GridToolBar>` and `<GridToolBarTemplate>` cannot be used together in the same Grid instance.
@@ -68,9 +68,9 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 The Grid Toolbar can show its tools in a dropdown if the available horizontal space is limited. The following requirements apply:
 
 * The Grid must use a `<GridToolBar>` tag. [Custom toolbar configurations](#custom-toolbar-configuration) with `<GridToolBarTemplate>` do not support built-in adaptive behaviors.
-* The Grid must use [built-in](#built-in-tools) ToolBar tools. [Custom tools](#custom-tools) do not support built-in adaptive behaviors and may disappear if there is not enough space.
+* The Grid must use [built-in](#built-in-tools) toolbar tools. [Custom tools](#custom-tools) do not support built-in adaptive behaviors and may disappear if there is not enough space.
 
-See [ToolBar Tools Configuration](#toolbar-tools-configuration) for an example.
+See [Toolbar Tools Configuration](#toolbar-tools-configuration) for an example.
 
 ## Custom Toolbar Configuration
 
@@ -85,6 +85,7 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
 ## Next Steps
 
 * [Handle Grid events](slug:grid-events)
+* [Configure the Grid Toolbar](slug:components/grid/features/toolbar)
 
 ## See Also
 

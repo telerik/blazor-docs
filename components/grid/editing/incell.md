@@ -1,7 +1,7 @@
 ---
 title: InCell Editing
 page_title: Grid - InCell Editing
-description: In-cell editing of data in Grid for Blazor.
+description: Edit Telerik UI for Blazor Grid cells individually with keyboard navigation, validation, commands, and cell-level events.
 slug: grid-editing-incell
 tags: telerik, blazor, grid, editing, incell
 published: True
@@ -11,26 +11,26 @@ components: ["grid"]
 
 # Grid In-Cell Editing
 
-In-cell editing allows users to click Grid data cells and type new values like in Excel. There is no need for command buttons to enter and exit edit mode. Users can quickly move between the editable cells and rows by using keyboard navigation.
+In-cell editing allows users to click Grid data cells and type new values, similar to spreadsheet editing. Users do not need command buttons to enter and exit edit mode. They can move between editable cells and rows by using keyboard navigation.
 
-The in-cell edit mode provides a different user experience, compared to the inline and popup edit modes. In-cell edit mode can be more convenient for advanced users, fast users, or users who prefer keyboard navigation rather than clicking command buttons.
+The in-cell edit mode provides a different user experience than the inline and popup edit modes. In-cell edit mode can be more convenient for advanced users or users who prefer keyboard navigation instead of clicking command buttons.
 
 @[template](/_contentTemplates/grid/editing.md#overview-required)
 
-## Basics
+## In-Cell Editing Basics
 
 To use in-cell Grid editing, [set the Grid `EditMode` parameter to `GridEditMode.Incell`](slug:grid-editing-overview#edit-modes). During in-cell editing, only one table cell is in edit mode at a time. Users can:
 
-* Press **Tab** or **Shift** + **Tab** to confirm the current value and edit the next or previous cell.
-* Press **Enter** to confirm the current value and edit the cell below.
-* Press **ESC** to cancel the current change and exit edit mode.
+* Press `Tab` or `Shift+Tab` to confirm the current value and edit the next or previous cell.
+* Press `Enter` to confirm the current value and edit the cell below.
+* Press `Esc` to cancel the current change and exit edit mode.
 * Click on another cell to confirm the current value and edit the new cell.
 * Click outside the Grid to confirm the current value and exit edit mode.
-* Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
+* Perform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
 
 Command columns and read-only columns are skipped while tabbing.
 
-## Commands
+## In-Cell Editing Commands
 
 In-cell add, edit, and delete operations use the following [command buttons](slug:grid-editing-overview#commands):
 
@@ -41,7 +41,7 @@ In-cell add, edit, and delete operations use the following [command buttons](slu
 
 Unlike [inline editing](slug:grid-editing-inline), the in-cell edit mode does not use **Edit**, **Save**, and **Cancel** command buttons.
 
-## Events
+## In-Cell Editing Events
 
 Users enter and exit in-cell edit mode cell by cell, so the [`OnEdit`, `OnCancel`, and `OnUpdate` events](slug:grid-editing-overview#events) also fire cell by cell.
 
@@ -53,7 +53,7 @@ In in-cell edit mode, the `OnAdd` and `OnCreate` events fire immediately one aft
 * The [`InsertedItem` property](slug:grid-state#information-in-the-grid-state) of the [Grid state](slug:grid-state) is not used and is always `null`.
 * To [add a new row programmatically and put it in edit mode](slug:grid-kb-add-edit-state), use the `OriginalEditItem`, `EditItem`, and `EditField` properties of the Grid state.
 
-The above algorithm is different from [inline](slug:grid-editing-inline) and [popup](slug:grid-editing-popup) editing where new rows are only added to the data source after users populate them with valid values.
+This workflow differs from [inline](slug:grid-editing-inline) and [popup](slug:grid-editing-popup) editing, where new rows are added to the data source only after users populate them with valid values.
 
 ## New Row Position
 
@@ -64,20 +64,20 @@ The `NewRowPosition` parameter accepts values from the `GridNewRowPosition` enum
 * `Top` (default)&mdash;Inserts the new item at the top of the view.
 * `Bottom`&mdash;Inserts the new item at the bottom of the view.
 
-For a complete example of how this feature works, see the following [example](slug:grid-editing-incell#basic).
+For a complete example of this feature, see the [basic in-cell editing example](slug:grid-editing-incell#basic-in-cell-editing-example).
 
 ## Integration with Other Features
 
-Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the [common information on this topic for all edit modes](slug:grid-editing-overview#integration-with-other-features).
+The following sections explain how the component behaves when users combine add and edit operations with other component features. Also check the [common information on this topic for all edit modes](slug:grid-editing-overview#integration-with-other-features).
 
-### Add, Edit
+### Handling Add and Edit Operations
 
 This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another cell.
 
 * If the validation is not satisfied, the component blocks the user action until they complete or cancel the current add or edit operation.
 * If the validation is satisfied, then editing completes and the component fires `OnUpdate`.
 
-### Delete, Filter, Group, Page, Search, Sort
+### Handling Other Data Operations
 
 This section explains what happens when the user tries to perform another data operation, while the component is already in add or edit mode.
 
@@ -88,7 +88,7 @@ Deleting items that are currently in edit mode [fires `OnDelete` with a cloned d
 
 ### Selection
 
-To enable [row selection](slug:grid-selection-row) with in-cell edit mode, use a [checkbox column](slug:components/grid/columns/checkbox). More information on that can be read in the [Row Selection](slug:grid-selection-row#selection-and-editing-modes) article.
+To enable [row selection](slug:grid-selection-row) with in-cell edit mode, use a [checkbox column](slug:components/grid/columns/checkbox). For more information, see the [Row Selection](slug:grid-selection-row#selection-and-editing-modes) article.
 
 To see how to select the row that is currently in in-cell edit mode without using a `<GridCheckboxColumn />`, see the [Row Selection in Edit with InCell EditMode](slug:grid-kb-row-select-incell-edit) Knowledge Base article.
 
@@ -96,18 +96,18 @@ To see how to select the row that is currently in in-cell edit mode without usin
 
 ## Examples
 
-### Basic
+### Basic In-Cell Editing Example
 
-The example below shows how to:
+This example demonstrates how to:
 
-* Implement in-cell Grid CRUD operations with the simplest and minimal required setup.
+* Implement in-cell Grid CRUD operations with the minimum required setup.
 @[template](/_contentTemplates/grid/editing.md#basic-example-description)
 
 >caption Basic Grid in-cell editing configuration
 
 <demo metaUrl="client/grid/editing-incell-basic/" height="600"></demo>
 
-### Advanced
+### Advanced In-Cell Editing Example
 
 The example below shows how to:
 

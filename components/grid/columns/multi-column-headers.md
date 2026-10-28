@@ -1,7 +1,7 @@
 ---
 title: Multi-Column Headers
 page_title: Multi Column Headers
-description: Stack multiple columns under a single header in the data grid for Blazor.
+description: Configure Telerik UI for Blazor Grid multi-column headers to group related fields under a shared header.
 slug: grid-columns-multiple-column-headers
 tags: telerik,blazor,grid,column,multi,multiple,headers
 published: True
@@ -27,7 +27,7 @@ You will find the following sections in this article:
 
 ## Basic Example
 
-The following code snippet shows how you can group columns in the Grid in multi-column headers. You can also use "regular" columns at the root level, not all of them have to be column groups.
+The following code snippet shows how to group columns in the Grid under multi-column headers. You can also use regular columns at the root level. Not all columns have to be column groups.
 
 >caption Multiple Column Headers in the Grid
 
@@ -37,7 +37,7 @@ The following code snippet shows how you can group columns in the Grid in multi-
 
 
 
-## Behavior With Other Features
+## Behavior with Other Features
 
 @[template](/_contentTemplates/grid/common-link.md#multi-column-headers-feature-integration)
 
