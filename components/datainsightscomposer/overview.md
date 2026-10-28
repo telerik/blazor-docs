@@ -109,7 +109,7 @@ The DatAInsightsComposer can generate a [Grid](slug:grid-overview), a [Chart](sl
 
 ## AI Integration
 
-The DatAInsightsComposer initiates AI service calls, including system prompt, context provision, and instructions about the expected response format
+The DatAInsightsComposer initiates AI service calls, including system prompt, context provision, and instructions about the expected response format.
 
 By default, the DatAInsightsComposer uses an AI service that implements the [`IDatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.IDatAInsightsComposerAIService) interface and relies on a registered [`Microsoft.Extensions.AI.IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient) in the app. You can override the service if you provide your own implementation of `IDatAInsightsComposerAIService` and register it after the default one:
 
