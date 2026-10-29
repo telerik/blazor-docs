@@ -19,6 +19,10 @@ components: ["general"]
             <td>Product</td>
             <td>UI for Blazor</td>
         </tr>
+        <tr>
+            <td>Version</td>
+            <td>12.2.0, 14.1.0, 15.0.0</td>
+        </tr>
     </tbody>
 </table>
 
@@ -55,10 +59,21 @@ All general guidance from the [Microsoft documentation](https://learn.microsoft.
 </ItemGroup>
 ````
 
+* Do not lazy load `Telerik.Licensing.Runtime.wasm`. The `Telerik.Licensing` assembly must be available in the startup project for runtime license verification. If a broad lazy-load configuration includes this assembly, explicitly remove it from the lazy-loaded assemblies.
+
+````XML.skip-repl
+<ItemGroup>
+    <BlazorWebAssemblyLazyLoad Remove="Telerik.Licensing.Runtime.wasm" />
+</ItemGroup>
+````
+
 * If using Telerik UI for Blazor version 8 or above, reference the `Telerik.Licensing` NuGet package explicitly in the client project that uses Telerik UI for Blazor, and the main startup project. This assembly cannot be lazy loaded due to runtime license verification.
 * The assembly requirements depend on component usage, and not on feature usage. For example, both icon assemblies are always required, as our components render icons internally and must be aware of both types of icons. The assemblies, which are related to Excel and PDF export, are always required when using a Grid. `Telerik.Recurrence.wasm` is required only when using the Scheduler.
 * Move the [`<TelerikRootComponent>`](slug:rootcomponent-overview) to a layout that is used only on pages that have the Telerik assemblies loaded.
 * Lazy loading of assemblies does not support dynamic service injection. As a result, remove the Telerik service registration (`builder.Services.AddTelerikBlazor();`) from `Program.cs`. If you are using [localization for the Telerik Blazor components](slug:globalization-localization), define the the localization service for the Telerik components with the `Localizer` parameter of the `<TelerikRootComponent>`. The key thing is to instantiate the localization service inline. It cannot be injected as a variable from the `@code { }` block, because that will throw runtime errors.
+
+>warning In version 15.0.0, `builder.Services.AddTelerikBlazor()` also registers the `ITelerikIconService`. This service is not compatible with lazy-loaded assemblies. Remove the Telerik service registration when you use lazy loading, and do not use the icon customization service in this configuration.
+
 ````RAZOR.skip-repl
 @using LazyLoadTelerikComponents.Shared.Services
 
@@ -85,3 +100,9 @@ builder.Services.AddScoped(typeof(LazyAssemblyLoader));
 ## Example
 
 An sample project is available in GitHub: [Lazy load Telerik Blazor assemblies](https://github.com/telerik/blazor-ui/tree/master/common/lazy-load-assemblies-wasm).
+
+## See Also
+
+* [Telerik License Key](slug:installation-license-key)
+* [Change Default SVG Icons](slug:icons#change-default-svg-icons)
+* [Telerik RootComponent](slug:rootcomponent-overview)
