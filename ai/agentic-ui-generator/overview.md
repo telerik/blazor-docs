@@ -1,8 +1,8 @@
 ---
-title: Agentic UI Generator Overview
-page_title: Telerik UI for Blazor Agentic UI Generator Overview
-description: Learn how the Telerik UI for Blazor Agentic UI Generator uses specialized assistants to help build and update Blazor applications.
-slug: agentic-ui-generator-overview
+title: Overview
+page_title: Telerik Blazor MCP Server Overview
+description: Learn about the Telerik Blazor MCP Server, choose between orchestrated and targeted modes, and use AI Tools with Telerik UI for Blazor components.
+slug: ai-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
 previous_url: /ai/ai-coding-assistant/overview
@@ -13,6 +13,7 @@ tag: updated
 # Agentic UI Generator Overview
 
 The Agentic UI Generator provides AI assistance for building and updating Telerik UI for Blazor applications. It uses the Telerik Blazor [Model Context Protocol (MCP) server](https://modelcontextprotocol.io/docs/getting-started/intro) to connect your AI client to UI-generation capabilities and knowledge specific to Telerik UI for Blazor.
+Telerik delivers the Telerik UI for Blazor AI Tools through a single [Model Context Protocol (MCP) server](https://modelcontextprotocol.io/docs/getting-started/intro).
 
 Use the Agentic UI Generator to generate complete pages, configure components, align with the Progress Design System, and reduce repetitive setup work. For AI interaction with components in a running browser application, use [WebMCP](slug:web-mcp-overview). See the [AI Tools Overview](slug:ai-overview) to compare the development-time and runtime browser AI tools.
 
@@ -20,7 +21,7 @@ Set up the Agentic UI Generator with the Telerik CLI, the AI plugin, or a manual
 
 ## What the Agentic UI Generator Does
 
-The Telerik Blazor MCP Server is a local MCP server that is distributed through the [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP) NuGet package.
+You can install the local Telerik Blazor MCP Server through the [Telerik.Blazor.MCP](https://www.nuget.org/packages/Telerik.Blazor.MCP) NuGet package.
 
 The Agentic UI Generator can use specialized assistants for different development tasks. Use the full generator for a complete page or select a specialized assistant when you need focused help. The following cards describe the available assistants:
 
@@ -76,9 +77,19 @@ The Agentic UI Generator can use specialized assistants for different developmen
     </Column>
 </Row>
 
-The Agentic UI Generator coordinates the assistants that are relevant to your request. It can build pages and components, apply styling and theming, and follow the design system in one request.
+The Agentic UI Generator coordinates the assistants that are relevant to your request. It can build pages and components, apply styling and theming, and follow the design system in one request. You can use the full end-to-end flow when you need complete page generation, or call a specific assistant directly when you need a focused change.
 
-![MCP Server Assistants Diagram](../images/ai-assistants.png)
+![Diagram of the Telerik Blazor MCP Server assistants](../images/ai-assistants.png)
+
+## Before You Start
+
+Before you use the AI Tools, make sure that you have the following:
+
+* A local [Telerik Blazor MCP Server](https://www.nuget.org/packages/Telerik.Blazor.MCP) that connects your AI client to Telerik UI for Blazor.
+* An active Telerik subscription or trial license. See [License Requirements](#license-requirements).
+* A project or development environment where you can apply and review the generated output.
+
+The [Agentic UI Generator Getting Started](slug:agentic-ui-generator-getting-started) article covers the setup flow. This overview does not replace detailed setup, manual configuration, or troubleshooting guidance. Use the [Prompt Library](slug:agentic-ui-generator-prompt-library) for assistant-specific prompts and examples.
 
 ## Use the Right Assistant for Your Task
 
@@ -97,7 +108,7 @@ Use a specialized assistant when you need focused help with an area, such as:
 
 When you use the MCP server directly, start a complete request with `#telerik_ui_generator` or use natural-language. When you use the AI plugin, invoke the `telerik-blazor-ui-generator` skill explicitly. See [Prompt Library](slug:agentic-ui-generator-prompt-library) for examples of both approaches.
 
-![Full Pages](../images/ui-templates.png)
+![Example of full-page UI generation](../images/ui-templates.png)
 
 ### Getting Started Assistant
 
@@ -107,35 +118,35 @@ It is useful when setting up a new environment, validating your initial MCP inte
 
 ### Layout Assistant
 
-Use the Layout Assistant to set up or refine the page structure. It helps with section order, spacing, and responsive behavior so the UI stays clear across desktop, tablet, and mobile.
+Start with the Layout Assistant when a page needs a clearer structure or responsive behavior. It helps with section order and spacing so the UI stays clear across desktop, tablet, and mobile.
 
 Typical tasks include adding a new dashboard section, cleaning up visual hierarchy, and converting desktop-first screens into responsive layouts.
 
-![Layout Assistant](../images/layout-assistant.png)
+![Layout Assistant example for page structure and responsive behavior](../images/layout-assistant.png)
 
 ### Component Assistant
 
-Use the Component Assistant when you need help configuring Telerik UI for Blazor components. It helps you pick the right component and wire it correctly with real API patterns.
+For Telerik UI for Blazor component configuration, turn to the Component Assistant. It helps you pick the right component and wire it correctly with real API patterns.
 
 Common tasks include enabling Grid features (sorting, paging, filtering, grouping), building validated forms, setting up virtual scrolling or export, and using sample data for safe prototyping.
 
-![Component Assistant](../images/component-assistant.png)
+![Component Assistant example for Grid configuration and API patterns](../images/component-assistant.png)
 
 ### Styling Assistant
 
-Use the Styling Assistant when you want consistent visuals across the app. It helps define reusable tokens and CSS variables for scalable theming.
+To keep visuals consistent across the app, use the Styling Assistant to define reusable tokens and CSS variables for scalable theming.
 
 Typical tasks include applying brand colors, adding dark mode or high-contrast variants, and keeping styling behavior consistent as new pages are added.
 
-![Styling Assistant](../images/style-assistant.png)
+![Styling Assistant example for reusable tokens and CSS variables](../images/style-assistant.png)
 
 ### Icon Assistant
 
-Use the Icon Assistant to choose icons that match user actions and UI context. This assistant helps you achieve visually consistent navigation, status indicators, and action buttons.
+For navigation, status indicators, and action buttons, the Icon Assistant chooses icons that match the user action and UI context.
 
 It is useful for toolbars, navigation menus, cards, and any new section where icon consistency matters.
 
-![Icon Assistant](../images/icon-assistant.png)
+![Icon Assistant example for navigation and action icons](../images/icon-assistant.png)
 
 ### Localization Assistant
 
@@ -145,20 +156,42 @@ Use the Localization Assistant to translate UI strings or complete resource `.re
 
 ### Accessibility Assistant
 
-Use the Accessibility Assistant to apply WCAG 2.2 Level AA guidance during implementation, not after it. It helps with ARIA usage, keyboard navigation, semantic markup, and color contrast validation for text and UI controls.
+Before release, use the Accessibility Assistant to apply WCAG 2.2 Level AA guidance during implementation. It helps with ARIA usage, keyboard navigation, semantic markup, and color contrast validation for text and UI controls.
 It is especially useful for interactive templates, complex component flows, and final semantic checks before release.
 
-![Accessibility Assistant](../images/accessibility-assistant.png)
+![Accessibility Assistant example for WCAG 2.2 Level AA checks](../images/accessibility-assistant.png)
 
 ### Validator Assistant
 
-Not designed to be invoked manually. It is called automatically by the UI Generator Orchestrator and ensures the generated code follows Telerik UI for Blazor best practices and standards.
+Do not invoke the Validator Assistant manually. The UI Generator Orchestrator calls it automatically to ensure the generated code follows documented Telerik UI for Blazor practices and standards.
 
 ### Upgrade Assistant
 
 Use the Upgrade Assistant to migrate existing Blazor applications to the latest version of Telerik UI for Blazor. It automates detection and resolution of [breaking API changes](slug:versions-with-breaking-changes), NuGet version bumps, and CDN reference updates.
 
 For best results, use the Upgrade Assistant with the highest-tier model available in your AI client. More capable models reason more accurately over complex migration scenarios and produce more reliable file edits.
+
+### When to Use Orchestrated vs Targeted Mode
+
+Choose the orchestration-first flow when you can describe a complete page or component outcome in one prompt. Use `#telerik_ui_generator` to let the Agentic UI Generator select assistants and combine their output.
+
+Choose targeted mode when you need a focused change to an existing project. Call a specialized assistant directly for layout, component configuration, styling, theme, or icon updates. For details, see [Target the Assistants (Advanced)](slug:agentic-ui-generator-prompt-library#assistant-specific-prompts).
+
+## Example Workflows
+
+Use these scenarios to choose a starting point:
+
+* Generate a complete page from one prompt: Use the Agentic UI Generator.
+* Configure Grid sorting, paging, filtering, grouping, virtual scrolling, or export: Use the Component Assistant.
+* Convert a desktop-first page into a responsive layout: Use the Layout Assistant.
+* Apply brand colors, dark mode, or high-contrast variants: Use the Styling Assistant.
+* Check ARIA usage, keyboard navigation, semantic markup, and color contrast: Use the Accessibility Assistant.
+
+## AI Plugin
+
+The Agentic UI Generator also comes with an AI `telerik-blazor-plugin` that brings these capabilities directly into your agent. Instead of tools, the plugin delivers the functionality as skills: purpose-built instructions that your agent picks up automatically from context or that you can call explicitly with a slash command.
+
+To explore the available skills and usage examples, see [Prompt Library](slug:agentic-ui-generator-prompt-library#skills-and-assistant-prompts).
 
 ## Start Building in Minutes
 
@@ -168,7 +201,7 @@ Explore the [Agentic UI Generator Prompt Library](slug:agentic-ui-generator-prom
 
 ## License Requirements
 
-The Telerik UI for Blazor MCP server and its tools are offered as a single experience through the **Agentic UI Generator** (`#telerik_ui_generator`) in [all active Telerik subscription licenses](https://www.telerik.com/purchase.aspx?filter=web).
+Telerik offers the Telerik UI for Blazor MCP server and its tools as a single experience through the **Agentic UI Generator** (`#telerik_ui_generator`) in [all active Telerik subscription licenses](https://www.telerik.com/purchase.aspx?filter=web).
 
 <table>
 <colgroup>
@@ -185,10 +218,10 @@ The Telerik UI for Blazor MCP server and its tools are offered as a single exper
 <tr>
 <td><strong>Subscription License</strong>
 </td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Available"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr><tr>
 <td><strong>Trial License</strong></td>
-<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Available"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" stroke="white" stroke-width="2"/></svg></td>
 </tr>
 <tr>
 <td><strong>Perpetual License</strong></td>
