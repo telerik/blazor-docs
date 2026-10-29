@@ -20,7 +20,7 @@ This article describes the events that the Telerik DatAInsightsComposer for Blaz
 * [`OnPromptCancel`](#onpromptcancel)
 * [`OnPromptSubmit`](#onpromptsubmit)
 * [`OnRemove`](#onremove)
-* [`OnSave`](#onsave)
+* [`OnConfirm`](#onconfirm)
 * [`PromptChanged`](#promptchanged)
 
 ## OnDataProcess
@@ -28,11 +28,11 @@ This article describes the events that the Telerik DatAInsightsComposer for Blaz
 The `OnDataProcess` event fires once for each generated component, before that component renders. The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerDataProcessEventArgs) argument. Use its `ComponentType`, `Config`, and `Dataset` properties to inspect the current result. The event enables you to:
 
 * Check or modify the planned data operations in `args.DataSourceRequest`.
-* Completely skip the automatic built-in data processing and perform the required data operations manually. Then, set the `ProcessedData` property of the event argument to supply the exact data for the component to use as-is.
+* Completely skip the automatic built-in data processing and perform the required data operations manually. Then, set the `ProcessedData` property of the event argument to supply the exact data for the generated component to use as-is.
 
 `OnDataProcess` fires before [`OnGenerate`](#ongenerate) or [`OnHistoryItemRestore`](#onhistoryitemrestore).
 
->caption Use OnDataProcess to provide data and modify component configuration
+>caption Use OnDataProcess to provide data and modify the generated component configuration
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnDataProcess="@OnDAICDataProcess" />
@@ -55,7 +55,7 @@ The `OnDataProcess` event fires once for each generated component, before that c
 
 ## OnGenerate
 
-The `OnGenerate` event fires after the AI generates or refines a valid component configuration. The handler receives a [`DatAInsightsComposerGenerateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerGenerateEventArgs) argument with the prompt, serialized JSON response, and generated configuration. You can use the event to modify a component configuration, including settings that are not exposed as [declarative parameters](slug:datainsightscomposer-components).
+The `OnGenerate` event fires after the AI generates or refines a valid component configuration. The handler receives a [`DatAInsightsComposerGenerateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerGenerateEventArgs) argument with the prompt, serialized JSON response, and generated configuration. You can use the event to modify the generated component configuration, including settings that are not exposed as [declarative parameters](slug:datainsightscomposer-components).
 
 `OnGenerate` fires after [`OnDataProcess`](#ondataprocess).
 
@@ -67,6 +67,7 @@ The `OnGenerate` event fires after the AI generates or refines a valid component
     {
         if (args.Configs.First() is GridComponentConfig gridComponent)
         {
+            gridComponent.Title = "Custom Grid Title";
             gridComponent.Config.PageSize = 100;
         }
 
@@ -77,9 +78,9 @@ The `OnGenerate` event fires after the AI generates or refines a valid component
 
 ## OnHistoryItemCreate
 
-The `OnHistoryItemCreate` event fires when the user clicks the **Save** button to accept a generated component, and the DatAInsigntsComposer creates a history item for a potential restore later. The event handler receives a [`DatAInsightsComposerHistoryItemCreateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemCreateEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
+The `OnHistoryItemCreate` event fires when the user clicks the **Confirm** button to accept a generated component, and the DatAInsigntsComposer creates a history item for a potential restore later. The event handler receives a [`DatAInsightsComposerHistoryItemCreateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemCreateEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
 
-`OnHistoryItemCreate` fires before [`OnSave`](#onsave).
+`OnHistoryItemCreate` fires before [`OnConfirm`](#onconfirm).
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnHistoryItemCreate="@OnDAICHistoryItemCreate" />
@@ -99,7 +100,7 @@ The `OnHistoryItemCreate` event fires when the user clicks the **Save** button t
 The `OnHistoryItemRestore` event fires when the user:
 
 1. Edits a generated component configuration.
-1. Clicks the **History** button next to **Save** and **Discard**.
+1. Clicks the **History** button next to **Confirm** and **Discard**.
 1. Restores an existing history item.
 
 The handler receives a [`DatAInsightsComposerHistoryItemRestoreEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemRestoreEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
@@ -174,17 +175,17 @@ The `OnRemove` event fires when the user deletes an already saved generated comp
 }
 ````
 
-## OnSave
+## OnConfirm
 
-The `OnSave` event fires when the user saves the current configuration. The handler receives a [`DatAInsightsComposerSaveEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerSaveEventArgs) argument with the serialized configuration JSON in its `Json` property.
+The `OnConfirm` event fires when the user saves the generated UI component configuration. The handler receives a [`DatAInsightsComposerConfirmEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerConfirmEventArgs) argument with the serialized configuration JSON in its `Json` property.
 
-`OnSave` fires after [`OnHistoryItemCreate`](#onhistoryitemcreate).
+`OnConfirm` fires after [`OnHistoryItemCreate`](#onhistoryitemcreate).
 
 ````RAZOR.skip-repl
-<TelerikDatAInsightsComposer OnSave="@OnDAICSave" />
+<TelerikDatAInsightsComposer OnConfirm="@OnDAICConfirm" />
 
 @code {
-    private Task OnDAICSave(DatAInsightsComposerSaveEventArgs args)
+    private Task OnDAICConfirm(DatAInsightsComposerConfirmEventArgs args)
     {
         string json = args.Json;
 

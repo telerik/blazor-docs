@@ -5,7 +5,7 @@ description: Learn how to get and manage the state of the Telerik DatAInsightsCo
 slug: datainsightscomposer-state
 tags: telerik, blazor, datainsightscomposer, AI, state
 published: True
-position: 30
+position: 40
 components: ["datainsightscomposer"]
 ---
 

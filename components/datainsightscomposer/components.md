@@ -87,6 +87,7 @@ Note that the `FilterMode` parameter expects a value of type `Telerik.Blazor.Com
 
 ## Next Steps
 
+* [Implement Best Security Practices](slug:datainsightscomposer-security)
 * [Manage the DatAInsightsComposer State](slug:datainsightscomposer-state)
 * [Handle DatAInsightsComposer Events](slug:datainsightscomposer-events)
 

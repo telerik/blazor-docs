@@ -301,6 +301,7 @@ The following example uses a model, but the same idea applies to anonymous objec
 ## Next Steps
 
 * [Configure the DatAInsightsComposer Visuzalization Components](slug:datainsightscomposer-components)
+* [Implement Best Security Practices](slug:datainsightscomposer-security)
 * [Manage the DatAInsightsComposer State](slug:datainsightscomposer-state)
 * [Handle DatAInsightsComposer Events](slug:datainsightscomposer-events)
 

@@ -11,7 +11,7 @@ components: ["datainsightscomposer"]
 
 # Blazor DatAInsightsComposer Overview
 
-The [DatAInsightsComposer for Blazor](https://www.telerik.com/blazor-ui) lets users describe a data visualization in natural language. The component processes the user prompt through an AI service and renders other Telerik Blazor data components, such as [Grid](slug:grid-overview), [Chart](slug:components/chart/overview), or [Gauge](slug:gauges-overview). The host app supplies dataset metadata and can customize how the component processes data.
+The [DatAInsightsComposer for Blazor](https://www.telerik.com/blazor-ui) lets users describe and create a data visualization in natural language. The component processes the user prompt through an AI service and renders other Telerik Blazor data components, such as [Grid](slug:grid-overview), [Chart](slug:components/chart/overview), or [Gauge](slug:gauges-overview). The host app supplies dataset metadata and can customize how the component processes data.
 
 The DatAInsightsComposer component abstracts the following processes:
 
@@ -53,10 +53,8 @@ After package installation:
 ## Creating Blazor DatAInsightsComposer
 
 1. Register an `IChatClient` implementation in the app dependency injection container, or [provide a custom AI service transport](#ai-integration).
-1. Create one or more [`DatasetDescriptor`s](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatasetDescriptor) with field metadata and data items.
+1. Create one or more [`DatasetDescriptor`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatasetDescriptor) objects with field metadata. Optionally, also populate the data items initially.
 1. Set the `<TelerikDatAInsightsComposer>` `Datasets` parameter to an `IEnumerable<DatasetDescriptor>`.
-
-The following example makes a sales dataset available to the component.
 
 >caption Basic DatAInsightsComposer
 
@@ -95,13 +93,34 @@ The following example makes a sales dataset available to the component.
 }
 ````
 
+## User Interface
+
+By default, the initial UI consists of the following elements:
+
+* Title
+* PromptBox with two different placeholders that encourage the user to type their prompt and then refine it.
+* Datasets panel inside the PromptBox that shows all datasets with their fields in a dropdown.
+* Datasets list that shows all datasets as chips below the PromptBox.
+* **Generate** button to submit the user prompt. While the AI response is in progress, the same button can abort the request.
+
+You can customize the title, placeholders, and datasets information visibiliy through the respective [DatAInsightsComposer parameters](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer).
+
+Once the user submits a prompt, the DatAInsightsComposer generates a UI component in a new panel below the PromptBox that includes:
+
+* Title that is generated, based on the user prompt.
+* The generated UI component (Grid, Chart, Gauge).
+* **Confirm** and **Discard** buttons to accept or reject the generated component and its configuration.
+* **History** button to show all prompts from the current session in a dropdown and restore the respective generated components.
+
+You can customize the title and generated UI component settings in the [DatAInsightsComposer `OnGenerate` event](slug:datainsightscomposer-events#ongenerate).
+
 ## Datasets
 
-The DatAInsightsComposer supports multiple datasets and the AI model selects the most appropriate one, depending on the user prompt and the dataset metadata. [Learn mode about how to define datasets and provide data](slug:datainsightscomposer-data-binding).
+The DatAInsightsComposer supports multiple datasets and the AI model selects the most appropriate one, depending on the user prompt and the dataset metadata. The AI model does not receive the data items from the datasets. [Learn mode about how to define datasets and provide data](slug:datainsightscomposer-data-binding).
 
 ## Data Processing
 
-The component applies generated filtering, sorting, paging, grouping, and aggregation to data, based on the user prompt. You can handle the [DatAInsightsComposer `OnDataProcess` event](slug:datainsightscomposer-events#ondataprocess) to process data in the host app instead.
+The DatAInsightsComposer applies generated filtering, sorting, paging, grouping, and aggregations to data, based on the user prompts. The AI model suggests the data operations to perform, but has no access to the data itself. You can handle the [DatAInsightsComposer `OnDataProcess` event](slug:datainsightscomposer-events#ondataprocess) to process data manually or load it on demand.
 
 ## Visualization Components
 
@@ -111,7 +130,7 @@ The DatAInsightsComposer can generate a [Grid](slug:grid-overview), a [Chart](sl
 
 The DatAInsightsComposer initiates AI service calls, including system prompt, context provision, and instructions about the expected response format.
 
-By default, the DatAInsightsComposer uses an AI service that implements the [`IDatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.IDatAInsightsComposerAIService) interface and relies on a registered [`Microsoft.Extensions.AI.IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient) in the app. You can override the service if you provide your own implementation of `IDatAInsightsComposerAIService` and register it after the default one:
+By default, the DatAInsightsComposer uses a [`DatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerAIService) AI service that implements the [`IDatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.IDatAInsightsComposerAIService) interface and relies on a registered [`Microsoft.Extensions.AI.IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient) in the app. You can inherit and customize the `DatAInsightsComposerAIService`, or implement your own `IDatAInsightsComposerAIService`. In either case, register the new AI service after the default one:
 
 >caption Program.cs
 
@@ -127,17 +146,21 @@ builder.Services.AddScoped<IDatAInsightsComposerAIService, MyDatAInsightsAIServi
 
 The DatAInsightsComposer allows the app to [get or set the component state](slug:datainsightscomposer-state) programmatically for greater flexibility.
 
+## Security
+
+See the [Security](slug:datainsightscomposer-security) article to find out how the DatAInsightsComposer protects the application and data security, and what the app can or should contribute in this regard.
+
 ## Events
 
-Handle prompt, generation, data processing, history, save, and removal events to integrate the Composer with the host app. See the [DatAInsightsComposer events](slug:datainsightscomposer-events) article for details.
+Handle prompt, generation, data processing, history, confirm, and remove events for greater app flexibility. See the [DatAInsightsComposer events](slug:datainsightscomposer-events) article for details.
 
 ## DatAInsightsComposer API
 
-For the complete list of component parameters, methods, and event arguments, see the [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer).
+See the [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer) for the complete list of parameters, methods, and events.
 
 ## DatAInsightsComposer Reference
 
-The component exposes methods for programmatic operation. To call them, define a reference with the `@ref` directive. Blazor populates component references in `OnAfterRenderAsync`, so the reference is not available earlier.
+The DatAInsightsComposer exposes methods for programmatic operation. To call them, define a reference with the `@ref` directive. Blazor populates component references in `OnAfterRenderAsync`, so the reference is not available earlier.
 
 >caption Define a reference to the DatAInsightsComposer
 
@@ -153,6 +176,7 @@ The component exposes methods for programmatic operation. To call them, define a
 
 * [Provide Data to the DatAInsightsComposer](slug:datainsightscomposer-data-binding)
 * [Configure Generated Components](slug:datainsightscomposer-components)
+* [Implement Best Security Practices](slug:datainsightscomposer-security)
 * [Handle DatAInsightsComposer events](slug:datainsightscomposer-events)
 
 ## See Also
