@@ -1,15 +1,15 @@
 ---
 title: Components
-page_title: Data Insights Composer Components
-description: Learn how to configure the data visualization components, which are rendered by the Telerik Data Insights Composer.
+page_title: DatAInsightsComposer Components
+description: Learn how to configure the data visualization components, which are rendered by the Telerik DatAInsightsComposer.
 slug: datainsightscomposer-components
-tags: telerik, blazor, data insights composer, AI
+tags: telerik, blazor, datainsightscomposer, AI
 published: True
 position: 20
 components: ["datainsightscomposer"]
 ---
 
-# Data Insights Composer Components
+# DatAInsightsComposer Components
 
 This article describes the data visualization components, which the DatAInsightsComposer renders, and how to configure them.
 
@@ -92,4 +92,4 @@ Note that the `FilterMode` parameter expects a value of type `Telerik.Blazor.Com
 
 ## See Also
 
-* [Data Insights Composer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)

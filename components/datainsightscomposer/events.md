@@ -1,17 +1,17 @@
 ---
 title: Events
-page_title: Data Insights Composer Events
-description: Learn about the Telerik Data Insights Composer for Blazor events and their event arguments.
+page_title: DatAInsightsComposer Events
+description: Learn about the Telerik DatAInsightsComposer for Blazor events and their event arguments.
 slug: datainsightscomposer-events
-tags: telerik, blazor, data insights composer, AI, events
+tags: telerik, blazor, datainsightscomposer, AI, events
 published: True
 position: 100
 components: ["datainsightscomposer"]
 ---
 
-# Data Insights Composer Events
+# DatAInsightsComposer Events
 
-This article describes the events that the Telerik Data Insights Composer for Blazor raises:
+This article describes the events that the Telerik DatAInsightsComposer for Blazor raises:
 
 * [`OnDataProcess`](#ondataprocess)
 * [`OnGenerate`](#ongenerate)
@@ -213,5 +213,5 @@ The `PromptChanged` event fires when the prompt text changes. The handler receiv
 
 ## See Also
 
-* [Data Insights Composer Overview](slug:datainsightscomposer-overview)
-* [Data Insights Composer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer Overview](slug:datainsightscomposer-overview)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)

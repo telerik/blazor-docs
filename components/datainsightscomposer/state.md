@@ -1,15 +1,15 @@
 ---
 title: State
-page_title: Data Insights Composer State
-description: Learn how to get and manage the state of the Telerik Data Insights Composer for Blazor.
+page_title: DatAInsightsComposer State
+description: Learn how to get and manage the state of the Telerik DatAInsightsComposer for Blazor.
 slug: datainsightscomposer-state
-tags: telerik, blazor, data insights composer, AI, state
+tags: telerik, blazor, datainsightscomposer, AI, state
 published: True
 position: 30
 components: ["datainsightscomposer"]
 ---
 
-# Data Insights Composer State
+# DatAInsightsComposer State
 
 The Telerik DatAInsightsComposer for Blazor exposes state management capabilities through methods. Use them to get, save, and programmatically manipulate the DatAInsightsComposer state, including the configuration of already generated components.
 
@@ -94,4 +94,4 @@ The following example demonstrates how to:
 
 ## See Also
 
-* [Data Insights Composer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)

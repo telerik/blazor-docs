@@ -1,17 +1,17 @@
 ---
 title: Overview
-page_title: Data Insights Composer Overview
-description: Learn how the Telerik Data Insights Composer for Blazor turns natural-language prompts into data visualizations.
+page_title: DatAInsightsComposer Overview
+description: Learn how the Telerik DatAInsightsComposer for Blazor turns natural-language prompts into data visualizations.
 slug: datainsightscomposer-overview
-tags: telerik, blazor, data insights composer, AI, data visualization
+tags: telerik, blazor, datainsightscomposer, AI, data visualization
 published: True
 position: 0
 components: ["datainsightscomposer"]
 ---
 
-# Blazor Data Insights Composer Overview
+# Blazor DatAInsightsComposer Overview
 
-The [Data Insights Composer for Blazor](https://www.telerik.com/blazor-ui) lets users describe a data visualization in natural language. The component processes the user prompt through an AI service and renders other Telerik Blazor data components, such as [Grid](slug:grid-overview), [Chart](slug:components/chart/overview), or [Gauge](slug:gauges-overview). The host app supplies dataset metadata and can customize how the component processes data.
+The [DatAInsightsComposer for Blazor](https://www.telerik.com/blazor-ui) lets users describe a data visualization in natural language. The component processes the user prompt through an AI service and renders other Telerik Blazor data components, such as [Grid](slug:grid-overview), [Chart](slug:components/chart/overview), or [Gauge](slug:gauges-overview). The host app supplies dataset metadata and can customize how the component processes data.
 
 The DatAInsightsComposer component abstracts the following processes:
 
@@ -50,7 +50,7 @@ After package installation:
     @using Telerik.Blazor.Components.DatAInsightsComposer
     ````
 
-## Creating Blazor Data Insights Composer
+## Creating Blazor DatAInsightsComposer
 
 1. Register an `IChatClient` implementation in the app dependency injection container, or [provide a custom AI service transport](#ai-integration).
 1. Create one or more [`DatasetDescriptor`s](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatasetDescriptor) with field metadata and data items.
@@ -58,7 +58,7 @@ After package installation:
 
 The following example makes a sales dataset available to the component.
 
->caption Basic Data Insights Composer
+>caption Basic DatAInsightsComposer
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer Datasets="@DAICDatasets"
@@ -105,7 +105,7 @@ The component applies generated filtering, sorting, paging, grouping, and aggreg
 
 ## Visualization Components
 
-The DatAInsightsComposer can generate a [Grid](slug:grid-overview), a [Chart](slug:components/chart/overview), or a [Gauge](slug:gauges-overview). The app can [configure component settings](slug:datainsightscomposer-components) declaratively in the DatAInsightsComposer definition, or at runtime in the DatAInsightsComposer events.
+The DatAInsightsComposer can generate a [Grid](slug:grid-overview), a [Chart](slug:components/chart/overview), or a [Gauge](slug:gauges-overview). The app can [configure component settings](slug:datainsightscomposer-components) declaratively in the DatAInsightsComposer definition, or at runtime in the DatAInsightsComposer [`OnGenerate` event](slug:datainsightscomposer-events#ongenerate).
 
 ## AI Integration
 
@@ -129,17 +129,17 @@ The DatAInsightsComposer allows the app to [get or set the component state](slug
 
 ## Events
 
-Handle prompt, generation, data processing, history, save, and removal events to integrate the Composer with the host app. See the [Data Insights Composer events](slug:datainsightscomposer-events) article for details.
+Handle prompt, generation, data processing, history, save, and removal events to integrate the Composer with the host app. See the [DatAInsightsComposer events](slug:datainsightscomposer-events) article for details.
 
-## Data Insights Composer API
+## DatAInsightsComposer API
 
-For the complete list of component parameters, methods, and event arguments, see the [Data Insights Composer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer).
+For the complete list of component parameters, methods, and event arguments, see the [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer).
 
-## Data Insights Composer Reference
+## DatAInsightsComposer Reference
 
 The component exposes methods for programmatic operation. To call them, define a reference with the `@ref` directive. Blazor populates component references in `OnAfterRenderAsync`, so the reference is not available earlier.
 
->caption Define a reference to the Data Insights Composer
+>caption Define a reference to the DatAInsightsComposer
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer @ref="@DatAInsightsComposerRef" />
@@ -151,11 +151,11 @@ The component exposes methods for programmatic operation. To call them, define a
 
 ## Next Steps
 
-* [Provide Data to the Data Insights Composer](slug:datainsightscomposer-data-binding)
+* [Provide Data to the DatAInsightsComposer](slug:datainsightscomposer-data-binding)
 * [Configure Generated Components](slug:datainsightscomposer-components)
-* [Handle Data Insights Composer events](slug:datainsightscomposer-events)
+* [Handle DatAInsightsComposer events](slug:datainsightscomposer-events)
 
 ## See Also
 
 * [Live Demos: DatAInsightsComposer](https://demos.telerik.com/blazor-ui/datainsightscomposer/overview)
-* [Data Insights Composer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
