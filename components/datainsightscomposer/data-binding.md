@@ -307,4 +307,4 @@ The following example uses a model, but the same idea applies to anonymous objec
 
 ## See Also
 
-* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer)

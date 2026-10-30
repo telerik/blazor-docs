@@ -22,7 +22,7 @@ The DatAInsightsComposer stores its state in the following objects:
 
 ## Methods
 
-The [`GetState` and `SetState` methods](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer#methods) of the [DatAInsightsComposer instance](slug:datainsightscomposer-overview#data-insights-composer-reference) let you obtain or update the current DatAInsightsComposer state on demand at any time in or after `OnAfterRenderAsync`.
+The [`GetState` and `SetState` methods](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer#methods) of the [DatAInsightsComposer instance](slug:datainsightscomposer-overview#data-insights-composer-reference) let you obtain or update the current DatAInsightsComposer state on demand at any time in or after `OnAfterRenderAsync`.
 
 To make changes to the DatAInsightsComposer state:
 
@@ -94,4 +94,4 @@ The following example demonstrates how to:
 
 ## See Also
 
-* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer)

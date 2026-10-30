@@ -93,4 +93,4 @@ Note that the `FilterMode` parameter expects a value of type `Telerik.Blazor.Com
 
 ## See Also
 
-* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer)

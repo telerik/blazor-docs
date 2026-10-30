@@ -103,7 +103,7 @@ By default, the initial UI consists of the following elements:
 * Datasets list that shows all datasets as chips below the PromptBox.
 * **Generate** button to submit the user prompt. While the AI response is in progress, the same button can abort the request.
 
-You can customize the title, placeholders, and datasets information visibiliy through the respective [DatAInsightsComposer parameters](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer).
+You can customize the title, placeholders, and datasets information visibiliy through the respective [DatAInsightsComposer parameters](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer).
 
 Once the user submits a prompt, the DatAInsightsComposer generates a UI component in a new panel below the PromptBox that includes:
 
@@ -130,7 +130,7 @@ The DatAInsightsComposer can generate a [Grid](slug:grid-overview), a [Chart](sl
 
 The DatAInsightsComposer initiates AI service calls, including system prompt, context provision, and instructions about the expected response format.
 
-By default, the DatAInsightsComposer uses a [`DatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerAIService) AI service that implements the [`IDatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.IDatAInsightsComposerAIService) interface and relies on a registered [`Microsoft.Extensions.AI.IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient) in the app. You can inherit and customize the `DatAInsightsComposerAIService`, or implement your own `IDatAInsightsComposerAIService`. In either case, register the new AI service after the default one:
+By default, the DatAInsightsComposer uses the built-in [`DatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerAIService) that implements the [`IDatAInsightsComposerAIService`](slug:Telerik.Blazor.Components.DatAInsightsComposer.IDatAInsightsComposerAIService) interface and relies on a registered [`Microsoft.Extensions.AI.IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient) in the app. You can inherit and customize the `DatAInsightsComposerAIService`, or implement your own `IDatAInsightsComposerAIService`. In either case, register the new AI service after the default one:
 
 >caption Program.cs
 
@@ -156,7 +156,7 @@ Handle prompt, generation, data processing, history, confirm, and remove events 
 
 ## DatAInsightsComposer API
 
-See the [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer) for the complete list of parameters, methods, and events.
+See the [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer) for the complete list of parameters, methods, and events.
 
 ## DatAInsightsComposer Reference
 
@@ -182,4 +182,4 @@ The DatAInsightsComposer exposes methods for programmatic operation. To call the
 ## See Also
 
 * [Live Demos: DatAInsightsComposer](https://demos.telerik.com/blazor-ui/datainsightscomposer/overview)
-* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer)

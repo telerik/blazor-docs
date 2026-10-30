@@ -25,7 +25,7 @@ This article describes the events that the Telerik DatAInsightsComposer for Blaz
 
 ## OnDataProcess
 
-The `OnDataProcess` event fires once for each generated component, before that component renders. The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerDataProcessEventArgs) argument. Use its `ComponentType`, `Config`, and `Dataset` properties to inspect the current result. The event enables you to:
+The `OnDataProcess` event fires once for each generated component, before that component renders. The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerDataProcessEventArgs) argument. Use its `ComponentType`, `Config`, and `Dataset` properties to inspect the current result. The event enables you to:
 
 * Check or modify the planned data operations in `args.DataSourceRequest`.
 * Completely skip the automatic built-in data processing and perform the required data operations manually. Then, set the `ProcessedData` property of the event argument to supply the exact data for the generated component to use as-is.
@@ -55,7 +55,7 @@ The `OnDataProcess` event fires once for each generated component, before that c
 
 ## OnGenerate
 
-The `OnGenerate` event fires after the AI generates or refines a valid component configuration. The handler receives a [`DatAInsightsComposerGenerateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerGenerateEventArgs) argument with the prompt, serialized JSON response, and generated configuration. You can use the event to modify the generated component configuration, including settings that are not exposed as [declarative parameters](slug:datainsightscomposer-components).
+The `OnGenerate` event fires after the AI generates or refines a valid component configuration. The handler receives a [`DatAInsightsComposerGenerateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerGenerateEventArgs) argument with the prompt, serialized JSON response, and generated configuration. You can use the event to modify the generated component configuration, including settings that are not exposed as [declarative parameters](slug:datainsightscomposer-components).
 
 `OnGenerate` fires after [`OnDataProcess`](#ondataprocess).
 
@@ -78,7 +78,7 @@ The `OnGenerate` event fires after the AI generates or refines a valid component
 
 ## OnHistoryItemCreate
 
-The `OnHistoryItemCreate` event fires when the user clicks the **Confirm** button to accept a generated component, and the DatAInsigntsComposer creates a history item for a potential restore later. The event handler receives a [`DatAInsightsComposerHistoryItemCreateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemCreateEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
+The `OnHistoryItemCreate` event fires when the user clicks the **Confirm** button to accept a generated component, and the DatAInsigntsComposer creates a history item for a potential restore later. The event handler receives a [`DatAInsightsComposerHistoryItemCreateEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerHistoryItemCreateEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
 
 `OnHistoryItemCreate` fires before [`OnConfirm`](#onconfirm).
 
@@ -122,7 +122,7 @@ Before `OnHistoryItemRestore`, the DatAInsightsComposer also fires [`OnDataProce
 
 ## OnPromptCancel
 
-The `OnPromptCancel` event fires when the user aborts the current component generation by clicking on the **Generating** button with a **Stop** icon while a prompt request is in progress. The handler receives a [`DatAInsightsComposerPromptCancelEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerPromptCancelEventArgs) argument. Set its `IsCancelled` property to `false` to keep the request running.
+The `OnPromptCancel` event fires when the user aborts the current component generation by clicking on the **Generating** button with a **Stop** icon while a prompt request is in progress. The handler receives a [`DatAInsightsComposerPromptCancelEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerPromptCancelEventArgs) argument. Set its `IsCancelled` property to `false` to keep the request running.
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnPromptCancel="@OnDAICPromptCancel" />
@@ -139,7 +139,7 @@ The `OnPromptCancel` event fires when the user aborts the current component gene
 
 ## OnPromptSubmit
 
-The `OnPromptSubmit` event fires when the user submits a prompt. The handler receives a [`DatAInsightsComposerPromptSubmitEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerPromptSubmitEventArgs) argument with the prompt that you can optionally modify on the fly. You can also cancel the request by setting the `IsCancelled` property of the event argument to `true`.
+The `OnPromptSubmit` event fires when the user submits a prompt. The handler receives a [`DatAInsightsComposerPromptSubmitEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerPromptSubmitEventArgs) argument with the prompt that you can optionally modify on the fly. You can also cancel the request by setting the `IsCancelled` property of the event argument to `true`.
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnPromptSubmit="@OnDAICPromptSubmit" />
@@ -159,7 +159,7 @@ The `OnPromptSubmit` event fires when the user submits a prompt. The handler rec
 
 ## OnRemove
 
-The `OnRemove` event fires when the user deletes an already saved generated component. The handler receives a [`DatAInsightsComposerRemoveEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerRemoveEventArgs) argument with the component configuration and matching dataset descriptor.
+The `OnRemove` event fires when the user deletes an already saved generated component. The handler receives a [`DatAInsightsComposerRemoveEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerRemoveEventArgs) argument with the component configuration and matching dataset descriptor.
 
 ````RAZOR.skip-repl
 <TelerikDatAInsightsComposer OnRemove="@OnDAICRemove" />
@@ -177,7 +177,7 @@ The `OnRemove` event fires when the user deletes an already saved generated comp
 
 ## OnConfirm
 
-The `OnConfirm` event fires when the user saves the generated UI component configuration. The handler receives a [`DatAInsightsComposerConfirmEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerConfirmEventArgs) argument with the serialized configuration JSON in its `Json` property.
+The `OnConfirm` event fires when the user saves the generated UI component configuration. The handler receives a [`DatAInsightsComposerConfirmEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerConfirmEventArgs) argument with the serialized configuration JSON in its `Json` property.
 
 `OnConfirm` fires after [`OnHistoryItemCreate`](#onhistoryitemcreate).
 
@@ -215,4 +215,4 @@ The `PromptChanged` event fires when the prompt text changes. The handler receiv
 ## See Also
 
 * [DatAInsightsComposer Overview](slug:datainsightscomposer-overview)
-* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.TelerikDatAInsightsComposer)
+* [DatAInsightsComposer API Reference](slug:Telerik.Blazor.Components.DatAInsightsComposer.TelerikDatAInsightsComposer)
