@@ -48,16 +48,16 @@ The app can provide data to the DatAInsightsComposer as:
     {
         new DatasetDescriptor()
         {
-            Id = "Sales Contracts",
-            Description = "Sales contracts by category, product, country, and city",
+            Id = "sales-orders",
+            Label = "Sales Orders",
+            Description = "Sales orders by category, product, and country",
             Fields = new List<DatasetFieldDescriptor>()
             {
                 new() { Name = "Category", Type = DatasetFieldType.String },
                 new() { Name = "Product", Type = DatasetFieldType.String },
                 new() { Name = "Country", Type = DatasetFieldType.String },
-                new() { Name = "City", Type = DatasetFieldType.String },
-                new() { Name = "ContractDate", Type = DatasetFieldType.Date },
-                new() { Name = "ContractValue", Type = DatasetFieldType.Number }
+                new() { Name = "OrderDate", Label = "Order Date", Type = DatasetFieldType.Date },
+                new() { Name = "OrderValue", Label = "Order Value", Type = DatasetFieldType.Number }
             }
         }
     };
@@ -67,8 +67,7 @@ The app can provide data to the DatAInsightsComposer as:
         int dataItemCount = 100;
         int categoryCount = 3;
         int productCount = 10 + 1;
-        int countryCount = 2;
-        int cityCount = 4 + 1;
+        int countryCount = 5;
         Random rnd = Random.Shared;
 
         List<DAICModel> data = new();
@@ -77,21 +76,19 @@ The app can provide data to the DatAInsightsComposer as:
         {
             int productNumber = Random.Shared.Next(1, productCount);
             int categoryNumber = productNumber % categoryCount + 1;
-            int cityNumber = rnd.Next(1, cityCount);
-            int countryNumber = cityNumber % countryCount + 1;
+            int countryNumber = i % countryCount + 1;
 
             data.Add(new DAICModel()
             {
                 Category = $"Category {categoryNumber}",
                 Product = $"Product {productNumber}",
                 Country = $"Country {countryNumber}",
-                City = $"City {countryNumber}-{cityNumber}",
-                ContractDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))),
-                ContractValue = rnd.Next(1234, 9876)
+                OrderDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))),
+                OrderValue = rnd.Next(12345, 98765)
             });
         }
 
-        DAICDatasets.First().Data = data;
+        DAICDatasets.First(x => x.Id == "sales-orders").Data = data;
 
         base.OnInitialized();
     }
@@ -101,9 +98,8 @@ The app can provide data to the DatAInsightsComposer as:
         public string Category { get; set; } = string.Empty;
         public string Product { get; set; } = string.Empty;
         public string Country { get; set; } = string.Empty;
-        public string City { get; set; } = string.Empty;
-        public DateOnly ContractDate { get; set; }
-        public decimal ContractValue { get; set; }
+        public DateOnly OrderDate { get; set; }
+        public decimal OrderValue { get; set; }
     }
 }
 ````
@@ -125,16 +121,16 @@ The app can provide data to the DatAInsightsComposer as:
     {
         new DatasetDescriptor()
         {
-            Id = "Sales Contracts",
-            Description = "Sales contracts by category, product, country, and city",
+            Id = "sales-orders",
+            Label = "Sales Orders",
+            Description = "Sales orders by category, product, and country",
             Fields = new List<DatasetFieldDescriptor>()
             {
                 new() { Name = "Category", Type = DatasetFieldType.String },
                 new() { Name = "Product", Type = DatasetFieldType.String },
                 new() { Name = "Country", Type = DatasetFieldType.String },
-                new() { Name = "City", Type = DatasetFieldType.String },
-                new() { Name = "ContractDate", Type = DatasetFieldType.Date },
-                new() { Name = "ContractValue", Type = DatasetFieldType.Number }
+                new() { Name = "OrderDate", Label = "Order Date", Type = DatasetFieldType.Date },
+                new() { Name = "OrderValue", Label = "Order Value", Type = DatasetFieldType.Number }
             }
         }
     };
@@ -144,31 +140,28 @@ The app can provide data to the DatAInsightsComposer as:
         int dataItemCount = 100;
         int categoryCount = 3;
         int productCount = 10 + 1;
-        int countryCount = 2;
-        int cityCount = 4 + 1;
+        int countryCount = 5;
         Random rnd = Random.Shared;
 
-        List<object> data = new();
+        List<DAICModel> data = new();
 
         for (int i = 1; i <= dataItemCount; i++)
         {
             int productNumber = Random.Shared.Next(1, productCount);
             int categoryNumber = productNumber % categoryCount + 1;
-            int cityNumber = rnd.Next(1, cityCount);
-            int countryNumber = cityNumber % countryCount + 1;
+            int countryNumber = i % countryCount + 1;
 
             data.Add(new
             {
                 Category = $"Category {categoryNumber}",
                 Product = $"Product {productNumber}",
                 Country = $"Country {countryNumber}",
-                City = $"City {countryNumber}-{cityNumber}",
-                ContractDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))),
-                ContractValue = rnd.Next(1234, 9876)
+                OrderDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))),
+                OrderValue = rnd.Next(12345, 98765)
             });
         }
 
-        DAICDatasets.First().Data = data;
+        DAICDatasets.First(x => x.Id == "sales-orders").Data = data;
 
         base.OnInitialized();
     }
@@ -194,16 +187,16 @@ The app can provide data to the DatAInsightsComposer as:
     {
         new DatasetDescriptor()
         {
-            Id = "Sales Contracts",
-            Description = "Sales contracts by category, product, country, and city",
+            Id = "sales-orders",
+            Label = "Sales Orders",
+            Description = "Sales orders by category, product, and country",
             Fields = new List<DatasetFieldDescriptor>()
             {
                 new() { Name = "Category", Type = DatasetFieldType.String },
                 new() { Name = "Product", Type = DatasetFieldType.String },
                 new() { Name = "Country", Type = DatasetFieldType.String },
-                new() { Name = "City", Type = DatasetFieldType.String },
-                new() { Name = "ContractDate", Type = DatasetFieldType.Date },
-                new() { Name = "ContractValue", Type = DatasetFieldType.Number }
+                new() { Name = "OrderDate", Label = "Order Date", Type = DatasetFieldType.Date },
+                new() { Name = "OrderValue", Label = "Order Value", Type = DatasetFieldType.Number }
             }
         }
     };
@@ -213,8 +206,7 @@ The app can provide data to the DatAInsightsComposer as:
         int dataItemCount = 100;
         int categoryCount = 3;
         int productCount = 10 + 1;
-        int countryCount = 2;
-        int cityCount = 4 + 1;
+        int countryCount = 5;
         Random rnd = Random.Shared;
 
         List<object> data = new();
@@ -223,18 +215,17 @@ The app can provide data to the DatAInsightsComposer as:
         {
             int productNumber = Random.Shared.Next(1, productCount);
             int categoryNumber = productNumber % categoryCount + 1;
-            int cityNumber = rnd.Next(1, cityCount);
-            int countryNumber = cityNumber % countryCount + 1;
+            int countryNumber = i % countryCount + 1;
 
-            data.Add(CreateSalesItem(categoryNumber, productNumber, countryNumber, cityNumber));
+            data.Add(CreateSalesItem(categoryNumber, productNumber, countryNumber));
         }
 
-        DAICDatasets.First().Data = data;
+        DAICDatasets.First(x => x.Id == "sales-orders").Data = data;
 
         base.OnInitialized();
     }
 
-    private ExpandoObject CreateSalesItem(int categoryNumber, int productNumber, int countryNumber, int cityNumber)
+    private ExpandoObject CreateSalesItem(int categoryNumber, int productNumber, int countryNumber)
     {
         Random rnd = Random.Shared;
         ExpandoObject item = new ExpandoObject();
@@ -243,57 +234,10 @@ The app can provide data to the DatAInsightsComposer as:
         values.Add("Category", $"Category {categoryNumber}");
         values.Add("Product", $"Product {productNumber}");
         values.Add("Country", $"Country {countryNumber}");
-        values.Add("City", $"City {countryNumber}-{cityNumber}");
-        values.Add("ContractDate", DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))));
-        values.Add("ContractValue", rnd.Next(1234, 9876));
+        values.Add("OrderDate", DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))));
+        values.Add("OrderValue", rnd.Next(1234, 9876));
 
         return item;
-    }
-}
-````
-
-## Load Data in OnPromptSubmit
-
-The following example uses a model, but the same idea applies to anonymous objects and `ExpandoObject`s.
-
->caption Loading DatAInsightsComposer data on demand
-
-````RAZOR.skip-repl
-<TelerikDatAInsightsComposer Datasets="@DAICDatasets"
-                             @bind-Prompt="@DAICPrompt"
-                             OnPromptSubmit="@OnDAICPromptSubmit" />
-
-@code {
-    private string DAICPrompt { get; set; } = string.Empty;
-
-    private List<DatasetDescriptor> DAICDatasets { get; set; } = new()
-    {
-        new DatasetDescriptor()
-        {
-            Id = "monthly-sales",
-            Description = "Monthly sales totals",
-            Fields = new List<DatasetFieldDescriptor>()
-            {
-                new() { Name = "Month", Type = DatasetFieldType.String },
-                new() { Name = "Revenue", Type = DatasetFieldType.Number }
-            }
-        }
-    };
-
-    private void OnDAICPromptSubmit(DatAInsightsComposerPromptSubmitEventArgs args)
-    {
-        DAICDatasets.ElementAt(0).Data = new List<DAICModel>()
-        {
-            new() { Month = "January", Revenue = 12000 },
-            new() { Month = "February", Revenue = 14500 },
-            new() { Month = "March", Revenue = 13800 }
-        };
-    }
-
-    public class DAICModel
-    {
-        public string Month { get; set; } = string.Empty;
-        public decimal Revenue { get; set; }
     }
 }
 ````

@@ -25,7 +25,7 @@ This article describes the events that the Telerik DatAInsightsComposer for Blaz
 
 ## OnDataProcess
 
-The `OnDataProcess` event fires once for each generated component, before that component renders. The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerDataProcessEventArgs) argument. Use its `ComponentType`, `Config`, and `Dataset` properties to inspect the current result. The event enables you to:
+The `OnDataProcess` event fires when the Composer needs to perform data operations for a generated component. The handler receives a [`DatAInsightsComposerDataProcessEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerDataProcessEventArgs) argument. Use its `ComponentType`, `Config`, and `Dataset` properties to inspect the current result. The event enables you to:
 
 * Check or modify the planned data operations in `args.DataSourceRequest`.
 * Completely skip the automatic built-in data processing and perform the required data operations manually. Then, set the `ProcessedData` property of the event argument to supply the exact data for the generated component to use as-is.
@@ -35,20 +35,90 @@ The `OnDataProcess` event fires once for each generated component, before that c
 >caption Use OnDataProcess to provide data and modify the generated component configuration
 
 ````RAZOR.skip-repl
-<TelerikDatAInsightsComposer OnDataProcess="@OnDAICDataProcess" />
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikDatAInsightsComposer Datasets="@DAICDatasets"
+                             @bind-Prompt="@DAICPrompt"
+                             OnDataProcess="@OnDAICDataProcess" />
 
 @code {
+    private string DAICPrompt { get; set; } = "Show all data in tabular format";
+
+    private IEnumerable<DAICModel> SalesOrdersData { get; set; } = Enumerable.Empty<DAICModel>();
+    private readonly static string[] ProductNames = new string[] { "Phones", "Tablets", "Laptops" };
+
+    private List<DatasetDescriptor> DAICDatasets { get; set; } = new()
+    {
+        new DatasetDescriptor()
+        {
+            Id = "sales-orders",
+            Label = "Sales Orders",
+            Description = "Sales orders by category, product, and country",
+            Fields = new List<DatasetFieldDescriptor>()
+            {
+                new() { Name = "Category", Type = DatasetFieldType.String },
+                new() { Name = "Product", Type = DatasetFieldType.String },
+                new() { Name = "Country", Type = DatasetFieldType.String },
+                new() { Name = "OrderDate", Label = "Order Date", Type = DatasetFieldType.Date },
+                new() { Name = "OrderValue", Label = "Order Value", Type = DatasetFieldType.Number }
+            }
+        }
+    };
+
     private Task OnDAICDataProcess(DatAInsightsComposerDataProcessEventArgs args)
     {
-        if (args.ComponentType != ComponentType.Grid || args.DataSourceRequest == null)
+        if (args.DataSourceRequest is null)
         {
-            return Task.CompletedTask;
+            args.ProcessedData = SalesOrdersData.Cast<object>().ToList() ?? new List<object>();
+        }
+        else
+        {
+            DataSourceResult result = SalesOrdersData.ToDataSourceResult(args.DataSourceRequest);
+            args.ProcessedData = result.Data.Cast<object>().ToList();
         }
 
-        var result = args.Dataset.Data!.AsQueryable().ToDataSourceResult(args.DataSourceRequest);
-        args.ProcessedData = result.Data.Cast<object>().ToList();
-
         return Task.CompletedTask;
+    }
+
+    protected override void OnInitialized()
+    {
+        int dataItemCount = 100;
+        int categoryCount = 3;
+        int productCount = 10 + 1;
+        int countryCount = 5;
+        Random rnd = Random.Shared;
+
+        List<DAICModel> data = new();
+
+        for (int i = 1; i <= dataItemCount; i++)
+        {
+            int productNumber = Random.Shared.Next(1, productCount);
+            int categoryNumber = productNumber % categoryCount + 1;
+            int countryNumber = i % countryCount + 1;
+
+            data.Add(new DAICModel()
+            {
+                Category = $"Category {categoryNumber}",
+                Product = $"Product {productNumber}",
+                Country = $"Country {countryNumber}",
+                OrderDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))),
+                OrderValue = rnd.Next(12345, 98765)
+            });
+        }
+
+        SalesOrdersData = data;
+
+        base.OnInitialized();
+    }
+
+    public class DAICModel
+    {
+        public string Category { get; set; } = string.Empty;
+        public string Product { get; set; } = string.Empty;
+        public string Country { get; set; } = string.Empty;
+        public DateOnly OrderDate { get; set; }
+        public decimal OrderValue { get; set; }
     }
 }
 ````
@@ -177,7 +247,7 @@ The `OnRemove` event fires when the user deletes an already saved generated comp
 
 ## OnConfirm
 
-The `OnConfirm` event fires when the user saves the generated UI component configuration. The handler receives a [`DatAInsightsComposerConfirmEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerConfirmEventArgs) argument with the serialized configuration JSON in its `Json` property.
+The `OnConfirm` event fires when the user saves the generated UI component configuration. The handler receives a [`DatAInsightsComposerConfirmEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerConfirmEventArgs) argument that provides the component configuration and allows you to prevent the user action through the `IsCancelled` property.
 
 `OnConfirm` fires after [`OnHistoryItemCreate`](#onhistoryitemcreate).
 
@@ -187,7 +257,7 @@ The `OnConfirm` event fires when the user saves the generated UI component confi
 @code {
     private Task OnDAICConfirm(DatAInsightsComposerConfirmEventArgs args)
     {
-        string json = args.Json;
+        ComponentConfig config = args.Config;
 
         return Task.CompletedTask;
     }

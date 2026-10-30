@@ -63,32 +63,66 @@ After package installation:
                              @bind-Prompt="@DAICPrompt" />
 
 @code {
-    private string DAICPrompt { get; set; } = string.Empty;
+    private string DAICPrompt { get; set; } = "Show all data in tabular format";
+
+    private readonly static string[] ProductNames = new string[] { "Phones", "Tablets", "Laptops" };
 
     private List<DatasetDescriptor> DAICDatasets { get; set; } = new()
     {
         new DatasetDescriptor()
         {
-            Id = "monthly-sales",
-            Description = "Total monthly sales",
+            Id = "sales-orders",
+            Label = "Sales Orders",
+            Description = "Sales orders by category, product, and country",
             Fields = new List<DatasetFieldDescriptor>()
             {
-                new() { Name = "Month", Type = DatasetFieldType.String },
-                new() { Name = "Revenue", Type = DatasetFieldType.Number }
-            },
-            Data = new List<DAICModel>()
-            {
-                new() { Month = "January", Revenue = 12000 },
-                new() { Month = "February", Revenue = 14500 },
-                new() { Month = "March", Revenue = 13800 }
+                new() { Name = "Category", Type = DatasetFieldType.String },
+                new() { Name = "Product", Type = DatasetFieldType.String },
+                new() { Name = "Country", Type = DatasetFieldType.String },
+                new() { Name = "OrderDate", Label = "Order Date", Type = DatasetFieldType.Date },
+                new() { Name = "OrderValue", Label = "Order Value", Type = DatasetFieldType.Number }
             }
         }
     };
 
+    protected override void OnInitialized()
+    {
+        int dataItemCount = 100;
+        int categoryCount = 3;
+        int productCount = 10 + 1;
+        int countryCount = 5;
+        Random rnd = Random.Shared;
+
+        List<DAICModel> data = new();
+
+        for (int i = 1; i <= dataItemCount; i++)
+        {
+            int productNumber = Random.Shared.Next(1, productCount);
+            int categoryNumber = productNumber % categoryCount + 1;
+            int countryNumber = i % countryCount + 1;
+
+            data.Add(new DAICModel()
+            {
+                Category = $"Category {categoryNumber}",
+                Product = $"Product {productNumber}",
+                Country = $"Country {countryNumber}",
+                OrderDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5))),
+                OrderValue = rnd.Next(12345, 98765)
+            });
+        }
+
+        DAICDatasets.First(x => x.Id == "sales-orders").Data = data;
+
+        base.OnInitialized();
+    }
+
     public class DAICModel
     {
-        public string Month { get; set; } = string.Empty;
-        public decimal Revenue { get; set; }
+        public string Category { get; set; } = string.Empty;
+        public string Product { get; set; } = string.Empty;
+        public string Country { get; set; } = string.Empty;
+        public DateOnly OrderDate { get; set; }
+        public decimal OrderValue { get; set; }
     }
 }
 ````
