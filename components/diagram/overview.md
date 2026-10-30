@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Diagram - Overview
-description: The Blazor DIagram component
+description: Learn about the major features of the Telerik Blazor Diagram component.
 slug: diagram-overview
 tags: telerik,blazor,diagram
 published: True
