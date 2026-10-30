@@ -18,13 +18,13 @@ The [ImageEditor](slug:imageeditor-overview) produces the edited image in two wa
 
 ## Export Dialog
 
-The Export tool in the [component toolbar](slug:imageeditor-tools#toolbar) opens a dialog that allows the user to:
+The Download tool in the [component toolbar](slug:imageeditor-tools#toolbar) opens the Export Image dialog, which allows the user to:
 
 * Set the file name.
 * Select the export format.
 * Review a preview of the result and the resulting file size.
 
-The dialog detects transparency in the image and selects PNG by default.
+The dialog detects transparency in the image and selects PNG by default. The default file name comes from the opened image.
 
 The following table lists the supported export formats, which are also the members of the `ImageEditorExportFormat` enum.
 
@@ -38,19 +38,23 @@ The following table lists the supported export formats, which are also the membe
 
 ## Configure the Export from Code
 
-Use the [`ExecuteAsync` method](slug:imageeditor-commands) to set the export format, the export quality, and the file name before the user opens the export dialog.
+Use the [`ExecuteAsync` method](slug:imageeditor-commands) to set the export format, the export quality, and the file name before the user opens the Export Image dialog.
+
+Execute the command after the image loads. Opening an image resets the export file name to the name of the new image.
 
 >caption Configure the export settings programmatically
 
 ````RAZOR.skip-repl
+<TelerikButton OnClick="@OnExportSettingsButtonClick">Set Export Settings</TelerikButton>
+
 <TelerikImageEditor @ref="@ImageEditorRef" ImageUrl="images/sample-photo.jpg" />
 
 @code {
-    private TelerikImageEditor? ImageEditorRef { get; set; }
+    private TelerikImageEditor ImageEditorRef { get; set; }
 
-    private async Task SetExportSettings()
+    private async Task OnExportSettingsButtonClick()
     {
-        await ImageEditorRef!.ExecuteAsync(ImageEditorCommand.SetExportSettings,
+        await ImageEditorRef.ExecuteAsync(ImageEditorCommand.SetExportSettings,
             new ImageEditorExportSettingsArgs()
             {
                 Format = ImageEditorExportFormat.Jpeg,
@@ -95,11 +99,11 @@ The `GetFileAsync` method returns the edited image as a `Task<byte[]>` in the cu
                     Height="600px" />
 
 @code {
-    private TelerikImageEditor? ImageEditorRef { get; set; }
+    private TelerikImageEditor ImageEditorRef { get; set; }
 
     private async Task OnSaveButtonClick()
     {
-        byte[]? imageBytes = await ImageEditorRef!.GetFileAsync();
+        byte[] imageBytes = await ImageEditorRef.GetFileAsync();
 
         if (imageBytes != null)
         {

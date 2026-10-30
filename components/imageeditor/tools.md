@@ -35,7 +35,7 @@ The toolbar sits above the canvas and provides the following tools:
 | Undo | Reverts the last edit. |
 | Redo | Reapplies the last reverted edit. |
 | Zoom | Sets the canvas zoom level to Fit, Fill, 25%, 50%, 100%, or 200%. Zoom and pan change the view only and do not fire [`OnExecute`](slug:imageeditor-events#onexecute). |
-| Export | Opens the [export dialog](slug:imageeditor-export). |
+| Download | Opens the [Export Image dialog](slug:imageeditor-export#export-dialog). |
 
 ## Sidebar Tools
 

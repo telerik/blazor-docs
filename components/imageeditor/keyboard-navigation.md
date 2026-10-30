@@ -26,7 +26,7 @@ The sidebar uses [roving focus](https://www.w3.org/WAI/ARIA/apg/practices/keyboa
 | `Ctrl` + `O` | Opens an image. This shortcut also works when no image is loaded. |
 | `Ctrl` + `Z` | Undoes the last edit. |
 | `Ctrl` + `Y` | Redoes the last reverted edit. |
-| `Ctrl` + `Shift` + `S` | Opens the [export dialog](slug:imageeditor-export). |
+| `Ctrl` + `Shift` + `S` | Opens the [Export Image dialog](slug:imageeditor-export#export-dialog). |
 | `Escape` | Stops the text editing, closes the active tool pane, or clears the selected object. |
 
 ## Zoom Shortcuts

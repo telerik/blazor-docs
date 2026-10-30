@@ -79,7 +79,7 @@ The `ExecuteAsync` method runs any editor command from the application code and 
 
 ## Export
 
-Users can download the edited image as JPEG, PNG, or WebP from an export dialog that shows a preview and the resulting file size. The application can also obtain the edited image as a `byte[]` and store it on the server. Learn more about [exporting from the ImageEditor](slug:imageeditor-export).
+Users can download the edited image as JPEG, PNG, or WebP from the Export Image dialog, which shows a preview and the resulting file size. The application can also obtain the edited image as a `byte[]` and store it on the server. Learn more about [exporting from the ImageEditor](slug:imageeditor-export).
 
 ## Events
 
@@ -115,11 +115,11 @@ The Blazor ImageEditor component exposes methods for programmatic operation. To 
 <TelerikImageEditor @ref="@ImageEditorRef" ImageUrl="images/sample-photo.jpg" />
 
 @code {
-    private TelerikImageEditor? ImageEditorRef { get; set; }
+    private TelerikImageEditor ImageEditorRef { get; set; }
 
     private async Task OnSepiaButtonClick()
     {
-        await ImageEditorRef!.ExecuteAsync(ImageEditorCommand.ApplyFilter,
+        await ImageEditorRef.ExecuteAsync(ImageEditorCommand.ApplyFilter,
             new ImageEditorFilterArgs() { Filter = ImageEditorFilter.Sepia });
     }
 }

@@ -36,11 +36,11 @@ To call the method, [obtain a reference to the component instance](slug:imageedi
 <TelerikImageEditor @ref="@ImageEditorRef" ImageUrl="images/sample-photo.jpg" />
 
 @code {
-    private TelerikImageEditor? ImageEditorRef { get; set; }
+    private TelerikImageEditor ImageEditorRef { get; set; }
 
     private async Task OnSepiaButtonClick()
     {
-        await ImageEditorRef!.ExecuteAsync(ImageEditorCommand.ApplyFilter,
+        await ImageEditorRef.ExecuteAsync(ImageEditorCommand.ApplyFilter,
             new ImageEditorFilterArgs() { Filter = ImageEditorFilter.Sepia });
     }
 }
@@ -146,30 +146,6 @@ The command arguments classes use the following types:
 | `ImageEditorFill` | `Color`, `Opacity` |
 | `ImageEditorTextStyle` | `FontFamily`, `FontSize`, `Bold`, `Italic`, `Underline`, `Strikethrough`, `AllCaps`, `Align`, `Color`, `Opacity` |
 
-## Enums
-
-The command arguments use the following enums:
-
-| Enum | Members |
-| --- | --- |
-| `ImageEditorFilter` | `None`, `Grayscale`, `BlackAndWhite`, `Sepia`, `Invert`, `Chrome`, `Cold`, `Warm` |
-| `ImageEditorAdjustment` | `Brightness`, `Exposure`, `Contrast`, `Saturation`, `Hue`, `Blur`, `Opacity` |
-| `ImageEditorFlipDirection` | `Horizontal`, `Vertical` |
-| `ImageEditorCropOrientation` | `Portrait`, `Landscape` |
-| `ImageEditorResizeUnit` | `Pixel`, `Percentage` |
-| `ImageEditorBlurMode` | `Blur`, `Pixelate` |
-| `ImageEditorBlurShape` | `Rectangle`, `Ellipse` |
-| `ImageEditorExportFormat` | `Png`, `Jpeg`, `Webp` |
-| `ImageEditorShapeType` | `Square`, `Rectangle`, `Circle`, `Ellipse`, `Triangle`, `Star`, `Heart`, `Diamond`, `Hexagon`, `Pentagon`, `Arrow`, `Line` |
-| `ImageEditorLineEnd` | `None`, `Circle`, `Diamond`, `Arrow`, `Rectangle` |
-| `ImageEditorStrokeType` | `Solid`, `Dashed`, `Dotted` |
-| `ImageEditorTextAlign` | `Left`, `Center`, `Right` |
-| `ImageEditorHorizontalAlign` | `Left`, `Center`, `Right` |
-| `ImageEditorVerticalAlign` | `Top`, `Middle`, `Bottom` |
-| `ImageEditorAlignTarget` | `Crop`, `Image` |
-| `ImageEditorFrameType` | `None`, `Single`, `Multiple` |
-| `ImageEditorFramePosition` | `Center`, `Inside`, `Outside` |
-
 ## Example
 
 The following example applies a watermark preset with a single button. It crops the image to a 16:9 ratio, adds a text object in the bottom right corner, and warms up the colors.
@@ -187,11 +163,11 @@ The following example applies a watermark preset with a single button. It crops 
                     Height="600px" />
 
 @code {
-    private TelerikImageEditor? ImageEditorRef { get; set; }
+    private TelerikImageEditor ImageEditorRef { get; set; }
 
     private async Task OnPresetButtonClick()
     {
-        await ImageEditorRef!.ExecuteAsync(ImageEditorCommand.CropToAspectRatio,
+        await ImageEditorRef.ExecuteAsync(ImageEditorCommand.CropToAspectRatio,
             new ImageEditorCropToAspectRatioArgs()
             {
                 AspectRatio = 16d / 9d,
