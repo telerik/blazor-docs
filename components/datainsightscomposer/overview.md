@@ -98,6 +98,7 @@ After package installation:
 By default, the initial UI consists of the following elements:
 
 * Title
+* Message box that shows AI-powered information or clarification questions below the title.
 * PromptBox with two different placeholders that encourage the user to type their prompt and then refine it.
 * Datasets panel inside the PromptBox that shows all datasets with their fields in a dropdown.
 * Datasets list that shows all datasets as chips below the PromptBox.

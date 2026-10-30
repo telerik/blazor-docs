@@ -1,6 +1,6 @@
 ---
-title: Components
-page_title: DatAInsightsComposer Components
+title: Visualization Components
+page_title: DatAInsightsComposer Visualization Components
 description: Learn how to configure the data visualization components, which are rendered by the Telerik DatAInsightsComposer.
 slug: datainsightscomposer-components
 tags: telerik, blazor, datainsightscomposer, AI
@@ -9,7 +9,7 @@ position: 20
 components: ["datainsightscomposer"]
 ---
 
-# DatAInsightsComposer Components
+# DatAInsightsComposer Visualization Components
 
 This article describes the data visualization components, which the DatAInsightsComposer renders, and how to configure them.
 
