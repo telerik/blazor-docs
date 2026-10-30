@@ -103,7 +103,7 @@ The `OnHistoryItemRestore` event fires when the user:
 1. Clicks the **History** button next to **Confirm** and **Discard**.
 1. Restores an existing history item.
 
-The handler receives a [`DatAInsightsComposerHistoryItemRestoreEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposerHistoryItemRestoreEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
+The handler receives a [`DatAInsightsComposerHistoryItemRestoreEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerHistoryItemRestoreEventArgs) argument. Its `Item` property contains the created history item with the user prompt, generated component configuration, and datasource.
 
 Before `OnHistoryItemRestore`, the DatAInsightsComposer also fires [`OnDataProcess`](#ondataprocess).
 
