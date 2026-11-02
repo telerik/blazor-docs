@@ -38,7 +38,7 @@ The required milestones to obtain and use Telerik UI for Blazor are:
 
 Telerik UI for Blazor is distributed through NuGet packages. The content below lists them all and explains how to obtain them.
 
->tip `Telerik.UI.for.Blazor` is the only NuGet package that you must reference in the app. This package references all others as dependencies.
+>tip `Telerik.UI.for.Blazor` is the only NuGet package that you must reference in the app. This package references all others as dependencies, except the optional `Telerik.UI.for.Blazor.DatAInsightsComposer`.
 
 >tip Starting from Telerik UI for Blazor version **14.0.0**, all required NuGet packages are [available on `nuget.org`](https://www.nuget.org/profiles/Progress).
 
@@ -54,6 +54,7 @@ Telerik UI for Blazor is distributed through NuGet packages. The content below l
 | [`Telerik.Recurrence`](https://www.nuget.org/packages/Telerik.Recurrence) | Adds support for recurring appointments in the [Scheduler component](slug:scheduler-overview). |
 | [`Telerik.Documents.SpreadsheetStreaming`](https://www.nuget.org/packages/Telerik.Documents.SpreadsheetStreaming) | Adds support for working with spreadsheet documents, and exporting to Excel or CSV. This package is part of [Telerik Document Processing](slug:dpl-in-blazor). |
 | [`Telerik.Zip`](https://www.nuget.org/packages/Telerik.Zip) | Contains code for working with ZIP archives and Excel files. Excel files are actually ZIP archives and this package takes part in the exporting process. This package is part of [Telerik Document Processing](slug:dpl-in-blazor). |
+| [`Telerik.UI.for.Blazor.DatAInsightsComposer`](https://www.nuget.org/packages/Telerik.UI.for.Blazor.DatAInsightsComposer) | Contains the [Telerik DatAInsightsComposer component](slug:datainsightscomposer-overview). The package is optional. |
 | [`Telerik.Pivot.Core`](https://www.nuget.org/packages/Telerik.Pivot.Core) | Contains base code for the [PivotGrid component](slug:pivotgrid-overview). This NuGet package must not be used separately without the Telerik PivotGrid component. |
 | [`Telerik.Pivot.DataProviders.Xmla`](https://www.nuget.org/packages/Telerik.Pivot.DataProviders.Xmla) | Adds support for [data binding the PivotGrid component to XMLA](slug:pivotgrid-data-binding). This NuGet package must not be used separately without the Telerik PivotGrid component. |
 

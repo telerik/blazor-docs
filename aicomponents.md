@@ -24,6 +24,14 @@ Build prompt-driven and chat-based interfaces with components designed for conve
 
 <article-card-container>
     <article-card
+        href="/components/datainsightscomposer/overview"
+        src="./images/aicomponents/DatAInsightsComposer_Light_Large.svg"
+        title="DatAInsightsComposer"
+        subTitle="UI Component"
+        darkSrc="./images/aicomponents/DatAInsightsComposer_Dark_Large.svg"
+        description="Generate dynamic data vizualizations with Grids, Charts, and Gauges, by using natural language prompts.">
+    </article-card>
+    <article-card
         href="/components/chat/overview"
         src="./images/aicomponents/Chat_Light_Large.svg"
         title="AI Chat"
