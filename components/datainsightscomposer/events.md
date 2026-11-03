@@ -13,6 +13,7 @@ components: ["datainsightscomposer"]
 
 This article describes the events that the Telerik DatAInsightsComposer for Blazor raises:
 
+* [`OnConfirm`](#onconfirm)
 * [`OnDataProcess`](#ondataprocess)
 * [`OnGenerate`](#ongenerate)
 * [`OnHistoryItemCreate`](#onhistoryitemcreate)
@@ -20,8 +21,26 @@ This article describes the events that the Telerik DatAInsightsComposer for Blaz
 * [`OnPromptCancel`](#onpromptcancel)
 * [`OnPromptSubmit`](#onpromptsubmit)
 * [`OnRemove`](#onremove)
-* [`OnConfirm`](#onconfirm)
 * [`PromptChanged`](#promptchanged)
+
+## OnConfirm
+
+The `OnConfirm` event fires when the user saves the generated UI component configuration. The handler receives a [`DatAInsightsComposerConfirmEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerConfirmEventArgs) argument that provides the component configuration and allows you to prevent the user action through the `IsCancelled` property.
+
+`OnConfirm` fires after [`OnHistoryItemCreate`](#onhistoryitemcreate).
+
+````RAZOR.skip-repl
+<TelerikDatAInsightsComposer OnConfirm="@OnDAICConfirm" />
+
+@code {
+    private Task OnDAICConfirm(DatAInsightsComposerConfirmEventArgs args)
+    {
+        ComponentConfig config = args.Config;
+
+        return Task.CompletedTask;
+    }
+}
+````
 
 ## OnDataProcess
 
@@ -239,25 +258,6 @@ The `OnRemove` event fires when the user deletes an already saved generated comp
     {
         ComponentConfig config = args.Config;
         DatasetDescriptor? dataset = args.Dataset;
-
-        return Task.CompletedTask;
-    }
-}
-````
-
-## OnConfirm
-
-The `OnConfirm` event fires when the user saves the generated UI component configuration. The handler receives a [`DatAInsightsComposerConfirmEventArgs`](slug:Telerik.Blazor.Components.DatAInsightsComposer.DatAInsightsComposerConfirmEventArgs) argument that provides the component configuration and allows you to prevent the user action through the `IsCancelled` property.
-
-`OnConfirm` fires after [`OnHistoryItemCreate`](#onhistoryitemcreate).
-
-````RAZOR.skip-repl
-<TelerikDatAInsightsComposer OnConfirm="@OnDAICConfirm" />
-
-@code {
-    private Task OnDAICConfirm(DatAInsightsComposerConfirmEventArgs args)
-    {
-        ComponentConfig config = args.Config;
 
         return Task.CompletedTask;
     }
