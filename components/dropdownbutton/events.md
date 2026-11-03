@@ -11,7 +11,11 @@ components: ["dropdownbutton"]
 
 # DropDownButton Events
 
-The DropDownButton exposes events that you can use to respond to user actions within the application.
+The DropDownButton exposes events that you can use to respond to user actions within the application:
+
+* [OnClick](#onclick)
+* [OnClose](#onclose)
+* [OnOpen](#onopen)
 
 ## OnClick
 
@@ -24,6 +28,18 @@ The event handler can be synchronous (`void`) or asynchronous (`async Task`).
 >caption Handling the DropDownButton OnClick event
 
 <demo metaUrl="client/dropdownbutton/events/" height="300"></demo>
+
+## OnClose
+
+The `OnClose` event fires before the DropDownButton popup closes. Set the `IsCancelled` property of the `DropDownButtonCloseEventArgs` argument to `true` to keep the popup open.
+
+The event fires for user interaction and when calling `CloseAsync()`. It does not fire when the popup is already closed.
+
+## OnOpen
+
+The `OnOpen` event fires before the DropDownButton popup opens. Set the `IsCancelled` property of the `DropDownButtonOpenEventArgs` argument to `true` to keep the popup closed.
+
+The event fires for user interaction and when calling `OpenAsync()`. It does not fire when the popup is already open.
 
 
 ## See Also

@@ -14,6 +14,8 @@ components: ["splitbutton"]
 This article describes the SplitButton events:
 
 * [OnClick](#onclick)
+* [OnClose](#onclose)
+* [OnOpen](#onopen)
 
 ## OnClick
 
@@ -25,6 +27,18 @@ The `OnClick` event fires when the user clicks or taps the primary button or a s
 >caption SplitButton OnClick event
 
 <demo metaUrl="client/splitbutton/events/example-1/" height="420"></demo>
+
+## OnClose
+
+The `OnClose` event fires before the SplitButton popup closes. Set the `IsCancelled` property of the `SplitButtonCloseEventArgs` argument to `true` to keep the popup open.
+
+The event fires for user interaction and when calling `CloseAsync()`. It does not fire when the popup is already closed.
+
+## OnOpen
+
+The `OnOpen` event fires before the SplitButton popup opens. Set the `IsCancelled` property of the `SplitButtonOpenEventArgs` argument to `true` to keep the popup closed.
+
+The event fires for user interaction and when calling `OpenAsync()`. It does not fire when the popup is already open.
 
 ## Next Steps
 
