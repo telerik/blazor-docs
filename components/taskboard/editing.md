@@ -77,6 +77,8 @@ The [TaskBoard `PanePosition` `enum` parameter](slug:Telerik.Blazor.Components.T
 <TelerikTaskBoard PanePosition="@TaskBoardPanePosition.End" />
 ````
 
+The edit pane aligns itself to the respective side border of the TaskBoard. If there is not enough horizontal space inside the TaskBoard to fit the edit pane, then the column container shrinks and a horizontal scrollbar appears. If the `PanePosition` is `Start`, then users may get the impression that the edit pane pushed the columns. This is due to browser behavior related to scrollability.
+
 ## Column Operations
 
 The built-in Column edit operations depend on action buttons and TaskBoard events.
