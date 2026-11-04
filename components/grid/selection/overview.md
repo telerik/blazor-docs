@@ -47,7 +47,7 @@ See [Row Selection Basics](slug:grid-selection-row#row-selection-basics) and [Ce
 You can respond to the user action of selecting a new item through the Grid events:
 
 * Use the [`SelectedItemsChanged` event](slug:grid-selection-row#handling-row-selection-changes) to respond to row selection.
-* Use the [`SelectedCellsChanged` event](slug:grid-selection-cell#selectedcellschanged-event) to respond to cell selection.
+* Use the [`SelectedCellsChanged` event](slug:grid-selection-cell#handling-cell-selection-changes) to respond to cell selection.
 
 ## Integration with Other Grid Features
 

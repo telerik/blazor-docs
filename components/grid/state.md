@@ -37,7 +37,7 @@ The Grid state is a generic [class `GridState<TItem>`](slug:Telerik.Blazor.Compo
 | `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)](slug:components/grid/features/hierarchy). |
 | `FilterDescriptors` | `ICollection<IFilterDescriptor>` | A collection of [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering), except the ones that relate to the [`GridSearchBox`](slug:grid-searchbox). |
 | `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping](slug:components/grid/features/grouping). |
-| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `InCell` editing](slug:grid-editing-incell#events). |
+| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `InCell` editing](slug:grid-editing-incell#in-cell-editing-events). |
 | `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
 | `Page` | `int?` | The current [page index](slug:components/grid/features/paging). Some user actions reset the page index to 1, such as filtering or changing the page size. |
 | `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering) that holds the filter descriptors for the [`GridSearchBox`](slug:grid-searchbox). |
@@ -87,7 +87,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 Here is some additional information about certain `PropertyName` values:
 
 * `EditItem` is used when the user starts editing an existing item.
-* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It is [not applicable for `InCell` editing](slug:grid-editing-incell#events).
+* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It is [not applicable for `InCell` editing](slug:grid-editing-incell#in-cell-editing-events).
 * `OriginalEditItem` is used when the user exits edit or insert mode via save or cancel.
 * `ColumnStates` is used for several column actions such as hiding, showing, locking, reordering and resizing.
 

@@ -15,7 +15,7 @@ The Grid component can page the entire data source automatically. Alternatively,
 
 >caption In this article:
 
-* [Basics](#basics)
+* [Basics](#paging-basics)
 * [Events](#events)
 * [Pager Settings](#pager-settings)
 * [More Examples](#more-examples)

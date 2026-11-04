@@ -64,7 +64,7 @@ The solution below requires familiarity with:
     * `TextField`
     * `ValueField`
     * `Width`
-* Typing in the component's textbox opens the dropdown and filters the Grid, similar to a [SearchBox](slug:grid-searchbox#search-from-code).
+* Typing in the component's textbox opens the dropdown and filters the Grid, similar to a [SearchBox](slug:grid-searchbox#searching-from-code).
 * Blurring the textbox or hitting Enter will select the first matching item in the Grid.
 * Selecting a Grid item applies a new `ComboBoxGrid` value and closes the dropdown.
 * Closing and reopening the dropdown preserves the Grid state.

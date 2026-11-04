@@ -122,5 +122,5 @@ Alternative options are to:
 
 ## See Also
 
-* [FilterMenu: Filter From Code](slug:grid-filter-menu#filter-from-code)
+* [FilterMenu: Filter From Code](slug:grid-filter-menu#filtering-from-code)
 * [Working with the Grid State](slug:grid-state)

@@ -34,7 +34,7 @@ This knowledge base article answers the following questions:
 
 To style filtered columns in a Telerik Grid for Blazor: 
 
-1. Use the [`OnCellRender`](slug:grid-column-events#oncellrender) and [`OnStateChanged`](slug:grid-state#onstatechanged) events.
+1. Use the [`OnCellRender`](slug:grid-column-events#handling-cell-rendering) and [`OnStateChanged`](slug:grid-state#onstatechanged) events.
 2. Apply a custom CSS class to the filtered columns when a filter is active. The CSS class will be rendered on each cell from these columns.
 
 >caption Grid with styled filtered column.

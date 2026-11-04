@@ -88,7 +88,7 @@ Deleting items that are currently in edit mode [fires `OnDelete` with a cloned d
 
 ### Selection
 
-To enable [row selection](slug:grid-selection-row) with in-cell edit mode, use a [checkbox column](slug:components/grid/columns/checkbox). For more information, see the [Row Selection](slug:grid-selection-row#selection-and-editing-modes) article.
+To enable [row selection](slug:grid-selection-row) with in-cell edit mode, use a [checkbox column](slug:components/grid/columns/checkbox). For more information, see the [Row Selection](slug:grid-selection-row#combining-selection-with-editing-modes) article.
 
 To see how to select the row that is currently in in-cell edit mode without using a `<GridCheckboxColumn />`, see the [Row Selection in Edit with InCell EditMode](slug:grid-kb-row-select-incell-edit) Knowledge Base article.
 

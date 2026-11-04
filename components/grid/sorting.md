@@ -16,7 +16,7 @@ The Telerik Blazor Grid component supports single and multiple column sorting.
 In this article:
 
 * [Basics](#basics)
-* [Sort From Code](#sort-from-code)
+* [Sort From Code](#sorting-from-code)
 * [More Examples](#more-examples)
 
 

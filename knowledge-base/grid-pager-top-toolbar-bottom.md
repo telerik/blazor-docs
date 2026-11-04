@@ -129,7 +129,7 @@ If, however, you also want to have a Toolbar for some actions, do the following:
 
 ## Notes
 
-The downside of the listed approach is that you will not be able to use built-in Grid actions in the custom toolbar container as it is not essentially part of the Grid (for example, [`Add` Command Button](slug:components/grid/columns/command#the-gridcommandbutton-tag), [SearchBox](slug:grid-searchbox)).
+The downside of the listed approach is that you will not be able to use built-in Grid actions in the custom toolbar container as it is not essentially part of the Grid (for example, [`Add` Command Button](slug:components/grid/columns/command#configuring-command-buttons), [SearchBox](slug:grid-searchbox)).
 
 To handle this, you may proceed with a custom approach:
 
