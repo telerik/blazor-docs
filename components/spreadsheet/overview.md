@@ -35,6 +35,8 @@ The Telerik Spreadsheet component loads and exports files in the Open XML Spread
 * [Create an XLSX file from `IEnumerable` and pass it to the Spreadsheet](slug:spreadsheet-kb-bind-to-json-ienumerable-list-collection).
 * [Read an exported XLSX file and obtain all cell values](slug:spreadsheet-kb-get-cell-values).
 
+For programmatic cell selection and formatting with RadSpreadProcessing, see [Accessing Cells of a Worksheet](https://www.telerik.com/document-processing-libraries/documentation/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet). The four-integer `Cells` overload uses the starting row, starting column, ending row, and ending column indexes.
+
 
 ## Tools
 

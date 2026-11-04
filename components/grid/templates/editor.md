@@ -83,6 +83,80 @@ The Grid will save changes and close the current edit row (or edit cell) when th
 
 ## Limit the input options with a select element
 
+To display a dropdown editor in a Grid column, add a `TelerikDropDownList` to the column's `EditorTemplate`. The `context` is the data item for the row that is being edited. Cast it to the model type before binding the dropdown value.
+
+The following example displays the category name in the column and renders a dropdown with the available categories when the user edits a row.
+
+````RAZOR
+<TelerikGrid Data="@Products"
+             EditMode="@GridEditMode.Inline"
+             OnUpdate="@OnGridUpdate">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" Title="Product" />
+        <GridColumn Field="@nameof(Product.CategoryId)" Title="Category">
+            <Template>
+                @{
+                    var product = (Product)context;
+                }
+                @Categories.FirstOrDefault(category => category.Id == product.CategoryId)?.Name
+            </Template>
+            <EditorTemplate>
+                @{
+                    var product = (Product)context;
+                }
+                <TelerikDropDownList Data="@Categories"
+                                     @bind-Value="@product.CategoryId"
+                                     ValueField="@nameof(Category.Id)"
+                                     TextField="@nameof(Category.Name)" />
+            </EditorTemplate>
+        </GridColumn>
+        <GridCommandColumn>
+            <GridCommandButton Command="Edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<Product> Products { get; set; } = new()
+    {
+        new Product { Id = 1, Name = "Chai", CategoryId = 1 },
+        new Product { Id = 2, Name = "Chang", CategoryId = 2 }
+    };
+
+    private List<Category> Categories { get; set; } = new()
+    {
+        new Category { Id = 1, Name = "Beverages" },
+        new Category { Id = 2, Name = "Condiments" }
+    };
+
+    private void OnGridUpdate(GridCommandEventArgs args)
+    {
+        var updatedProduct = (Product)args.Items.First();
+        var productIndex = Products.FindIndex(product => product.Id == updatedProduct.Id);
+
+        if (productIndex >= 0)
+        {
+            Products[productIndex] = updatedProduct;
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public int CategoryId { get; set; }
+    }
+
+    public class Category
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+}
+````
+
 <demo metaUrl="client/grid/templates-editor-select/" height="400"></demo>
 
 ## Editor template for a foreign key column
