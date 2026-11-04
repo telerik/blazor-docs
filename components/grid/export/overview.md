@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid - Export Overview
-description: Export basics for the Grid for Blazor.
+description: Learn how to export Telerik UI for Blazor Grid data to CSV, Excel, and PDF files and customize the exported content.
 slug: grid-export-overview
 tags: telerik, blazor, grid, export
 published: True
@@ -9,9 +9,9 @@ position: 1
 components: ["grid"]
 ---
 
-# Blazor Grid Export
+# Grid Export Overview
 
-The Grid for Blazor provides a built-in functionality to export the data to:
+The Telerik UI for Blazor Grid provides built-in functionality to export data to the following formats:
 * [CSV](slug:grid-export-csv)
 * [Excel](slug:grid-export-excel)
 * [PDF](slug:grid-export-pdf)
@@ -23,7 +23,7 @@ Before proceeding to the dedicated export articles, ensure you are familiar with
 The Grid export feature has the following specifics:
 
 * If the Grid is using `OnRead` and is exporting all pages, it will fire an additional `OnRead` event at the time of exporting, with a request `PageSize` of `0`. This will enable the component to obtain all data.
-* The time for export will be longer if:
+* Export takes longer when:
     * The Grid has a lot of records.
     * The Grid is in a WebAssembly app where all the code runs in the browser and in one thread.
 
@@ -37,9 +37,9 @@ In server-side Blazor apps, the file may become larger than the default SignalR 
 
 The Grid export feature has the following limitations:
 
-* Templates are not exported, because there is no provision in the framework for getting `RenderFragment` content at runtime. Thus, column, header or group header/footer templates are ignored. The headers in the exported file match the `Title` of the column. The exported values match the data from the column `Field`. If you need additional information, see if you can add it to a property in the model, or create your own file. Find a [project example on how to generate your own exported file](https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client). Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-excel).
+* Templates are not exported because the framework does not provide a way to get `RenderFragment` content at runtime. Column, header, and group header or footer templates are ignored. Headers in the exported file match the column `Title`, and exported values match the column `Field`. To include additional information, add it to a model property or create a custom file. See the [project example for generating a custom exported file](https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client). You can also learn how to [export an image rendered in a Grid column template](slug:grid-export-image-column-excel).
 * `bool` fields are exported as `TRUE` or `FALSE` strings, because there is no native boolean data type in the exported formats and these string values are the most common ones used in data and macros.
-* Dates are exported in the following format: `mm/dd/yyyy hh:mm:ss` plus the current app culture AM/PM specifier. The Excel date formats are different than .NET date formats and Excel may not always recognize the column as dates, for example, if the entire date format from the .NET culture is used. To customize the date formats, use the [Export Events](slug:grid-export-events).
+* Dates are exported in the following format: `mm/dd/yyyy hh:mm:ss` plus the current app culture AM/PM specifier. Excel date formats differ from .NET date formats, and Excel may not always recognize the column as a date, for example, if the entire date format from the .NET culture is used. To customize the date formats, use the [Export Events](slug:grid-export-events).
 * Numbers are exported in the following format which uses the current thread culture: `Convert.ToDouble(value)`. To customize the number formats use the [Export Events](slug:grid-export-events).
 * The Grid exports only `<GridColumn>` instances. Other types of columns are not exported (for example: command, checkbox, hierarchy, group and row-drag columns).
 

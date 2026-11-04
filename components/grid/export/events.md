@@ -1,7 +1,7 @@
 ---
 title: Export Events
 page_title: Grid - Export Events
-description: Export to Excel the Grid for Blazor.
+description: Handle Telerik UI for Blazor Grid export events to customize Excel, CSV, and PDF files before and after export.
 slug: grid-export-events
 tags: telerik,blazor,grid,export,events
 published: True
@@ -9,24 +9,24 @@ position: 15
 components: ["grid"]
 ---
 
-# Export Events
+# Grid Export Events
 
-You can customize the files exported to Excel and CSV by using the [OnBeforeExport](#onbeforeexport) and the [OnAfterExport](#onafterexport) events exposed to the `GridExcelExport` and `GridCsvExport` tags.
+You can customize files exported to Excel, CSV, and PDF with the [OnBeforeExport](#onbeforeexport) and [OnAfterExport](#onafterexport) events. These events are exposed by the `GridExcelExport`, `GridCsvExport`, and `GridPdfExport` tags.
 
-#### In This Article
+## In This Article
 
-  * [OnBeforeExport](#onbeforeexport)
+* [OnBeforeExport](#onbeforeexport)
     * [For Excel Export](#for-excel-export)
     * [For CSV Export](#for-csv-export)
     * [For PDF Export](#for-pdf-export)
-  * [OnAfterExport](#onafterexport)
+* [OnAfterExport](#onafterexport)
     * [For Excel Export](#for-excel-export-1)
     * [For CSV Export](#for-csv-export-1)
     * [For PDF Export](#for-pdf-export-1)
 
 ## OnBeforeExport
 
-The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `CsvExport` button and before the export process starts. You can use the event to configure the exported Grid columns or change the exported data. The event handler receives a `GridBeforeExcelExportEventArgs` and `GridBeforeCsvExportEventArgs` object, depending on the type of export, which provides the following properties:
+The `OnBeforeExport` event fires after the user clicks the `ExcelExport`, `CsvExport`, or `PdfExport` button and before the export process starts. Use the event to configure the exported Grid columns or change the exported data. The handler receives an event argument appropriate to the export type. The argument provides the following properties:
 
 ### For Excel Export
 
@@ -34,14 +34,14 @@ The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `Csv
 
     * `Width`&mdash;Define the width of the column **in pixels**.
     * `Title`&mdash;Define the column title to be shown in the Excel file header.
-    * `NumberFormat`&mdash;Provide an Excel-compatible number/date format
+    * `NumberFormat`&mdash;Provide an Excel-compatible number/date format.
     * `Field`&mdash;Set the data bound field of the column.
 
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
 * `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid](slug:grid-kb-export-selected-rows).
 
-* `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
+* `IsCancelled`&mdash;`bool`&mdash;Cancel the `OnBeforeExport` event by setting the `IsCancelled` property to `true`.
 
 >caption Using the Grid OnBeforeExport with Excel export
 
@@ -51,14 +51,14 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 * `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to CSV, [for example only the selected items in the Grid](slug:grid-kb-export-selected-rows).
 
-* `Columns`&mdash;`List<GridCsvExportColumn>`&mdash;A collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns`&mdash;`List<GridCsvExportColumn>`&mdash;A collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it to CSV:
 
-    * `Title`&mdash;Define the column title to be shown in the Excel file header.
+    * `Title`&mdash;Define the column title to be shown in the CSV file header.
     * `Field`&mdash;Set the data bound field of the column.
 
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridCsvExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
-* `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` field to `true`.
+* `IsCancelled`&mdash;`bool`&mdash;Cancel the `OnBeforeExport` event by setting the `IsCancelled` property to `true`.
 
 <demo metaUrl="client/grid/export-events-csv-before/" height="500"></demo>
 
@@ -75,7 +75,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 * `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to PDF, [for example only the selected items in the Grid](slug:grid-kb-export-selected-rows).
 
-* `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
+* `IsCancelled`&mdash;`bool`&mdash;Cancel the `OnBeforeExport` event by setting the `IsCancelled` property to `true`.
 
 >caption Using the Grid OnBeforeExport with PDF export
 
@@ -83,7 +83,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 ## OnAfterExport
 
-The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and before the generated file is provided to the user. You can use the event to make changes to the exported file. The event handler receives a `GridAfterExcelExportEventArgs` or `GridAfterCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
+The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and before the generated file is provided to the user. You can use the event to make changes to the exported file. The event handler receives an event argument appropriate to the export type, which provides the following property:
 
 ### For Excel Export
 
@@ -119,4 +119,3 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 * [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
 * [Change the default CSV delimiter (comma) during Grid export](slug:grid-kb-csv-export-change-field-delimiter)
 * [Blazor Grid](slug:grid-overview)
-*

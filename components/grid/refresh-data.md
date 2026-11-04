@@ -1,7 +1,7 @@
 ---
 title: Refresh Data
 page_title: Grid Refresh Data
-description: Refresh Grid Data using Observable Data or creating a new Collection reference.
+description: Refresh Telerik UI for Blazor Grid data with Rebind, observable data, new collection references, OnRead, or Entity Framework.
 slug: grid-refresh-data
 tags: telerik,blazor,grid,observable,data,new,collection
 published: True
@@ -9,9 +9,9 @@ position: 53
 components: ["grid"]
 ---
 
-# Grid - Refresh Data
+# Grid Refresh Data
 
-One of the key features of Telerik UI for Blazor Grid component is its ability to refresh the displayed data. This ensures that the Grid always presents the most up-to-date information, no matter if you are working with large datasets or frequently changing data sources. Understanding how to efficiently refresh the data in the Grid is crucial for maintaining both optimal performance and user experience. This guide covers various methods and best practices for refreshing data in the Telerik UI for Blazor Grid, helping you choose the right approach for your specific application needs related to [Blazor DataGrid](https://demos.telerik.com/blazor-ui/grid/overview) live update.
+The Telerik UI for Blazor Grid provides several ways to refresh displayed data. This article explains how to choose an approach for observable data, new collection references, `OnRead`, and Entity Framework data sources.
 
 In this article:
 
@@ -90,7 +90,7 @@ This means that you need to ensure that the view-model will be updated as well, 
 
 * Use the [`OnRead` event to perform the Grid data operations](slug:components/grid/manual-operations). The Grid [fires `OnRead` automatically after edit operations](slug:grid-editing-overview#onread-event) and this allows the app to query the database for the already updated data (which will also bring in other updates that other uses may have made).
 
-* Update the local view-model data yourself with the information the grid event gives you (e.g., insert the new item in it, or remove a deleted item, or update the fields of an edited item). You can find similar code used in the [Grid - Inline Editing Live Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline).
+* Update the local view-model data yourself with the information the Grid event gives you, for example, insert the new item, remove a deleted item, or update the fields of an edited item. You can find similar code in the [Grid - Inline Editing Live Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline).
 
     * It is important to ensure the change happens on the object that the Grid uses. Methods like `.FirstOrDefault()` will return a new reference and changing them will not trigger a UI update.
 

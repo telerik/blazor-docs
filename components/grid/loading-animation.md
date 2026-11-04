@@ -1,7 +1,7 @@
 ---
 title: Loading Animation
 page_title: Grid Loading Animation
-description: The Blazor Data Grid by Telerik UI provides a built-in loading animation that appears automatically when the grid detects a long data operation.
+description: Configure the Telerik UI for Blazor Grid loading animation for long data operations and display a LoaderContainer during initial loading.
 slug: grid-loading
 tags: telerik,blazor,grid,loading,animation,indicator
 published: True

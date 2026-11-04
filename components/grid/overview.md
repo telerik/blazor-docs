@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid Overview
-description: The Blazor Grid provides a comprehensive set of ready-to-use features that cover everything - paging, sorting, filtering, editing and more.
+description: Explore Telerik UI for Blazor Grid features for paging, sorting, filtering, editing, grouping, virtualization, templates, and accessibility.
 slug: grid-overview
 tags: telerik,blazor,grid,datagrid,overview
 published: True
@@ -16,7 +16,7 @@ This article provides a quick introduction to get your first <a href="https://de
 
 This article applies to Telerik UI for Blazor, .NET 8 and later, and the Grid component.
 
-<span class="cta-panel-big-module--container--c08a9 d-print-none "><span class="row align-items-center justify-content-center cta-panel-big-module--row--9b71a"><span class="col-auto"><img class="cta-panel-big-module--icon--a648c" src="/images/avatar-ninja.svg" alt="AI coding assistants icon"></span><span class="col-12 col-sm"><span class="cta-panel-big-module--message--40a0f">Tired of reading docs? With our new AI Coding Assistants, you can add, configure, and troubleshoot Telerik UI for Blazor components—right inside your favorite AI-powered IDE: Visual Studio, VS Code, Cursor, and more. Start building faster, smarter, and with contextual intelligence powered by our docs/APIs:</span></span><span class="col-12 col-lg-auto"><a class="cta-panel-big-module--btnTrial--38b3e" href="https://www.telerik.com/blazor-ui/documentation/ai/overview?utm_source=ai-assistants-docs" target="_blank">Try AI Assistants</a></span></span></span>
+<span class="cta-panel-big-module--container--c08a9 d-print-none "><span class="row align-items-center justify-content-center cta-panel-big-module--row--9b71a"><span class="col-auto"><img class="cta-panel-big-module--icon--a648c" src="/images/avatar-ninja.svg" alt="Telerik AI Assistants"></span><span class="col-12 col-sm"><span class="cta-panel-big-module--message--40a0f">Tired of reading docs? With our new AI Coding Assistants, you can add, configure, and troubleshoot Telerik UI for Blazor components—right inside your favorite AI-powered IDE: Visual Studio, VS Code, Cursor, and more. Start building faster, smarter, and with contextual intelligence powered by our docs/APIs:</span></span><span class="col-12 col-lg-auto"><a class="cta-panel-big-module--btnTrial--38b3e" href="https://www.telerik.com/blazor-ui/documentation/ai/overview?utm_source=ai-assistants-docs" target="_blank">Try AI Assistants</a></span></span></span>
 
 The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features that cover everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation, and accessibility support.
 
@@ -66,7 +66,7 @@ The Blazor Grid supports all fundamental data operations out-of-the-box:
 
 ## Editing
 
-The Grid can perform CRUD operations on its current data - add, edit and delete rows. It exposes events that let you control the editing and commit changes to the actual data source.
+The Grid can perform CRUD operations on its current data&mdash;add, edit, and delete rows. It exposes events that let you control editing and commit changes to the actual data source.
 
 The Grid offers several editing modes with different user experiences: in-cell, inline, and popup.
 

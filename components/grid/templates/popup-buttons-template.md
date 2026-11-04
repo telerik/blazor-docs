@@ -9,11 +9,11 @@ position: 50
 components: ["grid"]
 ---
 
-# Popup Buttons Template
+# Grid Popup Buttons Template
 
 With the `ButtonsTemplate`, you can personalize the appearance and behavior of the buttons in the create/edit Popup window of the Grid component.
 
->caption Modifying the buttons in the create/edit Popup by using a `ButtonsTemplate`.
+>caption Modifying the buttons in the create/edit Popup with a `ButtonsTemplate`
 
 <demo metaUrl="client/grid/templates-popup-buttons/" height="600"></demo>
 

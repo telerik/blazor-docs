@@ -153,5 +153,5 @@ This KB article answers the following questions:
 
 * [Grid Filtering](slug:components/grid/filtering)
 * [Grid Filter Templates](slug:grid-templates-filter)
-* [Grid Filter From Code](slug:grid-filter-row#filter-from-code)
+* [Grid Filter From Code](slug:grid-filter-row#filtering-from-code)
 * [Use Filter Operator Drop-Down in Filter Template](slug:grid-kb-filter-operator-dropdown)

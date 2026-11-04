@@ -1,7 +1,7 @@
 ---
 title: Row
 page_title: Grid - Row Template
-description: Use custom row templates in Grid for Blazor.
+description: Use a custom Telerik UI for Blazor Grid row template to control row markup, cells, and selected Grid features.
 slug: grid-templates-row
 tags: telerik,blazor,grid,templates,row
 published: True
@@ -9,17 +9,17 @@ position: 10
 components: ["grid"]
 ---
 
-# Row Template
+# Grid Row Template
 
-The row template allows you to define in your own code the entire contents of the `<tr>` element the grid will render for each record. To set it, provide contents to the `<RowTemplate>` inner tag of the grid.
+The row template allows you to define the entire contents of the `<tr>` element that the Grid renders for each record. To set it, provide content to the `<RowTemplate>` inner tag of the Grid.
 
 It can be convenient if you want to use templates for most or all of the columns, as it requires less markup than setting individual templates for many columns.
 
 The contents of the row template must be `<td>` elements and their number (or total `colspan`) must match the number of columns defined in the grid.
 
-You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to set the name of the context variable. Its type is the model type to which the grid is bound.
+You can use the `Context` attribute of the `<RowTemplate>` tag of the Grid to set the name of the context variable. Its type is the model type to which the Grid is bound.
 
->important Using the row template takes functionality away from the grid because it no longer controls its own rendering. For example, InCell and Inline editing could not render editors, detail templates will not be available, column resizing, locking, visibility and reordering cannot change the data cells anymore, only the headers, and Checkbox selection must be implemented by the app. You can find an example to get started in the following knowledge base article: [Implement Built-in Functions when Using Grid Row Template](slug:grid-kb-row-template-simulate-built-in-functions).
+>important Using the row template gives the application control over rendering, so the Grid cannot provide some built-in features. InCell and Inline editing cannot render editors, detail templates are unavailable, and column resizing, locking, visibility, and reordering affect only the headers. The application must implement checkbox selection. See [Implement Built-in Functions when Using Grid Row Template](slug:grid-kb-row-template-simulate-built-in-functions) for an example.
 
 >caption Using a row template
 
