@@ -2,7 +2,7 @@
 title: Overview
 page_title: Telerik Blazor MCP Server Overview
 description: Learn about the Telerik Blazor MCP Server, choose between orchestrated and targeted modes, and use AI Tools with Telerik UI for Blazor components.
-slug: ai-overview
+slug: agentic-ui-generator-overview
 tags: ai, mcp, assistant, agentic, generator
 published: True
 previous_url: /ai/ai-coding-assistant/overview
@@ -175,7 +175,7 @@ For best results, use the Upgrade Assistant with the highest-tier model availabl
 
 Choose the orchestration-first flow when you can describe a complete page or component outcome in one prompt. Use `#telerik_ui_generator` to let the Agentic UI Generator select assistants and combine their output.
 
-Choose targeted mode when you need a focused change to an existing project. Call a specialized assistant directly for layout, component configuration, styling, theme, or icon updates. For details, see [Target the Assistants (Advanced)](slug:agentic-ui-generator-prompt-library#assistant-specific-prompts).
+Choose targeted mode when you need a focused change to an existing project. Call a specialized assistant directly for layout, component configuration, styling, theme, or icon updates. For details, see [Target the Assistants (Advanced)](slug:agentic-ui-generator-prompt-library#target-a-specific-skill-or-assistant).
 
 ## Example Workflows
 
@@ -191,7 +191,7 @@ Use these scenarios to choose a starting point:
 
 The Agentic UI Generator also comes with an AI `telerik-blazor-plugin` that brings these capabilities directly into your agent. Instead of tools, the plugin delivers the functionality as skills: purpose-built instructions that your agent picks up automatically from context or that you can call explicitly with a slash command.
 
-To explore the available skills and usage examples, see [Prompt Library](slug:agentic-ui-generator-prompt-library#skills-and-assistant-prompts).
+To explore the available skills and usage examples, see [Prompt Library](slug:agentic-ui-generator-prompt-library#target-a-specific-skill-or-assistant).
 
 ## Start Building in Minutes
 
