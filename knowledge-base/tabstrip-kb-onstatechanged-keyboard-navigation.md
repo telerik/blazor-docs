@@ -75,15 +75,16 @@ The following example demonstrates the workaround:
 >caption Persist the active TabStrip tab after keyboard navigation
 
 ````RAZOR
-<TelerikTabStrip OnStateChanged="@HandleStateChanged"
+<TelerikTabStrip ActiveTabId="@State.ActiveTabId"
+                 OnStateChanged="@HandleStateChanged"
                  ActiveTabIdChanged="@HandleActiveTabIdChanged">
-    <TabStripTab Title="Tab 1">
+    <TabStripTab Id="tab-1" Title="Tab 1">
         Content 1
     </TabStripTab>
-    <TabStripTab Title="Tab 2">
+    <TabStripTab Id="tab-2" Title="Tab 2">
         Content 2
     </TabStripTab>
-    <TabStripTab Title="Tab 3">
+    <TabStripTab Id="tab-3" Title="Tab 3">
         Content 3
     </TabStripTab>
 </TelerikTabStrip>

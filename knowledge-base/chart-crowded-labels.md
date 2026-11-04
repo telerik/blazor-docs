@@ -39,7 +39,7 @@ The general approach to customize the Chart is to apply settings using nested ta
 * for [categorical charts](slug:components/chart/databind#series-types) -  `<ChartCategoryAxisLabels>` under the `<ChartCategoryAxis>`.
 * for [numerical charts](slug:components/chart/databind#series-types) - `<ChartXAxisLabels>` and `<ChartYAxisLabels>` under the `<ChartXAxis>` and `<ChartYAxis>`.
 
-Date axes are categorical axes. Set the `Type` property of the `ChartCategoryAxis` to `ChartCategoryAxisType.Date` and provide `DateTime` categories to the chart. Place the `ChartCategoryAxisLabelsRotation` tag under `ChartCategoryAxisLabels` for date-axis labels.
+For date-based categorical charts, set the `Type` property of the `ChartCategoryAxis` to `ChartCategoryAxisType.Date` and provide `DateTime` categories to the chart. Place the `ChartCategoryAxisLabelsRotation` tag under `ChartCategoryAxisLabels` to rotate the labels. For Scatter and ScatterLine charts with a date-based X axis, use the numerical-axis label settings under `ChartXAxisLabels`, including `ChartXAxisLabelsRotation` to rotate the labels.
 
 
 You can control the `Labels` by applying the following settings to the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>` tags depending on the Chart type:
