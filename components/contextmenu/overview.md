@@ -52,6 +52,14 @@ To illustrate the purpose of each Context Menu item, the Blazor Context Menu all
 
 You can use the functionality of the built-in templates and customize what is rendered in the items. [Read more about the available Blazor Context Menu templates...](slug:contextmenu-templates-overview)
 
+## Descriptions, Item Actions, and Group Headers
+
+The Context Menu items can display additional content and structure:
+
+* A description, which is a secondary line of text below the item label. Set the `DescriptionField` parameter to enable it. [Read more about Context Menu data bindings...](slug:contextmenu-data-binding-overview#data-bindings)
+* Trailing content, such as a keyboard shortcut, before the expand arrow. [Read more about the Context Menu item actions template...](slug:contextmenu-item-actions-template)
+* Group headers, which organize the items under labeled sections at the root level and in the child popups. [Read more about the Context Menu group headers...](slug:contextmenu-group-header-template)
+
 ## Events
 
 The Context Menu generates events that you can handle and further customize its behavior. [Read more about the supported Blazor Context Menu events...](slug:contextmenu-events)
@@ -64,6 +72,7 @@ The following table lists Context Menu parameters, which are not related to othe
 | --- | --- | --- |
 | `Class` | `string` | Renders an additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme](slug:themes-override). |
 | `Selector` | `string` | A CSS selector of the target elements where the Context Menu will be shown.|
+| `Size` | `string` <br /> (`ThemeConstants.Menu.Size.Medium`) | The size of the Context Menu items. Use the members of the `ThemeConstants.Menu.Size` class: `Small`, `Medium`, or `Large`. When set to `null`, the component renders no size CSS class. [Read more about the Menu appearance](slug:components/menu/appearance). |
 
 ### Popup settings
 

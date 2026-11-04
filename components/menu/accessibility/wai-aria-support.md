@@ -34,6 +34,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | `.k-menu-item[aria-haspopup]` | `aria-expanded=true/false` | Indicates whether the item is expanded. |
 | `.k-menu-item.k-disabled` | `aria-disabled=true` | Informs assistive technologies that a Menu item is disabled. |
 | `.k-menu-expand-arrow` | `aria-hidden=true` | The Menu item expand arrow elements are hidden from the assistive technologies. |
+| `.k-menu-group-header` | `role=presentation` | The group headers are not interactive. They have no `tabindex` and are excluded from the focus and the keyboard navigation. |
 | `.k-menu-popup .k-menu-group` | `role=menu` | The role of the nested (not root-level) menu displayed in a popup. |
 |  | `id` | Each nested menu has a deterministic id attribute that is linked to the aria-controls attribute ot its parent. |
 

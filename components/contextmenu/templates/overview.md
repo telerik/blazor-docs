@@ -17,6 +17,10 @@ The Context Menu component provides templates you can use to customize its appea
 
 * [Content Template](slug:contextmenu-content-template) - lets you control the rendering of the entire popup, without having to us the built-in `<ul> --> <li>` structure.
 
+* [Item Actions Template](slug:contextmenu-item-actions-template) - renders trailing content in each item, such as a keyboard shortcut, before the expand arrow.
+
+* [Group Header Template](slug:contextmenu-group-header-template) - customizes the content of the non-interactive group headers that organize the items.
+
 
 ## See Also
 
