@@ -137,63 +137,7 @@ The following example handles all ImageEditor events. Open an image from your de
 
 >caption Using the ImageEditor events
 
-````RAZOR
-<TelerikImageEditor Width="100%"
-                    Height="600px"
-                    OnOpen="@OnImageEditorOpen"
-                    OnExecute="@OnImageEditorExecute"
-                    OnExport="@OnImageEditorExport"
-                    OnError="@OnImageEditorError">
-    <ImageEditorSettings>
-        <ImageEditorFileSelectSettings AllowedExtensions="@AllowedExtensions" MaxFileSize="10485760" />
-    </ImageEditorSettings>
-</TelerikImageEditor>
-
-<h3>Event Log</h3>
-
-<ul>
-    @foreach (string logEntry in EventLog)
-    {
-        <li>@logEntry</li>
-    }
-</ul>
-
-@code {
-    private List<string> EventLog { get; set; } = new List<string>();
-
-    private List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".jpeg", ".png", ".webp" };
-
-    private void OnImageEditorOpen(ImageEditorOpenEventArgs args)
-    {
-        if (args.Width > 8000 || args.Height > 8000)
-        {
-            args.IsCancelled = true;
-            EventLog.Insert(0, $"OnOpen cancelled: {args.FileName} is too large.");
-
-            return;
-        }
-
-        EventLog.Insert(0, $"OnOpen: {args.FileName} ({args.Width} x {args.Height} px, {args.FileSize} bytes)");
-    }
-
-    private void OnImageEditorExecute(ImageEditorExecuteEventArgs args)
-    {
-        EventLog.Insert(0, $"OnExecute: {args.Reason} {args.Command}");
-    }
-
-    private void OnImageEditorExport(ImageEditorExportEventArgs args)
-    {
-        args.FileName = $"edited-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}";
-
-        EventLog.Insert(0, $"OnExport: {args.FileName} as {args.Format}");
-    }
-
-    private void OnImageEditorError(ImageEditorError args)
-    {
-        EventLog.Insert(0, $"OnError: {args.Message}");
-    }
-}
-````
+<demo metaUrl="client/imageeditor/events/" height="800"></demo>
 
 ## Next Steps
 

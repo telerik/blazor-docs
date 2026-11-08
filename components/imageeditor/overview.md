@@ -25,35 +25,7 @@ To use the Telerik ImageEditor for Blazor:
 
 >caption Basic Blazor ImageEditor
 
-````RAZOR
-<TelerikImageEditor Width="100%"
-                    Height="600px"
-                    OnOpen="@OnImageEditorOpen"
-                    OnExecute="@OnImageEditorExecute">
-    <ImageEditorSettings>
-        <ImageEditorFileSelectSettings AllowedExtensions="@AllowedExtensions"
-                                       MaxFileSize="10485760" />
-    </ImageEditorSettings>
-</TelerikImageEditor>
-
-<p>Last edit: @LastEdit</p>
-
-@code {
-    private List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".jpeg", ".png" };
-
-    private string LastEdit { get; set; } = "None";
-
-    private void OnImageEditorOpen(ImageEditorOpenEventArgs args)
-    {
-        LastEdit = $"Opened {args.FileName} ({args.Width} x {args.Height} px)";
-    }
-
-    private void OnImageEditorExecute(ImageEditorExecuteEventArgs args)
-    {
-        LastEdit = $"{args.Reason}: {args.Command}";
-    }
-}
-````
+<demo metaUrl="client/imageeditor/overview/" height="800"></demo>
 
 ## Client-Side Image Processing
 
