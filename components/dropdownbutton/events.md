@@ -25,10 +25,6 @@ The event argument type is [`MouseEventArgs`](https://docs.microsoft.com/en-us/d
  
 The event handler can be synchronous (`void`) or asynchronous (`async Task`).
 
->caption Handling the DropDownButton OnClick event
-
-<demo metaUrl="client/dropdownbutton/events/" height="300"></demo>
-
 ## OnClose
 
 The `OnClose` event fires before the DropDownButton popup closes. Set the `IsCancelled` property of the `DropDownButtonCloseEventArgs` argument to `true` to keep the popup open.
@@ -41,6 +37,11 @@ The `OnOpen` event fires before the DropDownButton popup opens. Set the `IsCance
 
 The event fires for user interaction and when calling `OpenAsync()`. It does not fire when the popup is already open.
 
+## Example
+
+>caption Handling the DropDownButton events
+
+<demo metaUrl="client/dropdownbutton/events/" height="300"></demo>
 
 ## See Also
 
