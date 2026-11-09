@@ -25,7 +25,9 @@ Set the `Data` parameter to a `byte[]` that holds the image content. To load ano
 
 `Data` takes precedence over `ImageUrl`. If both parameters have a value, the component displays `Data`.
 
->caption Load an image from a byte array
+This example runs in a server-side component and reads a file from the server's `wwwroot` folder. In Blazor WebAssembly, fetch the image bytes with a configured `HttpClient` and its `GetByteArrayAsync` method instead.
+
+>caption Load an image from a byte array in a server-side component
 
 ````RAZOR.skip-repl
 @inject IWebHostEnvironment HostEnvironment
