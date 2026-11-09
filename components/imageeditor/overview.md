@@ -29,7 +29,7 @@ To use the Telerik ImageEditor for Blazor:
 
 ## Client-Side Image Processing
 
-The ImageEditor performs all image processing in the browser. The image data does not travel to the .NET runtime, so Blazor Server and Blazor WebAssembly apps behave in the same way, and large images do not load the SignalR connection.
+The ImageEditor performs all image processing in the browser without sending intermediate edits to the .NET runtime. In Blazor Server apps, loading an image through `Data` transfers the source bytes to the browser, and [`GetFileAsync`](slug:imageeditor-export#blazor-server-apps-and-large-images) transfers the edited image back to .NET.
 
 The component moves the heavy pixel passes&mdash;filters, color adjustments, blur, and pixelate&mdash;to a pool of Web Workers, so that sliders and canvas gestures stay responsive. The worker script is part of `telerik-blazor.js` and starts from a Blob URL, so there is no additional file to deploy. If the app uses a Content Security Policy, allow `worker-src 'self' blob:`. When workers are not available, the ImageEditor runs the same passes on the main thread and produces identical results without an error.
 
