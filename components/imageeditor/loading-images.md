@@ -48,9 +48,11 @@ This example runs in a server-side component and reads a file from the server's 
 
 ### Blazor Server Apps and Large Images
 
-In [Blazor Server](slug:getting-started/web-app) apps, the `Data` parameter transfers the image from the .NET runtime to the browser over the SignalR WebSocket. The default maximum message size is 32 KB. To load larger images, [increase the maximum SignalR message size](slug:common-kb-increase-signalr-max-message-size).
+In [Blazor Server](slug:getting-started/web-app) apps, the `Data` parameter transfers the image from the .NET runtime to the browser over the SignalR WebSocket. This is an outgoing transfer from the server, so the `MaximumReceiveMessageSize` setting does not limit it, because that setting limits only the messages that the server receives.
 
 After the ImageEditor loads the image, all editing operations run in the browser and do not transfer the image to the server. See [Client-Side Image Processing](slug:imageeditor-overview#client-side-image-processing).
+
+For the browser-to-server transfer that `MaximumReceiveMessageSize` does limit, such as obtaining the edited image with `GetFileAsync`, see [Blazor Server Apps and Large Images](slug:imageeditor-export#blazor-server-apps-and-large-images) in the Export article.
 
 ## Load Image from URL
 

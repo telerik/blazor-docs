@@ -53,6 +53,7 @@ The CSP policy directives below ensure that the Telerik Blazor components work a
       script-src 'self';
       style-src 'self' 'unsafe-inline';
       img-src 'self' data:;
+      worker-src 'self' blob:;
 " />
 ````
 
@@ -66,5 +67,6 @@ The CSP policy directives below ensure that the Telerik Blazor components work a
       style-src 'self' 'unsafe-inline' https://blazor.cdn.telerik.com https://unpkg.com;
       img-src 'self' data:;
       font-src 'self' https://blazor.cdn.telerik.com https://unpkg.com;
+      worker-src 'self' blob:;
 " />
 ````
