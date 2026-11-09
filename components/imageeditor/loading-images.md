@@ -13,8 +13,8 @@ components: ["imageeditor"]
 
 The [ImageEditor](slug:imageeditor-overview) can display an image from three sources:
 
-* [A `byte[]` in the application](#load-an-image-from-a-byte-array)
-* [A URL](#load-an-image-from-a-url)
+* [A `byte[]` in the application](#load-image-from-byte-array)
+* [A URL](#load-image-from-url)
 * [A file that the user selects on their device](#let-users-open-a-file)
 
 `Data` takes precedence over `ImageUrl`. If both parameters have a value, the component displays `Data`.
