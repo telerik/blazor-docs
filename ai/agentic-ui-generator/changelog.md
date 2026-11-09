@@ -13,6 +13,13 @@ tag: updated
 
 Learn about the latest changes, improvements and bug fixes in the Telerik UI for Blazor AI Tools and the Agentic UI Generator. The updates are structured in a chronological order with the newest ones appearing first.
 
+## October, 2026
+
+### Highlights
+
+* Added the Localization Assistant to the Telerik UI for Blazor MCP server. It provides guidance for localization and helps translate application resources.
+* Enhanced the [Layout Assistant](slug:agentic-ui-generator-overview#layout-assistant) to provide shorter, more focused responses with less repetitive content. The responses still include the information that you need to select and apply CSS utility classes from the [Progress Design System](https://www.telerik.com/design-system/docs/).
+
 ## August, 2026
 
 ### Highlights
