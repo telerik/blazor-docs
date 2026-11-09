@@ -50,7 +50,7 @@ The Menu items can display additional content and structure:
 
 * A description, which is a secondary line of text below the item label. Set the `DescriptionField` parameter to enable it. [Read more about Menu data bindings...](slug:components/menu/data-binding/overview#data-bindings)
 * Trailing content, such as a keyboard shortcut, before the expand arrow. Use the `ItemActionsTemplate` to render it. [Read more about the Menu item actions template...](slug:components/menu/templates#itemactionstemplate)
-* Group headers, which organize the child items in a popup under labeled sections. [Read more about the Menu group headers...](slug:components/menu/templates#groupheadertemplate)
+* Group headers, which organize the child items in a popup under labeled sections. [Read more about Menu item grouping...](slug:components/menu/item-grouping)
 
 ## Show and Hide Behavior
 

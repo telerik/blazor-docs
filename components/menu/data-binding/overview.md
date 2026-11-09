@@ -51,7 +51,7 @@ The menu items provide the following features that you control through the corre
 
 * `Description` - an optional secondary line of text below the item text. The Menu renders the description only when you set the `DescriptionField` parameter and the field value is a non-empty `string`. If the field is missing or is not a `string`, the Menu does not render a description.
 
-* `GroupHeader` - when set to `true`, the child item renders as a non-interactive group header in its popup. The group header organizes the items that follow it. The root items of the Menu ignore this field. [Read more about group headers...](slug:components/menu/templates#groupheadertemplate)
+* `GroupHeader` - when set to `true`, the child item renders as a non-interactive group header in its popup. The group header organizes the items that follow it. The root items of the Menu ignore this field. [Read more about item grouping...](slug:components/menu/item-grouping)
 
 ## Data Bindings
 

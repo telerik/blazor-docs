@@ -48,9 +48,7 @@ The template receives an `ItemActionsTemplateContext<TItem>` object as its `cont
 
 ## GroupHeaderTemplate
 
-The Menu can organize the child items in a popup under labeled group headers. To create a group header, set the [`GroupHeader` field](slug:components/menu/data-binding/overview#menu-item-features) of a child item to `true`. The group header applies to the items that follow it until the next group header.
-
-By default, the group header displays the item text and icon. Use the `GroupHeaderTemplate` to render custom content instead.
+Use the `GroupHeaderTemplate` to render custom content in a [Menu group header](slug:components/menu/item-grouping).
 
 The template receives a `GroupHeaderTemplateContext<TItem>` object as its `context`. The object exposes the following properties:
 
@@ -58,12 +56,6 @@ The template receives a `GroupHeaderTemplateContext<TItem>` object as its `conte
 | --- | --- | --- |
 | `Item` | `TItem` | The data item of the current group header. |
 | `Index` | `string` | The position of the group header in the data hierarchy. The value uses the same format as the `Index` of the [`ItemActionsTemplate` context](#itemactionstemplate). |
-
-Group headers have the following behavior:
-
-* They are not interactive. The Menu does not focus group headers and skips them during keyboard navigation.
-* They are different from [separators](slug:components/menu/data-binding/overview#menu-item-features). You can use both in the same popup.
-* They apply only to child items. The root items of the Menu ignore the `GroupHeader` field and render as regular items. The [ContextMenu](slug:contextmenu-group-header-template) supports group headers at the root level too.
 
 >note The content of the `GroupHeaderTemplate` must remain non-interactive. Do not render buttons, links, or other focusable elements in it.
 
@@ -93,5 +85,6 @@ The example below shows a Menu configuration that is suitable for use in `MainLa
 
 ## See Also
 
+* [Menu Item Grouping](slug:components/menu/item-grouping)
 * [Data Binding a Menu](slug:components/menu/data-binding/overview)
 * [Live Demo: Menu Template](https://demos.telerik.com/blazor-ui/menu/template)

@@ -24,7 +24,7 @@ By default, the group header displays the item text and icon. To customize this 
 
 >caption Group Context Menu items under labeled headers
 
-<demo metaUrl="client/contextmenu/templates/group-header/" height="400"></demo>
+<demo metaUrl="client/contextmenu/item-grouping/" height="400"></demo>
 
 ## See Also
 
