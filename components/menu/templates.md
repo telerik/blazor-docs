@@ -13,9 +13,9 @@ components: ["menu"]
 
 The Menu component allows you to define custom templates for its items. This article explains how to use them:
 
-* [`ItemTemplate`](#itemtemplate)
-* [`ItemActionsTemplate`](#itemactionstemplate)
 * [`GroupHeaderTemplate`](#groupheadertemplate)
+* [`ItemActionsTemplate`](#itemactionstemplate)
+* [`ItemTemplate`](#itemtemplate)
 
 ## ItemTemplate
 
