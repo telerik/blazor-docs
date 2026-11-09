@@ -51,7 +51,7 @@ The menu items provide the following features that you control through the corre
 
 * `Description` - an optional secondary line of text below the item text. The Context Menu renders the description only when you set the `DescriptionField` parameter and the field value is a non-empty `string`. If the field is missing or is not a `string`, the Context Menu does not render a description.
 
-* `GroupHeader` - when set to `true`, the item renders as a non-interactive group header. The group header organizes the items that follow it. The Context Menu supports group headers both at the root level and in the child popups. [Read more about group headers...](slug:contextmenu-group-header-template)
+* `GroupHeader` - when set to `true`, the item renders as a non-interactive group header. The group header organizes the items that follow it. The Context Menu supports group headers both at the root level and in child popups. [Read more about item grouping...](slug:contextmenu-item-grouping)
 
 ## Data Bindings
 
@@ -71,8 +71,6 @@ The properties of a menu item match directly to a field of the model the menu is
 * GroupHeaderField => GroupHeader
 
 >tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings. The only exception is `DescriptionField`, which you must set explicitly to display descriptions.
-
->note If your model has a `GroupHeader` property with a `true` value, the Context Menu renders the respective items as group headers, even if you don't set `GroupHeaderField`.
 
 @[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
 

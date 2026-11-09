@@ -58,7 +58,7 @@ The Context Menu items can display additional content and structure:
 
 * A description, which is a secondary line of text below the item label. Set the `DescriptionField` parameter to enable it. [Read more about Context Menu data bindings...](slug:contextmenu-data-binding-overview#data-bindings)
 * Trailing content, such as a keyboard shortcut, before the expand arrow. [Read more about the Context Menu item actions template...](slug:contextmenu-item-actions-template)
-* Group headers, which organize the items under labeled sections at the root level and in the child popups. [Read more about the Context Menu group headers...](slug:contextmenu-group-header-template)
+* Group headers, which organize the items under labeled sections at the root level and in child popups. [Read more about Context Menu item grouping...](slug:contextmenu-item-grouping)
 
 ## Events
 
