@@ -17,13 +17,13 @@ The [ImageEditor](slug:imageeditor-overview) can display an image from three sou
 * [A URL](#load-an-image-from-a-url)
 * [A file that the user selects on their device](#let-users-open-a-file)
 
+`Data` takes precedence over `ImageUrl`. If both parameters have a value, the component displays `Data`.
+
 The component also allows you to [restrict the files that users can open](#file-restrictions) and shows an [error state](#error-state) when a file fails to load.
 
-## Load an Image from a Byte Array
+## Load Image from Byte Array
 
 Set the `Data` parameter to a `byte[]` that holds the image content. To load another image, assign a new array instance to the parameter. To clear the editor, set `Data` to `null` or to an empty array.
-
-`Data` takes precedence over `ImageUrl`. If both parameters have a value, the component displays `Data`.
 
 This example runs in a server-side component and reads a file from the server's `wwwroot` folder. In Blazor WebAssembly, fetch the image bytes with a configured `HttpClient` and its `GetByteArrayAsync` method instead.
 
@@ -46,7 +46,13 @@ This example runs in a server-side component and reads a file from the server's 
 }
 ````
 
-## Load an Image from a URL
+### Blazor Server Apps and Large Images
+
+In [Blazor Server](slug:getting-started/web-app) apps, the `Data` parameter transfers the image from the .NET runtime to the browser over the SignalR WebSocket. The default maximum message size is 32 KB. To load larger images, [increase the maximum SignalR message size](slug:common-kb-increase-signalr-max-message-size).
+
+After the ImageEditor loads the image, all editing operations run in the browser and do not transfer the image to the server. See [Client-Side Image Processing](slug:imageeditor-overview#client-side-image-processing).
+
+## Load Image from URL
 
 Set the `ImageUrl` parameter to the address of the image. The component uses `ImageUrl` only when `Data` is `null` or empty.
 
@@ -68,7 +74,7 @@ When no image is loaded, the ImageEditor displays an empty state with a button t
 
 The component processes the selected file in the browser and fires [`OnOpen`](slug:imageeditor-events#onopen) before it displays the image. Use the event to inspect the file name, extension, size, and pixel dimensions, or to cancel the operation.
 
-## File Restrictions
+### File Restrictions
 
 Configure the allowed files through the `<ImageEditorFileSelectSettings>` tag inside the `<ImageEditorSettings>` tag. The ImageEditor builds the supported-formats text in the empty state and in the [error state](#error-state) from the allowed extensions.
 
@@ -85,7 +91,7 @@ Configure the allowed files through the `<ImageEditorFileSelectSettings>` tag in
 <TelerikImageEditor Width="100%" Height="600px">
     <ImageEditorSettings>
         <ImageEditorFileSelectSettings AllowedExtensions="@AllowedExtensions"
-                                       MaxFileSize="5242880" />
+                                       MaxFileSize="@(5 * 1024 * 1024)" />
     </ImageEditorSettings>
 </TelerikImageEditor>
 

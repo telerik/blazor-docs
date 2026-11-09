@@ -77,7 +77,6 @@ The following shortcuts apply when editable text is active or selected.
 ## Notes
 
 * On macOS, the `Command` key replaces `Ctrl` for the command shortcuts.
-* The shortcuts that act on an image or on a selected object require a loaded image.
 * While the text editor has focus, the component handles the text formatting shortcuts and `Escape`, but not the other editor shortcuts.
 * `Backspace` does not delete the selected object.
 

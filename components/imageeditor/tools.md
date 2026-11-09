@@ -41,13 +41,17 @@ The toolbar sits above the canvas and provides the following tools:
 
 The sidebar lists the editing tools. Selecting a tool opens its pane with the related options.
 
-### Resize
+### Adjustments
 
-Changes the pixel dimensions of the image. The pane provides:
+Changes the image tone with a live preview while the user drags a slider. The available adjustments are Brightness, Exposure, Contrast, Saturation, Hue, Blur, and Opacity.
 
-* Width and height in pixels or percentage.
-* A lock that preserves the aspect ratio.
-* Resize handles on the canvas.
+### Blur
+
+Hides sensitive parts of the image. The pane provides:
+
+* Blur or pixelate mode.
+* Rectangular or elliptical area.
+* Adjustable intensity.
 
 ### Crop
 
@@ -58,6 +62,22 @@ Removes the areas outside the crop rectangle. The pane provides:
 * Landscape or portrait orientation.
 * Explicit crop width and height.
 
+### Filters
+
+Applies a preset color treatment. Each filter displays a thumbnail preview of the current image. The available filters are None, Black and White, Grayscale, Sepia, Warm, Cold, Chrome, and Invert.
+
+### Frame
+
+Draws a frame around the image. The pane provides a None, Single, or Multiple frame type, together with thickness, offset, roundness, stroke type, and color.
+
+### Resize
+
+Changes the pixel dimensions of the image. The pane provides:
+
+* Width and height in pixels or percentage.
+* A lock that preserves the aspect ratio.
+* Resize handles on the canvas.
+
 ### Rotate
 
 Changes the image orientation. The pane provides:
@@ -66,9 +86,9 @@ Changes the image orientation. The pane provides:
 * Straightening between -45 and 45 degrees.
 * Horizontal and vertical flip.
 
-### Text
+### Shadow
 
-Adds text boxes that the user can edit directly on the canvas. The pane provides font family, font size, bold, italic, underline, strikethrough, all caps, alignment, color, and opacity.
+Draws a shadow around the image. The pane provides position, blur, spread, color, and opacity.
 
 ### Shapes
 
@@ -78,29 +98,9 @@ Adds a shape to the canvas. The available shapes are Square, Rectangle, Circle, 
 * Stroke type&mdash;Solid, Dashed, and Dotted.
 * Stroke color, stroke width, fill color, and opacity.
 
-### Blur
+### Text
 
-Hides sensitive parts of the image. The pane provides:
-
-* Blur or pixelate mode.
-* Rectangular or elliptical area.
-* Adjustable intensity.
-
-### Adjustments
-
-Changes the image tone with a live preview while the user drags a slider. The available adjustments are Brightness, Exposure, Contrast, Saturation, Hue, Blur, and Opacity.
-
-### Filters
-
-Applies a preset color treatment. Each filter displays a thumbnail preview of the current image. The available filters are None, Black and White, Grayscale, Sepia, Warm, Cold, Chrome, and Invert.
-
-### Frame
-
-Draws a frame around the image. The pane provides a None, Single, or Multiple frame type, together with thickness, offset, roundness, stroke type, and color.
-
-### Shadow
-
-Draws a shadow around the image. The pane provides position, blur, spread, color, and opacity.
+Adds text boxes that the user can edit directly on the canvas. The pane provides font family, font size, bold, italic, underline, strikethrough, all caps, alignment, color, and opacity.
 
 ## Objects
 
@@ -124,7 +124,7 @@ Undo and redo fire the [`OnExecute` event](slug:imageeditor-events#onexecute) wi
 
 ## Adaptive Rendering
 
-Set the `AdaptiveMode` parameter to `AdaptiveMode.Auto` to enable the mobile layout. On small screens the canvas renders first, and the tool pane and the sidebar dock at the bottom of the component. The default parameter value is `AdaptiveMode.None`. Read more about [adaptive rendering in Telerik UI for Blazor](slug:adaptive-rendering).
+Set the `AdaptiveMode` parameter to `AdaptiveMode.Auto` to enable the mobile layout. On small screens the tool pane and the sidebar display horizontally at the bottom of the component below the editing canvas. The default parameter value is `AdaptiveMode.None`. Read more about [adaptive rendering in Telerik UI for Blazor](slug:adaptive-rendering).
 
 >caption Enable adaptive rendering in the ImageEditor
 

@@ -30,6 +30,7 @@ Telerik UI for Blazor components need the following exceptions to strict CSP. So
 * Allow data URIs (`data:`) for images that are embedded in the [CSS themes](slug:themes-overview). These images are used for styled checkboxes and radio buttons, Slider ticks, and others.
 * (optional) Allow `https://blazor.cdn.telerik.com` as a source when using [the Telerik CDN](slug:common-features-cdn) for styles or scripts.
 * (optional) Allow `https://unpkg.com` as a source when using it as a <a href="https://www.telerik.com/design-system/docs/themes/get-started/introduction/#available-themes" target="_blank">CDN for styles</a>.
+* When using the [ImageEditor](slug:imageeditor-overview), allow `worker-src 'self' blob:`. The component uses a pool of Web Workers for filters, color adjustments, blur, and pixelate operations to keep sliders and canvas gestures responsive. The worker script is part of `telerik-blazor.js` and starts from a Blob URL, so there is no additional file to deploy. When workers are not available, the ImageEditor runs the same operations on the main thread and produces identical results without an error.
 
 ### Legacy Settings
 

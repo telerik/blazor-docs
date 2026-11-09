@@ -13,7 +13,11 @@ components: ["imageeditor"]
 
 The [ImageEditor](slug:imageeditor-overview) exposes an `ExecuteAsync` method that applies an edit from the application code. The method runs the same commands that the built-in [tools](slug:imageeditor-tools) run, and adds the result to the undo history.
 
-Use `ExecuteAsync` to apply presets, to build a custom toolbar outside the component, or to repeat an edit across several images.
+Use `ExecuteAsync` to:
+
+* Apply presets.
+* Build a custom toolbar outside the component.
+* Repeat an edit across several images.
 
 ## Execute a Command
 
@@ -51,6 +55,57 @@ To call the method, [obtain a reference to the component instance](slug:imageedi
 All commands are members of the `ImageEditorCommand` enum. Each command uses one arguments class that inherits the abstract `ImageEditorCommandArgs` class. The [`OnExecute` event](slug:imageeditor-events#onexecute) reports the same commands and arguments when the user edits the image through the UI.
 
 The `X`, `Y`, `Width`, and `Height` values in `ImageEditorRect` and the `X` and `Y` values in `ImageEditorPoint` are relative to the image and range from `0` to `1`.
+
+To use absolute pixel coordinates in a command, divide them by the image dimensions.
+
+>caption Use pixel coordinates in ImageEditor commands
+
+````RAZOR.skip-repl
+@code {
+    private const double ImageWidth = 1920;
+    private const double ImageHeight = 1080;
+    private TelerikImageEditor ImageEditorRef { get; set; }
+
+    private static ImageEditorRect Rect(double x, double y, double width, double height)
+    {
+        return new ImageEditorRect()
+        {
+            X = x / ImageWidth,
+            Y = y / ImageHeight,
+            Width = width / ImageWidth,
+            Height = height / ImageHeight
+        };
+    }
+
+    private static ImageEditorPoint Point(double x, double y)
+    {
+        return new ImageEditorPoint()
+        {
+            X = x / ImageWidth,
+            Y = y / ImageHeight
+        };
+    }
+
+    private async Task AddAnnotations()
+    {
+        await ImageEditorRef.ExecuteAsync(ImageEditorCommand.AddText,
+            new ImageEditorTextArgs()
+            {
+                Text = "Damage Claim",
+                Area = Rect(1560, 60, 360, 50),
+                Rotation = 30
+            });
+
+        await ImageEditorRef.ExecuteAsync(ImageEditorCommand.AddShape,
+            new ImageEditorShapeArgs()
+            {
+                Shape = ImageEditorShapeType.Line,
+                From = Point(480, 250),
+                To = Point(320, 150)
+            });
+    }
+}
+````
 
 ### Crop and Resize Commands
 

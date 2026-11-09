@@ -22,9 +22,9 @@ The Download tool in the [component toolbar](slug:imageeditor-tools#toolbar) ope
 
 * Set the file name.
 * Select the export format.
-* Review a preview of the result and the resulting file size.
+* Preview the result and file size.
 
-The dialog detects transparency in the image and selects PNG by default. The default file name comes from the opened image.
+The dialog detects transparency in the image and selects PNG by default. The default file name comes from the opened image. When using the `Data` parameter to load an image, the default file name is `image`.
 
 The following table lists the supported export formats, which are also the members of the `ImageEditorExportFormat` enum.
 
@@ -99,12 +99,11 @@ The `GetFileAsync` method returns the edited image as a `Task<byte[]>` in the cu
                     Height="600px" />
 
 @code {
-    private TelerikImageEditor ImageEditorRef { get; set; }
-
+    private TelerikImageEditor? ImageEditorRef;
+    
     private async Task OnSaveButtonClick()
     {
-        byte[] imageBytes = await ImageEditorRef.GetFileAsync();
-
+        byte[]? imageBytes = await ImageEditorRef!.GetFileAsync();
         if (imageBytes != null)
         {
             // Save the image to a database or a file storage.
@@ -118,10 +117,6 @@ The `GetFileAsync` method returns the edited image as a `Task<byte[]>` in the cu
 In [Blazor Server](slug:getting-started/web-app) apps, `GetFileAsync` transfers the image from the browser to the .NET runtime over the SignalR WebSocket. The default maximum message size is 32 KB. To work with larger images, [increase the maximum SignalR message size](slug:common-kb-increase-signalr-max-message-size).
 
 All other ImageEditor operations run in the browser and do not transfer the image to the server. See [Client-Side Image Processing](slug:imageeditor-overview#client-side-image-processing).
-
-### Blazor WebAssembly Apps
-
-In [Blazor WebAssembly](slug:getting-started/web-app) apps, `GetFileAsync` returns the image without a network transfer, because the .NET runtime and the browser share the same process.
 
 ## Next Steps
 

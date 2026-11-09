@@ -103,6 +103,7 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="DropDownList" href="slug:components/dropdownlist/overview"></IntroTableAnchor>
       <IntroTableAnchor title="DropDownTree" href="slug:dropdowntree-overview"></IntroTableAnchor>
       <IntroTableAnchor title="HTML Editor" href="slug:editor-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Image Editor" href="slug:imageeditor-overview"></IntroTableAnchor>
       <IntroTableAnchor title="ListBox" href="slug:listbox-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Masked Textbox" href="slug:maskedtextbox-overview"></IntroTableAnchor>
       <IntroTableAnchor title="MultiColumnComboBox" href="slug:multicolumncombobox-overview"></IntroTableAnchor>
