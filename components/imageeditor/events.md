@@ -20,7 +20,7 @@ This article describes the available events in the Telerik [ImageEditor for Blaz
 
 ## OnError
 
-The ImageEditor `OnError` event fires when the component fails to load, edit, render, or export the image. The event handler receives an argument of type [`ImageEditorErrorEventArgs`](slug:Telerik.Blazor.Components.ImageEditorErrorEventArgs).
+The ImageEditor `OnError` event fires when the component fails to load, edit, render, or export the image. The event handler receives an argument of type [`ImageEditorErrorEventArgs`](slug:Telerik.Blazor.Components.ImageEditor.ImageEditorErrorEventArgs).
 
 The component displays an [error state](slug:imageeditor-loading-images#error-state) when a file fails to load, so handling `OnError` is not required.
 
@@ -45,7 +45,7 @@ The ImageEditor `OnExecute` event fires after the component applies, undoes, or 
 
 Zoom, pan, and live previews do not fire the event. For example, a slider that the user is still dragging does not fire `OnExecute`, and the component raises the event once when the drag completes.
 
-The event handler receives an argument of type [`ImageEditorExecuteEventArgs`](slug:Telerik.Blazor.Components.ImageEditorExecuteEventArgs) that exposes the following properties:
+The event handler receives an argument of type [`ImageEditorExecuteEventArgs`](slug:Telerik.Blazor.Components.ImageEditor.ImageEditorExecuteEventArgs) that exposes the following properties:
 
 * `Command` (`ImageEditorCommand`)&mdash;the executed command.
 * `Reason` (`ImageEditorExecuteReason`)&mdash;`Execute`, `Undo`, or `Redo`. On undo and redo, the event describes the edit that the component reverted or reapplied.
@@ -73,7 +73,7 @@ Also see the [runnable example below](#example).
 
 The ImageEditor `OnExport` event fires before the edited image downloads. The event is cancellable and in this case the browser does not download the file.
 
-The event handler receives an argument of type [`ImageEditorExportEventArgs`](slug:Telerik.Blazor.Components.ImageEditorExportEventArgs) that exposes the following properties:
+The event handler receives an argument of type [`ImageEditorExportEventArgs`](slug:Telerik.Blazor.Components.ImageEditor.ImageEditorExportEventArgs) that exposes the following properties:
 
 * `FileName` (`string`)&mdash;the name of the downloaded file. Set the property to rename the file.
 * `Format` (`string`)&mdash;the MIME type of the export.
@@ -102,7 +102,7 @@ The ImageEditor `OnOpen` event fires before the component opens an image from a 
 
 `OnOpen` always fires before any `OnExecute` event for the same image.
 
-The event handler receives an argument of type [`ImageEditorOpenEventArgs`](slug:Telerik.Blazor.Components.ImageEditorOpenEventArgs) that exposes the following properties:
+The event handler receives an argument of type [`ImageEditorOpenEventArgs`](slug:Telerik.Blazor.Components.ImageEditor.ImageEditorOpenEventArgs) that exposes the following properties:
 
 * `FileName` (`string`)&mdash;the name of the file, for example, `"photo.png"`. The value is `"image"` when the image comes from `Data`, and the last segment of the URL when the image comes from `ImageUrl`.
 * `Extension` (`string`)&mdash;the lowercase file extension, including the dot, for example, `".png"`. The value is `null` when the file name has no extension.
