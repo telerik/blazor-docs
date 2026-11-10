@@ -37,6 +37,44 @@ Use the `IconClassField` parameter to append an extra CSS class to the icon elem
 
 <demo metaUrl="client/segmentedcontrol/icons/example-2/" height="320"></demo>
 
+## Trailing Icons
+
+In addition to a leading icon, each segment can display a trailing icon, after its text label. Use the `EndIconField` parameter to map the model property that provides the trailing icon identifier for each item.
+
+@[template](/_contentTemplates/common/icons.md#icon-property-supported-types)
+
+Set `EndIconClassField` to the model property that holds an extra CSS class for the trailing icon. Set `EndIconVariantField` to the model property that holds the SVG icon variant for the trailing icon. The default field name is `EndIconVariant`. The `EndIconVariantField` is independent from `IconVariantField`, which applies only to the leading icon. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
+When a segment has both a leading and a trailing icon, it renders them in the following order: leading icon, text label, trailing icon.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
+
+>caption SegmentedControl with leading and trailing icons
+
+````RAZOR.skip-repl
+<TelerikSegmentedControl Data="@Segments"
+                         @bind-Value="@SelectedValue">
+</TelerikSegmentedControl>
+
+@code {
+    private string SelectedValue { get; set; } = "List";
+
+    private List<SegmentItemModel> Segments { get; set; } = new()
+    {
+        new SegmentItemModel { Text = "List", Value = "List", Icon = SvgIcon.ListUnordered, EndIcon = SvgIcon.Star },
+        new SegmentItemModel { Text = "Grid", Value = "Grid", Icon = SvgIcon.GridLayout, EndIcon = SvgIcon.Star }
+    };
+
+    public class SegmentItemModel
+    {
+        public string Text { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+        public object? Icon { get; set; }
+        public object? EndIcon { get; set; }
+    }
+}
+````
+
 ## See Also
 
 * [Icons in Telerik UI for Blazor](slug:common-features-icons)
