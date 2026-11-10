@@ -11,12 +11,12 @@ components: ["button"]
 
 # Button Icons
 
-You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the Button to illustrate its purpose by using the `Icon` parameter.
+You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the Button to illustrate its purpose by using the `Icon` and `EndIcon` parameters.
 
 
 ## Icon Parameter
 
-The `Icon` parameter is of type `object` and it accepts:
+The `Icon` parameter renders a leading icon, before the Button text or content. The parameter is of type `object` and it accepts:
 
 * A property of the static `SvgIcon` class;
 * A member of the `FontIcon` enum;
@@ -29,6 +29,33 @@ For SVG icons, use `IconVariant` to select an available variant. See [SVG icon v
 >caption How to use icons in Telerik Button
 
 <demo metaUrl="client/button/icons/" height="250"></demo>
+
+## EndIcon Parameter
+
+The `EndIcon` parameter renders a trailing icon, after the Button text or content. It accepts the same value types as `Icon`:
+
+* A property of the static `SvgIcon` class;
+* A member of the `FontIcon` enum;
+* A `string` that is a CSS class for a custom icon.
+
+For SVG icons, use `EndIconVariant` to select an available variant for the trailing icon. The `EndIconVariant` parameter is independent from `IconVariant`, which applies only to the leading `Icon`. See [SVG icon variants](slug:common-features-icons#use-svg-icon-variants).
+
+When the Button has both a leading and a trailing icon, it renders them in the following order: `Icon`, Button text or content, `EndIcon`.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
+
+>caption How to use a trailing icon in Telerik Button
+
+````RAZOR.skip-repl
+<TelerikButton Icon="@SvgIcon.Plus"
+               EndIcon="@SvgIcon.CaretAltRight">
+    Add Item
+</TelerikButton>
+
+<TelerikButton EndIcon="@FontIcon.Download">
+    Download
+</TelerikButton>
+````
 
 ## Notes
 
