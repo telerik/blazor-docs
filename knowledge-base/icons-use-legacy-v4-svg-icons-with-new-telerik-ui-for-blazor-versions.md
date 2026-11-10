@@ -127,7 +127,7 @@ The following algorithm describes how to create your own version of the [`Teleri
 ````sh.skip-repl
 dotnet pack -c Release
 ````
-1. Get the NuGet package and follow the steps from section [Use Prebuilt SVG Icon NuGet Package](#use-prebuilt-svg-icon-nuget-package).
+1. Get the NuGet package and follow the steps from section [Use Prebuilt SVG Icon NuGet Package](#use-prebuilt-svg-icon-nuget-package). Make sure that the `<Version>` in the `TelerikSvgIcons4.csproj` project file matches the version of the NuGet package reference in the consuming project.
 
 The [Sample App with v4 Telerik SVG Icons](https://github.com/telerik/blazor-ui/tree/master/icons/LegacyTelerikIcons) includes a `TelerikSvgIcons4` project that already applies all the above steps.
 
