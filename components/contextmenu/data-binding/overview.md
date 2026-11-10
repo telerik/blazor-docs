@@ -49,6 +49,10 @@ The menu items provide the following features that you control through the corre
 
 * `Disabled` - You can disable items by setting this field to `true`. Such items will keep rendering but will not be clickable.
 
+* `Description` - an optional secondary line of text below the item text. The Context Menu renders the description only when you set the `DescriptionField` parameter and the field value is a non-empty `string`. If the field is missing or is not a `string`, the Context Menu does not render a description.
+
+* `GroupHeader` - when set to `true`, the item renders as a non-interactive group header. The group header organizes the items that follow it. The Context Menu supports group headers both at the root level and in child popups. [Read more about item grouping...](slug:contextmenu-item-grouping)
+
 ## Data Bindings
 
 The properties of a menu item match directly to a field of the model the menu is bound to. You provide that relationship by providing the name of the field from which the corresponding information is present. To do this, use the properties in the main `TelerikMenu` tag:
@@ -61,10 +65,12 @@ The properties of a menu item match directly to a field of the model the menu is
 * UrlField => Url
 * HasChildrenField => HasChildren
 * ItemsField => Items
-* DisabledField => DisabledField
+* DisabledField => Disabled
 * SeparatorField => Separator
+* DescriptionField => no default value. Set this parameter to display item descriptions.
+* GroupHeaderField => GroupHeader
 
->tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
+>tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings. The only exception is `DescriptionField`, which you must set explicitly to display descriptions.
 
 @[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
 
@@ -75,12 +81,6 @@ The properties of a menu item match directly to a field of the model the menu is
 >caption Data bind the context menu to a model with custom field names
 
 <demo metaUrl="client/contextmenu/data-binding/custom-field-names/" height="300"></demo>
-
->caption The result from the snippet above
-
-![context menu data binding example](images/context-menu-databinding-example.png)
-
-
 
 ## See Also
 

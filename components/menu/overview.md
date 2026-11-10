@@ -40,6 +40,18 @@ A menu is often used to list pages, views, or sections in an application so the 
 
 The Blazor Menu allows you to control its orientation and display the items horizontally or vertically. [Read more about the Blazor Menu orientation...](slug:components/menu/orientation)
 
+## Appearance
+
+The Blazor Menu provides a `Size` parameter that controls the size of the root and popup items. [Read more about the Blazor Menu appearance settings...](slug:components/menu/appearance)
+
+## Descriptions, Item Actions, and Group Headers
+
+The Menu items can display additional content and structure:
+
+* A description, which is a secondary line of text below the item label. Set the `DescriptionField` parameter to enable it. [Read more about Menu data bindings...](slug:components/menu/data-binding/overview#data-bindings)
+* Trailing content, such as a keyboard shortcut, before the expand arrow. Use the `ItemActionsTemplate` to render it. [Read more about the Menu item actions template...](slug:components/menu/templates#itemactionstemplate)
+* Group headers, which organize the child items in a popup under labeled sections. [Read more about Menu item grouping...](slug:components/menu/item-grouping)
+
 ## Show and Hide Behavior
 
 By default, the Menu child items are displayed on mouse hover over the parent item and hidden on mouse leave. You can configure the Menu to [show and hide child items by clicking or tapping the parent](slug:menu-show-hide-behavior).
@@ -66,6 +78,7 @@ The following table lists Menu parameters, which are not related to other featur
 | `CloseOnClick` | `bool` | Determines whether the Menu popups should close when they are clicked. |
 | `ShowOn` | `MenuShowEvent` enum <br /> (`MouseEnter`) | The browser event that will trigger child Menu items to show (mouse enter or click). |
 | `HideOn` | `MenuHideEvent` enum <br /> (`MouseLeave`) | The browser event that will trigger child Menu items to hide (mouse leave or click). |
+| `Size` | `string` <br /> (`ThemeConstants.Menu.Size.Medium`) | The size of the Menu items. [Read more about the Menu appearance](slug:components/menu/appearance). |
 
 ### Popup settings
 

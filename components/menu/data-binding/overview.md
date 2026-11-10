@@ -49,6 +49,10 @@ The menu items provide the following features that you control through the corre
 
 * `Disabled` - You can disable items by setting this field to `true`. Such items will keep rendering but will not be clickable.
 
+* `Description` - an optional secondary line of text below the item text. The Menu renders the description only when you set the `DescriptionField` parameter and the field value is a non-empty `string`. If the field is missing or is not a `string`, the Menu does not render a description.
+
+* `GroupHeader` - when set to `true`, the child item renders as a non-interactive group header in its popup. The group header organizes the items that follow it. The root items of the Menu ignore this field. [Read more about item grouping...](slug:components/menu/item-grouping)
+
 ## Data Bindings
 
 The properties of a menu item match directly to a field of the model the menu is bound to. You provide that relationship by providing the name of the field from which the corresponding information is present. To do this, use the properties in the main `TelerikMenu` tag:
@@ -63,8 +67,12 @@ The properties of a menu item match directly to a field of the model the menu is
 * ItemsField => Items
 * DisabledField => Disabled
 * SeparatorField => Separator
+* DescriptionField => no default value. Set this parameter to display item descriptions.
+* GroupHeaderField => GroupHeader
 
->tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings.
+>tip There are default values for the field names. If your model names match the defaults, you don't have to define them in the bindings settings. The only exception is `DescriptionField`, which you must set explicitly to display descriptions.
+
+>note If your model has a `GroupHeader` property with a `true` value, the Menu renders the respective child items as group headers, even if you don't set `GroupHeaderField`.
 
 @[template](/_contentTemplates/common/navigation-components.md#default-fields-match-issues)
 
@@ -81,6 +89,7 @@ public class MenuItem
 	public string Url { get; set; }
 	public bool Disabled { get; set; }
 	public bool Separator { get; set; }
+	public bool GroupHeader { get; set; }
 }
 ````
 
@@ -92,6 +101,9 @@ public class MenuItem
 
 ![Menu data binding example with custom field names](images/menu-databinding-example.png)
 
+>caption Bind the item descriptions and group headers to custom fields
+
+<demo metaUrl="client/menu/data-binding/example-1/" height="360"></demo>
 
 
 ## See Also

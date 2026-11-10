@@ -26,6 +26,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-context-menu` | `role=menu` | The context menu implements the `menu` role. |
+| `.k-menu-group-header` | `role=presentation` | The group headers are not interactive. They have no `tabindex` and are excluded from the focus and the keyboard navigation. |
 
 
 Apart from the above, the ContextMenu element should implement the specification for a vertical **Menu** component.
