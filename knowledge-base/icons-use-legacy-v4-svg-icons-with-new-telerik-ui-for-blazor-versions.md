@@ -107,7 +107,7 @@ The following algorithm describes how to create your own version of the [`Teleri
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>TelerikSvgIcons4</PackageId>
-    <Version>1.0.0</Version>
+    <Version>4.12.0</Version>
     <NoWarn>$(NoWarn);CS0618</NoWarn>
   </PropertyGroup>
   <ItemGroup>
