@@ -27,7 +27,7 @@ ticketid:
 
 ## Description
 
-Telerik UI for Blazor **15.2.0** and older versions depend on `Telerik.SvgIcons` **4.x**. Telerik UI for Blazor **16.0.0** and newer versions depends on `Telerik.SvgIcons` **5.x**.
+Telerik UI for Blazor **15.2.0** and older versions depend on `Telerik.SvgIcons` **4.x**. Telerik UI for Blazor **16.0.0** and newer versions depend on `Telerik.SvgIcons` **5.x**.
 
 The icons in versions 4 and 5 use different styling. This article explains how to keep using old legacy v4 Telerik SVG icons after upgrading to Telerik UI for Blazor 16.0.0 or a newer version.
 
