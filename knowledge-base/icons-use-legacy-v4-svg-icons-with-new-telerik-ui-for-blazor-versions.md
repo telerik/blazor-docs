@@ -81,7 +81,7 @@ builder.Services.AddSingleton<ITelerikIconService, TelerikSvgIconsV4Service>();
 @using TelerikSvgIcons4
 ````
 1. At this point, all Telerik Blazor components that render SVG icons without public API control will switch to v4 icons.
-1. If you need to display a v5 SVG icon, use a `<TelerikSvgIcon>` component](slug:common-features-icons#svgicon-component):
+1. If you need to display a v5 SVG icon, use a [`<TelerikSvgIcon>` component](slug:common-features-icons#svgicon-component):
 ````RAZOR.skip-repl
 <TelerikSvgIcon Icon="@SvgIcon.Bold" />
 ````
