@@ -487,8 +487,8 @@ public sealed class MoonIcon : SvgIconBase
 
 ## See Also
 
-* <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">Built-in Icon List</a>
-* [Blazor Live Demos](https://demos.telerik.com/blazor-ui)
-* [Blazor FontIcon](https://demos.telerik.com/blazor-ui/fonticon/overview)
-* [Blazor SVGIcon](https://demos.telerik.com/blazor-ui/svgicon/overview)
+* [Built-in Icon List](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/)
+* [Blazor SVGIcon Demos](https://demos.telerik.com/blazor-ui/svgicon/overview)
+* [Blazor FontIcon Demos](https://demos.telerik.com/blazor-ui/fonticon/overview)
 * [CSS Themes](slug:themes-overview)
+* [Use Legacy v4 SVG Icons with New Telerik UI for Blazor Versions](slug:icons-kb-use-legacy-v4-svg-icons-with-new-telerik-ui-for-blazor-versions)
