@@ -38,7 +38,7 @@ The icons in versions 4 and 5 use different styling. This article explains how t
 
 ## Solution
 
-The app must use a modified version of the `Telerik.SvgIcons` v4 NuGet package. You can choose of the following options:
+The app must use a modified version of the `Telerik.SvgIcons` v4 NuGet package. You can choose one of the following options:
 
 * [Install a prebuilt NuGet package that is already available to download](#use-prebuilt-svg-icon-nuget-package).
 * [Build the package manually](#create-custom-svg-icon-nuget-package).
