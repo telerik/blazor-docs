@@ -31,60 +31,70 @@ Telerik UI for Blazor **15.2.0** and older versions depend on `Telerik.SvgIcons`
 
 The icons in versions 4 and 5 use different styling. This article explains how to keep using old legacy v4 Telerik SVG icons after upgrading to Telerik UI for Blazor 16.0.0 or a newer version.
 
+> The suggested algorithms in this article are not applicable to [apps that use Telerik font icons](slug:common-features-icons#set-global-blazor-icon-type). If you want to use v4 font icons with the latest Telerik UI for Blazor version, then load an old [font icon stylesheet](slug:common-features-icons#font-icon-stylesheet) instead:
+> ````HTML.skip-repl
+> <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-font-icons@4.12.0/dist/index.css" />
+> ````
+
 ## Solution
+
+The app must use a modified version of the `Telerik.SvgIcons` v4 NuGet package. You can choose of the following options:
+
+* [Install a prebuilt NuGet package that is already available to download](#use-prebuilt-svg-icon-nuget-package).
+* [Build the package manually](#create-custom-svg-icon-nuget-package).
 
 ### Use Prebuilt SVG Icon NuGet Package
 
 1. Download the [`TelerikSvgIcons4.4.12.0.nupkg` NuGet package](https://github.com/telerik/blazor-ui/tree/master/icons/LegacyTelerikIcons). It packs a modified version of the [`Telerik.SvgIcons` project](https://github.com/telerik/kendo-icons/tree/develop/packages/svg-icons/src-cs/Telerik.SvgIcons) that is used to publish the [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons) NuGet package.
 1. Add the `TelerikSvgIcons4` package to a [local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or another custom feed in your development and deployment environments.
 1. Install the `TelerikSvgIcons4` package in your Blazor app.
-````XML.skip-repl
-  <ItemGroup>
-    <PackageReference Include="Telerik.UI.for.Blazor" Version="16.*" />
-    <PackageReference Include="TelerikSvgIcons4" Version="4.12.0" />
-  </ItemGroup>
-````
+    ````XML.skip-repl
+    <ItemGroup>
+        <PackageReference Include="Telerik.UI.for.Blazor" Version="16.*" />
+        <PackageReference Include="TelerikSvgIcons4" Version="4.12.0" />
+    </ItemGroup>
+    ````
 1. Add an [icon replacement service](slug:common-features-icons#change-default-svg-icons) to your Blazor app:
-````C#.skip-repl
-using System;
-using System.Collections.Concurrent;
-using System.Reflection;
-using Telerik.Blazor.Services;
-using Telerik.SvgIcons;
-using TelerikSvgIcons4;
+    ````C#.skip-repl
+    using System;
+    using System.Collections.Concurrent;
+    using System.Reflection;
+    using Telerik.Blazor.Services;
+    using Telerik.SvgIcons;
+    using TelerikSvgIcons4;
 
-namespace MyBlazorAppRootNamespace.Services;
+    namespace MyBlazorAppRootNamespace.Services;
 
-public class TelerikSvgIconsV4Service : ITelerikIconService
-{
-    private static readonly ConcurrentDictionary<string, PropertyInfo?> Cache = new();
-
-    public object? ReplaceIcon(IconInfo iconInfo)
+    public class TelerikSvgIconsV4Service : ITelerikIconService
     {
-        var prop = Cache.GetOrAdd(iconInfo.IconName,
-            name => typeof(SvgIcon4).GetProperty(name, BindingFlags.Public | BindingFlags.Static));
-        return prop?.GetValue(null) as ISvgIcon;
-    }
-}
-````
-1. Register the `TelerikSvgIconsV4Service` icon replacement service in `Program.cs` after the Telerik services:
-````C#.skip-repl
-builder.Services.AddTelerikBlazor();
-builder.Services.AddSingleton<ITelerikIconService, TelerikSvgIconsV4Service>();
-````
-1. Add the `TelerikSvgIcons4` namespace to `_Imports.razor`:
-````RAZOR.skip-repl
-@using Telerik.Blazor
-@using Telerik.Blazor.Components
-@using Telerik.SvgIcons
+        private static readonly ConcurrentDictionary<string, PropertyInfo?> Cache = new();
 
-@using TelerikSvgIcons4
-````
-1. At this point, all Telerik Blazor components that render SVG icons without public API control will switch to v4 icons.
+        public object? ReplaceIcon(IconInfo iconInfo)
+        {
+            var prop = Cache.GetOrAdd(iconInfo.IconName,
+                name => typeof(SvgIcon4).GetProperty(name, BindingFlags.Public | BindingFlags.Static));
+            return prop?.GetValue(null) as ISvgIcon;
+        }
+    }
+    ````
+1. Register the `TelerikSvgIconsV4Service` icon replacement service in `Program.cs` after the Telerik services:
+    ````C#.skip-repl
+    builder.Services.AddTelerikBlazor();
+    builder.Services.AddSingleton<ITelerikIconService, TelerikSvgIconsV4Service>();
+    ````
+1. Add the `TelerikSvgIcons4` namespace to `_Imports.razor`:
+    ````RAZOR.skip-repl
+    @using Telerik.Blazor
+    @using Telerik.Blazor.Components
+    @using Telerik.SvgIcons
+
+    @using TelerikSvgIcons4
+    ````
+1. At this point, all Telerik Blazor components that render SVG icons internally without public API control will switch to v4 icons.
 1. If you need to display a v5 SVG icon, use a [`<TelerikSvgIcon>` component](slug:common-features-icons#svgicon-component):
-````RAZOR.skip-repl
-<TelerikSvgIcon Icon="@SvgIcon.Bold" />
-````
+    ````RAZOR.skip-repl
+    <TelerikSvgIcon Icon="@SvgIcon.Bold" />
+    ````
 
 The [Sample App with v4 Telerik SVG Icons](https://github.com/telerik/blazor-ui/tree/master/icons/LegacyTelerikIcons) demonstrates all the above steps. The application includes both the `TelerikSvgIcons4.4.12.0.nupkg` NuGet package and its source code.
 
@@ -102,19 +112,19 @@ The following algorithm describes how to create your own version of the [`Teleri
     * `Telerik.snk` file
 1. Rename the `Telerik.SvgIcons` project folder and project file. This will also rename the project itself and the root namespace. This guide assumes the new project name is `TelerikSvgIcons4`.
 1. Replace the `TelerikSvgIcons4.csproj` content. Use the latest `Telerik.SvgIcons` 4.x version or set one according to your preferences.
-````XML.ski-repl
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>TelerikSvgIcons4</PackageId>
-    <Version>4.12.0</Version>
-    <NoWarn>$(NoWarn);CS0618</NoWarn>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Telerik.SvgIcons" Version="4.12.0" />
-  </ItemGroup>
-</Project>
-````
+    ````XML.skip-repl
+    <Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>TelerikSvgIcons4</PackageId>
+        <Version>4.12.0</Version>
+        <NoWarn>$(NoWarn);CS0618</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Telerik.SvgIcons" Version="4.12.0" />
+    </ItemGroup>
+    </Project>
+    ````
 1. Modify `SvgIcon.cs`:
     * Rename the file according to your preferences, for example, `SvgIcon4.cs`.
     * Rename the `SvgIcon` class in the file accordingly to `SvgIcon4`.
@@ -124,9 +134,9 @@ The following algorithm describes how to create your own version of the [`Teleri
     * Replace `namespace Telerik.SvgIcons` with `namespace TelerikSvgIcons4`
     * Add `using Telerik.SvgIcons;` in order to recognize the `SvgIconBase` class from the original `Telerik.SvgIcons` package.
 1. Build and [pack](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack) the NuGet package:
-````sh.skip-repl
-dotnet pack -c Release
-````
+    ````sh.skip-repl
+    dotnet pack -c Release
+    ````
 1. Get the NuGet package and follow the steps from section [Use Prebuilt SVG Icon NuGet Package](#use-prebuilt-svg-icon-nuget-package). Make sure that the `<Version>` in the `TelerikSvgIcons4.csproj` project file matches the version of the NuGet package reference in the consuming project.
 
 The [Sample App with v4 Telerik SVG Icons](https://github.com/telerik/blazor-ui/tree/master/icons/LegacyTelerikIcons) includes a `TelerikSvgIcons4` project that already applies all the above steps.
