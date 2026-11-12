@@ -57,7 +57,7 @@ jobs:
       - name: Setup Telerik Nuget Feeds
         uses: telerik/actions/setup-telerik-nuget-feeds@master
         with:
-          ak-vault-token: ${{ secrets.AK_VAULT_TOKEN_PACKAGE_READER }}
+          akeyless_access_id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
 
       - name: Pack Telerik.Blazor and copy docs API needed resources
         run: |
