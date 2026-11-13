@@ -199,7 +199,7 @@ This KB answers the following questions:
                 || (DependentPropertyValue != null && DependentPropertyValue.Equals(DependentPropertyExpectedValue))
                 && string.IsNullOrEmpty(validatedValue?.ToString()))
             {
-                return new ValidationResult(FormatErrorMessage(validationContext.DisplayName), new List<string> { validationContext.DisplayName });
+                return new ValidationResult(FormatErrorMessage(validationContext.DisplayName), new[] { validationContext.MemberName! });
             }
 
             return ValidationResult.Success!;
