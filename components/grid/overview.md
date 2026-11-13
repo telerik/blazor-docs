@@ -31,6 +31,8 @@ The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use featur
 1. Optionally, enable data operations such as paging, sorting, or filtering.
 1. Add [`GridColumn`](slug:components/grid/columns/bound) instances under the `GridColumns` tag. Each column `Field` should point to the model property to display. Use `nameof()` or the plain field name. Define user-friendly column `Title`s or [`DisplayFormat` for numeric and date values](slug:grid-columns-displayformat).
 
+The Grid `Class` parameter applies a custom class to the Grid root element. The Grid does not provide a documented parameter for adding an arbitrary class directly to its generated `<table>` element. Use [`OnRowRender`](slug:grid-events#onrowrender) for row classes, [`OnCellRender`](slug:grid-column-events#oncellrender) for cell classes, and [`HeaderClass`](slug:components/grid/columns/bound#appearance) for column header classes.
+
 >caption Get started with the Blazor Grid
 
 <demo metaUrl="client/grid/overview/" height="700"></demo>

@@ -20,9 +20,9 @@ This article explains the events available in the Telerik TreeView for Blazor:
 
 ## OnItemClick
 
-The `OnItemClick` event fires when the user clicks (or presses `Enter`) on an node (item) of the PanelBar. You can use this event to react on user clicking on a node. 
+The `OnItemClick` event fires when the user clicks (or presses `Enter`) on a node (item) of the PanelBar. Use this event to react to a user clicking an item.
 
-The event handler receives a `PanelBarItemClickEventArgs` object which provides the model of the clicked node in the `Item` field that you can cast to your model type.
+The event handler receives a `PanelBarItemClickEventArgs` object. Its `Item` property contains the model of the clicked item, which you can cast to your model type and store in application state when you need to track the current item. The PanelBar does not provide a `SelectedItems` or `SelectedItem` parameter for selection binding.
 
 If that item has children the `OnItemClick` event will fire before the `ExpandedItemsChanged` event.
 
