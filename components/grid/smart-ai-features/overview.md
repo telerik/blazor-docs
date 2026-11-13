@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid - Smart AI Features Overview
-description: Learn how to enable smart AI-powered operations with the Blazor Grid data.
+description: Learn how to enable AI-powered Grid operations for filtering, sorting, grouping, highlighting, selection, columns, and export.
 slug: grid-ai-overview
 tags: telerik,blazor,grid,ai
 published: True
@@ -9,7 +9,7 @@ position: 1
 components: ["grid"]
 ---
 
-# Grid AI Features
+# Grid AI Features Overview
 
 This article describes the built-in AI-enabled features of the Telerik Grid for Blazor. You can allow users to type prompts, which are sent to an AI service that suggests the appropriate operations for the Grid to perform. The currently supported operations include those managed through the Grid state (such as filtering and sorting) and those triggered through Grid methods, for example, export.
 
@@ -37,7 +37,7 @@ The Grid provides multiple AI-powered tools that you can add to the Grid toolbar
 
 The following types and Grid methods are relevant to scenarios when you want to integrate AI functionality with the Telerik Grid.
 
-See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration) for more information on how you can implement your server-side AI service to be compatible with the Telerik Grid.
+See [Grid AI Service Setup](slug:grid-ai-service-setup) for more information on how you can implement a server-side AI service compatible with the Telerik Grid.
 
 ### Types
 
@@ -47,7 +47,7 @@ See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-feature
 | --- | --- |
 | `GridAIRequestDescriptor` | Contains information about the Grid column `Field`s and the user's prompt. |
 | `GridAIResponse` | Contains information about the data operations that the Grid must perform. Supported operations include filtering, grouping, highlighting, and sorting. The object also has a `Messages` property that contains the AI string responses. `GridAIResponse` is the type that your AI service must return. |
-| `GridAIResult` | Contains converted objects that are compatible with the [Grid State properties](slug:grid-state#information-in-the-grid-state). Use this type if you want to [modify the Grid state](slug:grid-state#methods) in a more granular fashion, rather then apply all changes suggested by AI at once. |
+| `GridAIResult` | Contains converted objects that are compatible with the [Grid State properties](slug:grid-state#information-in-the-grid-state). Use this type if you want to [modify the Grid state](slug:grid-state#methods) in a more granular way instead of applying all changes suggested by AI at once. |
 
 ### Grid Methods
 
@@ -66,7 +66,7 @@ For detailed information on implementing semantic search, see the [Grid AI Seman
 
 ## Examples
 
-The following online demos show complete implementations of the Grid AI smart functionality. These examples use a Telerik-hosted AI service for demonstration purposes only. See [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration) for more information on how you can implement your own server-side AI service to be compatible with the Telerik Grid.
+The following online demos show complete implementations of the Grid AI smart functionality. These examples use a Telerik-hosted AI service for demonstration purposes only. See [Grid AI Service Setup](slug:grid-ai-service-setup) for more information on how you can implement your own server-side AI service compatible with the Telerik Grid.
 
 * [Grid AI Toolbar Assistant](https://demos.telerik.com/blazor-ui/grid/ai-toolbar-assistant)
 * [Grid AI Data Highlight](https://demos.telerik.com/blazor-ui/grid/ai-highlight)
@@ -88,4 +88,4 @@ The following online demos show complete implementations of the Grid AI smart fu
 * [Live Demo: Grid AI Toolbar Assistant](https://demos.telerik.com/blazor-ui/grid/ai-toolbar-assistant)
 * [Live Demo: Grid AI Data Highlight](https://demos.telerik.com/blazor-ui/grid/ai-highlight)
 * [Grid API](slug:Telerik.Blazor.Components.TelerikGrid-1)
-* [Integration with Telerik.AI.SmartComponents.Extensions](slug:common-features-telerik-ai-smartcomponents-extensions-integration)
+* [Grid AI Service Setup](slug:grid-ai-service-setup)

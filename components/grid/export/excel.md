@@ -1,7 +1,7 @@
 ---
 title: Excel
 page_title: Grid - Excel Export
-description: Export to Excel the Grid for Blazor.
+description: Export Telerik UI for Blazor Grid data to Excel files with filtering, sorting, paging, grouping, and column customization.
 slug: grid-export-excel
 tags: telerik,blazor,grid,export,excel
 published: True
@@ -11,17 +11,17 @@ components: ["grid"]
 
 # Grid Excel Export
 
-You can export the grid to Excel with a click of a button. The current filter, sort, page, grouping, column order and column size are applied to the `xlsx` document.
+You can export the Grid to Excel by clicking **Export**. The current filter, sort, page, grouping, column order, and column size are applied to the `xlsx` document.
 
 When you click the Export button, your browser will receive the resulting file.
 
 >tip Make sure to get familiar with all the [general export documentation first](slug:grid-export-overview).
 
-#### In This Article
+## In This Article
 
-  * [Basics](#basics)
-  * [Programmatic Export](#programmatic-export)
-  * [Customization](#customization)
+* [Basics](#basics)
+* [Programmatic Export](#programmatic-export)
+* [Customization](#customization)
 
 ## Basics
 
@@ -43,7 +43,7 @@ Add the `GridToolBarExcelExportTool` inside the [`<GridToolBar>`](slug:component
 </GridToolBar>
 ````
 
-If you have a custom Toolbar, add a command button with the `ExcelExport` command name inside a [templated Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`).
+If you have a custom Toolbar, add a command button with the `ExcelExport` command name inside a [templated Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration) (`<GridToolBarTemplate>`).
 
 ### Configure the Export Settings
 
@@ -53,7 +53,7 @@ To configure the Excel export settings, add the `GridExcelExport` tag under the 
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `FileName` | `string` | The name of the file. The grid will add the `.xslx` extension for you. |
+| `FileName` | `string` | The name of the file. The Grid adds the `.xlsx` extension for you. |
 | `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
 
 For further customizations, use the `GridExcelExport` tag to subscribe to the [Grid export events](slug:grid-export-events).
@@ -62,7 +62,7 @@ For further customizations, use the `GridExcelExport` tag to subscribe to the [G
 
 The export to Excel does not require that all columns have explicit widths set. However, if you do set the column widths, ensure you use only `px`. 
 
-Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation. If you prefer to use different than `px` units in the UI, handle the [`OnBeforeExport` event to provide the column width in pixels for the proper export](slug:grid-export-events#for-excel-export).
+Excel cannot parse units other than `px` (for example, `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation. If you prefer to use units other than `px` in the UI, handle the [`OnBeforeExport` event to provide the column width in pixels for export](slug:grid-export-events#for-excel-export).
 
 >caption Export the Grid to Excel
 
@@ -90,11 +90,11 @@ When exporting programmatically with a `GridExcelExportOptions` argument:
 
 To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` events the Grid exposes. 
 
-The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title` and more.
+The component allows you to control the data set that will be exported. It also provides built-in customization options for columns, such as `Width`, `Title`, and more.
 
 For more advanced customization (such as coloring the headers or bolding the titles) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license. Find examples on how to [format the cells of the exported Excel file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing) and how to [format the cells of the exported Excel file with RadSpreadStreamProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadstreamprocessing).
 
-Read more about how to [customize the exported file](slug:grid-export-events).
+Learn more about [customizing the exported Excel file](slug:grid-export-events).
 
 ## See Also
 
