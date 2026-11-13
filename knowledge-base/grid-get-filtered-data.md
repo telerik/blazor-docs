@@ -63,6 +63,11 @@ The most important part of the example below is in the `RequestCurrentMainGridDa
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
+<p>
+    <label><TelerikCheckBox @bind-Value="@GetAllPages"
+                            OnChange="@((object currentValue) => GetCurrentMainGridData())" /> Get All Pages</label>
+</p>
+
 <TelerikButton OnClick="@GetCurrentMainGridData">Get Main Grid Data</TelerikButton>
 
 or
@@ -77,32 +82,34 @@ or
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
              TItem="@Product"
+             FilterMode="GridFilterMode.FilterRow"
+             Groupable="true"
+             Height="450px"
              Pageable="true"
              PageSize="@GridPageSize"
              Sortable="true"
-             FilterMode="GridFilterMode.FilterRow"
-             Groupable="true"
              OnStateChanged="@OnGridStateChanged">
-    <GridToolBarTemplate>
-        <GridSearchBox />
-    </GridToolBarTemplate>
+    <GridToolBar>
+        <GridToolBarSearchBoxTool />
+    </GridToolBar>
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" />
         <GridColumn Field="@nameof(Product.Stock)" />
-        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" DisplayFormat="{0:d}" />
         <GridColumn Field="@nameof(Product.InProduction)" />
     </GridColumns>
 </TelerikGrid>
 
-<h2>Current Page in Main Grid</h2>
+<h2>Current @(GetAllPages ? "Data" : "Page") in Main Grid</h2>
 
-<p>Showing @( Math.Min(GridPageSize, CurrentMainGridTotal) ) item(s) out of @CurrentMainGridTotal.</p>
+<p>Showing @(GetAllPages ? CurrentMainGridTotal : Math.Min(GridPageSize, CurrentMainGridTotal)) item(s) out of @CurrentMainGridTotal.</p>
 
-<TelerikGrid Data="@CurrentMainGridData">
+<TelerikGrid Data="@CurrentMainGridData"
+             Height="300px">
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" />
         <GridColumn Field="@nameof(Product.Stock)" />
-        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" DisplayFormat="{0:d}" />
         <GridColumn Field="@nameof(Product.InProduction)" />
     </GridColumns>
 </TelerikGrid>
@@ -115,6 +122,8 @@ or
     private int CurrentMainGridTotal { get; set; }
 
     private int GridPageSize { get; set; } = 4;
+
+    private bool GetAllPages { get; set; }
 
     private bool ShouldUseOnStateChanged { get; set; } = true;
 
@@ -133,27 +142,27 @@ or
 
     private void RequestCurrentMainGridData(GridState<Product> gridState)
     {
-        var filterAndSearchDescriptors = new List<IFilterDescriptor>(gridState.FilterDescriptors);
+        List<IFilterDescriptor> filterAndSearchDescriptors = new List<IFilterDescriptor>(gridState.FilterDescriptors);
         filterAndSearchDescriptors.Add(gridState.SearchFilter);
 
-        var request = new DataSourceRequest()
+        DataSourceRequest request = new DataSourceRequest()
         {
             Filters = filterAndSearchDescriptors,
             Groups = gridState.GroupDescriptors.ToList(),
-            Page = gridState.Page ?? 1, // for paging
-            PageSize = GridPageSize,
-            Skip = gridState.Skip ?? 0, // for virtual scrolling
+            Page = GetAllPages ? 1 : gridState.Page ?? 1, // for paging
+            PageSize = GetAllPages ? 0 : GridPageSize,
+            Skip = GetAllPages ? 0 : gridState.Skip ?? 0, // for virtual scrolling
             Sorts = gridState.SortDescriptors.ToList()
         };
 
-        var result = GridData.ToDataSourceResult(request);
+        DataSourceResult result = GridData.ToDataSourceResult(request);
 
         if (gridState.GroupDescriptors.Any())
         {
-            var groups = result.Data.Cast<AggregateFunctionsGroup>();
+            IEnumerable<AggregateFunctionsGroup> groups = result.Data.Cast<AggregateFunctionsGroup>();
             CurrentMainGridData = new List<Product>();
 
-            foreach (var group in groups)
+            foreach (AggregateFunctionsGroup group in groups)
             {
                 CurrentMainGridData.AddRange(group.Items.Cast<Product>().ToList());
             }
@@ -168,22 +177,29 @@ or
 
     protected override void OnInitialized()
     {
-        var rnd = new Random();
+        Random rnd = Random.Shared;
 
-        for (int i = 1; i <= 30; i++)
+        for (int i = 1; i <= 50; i++)
         {
             GridData.Add(new Product()
             {
                 Id = i,
-                Name = $"Product {i}",
+                Name = $"Product {i} {(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)}",
                 Price = (decimal)rnd.Next(1, 100),
                 Stock = rnd.Next(0, 50),
-                ReleaseDate = DateTime.Now.AddDays(-rnd.Next(60, 1000)),
+                ReleaseDate = DateTime.Today.AddDays(-rnd.Next(60, 1000)),
                 InProduction = i % 4 == 0
             });
         }
 
-        CurrentMainGridData = GridData.Take(GridPageSize).ToList();
+        if (GetAllPages)
+        {
+            CurrentMainGridData = GridData.ToList();
+        }
+        else
+        {
+            CurrentMainGridData = GridData.Take(GridPageSize).ToList();
+        }
         CurrentMainGridTotal = GridData.Count;
     }
 
@@ -218,45 +234,56 @@ The most important part of the example below is in the `OnGridRead` handler.
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
+<p>
+    <label><TelerikCheckBox @bind-Value="@GetAllPages"
+                            OnChange="@((object newValue) => GridRef?.Rebind())" /> Get All Pages</label>
+</p>
+
 <h2>Main Grid</h2>
 
-<TelerikGrid OnRead="@OnGridRead"
+<TelerikGrid @ref="@GridRef"
+             OnRead="@OnGridRead"
              TItem="@Product"
+             FilterMode="GridFilterMode.FilterRow"
+             Groupable="true"
+             Height="450px"
              Pageable="true"
              PageSize="@GridPageSize"
-             Sortable="true"
-             FilterMode="GridFilterMode.FilterRow"
-             Groupable="true">
-    <GridToolBarTemplate>
-        <GridSearchBox />
-    </GridToolBarTemplate>
+             Sortable="true">
+    <GridToolBar>
+        <GridToolBarSearchBoxTool />
+    </GridToolBar>
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" />
         <GridColumn Field="@nameof(Product.Stock)" />
-        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" DisplayFormat="{0:d}" />
         <GridColumn Field="@nameof(Product.InProduction)" />
     </GridColumns>
 </TelerikGrid>
 
-<h2>Current Page in Main Grid</h2>
+<h2>Current @(GetAllPages ? "Data" : "Page") in Main Grid</h2>
 
-<p>Showing @( Math.Min(GridPageSize, CurrentMainGridTotal) ) item(s) out of @CurrentMainGridTotal.</p>
+<p>Showing @(GetAllPages ? CurrentMainGridTotal : Math.Min(GridPageSize, CurrentMainGridTotal)) item(s) out of @CurrentMainGridTotal.</p>
 
-<TelerikGrid Data="@CurrentMainGridData">
+<TelerikGrid Data="@CurrentMainGridData"
+             Height="300px">
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" />
         <GridColumn Field="@nameof(Product.Stock)" />
-        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" DisplayFormat="{0:d}" />
         <GridColumn Field="@nameof(Product.InProduction)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
+    private TelerikGrid<Product>? GridRef;
     private List<Product> GridData { get; set; } = new List<Product>();
     private List<Product> CurrentMainGridData { get; set; } = new List<Product>();
     private int CurrentMainGridTotal { get; set; }
 
     private int GridPageSize { get; set; } = 4;
+
+    private bool GetAllPages { get; set; }
 
     private async Task OnGridRead(GridReadEventArgs args)
     {
@@ -265,35 +292,56 @@ The most important part of the example below is in the `OnGridRead` handler.
         args.Data = result.Data;
         args.Total = CurrentMainGridTotal = result.Total;
 
+        DataSourceRequest requestForCurrentDataGrid = new DataSourceRequest();
+        DataSourceResult resultForCurrentDataGrid = new DataSourceResult();
+
+        if (GetAllPages)
+        {
+            requestForCurrentDataGrid = new DataSourceRequest()
+            {
+                Aggregates = args.Request.Aggregates,
+                Filters = args.Request.Filters,
+                GroupPaging = args.Request.GroupPaging,
+                Groups = args.Request.Groups,
+                Sorts = args.Request.Sorts
+            };
+
+            resultForCurrentDataGrid = GridData.ToDataSourceResult(requestForCurrentDataGrid);
+        }
+        else
+        {
+            resultForCurrentDataGrid = result;
+        }
+
         if (args.Request.Groups.Any())
         {
-            var groups = result.Data.Cast<AggregateFunctionsGroup>();
+            IEnumerable<AggregateFunctionsGroup> groups = resultForCurrentDataGrid.Data.Cast<AggregateFunctionsGroup>();
             CurrentMainGridData = new List<Product>();
 
-            foreach (var group in groups)
+            foreach (AggregateFunctionsGroup group in groups)
             {
                 CurrentMainGridData.AddRange(group.Items.Cast<Product>().ToList());
             }
         }
         else
         {
-            CurrentMainGridData = result.Data.Cast<Product>().ToList();
+            CurrentMainGridData = resultForCurrentDataGrid.Data.Cast<Product>().ToList();
         }
     }
 
     protected override void OnInitialized()
     {
-        var rnd = new Random();
+        Random rnd = Random.Shared;
 
-        for (int i = 1; i <= 30; i++)
+        for (int i = 1; i <= 50; i++)
         {
             GridData.Add(new Product()
             {
                 Id = i,
-                Name = $"Product {i}",
+                Name = $"Product {i} {(char)rnd.Next(65, 91)}{(char)rnd.Next(65, 91)}",
                 Price = (decimal)rnd.Next(1, 100),
                 Stock = rnd.Next(0, 50),
-                ReleaseDate = DateTime.Now.AddDays(-rnd.Next(60, 1000)),
+                ReleaseDate = DateTime.Today.AddDays(-rnd.Next(60, 1000)),
                 InProduction = i % 4 == 0
             });
         }
