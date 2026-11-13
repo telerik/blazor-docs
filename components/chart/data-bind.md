@@ -32,6 +32,8 @@ There are three main types of chart in terms of the data they require for their 
 
 With this in mind, the information below is applicable for all chart types, but the finer points are mostly relevant to categorical charts.
 
+You can also configure the [Chart category axis and highlight a category when the user hovers over it](slug:chart-category-axis#highlighting-categories).
+
 ## Mixing Series
 
 You can use only series with the same general layout in a single chart. You cannot mix numerical with categorical x-axes in the same chart. For example:
