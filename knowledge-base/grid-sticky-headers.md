@@ -74,6 +74,10 @@ The solution prevents you from setting a Grid `Height`. This should not be a pro
 </TelerikGrid>
 
 <style>
+    .sticky-header {
+        overflow: visible;
+    }
+
     .sticky-header > .k-grid-aria-root,
     .k-grid-aria-root:has(.sticky-header),
     .k-grid-container:has(.sticky-header),
