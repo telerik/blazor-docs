@@ -100,11 +100,11 @@ The following example enables a semi-transparent category highlight with a dashe
         <ChartCategoryAxis Categories="@Years">
             <ChartCategoryAxisHighlight Visible="@true"
                                         Color="goldenrod"
-                                        Opacity="@0.3f">
+                                        Opacity="@(0.3f)">
                 <ChartCategoryAxisHighlightBorder Color="orange"
                                                   DashType="@DashType.Dash"
-                                                  Width="@2"
-                                                  Opacity="@0.5f" />
+                                                  Width="2"
+                                                  Opacity="@(0.5f)" />
             </ChartCategoryAxisHighlight>
         </ChartCategoryAxis>
     </ChartCategoryAxes>
