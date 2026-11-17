@@ -33,6 +33,8 @@ How to customize the Blazor ToolTip styling? I want to set different text color 
 1. Each tooltip is a `div.k-tooltip`. Note that the custom CSS class renders on the tooltip's **container**, not the `.k-tooltip` element itself. So use a [descendant CSS combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
 1. If using a custom **background** color for `.k-tooltip`, then use the same **text** color for `.k-tooltip .k-callout`.
 
+To adjust the inline padding of a standalone `TelerikTooltip`, set the `padding-inline` CSS property on `.k-tooltip`. This example applies to `TelerikTooltip`; Chart and Stock Chart tooltips use separate components and settings. See [Chart Tooltip](slug:chart-tooltip-overview) and [Stock Chart Tooltip](slug:stockchart-tooltip-overview).
+
 >caption Blazor ToolTip with custom background and text color
 
 ````RAZOR
@@ -45,6 +47,7 @@ How to customize the Blazor ToolTip styling? I want to set different text color 
     .blue-yellow .k-tooltip {
         background: blue;
         color: yellow;
+        padding-inline: 1rem;
     }
 
     .blue-yellow .k-tooltip .k-callout {
@@ -63,6 +66,8 @@ How to customize the Blazor ToolTip styling? I want to set different text color 
     }
 </style>
 ````
+
+Place this rule in a global stylesheet. If you use a component-scoped `.razor.css` file, follow the [CSS isolation guidance](slug:common-kb-css-isolation).
 
 ## See Also
 
