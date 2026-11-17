@@ -56,6 +56,8 @@ The AutoComplete, ComboBox and Date/Time Pickers do not open automatically and n
 
 Review the `attachFocusHandler` JavaScript function below. It is called in `OnAfterRenderAsync` and attaches a focus handler to each component textbox. The handler simulates an *Alt + Down* keyboard shortcut, which opens the dropdowns as a standard accessibility and usability feature.
 
+The example defines `ComponentRefs` in the component code. The dictionary maps each component `Id` to an `Action` that calls that component's `Open()` method. `OpenComponent` looks up and invokes the matching action.
+
 Note that the Date/Time Pickers move focus to their popup once it is opened. This enables keyboard navigation in the popup, but prevents immediate move to another component via tabbing. You need to hit Enter to close the popup and return focus to the DateInput textbox. Then tab.
 
 > Replace the `OnFocusKB` type of the `DotNetObjectReference` in the example below with the type of the component that hosts this code.

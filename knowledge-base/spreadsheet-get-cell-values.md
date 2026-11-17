@@ -48,6 +48,8 @@ This KB article answers the following questions:
 1. Use `ICellValue.RawValue` or `ICellValue.GetResultValueAsString(CellValueFormat cellFormat)` to obtain the actual cell content.
 1. [Excel stores dates as numbers](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/cell-value-types). Use [`FormatHelper.ConvertDoubleToDateTime(Convert.ToDouble(ICellValue.RawValue))`](https://docs.telerik.com/devtools/document-processing/api/telerik.documents.spreadsheet.formatting.formathelper) to retrieve any `DateTime` values.
 
+In the example, `Task.Delay(1)` gives Blazor an opportunity to render the custom Loader before the synchronous workbook processing starts. It is not a minimum display time and should not be increased based on file size. The example hides the Loader after the processing completes. To show the built-in loader while the Spreadsheet loads an Excel file, use [`EnableLoaderContainer`](slug:spreadsheet-overview#spreadsheet-parameters), which is enabled by default.
+
 >caption Iterate the Spreadsheet cells and get their values
 
 <div class="skip-repl"></div>

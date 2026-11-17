@@ -36,6 +36,8 @@ To customize the appearance of the Menu items:
 2. Use a custom CSS to change the font color and weight of the root menu items. 
 3. Customize the background and font colors of the child menu items.
 
+The selector `.k-nav.k-link` matches an element that has both classes. It does not set a style by itself. The declarations in the matching CSS rule determine the style. Check the rendered markup to confirm that the selector applies to your Telerik Menu and theme version.
+
 >caption Menu component with custom CSS styles
 
 ````RAZOR
