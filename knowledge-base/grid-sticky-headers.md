@@ -74,7 +74,8 @@ The solution prevents you from setting a Grid `Height`. This should not be a pro
 </TelerikGrid>
 
 <style>
-    .sticky-header {
+    .sticky-header,
+    .k-grid:has(.sticky-header) {
         overflow: visible;
     }
 
