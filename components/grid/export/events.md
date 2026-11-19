@@ -28,6 +28,8 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
 
 The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `CsvExport` button and before the export process starts. You can use the event to configure the exported Grid columns or change the exported data. The event handler receives a `GridBeforeExcelExportEventArgs` and `GridBeforeCsvExportEventArgs` object, depending on the type of export, which provides the following properties:
 
+@[template](/_contentTemplates/grid/common-link.md#multi-column-headers-onbeforeexport)
+
 ### For Excel Export
 
 * `Columns`&mdash;`List<GridExcelExportColumn>`&mdash;A collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
