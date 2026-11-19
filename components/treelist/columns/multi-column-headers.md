@@ -30,18 +30,12 @@ You will find the following sections in this article:
 The following code snippet shows how you can group columns in the Treelist in multi-column headers. You can also use "regular" columns at the root level, not all of them have to be column groups.
 
 >caption Multiple Column Headers in the Treelist
+
 <demo metaUrl="client/treelist/columns/multi-column-headers/example-1/" height="720"></demo>
-
-
-
-
 
 ## Behavior With Other Features
 
 @[template](/_contentTemplates/grid/common-link.md#multi-column-headers-feature-integration)
-
-
-
 
 ## See Also
 

@@ -26,6 +26,8 @@ The `OnBeforeExport` event fires after the user clicks the `ExcelExport` command
 
 To export a hidden TreeList column that has its `Visible` parameter set to `false`, you can manually define an instance of the `TreeListExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
+@[template](/_contentTemplates/grid/common-link.md#multi-column-headers-onbeforeexport)
+
 * `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to Excel.
 
 * `IsCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
