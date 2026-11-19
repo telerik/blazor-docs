@@ -124,6 +124,7 @@ This section explains how using multi column headers changes behaviors of other 
 * [Column Menu](#column-menu)
 * [State Management](#state-management)
 * [Locked columns](#locked-columns)
+* [Export](#export)
 * [Keyboard navigation](#keyboard-navigation)
 
 
@@ -203,7 +204,12 @@ Note that this order is different than the order in which the blazor framework i
 
 You can lock an entire multi-column header through its `Locked` parameter. Doing so will lock all its child columns.
 
-Therefore, we advise that you do not set `Locked=false` for child columns of locked parent columns, and you can consider setting `Lockable=false` on them to prevent the user from unpinning them and getting sub-optimal layout. Setting `Locked=true` for a child column is not supported.
+Therefore, we advise that you do not set `Locked="false"` for child columns of locked parent columns, and you can consider setting `Lockable=false` on them to prevent the user from unpinning them and getting sub-optimal layout. Setting `Locked="true"` for a child column is not supported.
+
+
+### Export
+
+@[template](/_contentTemplates/grid/common-link.md#multi-column-headers-onbeforeexport)
 
 
 ### Keyboard navigation
@@ -214,4 +220,8 @@ The keyboard navigation in the multi-column headers follows the functionality of
 
 #using-components-in-templates
 See specifics and example in this knowledge base article: [Using Components in Grid Templates](slug:grid-kb-using-components-in-templates).
+#end
+
+#multi-column-headers-onbeforeexport
+If the app adds or removes columns in the `args.Columns` collection in the `OnBeforeExport` event when using multi-column headers, the column header structure will flatten and only the leaf column headers will be present in the exported file.
 #end
