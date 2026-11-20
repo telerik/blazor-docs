@@ -1,7 +1,7 @@
 ---
 title: Data Binding
 page_title: Data Binding | Grid for Blazor
-description: Data bind the Blazor Grid to any of the supported data sources.
+description: Learn how to bind the Telerik UI for Blazor Grid to supported data sources and configure local or remote data operations.
 slug: grid-data-binding
 tags: telerik,blazor,grid,data,binding,databind,databinding
 published: true
@@ -14,7 +14,7 @@ components: ["grid"]
 Telerik Blazor Grid is data source agnostic - you can use any database and service according to your project. You only need to get the collection of data models to the Grid in the view-model of the component hosting it.
 
 
-# Basics
+## Data Binding Basics
 
 There are two main steps to data bind a Grid:
 

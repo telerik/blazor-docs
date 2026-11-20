@@ -1,7 +1,7 @@
 ---
 title: Column (Cell)
 page_title: Grid - Column (Cell) Template
-description: Use custom column and cell templates in Grid for Blazor.
+description: Use custom Telerik UI for Blazor Grid column and cell templates to control cell content, formatting, and components.
 slug: grid-templates-column
 tags: telerik,blazor,grid,templates,column,cell
 published: True
@@ -9,11 +9,11 @@ position: 5
 components: ["grid"]
 ---
 
-# Column Template
+# Grid Column Template
 
 By default, each Grid cell renders the value of the respective column `Field` of the current data item (row). You can change this behavior by using a column `Template` and adding your own content or logic.
 
-## Basics
+## Column Template Basics
 
 To define a column template, use a `<Template>` tag inside the `<GridColumn>` tag. The Grid uses the defined `Template` to show the "view" representation of all cells in that column. This also includes cells from [columns that are marked as `Editable="false"`](slug:components/grid/columns/bound#data-operations), while the cells' parent row is in [inline edit mode](slug:grid-editing-inline).
 
@@ -25,7 +25,7 @@ The Grid column template exposes a `context` variable, which is the respective i
 
 >tip If you only want to format numbers, dates, enums, you can do so with the [DisplayFormat feature](slug:grid-columns-displayformat) without the need to declare a template.
 
-## Example
+## Column Template Example
 
 The example below shows how to:
 
@@ -38,7 +38,7 @@ The example below shows how to:
 
 <demo metaUrl="client/grid/templates-column/" height="500"></demo>
 
->tip The above example renders read-only checkboxes to display boolean values. You can also [use checkboxes in display mode and directly change the underlying data source values](slug:grid-kb-checkbox-editing). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
+>tip The column template example renders read-only checkboxes to display Boolean values. You can also [use checkboxes in display mode and directly change the underlying data source values](slug:grid-kb-checkbox-editing). This can make Boolean value editing faster because the Grid does not enter edit mode.
 
 ## Using Components in Grid Column Templates
 

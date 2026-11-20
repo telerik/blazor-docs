@@ -1,7 +1,7 @@
 ---
 title: AI Assistant Tools Setup
 page_title: Grid - AI Assistant Tools Setup
-description: Learn how to set up AI assistant tools for the Blazor Grid.
+description: Set up Telerik UI for Blazor Grid AI Assistant tools and connect prompts to a backend service that returns Grid operations.
 slug: grid-ai-assistant-tools-setup
 tags: telerik,blazor,grid,ai
 published: True
@@ -44,9 +44,11 @@ For detailed guidance on implementing a compatible backend service, see [Integra
 
 Install the `Telerik.AI.SmartComponents.Extensions` package to your project:
 
-````RAZOR.skip-repl
-@using Telerik.AI.SmartComponents.Extensions
+````bash.skip-repl
+dotnet add package Telerik.AI.SmartComponents.Extensions
 ````
+
+Import the `Telerik.AI.SmartComponents.Extensions` namespace in `_Imports.razor` or the component that uses the AI Assistant tool.
 
 ### Configure AI Assistant Tool
 
@@ -164,12 +166,8 @@ The Grid automatically populates this request object with all necessary context 
 
 Your AI service must return a `GridAIResponse` object (as a JSON string) with the following properties:
 
-* `State`&mdash;Contains Grid state changes (filtering, sorting, grouping, paging, column visibility)
-* `SelectedIndexes`&mdash;Array of row indexes to select
-* `HighlightedIndexes`&mdash;Array of row indexes to highlight
-* `HighlightedCells`&mdash;Array of cell descriptors for cell-level highlighting
-* `Export`&mdash;Export configuration (format, file name)
-* `Messages`&mdash;Array of informational messages to display to the user
+* `Commands`&mdash;An array of Grid operation commands. Each command contains the operation-specific data and can include a message that describes the operation.
+* `Messages`&mdash;An array of informational messages to display to the user.
 
 When you set `args.Response` to the serialized response, the Grid automatically applies all specified operations.
 

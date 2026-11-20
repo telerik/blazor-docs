@@ -1,7 +1,7 @@
 ---
 title: Display Format
 page_title: Grid - Display Format
-description: Use C# Format string to display values in the Grid for Blazor.
+description: Format numeric, date, and other values in Telerik UI for Blazor Grid columns with C# format strings and data annotations.
 slug: grid-columns-displayformat
 tags: telerik,blazor,grid,column,display,format
 published: True
@@ -14,7 +14,7 @@ components: ["grid"]
 @[template](/_contentTemplates/grid/common-link.md#display-format-basics)
 
 
-## Example
+## Applying Column Display Formats
 
 >caption Use C# format strings in the grid through the component markup and a data annotation attribute in the model
 

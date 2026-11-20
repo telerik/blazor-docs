@@ -1,7 +1,7 @@
 ---
 title: Stacked
 page_title: Grid - Stacked Columns
-description: How to adapt the Grid on small screens and display the values of one data item vertically instead of horizontally.
+description: Use the Telerik UI for Blazor Grid stacked columns layout to display row values vertically on small screens.
 slug: grid-columns-stacked
 tags: telerik,blazor,grid,column,stacked
 published: true
@@ -11,7 +11,7 @@ components: ["grid"]
 
 # Stacked Columns
 
-Stacked columns is an adaptive Grid feature that allows the component to display data item values vertically in one or more cards, instead of horizontally in classic table cells. This facilitates browsing the Grid data on narrow screens like mobile phones in portrait orientation.
+Stacked columns are an adaptive Grid feature that displays data item values vertically in one or more cards instead of horizontally in classic table cells. This facilitates browsing Grid data on narrow screens, such as mobile phones in portrait orientation.
 
 The Grid stacked columns functionality depends on three configuration settings:
 
@@ -33,11 +33,11 @@ To show stacked Grid columns, set the `DataLayoutMode` component parameter to `G
 
 ## Stacked Columns Count
 
-`ColumnsCount` is an optional parameter of `<GridStackedLayoutSettings>`, which is a child tag of `<GridSettings>`. The `ColumnsCount` parameter sets how many stacked columns will show. The default value is `1`, which means that all data row values will display one below the other in a single column.
+`ColumnsCount` is an optional parameter of `<GridStackedLayoutSettings>`, which is a child tag of `<GridSettings>`. The `ColumnsCount` parameter sets how many stacked columns to display. The default value is `1`, which means that all data row values display one below the other in a single column.
 
-When using multiple stacked columns, the data row values are arranged first horizontally and then vertically. The following code snippet uses 2 stacked columns, so that the odd columns (`Name`, `Quantity` and `IsActive`) display in the first stacked column, while the even columns (`Price` and `StartDate`) display in the second stacked column. In `Stacked` mode, use [Toolbar command tools](slug:components/grid/features/toolbar#command-tools) for Grid operations instead of a command column.
+When using multiple stacked columns, data row values are arranged first horizontally and then vertically. The following code snippet uses two stacked columns. The odd columns (`Name`, `Quantity`, and `IsActive`) display in the first stacked column, while the even columns (`Price` and `StartDate`) display in the second stacked column. In `Stacked` mode, use [Toolbar command tools](slug:components/grid/features/toolbar#command-tools) for Grid operations instead of a command column.
 
->caption Display 2 stacked columns in the Grid
+>caption Display two stacked columns in the Grid
 
 ````RAZOR.skip-repl
 <TelerikGrid DataLayoutMode="@GridDataLayoutMode.Stacked">
@@ -58,9 +58,9 @@ When using multiple stacked columns, the data row values are arranged first hori
 
 An optional `<GridStackedLayoutColumns>` tag inside `<GridStackedLayoutSettings>` allows you to define custom `Width` for each stacked column (`<GridStackedLayoutColumn>`) when there is more than one. The default width value is `"1fr"`, which means one equal fraction of the available horizontal space. The stacked Grid columns use the [CSS Grid concept](https://css-tricks.com/snippets/css/complete-guide-grid/) for HTML rendering.
 
-> When using `<GridStackedLayoutColumn>` instances, the number of these tags must match the `ColumnsCount` value.
+>note When using `<GridStackedLayoutColumn>` instances, the number of these tags must match the `ColumnsCount` value.
 
-The code snippet below uses 3 stacked columns. The first one is twice as wide as the others.
+The code snippet below uses three stacked columns. The first column is twice as wide as the others.
 
 >caption Set custom widths to the stacked Grid columns
 
@@ -77,7 +77,7 @@ The code snippet below uses 3 stacked columns. The first one is twice as wide as
 
 ## Integration with Other Features
 
-In `Stacked` data layout mode the Grid rendering is different and some features use different UI and UX:
+In `Stacked` data layout mode, Grid rendering is different and some features use different UI and UX:
 
 * The Grid does not render column headers. Column features like sorting, filtering, grouping, and locking require [ToolBar command tools](slug:components/grid/features/toolbar#command-tools).
 * The Grid does not render a command column. Combine [Grid row selection](slug:grid-selection-row) with [Toolbar command tools for the **Delete**, **Edit**, **Save**, and **Cancel** buttons](slug:components/grid/features/toolbar#command-tools).
@@ -88,14 +88,14 @@ In `Stacked` data layout mode the Grid rendering is different and some features 
 The following sample shows how to:
 
 * Enable and disable column stacking, depending on the viewport width.
-* Display 1 or 2 stacked columns, depending on the viewport width.
+* Display one or two stacked columns, depending on the viewport width.
 * Render ToolBar tools for column and edit operations only when the Grid is in `Stacked` data layout mode.
 
 >caption Using stacked data layout mode in the Blazor Grid
 
 <demo metaUrl="client/grid/columns-stacked/" height="650"></demo>
 
-## See also
+## See Also
 
 * [Live demo: Adaptive Grid](https://demos.telerik.com/blazor-ui/grid/adaptive)
 * [Live demo: Grid and MediaQuery Integration](https://demos.telerik.com/blazor-ui/mediaquery/grid-integration)

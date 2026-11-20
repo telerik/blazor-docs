@@ -1,7 +1,7 @@
 ---
 title: Popup Editing
 page_title: Grid - Popup Editing
-description: Popup editing of data in Grid for Blazor.
+description: Edit Telerik UI for Blazor Grid rows in a customizable popup form with validation, hidden columns, and custom layouts.
 slug: grid-editing-popup
 tags: telerik, blazor, grid, editing, popup
 published: True
@@ -15,13 +15,13 @@ Grid popup editing allows the app to render a larger form with customizable dime
 
 @[template](/_contentTemplates/grid/editing.md#overview-required)
 
-## Basics
+## Using Popup Editing
 
 To use popup Grid editing, set the Grid `EditMode` parameter to `GridEditMode.Popup`. During popup editing, only one table row is in edit mode. The user can:
 
-* Press **Tab** or **Shift** + **Tab** to focus the next or previous input component.
+* Press `Tab` or `Shift` + `Tab` to focus the next or previous input component.
 * Click the **Save** command button to confirm the current row changes and exit edit mode.
-* Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
+* Click the **Cancel** command button or press `Esc` to cancel the current row changes and exit edit mode.
 
 The popup edit mode can display a [Telerik Validation Summary component](slug:validation-tools-summary) if the Grid model is configured for validation.
 
@@ -39,7 +39,7 @@ Popup edit mode does not use **Save** and **Cancel** command buttons in the [Gri
 
 In popup edit mode, the Grid commands execute row by row and the corresponding [Grid events](slug:grid-editing-overview#events) also fire row by row.
 
-## Customization
+## Customizing the Popup Edit Form
 
 The Grid exposes options to customize the edit popup and its form. Define the desired configuration in the `GridPopupEditSettings` and `GridPopupEditFormSettings` tags under the `GridSettings` tag.
 
@@ -53,7 +53,7 @@ The `GridPopupEditSettings` nested tag exposes the following parameters to allow
 
 @[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
 
-For example, here is [how to set the Grid popup edit form's title, so that it matches a property value of the edited data item](slug:grid-kb-popup-edit-title).
+For example, see [how to set the Grid popup edit form's title to match a property value of the edited data item](slug:grid-kb-popup-edit-title).
 
 ### Form Layout
 
@@ -73,18 +73,18 @@ You can specify a `ButtonsTemplate` in the `GridPopupEditFormSettings` to custom
 
 ## Examples
 
-### Basic
+### Basic Popup Editing Example
 
-The example below shows how to:
+This example demonstrates how to:
 
-* Implement popup Grid CRUD operations with the simplest and minimal required setup.
+* Implement popup Grid CRUD operations with the minimum required setup.
 @[template](/_contentTemplates/grid/editing.md#basic-example-description)
 
 >caption Basic Grid popup editing configuration
 
 <demo metaUrl="client/grid/editing-popup-basic/" height="600"></demo>
 
-### Advanced
+### Advanced Popup Editing Example
 
 The example below shows how to:
 

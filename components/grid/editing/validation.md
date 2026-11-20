@@ -1,7 +1,7 @@
 ---
 title: Validation
 page_title: Grid Validation
-description: Built-in validation in the Grid and how to customize the validation behavior.
+description: Configure Telerik UI for Blazor Grid validation, disable built-in validation, or replace it with a custom validator.
 slug: grid-editing-validation
 tags: telerik, blazor, grid, validation, editing
 published: True
@@ -15,11 +15,11 @@ The Telerik Grid for Blazor supports built-in validation that is enabled by defa
 
 @[template](/_contentTemplates/grid/editing.md#overview-required)
 
-## Basics
+## Understanding Grid Validation
 
-By default, the Grid validation uses a [`DataAnnotationValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) and creates an `EditContext` for the row that is in add or edit mode. When you use [inline](slug:grid-editing-inline) or [in-cell](slug:grid-editing-incell) editing, the Grid renders validation messages in [Validation Tooltips](slug:validation-tools-tooltip) on hover of the invalid inputs. In popup edit mode, the Grid shows a [Validation Summary](slug:validation-tools-summary) in the popup.
+By default, the Grid validation uses a [`DataAnnotationValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) and creates an `EditContext` for the row that is in add or edit mode. When you use [inline](slug:grid-editing-inline) or [in-cell](slug:grid-editing-incell) editing, the Grid renders validation messages in [Validation Tooltips](slug:validation-tools-tooltip) when users hover over invalid inputs. In popup edit mode, the Grid shows a [Validation Summary](slug:validation-tools-summary) in the popup.
 
-When a row is not in edit mode, the `EditContext` is `null`. The Grid `EditContext` is a cascading parameter, which can overrides any cascading parameters from parent components, such as an `<EditForm>` that may wrap the Grid.
+When a row is not in edit mode, the `EditContext` is `null`. The Grid `EditContext` is a cascading parameter that can override cascading parameters from parent components, such as an `<EditForm>` that may wrap the Grid.
 
 The built-in Grid validation is not supported with dynamic data such as `ExpandoObject`, `DataTable`, or `Dictionary`.
 
@@ -33,7 +33,7 @@ To disable the built-in Grid validation:
 1. Add a `<GridValidationSettings>` tag inside `<GridSettings>`.
 1. Set the `Enabled` parameter of `GridValidationSettings` to false.
 
-See the [example](#example) below.
+See the [custom validator example](#custom-validator-example).
 
 ## Use Custom Validator
 
@@ -43,16 +43,16 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 1. Add a `<GridValidationSettings>` tag inside `<GridSettings>`.
 1. Define the custom validator in the `<ValidatorTemplate>` `RenderFragment` inside `<GridValidationSettings>`.
 
-Third party validation tools are not part of Telerik UI for Blazor. Reference the required NuGet packages explicitly.
+Third-party validation tools are not part of Telerik UI for Blazor. Reference the required NuGet packages explicitly.
 
-## Example
+## Custom Validator Example
 
-The example below shows how to:
+This example demonstrates how to:
 
 * Enable and disable validation in the Grid.
 * Validate the user input with a custom validator instead of the default `DataAnnotationsValidator`.
 
-Install the [`Blazilla` NuGet package](https://www.nuget.org/packages/Blazilla) NuGet package to run the following code and refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
+Install the [`Blazilla` NuGet package](https://www.nuget.org/packages/Blazilla) to run the following code. Refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/built-in-validators.html) for validator details.
 
 @[template](/_contentTemplates/common/form-validation.md#note-fluentvalidation)
 

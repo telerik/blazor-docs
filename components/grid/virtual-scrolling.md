@@ -1,7 +1,7 @@
 ---
 title: Virtual Scrolling
 page_title: Grid - Virtual Scrolling
-description: Enable and configure virtualization in Blazor Grid with virtual scrolling - an alternative to paging.
+description: Enable and configure Telerik UI for Blazor Grid virtual scrolling as an alternative to paging for large data sets.
 slug: components/grid/virtual-scrolling
 tags: telerik,blazor,grid,virtual,scrolling
 published: True
@@ -22,33 +22,33 @@ You can also use the [Blazor Grid virtualization for the Grid columns](slug:grid
 To enable [Blazor Grid](slug:grid-overview) row virtualization:
 
 1. Set the `ScrollMode` parameter to `GridScrollMode.Virtual` (the default value is `Scrollable`).
-1. [Set the `Height` parameter](#height) to a `string` CSS value.
-1. [Set the `RowHeight` parameter](#rowheight) to a `decimal` value that denotes pixels.
-1. [Set the `PageSize` parameter](#pagesize).
+1. [Set the `Height` parameter](#setting-the-grid-height) to a `string` CSS value.
+1. [Set the `RowHeight` parameter](#configuring-row-height) to a `decimal` value that denotes pixels.
+1. [Set the `PageSize` parameter](#configuring-page-size).
 
-> The values of the `Height`, `RowHeight`, and `PageSize` parameters are related to one another. The following sections explain how.
+>note The values of the `Height`, `RowHeight`, and `PageSize` parameters are related to one another. The following sections explain how.
 
-## Height
+## Setting the Grid Height
 
-Set the Grid `Height` parameter to any [valid `string` CSS value](slug:common-features/dimensions), for example, `px`, `%`, `em`, or `vh`. If the Grid should expand vertically, accoding to the available space, then check the article [Adjust Grid Height to Match the Browser Viewport Height](slug:grid-kb-adjust-height-with-browser).
+Set the Grid `Height` parameter to any valid `string` Cascading Style Sheets (CSS) value, for example, `px`, `%`, `em`, or `vh`. If the Grid must expand vertically according to the available space, check the article [Adjust Grid Height to Match the Browser Viewport Height](slug:grid-kb-adjust-height-with-browser).
 
-Set the `Height` value, so that users can't see the whole [`PageSize` of items](#pagesize) at once. Otherwise, empty row skeletons may display in the Grid while users are not scrolling.
+Set the `Height` value so that users can't see the whole [`PageSize` of items](#configuring-page-size) at once. Otherwise, empty row skeletons may display in the Grid while users are not scrolling.
 
-## PageSize
+## Configuring Page Size
 
 Set the Grid `PageSize` parameter to an `int` value. The `PageSize` determines:
 
 * How many table rows are populated and rendered at any given time.
 * How many data items are requested from the data source when using the [Grid `OnRead` event to load data on demand](slug:components/grid/manual-operations).
 
-Set the `PageSize` value, so that the rendered table rows do fit in the [Grid height](#height). At least one table row must be completely invisible. Otherwise, empty row skeletons may display in the Grid while users are not scrolling. The exact `PageSize` value allows you to balance between better user experience and data request efficiency:
+Set the `PageSize` value so that the rendered table rows fit in the [Grid height](#setting-the-grid-height). At least one table row must be completely invisible. Otherwise, empty row skeletons may display in the Grid while users are not scrolling. The exact `PageSize` value allows you to balance between better user experience and data request efficiency:
 
 * A larger `PageSize` value will make the Grid display empty row skeletons more rarely while users are scrolling down. At the same time, the Grid may be requesting a larger number of data items repetitively.
 * A smaller `PageSize` will make the Grid request a smaller number of items on each user scroll. At the same time, users will see row skeletons sooner or more frequently during scrolling.
 
-> The `PageSize` value does not affect the data request frequency. The Grid `OnRead` event always fires when the user stops scrolling, no matter what data is currently available.
+>note The `PageSize` value does not affect the data request frequency. The Grid `OnRead` event always fires when the user stops scrolling, no matter what data is currently available.
 
-## RowHeight
+## Configuring Row Height
 
 Set the `RowHeight` parameter to a `decimal` value. The Grid uses it to set an inline `height` style in pixels to all Grid table rows (`<tr>`).
 
@@ -63,12 +63,12 @@ For example, the following list shows the minimum valid `RowHeight` values when 
 * `36` for the Default theme (`14px` font size, `20px` line height, and 2 * `8px` vertical paddings)
 * `40` for the Bootstrap theme (`16px` font size, `24px` line height, and 2 * `8px` vertical paddings)
 * `45` for the Material theme (`14px` font size, `20px` line height, 2 * `12px` vertical paddings, and `1px` bottom border)
-* `41` for the Fluent theme (`14px` font size, `20px` font size and 2 * `10px` vertical paddings, and `1px` bottom border)
+* `41` for the Fluent theme (`14px` font size, `20px` line height, 2 * `10px` vertical paddings, and `1px` bottom border)
 * `47` for the Meridian theme (`16px` font size, `24px` line height, 2 * `11px` vertical paddings, and `1px` bottom border)
 
-> Browsers treat table row `height` styles as `min-height` styles. If the table row content cannot fit in the set `RowHeight`, the browser expands the table row. The Grid configuration must not allow this to happen. It is crucial that all Grid table rows display with the same effective height when using virtial scrolling, otherwise the virtual scrolling experience will break. You may need to [disable text wrapping in the Grid data cells to achieve this requirement](slug:grid-kb-rows-text-ellipsis).
+>note Browsers treat table row `height` styles as `min-height` styles. If the table row content cannot fit in the set `RowHeight`, the browser expands the table row. The Grid configuration must not allow this to happen. It is crucial that all Grid table rows display with the same effective height when using virtual scrolling, otherwise the virtual scrolling experience will break. You may need to [disable text wrapping in the Grid data cells to achieve this requirement](slug:grid-kb-rows-text-ellipsis).
 
-The `RowHeight` parameter value cannot change at runtime, unless the application recreates the whole Grid component by removing it from the web page temporarily.
+The `RowHeight` parameter value cannot change at runtime unless the application recreates the whole Grid component by removing it from the page temporarily.
 
 If necessary, you can also use the `RowHeight` parameter without virtual row scrolling.
 
@@ -78,7 +78,7 @@ The [Blazor Grid](slug:grid-overview) virtualization enhances client-side render
 
 * [Hierarchy](slug:components/grid/features/hierarchy) is not supported. If the Grid hierarchy is self-referencing, use a [TreeList with virtual scrolling](slug:treelist-virtual-scrolling) instead.
 * [Grouping](slug:components/grid/features/grouping) is supported only when [loading groups on demand](slug:grid-group-lod).
-* There is a [browser limitation, which affects the maximum number of data items in a virtual Grid](slug:grid-kb-virtualization-many-records). The problem occurs with millions of items and you can partially mitigate it by [changing the Grid styles to make the row height smaller](slug:grid-kb-reduce-row-height).
+* A [browser limitation affects the maximum number of data items in a virtual Grid](slug:grid-kb-virtualization-many-records). The problem occurs with millions of items. You can partially mitigate it by [changing the Grid styles to make the row height smaller](slug:grid-kb-reduce-row-height).
 
 In addition to virtual scrolling, another approach to optimize the app rendering and data request performance is to use [Grid paging](slug:components/grid/features/paging) and [`OnRead` event](slug:common-features-data-binding-onread).
 
@@ -91,7 +91,7 @@ Virtual scrolling triggers data requests based on the scroll offset of the Grid 
 
 You can [disable elastic scrolling with CSS](slug:grid-kb-negative-skip-value-virtual-scrolling).
 
-## Example
+## Virtual Scrolling Example
 
 Row virtualization is often used with a large number of data items that cannot be loaded in a single request. Thus, the example below uses the [Grid `OnRead` event](slug:components/grid/manual-operations) together with the [`ToDataSourceResultAsync()`](slug:common-features-data-binding-onread#todatasourceresult-method) method. You can also use the Grid `Data` parameter and load all data items with a single request. [Do not use `Data` and `OnRead` at the same time](slug:common-features-data-binding-overview#how-to-provide-data).
 

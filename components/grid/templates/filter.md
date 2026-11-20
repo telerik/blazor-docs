@@ -1,7 +1,7 @@
 ---
 title: Filter
 page_title: Grid - Filter Template
-description: Use custom filter templates in Grid for Blazor.
+description: Use custom Telerik UI for Blazor Grid filter templates to control Filter Row, Filter Menu, and filter button behavior.
 slug: grid-templates-filter
 tags: telerik,blazor,grid,templates,filter
 published: True
@@ -9,11 +9,11 @@ position: 35
 components: ["grid"]
 ---
 
-# Filter Template
+# Grid Filter Template
 
-The Filter Template lets you customize the appearance and logic of the built-in filters. It lets you step on the built-in filtering logic of the grid and implement your own design and logic for setting their values.
+The Filter Template lets you customize the appearance and logic of the built-in filters. You can extend the built-in filtering logic of the Grid and implement your own design and logic for setting filter values.
 
-There are two different templates you can use depending on the [Filter Mode](slug:components/grid/filtering) that you chose:
+You can use three templates depending on the selected [Filter Mode](slug:components/grid/filtering):
 
 * [Filter Row Template](#filter-row-template)
 * [Filter Menu Template](#filter-menu-template)
@@ -26,15 +26,15 @@ By default, the filter row puts an appropriate editor (like a numeric textbox fo
 
 To customize the filter cell, use the `<FilterCellTemplate>` tag of the `<GridColumn>`. It receives a `context` of type `FilterCellTemplateContext` that provides the following members:
 
-* `FilterDescriptor` - a [CompositeFilterDescriptor](slug:Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator](slug:common-features-filter-operators) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
+* `FilterDescriptor`&mdash;a [CompositeFilterDescriptor](slug:Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator](slug:common-features-filter-operators) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
 
-* `FilterAsync()` - an `async` method that invokes the built-in grid filtering logic (including a handler to [`OnRead`](slug:components/grid/manual-operations) if you use one) so you can call upon it easily from your template (e.g., when a value changes or a button is clicked).
+* `FilterAsync()`&mdash;an `async` method that invokes the built-in Grid filtering logic, including an [`OnRead`](slug:components/grid/manual-operations) handler if you use one. Call it from your template, for example, when a value changes or a button is clicked.
 
-* `ClearFilterAsync()` - an `async` method that invokes the built-in grid clear filtering logic (including a handler to [`OnRead`](slug:components/grid/manual-operations) if you use one) so you can call upon it easily from your template (e.g., when a value is cleared or a button is clicked).
+* `ClearFilterAsync()`&mdash;an `async` method that invokes the built-in Grid clear-filter logic, including an [`OnRead`](slug:components/grid/manual-operations) handler if you use one. Call it from your template, for example, when a value is cleared or a button is clicked.
 
 You can store a reference to each column's context in a field in the view-model, so you can write the handlers in the standard C# code, instead of using lambdas in the markup. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main grid markup and code.
 
-### Examples
+### Filter Row Examples
 
 The example below shows a custom filter that:
 
@@ -52,19 +52,19 @@ You can find more examples in the [Live Demo: Custom Filter Row](https://demos.t
 
 ## Filter Menu Template
 
-By default, the filter menu contains two filter values that are tied with a logical operator - OR or AND, with filtering being triggered through a dedicated Filter button and a Clear button removes the filter.
+By default, the Filter Menu contains two filter values joined by a logical operator, either `OR` or `AND`. The **Filter** button applies the filter, and the **Clear** button removes it.
 
 To customize the filter menu, use the `<FilterMenuTemplate>` tag of the `<GridColumn>`. The `Filter` and `Clear` buttons are still available below the template.
 
 The template receives a `context` of type `FilterMenuTemplateContext` that provides the following members:
 
-* `FilterDescriptor` - the object that describes the column filter. By default it has two filters with the type and name of the field, and you can add more to its `FilterDescriptors` collection, or change its `LogicalOperator` from the default `AND`.
-* `FilterAsync` - applies the defined filters in the Filter Menu to the Grid component.
-* `ClearFilterAsync` - clears the applied filters.
+* `FilterDescriptor`&mdash;the object that describes the column filter. By default, it has two filters with the type and name of the field. You can add more to its `FilterDescriptors` collection or change its `LogicalOperator` from the default `AND`.
+* `FilterAsync`&mdash;applies the defined filters in the Filter Menu to the Grid component.
+* `ClearFilterAsync`&mdash;clears the applied filters.
 
 You can store a reference to each column's context in a field in the view-model, so you can reference it from event handlers in the standard C# code, instead of passing it as an argument to lambdas in the markup only. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main grid markup and code.
 
-### Examples
+### Filter Menu Examples
 
 The example below shows a custom filter that:
 
@@ -89,12 +89,12 @@ By default, the Filter Menu renders `Filter` and `Clear` buttons. You can custom
 
 The template receives a `context` of type `FilterMenuTemplateContext` that provides the following members:
 
-* `FilterDescriptor`—the object that describes the column filter. By default, the column filter has two filters: one for the type and another for the name of the field. You can modify the column filter by:
+* `FilterDescriptor`&mdash;the object that describes the column filter. By default, the column filter has two filters: one for the type and another for the name of the field. You can modify the column filter by:
    * Adding more filters to the `FilterDescriptors` collection.
    * Changing the `LogicalOperator` (`AND` by default).
    * Using the `FilterDescriptor` to create a custom button that applies a predefined filter. 
-* `FilterAsync`—applies the filters defined in the Filter Menu to the Grid component.
-* `ClearFilterAsync`—clears the applied filters.
+* `FilterAsync`&mdash;applies the filters defined in the Filter Menu to the Grid component.
+* `ClearFilterAsync`&mdash;clears the applied filters.
 
 >caption Using custom filter menu buttons
 

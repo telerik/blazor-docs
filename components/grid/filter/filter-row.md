@@ -1,7 +1,7 @@
 ---
 title: Filter Row
 page_title: Grid - Filter Row
-description: Enable and configure Filter Row in Grid for Blazor.
+description: Enable Telerik UI for Blazor Grid Filter Row filtering and customize its properties, debounce delay, template, and code-based behavior.
 slug: grid-filter-row
 tags: telerik,blazor,grid,filtering,filter,row
 published: True
@@ -13,7 +13,7 @@ components: ["grid"]
 
 The FilterRow filtering mode renders a row below the column headers, providing a UI where you can fill in the filter criteria.
 
-The Grid applies the filters as the user types in the filtering input. 
+The Grid applies filters as the user types in the filtering input.
 
 ## Enabling Filter Row
 
@@ -33,7 +33,7 @@ You can customize the default behavior of the filter row with parameters of the 
 
 ### Configuring the Filter Row
 
-You can override the default Filter Row behavior for each column through the following properties the `GridColumn` exposes:
+You can override the default Filter Row behavior for each column through the following properties exposed by `GridColumn`:
 
 @[template](/_contentTemplates/common/filtering.md#filter-row-customization-properties)
 
@@ -43,9 +43,9 @@ You can override the default Filter Row behavior for each column through the fol
 
 ### Filter Row Template
 
-The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template](slug:grid-templates-filter#filter-row-template) article.
+The template gives you full control over Filter Row rendering and behavior. Learn how to implement it in the [Filter Row Template](slug:grid-templates-filter#filter-row-template) article.
 
-## Filter From Code
+## Filtering from Code
 
 To learn how to programmatically filter the Grid, refer to the [Grid State](slug:grid-state) documentation article. You can filter the Grid on initial display with the [`OnStateInit` event](slug:grid-state#onstateinit) or at any time afterwards with the [`SetStateAsync()` method](slug:grid-state#methods).
 

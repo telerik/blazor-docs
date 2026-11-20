@@ -1,7 +1,7 @@
 ---
 title: Column Menu
 page_title: Grid - Column Menu
-description: Use the Column Menu for the Grid
+description: Use the Telerik UI for Blazor Grid Column Menu to sort, filter, group, reorder, freeze, and show or hide columns.
 slug: grid-column-menu
 tags: telerik,blazor,grid,column,columns,menu
 published: True
@@ -13,9 +13,9 @@ components: ["grid"]
 
 The Grid allows you to set up a menu for its columns. It enables you to perform high-level customization like [sorting](slug:components/grid/features/sorting), [filtering](slug:components/grid/filtering), [showing or hiding](slug:grid-columns-visible) columns and [freezing or unfreezing](slug:grid-columns-frozen) them.
 
->caption In this article:
-* [Basics](#basics)
-* [Features](#features)
+In this article:
+* [Enabling the Column Menu](#enabling-the-column-menu)
+* [Configuring Column Menu Features](#configuring-column-menu-features)
     * [Column Chooser](#column-chooser)
     * [Filtering](#filtering)
     * [Groupable](#groupable)
@@ -25,21 +25,21 @@ The Grid allows you to set up a menu for its columns. It enables you to perform 
     * [Reorderable](#reorderable)
 * [Column Menu Configuration Example](#column-menu-configuration-example)
 * [Column Menu Features Example](#column-menu-features-example)
-* [Notes](#notes)
+* [Column Menu Notes](#column-menu-notes)
 
-## Basics
+## Enabling the Column Menu
 
 To enable the Column Menu, set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
 
 To disable the Column Menu for a specific column in the Grid, set the `ShowColumnMenu` parameter of the column to `false`.
 
-You can see what the column menu can do and how to control its settings in the [Features](#features) section. By default, all of them are enabled.
+You can see what the Column Menu can do and how to control its settings in the [Configuring Column Menu Features](#configuring-column-menu-features) section. By default, all features are enabled.
 
->caption Enable the column menu for all Grid columns.
+>caption Enable the column menu for all Grid columns
 
 <demo metaUrl="client/grid/columns-menu/" height="500"></demo>
 
-## Features
+## Configuring Column Menu Features
 
 To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>` tag, nested inside the `<GridSettings>` tag:
 
@@ -62,7 +62,7 @@ The **Apply** button sets the column visibility according to the current checkbo
 
 ### Filtering
 
-To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GridColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
+To control whether filtering is possible from the Column Menu, set the `FilterMode` parameter of the `GridColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
 
 * `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode](slug:grid-filter-row).
 * `FilterMenu`—enables a filter menu to apply filtering.
@@ -81,7 +81,7 @@ To remove the sorting option from the Column Menu, set the `Sortable` parameter 
 
 ### Reorderable
 
-To allow column reordering from the Column Column, set the `Reorderable` parameter of the `GridColumnMenuSettings` tag to `true`.
+To allow column reordering from the Column Menu, set the `Reorderable` parameter of the `GridColumnMenuSettings` tag to `true`.
 
 ### Sections
 
@@ -97,7 +97,7 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 1. Use the `GridColumnMenuChooserItem` to denote the columns that should be in the group
 
-    * You must use set the `ColumnId` parameter of the `GridColumnMenuChooserItem` to the value of the [`Id`](slug:components/grid/columns/bound#grid-bound-column-parameters) parameter of the corresponding Grid Column.
+    * You must set the `ColumnId` parameter of the `GridColumnMenuChooserItem` to the value of the [`Id`](slug:components/grid/columns/bound#grid-bound-column-parameters) parameter of the corresponding Grid column.
     
     * If you set the `Title` parameter of the `GridColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding Grid Column. 
 
@@ -116,7 +116,7 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 <demo metaUrl="client/grid/columns-menu-features/" height="550"></demo>
 
-## Notes
+## Column Menu Notes
 
 * Applying settings to a Grid column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precedence over the common settings applied in the `<GridColumnMenuSettings>` and disable the above-mentioned functionalities for the corresponding column.
 

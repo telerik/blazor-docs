@@ -1,7 +1,7 @@
 ---
 title: Column Chooser
 page_title: Grid - Column Chooser Template
-description: Customize the content of the Column Chooser.
+description: Customize the Telerik UI for Blazor Grid Column Chooser content and rendering with a template for column visibility.
 slug: grid-templates-column-chooser
 tags: telerik,blazor,grid,templates,column,menu
 published: True
@@ -9,11 +9,11 @@ position: 40
 components: ["grid"]
 ---
 
-# Column Chooser Template
+# Grid Column Chooser Template
 
-The `Column Chooser Template` lets you control the rendering of the [ColumnChooser](slug:grid-column-menu#column-chooser). It exposes a `context` object that contains a List of all columns in the Grid. 
+The `Column Chooser Template` lets you control the rendering of the [ColumnChooser](slug:grid-column-menu#column-chooser). It exposes a `context` object that contains a list of all columns in the Grid.
 
-When the Template is setup the list of columns, rendered by default, would not be present.
+When you set up the template, the default list of columns is not rendered.
 
 >caption Use the Template to provide custom rendering
 

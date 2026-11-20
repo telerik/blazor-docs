@@ -1,7 +1,7 @@
 ---
 title: Column Group Footer
 page_title: Grid - Column Group Footer Template
-description: Use custom column group footer templates in Grid for Blazor.
+description: Use custom Telerik UI for Blazor Grid group footer templates to display aggregates and other grouped data.
 slug: grid-templates-column-group-footer
 tags: telerik,blazor,grid,templates,column,group,footer
 published: True
@@ -9,13 +9,13 @@ position: 25
 components: ["grid"]
 ---
 
-# Column Group Footer
+# Grid Column Group Footer Template
 
-When the grid is grouped, the columns can display a footer with information about the column data [aggregates](slug:grid-aggregates) and some custom text/logic. The template is strongly typed and exposes the available aggregates values.
+When the Grid is grouped, columns can display a footer with information about column data [aggregates](slug:grid-aggregates) and custom text or logic. The strongly typed template exposes the available aggregate values.
 
 The `GroupFooterTemplate` context exposes the current group value through its `Value` property. It does not expose the name of the field that defines the group. To get the group field name, read the current [Grid state](slug:grid-state) and inspect the `Member` property of the `GroupDescriptor`:
 
-````CS.skip-repl
+````C#.skip-repl
 private TelerikGrid<MyModel> GridRef { get; set; }
 
 private string GetGroupFieldName()

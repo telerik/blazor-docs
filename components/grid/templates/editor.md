@@ -1,7 +1,7 @@
 ---
 title: Editor
 page_title: Grid - Editor Template
-description: Use custom editor templates in Grid for Blazor.
+description: Use custom Telerik UI for Blazor Grid editor templates to control input components and validation in edit mode.
 slug: grid-templates-editor
 tags: telerik,blazor,grid,templates,editor
 published: True
@@ -9,7 +9,7 @@ position: 15
 components: ["grid"]
 ---
 
-# Editor Template
+# Grid Editor Template
 
 The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing](slug:grid-editing-overview) the field. It is also used when inserting a new item.
 
@@ -17,9 +17,9 @@ You can data bind components in the editor template to the current `context`. Th
 
 The template receives a [copy of the original data item](slug:grid-editing-overview#item-instances). This allows users to cancel their edits and restore the original property value. The [CRUD Events section](slug:grid-editing-overview#events) provides more information about this programmatic item creation.
 
-If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form](slug:grid-kb-custom-edit-form).
+If you need more complex logic inside the editor template than simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form](slug:grid-kb-custom-edit-form).
 
-When an input receives an `EditContext` (usually as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` parameter, you have to pass the `ValueExpression` explicitly. This is a lambda expression that tells the framework what property of the model to use for validation. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression](slug:common-kb-requires-valueexpression) knowledge base article for more details.
+When an input receives an `EditContext` (usually as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is inferred from that binding. However, if you use only the `Value` parameter, you have to pass the `ValueExpression` explicitly. This is a lambda expression that tells the framework what property of the model to use for validation. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression](slug:common-kb-requires-valueexpression) knowledge base article for more details.
 
 <div class="skip-repl"></div>
 ````RAZOR
@@ -36,9 +36,9 @@ When an input receives an `EditContext` (usually as a cascading parameter), the 
 **In this article:**
 
 * [Notes](#notes)
-* [Examples](#examples)
+* [Editor Template Examples](#editor-template-examples)
     * [Multi-line text with HTML Editor or TextArea](#multi-line-text-with-html-editor-or-textarea)
-    * [How to limit the input options with a select element](#limit-the-input-options-with-a-select-element)
+    * [Limiting Input Options with a Select Element](#limiting-input-options-with-a-select-element)
     * [Editor template for a foreign key column](#editor-template-for-a-foreign-key-column)
 
 ## Notes
@@ -71,23 +71,23 @@ When an input receives an `EditContext` (usually as a cascading parameter), the 
 </EditorTemplate>
 ````
 
-## Examples
+## Editor Template Examples
 
 This section demonstrates different scenarios with the Editor Template:
 
-## Multi-line text with HTML Editor or TextArea
+### Multi-line Text with HTML Editor or TextArea
 
 The Grid will save changes and close the current edit row (or edit cell) when the user hits Enter. To prevent this inside HTML Editor or TextArea components, stop the propagation of the `keydown` event:
 
 <demo metaUrl="client/grid/templates-editor-textarea/" height="500"></demo>
 
-## Limit the input options with a select element
+### Limiting Input Options with a Select Element
 
 <demo metaUrl="client/grid/templates-editor-select/" height="400"></demo>
 
-## Editor template for a foreign key column
+### Editor Template for a Foreign Key Column
 
-This example uses an ID that represents the foreign key for the grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model](slug:grid-use-navigation-properties)) instead - this will change what renders in the `Template` by default, and will change the rules and operators for filtering, sorting, and so using a field with human-readable information (like strings) might provide better UX.
+This example uses an ID that represents the foreign key for the Grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model](slug:grid-use-navigation-properties)) instead. This changes what renders in the `Template` by default and changes the rules and operators for filtering and sorting. A human-readable field, such as a string, can provide a better user experience.
 
 Also check the [Grid Foreign Key Column](slug:grids-foreign-key) knowledge base article.
 

@@ -1,7 +1,7 @@
 ---
 title: Sizing
 page_title: Grid - Sizing
-description: Adjust the size and modify the appearance of the Telerik UI for Blazor Grid.
+description: Adjust the size and appearance of the Telerik UI for Blazor Grid with compact, medium, and small theme size settings.
 slug: grid-sizing
 tags: telerik,blazor,grid,size,compact, dense, small
 published: true
@@ -28,7 +28,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 
 ## Notes
 
-1. The `Size` option does not affect elements displayed inside a Popup (such as [Filter Menu](slug:grid-filter-menu), [Column Menu](slug:grid-column-menu), etc.). By design, all Popup elements are rendered on root level, so they are not technically inside the Grid. Thus, the `Size` option cannot propagate to them. To change the `Size` options of the elements inside Popups, you can use a template(where available), so you can override the built-in rendering. You can then add custom elements and explicitly specify their `Size`.
+1. The `Size` option does not affect elements displayed inside a Popup, such as the [Filter Menu](slug:grid-filter-menu) and [Column Menu](slug:grid-column-menu). By design, all Popup elements are rendered at the root level, so they are not technically inside the Grid. To change the size of elements inside Popups, use a template when available and specify their `Size` explicitly.
 
 1. The `Size` option does not propagate to components rendered inside templates (this includes elements in [GridToolBar](slug:components/grid/features/toolbar), [CommandColumn](slug:components/grid/columns/command), etc.). To change the size of the elements in those components you have to set it explicitly.
 

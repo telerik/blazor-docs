@@ -1,7 +1,7 @@
 ---
 title: AI Row Highlight
 page_title: Grid - AI Row Highlight
-description: Learn how to use AI-powered row highlighting in the Blazor Grid.
+description: Configure AI-powered row and cell highlighting in the Telerik UI for Blazor Grid through natural language prompts.
 slug: grid-ai-row-highlight
 tags: telerik,blazor,grid,ai,highlight,rows
 published: True
@@ -20,7 +20,7 @@ The suggested approach for implementation is the following:
 1. [Configure the Grid](#configure-the-grid).
 1. [Add GridToolBarSmartBoxTool](#add-gridtoolbarsmartboxtool).
 1. [Handle AI prompt requests](#handle-ai-prompt-requests).
-1. (optional) [Reset highlighted and selected items](#reset-highlighted-and-selected-items).
+1. (Optional) [Reset highlighted and selected items](#reset-highlighted-and-selected-items).
 
 ## Configure the Grid
 
@@ -109,11 +109,11 @@ Add a `GridToolBarSmartBoxTool` to the Grid toolbar to provide the AI interactio
 
 Implement the `OnPromptRequest` event handler to send user prompts to your AI service and set the response. The AI service should process the natural language request and return a structured response that the Grid will automatically apply to update the `HighlightedItems`, `HighlightedCells`, or `SelectedItems` collections.
 
-````C#.skip-repl
+````RAZOR.skip-repl
 @inject HttpClient HttpClientInstance
 
 @code {
-    public async Task OnAIPromptRequest(GridSmartBoxAIAssistantPromptRequestEventArgs args)
+    private async Task OnAIPromptRequest(GridSmartBoxAIAssistantPromptRequestEventArgs args)
     {
         try
         {

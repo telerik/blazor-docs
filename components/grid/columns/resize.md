@@ -1,7 +1,7 @@
 ---
 title: Resize
 page_title: Grid - Resize Columns
-description: Drag to resize columns in the Grid for Blazor.
+description: Learn how to resize Telerik UI for Blazor Grid columns by dragging borders or fitting columns to their content.
 slug: components/grid/columns/resize
 tags: telerik,blazor,grid,column,resize,drag
 published: True
@@ -14,7 +14,7 @@ components: ["grid"]
 The Grid features two different column resizing mechanisms:
 
 * [Resize by Dragging](#resize-by-dragging)
-* [Fit to Content](#autofit-columns)
+* [Autofit Columns](#autofit-columns)
 
 The [example at the end of this page](#example) shows both options in action.
 
@@ -26,7 +26,7 @@ To enable column resizing, set the `Resizable` parameter of the grid to `true`.
 
 To prevent the user from resizing a certain column, set its own parameter `Resizable="false"`. The user will still be able to resize other columns around it.
 
-Here a few notes on the resizing behavior:
+Here are a few notes on the resizing behavior:
 
 * If the column `Width` is less than `MinResizableWidth` and the user tries to resize the column, it will snap to its minimum width.
 * Similarly, if the column `Width` is greater than `MaxResizableWidth`, the column will snap to its maximum width.
@@ -34,7 +34,7 @@ Here a few notes on the resizing behavior:
 
 ## Autofit Columns
 
-When column resizing is enabled, a double click on the resize handle between two header cells automatically adjusts the column width to the content of the header, data and footers. Autofitting also removes text wrapping in the column cells.
+When column resizing is enabled, a double-click on the resize handle between two header cells automatically adjusts the column width to the content of the header, data, and footers. Autofitting also removes text wrapping in the column cells.
 
 Similar to regular [column resizing](#resize-by-dragging), autofitting specific columns preserves the current widths of all the other columns. Column autofitting can trigger a horizontal Grid scrollbar or leave empty space after the last column.
 
@@ -48,7 +48,7 @@ The component also exposes methods to programmatically resize columns to fit the
 
 Programmatic autofitting works even if column resizing is disabled.
 
-> Autofitting a large number of columns with a large `PageSize` can be a resource-intensive operation. For better client-side performance, set fixed optimal widths to all columns with predictable content like numbers and dates, and only autofit the others.
+>note Autofitting a large number of columns with a large `PageSize` can be resource-intensive. For better client-side performance, set fixed optimal widths for columns with predictable content, such as numbers and dates, and autofit only the other columns.
 
 ### Limitations
 

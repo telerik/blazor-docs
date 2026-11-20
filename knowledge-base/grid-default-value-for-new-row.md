@@ -85,7 +85,7 @@ private void OnGridAdd(GridCommandEventArgs args)
 }
 ````
 
-See complete runnable examples for [inline](slug:grid-editing-inline#advanced), [popup](slug:grid-editing-popup#advanced), and [in-cell](slug:grid-editing-incell#advanced) edit mode.
+See complete runnable examples for [inline](slug:grid-editing-inline#advanced-inline-editing-example), [popup](slug:grid-editing-popup#advanced-popup-editing-example), and [in-cell](slug:grid-editing-incell#advanced-in-cell-editing-example) edit mode.
 
 ### OnModelInit Event
 
@@ -104,7 +104,7 @@ private Order OnGridModelInit()
 }
 ````
 
-See complete runnable examples for [inline](slug:grid-editing-inline#advanced), [popup](slug:grid-editing-popup#advanced), and [in-cell](slug:grid-editing-incell#advanced) edit mode.
+See complete runnable examples for [inline](slug:grid-editing-inline#advanced-inline-editing-example), [popup](slug:grid-editing-popup#advanced-popup-editing-example), and [in-cell](slug:grid-editing-incell#advanced-in-cell-editing-example) edit mode.
 
 ### Grid State
 

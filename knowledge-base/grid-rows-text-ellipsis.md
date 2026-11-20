@@ -31,7 +31,7 @@ I am using the TelerikGrid component for Blazor. One of my columns contains a lo
 To prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. You can disable text wrapping in:
 
 * All data rows and cells. Use the Grid `Class` parameter.
-* Specific columns. Use the [`OnCellRender` event](slug:grid-column-events#oncellrender) of the Grid columns. In some scenarios you may prefer a column [Template](slug:grid-templates-column) instead.
+* Specific columns. Use the [`OnCellRender` event](slug:grid-column-events#handling-cell-rendering) of the Grid columns. In some scenarios you may prefer a column [Template](slug:grid-templates-column) instead.
 * Specific rows. Use the [`OnRowRender` event](slug:grid-events#onrowrender) of the Grid.
 
 You can still allow the user to see the whole cell content, for example:

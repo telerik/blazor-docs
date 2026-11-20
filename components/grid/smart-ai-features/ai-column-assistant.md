@@ -1,7 +1,7 @@
 ---
 title: AI Column Assistant
 page_title: Grid - AI Column Assistant
-description: Learn how to use the Telerik Grid for Blazor together with an InlineAIPrompt component to generate AI content and update the Grid data items.
+description: Use the Telerik UI for Blazor Grid AI Column Assistant with InlineAIPrompt to generate content and update a specific Grid data item.
 slug: grid-ai-column
 tags: telerik,blazor,grid,ai
 published: True
@@ -19,7 +19,7 @@ The suggested approach for implementation is the following:
 
 1. [Configure an InlineAIPrompt component that receives and provides the user prompt](#define-inlineaiprompt-component).
 1. [Add a Grid column with a button that displays the InlineAIPrompt component](#add-grid-column-with-button).
-1. (optional) [Implement an additional property of the Grid model class for AI content](#add-grid-column-for-ai-content).
+1. (Optional) [Implement an additional property of the Grid model class for AI content](#add-grid-column-for-ai-content).
 1. [Update the Grid data or perform another action, based on the AI response](#update-grid-data).
 
 ## Define InlineAIPrompt Component
@@ -50,7 +50,7 @@ Follow the [InlineAIPrompt component documentation](slug:inlineaiprompt-overview
     {
         // This handler executes when the user selects a predefined prompt.
 
-        Prompt = args.Command.Prompt;
+        UserPrompt = args.Command.Prompt;
     }
 
     private async Task SendAIRequestAndGetResponse(InlineAIPromptPromptRequestEventArgs args)
@@ -80,7 +80,8 @@ Add a Grid column with no `Field`. The column must have a `<Template>` to render
             var dataItem = (GridModel)context;
 
             <TelerikButton OnClick="@((MouseEventArgs args) => OnAIButtonClick(dataItem, args))"
-                           Icon="@nameof(SvgIcon.Sparkles)" />
+                           Icon="@nameof(SvgIcon.Sparkles)"
+                           Title="Generate AI content" />
         }
     </Template>
 </GridColumn>
@@ -110,7 +111,7 @@ You can save the AI response in a separate model property in the Grid data. To d
 
 ## Update Grid Data
 
-Update the Grid data in the `OnOutputActionClick` event of the InlineAIPrompt. Theoretically, you can also update the Grid data in the `OnPromptRequest` event of the InlineAIPrompt. However, this approach skips the user review and approval, which is normally not recommended.
+Update the Grid data in the `OnOutputActionClick` event of the InlineAIPrompt. You can also update the Grid data in the `OnPromptRequest` event. However, this approach skips user review and approval, so use it only when that workflow is appropriate.
 
 ````C#.skip-repl
 // DataItemForAI is populated in the OnClick handler of the Button (OnAIButtonClick method).

@@ -1,7 +1,7 @@
 ---
 title: AI Semantic Search
 page_title: Grid - AI Semantic Search
-description: Learn how to implement semantic search in the Blazor Grid using the GridToolBarSmartBoxTool.
+description: Implement semantic search for Telerik UI for Blazor Grid data with GridToolBarSmartBoxTool and your chosen AI service.
 slug: grid-ai-semantic-search
 tags: telerik,blazor,grid,ai,semantic,search
 published: True
@@ -134,8 +134,8 @@ You can implement semantic search using different approaches depending on your r
 
 Use vector embeddings to find semantically similar items in your data:
 
-1. **Pre-process your data**: Generate embeddings for your product descriptions or relevant fields using an embedding model (e.g., OpenAI's text-embedding model).
-1. **Store embeddings**: Save the embeddings in a vector database (e.g., Azure AI Search, Pinecone, Qdrant).
+1. **Pre-process your data**: Generate embeddings for your product descriptions or relevant fields using an embedding model, for example, OpenAI's text-embedding model.
+1. **Store embeddings**: Save the embeddings in a vector database, for example, Azure AI Search, Pinecone, or Qdrant.
 1. **Process search queries**: When a user searches, generate an embedding for their query and find the most similar items in your vector database.
 1. **Update the Grid**: Display the matching results in the Grid.
 
@@ -259,7 +259,7 @@ The example below shows a semantic search implementation with vector embeddings:
 
 Use an AI service to interpret natural language and generate structured queries:
 
-1. **Send natural language query to AI**: Pass the user's search text to an AI service (e.g., OpenAI GPT) along with your data schema.
+1. **Send a natural language query to AI**: Pass the user's search text to an AI service, for example, OpenAI GPT, along with your data schema.
 1. **Get structured filter criteria**: The AI returns filter conditions, sort orders, or other query parameters.
 1. **Apply to your data**: Use the structured criteria to filter and sort your data.
 1. **Update the Grid**: Display the filtered results.
@@ -312,7 +312,7 @@ Adjust the debounce delay to control how quickly searches are triggered:
 </GridToolBarSmartBoxToolSemanticSearchSettings>
 ````
 
-A longer delay (e.g., 500ms) reduces the number of API calls to your AI service but may feel less responsive.
+A longer delay, such as 500ms, reduces the number of API calls to your AI service but may feel less responsive.
 
 ### Search History
 

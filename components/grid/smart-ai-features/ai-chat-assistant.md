@@ -1,7 +1,7 @@
 ---
 title: AI Chat Assistant
 page_title: Grid - AI Chat Assistant
-description: Learn how to implement an AI Chat Assistant for the Telerik UI for Blazor Grid that enables natural language interactions to perform data operations through conversational commands.
+description: Build a Telerik UI for Blazor Grid AI Chat Assistant that processes natural language commands for data operations.
 slug: grid-ai-chat-assistant
 tags: telerik,blazor,grid,ai,chat,assistant,conversational
 published: True
@@ -27,7 +27,7 @@ The integration leverages two key Grid methods:
 * **`GetAIRequest()`**&mdash;Generates a properly formatted request containing the user's prompt and Grid column information to send to your AI service.
 * **`ProcessAIResponseAsync()`**&mdash;Processes the AI service response and automatically applies all returned commands to the Grid.
 
->tip The example in this article uses a Telerik-hosted AI service for demonstration purposes only. For production applications, you should [implement your own AI service](slug:grid-ai-service-setup) that understands your specific domain, data, and business requirements.
+>tip The example in this article uses a Telerik-hosted AI service for demonstration purposes only. For production applications, implement [your own AI service](slug:grid-ai-service-setup) that understands your specific domain, data, and business requirements.
 
 ## Setup Steps
 
@@ -235,7 +235,7 @@ private List<string> ChatSuggestions = new() {
 
 ### Handle Errors
 
-When using the Chat `OnSendMessage ` event, consider wrapping the AI service calls in try-catch blocks and provide helpful error messages:
+When using the Chat `OnSendMessage` event, wrap AI service calls in try-catch blocks and provide helpful error messages:
 
 ````C#.skip-repl
 try

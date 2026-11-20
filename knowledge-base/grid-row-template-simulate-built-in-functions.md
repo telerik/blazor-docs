@@ -43,7 +43,7 @@ To implement custom selection functionality:
 
 * In the [`<GridColumns>` collection](slug:components/grid/columns/bound#show-data-in-a-grid) add the [`<GridCheckboxColumn>`](slug:components/grid/columns/checkbox) and use the [`HeaderTemplate`](slug:components/grid/columns/checkbox#header-template) to add a [CheckBox component](slug:checkbox-overview). This CheckBox component handles the [select all rows](slug:components/grid/columns/checkbox#parameters) functionallity.
 * In the Row Template, add a `<td>` element with a CheckBox component. Add a Boolean property to the Grid model to indicate selection so you can use it for the state of this CheckBox.
-* Handle the Grid's [`SelectedItemsChanged` event](slug:grid-selection-row#selecteditemschanged-event) and the CheckBox's [`OnChange` event](slug:checkbox-events#onchange) to manage the [`SelectedItems` collection](slug:grid-selection-overview#access-selected-rows-or-cells). The `OnChange` event fires after the `SelectedItemsChanged` event. In this case, you need to create a separate collection of selected items to persist the selected items when multiselecting through the checkbox column.
+* Handle the Grid's [`SelectedItemsChanged` event](slug:grid-selection-row#handling-row-selection-changes) and the CheckBox's [`OnChange` event](slug:checkbox-events#onchange) to manage the [`SelectedItems` collection](slug:grid-selection-overview#access-selected-rows-or-cells). The `OnChange` event fires after the `SelectedItemsChanged` event. In this case, you need to create a separate collection of selected items to persist the selected items when multiselecting through the checkbox column.
 
 ### Editing, Sorting, Filtering
 
