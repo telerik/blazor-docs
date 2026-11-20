@@ -60,9 +60,9 @@ The following example demonstrates the category label settings:
 ````RAZOR.skip-repl
 <ChartCategoryAxis Categories="@Categories">
     <ChartCategoryAxisLabels Visible="@true"
-                             Step="@2"
-                             Skip="@0">
-        <ChartCategoryAxisLabelsRotation Angle="@45" />
+                             Step="2"
+                             Skip="0">
+        <ChartCategoryAxisLabelsRotation Angle="45" />
     </ChartCategoryAxisLabels>
 </ChartCategoryAxis>
 ````
