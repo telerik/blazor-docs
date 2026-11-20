@@ -115,7 +115,7 @@ Button:
 
 Replace the CSS class names in the `Content` property of the SVG icon with inline attributes. This eliminates the need for external styles and directly defines the styling in the SVG markup.
 
-```RAZOR
+````RAZOR
 Icon:
 <TelerikSvgIcon Icon="@MySvgIcons.ExcelIcon" />
 
@@ -140,7 +140,6 @@ Button:
         }
     }
 }
-```
 
 ## See Also
 
