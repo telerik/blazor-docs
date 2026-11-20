@@ -72,6 +72,8 @@ Implement one of the following solutions:
 
 Extract the `<style>` tag from the `Content` property of the custom SVG icon class and place the CSS styles in your application's stylesheet.
 
+>caption Fix black SVG icons with external styles
+
 ````RAZOR
 Icon:
 <TelerikSvgIcon Icon="@MySvgIcons.ExcelIcon" />
@@ -115,6 +117,8 @@ Button:
 
 Replace the CSS class names in the `Content` property of the SVG icon with inline attributes. This eliminates the need for external styles and directly defines the styling in the SVG markup.
 
+>caption Fix black SVG icons with inline styles
+
 ````RAZOR
 Icon:
 <TelerikSvgIcon Icon="@MySvgIcons.ExcelIcon" />
@@ -140,6 +144,7 @@ Button:
         }
     }
 }
+````
 
 ## See Also
 
