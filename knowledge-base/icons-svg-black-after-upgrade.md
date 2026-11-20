@@ -66,7 +66,7 @@ The issue occurs due to a security improvement in version 15.1.0, which enforces
 Implement one of the following solutions:
 
 * [Move the styles outside the SVG markup](#move-the-styles-outside-the-svg-markup)
-* [Use inline styles instead of CSS classes]()
+* [Use inline styles instead of CSS classes](#use-inline-styles-instead-of-css-classes)
 
 ### Move the Styles Outside the SVG Markup
 
