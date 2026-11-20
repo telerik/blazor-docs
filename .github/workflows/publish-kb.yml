@@ -28,7 +28,7 @@ jobs:
       
       - name: Import Secrets
         id: import-secrets
-        uses: LanceMcCarthy/akeyless-action@v3
+        uses: LanceMcCarthy/akeyless-action@2795eb0aa40c98f73092eefb49bdfcb79507d3b1
         with:
           access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
           static-secrets: '{ "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN" }'
