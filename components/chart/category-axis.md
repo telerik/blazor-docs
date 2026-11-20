@@ -93,18 +93,18 @@ The following example enables a semi-transparent category highlight with a dashe
     <ChartSeriesItems>
         <ChartSeries Data="@Sales"
                      Type="@ChartSeriesType.Column"
-                     Name="World" />
+                     Name="World Sales" />
     </ChartSeriesItems>
 
     <ChartCategoryAxes>
         <ChartCategoryAxis Categories="@Years">
             <ChartCategoryAxisHighlight Visible="@true"
-                                        Color="goldenrod"
-                                        Opacity="@(0.3f)">
+                                        Color="yellow"
+                                        Opacity="@(0.2f)">
                 <ChartCategoryAxisHighlightBorder Color="orange"
                                                   DashType="@DashType.Dash"
                                                   Width="2"
-                                                  Opacity="@(0.5f)" />
+                                                  Opacity="@(0.6f)" />
             </ChartCategoryAxisHighlight>
         </ChartCategoryAxis>
     </ChartCategoryAxes>
