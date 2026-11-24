@@ -58,6 +58,8 @@ When the `BaseUnit` is set to weeks, you can control the start day of the week t
 
 Each base unit has a default format for the date it displays. If you want to change it, use the `Format` property under the `ChartCategoryAxisLabels` tag of the category axis.
 
+To rotate date-axis labels, use the nested `ChartCategoryAxisLabelsRotation` tag under `ChartCategoryAxisLabels`. For an example, see [rotating date axis labels](slug:chart-kb-crowded-labels#example-rotate-date-axis-labels).
+
 >caption Steps set to weeks, changed weeks start day to Monday and non-default label format
 
 <demo metaUrl="client/chart/date-axis/week-steps-format/" height="500"></demo>

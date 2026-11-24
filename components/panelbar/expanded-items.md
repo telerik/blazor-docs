@@ -43,6 +43,8 @@ The ExpandedItems collection is of type `IEnumerable<object>`.
 
 If the [ExpandMode](#expandmode) is set to `Single` the ExpandedItems collection will contain one item, otherwise it will have a collection of the expanded items.
 
+The `ExpandedItems` parameter controls expansion only. It does not provide selection binding. The PanelBar does not expose `SelectedItems` or `SelectedItem` parameters. To react when the user clicks an item, handle the [`OnItemClick`](slug:panelbar-events#onitemclick) event and inspect the `Item` property of the event arguments.
+
 <demo metaUrl="client/panelbar/expanded-items/expanded-items/" height="500"></demo>
 
 ## Programmatically Expand and Collapse Items

@@ -34,6 +34,10 @@ To prevent the Grid from wrapping the text in multiple lines you can use CSS and
 * Specific columns. Use the [`OnCellRender` event](slug:grid-column-events#oncellrender) of the Grid columns. In some scenarios you may prefer a column [Template](slug:grid-templates-column) instead.
 * Specific rows. Use the [`OnRowRender` event](slug:grid-events#onrowrender) of the Grid.
 
+The `td.k-table-td` text is a CSS selector, not a definition of a fixed set of styles. The `td` part selects an HTML table cell, and `.k-table-td` selects cells that have the Telerik class. The actual padding, font, line height, borders, colors, and other computed properties come from the active theme, browser defaults, and CSS rules in the application. To see all styles that affect a rendered cell, inspect it in the browser developer tools and review both the matched rules and the Computed styles. The [Override Theme Styles](slug:themes-override) article provides more information about inspecting and overriding theme styles.
+
+The selector in the example is suitable for single-line ellipsis. For multi-line ellipsis, keep the `<td>` as a table cell and apply the clamping styles to an inner element, such as the `div.template-ellipsis` in the example below. Applying `display: -webkit-box` directly to the `<td>` can affect the Grid table layout. Also scope selectors carefully when the Grid uses `FilterRow`, because broad cell selectors can affect filter-row cells.
+
 You can still allow the user to see the whole cell content, for example:
 
 * Enable [column resizing](slug:components/grid/columns/resize).
