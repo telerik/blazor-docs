@@ -28,7 +28,7 @@ There are three main types of chart in terms of the data they require for their 
 
 * **Numerical** - series like Bubble, Scatter and Scatter Line represent two numerical values for the X and Y axes. They do not use categories on the x-axis and thus each data point is independent. This makes it easier to bind each series to a separate collection of data that can have different number of items in it, because plotting the data points is not dependent on string categories, but on numeric values that will be plotted and spaced according to their values.
 
-* **Axis-free** - series like Pie and Donut do not have a x-axis at all. They use categories to build a list of items for each series and show those categories in the legend, as opposed to the series name that is usually shown by the other chart types.
+* **Axis-free** - series like Pie, Donut, Funnel, and Pyramid do not have an x-axis. They use categories to build a list of items for each series and show those categories in the legend, instead of the series name that the other chart types usually show.
 
 With this in mind, the information below is applicable for all chart types, but the finer points are mostly relevant to categorical charts.
 
