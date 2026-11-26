@@ -1,10 +1,11 @@
 ---
 title: Appearance
 page_title: SegmentedControl Appearance
-description: Control the layout and size of the Blazor SegmentedControl using the LayoutMode and Size parameters to fit compact or full-width designs.
+description: Control the layout, size, and corner roundness of the Blazor SegmentedControl with the LayoutMode, Size, and Rounded parameters.
 slug: segmentedcontrol-appearance
 tags: telerik,blazor,segmented,control,appearance
 published: True
+tag: updated
 position: 25
 components: ["segmentedcontrol"]
 ---
@@ -14,6 +15,7 @@ components: ["segmentedcontrol"]
 To control the appearance of the SegmentedControl, set the following parameters:
 
 * [LayoutMode](#layoutmode)
+* [Rounded](#rounded)
 * [Size](#size)
 
 ## LayoutMode
@@ -45,9 +47,25 @@ In `Stretch` mode:
 
 <demo metaUrl="client/segmentedcontrol/appearance/example-1/" height="420"></demo>
 
+## Rounded
+
+The `Rounded` parameter applies the `border-radius` CSS rule to the SegmentedControl. Set it to a member of the `Telerik.Blazor.ThemeConstants.SegmentedControl.Rounded` class:
+
+| Class member | Value |
+|---|---|
+| `None` | `"none"` |
+| `Small` | `"sm"` |
+| `Medium` | `"md"` |
+| `Large` | `"lg"` |
+| `Full` | `"full"` |
+
+>caption The built-in Rounded values
+
+<demo metaUrl="client/segmentedcontrol/appearance/rounded/" height="430"></demo>
+
 ## Size
 
-The `Size` parameter controls the padding of the Segmented Control items. Use the constants from the `Telerik.Blazor.ThemeConstants.Button.Size` class, or pass a custom string value:
+The `Size` parameter controls the padding of the Segmented Control items. Use the constants from the `Telerik.Blazor.ThemeConstants.SegmentedControl.Size` class, or pass a custom string value:
 
 | Class member | Value |
 |---|---|
