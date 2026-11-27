@@ -83,7 +83,7 @@ The following table lists Chart parameters, which are not discussed elsewhere in
 | `Width`  | `string` | Controls the width of the Chart. |
 | `Height`  | `string` | Controls the height of the Chart. |
 | `Class`  | `string` | Renders a custom CSS class on the `<div class="k-chart">` element. |
-| `Transitions` | `bool?` | Controls if the Chart renders animations. |
+| `Transitions` | `bool?` | Controls if the Chart renders [animations](slug:chart-animations). |
 
 ## Chart Reference and Methods
 
@@ -110,6 +110,7 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 ## Next Steps
 
 * [Data bind the Chart](slug:components/chart/databind)
+* [Customize Chart animations](slug:chart-animations)
 * [Explore the Chart events](slug:chart-events)
 * [Learn more about Chart Tooltips](slug:chart-tooltip-overview)
 

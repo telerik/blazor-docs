@@ -5,6 +5,7 @@ description: Configure the category axis and category highlighting in the Teleri
 slug: chart-category-axis
 tags: telerik,blazor,chart,category,axis,highlight
 published: true
+tag: new
 position: 31
 components: ["charts"]
 ---
@@ -25,29 +26,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to an `object[]`. The 
 
 >caption Define the categories in the category axis
 
-````RAZOR
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Data="@Revenue"
-                     Type="@ChartSeriesType.Column"
-                     Name="Revenue" />
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@Quarters" />
-    </ChartCategoryAxes>
-</TelerikChart>
-
-@code {
-    private List<object> Revenue { get; set; } = new()
-    {
-        120, 150, 140, 180
-    };
-
-    private object[] Quarters { get; set; } =
-        new object[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
+<demo metaUrl="client/chart/category-axis/define-categories/" height="600"></demo>
 
 Alternatively, set the `CategoryField` parameter of a `ChartSeries` to a field in the series data. For more information and examples of both approaches, refer to [Chart data binding](slug:components/chart/databind).
 
@@ -88,38 +67,7 @@ The following example enables a semi-transparent category highlight with a dashe
 
 >caption Highlight the hovered category
 
-````RAZOR
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Data="@Sales"
-                     Type="@ChartSeriesType.Column"
-                     Name="World Sales" />
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@Years">
-            <ChartCategoryAxisHighlight Visible="@true"
-                                        Color="yellow"
-                                        Opacity="@(0.2f)">
-                <ChartCategoryAxisHighlightBorder Color="orange"
-                                                  DashType="@DashType.Dash"
-                                                  Width="2"
-                                                  Opacity="@(0.6f)" />
-            </ChartCategoryAxisHighlight>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-</TelerikChart>
-
-@code {
-    private List<object> Sales { get; set; } = new()
-    {
-        15.7, 16.7, 20, 23.5, 26.6
-    };
-
-    private object[] Years { get; set; } =
-        new object[] { 2005, 2006, 2007, 2008, 2009 };
-}
-````
+<demo metaUrl="client/chart/category-axis/highlight/" height="600"></demo>
 
 The category highlight has the following behavior:
 
