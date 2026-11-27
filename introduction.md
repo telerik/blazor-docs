@@ -119,8 +119,8 @@ You can watch a YouTube playlist of getting started tutorials for Telerik UI for
       <IntroTableAnchor title="Validation Tools" href="slug:validation-tools-overview"></IntroTableAnchor>
     </IntroTableSection>
     <IntroTableSection title="Labels">
-      <IntroTableAnchor title="Floating Label" href="slug:floatinglabel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Badge" href="slug:badge-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Floating Label" href="slug:floatinglabel-overview"></IntroTableAnchor>
     </IntroTableSection>
   </IntroTableColumn>
   <IntroTableColumn>
