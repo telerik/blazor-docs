@@ -5,7 +5,7 @@ description: Explore the appearance settings of the Badge for Blazor. See the av
 slug: badge-appearance
 tags: telerik,blazor,badge,navbar,appearance
 published: True
-position: 35
+position: 30
 components: ["badge"]
 ---
 

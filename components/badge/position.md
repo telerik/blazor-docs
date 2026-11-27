@@ -5,7 +5,7 @@ description: Explore the position and alignment settings of the Badge for Blazor
 slug: badge-position-alignment
 tags: telerik,blazor,badge,position,align,alignment
 published: True
-position: 35
+position: 10
 components: ["badge"]
 ---
 
