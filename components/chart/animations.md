@@ -24,12 +24,12 @@ Set the `Transitions` parameter of the `TelerikChart` to control animations. The
 
 ## Customizing Animations
 
-The Chart animation duration and easing come from the Kendo theme. Override the following CSS variables to adjust the motion:
+The Chart animation duration and easing come from the CSS theme. Override the following [CSS variables](slug:themes-customize#setting-theme-variables) to adjust the motion:
 
 | CSS variable | Description |
 |--------------|-------------|
-| `--kendo-duration-rapid` | Controls the duration of shorter animation effects. |
-| `--kendo-duration-steady` | Controls the duration of longer animation effects. |
+| `--kendo-duration-rapid` | Controls the duration of shorter animation effects. Use for micro-interactions, immediate feedback, and small elements moving short distances. |
+| `--kendo-duration-steady` | Controls the duration of longer animation effects. Use for important transitions occupying significant screen space or data-heavy visual animations. |
 | `--kendo-easing-linear` | Defines the easing curve for linear motion. |
 | `--kendo-easing-standard` | Defines the easing curve for standard motion. |
 | `--kendo-easing-stretchy` | Defines the easing curve for motion with an elastic effect. |
@@ -40,7 +40,7 @@ Scope the variables through the Chart `Class` parameter to customize one Chart. 
 
 ### Applying a Custom Animation
 
-The following example applies a longer duration and an elastic easing curve to one Chart. Select **Replay Animation** to call the Chart `Refresh()` method and see the animation again.
+The following example applies a longer duration and an elastic easing curve to one Chart.
 
 >caption Customize and replay the Chart animation
 
