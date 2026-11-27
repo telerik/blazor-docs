@@ -68,7 +68,9 @@ public partial class Button
 }
 ````
 
-The `OnClick` event receives a [MouseEventArgs](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs) argument. The handler can also be asynchronous. For more information, see [EventCallback can be async](https://github.com/telerik/blazor-docs/blob/master/_contentTemplates/common/general-info.md#event-callback-can-be-async).
+The `OnClick` event receives a [MouseEventArgs](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs) argument.
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 ## See Also
 

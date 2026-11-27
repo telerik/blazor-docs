@@ -8,7 +8,12 @@ If you've arrived here wanting to search and peruse our docs, you'd be better se
 
 ## Contribution
 
-**Pull Requests are welcome!** If you see mistakes or missing info, fix it in a Pull Request (you may need to fork the repo for something larger than a typo you can fix online), **or [open an Issue](https://github.com/telerik/blazor-docs/issues/new)**. This will help everyone have better documentation.
+This repository is maintained by the Telerik UI for Blazor team. To change the documentation:
+
+1. Create a branch from `master` and open a pull request to `master`.
+1. To publish the change to the live site, add the `merge-to-production` label and keep the **create PR to production** option checked in the automated comment. After you merge the pull request, a workflow cherry-picks the commits and opens a pull request to the `production` branch.
+
+To report a problem with the documentation, use the feedback form at the bottom of each documentation page, the [Telerik UI for Blazor feedback portal](https://feedback.telerik.com/blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github), or [open a support ticket](https://www.telerik.com/account/support-tickets/).
 
 ## Offline PDF Version
 

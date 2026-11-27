@@ -21,7 +21,7 @@ components: ["charts"]
         </tr>
         <tr>
             <td>Version</td>
-            <td>4.5.0+ (for older component versions, <a href="https://github.com/telerik/blazor-docs/blob/4.4.0/knowledge-base/chart-format-percent.md">browse an older version of this page</a>)</td>
+            <td>4.5.0+</td>
         </tr>
     </tbody>
 </table>
