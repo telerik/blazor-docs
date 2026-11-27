@@ -31,7 +31,7 @@ You can control how the Badge is positioned relative to its associated container
 
 ## Icons
 
-You can [add an icon before, after, or instead of the Badge text](slug:badge-icons) for richer user experience.
+You can [add an icon before, after, or instead of the Badge text](slug:badge-icons) for a richer user experience.
 
 ## Badge API
 
