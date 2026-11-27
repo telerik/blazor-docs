@@ -49,7 +49,7 @@ In `Stretch` mode:
 
 ## Rounded
 
-The `Rounded` parameter applies the `border-radius` CSS rule to the SegmentedControl. Set it to a member of the `Telerik.Blazor.ThemeConstants.SegmentedControl.Rounded` class:
+The `Rounded` parameter controls the `border-radius` CSS style of the SegmentedControl. Set it to a member of the `Telerik.Blazor.ThemeConstants.SegmentedControl.Rounded` class:
 
 | Class member | Value |
 |---|---|
